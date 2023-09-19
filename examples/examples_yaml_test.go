@@ -287,7 +287,7 @@ resources:
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tagsAll}`
+  actual: ${res.tags}`
 
 	var expandMap func(level int, v interface{}) string
 	expandMap = func(level int, v interface{}) string {
