@@ -104,6 +104,8 @@ type ReservedInstance struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64Output `pulumi:"usagePrice"`
@@ -119,6 +121,10 @@ func NewReservedInstance(ctx *pulumi.Context,
 	if args.OfferingId == nil {
 		return nil, errors.New("invalid value for required argument 'OfferingId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReservedInstance
 	err := ctx.RegisterResource("aws:rds/reservedInstance:ReservedInstance", name, args, &resource, opts...)
@@ -177,6 +183,8 @@ type reservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice *float64 `pulumi:"usagePrice"`
@@ -218,6 +226,8 @@ type ReservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64PtrInput
@@ -448,6 +458,8 @@ func (o ReservedInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ReservedInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

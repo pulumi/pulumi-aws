@@ -416,7 +416,8 @@ type MediaInsightsPipelineConfiguration struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringOutput `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -433,6 +434,10 @@ func NewMediaInsightsPipelineConfiguration(ctx *pulumi.Context,
 	if args.ResourceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceAccessRoleArn'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MediaInsightsPipelineConfiguration
 	err := ctx.RegisterResource("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, args, &resource, opts...)
@@ -467,7 +472,8 @@ type mediaInsightsPipelineConfigurationState struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn *string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -483,7 +489,8 @@ type MediaInsightsPipelineConfigurationState struct {
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringPtrInput
 	// Key-value map of tags for the resource.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -663,6 +670,7 @@ func (o MediaInsightsPipelineConfigurationOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o MediaInsightsPipelineConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

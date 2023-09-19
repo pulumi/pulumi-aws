@@ -162,6 +162,8 @@ type TopicRule struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timestreams TopicRuleTimestreamArrayOutput `pulumi:"timestreams"`
 }
@@ -182,6 +184,10 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args.SqlVersion == nil {
 		return nil, errors.New("invalid value for required argument 'SqlVersion'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRule
 	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, args, &resource, opts...)
@@ -240,6 +246,8 @@ type topicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     map[string]string     `pulumi:"tagsAll"`
 	Timestreams []TopicRuleTimestream `pulumi:"timestreams"`
 }
@@ -280,6 +288,8 @@ type TopicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapInput
 	Timestreams TopicRuleTimestreamArrayInput
 }
@@ -585,6 +595,8 @@ func (o TopicRuleOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TopicRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

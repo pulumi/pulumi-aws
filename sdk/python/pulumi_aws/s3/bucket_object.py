@@ -519,6 +519,9 @@ class _BucketObjectState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
@@ -809,6 +812,9 @@ class _BucketObjectState:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1185,6 +1191,8 @@ class BucketObject(pulumi.CustomResource):
             __props__.__dict__["website_redirect"] = website_redirect
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BucketObject, __self__).__init__(
             'aws:s3/bucketObject:BucketObject',
             resource_name,
@@ -1483,6 +1491,9 @@ class BucketObject(pulumi.CustomResource):
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

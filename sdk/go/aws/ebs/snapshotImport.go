@@ -81,6 +81,8 @@ type SnapshotImport struct {
 	// A map of tags to assign to the snapshot.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays pulumi.IntPtrOutput `pulumi:"temporaryRestoreDays"`
@@ -99,6 +101,10 @@ func NewSnapshotImport(ctx *pulumi.Context,
 	if args.DiskContainer == nil {
 		return nil, errors.New("invalid value for required argument 'DiskContainer'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotImport
 	err := ctx.RegisterResource("aws:ebs/snapshotImport:SnapshotImport", name, args, &resource, opts...)
@@ -150,6 +156,8 @@ type snapshotImportState struct {
 	// A map of tags to assign to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays *int    `pulumi:"temporaryRestoreDays"`
@@ -187,6 +195,8 @@ type SnapshotImportState struct {
 	// A map of tags to assign to the snapshot.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
 	TemporaryRestoreDays pulumi.IntPtrInput
@@ -427,6 +437,8 @@ func (o SnapshotImportOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o SnapshotImportOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

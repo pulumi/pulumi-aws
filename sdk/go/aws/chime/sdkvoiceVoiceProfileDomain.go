@@ -77,7 +77,8 @@ type SdkvoiceVoiceProfileDomain struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              pulumi.StringMapOutput                                            `pulumi:"tags"`
-	TagsAll                           pulumi.StringMapOutput                                            `pulumi:"tagsAll"`
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewSdkvoiceVoiceProfileDomain registers a new resource with the given unique name, arguments, and options.
@@ -90,6 +91,10 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceVoiceProfileDomain
 	err := ctx.RegisterResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args, &resource, opts...)
@@ -122,7 +127,8 @@ type sdkvoiceVoiceProfileDomainState struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                            `pulumi:"tags"`
-	TagsAll                           map[string]string                                            `pulumi:"tagsAll"`
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type SdkvoiceVoiceProfileDomainState struct {
@@ -135,7 +141,8 @@ type SdkvoiceVoiceProfileDomainState struct {
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput
 	Tags                              pulumi.StringMapInput
-	TagsAll                           pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SdkvoiceVoiceProfileDomainState) ElementType() reflect.Type {
@@ -300,6 +307,7 @@ func (o SdkvoiceVoiceProfileDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o SdkvoiceVoiceProfileDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

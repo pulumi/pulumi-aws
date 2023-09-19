@@ -484,6 +484,9 @@ class _EnvironmentState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if webserver_access_mode is not None:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
@@ -796,6 +799,9 @@ class _EnvironmentState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1195,7 +1201,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["webserver_url"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["airflowConfigurationOptions"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["airflowConfigurationOptions", "tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Environment, __self__).__init__(
             'aws:mwaa/environment:Environment',
@@ -1512,6 +1518,9 @@ class Environment(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

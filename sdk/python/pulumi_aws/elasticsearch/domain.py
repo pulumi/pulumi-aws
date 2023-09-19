@@ -372,6 +372,9 @@ class _DomainState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_options is not None:
             pulumi.set(__self__, "vpc_options", vpc_options)
@@ -614,6 +617,9 @@ class _DomainState:
         * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
         * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1049,6 +1055,8 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["kibana_endpoint"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Domain, __self__).__init__(
             'aws:elasticsearch/domain:Domain',
             resource_name,
@@ -1302,6 +1310,9 @@ class Domain(pulumi.CustomResource):
         * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
         * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

@@ -87,6 +87,8 @@ type SecurityGroupEgressRule struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	ToPort pulumi.IntPtrOutput `pulumi:"toPort"`
@@ -105,6 +107,10 @@ func NewSecurityGroupEgressRule(ctx *pulumi.Context,
 	if args.SecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupEgressRule
 	err := ctx.RegisterResource("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule", name, args, &resource, opts...)
@@ -151,6 +157,8 @@ type securityGroupEgressRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	ToPort *int `pulumi:"toPort"`
@@ -180,6 +188,8 @@ type SecurityGroupEgressRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
 	ToPort pulumi.IntPtrInput
@@ -403,6 +413,8 @@ func (o SecurityGroupEgressRuleOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o SecurityGroupEgressRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityGroupEgressRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

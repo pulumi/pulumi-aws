@@ -65,6 +65,8 @@ type ReadinessCheck struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -81,6 +83,10 @@ func NewReadinessCheck(ctx *pulumi.Context,
 	if args.ResourceSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceSetName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck", name, args, &resource, opts...)
@@ -115,6 +121,8 @@ type readinessCheckState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -130,6 +138,8 @@ type ReadinessCheckState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -294,6 +304,8 @@ func (o ReadinessCheckOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ReadinessCheckOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

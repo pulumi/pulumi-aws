@@ -90,6 +90,8 @@ type GatewayRoute struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringOutput `pulumi:"virtualGatewayName"`
@@ -111,6 +113,10 @@ func NewGatewayRoute(ctx *pulumi.Context,
 	if args.VirtualGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws:appmesh/gatewayRoute:GatewayRoute", name, args, &resource, opts...)
@@ -153,6 +159,8 @@ type gatewayRouteState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName *string `pulumi:"virtualGatewayName"`
@@ -178,6 +186,8 @@ type GatewayRouteState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
 	VirtualGatewayName pulumi.StringPtrInput
@@ -375,6 +385,8 @@ func (o GatewayRouteOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o GatewayRouteOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GatewayRoute) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

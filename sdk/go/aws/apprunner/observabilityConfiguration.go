@@ -72,6 +72,8 @@ type ObservabilityConfiguration struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrOutput `pulumi:"traceConfiguration"`
@@ -87,6 +89,10 @@ func NewObservabilityConfiguration(ctx *pulumi.Context,
 	if args.ObservabilityConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'ObservabilityConfigurationName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObservabilityConfiguration
 	err := ctx.RegisterResource("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, args, &resource, opts...)
@@ -123,6 +129,8 @@ type observabilityConfigurationState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
@@ -142,6 +150,8 @@ type ObservabilityConfigurationState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
@@ -312,6 +322,8 @@ func (o ObservabilityConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ObservabilityConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

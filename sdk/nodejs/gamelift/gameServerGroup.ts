@@ -192,6 +192,9 @@ export class GameServerGroup extends pulumi.CustomResource {
      * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
@@ -262,6 +265,8 @@ export class GameServerGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GameServerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -318,6 +323,9 @@ export interface GameServerGroupState {
      * Key-value map of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.

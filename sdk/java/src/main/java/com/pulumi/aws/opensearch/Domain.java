@@ -775,7 +775,11 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
      * * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
      * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
      */
+    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -835,6 +839,9 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "tagsAll"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

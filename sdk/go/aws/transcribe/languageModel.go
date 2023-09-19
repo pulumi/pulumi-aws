@@ -149,7 +149,8 @@ type LanguageModel struct {
 	// The model name.
 	ModelName pulumi.StringOutput `pulumi:"modelName"`
 	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -172,6 +173,10 @@ func NewLanguageModel(ctx *pulumi.Context,
 	if args.ModelName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LanguageModel
 	err := ctx.RegisterResource("aws:transcribe/languageModel:LanguageModel", name, args, &resource, opts...)
@@ -206,7 +211,8 @@ type languageModelState struct {
 	// The model name.
 	ModelName *string `pulumi:"modelName"`
 	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -222,7 +228,8 @@ type LanguageModelState struct {
 	// The model name.
 	ModelName pulumi.StringPtrInput
 	// A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -398,6 +405,7 @@ func (o LanguageModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o LanguageModelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

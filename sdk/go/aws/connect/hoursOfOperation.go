@@ -98,6 +98,8 @@ type HoursOfOperation struct {
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
@@ -119,6 +121,10 @@ func NewHoursOfOperation(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HoursOfOperation
 	err := ctx.RegisterResource("aws:connect/hoursOfOperation:HoursOfOperation", name, args, &resource, opts...)
@@ -157,6 +163,8 @@ type hoursOfOperationState struct {
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone *string `pulumi:"timeZone"`
@@ -178,6 +186,8 @@ type HoursOfOperationState struct {
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone pulumi.StringPtrInput
@@ -365,6 +375,8 @@ func (o HoursOfOperationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o HoursOfOperationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -95,6 +95,8 @@ type ReplicationTask struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
@@ -125,6 +127,10 @@ func NewReplicationTask(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws:dms/replicationTask:ReplicationTask", name, args, &resource, opts...)
@@ -178,6 +184,8 @@ type replicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
@@ -214,6 +222,8 @@ type ReplicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
@@ -461,6 +471,8 @@ func (o ReplicationTaskOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ReplicationTaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

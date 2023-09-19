@@ -161,7 +161,8 @@ type Channel struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel pulumi.BoolPtrOutput `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Settings for the VPC outputs.
 	Vpc ChannelVpcPtrOutput `pulumi:"vpc"`
@@ -189,6 +190,10 @@ func NewChannel(ctx *pulumi.Context,
 	if args.InputSpecification == nil {
 		return nil, errors.New("invalid value for required argument 'InputSpecification'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:medialive/channel:Channel", name, args, &resource, opts...)
@@ -241,7 +246,8 @@ type channelState struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Settings for the VPC outputs.
 	Vpc *ChannelVpc `pulumi:"vpc"`
@@ -277,7 +283,8 @@ type ChannelState struct {
 	// Whether to start/stop channel. Default: `false`
 	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Settings for the VPC outputs.
 	Vpc ChannelVpcPtrInput
@@ -533,6 +540,7 @@ func (o ChannelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

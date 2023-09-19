@@ -75,7 +75,8 @@ type Control struct {
 	// Name of the control.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrOutput `pulumi:"testingInformation"`
@@ -90,6 +91,10 @@ func NewControl(ctx *pulumi.Context,
 		args = &ControlArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Control
 	err := ctx.RegisterResource("aws:auditmanager/control:Control", name, args, &resource, opts...)
@@ -129,7 +134,8 @@ type controlState struct {
 	// Name of the control.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation *string `pulumi:"testingInformation"`
@@ -154,7 +160,8 @@ type ControlState struct {
 	// Name of the control.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrInput
@@ -354,6 +361,7 @@ func (o ControlOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ControlOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

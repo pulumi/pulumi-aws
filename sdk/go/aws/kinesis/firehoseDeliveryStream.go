@@ -819,6 +819,8 @@ type FirehoseDeliveryStream struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -834,6 +836,10 @@ func NewFirehoseDeliveryStream(ctx *pulumi.Context,
 	if args.Destination == nil {
 		return nil, errors.New("invalid value for required argument 'Destination'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirehoseDeliveryStream
 	err := ctx.RegisterResource("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream", name, args, &resource, opts...)
@@ -887,6 +893,8 @@ type firehoseDeliveryStreamState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
@@ -923,6 +931,8 @@ type FirehoseDeliveryStreamState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
@@ -1197,6 +1207,8 @@ func (o FirehoseDeliveryStreamOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o FirehoseDeliveryStreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

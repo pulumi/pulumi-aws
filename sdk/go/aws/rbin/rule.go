@@ -86,8 +86,9 @@ type Rule struct {
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodOutput `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -104,6 +105,10 @@ func NewRule(ctx *pulumi.Context,
 	if args.RetentionPeriod == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionPeriod'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:rbin/rule:Rule", name, args, &resource, opts...)
@@ -145,8 +150,9 @@ type ruleState struct {
 	// The following arguments are optional:
 	RetentionPeriod *RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -169,8 +175,9 @@ type RuleState struct {
 	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodPtrInput
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -372,6 +379,7 @@ func (o RuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o RuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

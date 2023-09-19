@@ -71,6 +71,8 @@ type PlaceIndex struct {
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -89,6 +91,10 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws:location/placeIndex:PlaceIndex", name, args, &resource, opts...)
@@ -129,6 +135,8 @@ type placeIndexState struct {
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -152,6 +160,8 @@ type PlaceIndexState struct {
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the place index resource was last update in ISO 8601.
 	UpdateTime pulumi.StringPtrInput
@@ -341,6 +351,8 @@ func (o PlaceIndexOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o PlaceIndexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

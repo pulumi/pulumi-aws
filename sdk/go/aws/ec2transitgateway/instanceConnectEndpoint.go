@@ -74,6 +74,8 @@ type InstanceConnectEndpoint struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                   `pulumi:"tagsAll"`
 	Timeouts InstanceConnectEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
@@ -90,6 +92,10 @@ func NewInstanceConnectEndpoint(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceConnectEndpoint
 	err := ctx.RegisterResource("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint", name, args, &resource, opts...)
@@ -134,6 +140,8 @@ type instanceConnectEndpointState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                `pulumi:"tagsAll"`
 	Timeouts *InstanceConnectEndpointTimeouts `pulumi:"timeouts"`
 	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
@@ -162,6 +170,8 @@ type InstanceConnectEndpointState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts InstanceConnectEndpointTimeoutsPtrInput
 	// The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
@@ -359,6 +369,8 @@ func (o InstanceConnectEndpointOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o InstanceConnectEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

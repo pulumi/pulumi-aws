@@ -78,7 +78,8 @@ type Framework struct {
 	// Name of the framework.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -89,6 +90,10 @@ func NewFramework(ctx *pulumi.Context,
 		args = &FrameworkArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:auditmanager/framework:Framework", name, args, &resource, opts...)
@@ -128,7 +133,8 @@ type frameworkState struct {
 	// Name of the framework.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -149,7 +155,8 @@ type FrameworkState struct {
 	// Name of the framework.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -337,6 +344,7 @@ func (o FrameworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o FrameworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

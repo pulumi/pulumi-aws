@@ -78,7 +78,8 @@ type ThingGroup struct {
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrOutput `pulumi:"properties"`
 	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the Thing Group record in the registry.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -91,6 +92,10 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws:iot/thingGroup:ThingGroup", name, args, &resource, opts...)
@@ -124,7 +129,8 @@ type thingGroupState struct {
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
 	// Key-value mapping of resource tags
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the Thing Group record in the registry.
 	Version *int `pulumi:"version"`
@@ -141,7 +147,8 @@ type ThingGroupState struct {
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
 	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The current version of the Thing Group record in the registry.
 	Version pulumi.IntPtrInput
@@ -314,6 +321,7 @@ func (o ThingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ThingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

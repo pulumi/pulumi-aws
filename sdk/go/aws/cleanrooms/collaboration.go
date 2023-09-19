@@ -105,7 +105,8 @@ type Collaboration struct {
 	// ateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
 	// Key value pairs which tag the collaboration.
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 	UpdateTime pulumi.StringOutput    `pulumi:"updateTime"`
 }
@@ -129,6 +130,10 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collaboration
 	err := ctx.RegisterResource("aws:cleanrooms/collaboration:Collaboration", name, args, &resource, opts...)
@@ -190,7 +195,8 @@ type collaborationState struct {
 	// ateCollaboration-request-queryLogStatus).
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
 	// Key value pairs which tag the collaboration.
-	Tags       map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll    map[string]string `pulumi:"tagsAll"`
 	UpdateTime *string           `pulumi:"updateTime"`
 }
@@ -234,7 +240,8 @@ type CollaborationState struct {
 	// ateCollaboration-request-queryLogStatus).
 	QueryLogStatus pulumi.StringPtrInput
 	// Key value pairs which tag the collaboration.
-	Tags       pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll    pulumi.StringMapInput
 	UpdateTime pulumi.StringPtrInput
 }
@@ -496,6 +503,7 @@ func (o CollaborationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o CollaborationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

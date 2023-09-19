@@ -72,6 +72,8 @@ type VpcConnector struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name for the VPC connector.
 	VpcConnectorName pulumi.StringOutput `pulumi:"vpcConnectorName"`
@@ -95,6 +97,10 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.VpcConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectorName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws:apprunner/vpcConnector:VpcConnector", name, args, &resource, opts...)
@@ -129,6 +135,8 @@ type vpcConnectorState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name for the VPC connector.
 	VpcConnectorName *string `pulumi:"vpcConnectorName"`
@@ -148,6 +156,8 @@ type VpcConnectorState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Name for the VPC connector.
 	VpcConnectorName pulumi.StringPtrInput
@@ -319,6 +329,8 @@ func (o VpcConnectorOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o VpcConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

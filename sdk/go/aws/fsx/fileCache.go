@@ -123,7 +123,8 @@ type FileCache struct {
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -148,6 +149,10 @@ func NewFileCache(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileCache
 	err := ctx.RegisterResource("aws:fsx/fileCache:FileCache", name, args, &resource, opts...)
@@ -204,7 +209,8 @@ type fileCacheState struct {
 	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId *string `pulumi:"vpcId"`
@@ -244,7 +250,8 @@ type FileCacheState struct {
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringPtrInput
@@ -500,6 +507,7 @@ func (o FileCacheOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o FileCacheOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -162,6 +162,8 @@ type ProvisioningTemplate struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
@@ -180,6 +182,10 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 	if args.TemplateBody == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args, &resource, opts...)
@@ -220,6 +226,8 @@ type provisioningTemplateState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody *string `pulumi:"templateBody"`
@@ -243,6 +251,8 @@ type ProvisioningTemplateState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringPtrInput
@@ -441,6 +451,8 @@ func (o ProvisioningTemplateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ProvisioningTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

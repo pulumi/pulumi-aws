@@ -90,7 +90,8 @@ type MedicalVocabulary struct {
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
@@ -116,6 +117,10 @@ func NewMedicalVocabulary(ctx *pulumi.Context,
 	if args.VocabularyName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MedicalVocabulary
 	err := ctx.RegisterResource("aws:transcribe/medicalVocabulary:MedicalVocabulary", name, args, &resource, opts...)
@@ -146,7 +151,8 @@ type medicalVocabularyState struct {
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode *string `pulumi:"languageCode"`
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
@@ -164,7 +170,8 @@ type MedicalVocabularyState struct {
 	// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
 	LanguageCode pulumi.StringPtrInput
 	// A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringPtrInput
@@ -336,6 +343,7 @@ func (o MedicalVocabularyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o MedicalVocabularyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -37,6 +37,8 @@ type TestGridProject struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
@@ -49,6 +51,10 @@ func NewTestGridProject(ctx *pulumi.Context,
 		args = &TestGridProjectArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws:devicefarm/testGridProject:TestGridProject", name, args, &resource, opts...)
@@ -81,6 +87,8 @@ type testGridProjectState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
@@ -96,6 +104,8 @@ type TestGridProjectState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The VPC security groups and subnets that are attached to a project. See VPC Config below.
 	VpcConfig TestGridProjectVpcConfigPtrInput
@@ -260,6 +270,8 @@ func (o TestGridProjectOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TestGridProjectOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -198,6 +198,8 @@ type Flow struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks FlowTaskArrayOutput `pulumi:"tasks"`
@@ -224,6 +226,10 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws:appflow/flow:Flow", name, args, &resource, opts...)
@@ -262,6 +268,8 @@ type flowState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks []FlowTask `pulumi:"tasks"`
@@ -285,6 +293,8 @@ type FlowState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A Task that Amazon AppFlow performs while transferring the data in the flow run.
 	Tasks FlowTaskArrayInput
@@ -482,6 +492,8 @@ func (o FlowOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o FlowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

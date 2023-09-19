@@ -195,6 +195,8 @@ type DomainName struct {
 	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -213,6 +215,7 @@ func NewDomainName(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"certificatePrivateKey",
+		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -281,6 +284,8 @@ type domainNameState struct {
 	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -328,6 +333,8 @@ type DomainNameState struct {
 	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -613,6 +620,8 @@ func (o DomainNameOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o DomainNameOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

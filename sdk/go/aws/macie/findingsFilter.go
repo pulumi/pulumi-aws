@@ -87,7 +87,8 @@ type FindingsFilter struct {
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntOutput `pulumi:"position"`
 	// A map of key-value pairs that specifies the tags to associate with the filter.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -104,6 +105,10 @@ func NewFindingsFilter(ctx *pulumi.Context,
 	if args.FindingCriteria == nil {
 		return nil, errors.New("invalid value for required argument 'FindingCriteria'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FindingsFilter
 	err := ctx.RegisterResource("aws:macie/findingsFilter:FindingsFilter", name, args, &resource, opts...)
@@ -142,7 +147,8 @@ type findingsFilterState struct {
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position *int `pulumi:"position"`
 	// A map of key-value pairs that specifies the tags to associate with the filter.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -162,7 +168,8 @@ type FindingsFilterState struct {
 	// The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
 	Position pulumi.IntPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the filter.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -356,6 +363,7 @@ func (o FindingsFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o FindingsFilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FindingsFilter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

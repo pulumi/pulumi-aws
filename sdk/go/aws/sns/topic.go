@@ -206,6 +206,8 @@ type Topic struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
 	TracingConfig pulumi.StringOutput `pulumi:"tracingConfig"`
@@ -218,6 +220,10 @@ func NewTopic(ctx *pulumi.Context,
 		args = &TopicArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Topic
 	err := ctx.RegisterResource("aws:sns/topic:Topic", name, args, &resource, opts...)
@@ -296,6 +302,8 @@ type topicState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
 	TracingConfig *string `pulumi:"tracingConfig"`
@@ -357,6 +365,8 @@ type TopicState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
 	TracingConfig pulumi.StringPtrInput
@@ -724,6 +734,8 @@ func (o TopicOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TopicOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

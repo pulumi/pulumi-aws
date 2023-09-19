@@ -390,6 +390,9 @@ class _GatewayState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tape_drive_type is not None:
             pulumi.set(__self__, "tape_drive_type", tape_drive_type)
@@ -664,6 +667,9 @@ class _GatewayState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -999,7 +1005,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_network_interfaces"] = None
             __props__.__dict__["host_environment"] = None
             __props__.__dict__["tags_all"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smbGuestPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["smbGuestPassword", "tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
@@ -1279,6 +1285,9 @@ class Gateway(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

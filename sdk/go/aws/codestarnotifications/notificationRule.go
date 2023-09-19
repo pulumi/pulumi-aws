@@ -118,6 +118,8 @@ type NotificationRule struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
@@ -139,6 +141,10 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("aws:codestarnotifications/notificationRule:NotificationRule", name, args, &resource, opts...)
@@ -178,6 +184,8 @@ type notificationRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -200,6 +208,8 @@ type NotificationRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput
@@ -394,6 +404,8 @@ func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o NotificationRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

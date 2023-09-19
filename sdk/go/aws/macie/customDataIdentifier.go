@@ -86,7 +86,8 @@ type CustomDataIdentifier struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrOutput `pulumi:"regex"`
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -97,6 +98,10 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		args = &CustomDataIdentifierArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("aws:macie/customDataIdentifier:CustomDataIdentifier", name, args, &resource, opts...)
@@ -139,7 +144,8 @@ type customDataIdentifierState struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex *string `pulumi:"regex"`
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -163,7 +169,8 @@ type CustomDataIdentifierState struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -371,6 +378,7 @@ func (o CustomDataIdentifierOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o CustomDataIdentifierOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

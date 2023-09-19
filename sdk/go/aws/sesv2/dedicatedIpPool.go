@@ -89,7 +89,8 @@ type DedicatedIpPool struct {
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringOutput `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -103,6 +104,10 @@ func NewDedicatedIpPool(ctx *pulumi.Context,
 	if args.PoolName == nil {
 		return nil, errors.New("invalid value for required argument 'PoolName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpPool
 	err := ctx.RegisterResource("aws:sesv2/dedicatedIpPool:DedicatedIpPool", name, args, &resource, opts...)
@@ -135,7 +140,8 @@ type dedicatedIpPoolState struct {
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode *string `pulumi:"scalingMode"`
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -149,7 +155,8 @@ type DedicatedIpPoolState struct {
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
 	// A map of tags to assign to the pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -313,6 +320,7 @@ func (o DedicatedIpPoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o DedicatedIpPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

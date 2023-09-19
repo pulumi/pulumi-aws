@@ -205,6 +205,8 @@ type KxEnvironment struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
 	TransitGatewayConfiguration KxEnvironmentTransitGatewayConfigurationPtrOutput `pulumi:"transitGatewayConfiguration"`
@@ -220,6 +222,10 @@ func NewKxEnvironment(ctx *pulumi.Context,
 	if args.KmsKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKeyId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxEnvironment
 	err := ctx.RegisterResource("aws:finspace/kxEnvironment:KxEnvironment", name, args, &resource, opts...)
@@ -268,6 +274,8 @@ type kxEnvironmentState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
 	TransitGatewayConfiguration *KxEnvironmentTransitGatewayConfiguration `pulumi:"transitGatewayConfiguration"`
@@ -299,6 +307,8 @@ type KxEnvironmentState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
 	TransitGatewayConfiguration KxEnvironmentTransitGatewayConfigurationPtrInput
@@ -514,6 +524,8 @@ func (o KxEnvironmentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o KxEnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxEnvironment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -64,7 +64,8 @@ type AccessLogSubscription struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringOutput    `pulumi:"resourceIdentifier"`
 	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -80,6 +81,10 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args, &resource, opts...)
@@ -112,7 +117,8 @@ type accessLogSubscriptionState struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier *string           `pulumi:"resourceIdentifier"`
 	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessLogSubscriptionState struct {
@@ -125,7 +131,8 @@ type AccessLogSubscriptionState struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringPtrInput
 	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionState) ElementType() reflect.Type {
@@ -284,6 +291,7 @@ func (o AccessLogSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o AccessLogSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

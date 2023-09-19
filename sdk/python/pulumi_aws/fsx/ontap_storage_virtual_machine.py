@@ -158,6 +158,9 @@ class _OntapStorageVirtualMachineState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uuid is not None:
             pulumi.set(__self__, "uuid", uuid)
@@ -273,6 +276,9 @@ class _OntapStorageVirtualMachineState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -453,7 +459,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["subtype"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["svmAdminPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["svmAdminPassword", "tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OntapStorageVirtualMachine, __self__).__init__(
             'aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine',
@@ -586,6 +592,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property
