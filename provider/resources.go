@@ -630,12 +630,17 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() *tfbridge.ProviderInfo {
+func Provider(opt ...string) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+
+	var minfo = tfbridge.NewProviderMetadata([]byte("{}"))
+	if strings.Contains(strings.Join(opt, " "), "MetadataInfo") {
+		minfo = tfbridge.NewProviderMetadata(metadata)
+	}
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
@@ -649,7 +654,7 @@ func Provider() *tfbridge.ProviderInfo {
 		GitHubOrg:        "hashicorp",
 		UpstreamRepoPath: "./upstream",
 
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		MetadataInfo: minfo,
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
@@ -7167,7 +7172,9 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 
 	prov.SetAutonaming(255, "-")
 
-	prov.MustApplyAutoAliases()
+	if strings.Contains(strings.Join(opt, " "), "Aliases") {
+		prov.MustApplyAutoAliases()
+	}
 
 	return &prov
 }
