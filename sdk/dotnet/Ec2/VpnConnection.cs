@@ -619,6 +619,7 @@ namespace Pulumi.Aws.Ec2
                 AdditionalSecretOutputs =
                 {
                     "customerGatewayConfiguration",
+                    "tagsAll",
                     "tunnel1PresharedKey",
                     "tunnel2PresharedKey",
                 },
@@ -1199,10 +1200,15 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableDictionary.Create<string, string>());
+                _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

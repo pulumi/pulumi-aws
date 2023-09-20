@@ -85,7 +85,8 @@ type Studio struct {
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -127,6 +128,10 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws:emr/studio:Studio", name, args, &resource, opts...)
@@ -171,7 +176,8 @@ type studioState struct {
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url *string `pulumi:"url"`
@@ -207,7 +213,8 @@ type StudioState struct {
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringPtrInput
@@ -454,6 +461,7 @@ func (o StudioOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o StudioOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -129,7 +129,8 @@ type KeyPair struct {
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -140,6 +141,10 @@ func NewKeyPair(ctx *pulumi.Context,
 		args = &KeyPairArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:lightsail/keyPair:KeyPair", name, args, &resource, opts...)
@@ -183,7 +188,8 @@ type keyPairState struct {
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -208,7 +214,8 @@ type KeyPairState struct {
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
 	// > **NOTE:** a PGP key is not required, however it is strongly encouraged. Without a PGP key, the private key material will be stored in state unencrypted.`pgpKey` is ignored if `publicKey` is supplied.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -407,6 +414,7 @@ func (o KeyPairOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o KeyPairOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

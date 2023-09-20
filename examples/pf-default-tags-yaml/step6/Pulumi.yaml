@@ -22,4 +22,4 @@ resources:
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tagsAll}
+  actual: ${res.tags}

@@ -302,6 +302,9 @@ class _VpcEndpointState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_endpoint_type is not None:
             pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
@@ -532,6 +535,9 @@ class _VpcEndpointState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -813,6 +819,8 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["requester_managed"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
             resource_name,
@@ -1054,6 +1062,9 @@ class VpcEndpoint(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

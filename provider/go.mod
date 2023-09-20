@@ -8,7 +8,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.1
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.2-0.20230920005537-64af66358186
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.0
 	github.com/pulumi/pulumi/pkg/v3 v3.81.0
 	github.com/pulumi/pulumi/sdk/v3 v3.81.0

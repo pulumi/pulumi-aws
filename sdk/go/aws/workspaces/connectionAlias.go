@@ -63,6 +63,8 @@ type ConnectionAlias struct {
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts ConnectionAliasTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -77,6 +79,10 @@ func NewConnectionAlias(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionAlias
 	err := ctx.RegisterResource("aws:workspaces/connectionAlias:ConnectionAlias", name, args, &resource, opts...)
@@ -109,6 +115,8 @@ type connectionAliasState struct {
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *ConnectionAliasTimeouts `pulumi:"timeouts"`
 }
@@ -123,6 +131,8 @@ type ConnectionAliasState struct {
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ConnectionAliasTimeoutsPtrInput
 }
@@ -280,6 +290,8 @@ func (o ConnectionAliasOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ConnectionAliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

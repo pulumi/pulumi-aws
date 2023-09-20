@@ -80,6 +80,8 @@ type SecurityProfile struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -93,6 +95,10 @@ func NewSecurityProfile(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityProfile
 	err := ctx.RegisterResource("aws:connect/securityProfile:SecurityProfile", name, args, &resource, opts...)
@@ -134,6 +140,8 @@ type securityProfileState struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -156,6 +164,8 @@ type SecurityProfileState struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -345,6 +355,8 @@ func (o SecurityProfileOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o SecurityProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -99,7 +99,8 @@ type Assessment struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -116,6 +117,10 @@ func NewAssessment(ctx *pulumi.Context,
 	if args.Roles == nil {
 		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
 	err := ctx.RegisterResource("aws:auditmanager/assessment:Assessment", name, args, &resource, opts...)
@@ -160,7 +165,8 @@ type assessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -186,7 +192,8 @@ type AssessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -398,6 +405,7 @@ func (o AssessmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o AssessmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

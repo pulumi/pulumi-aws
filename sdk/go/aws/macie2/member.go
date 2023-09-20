@@ -85,7 +85,8 @@ type Member struct {
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -104,6 +105,10 @@ func NewMember(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws:macie2/member:Member", name, args, &resource, opts...)
@@ -149,7 +154,8 @@ type memberState struct {
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -178,7 +184,8 @@ type MemberState struct {
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
 	UpdatedAt pulumi.StringPtrInput
@@ -393,6 +400,7 @@ func (o MemberOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o MemberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

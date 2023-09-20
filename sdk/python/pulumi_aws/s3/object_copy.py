@@ -808,6 +808,9 @@ class _ObjectCopyState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
@@ -1323,6 +1326,9 @@ class _ObjectCopyState:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1599,7 +1605,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["source_version_id"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey", "tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ObjectCopy, __self__).__init__(
             'aws:s3/objectCopy:ObjectCopy',
@@ -2102,6 +2108,9 @@ class ObjectCopy(pulumi.CustomResource):
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

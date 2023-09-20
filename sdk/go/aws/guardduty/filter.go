@@ -98,6 +98,8 @@ type Filter struct {
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -120,6 +122,10 @@ func NewFilter(ctx *pulumi.Context,
 	if args.Rank == nil {
 		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Filter
 	err := ctx.RegisterResource("aws:guardduty/filter:Filter", name, args, &resource, opts...)
@@ -160,6 +166,8 @@ type filterState struct {
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -181,6 +189,8 @@ type FilterState struct {
 	// The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -375,6 +385,8 @@ func (o FilterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o FilterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

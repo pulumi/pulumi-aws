@@ -653,7 +653,11 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
      */
+    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -698,7 +702,8 @@ public class Database extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "masterPassword"
+                "masterPassword",
+                "tagsAll"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

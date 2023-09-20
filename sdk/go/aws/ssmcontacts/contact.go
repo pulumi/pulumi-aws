@@ -98,6 +98,8 @@ type Contact struct {
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
@@ -119,6 +121,10 @@ func NewContact(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Contact
 	err := ctx.RegisterResource("aws:ssmcontacts/contact:Contact", name, args, &resource, opts...)
@@ -151,6 +157,8 @@ type contactState struct {
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
@@ -169,6 +177,8 @@ type ContactState struct {
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
@@ -342,6 +352,8 @@ func (o ContactOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ContactOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -105,6 +105,9 @@ export class Studio extends pulumi.CustomResource {
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique access URL of the Amazon EMR Studio.
@@ -195,6 +198,8 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -247,6 +252,9 @@ export interface StudioState {
      * list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique access URL of the Amazon EMR Studio.

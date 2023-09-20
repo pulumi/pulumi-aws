@@ -70,6 +70,8 @@ type SdkvoiceSipMediaApplication struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -86,6 +88,10 @@ func NewSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 	if args.Endpoints == nil {
 		return nil, errors.New("invalid value for required argument 'Endpoints'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceSipMediaApplication
 	err := ctx.RegisterResource("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication", name, args, &resource, opts...)
@@ -122,6 +128,8 @@ type sdkvoiceSipMediaApplicationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -139,6 +147,8 @@ type SdkvoiceSipMediaApplicationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -312,6 +322,8 @@ func (o SdkvoiceSipMediaApplicationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o SdkvoiceSipMediaApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceSipMediaApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

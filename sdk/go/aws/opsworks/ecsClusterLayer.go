@@ -88,7 +88,8 @@ type EcsClusterLayer struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -107,6 +108,10 @@ func NewEcsClusterLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EcsClusterLayer
 	err := ctx.RegisterResource("aws:opsworks/ecsClusterLayer:EcsClusterLayer", name, args, &resource, opts...)
@@ -174,7 +179,8 @@ type ecsClusterLayerState struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -225,7 +231,8 @@ type EcsClusterLayerState struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -562,6 +569,7 @@ func (o EcsClusterLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o EcsClusterLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

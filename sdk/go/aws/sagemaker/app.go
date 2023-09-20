@@ -72,6 +72,8 @@ type App struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName pulumi.StringPtrOutput `pulumi:"userProfileName"`
@@ -93,6 +95,10 @@ func NewApp(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:sagemaker/app:App", name, args, &resource, opts...)
@@ -131,6 +137,8 @@ type appState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName *string `pulumi:"userProfileName"`
@@ -152,6 +160,8 @@ type AppState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The user profile name. At least one of `userProfileName` or `spaceName` required.
 	UserProfileName pulumi.StringPtrInput
@@ -343,6 +353,8 @@ func (o AppOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o AppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

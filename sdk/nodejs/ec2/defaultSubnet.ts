@@ -101,6 +101,9 @@ export class DefaultSubnet extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC the subnet is in
@@ -173,6 +176,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(DefaultSubnet.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -218,6 +223,9 @@ export interface DefaultSubnetState {
     ownerId?: pulumi.Input<string>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC the subnet is in

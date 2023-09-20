@@ -209,6 +209,8 @@ type CertificateAuthority struct {
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -226,6 +228,10 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args.CertificateAuthorityConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)
@@ -276,6 +282,8 @@ type certificateAuthorityState struct {
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type *string `pulumi:"type"`
@@ -311,6 +319,8 @@ type CertificateAuthorityState struct {
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
 	Type pulumi.StringPtrInput
@@ -542,6 +552,8 @@ func (o CertificateAuthorityOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o CertificateAuthorityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

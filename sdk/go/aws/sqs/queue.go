@@ -251,6 +251,8 @@ type Queue struct {
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -265,6 +267,10 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:sqs/queue:Queue", name, args, &resource, opts...)
@@ -325,6 +331,8 @@ type queueState struct {
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url *string `pulumi:"url"`
@@ -370,6 +378,8 @@ type QueueState struct {
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Same as `id`: The URL for the created Amazon SQS queue.
 	Url pulumi.StringPtrInput
@@ -662,6 +672,8 @@ func (o QueueOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

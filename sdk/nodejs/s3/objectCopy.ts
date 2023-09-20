@@ -225,6 +225,8 @@ export class ObjectCopy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -352,7 +354,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"] };
+        const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey", "tagsAll"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ObjectCopy.__pulumiType, name, resourceInputs, opts);
     }
@@ -531,6 +533,8 @@ export interface ObjectCopyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

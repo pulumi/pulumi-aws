@@ -216,6 +216,8 @@ type AnalyticsApplication struct {
 	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -228,6 +230,10 @@ func NewAnalyticsApplication(ctx *pulumi.Context,
 		args = &AnalyticsApplicationArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnalyticsApplication
 	err := ctx.RegisterResource("aws:kinesis/analyticsApplication:AnalyticsApplication", name, args, &resource, opts...)
@@ -281,6 +287,8 @@ type analyticsApplicationState struct {
 	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
@@ -317,6 +325,8 @@ type AnalyticsApplicationState struct {
 	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput
@@ -559,6 +569,8 @@ func (o AnalyticsApplicationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o AnalyticsApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnalyticsApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

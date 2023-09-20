@@ -55,6 +55,9 @@ class _GraphState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -96,6 +99,9 @@ class _GraphState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -193,6 +199,8 @@ class Graph(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["graph_arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Graph, __self__).__init__(
             'aws:detective/graph:Graph',
             resource_name,
@@ -255,5 +263,8 @@ class Graph(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 

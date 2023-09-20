@@ -75,6 +75,8 @@ type VpcIngressConnection struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -91,6 +93,10 @@ func NewVpcIngressConnection(ctx *pulumi.Context,
 	if args.ServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceArn'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIngressConnection
 	err := ctx.RegisterResource("aws:apprunner/vpcIngressConnection:VpcIngressConnection", name, args, &resource, opts...)
@@ -129,6 +135,8 @@ type vpcIngressConnectionState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -148,6 +156,8 @@ type VpcIngressConnectionState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -327,6 +337,8 @@ func (o VpcIngressConnectionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o VpcIngressConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -100,6 +100,9 @@ export class FindingsFilter extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -143,6 +146,8 @@ export class FindingsFilter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(FindingsFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -183,6 +188,9 @@ export interface FindingsFilterState {
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

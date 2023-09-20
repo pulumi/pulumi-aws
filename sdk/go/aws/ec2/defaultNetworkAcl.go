@@ -217,6 +217,8 @@ type DefaultNetworkAcl struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the associated VPC
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -232,6 +234,10 @@ func NewDefaultNetworkAcl(ctx *pulumi.Context,
 	if args.DefaultNetworkAclId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultNetworkAclId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultNetworkAcl
 	err := ctx.RegisterResource("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, args, &resource, opts...)
@@ -272,6 +278,8 @@ type defaultNetworkAclState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the associated VPC
 	VpcId *string `pulumi:"vpcId"`
@@ -295,6 +303,8 @@ type DefaultNetworkAclState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ID of the associated VPC
 	VpcId pulumi.StringPtrInput
@@ -484,6 +494,8 @@ func (o DefaultNetworkAclOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o DefaultNetworkAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

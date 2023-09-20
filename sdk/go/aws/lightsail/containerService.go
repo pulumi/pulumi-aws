@@ -203,6 +203,8 @@ type ContainerService struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -222,6 +224,10 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.Scale == nil {
 		return nil, errors.New("invalid value for required argument 'Scale'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerService
 	err := ctx.RegisterResource("aws:lightsail/containerService:ContainerService", name, args, &resource, opts...)
@@ -290,6 +296,8 @@ type containerServiceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -342,6 +350,8 @@ type ContainerServiceState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The publicly accessible URL of the container service. If no public endpoint is specified in the
 	// currentDeployment, this URL returns a 404 response.
@@ -610,6 +620,8 @@ func (o ContainerServiceOutput) Tags() pulumi.StringMapOutput {
 
 // A map of tags assigned to the resource, including those inherited from the provider
 // `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ContainerServiceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

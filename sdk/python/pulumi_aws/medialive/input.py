@@ -250,6 +250,9 @@ class _InputState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -415,6 +418,9 @@ class _InputState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -603,6 +609,8 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_partner_ids"] = None
             __props__.__dict__["input_source_type"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Input, __self__).__init__(
             'aws:medialive/input:Input',
             resource_name,
@@ -783,6 +791,9 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

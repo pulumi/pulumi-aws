@@ -111,7 +111,8 @@ type Extension struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters ExtensionParameterArrayOutput `pulumi:"parameters"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version number for the extension.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -127,6 +128,10 @@ func NewExtension(ctx *pulumi.Context,
 	if args.ActionPoints == nil {
 		return nil, errors.New("invalid value for required argument 'ActionPoints'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Extension
 	err := ctx.RegisterResource("aws:appconfig/extension:Extension", name, args, &resource, opts...)
@@ -161,7 +166,8 @@ type extensionState struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters []ExtensionParameter `pulumi:"parameters"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version number for the extension.
 	Version *int `pulumi:"version"`
@@ -179,7 +185,8 @@ type ExtensionState struct {
 	// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
 	Parameters ExtensionParameterArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The version number for the extension.
 	Version pulumi.IntPtrInput
@@ -357,6 +364,7 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ExtensionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

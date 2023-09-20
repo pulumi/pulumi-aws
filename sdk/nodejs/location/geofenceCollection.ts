@@ -78,6 +78,9 @@ export class GeofenceCollection extends pulumi.CustomResource {
      * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
@@ -120,6 +123,8 @@ export class GeofenceCollection extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(GeofenceCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -154,6 +159,9 @@ export interface GeofenceCollectionState {
      * Key-value tags for the geofence collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.

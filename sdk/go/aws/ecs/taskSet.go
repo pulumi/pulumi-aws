@@ -95,6 +95,8 @@ type TaskSet struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -124,6 +126,10 @@ func NewTaskSet(ctx *pulumi.Context,
 	if args.TaskDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskSet
 	err := ctx.RegisterResource("aws:ecs/taskSet:TaskSet", name, args, &resource, opts...)
@@ -178,6 +184,8 @@ type taskSetState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -223,6 +231,8 @@ type TaskSetState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -498,6 +508,8 @@ func (o TaskSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TaskSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -185,6 +185,9 @@ class _ListenerState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -320,6 +323,9 @@ class _ListenerState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -558,6 +564,8 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["listener_id"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Listener, __self__).__init__(
             'aws:vpclattice/listener:Listener',
             resource_name,
@@ -706,5 +714,8 @@ class Listener(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 

@@ -80,6 +80,8 @@ type Thesaurus struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
 }
@@ -100,6 +102,10 @@ func NewThesaurus(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thesaurus
 	err := ctx.RegisterResource("aws:kendra/thesaurus:Thesaurus", name, args, &resource, opts...)
@@ -142,6 +148,8 @@ type thesaurusState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
 }
@@ -166,6 +174,8 @@ type ThesaurusState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
 }
@@ -363,6 +373,8 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -161,6 +161,8 @@ type EnvironmentEC2 struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -176,6 +178,10 @@ func NewEnvironmentEC2(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentEC2
 	err := ctx.RegisterResource("aws:cloud9/environmentEC2:EnvironmentEC2", name, args, &resource, opts...)
@@ -226,6 +232,8 @@ type environmentEC2State struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type *string `pulumi:"type"`
@@ -259,6 +267,8 @@ type EnvironmentEC2State struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type pulumi.StringPtrInput
@@ -491,6 +501,8 @@ func (o EnvironmentEC2Output) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o EnvironmentEC2Output) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

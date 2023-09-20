@@ -96,6 +96,9 @@ export class ContactList extends pulumi.CustomResource {
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
@@ -138,6 +141,8 @@ export class ContactList extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ContactList.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -169,6 +174,9 @@ export interface ContactListState {
      * Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.

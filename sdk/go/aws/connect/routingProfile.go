@@ -93,6 +93,8 @@ type RoutingProfile struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -115,6 +117,10 @@ func NewRoutingProfile(ctx *pulumi.Context,
 	if args.MediaConcurrencies == nil {
 		return nil, errors.New("invalid value for required argument 'MediaConcurrencies'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingProfile
 	err := ctx.RegisterResource("aws:connect/routingProfile:RoutingProfile", name, args, &resource, opts...)
@@ -158,6 +164,8 @@ type routingProfileState struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -182,6 +190,8 @@ type RoutingProfileState struct {
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -384,6 +394,8 @@ func (o RoutingProfileOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o RoutingProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

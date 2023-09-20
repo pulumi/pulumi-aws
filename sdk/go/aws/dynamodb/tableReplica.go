@@ -109,6 +109,8 @@ type TableReplica struct {
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -122,6 +124,10 @@ func NewTableReplica(ctx *pulumi.Context,
 	if args.GlobalTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalTableArn'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableReplica
 	err := ctx.RegisterResource("aws:dynamodb/tableReplica:TableReplica", name, args, &resource, opts...)
@@ -160,6 +166,8 @@ type tableReplicaState struct {
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -179,6 +187,8 @@ type TableReplicaState struct {
 	// Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -361,6 +371,8 @@ func (o TableReplicaOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TableReplicaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -85,6 +85,8 @@ type CapacityReservation struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
@@ -109,6 +111,10 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityReservation
 	err := ctx.RegisterResource("aws:ec2/capacityReservation:CapacityReservation", name, args, &resource, opts...)
@@ -161,6 +167,8 @@ type capacityReservationState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
@@ -196,6 +204,8 @@ type CapacityReservationState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
@@ -446,6 +456,8 @@ func (o CapacityReservationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
+//
+// Deprecated: Please use `tags` instead.
 func (o CapacityReservationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

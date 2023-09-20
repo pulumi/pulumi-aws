@@ -94,7 +94,8 @@ type ClassificationJob struct {
 	// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
 	ScheduleFrequency ClassificationJobScheduleFrequencyOutput `pulumi:"scheduleFrequency"`
 	// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails ClassificationJobUserPausedDetailArrayOutput `pulumi:"userPausedDetails"`
@@ -113,6 +114,10 @@ func NewClassificationJob(ctx *pulumi.Context,
 	if args.S3JobDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'S3JobDefinition'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClassificationJob
 	err := ctx.RegisterResource("aws:macie2/classificationJob:ClassificationJob", name, args, &resource, opts...)
@@ -161,7 +166,8 @@ type classificationJobState struct {
 	// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
 	ScheduleFrequency *ClassificationJobScheduleFrequency `pulumi:"scheduleFrequency"`
 	// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails []ClassificationJobUserPausedDetail `pulumi:"userPausedDetails"`
@@ -193,7 +199,8 @@ type ClassificationJobState struct {
 	// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
 	ScheduleFrequency ClassificationJobScheduleFrequencyPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
 	UserPausedDetails ClassificationJobUserPausedDetailArrayInput
@@ -433,6 +440,7 @@ func (o ClassificationJobOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ClassificationJobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClassificationJob) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

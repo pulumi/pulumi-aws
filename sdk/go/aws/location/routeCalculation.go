@@ -69,6 +69,8 @@ type RouteCalculation struct {
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -87,6 +89,10 @@ func NewRouteCalculation(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteCalculation
 	err := ctx.RegisterResource("aws:location/routeCalculation:RouteCalculation", name, args, &resource, opts...)
@@ -125,6 +131,8 @@ type routeCalculationState struct {
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -146,6 +154,8 @@ type RouteCalculationState struct {
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringPtrInput
@@ -326,6 +336,8 @@ func (o RouteCalculationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o RouteCalculationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

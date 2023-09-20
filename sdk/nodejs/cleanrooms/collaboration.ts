@@ -130,6 +130,9 @@ export class Collaboration extends pulumi.CustomResource {
      * Key value pairs which tag the collaboration.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -186,6 +189,8 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -253,6 +258,9 @@ export interface CollaborationState {
      * Key value pairs which tag the collaboration.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated Please use `tags` instead.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     updateTime?: pulumi.Input<string>;
 }

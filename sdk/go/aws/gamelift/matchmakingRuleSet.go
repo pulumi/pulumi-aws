@@ -37,6 +37,8 @@ type MatchmakingRuleSet struct {
 	RuleSetBody pulumi.StringOutput    `pulumi:"ruleSetBody"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -50,6 +52,10 @@ func NewMatchmakingRuleSet(ctx *pulumi.Context,
 	if args.RuleSetBody == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetBody'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchmakingRuleSet
 	err := ctx.RegisterResource("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet", name, args, &resource, opts...)
@@ -81,6 +87,8 @@ type matchmakingRuleSetState struct {
 	RuleSetBody *string           `pulumi:"ruleSetBody"`
 	Tags        map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -93,6 +101,8 @@ type MatchmakingRuleSetState struct {
 	RuleSetBody pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -248,6 +258,8 @@ func (o MatchmakingRuleSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o MatchmakingRuleSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

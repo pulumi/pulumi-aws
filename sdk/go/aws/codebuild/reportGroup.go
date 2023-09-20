@@ -123,6 +123,8 @@ type ReportGroup struct {
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -141,6 +143,10 @@ func NewReportGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportGroup
 	err := ctx.RegisterResource("aws:codebuild/reportGroup:ReportGroup", name, args, &resource, opts...)
@@ -177,6 +183,8 @@ type reportGroupState struct {
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
 	Type *string `pulumi:"type"`
@@ -196,6 +204,8 @@ type ReportGroupState struct {
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
 	Type pulumi.StringPtrInput
@@ -374,6 +384,8 @@ func (o ReportGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ReportGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

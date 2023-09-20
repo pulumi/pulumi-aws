@@ -192,6 +192,9 @@ class _RuleGroupState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -300,6 +303,9 @@ class _RuleGroupState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -669,6 +675,8 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(RuleGroup, __self__).__init__(
             'aws:networkfirewall/ruleGroup:RuleGroup',
             resource_name,
@@ -796,6 +804,9 @@ class RuleGroup(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

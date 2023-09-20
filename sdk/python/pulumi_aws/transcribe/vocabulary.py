@@ -135,6 +135,9 @@ class _VocabularyState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_file_uri is not None:
             pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
@@ -204,6 +207,9 @@ class _VocabularyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -373,6 +379,8 @@ class Vocabulary(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Vocabulary, __self__).__init__(
             'aws:transcribe/vocabulary:Vocabulary',
             resource_name,
@@ -465,6 +473,9 @@ class Vocabulary(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

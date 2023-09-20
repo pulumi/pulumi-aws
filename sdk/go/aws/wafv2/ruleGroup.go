@@ -35,6 +35,8 @@ type RuleGroup struct {
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
@@ -56,6 +58,10 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:wafv2/ruleGroup:RuleGroup", name, args, &resource, opts...)
@@ -98,6 +104,8 @@ type ruleGroupState struct {
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
@@ -123,6 +131,8 @@ type RuleGroupState struct {
 	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
 	VisibilityConfig RuleGroupVisibilityConfigPtrInput
@@ -333,6 +343,8 @@ func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

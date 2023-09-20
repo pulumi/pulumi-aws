@@ -180,6 +180,8 @@ export class Addon extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -234,6 +236,8 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["tagsAll"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Addon.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -312,6 +316,8 @@ export interface AddonState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -72,6 +72,8 @@ type ServiceNetworkVpcAssociation struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC.
 	VpcIdentifier pulumi.StringOutput `pulumi:"vpcIdentifier"`
@@ -90,6 +92,10 @@ func NewServiceNetworkVpcAssociation(ctx *pulumi.Context,
 	if args.VpcIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'VpcIdentifier'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkVpcAssociation
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation", name, args, &resource, opts...)
@@ -127,6 +133,8 @@ type serviceNetworkVpcAssociationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC.
 	VpcIdentifier *string `pulumi:"vpcIdentifier"`
@@ -147,6 +155,8 @@ type ServiceNetworkVpcAssociationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of the VPC.
 	VpcIdentifier pulumi.StringPtrInput
@@ -324,6 +334,8 @@ func (o ServiceNetworkVpcAssociationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ServiceNetworkVpcAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

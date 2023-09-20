@@ -356,6 +356,8 @@ type Domain struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
@@ -368,6 +370,10 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:elasticsearch/domain:Domain", name, args, &resource, opts...)
@@ -434,6 +440,8 @@ type domainState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -483,6 +491,8 @@ type DomainState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	// * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 	// * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
@@ -778,6 +788,8 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 // * `vpc_options.0.availability_zones` - If the domain was created inside a VPC, the names of the availability zones the configured `subnetIds` were created inside.
 // * `vpc_options.0.vpc_id` - If the domain was created inside a VPC, the ID of the VPC.
+//
+// Deprecated: Please use `tags` instead.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

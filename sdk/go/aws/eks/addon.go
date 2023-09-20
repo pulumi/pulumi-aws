@@ -202,6 +202,8 @@ type Addon struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -218,6 +220,10 @@ func NewAddon(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Addon
 	err := ctx.RegisterResource("aws:eks/addon:Addon", name, args, &resource, opts...)
@@ -284,6 +290,8 @@ type addonState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -331,6 +339,8 @@ type AddonState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -610,6 +620,8 @@ func (o AddonOutput) Tags() pulumi.StringMapOutput {
 }
 
 // (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o AddonOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

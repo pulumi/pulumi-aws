@@ -275,6 +275,8 @@ type Distribution struct {
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -294,6 +296,10 @@ func NewDistribution(ctx *pulumi.Context,
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Distribution
 	err := ctx.RegisterResource("aws:lightsail/distribution:Distribution", name, args, &resource, opts...)
@@ -361,6 +367,8 @@ type distributionState struct {
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -409,6 +417,8 @@ type DistributionState struct {
 	// present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -685,6 +695,8 @@ func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o DistributionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

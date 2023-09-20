@@ -102,6 +102,8 @@ type PeeringAttachment struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
@@ -123,6 +125,10 @@ func NewPeeringAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, args, &resource, opts...)
@@ -155,6 +161,8 @@ type peeringAttachmentState struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -170,6 +178,8 @@ type PeeringAttachmentState struct {
 	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
@@ -338,6 +348,8 @@ func (o PeeringAttachmentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o PeeringAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PeeringAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

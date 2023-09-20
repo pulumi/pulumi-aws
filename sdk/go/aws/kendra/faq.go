@@ -153,6 +153,8 @@ type Faq struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -174,6 +176,10 @@ func NewFaq(ctx *pulumi.Context,
 	if args.S3Path == nil {
 		return nil, errors.New("invalid value for required argument 'S3Path'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Faq
 	err := ctx.RegisterResource("aws:kendra/faq:Faq", name, args, &resource, opts...)
@@ -226,6 +232,8 @@ type faqState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time that the FAQ was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -261,6 +269,8 @@ type FaqState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The date and time that the FAQ was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -492,6 +502,8 @@ func (o FaqOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o FaqOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -114,6 +114,8 @@ type OntapStorageVirtualMachine struct {
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The SVM's UUID (universally unique identifier).
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
@@ -134,6 +136,7 @@ func NewOntapStorageVirtualMachine(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"svmAdminPassword",
+		"tagsAll",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -177,6 +180,8 @@ type ontapStorageVirtualMachineState struct {
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The SVM's UUID (universally unique identifier).
 	Uuid *string `pulumi:"uuid"`
@@ -201,6 +206,8 @@ type OntapStorageVirtualMachineState struct {
 	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The SVM's UUID (universally unique identifier).
 	Uuid pulumi.StringPtrInput
@@ -397,6 +404,8 @@ func (o OntapStorageVirtualMachineOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o OntapStorageVirtualMachineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

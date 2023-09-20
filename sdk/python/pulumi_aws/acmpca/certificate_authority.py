@@ -213,6 +213,9 @@ class _CertificateAuthorityState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -381,6 +384,9 @@ class _CertificateAuthorityState:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -677,6 +683,8 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["not_before"] = None
             __props__.__dict__["serial"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
             resource_name,
@@ -859,6 +867,9 @@ class CertificateAuthority(pulumi.CustomResource):
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

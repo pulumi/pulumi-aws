@@ -93,6 +93,8 @@ type Analysis struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
@@ -108,6 +110,10 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AnalysisId == nil {
 		return nil, errors.New("invalid value for required argument 'AnalysisId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws:quicksight/analysis:Analysis", name, args, &resource, opts...)
@@ -159,6 +165,8 @@ type analysisState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn *string `pulumi:"themeArn"`
@@ -193,6 +201,8 @@ type AnalysisState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn pulumi.StringPtrInput
@@ -427,6 +437,8 @@ func (o AnalysisOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o AnalysisOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -133,6 +133,8 @@ type NotebookInstance struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -153,6 +155,10 @@ func NewNotebookInstance(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstance
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstance:NotebookInstance", name, args, &resource, opts...)
@@ -212,6 +218,8 @@ type notebookInstanceState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url *string `pulumi:"url"`
@@ -256,6 +264,8 @@ type NotebookInstanceState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringPtrInput
@@ -540,6 +550,8 @@ func (o NotebookInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o NotebookInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

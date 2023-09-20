@@ -78,7 +78,8 @@ type Link struct {
 	// The following arguments are optional:
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -98,6 +99,10 @@ func NewLink(ctx *pulumi.Context,
 	if args.SinkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SinkIdentifier'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:oam/link:Link", name, args, &resource, opts...)
@@ -138,7 +143,8 @@ type linkState struct {
 	// The following arguments are optional:
 	SinkIdentifier *string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -160,7 +166,8 @@ type LinkState struct {
 	// The following arguments are optional:
 	SinkIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -348,6 +355,7 @@ func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o LinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

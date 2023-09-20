@@ -80,6 +80,8 @@ type VpcIpamResourceDiscoveryAssociation struct {
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -96,6 +98,10 @@ func NewVpcIpamResourceDiscoveryAssociation(ctx *pulumi.Context,
 	if args.IpamResourceDiscoveryId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamResourceDiscoveryId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamResourceDiscoveryAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, args, &resource, opts...)
@@ -138,6 +144,8 @@ type vpcIpamResourceDiscoveryAssociationState struct {
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -161,6 +169,8 @@ type VpcIpamResourceDiscoveryAssociationState struct {
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -344,6 +354,8 @@ func (o VpcIpamResourceDiscoveryAssociationOutput) Tags() pulumi.StringMapOutput
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o VpcIpamResourceDiscoveryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

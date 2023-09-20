@@ -92,6 +92,9 @@ class _EventBusState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -148,6 +151,9 @@ class _EventBusState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -268,6 +274,8 @@ class EventBus(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EventBus, __self__).__init__(
             'aws:cloudwatch/eventBus:EventBus',
             resource_name,
@@ -345,5 +353,8 @@ class EventBus(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 

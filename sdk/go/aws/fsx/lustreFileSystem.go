@@ -116,6 +116,8 @@ type LustreFileSystem struct {
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -133,6 +135,10 @@ func NewLustreFileSystem(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LustreFileSystem
 	err := ctx.RegisterResource("aws:fsx/lustreFileSystem:LustreFileSystem", name, args, &resource, opts...)
@@ -209,6 +215,8 @@ type lustreFileSystemState struct {
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId *string `pulumi:"vpcId"`
@@ -270,6 +278,8 @@ type LustreFileSystemState struct {
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Identifier of the Virtual Private Cloud for the file system.
 	VpcId pulumi.StringPtrInput
@@ -620,6 +630,8 @@ func (o LustreFileSystemOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o LustreFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

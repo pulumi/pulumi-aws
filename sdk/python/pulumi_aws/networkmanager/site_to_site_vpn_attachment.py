@@ -126,6 +126,9 @@ class _SiteToSiteVpnAttachmentState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpn_connection_arn is not None:
             pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
@@ -268,6 +271,9 @@ class _SiteToSiteVpnAttachmentState:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -402,6 +408,8 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(SiteToSiteVpnAttachment, __self__).__init__(
             'aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment',
             resource_name,
@@ -561,6 +569,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+
         return pulumi.get(self, "tags_all")
 
     @property

@@ -64,7 +64,8 @@ type Sink struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringOutput `pulumi:"sinkId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -75,6 +76,10 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws:oam/sink:Sink", name, args, &resource, opts...)
@@ -107,7 +112,8 @@ type sinkState struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId *string `pulumi:"sinkId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -121,7 +127,8 @@ type SinkState struct {
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -281,6 +288,7 @@ func (o SinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o SinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

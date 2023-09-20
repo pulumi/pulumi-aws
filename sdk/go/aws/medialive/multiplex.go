@@ -87,7 +87,8 @@ type Multiplex struct {
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrOutput `pulumi:"startMultiplex"`
 	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,6 +102,10 @@ func NewMultiplex(ctx *pulumi.Context,
 	if args.AvailabilityZones == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Multiplex
 	err := ctx.RegisterResource("aws:medialive/multiplex:Multiplex", name, args, &resource, opts...)
@@ -137,7 +142,8 @@ type multiplexState struct {
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
 	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -155,7 +161,8 @@ type MultiplexState struct {
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
 	// A map of tags to assign to the Multiplex. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -337,6 +344,7 @@ func (o MultiplexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o MultiplexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

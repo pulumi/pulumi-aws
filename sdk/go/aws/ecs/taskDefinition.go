@@ -467,6 +467,8 @@ type TaskDefinition struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
@@ -487,6 +489,10 @@ func NewTaskDefinition(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskDefinition
 	err := ctx.RegisterResource("aws:ecs/taskDefinition:TaskDefinition", name, args, &resource, opts...)
@@ -551,6 +557,8 @@ type taskDefinitionState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
@@ -600,6 +608,8 @@ type TaskDefinitionState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
@@ -903,6 +913,8 @@ func (o TaskDefinitionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o TaskDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

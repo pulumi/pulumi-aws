@@ -83,6 +83,8 @@ type ClusterSnapshot struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -101,6 +103,10 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.DbClusterSnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DbClusterSnapshotIdentifier'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:rds/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)
@@ -153,6 +159,8 @@ type clusterSnapshotState struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
@@ -188,6 +196,8 @@ type ClusterSnapshotState struct {
 	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringPtrInput
@@ -401,6 +411,8 @@ func (o ClusterSnapshotOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o ClusterSnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

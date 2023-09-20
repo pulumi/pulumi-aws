@@ -100,6 +100,8 @@ type HaproxyLayer struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -118,6 +120,10 @@ func NewHaproxyLayer(ctx *pulumi.Context,
 	if args.StatsPassword == nil {
 		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)
@@ -197,6 +203,8 @@ type haproxyLayerState struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -259,6 +267,8 @@ type HaproxyLayerState struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -639,6 +649,8 @@ func (o HaproxyLayerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o HaproxyLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HaproxyLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

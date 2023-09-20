@@ -82,6 +82,8 @@ type QuerySuggestionsBlockList struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,6 +103,10 @@ func NewQuerySuggestionsBlockList(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuerySuggestionsBlockList
 	err := ctx.RegisterResource("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList", name, args, &resource, opts...)
@@ -144,6 +150,8 @@ type querySuggestionsBlockListState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -168,6 +176,8 @@ type QuerySuggestionsBlockListState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -368,6 +378,8 @@ func (o QuerySuggestionsBlockListOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
+//
+// Deprecated: Please use `tags` instead.
 func (o QuerySuggestionsBlockListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

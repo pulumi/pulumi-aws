@@ -77,7 +77,8 @@ type Agreement struct {
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	Status   pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -103,6 +104,10 @@ func NewAgreement(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agreement
 	err := ctx.RegisterResource("aws:transfer/agreement:Agreement", name, args, &resource, opts...)
@@ -144,7 +149,8 @@ type agreementState struct {
 	ServerId *string `pulumi:"serverId"`
 	Status   *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -167,7 +173,8 @@ type AgreementState struct {
 	ServerId pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -370,6 +377,7 @@ func (o AgreementOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o AgreementOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

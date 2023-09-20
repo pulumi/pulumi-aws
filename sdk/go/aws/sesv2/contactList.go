@@ -100,7 +100,8 @@ type ContactList struct {
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp pulumi.StringOutput `pulumi:"lastUpdatedTimestamp"`
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block(s) with topic for the contact list. Detailed below.
 	Topics ContactListTopicArrayOutput `pulumi:"topics"`
@@ -116,6 +117,10 @@ func NewContactList(ctx *pulumi.Context,
 	if args.ContactListName == nil {
 		return nil, errors.New("invalid value for required argument 'ContactListName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws:sesv2/contactList:ContactList", name, args, &resource, opts...)
@@ -151,7 +156,8 @@ type contactListState struct {
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp *string `pulumi:"lastUpdatedTimestamp"`
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block(s) with topic for the contact list. Detailed below.
 	Topics []ContactListTopic `pulumi:"topics"`
@@ -170,7 +176,8 @@ type ContactListState struct {
 	// A timestamp noting the last time the contact list was updated in ISO 8601 format.
 	LastUpdatedTimestamp pulumi.StringPtrInput
 	// Key-value map of resource tags for the contact list. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block(s) with topic for the contact list. Detailed below.
 	Topics ContactListTopicArrayInput
@@ -349,6 +356,7 @@ func (o ContactListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o ContactListOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

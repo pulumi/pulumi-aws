@@ -98,7 +98,8 @@ type Input struct {
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayOutput `pulumi:"sources"`
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -118,6 +119,10 @@ func NewInput(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws:medialive/input:Input", name, args, &resource, opts...)
@@ -166,7 +171,8 @@ type inputState struct {
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources []InputSource `pulumi:"sources"`
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -202,7 +208,8 @@ type InputState struct {
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayInput
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -443,6 +450,7 @@ func (o InputOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o InputOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

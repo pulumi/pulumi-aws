@@ -112,7 +112,8 @@ type AmiFromInstance struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringOutput `pulumi:"sriovNetSupport"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport     pulumi.StringOutput `pulumi:"tpmSupport"`
@@ -133,6 +134,10 @@ func NewAmiFromInstance(ctx *pulumi.Context,
 	if args.SourceInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceInstanceId'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"tagsAll",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AmiFromInstance
 	err := ctx.RegisterResource("aws:ec2/amiFromInstance:AmiFromInstance", name, args, &resource, opts...)
@@ -209,7 +214,8 @@ type amiFromInstanceState struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport     *string `pulumi:"tpmSupport"`
@@ -274,7 +280,8 @@ type AmiFromInstanceState struct {
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
 	TpmSupport     pulumi.StringPtrInput
@@ -586,6 +593,7 @@ func (o AmiFromInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: Please use `tags` instead.
 func (o AmiFromInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AmiFromInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
