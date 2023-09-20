@@ -7,7 +7,6 @@ import importlib.util
 import inspect
 import json
 import os
-import pkg_resources
 import sys
 import typing
 
@@ -16,6 +15,11 @@ import pulumi.runtime
 
 from semver import VersionInfo as SemverVersion
 from parver import Version as PEP440Version
+
+if sys.version_info >= (3, 8):
+    from importlib import metadata
+else:
+    import importlib_metadata as metadata
 
 
 def get_env(*args):
@@ -63,14 +67,15 @@ def _get_semver_version():
     # <some module>._utilities. <some module> is the module we want to query the version for.
     root_package, *rest = __name__.split('.')
 
-    # pkg_resources uses setuptools to inspect the set of installed packages. We use it here to ask
-    # for the currently installed version of the root package (i.e. us) and get its version.
+    # importlib_metadata is a library that provides access to the metadata of an installed
+    # Distribution Package. The version() function is the quickest way to get a Distribution
+    # Package's version number, as a string.
 
     # Unfortunately, PEP440 and semver differ slightly in incompatible ways. The Pulumi engine expects
     # to receive a valid semver string when receiving requests from the language host, so it's our
     # responsibility as the library to convert our own PEP440 version into a valid semver string.
 
-    pep440_version_string = pkg_resources.require(root_package)[0].version
+    pep440_version_string = metadata.version(root_package)
     pep440_version = PEP440Version.parse(pep440_version_string)
     (major, minor, patch) = pep440_version.release
     prerelease = None
