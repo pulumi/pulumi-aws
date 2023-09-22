@@ -1,6 +1,4 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
-//go:build nodejs || all
-// +build nodejs all
 
 package examples
 
@@ -458,6 +456,21 @@ func TestRegress1423Ts(t *testing.T) {
 	test.ExpectRefreshChanges = false
 	test.Quick = false
 	test.SkipRefresh = false
+	integration.ProgramTest(t, &test)
+}
+
+// Regress passing unknowns into an explicit provider configuration, see pulumi/pulumi-aws#2818
+func TestRegress2818(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-2818"),
+		})
+	// These settings run pulumi preview, as the example is incomplete for running pulumi up.
+	test.Quick = false
+	test.SkipRefresh = true
+	test.SkipUpdate = true
+	test.SkipExportImport = true
+	test.SkipEmptyPreviewUpdate = true
 	integration.ProgramTest(t, &test)
 }
 
