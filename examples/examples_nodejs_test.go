@@ -461,6 +461,23 @@ func TestRegress1423Ts(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+// Regress passing unknowns into an explicit provider configuration, see pulumi/pulumi-aws#2818
+func TestRegress2818(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "regress-2818"),
+		})
+	// These settings run pulumi preview, as the example is incomplete for running pulumi up.
+	test.Quick = false
+	test.SkipRefresh = true
+	test.SkipUpdate = true
+	test.SkipExportImport = true
+	test.SkipEmptyPreviewUpdate = true
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()
