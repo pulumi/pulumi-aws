@@ -3455,6 +3455,18 @@
     {
       "old": "  name                     = \"terraform-example-collaboration\"",
       "new": "  name                     = \"pulumi-example-collaboration\""
+    },
+    {
+      "old": "% terraform import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab",
+      "new": "% TODO import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_cleanrooms_collaboration` using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_collaboration` using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_cleanrooms_collaboration` using the `id`. For example:",
+      "new": "Using `TODO import`, import `aws_cleanrooms_collaboration` using the `id`. For example:"
     }
   ],
   "website/docs/r/cloud9_environment_membership.html.markdown": [
@@ -5824,12 +5836,24 @@
       "new": "% pulumi import aws_db_option_group.example mysql-option-group"
     },
     {
+      "old": "* `option_group_description` - (Optional) Description of the option group. Defaults to \"Managed by Terraform\".",
+      "new": "* `option_group_description` - (Optional) Description of the option group. Defaults to \"Managed by TODO\"."
+    },
+    {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import DB Option groups using the `name`. For example:",
       "new": ""
     },
     {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:"
+    },
+    {
       "old": "Using `terraform import`, import DB Option groups using the `name`. For example:",
       "new": "Using `pulumi import`, import DB Option groups using the `name`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import DB option groups using the `name`. For example:",
+      "new": "Using `TODO import`, import DB option groups using the `name`. For example:"
     }
   ],
   "website/docs/r/db_parameter_group.html.markdown": [
@@ -13095,6 +13119,20 @@
       "new": "Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:"
     }
   ],
+  "website/docs/r/opensearch_package.html.markdown": [
+    {
+      "old": "% terraform import aws_opensearch_package.example package-id",
+      "new": "% TODO import aws_opensearch_package.example package-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import AWS Opensearch Packages using the Package ID. For example:",
+      "new": "Using `TODO import`, import AWS Opensearch Packages using the Package ID. For example:"
+    }
+  ],
   "website/docs/r/opensearch_vpc_endpoint.html.markdown": [
     {
       "old": "% terraform import aws_opensearch_vpc_endpoint_connection.example endpoint-id",
@@ -18908,6 +18946,20 @@
     {
       "old": "Using `terraform import`, import Transfer Workflows using the `worflow_id`. For example:",
       "new": "Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:"
+    }
+  ],
+  "website/docs/r/verifiedaccess_instance.html.markdown": [
+    {
+      "old": "% terraform import aws_verifiedaccess_instance.example vai-1234567890abcdef0",
+      "new": "% TODO import aws_verifiedaccess_instance.example vai-1234567890abcdef0"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Transfer Workflows using the  `id`. For example:",
+      "new": "Using `TODO import`, import Transfer Workflows using the  `id`. For example:"
     }
   ],
   "website/docs/r/verifiedaccess_trust_provider.html.markdown": [
