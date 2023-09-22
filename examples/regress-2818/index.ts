@@ -20,11 +20,18 @@
 import * as pulumi from '@pulumi/pulumi'
 import * as aws from '@pulumi/aws'
 
+// Common test setup boilerplate.
+const config = new pulumi.Config("aws");
+const provider = new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") });
+
 // Dummy bucket to generate unknowns.
-const b = new aws.s3.Bucket('bucket', {});
+const b = new aws.s3.Bucket('bucket', {}, {provider});
 
 // Pass an unknown into assumeRole.roleArn.
-const provider = new aws.Provider("provider", {assumeRole: {roleArn: b.id.apply(_ => "TODO")}});
+const provider2 = new aws.Provider("provider", {
+    assumeRole: {roleArn: b.id.apply(_ => "TODO")},
+    region: <aws.Region>config.require("envRegion")
+});
 
 // If the bug is active, this fails because `pulumi preview` panics when trying to create the provider.
-new aws.s3.Bucket('bucket', {}, { provider })
+new aws.s3.Bucket('bucket2', {}, { provider: provider2 })
