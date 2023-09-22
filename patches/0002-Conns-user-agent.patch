@@ -1,4 +1,4 @@
-From 473d2ad185ac402ca13b24b75619304a68b970b0 Mon Sep 17 00:00:00 2001
+From 3a0068c3be5228186afeec85841012577de7bc41 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:03:31 +0000
 Subject: [PATCH 02/29] Conns user agent
@@ -36,5 +36,5 @@ index 954266ba7a..404a654792 100644
  	}
  }
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

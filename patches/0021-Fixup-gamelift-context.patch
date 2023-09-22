@@ -1,4 +1,4 @@
-From 881724c9398877e2ce6165f5edeaaca632c92902 Mon Sep 17 00:00:00 2001
+From f96ae401f04687975defdaa16889e3e850c66236 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:51 +0000
 Subject: [PATCH 21/29] Fixup gamelift context
@@ -35,5 +35,5 @@ index 8c1189199f..254c96efc6 100644
  	input := gamelift.CreateMatchmakingRuleSetInput{
  		Name:        aws.String(d.Get("name").(string)),
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

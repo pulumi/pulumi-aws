@@ -1,4 +1,4 @@
-From f2261e530eb117052b5a6b3fd9b68bb7009fea52 Mon Sep 17 00:00:00 2001
+From ec46528cdf336b287f2d999bbe86a000116536d6 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 16/29] add matchmaking configuration (#72)
@@ -1195,5 +1195,5 @@ index 0000000000..28013532bf
 +$ terraform import aws_gamelift_matchmaking_rule_set.example <ruleset-id>
 +```
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 
