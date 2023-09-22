@@ -473,6 +473,8 @@ func TestRegress2818(t *testing.T) {
 	test.SkipUpdate = true
 	test.SkipExportImport = true
 	test.SkipEmptyPreviewUpdate = true
+	// Disable envRegion mangling
+	test.Config = nil
 	integration.ProgramTest(t, &test)
 }
 
