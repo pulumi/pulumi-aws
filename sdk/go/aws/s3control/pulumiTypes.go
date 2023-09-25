@@ -1109,7 +1109,9 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicB
 }
 
 type MultiRegionAccessPointDetailsRegion struct {
-	Bucket string `pulumi:"bucket"`
+	Bucket          string  `pulumi:"bucket"`
+	BucketAccountId *string `pulumi:"bucketAccountId"`
+	Region          *string `pulumi:"region"`
 }
 
 // MultiRegionAccessPointDetailsRegionInput is an input type that accepts MultiRegionAccessPointDetailsRegionArgs and MultiRegionAccessPointDetailsRegionOutput values.
@@ -1124,7 +1126,9 @@ type MultiRegionAccessPointDetailsRegionInput interface {
 }
 
 type MultiRegionAccessPointDetailsRegionArgs struct {
-	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Bucket          pulumi.StringInput    `pulumi:"bucket"`
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
+	Region          pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (MultiRegionAccessPointDetailsRegionArgs) ElementType() reflect.Type {
@@ -1198,6 +1202,14 @@ func (o MultiRegionAccessPointDetailsRegionOutput) ToOutput(ctx context.Context)
 
 func (o MultiRegionAccessPointDetailsRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o MultiRegionAccessPointDetailsRegionOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o MultiRegionAccessPointDetailsRegionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
 type MultiRegionAccessPointDetailsRegionArrayOutput struct{ *pulumi.OutputState }
@@ -6289,6 +6301,8 @@ func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) Index(i pulumi.In
 type GetMultiRegionAccessPointRegion struct {
 	// The name of the bucket.
 	Bucket string `pulumi:"bucket"`
+	// The AWS account ID that owns the bucket.
+	BucketAccountId string `pulumi:"bucketAccountId"`
 	// The name of the region.
 	Region string `pulumi:"region"`
 }
@@ -6307,6 +6321,8 @@ type GetMultiRegionAccessPointRegionInput interface {
 type GetMultiRegionAccessPointRegionArgs struct {
 	// The name of the bucket.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The AWS account ID that owns the bucket.
+	BucketAccountId pulumi.StringInput `pulumi:"bucketAccountId"`
 	// The name of the region.
 	Region pulumi.StringInput `pulumi:"region"`
 }
@@ -6383,6 +6399,11 @@ func (o GetMultiRegionAccessPointRegionOutput) ToOutput(ctx context.Context) pul
 // The name of the bucket.
 func (o GetMultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The AWS account ID that owns the bucket.
+func (o GetMultiRegionAccessPointRegionOutput) BucketAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointRegion) string { return v.BucketAccountId }).(pulumi.StringOutput)
 }
 
 // The name of the region.

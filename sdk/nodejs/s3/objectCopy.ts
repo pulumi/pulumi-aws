@@ -70,6 +70,26 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     public readonly cacheControl!: pulumi.Output<string>;
     /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     */
+    public readonly checksumAlgorithm!: pulumi.Output<string | undefined>;
+    /**
+     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     */
+    public /*out*/ readonly checksumCrc32!: pulumi.Output<string>;
+    /**
+     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     */
+    public /*out*/ readonly checksumCrc32c!: pulumi.Output<string>;
+    /**
+     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     */
+    public /*out*/ readonly checksumSha1!: pulumi.Output<string>;
+    /**
+     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     */
+    public /*out*/ readonly checksumSha256!: pulumi.Output<string>;
+    /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     public readonly contentDisposition!: pulumi.Output<string>;
@@ -255,6 +275,11 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
+            resourceInputs["checksumAlgorithm"] = state ? state.checksumAlgorithm : undefined;
+            resourceInputs["checksumCrc32"] = state ? state.checksumCrc32 : undefined;
+            resourceInputs["checksumCrc32c"] = state ? state.checksumCrc32c : undefined;
+            resourceInputs["checksumSha1"] = state ? state.checksumSha1 : undefined;
+            resourceInputs["checksumSha256"] = state ? state.checksumSha256 : undefined;
             resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
             resourceInputs["contentEncoding"] = state ? state.contentEncoding : undefined;
             resourceInputs["contentLanguage"] = state ? state.contentLanguage : undefined;
@@ -311,6 +336,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
             resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
+            resourceInputs["checksumAlgorithm"] = args ? args.checksumAlgorithm : undefined;
             resourceInputs["contentDisposition"] = args ? args.contentDisposition : undefined;
             resourceInputs["contentEncoding"] = args ? args.contentEncoding : undefined;
             resourceInputs["contentLanguage"] = args ? args.contentLanguage : undefined;
@@ -345,6 +371,10 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["taggingDirective"] = args ? args.taggingDirective : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
+            resourceInputs["checksumCrc32"] = undefined /*out*/;
+            resourceInputs["checksumCrc32c"] = undefined /*out*/;
+            resourceInputs["checksumSha1"] = undefined /*out*/;
+            resourceInputs["checksumSha256"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
@@ -377,6 +407,26 @@ export interface ObjectCopyState {
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     cacheControl?: pulumi.Input<string>;
+    /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     */
+    checksumAlgorithm?: pulumi.Input<string>;
+    /**
+     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     */
+    checksumCrc32?: pulumi.Input<string>;
+    /**
+     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     */
+    checksumCrc32c?: pulumi.Input<string>;
+    /**
+     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     */
+    checksumSha1?: pulumi.Input<string>;
+    /**
+     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     */
+    checksumSha256?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
@@ -564,6 +614,10 @@ export interface ObjectCopyArgs {
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     cacheControl?: pulumi.Input<string>;
+    /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     */
+    checksumAlgorithm?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */

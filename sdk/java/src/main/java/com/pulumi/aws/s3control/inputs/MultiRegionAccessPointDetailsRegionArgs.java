@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,10 +22,26 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
         return this.bucket;
     }
 
+    @Import(name="bucketAccountId")
+    private @Nullable Output<String> bucketAccountId;
+
+    public Optional<Output<String>> bucketAccountId() {
+        return Optional.ofNullable(this.bucketAccountId);
+    }
+
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private MultiRegionAccessPointDetailsRegionArgs() {}
 
     private MultiRegionAccessPointDetailsRegionArgs(MultiRegionAccessPointDetailsRegionArgs $) {
         this.bucket = $.bucket;
+        this.bucketAccountId = $.bucketAccountId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -51,6 +69,24 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
 
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        public Builder bucketAccountId(@Nullable Output<String> bucketAccountId) {
+            $.bucketAccountId = bucketAccountId;
+            return this;
+        }
+
+        public Builder bucketAccountId(String bucketAccountId) {
+            return bucketAccountId(Output.of(bucketAccountId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public MultiRegionAccessPointDetailsRegionArgs build() {

@@ -14,11 +14,20 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class MultiRegionAccessPointDetailsRegion
     {
         public readonly string Bucket;
+        public readonly string? BucketAccountId;
+        public readonly string? Region;
 
         [OutputConstructor]
-        private MultiRegionAccessPointDetailsRegion(string bucket)
+        private MultiRegionAccessPointDetailsRegion(
+            string bucket,
+
+            string? bucketAccountId,
+
+            string? region)
         {
             Bucket = bucket;
+            BucketAccountId = bucketAccountId;
+            Region = region;
         }
     }
 }

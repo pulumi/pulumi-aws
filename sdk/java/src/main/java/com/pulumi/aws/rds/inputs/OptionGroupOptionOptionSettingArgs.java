@@ -14,14 +14,14 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
     public static final OptionGroupOptionOptionSettingArgs Empty = new OptionGroupOptionOptionSettingArgs();
 
     /**
-     * The Name of the setting.
+     * Name of the setting.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The Name of the setting.
+     * @return Name of the setting.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
     }
 
     /**
-     * The Value of the setting.
+     * Value of the setting.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The Value of the setting.
+     * @return Value of the setting.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The Name of the setting.
+         * @param name Name of the setting.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The Name of the setting.
+         * @param name Name of the setting.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The Value of the setting.
+         * @param value Value of the setting.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class OptionGroupOptionOptionSettingArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The Value of the setting.
+         * @param value Value of the setting.
          * 
          * @return builder
          * 

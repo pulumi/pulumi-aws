@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Mq
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
     /// ## Example Usage
+    /// ### ActiveMQ
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -39,6 +40,29 @@ namespace Pulumi.Aws.Mq
     ///         Description = "Example Configuration",
     ///         EngineType = "ActiveMQ",
     ///         EngineVersion = "5.15.0",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### RabbitMQ
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Mq.Configuration("example", new()
+    ///     {
+    ///         Data = @"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+    /// consumer_timeout = 1800000
+    /// 
+    /// ",
+    ///         Description = "Example Configuration",
+    ///         EngineType = "RabbitMQ",
+    ///         EngineVersion = "3.11.16",
     ///     });
     /// 
     /// });
@@ -68,7 +92,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> AuthenticationStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Output("data")]
         public Output<string> Data { get; private set; } = null!;
@@ -174,7 +198,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? AuthenticationStrategy { get; set; }
 
         /// <summary>
-        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Input("data", required: true)]
         public Input<string> Data { get; set; } = null!;
@@ -238,7 +262,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? AuthenticationStrategy { get; set; }
 
         /// <summary>
-        /// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
         [Input("data")]
         public Input<string>? Data { get; set; }

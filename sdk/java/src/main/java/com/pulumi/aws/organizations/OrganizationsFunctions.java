@@ -8,10 +8,12 @@ import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetPoliciesArgs;
@@ -27,6 +29,7 @@ import com.pulumi.aws.organizations.outputs.GetDelegatedServicesResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantAccountsResult;
+import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsResult;
 import com.pulumi.aws.organizations.outputs.GetPoliciesForTargetResult;
 import com.pulumi.aws.organizations.outputs.GetPoliciesResult;
@@ -967,6 +970,170 @@ public final class OrganizationsFunctions {
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting an AWS Organizations Organizational Unit.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .name(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args) {
+        return getOrganizationalUnit(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting an AWS Organizations Organizational Unit.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .name(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitResult> getOrganizationalUnitPlain(GetOrganizationalUnitPlainArgs args) {
+        return getOrganizationalUnitPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for getting an AWS Organizations Organizational Unit.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .name(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", TypeShape.of(GetOrganizationalUnitResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting an AWS Organizations Organizational Unit.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -&gt; getOrganizationResult.roots()[0].id()))
+     *             .name(&#34;dev&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetOrganizationalUnitResult> getOrganizationalUnitPlain(GetOrganizationalUnitPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", TypeShape.of(GetOrganizationalUnitResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.

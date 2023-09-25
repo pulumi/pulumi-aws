@@ -15,6 +15,11 @@ public final class GetMultiRegionAccessPointRegion {
      */
     private String bucket;
     /**
+     * @return The AWS account ID that owns the bucket.
+     * 
+     */
+    private String bucketAccountId;
+    /**
      * @return The name of the region.
      * 
      */
@@ -27,6 +32,13 @@ public final class GetMultiRegionAccessPointRegion {
      */
     public String bucket() {
         return this.bucket;
+    }
+    /**
+     * @return The AWS account ID that owns the bucket.
+     * 
+     */
+    public String bucketAccountId() {
+        return this.bucketAccountId;
     }
     /**
      * @return The name of the region.
@@ -46,17 +58,24 @@ public final class GetMultiRegionAccessPointRegion {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
+        private String bucketAccountId;
         private String region;
         public Builder() {}
         public Builder(GetMultiRegionAccessPointRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
+    	      this.bucketAccountId = defaults.bucketAccountId;
     	      this.region = defaults.region;
         }
 
         @CustomType.Setter
         public Builder bucket(String bucket) {
             this.bucket = Objects.requireNonNull(bucket);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bucketAccountId(String bucketAccountId) {
+            this.bucketAccountId = Objects.requireNonNull(bucketAccountId);
             return this;
         }
         @CustomType.Setter
@@ -67,6 +86,7 @@ public final class GetMultiRegionAccessPointRegion {
         public GetMultiRegionAccessPointRegion build() {
             final var o = new GetMultiRegionAccessPointRegion();
             o.bucket = bucket;
+            o.bucketAccountId = bucketAccountId;
             o.region = region;
             return o;
         }

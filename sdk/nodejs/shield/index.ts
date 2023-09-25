@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationLayerAutomaticResponseArgs, ApplicationLayerAutomaticResponseState } from "./applicationLayerAutomaticResponse";
+export type ApplicationLayerAutomaticResponse = import("./applicationLayerAutomaticResponse").ApplicationLayerAutomaticResponse;
+export const ApplicationLayerAutomaticResponse: typeof import("./applicationLayerAutomaticResponse").ApplicationLayerAutomaticResponse = null as any;
+utilities.lazyLoad(exports, ["ApplicationLayerAutomaticResponse"], () => require("./applicationLayerAutomaticResponse"));
+
 export { DrtAccessLogBucketAssociationArgs, DrtAccessLogBucketAssociationState } from "./drtAccessLogBucketAssociation";
 export type DrtAccessLogBucketAssociation = import("./drtAccessLogBucketAssociation").DrtAccessLogBucketAssociation;
 export const DrtAccessLogBucketAssociation: typeof import("./drtAccessLogBucketAssociation").DrtAccessLogBucketAssociation = null as any;
@@ -35,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse":
+                return new ApplicationLayerAutomaticResponse(name, <any>undefined, { urn })
             case "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation":
                 return new DrtAccessLogBucketAssociation(name, <any>undefined, { urn })
             case "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation":
@@ -50,6 +57,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "shield/applicationLayerAutomaticResponse", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/drtAccessLogBucketAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/drtAccessRoleArnAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "shield/protection", _module)

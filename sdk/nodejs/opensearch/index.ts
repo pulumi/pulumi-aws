@@ -60,6 +60,16 @@ export type OutboundConnection = import("./outboundConnection").OutboundConnecti
 export const OutboundConnection: typeof import("./outboundConnection").OutboundConnection = null as any;
 utilities.lazyLoad(exports, ["OutboundConnection"], () => require("./outboundConnection"));
 
+export { PackageArgs, PackageState } from "./package";
+export type Package = import("./package").Package;
+export const Package: typeof import("./package").Package = null as any;
+utilities.lazyLoad(exports, ["Package"], () => require("./package"));
+
+export { PackageAssociationArgs, PackageAssociationState } from "./packageAssociation";
+export type PackageAssociation = import("./packageAssociation").PackageAssociation;
+export const PackageAssociation: typeof import("./packageAssociation").PackageAssociation = null as any;
+utilities.lazyLoad(exports, ["PackageAssociation"], () => require("./packageAssociation"));
+
 export { ServerlessAccessPolicyArgs, ServerlessAccessPolicyState } from "./serverlessAccessPolicy";
 export type ServerlessAccessPolicy = import("./serverlessAccessPolicy").ServerlessAccessPolicy;
 export const ServerlessAccessPolicy: typeof import("./serverlessAccessPolicy").ServerlessAccessPolicy = null as any;
@@ -105,6 +115,10 @@ const _module = {
                 return new InboundConnectionAccepter(name, <any>undefined, { urn })
             case "aws:opensearch/outboundConnection:OutboundConnection":
                 return new OutboundConnection(name, <any>undefined, { urn })
+            case "aws:opensearch/package:Package":
+                return new Package(name, <any>undefined, { urn })
+            case "aws:opensearch/packageAssociation:PackageAssociation":
+                return new PackageAssociation(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy":
                 return new ServerlessAccessPolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessCollection:ServerlessCollection":
@@ -127,6 +141,8 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainSamlOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/inboundConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/outboundConnection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/package", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/packageAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)

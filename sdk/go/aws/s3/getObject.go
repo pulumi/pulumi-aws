@@ -112,6 +112,8 @@ func GetObject(ctx *pulumi.Context, args *GetObjectArgs, opts ...pulumi.InvokeOp
 type GetObjectArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket string `pulumi:"bucket"`
+	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+	ChecksumMode *string `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
@@ -130,6 +132,15 @@ type GetObjectResult struct {
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain.
 	CacheControl string `pulumi:"cacheControl"`
+	// The base64-encoded, 32-bit CRC32 checksum of the object.
+	ChecksumCrc32 string `pulumi:"checksumCrc32"`
+	// The base64-encoded, 32-bit CRC32C checksum of the object.
+	ChecksumCrc32c string  `pulumi:"checksumCrc32c"`
+	ChecksumMode   *string `pulumi:"checksumMode"`
+	// The base64-encoded, 160-bit SHA-1 digest of the object.
+	ChecksumSha1 string `pulumi:"checksumSha1"`
+	// The base64-encoded, 256-bit SHA-256 digest of the object.
+	ChecksumSha256 string `pulumi:"checksumSha256"`
 	// Presentational information for the object.
 	ContentDisposition string `pulumi:"contentDisposition"`
 	// What content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
@@ -191,6 +202,8 @@ func GetObjectOutput(ctx *pulumi.Context, args GetObjectOutputArgs, opts ...pulu
 type GetObjectOutputArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+	ChecksumMode pulumi.StringPtrInput `pulumi:"checksumMode"`
 	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -242,6 +255,30 @@ func (o GetObjectResultOutput) BucketKeyEnabled() pulumi.BoolOutput {
 // Caching behavior along the request/reply chain.
 func (o GetObjectResultOutput) CacheControl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.CacheControl }).(pulumi.StringOutput)
+}
+
+// The base64-encoded, 32-bit CRC32 checksum of the object.
+func (o GetObjectResultOutput) ChecksumCrc32() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc32 }).(pulumi.StringOutput)
+}
+
+// The base64-encoded, 32-bit CRC32C checksum of the object.
+func (o GetObjectResultOutput) ChecksumCrc32c() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc32c }).(pulumi.StringOutput)
+}
+
+func (o GetObjectResultOutput) ChecksumMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetObjectResult) *string { return v.ChecksumMode }).(pulumi.StringPtrOutput)
+}
+
+// The base64-encoded, 160-bit SHA-1 digest of the object.
+func (o GetObjectResultOutput) ChecksumSha1() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumSha1 }).(pulumi.StringOutput)
+}
+
+// The base64-encoded, 256-bit SHA-256 digest of the object.
+func (o GetObjectResultOutput) ChecksumSha256() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumSha256 }).(pulumi.StringOutput)
 }
 
 // Presentational information for the object.

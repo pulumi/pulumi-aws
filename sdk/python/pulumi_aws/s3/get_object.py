@@ -21,7 +21,7 @@ class GetObjectResult:
     """
     A collection of values returned by getObject.
     """
-    def __init__(__self__, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -34,6 +34,21 @@ class GetObjectResult:
         if cache_control and not isinstance(cache_control, str):
             raise TypeError("Expected argument 'cache_control' to be a str")
         pulumi.set(__self__, "cache_control", cache_control)
+        if checksum_crc32 and not isinstance(checksum_crc32, str):
+            raise TypeError("Expected argument 'checksum_crc32' to be a str")
+        pulumi.set(__self__, "checksum_crc32", checksum_crc32)
+        if checksum_crc32c and not isinstance(checksum_crc32c, str):
+            raise TypeError("Expected argument 'checksum_crc32c' to be a str")
+        pulumi.set(__self__, "checksum_crc32c", checksum_crc32c)
+        if checksum_mode and not isinstance(checksum_mode, str):
+            raise TypeError("Expected argument 'checksum_mode' to be a str")
+        pulumi.set(__self__, "checksum_mode", checksum_mode)
+        if checksum_sha1 and not isinstance(checksum_sha1, str):
+            raise TypeError("Expected argument 'checksum_sha1' to be a str")
+        pulumi.set(__self__, "checksum_sha1", checksum_sha1)
+        if checksum_sha256 and not isinstance(checksum_sha256, str):
+            raise TypeError("Expected argument 'checksum_sha256' to be a str")
+        pulumi.set(__self__, "checksum_sha256", checksum_sha256)
         if content_disposition and not isinstance(content_disposition, str):
             raise TypeError("Expected argument 'content_disposition' to be a str")
         pulumi.set(__self__, "content_disposition", content_disposition)
@@ -129,6 +144,43 @@ class GetObjectResult:
         Caching behavior along the request/reply chain.
         """
         return pulumi.get(self, "cache_control")
+
+    @property
+    @pulumi.getter(name="checksumCrc32")
+    def checksum_crc32(self) -> str:
+        """
+        The base64-encoded, 32-bit CRC32 checksum of the object.
+        """
+        return pulumi.get(self, "checksum_crc32")
+
+    @property
+    @pulumi.getter(name="checksumCrc32c")
+    def checksum_crc32c(self) -> str:
+        """
+        The base64-encoded, 32-bit CRC32C checksum of the object.
+        """
+        return pulumi.get(self, "checksum_crc32c")
+
+    @property
+    @pulumi.getter(name="checksumMode")
+    def checksum_mode(self) -> Optional[str]:
+        return pulumi.get(self, "checksum_mode")
+
+    @property
+    @pulumi.getter(name="checksumSha1")
+    def checksum_sha1(self) -> str:
+        """
+        The base64-encoded, 160-bit SHA-1 digest of the object.
+        """
+        return pulumi.get(self, "checksum_sha1")
+
+    @property
+    @pulumi.getter(name="checksumSha256")
+    def checksum_sha256(self) -> str:
+        """
+        The base64-encoded, 256-bit SHA-256 digest of the object.
+        """
+        return pulumi.get(self, "checksum_sha256")
 
     @property
     @pulumi.getter(name="contentDisposition")
@@ -311,6 +363,11 @@ class AwaitableGetObjectResult(GetObjectResult):
             bucket=self.bucket,
             bucket_key_enabled=self.bucket_key_enabled,
             cache_control=self.cache_control,
+            checksum_crc32=self.checksum_crc32,
+            checksum_crc32c=self.checksum_crc32c,
+            checksum_mode=self.checksum_mode,
+            checksum_sha1=self.checksum_sha1,
+            checksum_sha256=self.checksum_sha256,
             content_disposition=self.content_disposition,
             content_encoding=self.content_encoding,
             content_language=self.content_language,
@@ -336,6 +393,7 @@ class AwaitableGetObjectResult(GetObjectResult):
 
 
 def get_object(bucket: Optional[str] = None,
+               checksum_mode: Optional[str] = None,
                key: Optional[str] = None,
                range: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
@@ -386,12 +444,14 @@ def get_object(bucket: Optional[str] = None,
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param str key: Full path to the object inside the bucket
     :param Mapping[str, str] tags: Map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['checksumMode'] = checksum_mode
     __args__['key'] = key
     __args__['range'] = range
     __args__['tags'] = tags
@@ -404,6 +464,11 @@ def get_object(bucket: Optional[str] = None,
         bucket=pulumi.get(__ret__, 'bucket'),
         bucket_key_enabled=pulumi.get(__ret__, 'bucket_key_enabled'),
         cache_control=pulumi.get(__ret__, 'cache_control'),
+        checksum_crc32=pulumi.get(__ret__, 'checksum_crc32'),
+        checksum_crc32c=pulumi.get(__ret__, 'checksum_crc32c'),
+        checksum_mode=pulumi.get(__ret__, 'checksum_mode'),
+        checksum_sha1=pulumi.get(__ret__, 'checksum_sha1'),
+        checksum_sha256=pulumi.get(__ret__, 'checksum_sha256'),
         content_disposition=pulumi.get(__ret__, 'content_disposition'),
         content_encoding=pulumi.get(__ret__, 'content_encoding'),
         content_language=pulumi.get(__ret__, 'content_language'),
@@ -430,6 +495,7 @@ def get_object(bucket: Optional[str] = None,
 
 @_utilities.lift_output_func(get_object)
 def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
+                      checksum_mode: Optional[pulumi.Input[Optional[str]]] = None,
                       key: Optional[pulumi.Input[str]] = None,
                       range: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -480,6 +546,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param str key: Full path to the object inside the bucket
     :param Mapping[str, str] tags: Map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)

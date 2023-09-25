@@ -2441,17 +2441,17 @@ func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput 
 }
 
 type OptionGroupOption struct {
-	// A list of DB Security Groups for which the option is enabled.
+	// List of DB Security Groups for which the option is enabled.
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
-	// The Name of the Option (e.g., MEMCACHED).
+	// Name of the option (e.g., MEMCACHED).
 	OptionName string `pulumi:"optionName"`
-	// A list of option settings to apply.
+	// List of option settings to apply.
 	OptionSettings []OptionGroupOptionOptionSetting `pulumi:"optionSettings"`
-	// The Port number when connecting to the Option (e.g., 11211).
+	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port *int `pulumi:"port"`
-	// The version of the option (e.g., 13.1.0.0).
+	// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
 	Version *string `pulumi:"version"`
-	// A list of VPC Security Groups for which the option is enabled.
+	// List of VPC Security Groups for which the option is enabled.
 	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
 }
 
@@ -2467,17 +2467,17 @@ type OptionGroupOptionInput interface {
 }
 
 type OptionGroupOptionArgs struct {
-	// A list of DB Security Groups for which the option is enabled.
+	// List of DB Security Groups for which the option is enabled.
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
-	// The Name of the Option (e.g., MEMCACHED).
+	// Name of the option (e.g., MEMCACHED).
 	OptionName pulumi.StringInput `pulumi:"optionName"`
-	// A list of option settings to apply.
+	// List of option settings to apply.
 	OptionSettings OptionGroupOptionOptionSettingArrayInput `pulumi:"optionSettings"`
-	// The Port number when connecting to the Option (e.g., 11211).
+	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The version of the option (e.g., 13.1.0.0).
+	// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
 	Version pulumi.StringPtrInput `pulumi:"version"`
-	// A list of VPC Security Groups for which the option is enabled.
+	// List of VPC Security Groups for which the option is enabled.
 	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
 }
 
@@ -2550,32 +2550,32 @@ func (o OptionGroupOptionOutput) ToOutput(ctx context.Context) pulumix.Output[Op
 	}
 }
 
-// A list of DB Security Groups for which the option is enabled.
+// List of DB Security Groups for which the option is enabled.
 func (o OptionGroupOptionOutput) DbSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOption) []string { return v.DbSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
-// The Name of the Option (e.g., MEMCACHED).
+// Name of the option (e.g., MEMCACHED).
 func (o OptionGroupOptionOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOption) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
-// A list of option settings to apply.
+// List of option settings to apply.
 func (o OptionGroupOptionOutput) OptionSettings() OptionGroupOptionOptionSettingArrayOutput {
 	return o.ApplyT(func(v OptionGroupOption) []OptionGroupOptionOptionSetting { return v.OptionSettings }).(OptionGroupOptionOptionSettingArrayOutput)
 }
 
-// The Port number when connecting to the Option (e.g., 11211).
+// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 func (o OptionGroupOptionOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OptionGroupOption) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The version of the option (e.g., 13.1.0.0).
+// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
 func (o OptionGroupOptionOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionGroupOption) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// A list of VPC Security Groups for which the option is enabled.
+// List of VPC Security Groups for which the option is enabled.
 func (o OptionGroupOptionOutput) VpcSecurityGroupMemberships() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptionGroupOption) []string { return v.VpcSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
@@ -2607,9 +2607,9 @@ func (o OptionGroupOptionArrayOutput) Index(i pulumi.IntInput) OptionGroupOption
 }
 
 type OptionGroupOptionOptionSetting struct {
-	// The Name of the setting.
+	// Name of the setting.
 	Name string `pulumi:"name"`
-	// The Value of the setting.
+	// Value of the setting.
 	Value string `pulumi:"value"`
 }
 
@@ -2625,9 +2625,9 @@ type OptionGroupOptionOptionSettingInput interface {
 }
 
 type OptionGroupOptionOptionSettingArgs struct {
-	// The Name of the setting.
+	// Name of the setting.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Value of the setting.
+	// Value of the setting.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -2700,12 +2700,12 @@ func (o OptionGroupOptionOptionSettingOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// The Name of the setting.
+// Name of the setting.
 func (o OptionGroupOptionOptionSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOptionOptionSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Value of the setting.
+// Value of the setting.
 func (o OptionGroupOptionOptionSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOptionOptionSetting) string { return v.Value }).(pulumi.StringOutput)
 }

@@ -24,7 +24,7 @@ class SchemaArgs:
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] content: The schema specification. Must be a valid Open API 3.0 spec.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
-        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
+        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         :param pulumi.Input[str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -67,7 +67,7 @@ class SchemaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the schema. Valid values: `OpenApi3`.
+        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         """
         return pulumi.get(self, "type")
 
@@ -136,7 +136,7 @@ class _SchemaState:
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
+        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         :param pulumi.Input[str] version: The version of the schema.
         :param pulumi.Input[str] version_created_date: The created date of the version of the schema.
         """
@@ -269,7 +269,7 @@ class _SchemaState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the schema. Valid values: `OpenApi3`.
+        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         """
         return pulumi.get(self, "type")
 
@@ -368,7 +368,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
+        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         """
         ...
     @overload
@@ -508,7 +508,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
+        :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         :param pulumi.Input[str] version: The version of the schema.
         :param pulumi.Input[str] version_created_date: The created date of the version of the schema.
         """
@@ -600,7 +600,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the schema. Valid values: `OpenApi3`.
+        The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         """
         return pulumi.get(self, "type")
 

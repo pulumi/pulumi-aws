@@ -42,6 +42,32 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// ### SFTP Connector
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.Connector("example", new()
+    ///     {
+    ///         AccessRole = aws_iam_role.Test.Arn,
+    ///         SftpConfig = new Aws.Transfer.Inputs.ConnectorSftpConfigArgs
+    ///         {
+    ///             TrustedHostKeys = new[]
+    ///             {
+    ///                 "ssh-rsa AAAAB3NYourKeysHere",
+    ///             },
+    ///             UserSecretId = aws_secretsmanager_secret.Example.Id,
+    ///         },
+    ///         Url = "sftp://test.com",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -67,13 +93,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters to configure for the connector object. Fields documented below.
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Output("as2Config")]
-        public Output<Outputs.ConnectorAs2Config> As2Config { get; private set; } = null!;
+        public Output<Outputs.ConnectorAs2Config?> As2Config { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 profile.
+        /// The unique identifier for the AS2 profile or SFTP Profile.
         /// </summary>
         [Output("connectorId")]
         public Output<string> ConnectorId { get; private set; } = null!;
@@ -85,6 +111,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> LoggingRole { get; private set; } = null!;
 
         /// <summary>
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        /// </summary>
+        [Output("sftpConfig")]
+        public Output<Outputs.ConnectorSftpConfig?> SftpConfig { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -94,7 +126,7 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -156,16 +188,22 @@ namespace Pulumi.Aws.Transfer
         public Input<string> AccessRole { get; set; } = null!;
 
         /// <summary>
-        /// The parameters to configure for the connector object. Fields documented below.
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
-        [Input("as2Config", required: true)]
-        public Input<Inputs.ConnectorAs2ConfigArgs> As2Config { get; set; } = null!;
+        [Input("as2Config")]
+        public Input<Inputs.ConnectorAs2ConfigArgs>? As2Config { get; set; }
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        /// </summary>
+        [Input("sftpConfig")]
+        public Input<Inputs.ConnectorSftpConfigArgs>? SftpConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -180,7 +218,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -206,13 +244,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The parameters to configure for the connector object. Fields documented below.
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Input("as2Config")]
         public Input<Inputs.ConnectorAs2ConfigGetArgs>? As2Config { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 profile.
+        /// The unique identifier for the AS2 profile or SFTP Profile.
         /// </summary>
         [Input("connectorId")]
         public Input<string>? ConnectorId { get; set; }
@@ -222,6 +260,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("loggingRole")]
         public Input<string>? LoggingRole { get; set; }
+
+        /// <summary>
+        /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        /// </summary>
+        [Input("sftpConfig")]
+        public Input<Inputs.ConnectorSftpConfigGetArgs>? SftpConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -249,7 +293,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The URL of the partners AS2 endpoint.
+        /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

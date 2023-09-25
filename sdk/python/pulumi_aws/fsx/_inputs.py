@@ -44,6 +44,8 @@ __all__ = [
     'WindowsFileSystemAuditLogConfigurationArgs',
     'WindowsFileSystemDiskIopsConfigurationArgs',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
+    'GetOntapStorageVirtualMachineFilterArgs',
+    'GetOntapStorageVirtualMachinesFilterArgs',
     'GetOpenZfsSnapshotFilterArgs',
 ]
 
@@ -1686,6 +1688,80 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
     @organizational_unit_distinguished_name.setter
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+@pulumi.input_type
+class GetOntapStorageVirtualMachineFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetOntapStorageVirtualMachinesFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

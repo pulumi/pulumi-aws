@@ -23,6 +23,7 @@ import javax.annotation.Nullable;
  * For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
  * 
  * ## Example Usage
+ * ### ActiveMQ
  * ```java
  * package generated_program;
  * 
@@ -59,6 +60,42 @@ import javax.annotation.Nullable;
  *             .description(&#34;Example Configuration&#34;)
  *             .engineType(&#34;ActiveMQ&#34;)
  *             .engineVersion(&#34;5.15.0&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### RabbitMQ
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.mq.Configuration;
+ * import com.pulumi.aws.mq.ConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Configuration(&#34;example&#34;, ConfigurationArgs.builder()        
+ *             .data(&#34;&#34;&#34;
+ * # Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+ * consumer_timeout = 1800000
+ * 
+ *             &#34;&#34;&#34;)
+ *             .description(&#34;Example Configuration&#34;)
+ *             .engineType(&#34;RabbitMQ&#34;)
+ *             .engineVersion(&#34;3.11.16&#34;)
  *             .build());
  * 
  *     }
@@ -105,14 +142,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return this.authenticationStrategy;
     }
     /**
-     * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+     * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
     @Export(name="data", refs={String.class}, tree="[0]")
     private Output<String> data;
 
     /**
-     * @return Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+     * @return Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
     public Output<String> data() {

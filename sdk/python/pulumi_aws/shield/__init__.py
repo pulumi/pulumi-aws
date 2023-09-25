@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .application_layer_automatic_response import *
 from .drt_access_log_bucket_association import *
 from .drt_access_role_arn_association import *
 from .protection import *

@@ -1909,7 +1909,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
-    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def transit_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """

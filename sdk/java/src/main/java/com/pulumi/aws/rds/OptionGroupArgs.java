@@ -50,14 +50,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Name of the setting.
+     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Name of the setting.
+     * @return Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,14 +80,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the option group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Import(name="optionGroupDescription")
     private @Nullable Output<String> optionGroupDescription;
 
     /**
-     * @return The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the option group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Optional<Output<String>> optionGroupDescription() {
@@ -95,14 +95,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Options to apply.
+     * List of options to apply.
      * 
      */
     @Import(name="options")
     private @Nullable Output<List<OptionGroupOptionArgs>> options;
 
     /**
-     * @return A list of Options to apply.
+     * @return List of options to apply.
      * 
      */
     public Optional<Output<List<OptionGroupOptionArgs>>> options() {
@@ -110,14 +110,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -197,7 +197,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Name of the setting.
+         * @param name Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The Name of the setting.
+         * @param name Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options A list of Options to apply.
+         * @param options List of options to apply.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options A list of Options to apply.
+         * @param options List of options to apply.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options A list of Options to apply.
+         * @param options List of options to apply.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

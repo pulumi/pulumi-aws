@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .instance import *
 from .trust_provider import *
 from ._inputs import *
 from . import outputs

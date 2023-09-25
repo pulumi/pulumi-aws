@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer.inputs;
 
 import com.pulumi.aws.transfer.inputs.ConnectorAs2ConfigArgs;
+import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -48,14 +49,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters to configure for the connector object. Fields documented below.
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
     @Import(name="as2Config")
     private @Nullable Output<ConnectorAs2ConfigArgs> as2Config;
 
     /**
-     * @return The parameters to configure for the connector object. Fields documented below.
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
     public Optional<Output<ConnectorAs2ConfigArgs>> as2Config() {
@@ -63,14 +64,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 profile.
+     * The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     @Import(name="connectorId")
     private @Nullable Output<String> connectorId;
 
     /**
-     * @return The unique identifier for the AS2 profile.
+     * @return The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     public Optional<Output<String>> connectorId() {
@@ -90,6 +91,21 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> loggingRole() {
         return Optional.ofNullable(this.loggingRole);
+    }
+
+    /**
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    @Import(name="sftpConfig")
+    private @Nullable Output<ConnectorSftpConfigArgs> sftpConfig;
+
+    /**
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    public Optional<Output<ConnectorSftpConfigArgs>> sftpConfig() {
+        return Optional.ofNullable(this.sftpConfig);
     }
 
     /**
@@ -127,14 +143,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the partners AS2 endpoint.
+     * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint.
+     * @return The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     public Optional<Output<String>> url() {
@@ -149,6 +165,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         this.as2Config = $.as2Config;
         this.connectorId = $.connectorId;
         this.loggingRole = $.loggingRole;
+        this.sftpConfig = $.sftpConfig;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.url = $.url;
@@ -215,7 +232,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Config The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
          * 
          * @return builder
          * 
@@ -226,7 +243,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Config The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
          * 
          * @return builder
          * 
@@ -236,7 +253,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile.
+         * @param connectorId The unique identifier for the AS2 profile or SFTP Profile.
          * 
          * @return builder
          * 
@@ -247,7 +264,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile.
+         * @param connectorId The unique identifier for the AS2 profile or SFTP Profile.
          * 
          * @return builder
          * 
@@ -275,6 +292,27 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder loggingRole(String loggingRole) {
             return loggingRole(Output.of(loggingRole));
+        }
+
+        /**
+         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpConfig(@Nullable Output<ConnectorSftpConfigArgs> sftpConfig) {
+            $.sftpConfig = sftpConfig;
+            return this;
+        }
+
+        /**
+         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpConfig(ConnectorSftpConfigArgs sftpConfig) {
+            return sftpConfig(Output.of(sftpConfig));
         }
 
         /**
@@ -324,7 +362,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
          * 
          * @return builder
          * 
@@ -335,7 +373,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
          * 
          * @return builder
          * 

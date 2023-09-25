@@ -287,7 +287,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
      */
-    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.

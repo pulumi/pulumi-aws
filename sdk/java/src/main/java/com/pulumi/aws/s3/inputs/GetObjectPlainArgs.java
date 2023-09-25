@@ -31,6 +31,21 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * 
+     */
+    @Import(name="checksumMode")
+    private @Nullable String checksumMode;
+
+    /**
+     * @return To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * 
+     */
+    public Optional<String> checksumMode() {
+        return Optional.ofNullable(this.checksumMode);
+    }
+
+    /**
      * Full path to the object inside the bucket
      * 
      */
@@ -86,6 +101,7 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetObjectPlainArgs(GetObjectPlainArgs $) {
         this.bucket = $.bucket;
+        this.checksumMode = $.checksumMode;
         this.key = $.key;
         this.range = $.range;
         this.tags = $.tags;
@@ -118,6 +134,17 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder bucket(String bucket) {
             $.bucket = bucket;
+            return this;
+        }
+
+        /**
+         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumMode(@Nullable String checksumMode) {
+            $.checksumMode = checksumMode;
             return this;
         }
 

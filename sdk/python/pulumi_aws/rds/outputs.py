@@ -925,12 +925,12 @@ class OptionGroupOption(dict):
                  version: Optional[str] = None,
                  vpc_security_group_memberships: Optional[Sequence[str]] = None):
         """
-        :param str option_name: The Name of the Option (e.g., MEMCACHED).
-        :param Sequence[str] db_security_group_memberships: A list of DB Security Groups for which the option is enabled.
-        :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: A list of option settings to apply.
-        :param int port: The Port number when connecting to the Option (e.g., 11211).
-        :param str version: The version of the option (e.g., 13.1.0.0).
-        :param Sequence[str] vpc_security_group_memberships: A list of VPC Security Groups for which the option is enabled.
+        :param str option_name: Name of the option (e.g., MEMCACHED).
+        :param Sequence[str] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
+        :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: List of option settings to apply.
+        :param int port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
+        :param str version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
+        :param Sequence[str] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
         """
         pulumi.set(__self__, "option_name", option_name)
         if db_security_group_memberships is not None:
@@ -948,7 +948,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="optionName")
     def option_name(self) -> str:
         """
-        The Name of the Option (e.g., MEMCACHED).
+        Name of the option (e.g., MEMCACHED).
         """
         return pulumi.get(self, "option_name")
 
@@ -956,7 +956,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="dbSecurityGroupMemberships")
     def db_security_group_memberships(self) -> Optional[Sequence[str]]:
         """
-        A list of DB Security Groups for which the option is enabled.
+        List of DB Security Groups for which the option is enabled.
         """
         return pulumi.get(self, "db_security_group_memberships")
 
@@ -964,7 +964,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[Sequence['outputs.OptionGroupOptionOptionSetting']]:
         """
-        A list of option settings to apply.
+        List of option settings to apply.
         """
         return pulumi.get(self, "option_settings")
 
@@ -972,7 +972,7 @@ class OptionGroupOption(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The Port number when connecting to the Option (e.g., 11211).
+        Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         """
         return pulumi.get(self, "port")
 
@@ -980,7 +980,7 @@ class OptionGroupOption(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the option (e.g., 13.1.0.0).
+        Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         """
         return pulumi.get(self, "version")
 
@@ -988,7 +988,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="vpcSecurityGroupMemberships")
     def vpc_security_group_memberships(self) -> Optional[Sequence[str]]:
         """
-        A list of VPC Security Groups for which the option is enabled.
+        List of VPC Security Groups for which the option is enabled.
         """
         return pulumi.get(self, "vpc_security_group_memberships")
 
@@ -999,8 +999,8 @@ class OptionGroupOptionOptionSetting(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The Name of the setting.
-        :param str value: The Value of the setting.
+        :param str name: Name of the setting.
+        :param str value: Value of the setting.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1009,7 +1009,7 @@ class OptionGroupOptionOptionSetting(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Name of the setting.
+        Name of the setting.
         """
         return pulumi.get(self, "name")
 
@@ -1017,7 +1017,7 @@ class OptionGroupOptionOptionSetting(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The Value of the setting.
+        Value of the setting.
         """
         return pulumi.get(self, "value")
 

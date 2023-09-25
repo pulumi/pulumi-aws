@@ -10,9 +10,97 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'InstanceVerifiedAccessTrustProviderArgs',
     'TrustProviderDeviceOptionsArgs',
     'TrustProviderOidcOptionsArgs',
 ]
+
+@pulumi.input_type
+class InstanceVerifiedAccessTrustProviderArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 user_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 verified_access_trust_provider_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: A description for the AWS Verified Access Instance.
+        :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider.
+        :param pulumi.Input[str] trust_provider_type: The type of trust provider (user- or device-based).
+        :param pulumi.Input[str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[str] verified_access_trust_provider_id: The ID of the trust provider.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_trust_provider_type is not None:
+            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+        if trust_provider_type is not None:
+            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+        if user_trust_provider_type is not None:
+            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
+        if verified_access_trust_provider_id is not None:
+            pulumi.set(__self__, "verified_access_trust_provider_id", verified_access_trust_provider_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the AWS Verified Access Instance.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="deviceTrustProviderType")
+    def device_trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of device-based trust provider.
+        """
+        return pulumi.get(self, "device_trust_provider_type")
+
+    @device_trust_provider_type.setter
+    def device_trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="trustProviderType")
+    def trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of trust provider (user- or device-based).
+        """
+        return pulumi.get(self, "trust_provider_type")
+
+    @trust_provider_type.setter
+    def trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="userTrustProviderType")
+    def user_trust_provider_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of user-based trust provider.
+        """
+        return pulumi.get(self, "user_trust_provider_type")
+
+    @user_trust_provider_type.setter
+    def user_trust_provider_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_trust_provider_type", value)
+
+    @property
+    @pulumi.getter(name="verifiedAccessTrustProviderId")
+    def verified_access_trust_provider_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the trust provider.
+        """
+        return pulumi.get(self, "verified_access_trust_provider_id")
+
+    @verified_access_trust_provider_id.setter
+    def verified_access_trust_provider_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verified_access_trust_provider_id", value)
+
 
 @pulumi.input_type
 class TrustProviderDeviceOptionsArgs:

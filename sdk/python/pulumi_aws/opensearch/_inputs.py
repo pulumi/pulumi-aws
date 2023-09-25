@@ -34,6 +34,7 @@ __all__ = [
     'DomainVpcOptionsArgs',
     'OutboundConnectionLocalDomainInfoArgs',
     'OutboundConnectionRemoteDomainInfoArgs',
+    'PackagePackageSourceArgs',
     'ServerlessCollectionTimeoutsArgs',
     'ServerlessSecurityConfigSamlOptionsArgs',
     'ServerlessVpcEndpointTimeoutsArgs',
@@ -1370,6 +1371,43 @@ class OutboundConnectionRemoteDomainInfoArgs:
     @region.setter
     def region(self, value: pulumi.Input[str]):
         pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class PackagePackageSourceArgs:
+    def __init__(__self__, *,
+                 s3_bucket_name: pulumi.Input[str],
+                 s3_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] s3_bucket_name: The name of the Amazon S3 bucket containing the package.
+        :param pulumi.Input[str] s3_key: Key (file name) of the package.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Amazon S3 bucket containing the package.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[str]:
+        """
+        Key (file name) of the package.
+        """
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_key", value)
 
 
 @pulumi.input_type

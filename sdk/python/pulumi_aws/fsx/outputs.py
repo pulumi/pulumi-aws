@@ -45,6 +45,20 @@ __all__ = [
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemDiskIopsConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
+    'GetOntapFileSystemDiskIopsConfigurationResult',
+    'GetOntapFileSystemEndpointResult',
+    'GetOntapFileSystemEndpointInterclusterResult',
+    'GetOntapFileSystemEndpointManagementResult',
+    'GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult',
+    'GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult',
+    'GetOntapStorageVirtualMachineEndpointResult',
+    'GetOntapStorageVirtualMachineEndpointIscsiResult',
+    'GetOntapStorageVirtualMachineEndpointManagementResult',
+    'GetOntapStorageVirtualMachineEndpointNfResult',
+    'GetOntapStorageVirtualMachineEndpointSmbResult',
+    'GetOntapStorageVirtualMachineFilterResult',
+    'GetOntapStorageVirtualMachineLifecycleTransitionReasonResult',
+    'GetOntapStorageVirtualMachinesFilterResult',
     'GetOpenZfsSnapshotFilterResult',
     'GetWindowsFileSystemAuditLogConfigurationResult',
     'GetWindowsFileSystemDiskIopsConfigurationResult',
@@ -1780,6 +1794,400 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class GetOntapFileSystemDiskIopsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 iops: int,
+                 mode: str):
+        """
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+        """
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class GetOntapFileSystemEndpointResult(dict):
+    def __init__(__self__, *,
+                 interclusters: Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult'],
+                 managements: Sequence['outputs.GetOntapFileSystemEndpointManagementResult']):
+        """
+        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+        """
+        pulumi.set(__self__, "interclusters", interclusters)
+        pulumi.set(__self__, "managements", managements)
+
+    @property
+    @pulumi.getter
+    def interclusters(self) -> Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult']:
+        """
+        A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+        """
+        return pulumi.get(self, "interclusters")
+
+    @property
+    @pulumi.getter
+    def managements(self) -> Sequence['outputs.GetOntapFileSystemEndpointManagementResult']:
+        """
+        A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+        """
+        return pulumi.get(self, "managements")
+
+
+@pulumi.output_type
+class GetOntapFileSystemEndpointInterclusterResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        """
+        :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        """
+        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapFileSystemEndpointManagementResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        """
+        :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        """
+        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
+    def __init__(__self__, *,
+                 netbios_name: str,
+                 self_managed_active_directory_configurations: Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult']):
+        """
+        :param str netbios_name: The NetBIOS name of the AD computer object to which the SVM is joined.
+        """
+        pulumi.set(__self__, "netbios_name", netbios_name)
+        pulumi.set(__self__, "self_managed_active_directory_configurations", self_managed_active_directory_configurations)
+
+    @property
+    @pulumi.getter(name="netbiosName")
+    def netbios_name(self) -> str:
+        """
+        The NetBIOS name of the AD computer object to which the SVM is joined.
+        """
+        return pulumi.get(self, "netbios_name")
+
+    @property
+    @pulumi.getter(name="selfManagedActiveDirectoryConfigurations")
+    def self_managed_active_directory_configurations(self) -> Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult']:
+        return pulumi.get(self, "self_managed_active_directory_configurations")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult(dict):
+    def __init__(__self__, *,
+                 dns_ips: Sequence[str],
+                 domain_name: str,
+                 file_system_administrators_group: str,
+                 organizational_unit_distinguished_name: str,
+                 username: str):
+        """
+        :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        :param str domain_name: The fully qualified domain name of the self-managed AD directory.
+        :param str file_system_administrators_group: The name of the domain group whose members have administrative privileges for the FSx file system.
+        :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        :param str username: The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+        """
+        pulumi.set(__self__, "dns_ips", dns_ips)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+        pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Sequence[str]:
+        """
+        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        """
+        return pulumi.get(self, "dns_ips")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The fully qualified domain name of the self-managed AD directory.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="fileSystemAdministratorsGroup")
+    def file_system_administrators_group(self) -> str:
+        """
+        The name of the domain group whose members have administrative privileges for the FSx file system.
+        """
+        return pulumi.get(self, "file_system_administrators_group")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> str:
+        """
+        The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineEndpointResult(dict):
+    def __init__(__self__, *,
+                 iscsis: Sequence['outputs.GetOntapStorageVirtualMachineEndpointIscsiResult'],
+                 managements: Sequence['outputs.GetOntapStorageVirtualMachineEndpointManagementResult'],
+                 nfs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult'],
+                 smbs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult']):
+        """
+        :param Sequence['GetOntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        """
+        pulumi.set(__self__, "iscsis", iscsis)
+        pulumi.set(__self__, "managements", managements)
+        pulumi.set(__self__, "nfs", nfs)
+        pulumi.set(__self__, "smbs", smbs)
+
+    @property
+    @pulumi.getter
+    def iscsis(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointIscsiResult']:
+        return pulumi.get(self, "iscsis")
+
+    @property
+    @pulumi.getter
+    def managements(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointManagementResult']:
+        """
+        An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        """
+        return pulumi.get(self, "managements")
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult']:
+        """
+        An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        """
+        return pulumi.get(self, "nfs")
+
+    @property
+    @pulumi.getter
+    def smbs(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult']:
+        """
+        An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        """
+        return pulumi.get(self, "smbs")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineEndpointIscsiResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineEndpointManagementResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineEndpointNfResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineEndpointSmbResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 ip_addresses: Sequence[str]):
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
+    def __init__(__self__, *,
+                 message: str):
+        """
+        :param str message: A detailed message.
+        """
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        A detailed message.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class GetOntapStorageVirtualMachinesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

@@ -259,7 +259,7 @@ type Cluster struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
-	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
+	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -921,8 +921,8 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
-func (o ClusterOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
+func (o ClusterOutput) TransitEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

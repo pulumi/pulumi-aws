@@ -29891,6 +29891,140 @@ export namespace fsx {
         storageCapacity: number;
     }
 
+    export interface GetOntapFileSystemDiskIopsConfiguration {
+        /**
+         * The total number of SSD IOPS provisioned for the file system.
+         */
+        iops: number;
+        /**
+         * Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+         */
+        mode: string;
+    }
+
+    export interface GetOntapFileSystemEndpoint {
+        /**
+         * A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+         */
+        interclusters: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
+        /**
+         * A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+         */
+        managements: outputs.fsx.GetOntapFileSystemEndpointManagement[];
+    }
+
+    export interface GetOntapFileSystemEndpointIntercluster {
+        /**
+         * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+         */
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapFileSystemEndpointManagement {
+        /**
+         * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+         */
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
+        /**
+         * The NetBIOS name of the AD computer object to which the SVM is joined.
+         */
+        netbiosName: string;
+        selfManagedActiveDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration[];
+    }
+
+    export interface GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+        /**
+         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         */
+        dnsIps: string[];
+        /**
+         * The fully qualified domain name of the self-managed AD directory.
+         */
+        domainName: string;
+        /**
+         * The name of the domain group whose members have administrative privileges for the FSx file system.
+         */
+        fileSystemAdministratorsGroup: string;
+        /**
+         * The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+         */
+        organizationalUnitDistinguishedName: string;
+        /**
+         * The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+         */
+        username: string;
+    }
+
+    export interface GetOntapStorageVirtualMachineEndpoint {
+        iscsis: outputs.fsx.GetOntapStorageVirtualMachineEndpointIscsi[];
+        /**
+         * An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+         */
+        managements: outputs.fsx.GetOntapStorageVirtualMachineEndpointManagement[];
+        /**
+         * An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+         */
+        nfs: outputs.fsx.GetOntapStorageVirtualMachineEndpointNf[];
+        /**
+         * An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+         */
+        smbs: outputs.fsx.GetOntapStorageVirtualMachineEndpointSmb[];
+    }
+
+    export interface GetOntapStorageVirtualMachineEndpointIscsi {
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineEndpointManagement {
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineEndpointNf {
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineEndpointSmb {
+        dnsName: string;
+        ipAddresses: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineLifecycleTransitionReason {
+        /**
+         * A detailed message.
+         */
+        message: string;
+    }
+
+    export interface GetOntapStorageVirtualMachinesFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetOpenZfsSnapshotFilter {
         /**
          * Name of the snapshot.
@@ -45933,6 +46067,17 @@ export namespace opensearch {
         region: string;
     }
 
+    export interface PackagePackageSource {
+        /**
+         * The name of the Amazon S3 bucket containing the package.
+         */
+        s3BucketName: string;
+        /**
+         * Key (file name) of the package.
+         */
+        s3Key: string;
+    }
+
     export interface ServerlessCollectionTimeouts {
         create?: string;
         delete?: string;
@@ -50397,38 +50542,38 @@ export namespace rds {
 
     export interface OptionGroupOption {
         /**
-         * A list of DB Security Groups for which the option is enabled.
+         * List of DB Security Groups for which the option is enabled.
          */
         dbSecurityGroupMemberships?: string[];
         /**
-         * The Name of the Option (e.g., MEMCACHED).
+         * Name of the option (e.g., MEMCACHED).
          */
         optionName: string;
         /**
-         * A list of option settings to apply.
+         * List of option settings to apply.
          */
         optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
         /**
-         * The Port number when connecting to the Option (e.g., 11211).
+         * Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
          */
         port?: number;
         /**
-         * The version of the option (e.g., 13.1.0.0).
+         * Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
          */
         version?: string;
         /**
-         * A list of VPC Security Groups for which the option is enabled.
+         * List of VPC Security Groups for which the option is enabled.
          */
         vpcSecurityGroupMemberships?: string[];
     }
 
     export interface OptionGroupOptionOptionSetting {
         /**
-         * The Name of the setting.
+         * Name of the setting.
          */
         name: string;
         /**
-         * The Value of the setting.
+         * Value of the setting.
          */
         value: string;
     }
@@ -53372,6 +53517,10 @@ export namespace s3control {
          */
         bucket: string;
         /**
+         * The AWS account ID that owns the bucket.
+         */
+        bucketAccountId: string;
+        /**
          * The name of the region.
          */
         region: string;
@@ -53392,6 +53541,8 @@ export namespace s3control {
 
     export interface MultiRegionAccessPointDetailsRegion {
         bucket: string;
+        bucketAccountId: string;
+        region: string;
     }
 
     export interface MultiRegionAccessPointPolicyDetails {
@@ -58409,6 +58560,12 @@ export namespace sfn {
 }
 
 export namespace shield {
+    export interface ApplicationLayerAutomaticResponseTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
+    }
+
     export interface DrtAccessLogBucketAssociationTimeouts {
         create?: string;
         delete?: string;
@@ -59641,6 +59798,17 @@ export namespace transfer {
         signingAlgorithm: string;
     }
 
+    export interface ConnectorSftpConfig {
+        /**
+         * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         */
+        trustedHostKeys?: string[];
+        /**
+         * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         */
+        userSecretId?: string;
+    }
+
     export interface ServerEndpointDetails {
         /**
          * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
@@ -60133,6 +60301,29 @@ export namespace transfer {
 }
 
 export namespace verifiedaccess {
+    export interface InstanceVerifiedAccessTrustProvider {
+        /**
+         * A description for the AWS Verified Access Instance.
+         */
+        description: string;
+        /**
+         * The type of device-based trust provider.
+         */
+        deviceTrustProviderType: string;
+        /**
+         * The type of trust provider (user- or device-based).
+         */
+        trustProviderType: string;
+        /**
+         * The type of user-based trust provider.
+         */
+        userTrustProviderType: string;
+        /**
+         * The ID of the trust provider.
+         */
+        verifiedAccessTrustProviderId: string;
+    }
+
     export interface TrustProviderDeviceOptions {
         tenantId?: string;
     }

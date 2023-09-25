@@ -79,6 +79,21 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    @Import(name="checksumAlgorithm")
+    private @Nullable Output<String> checksumAlgorithm;
+
+    /**
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    public Optional<Output<String>> checksumAlgorithm() {
+        return Optional.ofNullable(this.checksumAlgorithm);
+    }
+
+    /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      * 
      */
@@ -397,6 +412,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         this.bucket = $.bucket;
         this.bucketKeyEnabled = $.bucketKeyEnabled;
         this.cacheControl = $.cacheControl;
+        this.checksumAlgorithm = $.checksumAlgorithm;
         this.content = $.content;
         this.contentBase64 = $.contentBase64;
         this.contentDisposition = $.contentDisposition;
@@ -519,6 +535,27 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
          */
         public Builder cacheControl(String cacheControl) {
             return cacheControl(Output.of(cacheControl));
+        }
+
+        /**
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumAlgorithm(@Nullable Output<String> checksumAlgorithm) {
+            $.checksumAlgorithm = checksumAlgorithm;
+            return this;
+        }
+
+        /**
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumAlgorithm(String checksumAlgorithm) {
+            return checksumAlgorithm(Output.of(checksumAlgorithm));
         }
 
         /**

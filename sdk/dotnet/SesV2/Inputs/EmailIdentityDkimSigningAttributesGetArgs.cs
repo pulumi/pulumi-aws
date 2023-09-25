@@ -18,13 +18,23 @@ namespace Pulumi.Aws.SesV2.Inputs
         [Input("currentSigningKeyLength")]
         public Input<string>? CurrentSigningKeyLength { get; set; }
 
+        [Input("domainSigningPrivateKey")]
+        private Input<string>? _domainSigningPrivateKey;
+
         /// <summary>
         /// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
         /// 
         /// &gt; **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         /// </summary>
-        [Input("domainSigningPrivateKey")]
-        public Input<string>? DomainSigningPrivateKey { get; set; }
+        public Input<string>? DomainSigningPrivateKey
+        {
+            get => _domainSigningPrivateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _domainSigningPrivateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.

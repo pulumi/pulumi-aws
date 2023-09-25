@@ -101,14 +101,14 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+     * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<BrokerConfigurationArgs> configuration;
 
     /**
-     * @return Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+     * @return Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
     public Optional<Output<BrokerConfigurationArgs>> configuration() {
@@ -540,7 +540,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+         * @param configuration Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+         * @param configuration Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
          * 
          * @return builder
          * 

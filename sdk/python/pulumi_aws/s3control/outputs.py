@@ -365,14 +365,47 @@ class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
 
 @pulumi.output_type
 class MultiRegionAccessPointDetailsRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccountId":
+            suggest = "bucket_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiRegionAccessPointDetailsRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiRegionAccessPointDetailsRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiRegionAccessPointDetailsRegion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 bucket: str):
+                 bucket: str,
+                 bucket_account_id: Optional[str] = None,
+                 region: Optional[str] = None):
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_account_id is not None:
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1592,12 +1625,15 @@ class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
 class GetMultiRegionAccessPointRegionResult(dict):
     def __init__(__self__, *,
                  bucket: str,
+                 bucket_account_id: str,
                  region: str):
         """
         :param str bucket: The name of the bucket.
+        :param str bucket_account_id: The AWS account ID that owns the bucket.
         :param str region: The name of the region.
         """
         pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         pulumi.set(__self__, "region", region)
 
     @property
@@ -1607,6 +1643,14 @@ class GetMultiRegionAccessPointRegionResult(dict):
         The name of the bucket.
         """
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> str:
+        """
+        The AWS account ID that owns the bucket.
+        """
+        return pulumi.get(self, "bucket_account_id")
 
     @property
     @pulumi.getter

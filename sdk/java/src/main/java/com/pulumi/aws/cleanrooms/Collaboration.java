@@ -72,36 +72,42 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_collaboration` using the `id`. For exampleterraform import {
+ * 
+ *  to = aws_cleanrooms_collaboration.collaboration
+ * 
+ *  id = &#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34; } Using `TODO import`, import `aws_cleanrooms_collaboration` using the `id`. For exampleconsole % TODO import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * 
  */
 @ResourceType(type="aws:cleanrooms/collaboration:Collaboration")
 public class Collaboration extends com.pulumi.resources.CustomResource {
     /**
-     * The arn of the collaboration
+     * The arn of the collaboration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The arn of the collaboration
+     * @return The arn of the collaboration.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date and time the collaboration was created
-     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be
-     *   ound here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status)
+     * The date and time the collaboration was created.
+     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return The date and time the collaboration was created
-     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be
-     *   ound here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status)
+     * @return The date and time the collaboration was created.
+     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
     public Output<String> createTime() {
@@ -122,26 +128,21 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
         return this.creatorDisplayName;
     }
     /**
-     * The list of member abilities for the creator of the collaboration.  Valid v
-     * lues [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-re
-     * uest-creatorMemberAbilities)
+     * The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     @Export(name="creatorMemberAbilities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> creatorMemberAbilities;
 
     /**
-     * @return The list of member abilities for the creator of the collaboration.  Valid v
-     * lues [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-re
-     * uest-creatorMemberAbilities)
+     * @return The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     public Output<List<String>> creatorMemberAbilities() {
         return this.creatorMemberAbilities;
     }
     /**
-     * a collection of settings which determine how the [c3r client](https://docs
-     * aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration
+     * a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
      * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
      *   field.
      * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
@@ -156,8 +157,7 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ CollaborationDataEncryptionMetadata> dataEncryptionMetadata;
 
     /**
-     * @return a collection of settings which determine how the [c3r client](https://docs
-     * aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration
+     * @return a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
      * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
      *   field.
      * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
@@ -187,10 +187,9 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     }
     /**
      * Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbiliti
-     *   s
+     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
+     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
+     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     @Export(name="members", refs={List.class,CollaborationMember.class}, tree="[0,1]")
@@ -198,10 +197,9 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbiliti
-     *   s
+     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
+     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
+     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     public Output<Optional<List<CollaborationMember>>> members() {
@@ -222,18 +220,16 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Determines if members of the collaboration can enable query logs within their own
-     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr
-     * ateCollaboration-request-queryLogStatus).
+     * Determines if members of the collaboration can enable query logs within their own.
+     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      */
     @Export(name="queryLogStatus", refs={String.class}, tree="[0]")
     private Output<String> queryLogStatus;
 
     /**
-     * @return Determines if members of the collaboration can enable query logs within their own
-     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr
-     * ateCollaboration-request-queryLogStatus).
+     * @return Determines if members of the collaboration can enable query logs within their own.
+     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      */
     public Output<String> queryLogStatus() {

@@ -15,6 +15,12 @@ namespace Pulumi.Aws.S3Control.Inputs
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        [Input("bucketAccountId")]
+        public Input<string>? BucketAccountId { get; set; }
+
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MultiRegionAccessPointDetailsRegionArgs()
         {
         }

@@ -52,6 +52,38 @@ import (
 //	}
 //
 // ```
+// ### SFTP Connector
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
+//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
+//				SftpConfig: &transfer.ConnectorSftpConfigArgs{
+//					TrustedHostKeys: pulumi.StringArray{
+//						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
+//					},
+//					UserSecretId: pulumi.Any(aws_secretsmanager_secret.Example.Id),
+//				},
+//				Url: pulumi.String("sftp://test.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -69,17 +101,19 @@ type Connector struct {
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
 	// The ARN of the connector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2ConfigOutput `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile.
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	As2Config ConnectorAs2ConfigPtrOutput `pulumi:"as2Config"`
+	// The unique identifier for the AS2 profile or SFTP Profile.
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	SftpConfig ConnectorSftpConfigPtrOutput `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The URL of the partners AS2 endpoint.
+	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -92,9 +126,6 @@ func NewConnector(ctx *pulumi.Context,
 
 	if args.AccessRole == nil {
 		return nil, errors.New("invalid value for required argument 'AccessRole'")
-	}
-	if args.As2Config == nil {
-		return nil, errors.New("invalid value for required argument 'As2Config'")
 	}
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
@@ -130,17 +161,19 @@ type connectorState struct {
 	AccessRole *string `pulumi:"accessRole"`
 	// The ARN of the connector.
 	Arn *string `pulumi:"arn"`
-	// The parameters to configure for the connector object. Fields documented below.
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile.
+	// The unique identifier for the AS2 profile or SFTP Profile.
 	ConnectorId *string `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The URL of the partners AS2 endpoint.
+	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url *string `pulumi:"url"`
 }
 
@@ -149,17 +182,19 @@ type ConnectorState struct {
 	AccessRole pulumi.StringPtrInput
 	// The ARN of the connector.
 	Arn pulumi.StringPtrInput
-	// The parameters to configure for the connector object. Fields documented below.
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigPtrInput
-	// The unique identifier for the AS2 profile.
+	// The unique identifier for the AS2 profile or SFTP Profile.
 	ConnectorId pulumi.StringPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// The URL of the partners AS2 endpoint.
+	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringPtrInput
 }
 
@@ -170,13 +205,15 @@ func (ConnectorState) ElementType() reflect.Type {
 type connectorArgs struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole string `pulumi:"accessRole"`
-	// The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2Config `pulumi:"as2Config"`
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	SftpConfig *ConnectorSftpConfig `pulumi:"sftpConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The URL of the partners AS2 endpoint.
+	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url string `pulumi:"url"`
 }
 
@@ -184,13 +221,15 @@ type connectorArgs struct {
 type ConnectorArgs struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringInput
-	// The parameters to configure for the connector object. Fields documented below.
-	As2Config ConnectorAs2ConfigInput
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	As2Config ConnectorAs2ConfigPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
+	// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+	SftpConfig ConnectorSftpConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The URL of the partners AS2 endpoint.
+	// The URL of the partners AS2 endpoint or SFTP endpoint.
 	Url pulumi.StringInput
 }
 
@@ -315,12 +354,12 @@ func (o ConnectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The parameters to configure for the connector object. Fields documented below.
-func (o ConnectorOutput) As2Config() ConnectorAs2ConfigOutput {
-	return o.ApplyT(func(v *Connector) ConnectorAs2ConfigOutput { return v.As2Config }).(ConnectorAs2ConfigOutput)
+// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+func (o ConnectorOutput) As2Config() ConnectorAs2ConfigPtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorAs2ConfigPtrOutput { return v.As2Config }).(ConnectorAs2ConfigPtrOutput)
 }
 
-// The unique identifier for the AS2 profile.
+// The unique identifier for the AS2 profile or SFTP Profile.
 func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }
@@ -328,6 +367,11 @@ func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 // The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 func (o ConnectorOutput) LoggingRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.LoggingRole }).(pulumi.StringPtrOutput)
+}
+
+// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+func (o ConnectorOutput) SftpConfig() ConnectorSftpConfigPtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorSftpConfigPtrOutput { return v.SftpConfig }).(ConnectorSftpConfigPtrOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -340,7 +384,7 @@ func (o ConnectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The URL of the partners AS2 endpoint.
+// The URL of the partners AS2 endpoint or SFTP endpoint.
 func (o ConnectorOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

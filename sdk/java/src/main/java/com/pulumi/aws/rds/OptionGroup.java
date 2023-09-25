@@ -88,7 +88,9 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import DB Option groups using the `name`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
+ * 
+ * Using `TODO import`, import DB option groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -98,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/optionGroup:OptionGroup")
 public class OptionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the db option group.
+     * ARN of the DB option group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the db option group.
+     * @return ARN of the DB option group.
      * 
      */
     public Output<String> arn() {
@@ -140,14 +142,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.majorEngineVersion;
     }
     /**
-     * The Name of the setting.
+     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Name of the setting.
+     * @return Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
     public Output<String> name() {
@@ -168,49 +170,49 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the option group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Export(name="optionGroupDescription", refs={String.class}, tree="[0]")
     private Output<String> optionGroupDescription;
 
     /**
-     * @return The description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the option group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Output<String> optionGroupDescription() {
         return this.optionGroupDescription;
     }
     /**
-     * A list of Options to apply.
+     * List of options to apply.
      * 
      */
     @Export(name="options", refs={List.class,OptionGroupOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptionGroupOption>> options;
 
     /**
-     * @return A list of Options to apply.
+     * @return List of options to apply.
      * 
      */
     public Output<Optional<List<OptionGroupOption>>> options() {
         return Codegen.optional(this.options);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -221,7 +223,7 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

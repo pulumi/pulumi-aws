@@ -14,27 +14,27 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class OptionGroupOption
     {
         /// <summary>
-        /// A list of DB Security Groups for which the option is enabled.
+        /// List of DB Security Groups for which the option is enabled.
         /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroupMemberships;
         /// <summary>
-        /// The Name of the Option (e.g., MEMCACHED).
+        /// Name of the option (e.g., MEMCACHED).
         /// </summary>
         public readonly string OptionName;
         /// <summary>
-        /// A list of option settings to apply.
+        /// List of option settings to apply.
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionOptionSetting> OptionSettings;
         /// <summary>
-        /// The Port number when connecting to the Option (e.g., 11211).
+        /// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The version of the option (e.g., 13.1.0.0).
+        /// Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         /// </summary>
         public readonly string? Version;
         /// <summary>
-        /// A list of VPC Security Groups for which the option is enabled.
+        /// List of VPC Security Groups for which the option is enabled.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupMemberships;
 

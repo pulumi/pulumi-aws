@@ -14,6 +14,163 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type InstanceVerifiedAccessTrustProvider struct {
+	// A description for the AWS Verified Access Instance.
+	Description *string `pulumi:"description"`
+	// The type of device-based trust provider.
+	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// The type of trust provider (user- or device-based).
+	TrustProviderType *string `pulumi:"trustProviderType"`
+	// The type of user-based trust provider.
+	UserTrustProviderType *string `pulumi:"userTrustProviderType"`
+	// The ID of the trust provider.
+	VerifiedAccessTrustProviderId *string `pulumi:"verifiedAccessTrustProviderId"`
+}
+
+// InstanceVerifiedAccessTrustProviderInput is an input type that accepts InstanceVerifiedAccessTrustProviderArgs and InstanceVerifiedAccessTrustProviderOutput values.
+// You can construct a concrete instance of `InstanceVerifiedAccessTrustProviderInput` via:
+//
+//	InstanceVerifiedAccessTrustProviderArgs{...}
+type InstanceVerifiedAccessTrustProviderInput interface {
+	pulumi.Input
+
+	ToInstanceVerifiedAccessTrustProviderOutput() InstanceVerifiedAccessTrustProviderOutput
+	ToInstanceVerifiedAccessTrustProviderOutputWithContext(context.Context) InstanceVerifiedAccessTrustProviderOutput
+}
+
+type InstanceVerifiedAccessTrustProviderArgs struct {
+	// A description for the AWS Verified Access Instance.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The type of device-based trust provider.
+	DeviceTrustProviderType pulumi.StringPtrInput `pulumi:"deviceTrustProviderType"`
+	// The type of trust provider (user- or device-based).
+	TrustProviderType pulumi.StringPtrInput `pulumi:"trustProviderType"`
+	// The type of user-based trust provider.
+	UserTrustProviderType pulumi.StringPtrInput `pulumi:"userTrustProviderType"`
+	// The ID of the trust provider.
+	VerifiedAccessTrustProviderId pulumi.StringPtrInput `pulumi:"verifiedAccessTrustProviderId"`
+}
+
+func (InstanceVerifiedAccessTrustProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (i InstanceVerifiedAccessTrustProviderArgs) ToInstanceVerifiedAccessTrustProviderOutput() InstanceVerifiedAccessTrustProviderOutput {
+	return i.ToInstanceVerifiedAccessTrustProviderOutputWithContext(context.Background())
+}
+
+func (i InstanceVerifiedAccessTrustProviderArgs) ToInstanceVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) InstanceVerifiedAccessTrustProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVerifiedAccessTrustProviderOutput)
+}
+
+func (i InstanceVerifiedAccessTrustProviderArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceVerifiedAccessTrustProvider] {
+	return pulumix.Output[InstanceVerifiedAccessTrustProvider]{
+		OutputState: i.ToInstanceVerifiedAccessTrustProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// InstanceVerifiedAccessTrustProviderArrayInput is an input type that accepts InstanceVerifiedAccessTrustProviderArray and InstanceVerifiedAccessTrustProviderArrayOutput values.
+// You can construct a concrete instance of `InstanceVerifiedAccessTrustProviderArrayInput` via:
+//
+//	InstanceVerifiedAccessTrustProviderArray{ InstanceVerifiedAccessTrustProviderArgs{...} }
+type InstanceVerifiedAccessTrustProviderArrayInput interface {
+	pulumi.Input
+
+	ToInstanceVerifiedAccessTrustProviderArrayOutput() InstanceVerifiedAccessTrustProviderArrayOutput
+	ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(context.Context) InstanceVerifiedAccessTrustProviderArrayOutput
+}
+
+type InstanceVerifiedAccessTrustProviderArray []InstanceVerifiedAccessTrustProviderInput
+
+func (InstanceVerifiedAccessTrustProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (i InstanceVerifiedAccessTrustProviderArray) ToInstanceVerifiedAccessTrustProviderArrayOutput() InstanceVerifiedAccessTrustProviderArrayOutput {
+	return i.ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceVerifiedAccessTrustProviderArray) ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx context.Context) InstanceVerifiedAccessTrustProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVerifiedAccessTrustProviderArrayOutput)
+}
+
+func (i InstanceVerifiedAccessTrustProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceVerifiedAccessTrustProvider] {
+	return pulumix.Output[[]InstanceVerifiedAccessTrustProvider]{
+		OutputState: i.ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceVerifiedAccessTrustProviderOutput struct{ *pulumi.OutputState }
+
+func (InstanceVerifiedAccessTrustProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrustProviderOutput() InstanceVerifiedAccessTrustProviderOutput {
+	return o
+}
+
+func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) InstanceVerifiedAccessTrustProviderOutput {
+	return o
+}
+
+func (o InstanceVerifiedAccessTrustProviderOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceVerifiedAccessTrustProvider] {
+	return pulumix.Output[InstanceVerifiedAccessTrustProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A description for the AWS Verified Access Instance.
+func (o InstanceVerifiedAccessTrustProviderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The type of device-based trust provider.
+func (o InstanceVerifiedAccessTrustProviderOutput) DeviceTrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.DeviceTrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The type of trust provider (user- or device-based).
+func (o InstanceVerifiedAccessTrustProviderOutput) TrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.TrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The type of user-based trust provider.
+func (o InstanceVerifiedAccessTrustProviderOutput) UserTrustProviderType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.UserTrustProviderType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the trust provider.
+func (o InstanceVerifiedAccessTrustProviderOutput) VerifiedAccessTrustProviderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceVerifiedAccessTrustProvider) *string { return v.VerifiedAccessTrustProviderId }).(pulumi.StringPtrOutput)
+}
+
+type InstanceVerifiedAccessTrustProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceVerifiedAccessTrustProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVerifiedAccessTrustProvider)(nil)).Elem()
+}
+
+func (o InstanceVerifiedAccessTrustProviderArrayOutput) ToInstanceVerifiedAccessTrustProviderArrayOutput() InstanceVerifiedAccessTrustProviderArrayOutput {
+	return o
+}
+
+func (o InstanceVerifiedAccessTrustProviderArrayOutput) ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx context.Context) InstanceVerifiedAccessTrustProviderArrayOutput {
+	return o
+}
+
+func (o InstanceVerifiedAccessTrustProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceVerifiedAccessTrustProvider] {
+	return pulumix.Output[[]InstanceVerifiedAccessTrustProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceVerifiedAccessTrustProviderArrayOutput) Index(i pulumi.IntInput) InstanceVerifiedAccessTrustProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceVerifiedAccessTrustProvider {
+		return vs[0].([]InstanceVerifiedAccessTrustProvider)[vs[1].(int)]
+	}).(InstanceVerifiedAccessTrustProviderOutput)
+}
+
 type TrustProviderDeviceOptions struct {
 	TenantId *string `pulumi:"tenantId"`
 }
@@ -419,10 +576,14 @@ func (o TrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVerifiedAccessTrustProviderInput)(nil)).Elem(), InstanceVerifiedAccessTrustProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVerifiedAccessTrustProviderArrayInput)(nil)).Elem(), InstanceVerifiedAccessTrustProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderDeviceOptionsInput)(nil)).Elem(), TrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderDeviceOptionsPtrInput)(nil)).Elem(), TrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsPtrInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
+	pulumi.RegisterOutputType(InstanceVerifiedAccessTrustProviderOutput{})
+	pulumi.RegisterOutputType(InstanceVerifiedAccessTrustProviderArrayOutput{})
 	pulumi.RegisterOutputType(TrustProviderDeviceOptionsOutput{})
 	pulumi.RegisterOutputType(TrustProviderDeviceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TrustProviderOidcOptionsOutput{})

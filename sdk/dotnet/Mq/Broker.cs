@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// &gt; For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
-    /// &gt; **NOTE:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, audit logging, or `configuration` blocks. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups. Also, Amazon MQ does not return information about RabbitMQ users so drift detection is not possible.
+    /// &gt; **NOTE:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, or audit logging. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups. Also, Amazon MQ does not return information about RabbitMQ users so drift detection is not possible.
     /// 
     /// &gt; **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `apply_immediately` flag to instruct the service to apply the change immediately (see documentation below). Using `apply_immediately` can result in a brief downtime as the broker reboots.
     /// 
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> BrokerName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.BrokerConfiguration> Configuration { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? BrokerName { get; set; }
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationArgs>? Configuration { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? BrokerName { get; set; }
 
         /// <summary>
-        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
+        /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationGetArgs>? Configuration { get; set; }

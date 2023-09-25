@@ -58,6 +58,7 @@ export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getObject:getObject", {
         "bucket": args.bucket,
+        "checksumMode": args.checksumMode,
         "key": args.key,
         "range": args.range,
         "tags": args.tags,
@@ -73,6 +74,10 @@ export interface GetObjectArgs {
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     bucket: string;
+    /**
+     * To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     */
+    checksumMode?: string;
     /**
      * Full path to the object inside the bucket
      */
@@ -105,6 +110,23 @@ export interface GetObjectResult {
      * Caching behavior along the request/reply chain.
      */
     readonly cacheControl: string;
+    /**
+     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     */
+    readonly checksumCrc32: string;
+    /**
+     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     */
+    readonly checksumCrc32c: string;
+    readonly checksumMode?: string;
+    /**
+     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     */
+    readonly checksumSha1: string;
+    /**
+     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     */
+    readonly checksumSha256: string;
     /**
      * Presentational information for the object.
      */
@@ -249,6 +271,10 @@ export interface GetObjectOutputArgs {
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
     bucket: pulumi.Input<string>;
+    /**
+     * To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     */
+    checksumMode?: pulumi.Input<string>;
     /**
      * Full path to the object inside the bucket
      */

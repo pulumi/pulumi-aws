@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InboundConnectionAccepter{}
 	case "aws:opensearch/outboundConnection:OutboundConnection":
 		r = &OutboundConnection{}
+	case "aws:opensearch/package:Package":
+		r = &Package{}
+	case "aws:opensearch/packageAssociation:PackageAssociation":
+		r = &PackageAssociation{}
 	case "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy":
 		r = &ServerlessAccessPolicy{}
 	case "aws:opensearch/serverlessCollection:ServerlessCollection":
@@ -79,6 +83,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/outboundConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/package",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/packageAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
