@@ -2868,6 +2868,20 @@ func Provider() *tfbridge.ProviderInfo {
 					}
 					return config, nil
 				},
+				TransformFromState: func(ctx context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
+					if _, ok := state["dbName"]; ok {
+						return state, nil
+					}
+					name, ok := state["name"]
+					if !ok {
+						// It's seems like inputs are not in a valid state
+						return state, nil
+					}
+					tfbridge.GetLogger(ctx).Debug(`migrating from "name" to "dbName"`)
+					state["dbName"] = name
+					delete(state, "name")
+					return state, nil
+				},
 			},
 			"aws_db_option_group": {
 				Tok: awsResource(rdsMod, "OptionGroup"),
