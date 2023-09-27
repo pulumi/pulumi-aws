@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
 export { TrustProviderArgs, TrustProviderState } from "./trustProvider";
 export type TrustProvider = import("./trustProvider").TrustProvider;
 export const TrustProvider: typeof import("./trustProvider").TrustProvider = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:verifiedaccess/instance:Instance":
+                return new Instance(name, <any>undefined, { urn })
             case "aws:verifiedaccess/trustProvider:TrustProvider":
                 return new TrustProvider(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/trustProvider", _module)

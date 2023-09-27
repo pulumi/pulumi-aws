@@ -20,6 +20,21 @@ export type FileCache = import("./fileCache").FileCache;
 export const FileCache: typeof import("./fileCache").FileCache = null as any;
 utilities.lazyLoad(exports, ["FileCache"], () => require("./fileCache"));
 
+export { GetOntapFileSystemArgs, GetOntapFileSystemResult, GetOntapFileSystemOutputArgs } from "./getOntapFileSystem";
+export const getOntapFileSystem: typeof import("./getOntapFileSystem").getOntapFileSystem = null as any;
+export const getOntapFileSystemOutput: typeof import("./getOntapFileSystem").getOntapFileSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getOntapFileSystem","getOntapFileSystemOutput"], () => require("./getOntapFileSystem"));
+
+export { GetOntapStorageVirtualMachineArgs, GetOntapStorageVirtualMachineResult, GetOntapStorageVirtualMachineOutputArgs } from "./getOntapStorageVirtualMachine";
+export const getOntapStorageVirtualMachine: typeof import("./getOntapStorageVirtualMachine").getOntapStorageVirtualMachine = null as any;
+export const getOntapStorageVirtualMachineOutput: typeof import("./getOntapStorageVirtualMachine").getOntapStorageVirtualMachineOutput = null as any;
+utilities.lazyLoad(exports, ["getOntapStorageVirtualMachine","getOntapStorageVirtualMachineOutput"], () => require("./getOntapStorageVirtualMachine"));
+
+export { GetOntapStorageVirtualMachinesArgs, GetOntapStorageVirtualMachinesResult, GetOntapStorageVirtualMachinesOutputArgs } from "./getOntapStorageVirtualMachines";
+export const getOntapStorageVirtualMachines: typeof import("./getOntapStorageVirtualMachines").getOntapStorageVirtualMachines = null as any;
+export const getOntapStorageVirtualMachinesOutput: typeof import("./getOntapStorageVirtualMachines").getOntapStorageVirtualMachinesOutput = null as any;
+utilities.lazyLoad(exports, ["getOntapStorageVirtualMachines","getOntapStorageVirtualMachinesOutput"], () => require("./getOntapStorageVirtualMachines"));
+
 export { GetOpenZfsSnapshotArgs, GetOpenZfsSnapshotResult, GetOpenZfsSnapshotOutputArgs } from "./getOpenZfsSnapshot";
 export const getOpenZfsSnapshot: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshot = null as any;
 export const getOpenZfsSnapshotOutput: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshotOutput = null as any;

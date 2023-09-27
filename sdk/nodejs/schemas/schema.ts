@@ -114,7 +114,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the schema. Valid values: `OpenApi3`.
+     * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -219,7 +219,7 @@ export interface SchemaState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the schema. Valid values: `OpenApi3`.
+     * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface SchemaArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the schema. Valid values: `OpenApi3`.
+     * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      */
     type: pulumi.Input<string>;
 }

@@ -637,6 +637,186 @@ func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectorSftpConfig struct {
+	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
+	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	UserSecretId *string `pulumi:"userSecretId"`
+}
+
+// ConnectorSftpConfigInput is an input type that accepts ConnectorSftpConfigArgs and ConnectorSftpConfigOutput values.
+// You can construct a concrete instance of `ConnectorSftpConfigInput` via:
+//
+//	ConnectorSftpConfigArgs{...}
+type ConnectorSftpConfigInput interface {
+	pulumi.Input
+
+	ToConnectorSftpConfigOutput() ConnectorSftpConfigOutput
+	ToConnectorSftpConfigOutputWithContext(context.Context) ConnectorSftpConfigOutput
+}
+
+type ConnectorSftpConfigArgs struct {
+	// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
+	// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	UserSecretId pulumi.StringPtrInput `pulumi:"userSecretId"`
+}
+
+func (ConnectorSftpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorSftpConfig)(nil)).Elem()
+}
+
+func (i ConnectorSftpConfigArgs) ToConnectorSftpConfigOutput() ConnectorSftpConfigOutput {
+	return i.ToConnectorSftpConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorSftpConfigArgs) ToConnectorSftpConfigOutputWithContext(ctx context.Context) ConnectorSftpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSftpConfigOutput)
+}
+
+func (i ConnectorSftpConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorSftpConfig] {
+	return pulumix.Output[ConnectorSftpConfig]{
+		OutputState: i.ToConnectorSftpConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConnectorSftpConfigArgs) ToConnectorSftpConfigPtrOutput() ConnectorSftpConfigPtrOutput {
+	return i.ToConnectorSftpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorSftpConfigArgs) ToConnectorSftpConfigPtrOutputWithContext(ctx context.Context) ConnectorSftpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSftpConfigOutput).ToConnectorSftpConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorSftpConfigPtrInput is an input type that accepts ConnectorSftpConfigArgs, ConnectorSftpConfigPtr and ConnectorSftpConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorSftpConfigPtrInput` via:
+//
+//	        ConnectorSftpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorSftpConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorSftpConfigPtrOutput() ConnectorSftpConfigPtrOutput
+	ToConnectorSftpConfigPtrOutputWithContext(context.Context) ConnectorSftpConfigPtrOutput
+}
+
+type connectorSftpConfigPtrType ConnectorSftpConfigArgs
+
+func ConnectorSftpConfigPtr(v *ConnectorSftpConfigArgs) ConnectorSftpConfigPtrInput {
+	return (*connectorSftpConfigPtrType)(v)
+}
+
+func (*connectorSftpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorSftpConfig)(nil)).Elem()
+}
+
+func (i *connectorSftpConfigPtrType) ToConnectorSftpConfigPtrOutput() ConnectorSftpConfigPtrOutput {
+	return i.ToConnectorSftpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorSftpConfigPtrType) ToConnectorSftpConfigPtrOutputWithContext(ctx context.Context) ConnectorSftpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorSftpConfigPtrOutput)
+}
+
+func (i *connectorSftpConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorSftpConfig] {
+	return pulumix.Output[*ConnectorSftpConfig]{
+		OutputState: i.ToConnectorSftpConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConnectorSftpConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorSftpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorSftpConfig)(nil)).Elem()
+}
+
+func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigOutput() ConnectorSftpConfigOutput {
+	return o
+}
+
+func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigOutputWithContext(ctx context.Context) ConnectorSftpConfigOutput {
+	return o
+}
+
+func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigPtrOutput() ConnectorSftpConfigPtrOutput {
+	return o.ToConnectorSftpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorSftpConfigOutput) ToConnectorSftpConfigPtrOutputWithContext(ctx context.Context) ConnectorSftpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorSftpConfig) *ConnectorSftpConfig {
+		return &v
+	}).(ConnectorSftpConfigPtrOutput)
+}
+
+func (o ConnectorSftpConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorSftpConfig] {
+	return pulumix.Output[ConnectorSftpConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+func (o ConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
+}
+
+// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+func (o ConnectorSftpConfigOutput) UserSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorSftpConfig) *string { return v.UserSecretId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectorSftpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorSftpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorSftpConfig)(nil)).Elem()
+}
+
+func (o ConnectorSftpConfigPtrOutput) ToConnectorSftpConfigPtrOutput() ConnectorSftpConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorSftpConfigPtrOutput) ToConnectorSftpConfigPtrOutputWithContext(ctx context.Context) ConnectorSftpConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorSftpConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorSftpConfig] {
+	return pulumix.Output[*ConnectorSftpConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConnectorSftpConfigPtrOutput) Elem() ConnectorSftpConfigOutput {
+	return o.ApplyT(func(v *ConnectorSftpConfig) ConnectorSftpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorSftpConfig
+		return ret
+	}).(ConnectorSftpConfigOutput)
+}
+
+// A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorSftpConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedHostKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+// The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+func (o ConnectorSftpConfigPtrOutput) UserSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorSftpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerEndpointDetails struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
@@ -6923,6 +7103,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPtrInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSftpConfigInput)(nil)).Elem(), ConnectorSftpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorSftpConfigPtrInput)(nil)).Elem(), ConnectorSftpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
@@ -6995,6 +7177,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigOutput{})
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorSftpConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorSftpConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})

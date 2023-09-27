@@ -18,6 +18,7 @@ import (
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 //
 // ## Example Usage
+// ### ActiveMQ
 //
 // ```go
 // package main
@@ -58,6 +59,34 @@ import (
 //	}
 //
 // ```
+// ### RabbitMQ
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
+//				Data:          pulumi.String("# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds\nconsumer_timeout = 1800000\n\n"),
+//				Description:   pulumi.String("Example Configuration"),
+//				EngineType:    pulumi.String("RabbitMQ"),
+//				EngineVersion: pulumi.String("3.11.16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -75,7 +104,7 @@ type Configuration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringOutput `pulumi:"authenticationStrategy"`
-	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringOutput `pulumi:"data"`
 	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -144,7 +173,7 @@ type configurationState struct {
 	Arn *string `pulumi:"arn"`
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
-	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data *string `pulumi:"data"`
 	// Description of the configuration.
 	Description *string `pulumi:"description"`
@@ -171,7 +200,7 @@ type ConfigurationState struct {
 	Arn pulumi.StringPtrInput
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringPtrInput
-	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringPtrInput
 	// Description of the configuration.
 	Description pulumi.StringPtrInput
@@ -200,7 +229,7 @@ func (ConfigurationState) ElementType() reflect.Type {
 type configurationArgs struct {
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
-	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data string `pulumi:"data"`
 	// Description of the configuration.
 	Description *string `pulumi:"description"`
@@ -220,7 +249,7 @@ type configurationArgs struct {
 type ConfigurationArgs struct {
 	// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
 	AuthenticationStrategy pulumi.StringPtrInput
-	// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+	// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 	Data pulumi.StringInput
 	// Description of the configuration.
 	Description pulumi.StringPtrInput
@@ -357,7 +386,7 @@ func (o ConfigurationOutput) AuthenticationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.AuthenticationStrategy }).(pulumi.StringOutput)
 }
 
-// Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
 func (o ConfigurationOutput) Data() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
 }

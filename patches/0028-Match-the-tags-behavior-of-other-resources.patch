@@ -1,4 +1,4 @@
-From a817eec9629ebb85bc6913e600bb8e7b6381bff0 Mon Sep 17 00:00:00 2001
+From 564f5b370ea86e48dfcf6499b46af1a13f2d0014 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 2 Aug 2023 14:12:03 +0200
 Subject: [PATCH 28/29] Match the "tags" behavior of other resources
@@ -47,5 +47,5 @@ index 0563bd3a25..e6bd8e7013 100644
  
  	arn := arn.ARN{
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

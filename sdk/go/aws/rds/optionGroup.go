@@ -83,7 +83,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DB Option groups using the `name`. For example:
+// Using `pulumi import`, import DB option groups using the `name`. For example:
 //
 // ```sh
 //
@@ -93,23 +93,23 @@ import (
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the db option group.
+	// ARN of the DB option group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
-	// The Name of the setting.
+	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// The description of the option group. Defaults to "Managed by Pulumi".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
-	// A list of Options to apply.
+	// List of options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -158,46 +158,46 @@ func GetOptionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OptionGroup resources.
 type optionGroupState struct {
-	// The ARN of the db option group.
+	// ARN of the DB option group.
 	Arn *string `pulumi:"arn"`
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName *string `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
-	// The Name of the setting.
+	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The description of the option group. Defaults to "Managed by Pulumi".
+	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// A list of Options to apply.
+	// List of options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type OptionGroupState struct {
-	// The ARN of the db option group.
+	// ARN of the DB option group.
 	Arn pulumi.StringPtrInput
 	// Specifies the name of the engine that this option group should be associated with.
 	EngineName pulumi.StringPtrInput
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringPtrInput
-	// The Name of the setting.
+	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// The description of the option group. Defaults to "Managed by Pulumi".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
-	// A list of Options to apply.
+	// List of options to apply.
 	Options OptionGroupOptionArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
@@ -212,15 +212,15 @@ type optionGroupArgs struct {
 	EngineName string `pulumi:"engineName"`
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion string `pulumi:"majorEngineVersion"`
-	// The Name of the setting.
+	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// The description of the option group. Defaults to "Managed by Pulumi".
+	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// A list of Options to apply.
+	// List of options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -230,15 +230,15 @@ type OptionGroupArgs struct {
 	EngineName pulumi.StringInput
 	// Specifies the major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringInput
-	// The Name of the setting.
+	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// The description of the option group. Defaults to "Managed by Pulumi".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
-	// A list of Options to apply.
+	// List of options to apply.
 	Options OptionGroupOptionArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -353,7 +353,7 @@ func (o OptionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*OptionG
 	}
 }
 
-// The ARN of the db option group.
+// ARN of the DB option group.
 func (o OptionGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -368,7 +368,7 @@ func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
 
-// The Name of the setting.
+// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 func (o OptionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -378,22 +378,22 @@ func (o OptionGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// The description of the option group. Defaults to "Managed by Pulumi".
+// Description of the option group.
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
-// A list of Options to apply.
+// List of options to apply.
 func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OptionGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 //
 // Deprecated: Please use `tags` instead.
 func (o OptionGroupOutput) TagsAll() pulumi.StringMapOutput {

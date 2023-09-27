@@ -35,6 +35,7 @@ __all__ = [
     'DomainVpcOptions',
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
+    'PackagePackageSource',
     'ServerlessCollectionTimeouts',
     'ServerlessSecurityConfigSamlOptions',
     'ServerlessVpcEndpointTimeouts',
@@ -1500,6 +1501,54 @@ class OutboundConnectionRemoteDomainInfo(dict):
         The region of the remote domain.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class PackagePackageSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PackagePackageSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PackagePackageSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PackagePackageSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket_name: str,
+                 s3_key: str):
+        """
+        :param str s3_bucket_name: The name of the Amazon S3 bucket containing the package.
+        :param str s3_key: Key (file name) of the package.
+        """
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> str:
+        """
+        The name of the Amazon S3 bucket containing the package.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        """
+        Key (file name) of the package.
+        """
+        return pulumi.get(self, "s3_key")
 
 
 @pulumi.output_type

@@ -16,6 +16,8 @@ from .get_serverless_security_policy import *
 from .get_serverless_vpc_endpoint import *
 from .inbound_connection_accepter import *
 from .outbound_connection import *
+from .package import *
+from .package_association import *
 from .serverless_access_policy import *
 from .serverless_collection import *
 from .serverless_security_config import *

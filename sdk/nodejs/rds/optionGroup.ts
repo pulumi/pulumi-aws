@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DB Option groups using the `name`. For example:
+ * Using `pulumi import`, import DB option groups using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -94,7 +94,7 @@ export class OptionGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the db option group.
+     * ARN of the DB option group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly majorEngineVersion!: pulumi.Output<string>;
     /**
-     * The Name of the setting.
+     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -114,19 +114,19 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * The description of the option group. Defaults to "Managed by Pulumi".
+     * Description of the option group.
      */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
-     * A list of Options to apply.
+     * List of options to apply.
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -184,7 +184,7 @@ export class OptionGroup extends pulumi.CustomResource {
  */
 export interface OptionGroupState {
     /**
-     * The ARN of the db option group.
+     * ARN of the DB option group.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface OptionGroupState {
      */
     majorEngineVersion?: pulumi.Input<string>;
     /**
-     * The Name of the setting.
+     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
     name?: pulumi.Input<string>;
     /**
@@ -204,19 +204,19 @@ export interface OptionGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The description of the option group. Defaults to "Managed by Pulumi".
+     * Description of the option group.
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * A list of Options to apply.
+     * List of options to apply.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -236,7 +236,7 @@ export interface OptionGroupArgs {
      */
     majorEngineVersion: pulumi.Input<string>;
     /**
-     * The Name of the setting.
+     * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      */
     name?: pulumi.Input<string>;
     /**
@@ -244,15 +244,15 @@ export interface OptionGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The description of the option group. Defaults to "Managed by Pulumi".
+     * Description of the option group.
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
-     * A list of Options to apply.
+     * List of options to apply.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

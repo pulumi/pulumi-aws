@@ -4612,6 +4612,186 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type PackagePackageSource struct {
+	// The name of the Amazon S3 bucket containing the package.
+	S3BucketName string `pulumi:"s3BucketName"`
+	// Key (file name) of the package.
+	S3Key string `pulumi:"s3Key"`
+}
+
+// PackagePackageSourceInput is an input type that accepts PackagePackageSourceArgs and PackagePackageSourceOutput values.
+// You can construct a concrete instance of `PackagePackageSourceInput` via:
+//
+//	PackagePackageSourceArgs{...}
+type PackagePackageSourceInput interface {
+	pulumi.Input
+
+	ToPackagePackageSourceOutput() PackagePackageSourceOutput
+	ToPackagePackageSourceOutputWithContext(context.Context) PackagePackageSourceOutput
+}
+
+type PackagePackageSourceArgs struct {
+	// The name of the Amazon S3 bucket containing the package.
+	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
+	// Key (file name) of the package.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
+}
+
+func (PackagePackageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagePackageSource)(nil)).Elem()
+}
+
+func (i PackagePackageSourceArgs) ToPackagePackageSourceOutput() PackagePackageSourceOutput {
+	return i.ToPackagePackageSourceOutputWithContext(context.Background())
+}
+
+func (i PackagePackageSourceArgs) ToPackagePackageSourceOutputWithContext(ctx context.Context) PackagePackageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagePackageSourceOutput)
+}
+
+func (i PackagePackageSourceArgs) ToOutput(ctx context.Context) pulumix.Output[PackagePackageSource] {
+	return pulumix.Output[PackagePackageSource]{
+		OutputState: i.ToPackagePackageSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PackagePackageSourceArgs) ToPackagePackageSourcePtrOutput() PackagePackageSourcePtrOutput {
+	return i.ToPackagePackageSourcePtrOutputWithContext(context.Background())
+}
+
+func (i PackagePackageSourceArgs) ToPackagePackageSourcePtrOutputWithContext(ctx context.Context) PackagePackageSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagePackageSourceOutput).ToPackagePackageSourcePtrOutputWithContext(ctx)
+}
+
+// PackagePackageSourcePtrInput is an input type that accepts PackagePackageSourceArgs, PackagePackageSourcePtr and PackagePackageSourcePtrOutput values.
+// You can construct a concrete instance of `PackagePackageSourcePtrInput` via:
+//
+//	        PackagePackageSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type PackagePackageSourcePtrInput interface {
+	pulumi.Input
+
+	ToPackagePackageSourcePtrOutput() PackagePackageSourcePtrOutput
+	ToPackagePackageSourcePtrOutputWithContext(context.Context) PackagePackageSourcePtrOutput
+}
+
+type packagePackageSourcePtrType PackagePackageSourceArgs
+
+func PackagePackageSourcePtr(v *PackagePackageSourceArgs) PackagePackageSourcePtrInput {
+	return (*packagePackageSourcePtrType)(v)
+}
+
+func (*packagePackageSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagePackageSource)(nil)).Elem()
+}
+
+func (i *packagePackageSourcePtrType) ToPackagePackageSourcePtrOutput() PackagePackageSourcePtrOutput {
+	return i.ToPackagePackageSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *packagePackageSourcePtrType) ToPackagePackageSourcePtrOutputWithContext(ctx context.Context) PackagePackageSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagePackageSourcePtrOutput)
+}
+
+func (i *packagePackageSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagePackageSource] {
+	return pulumix.Output[*PackagePackageSource]{
+		OutputState: i.ToPackagePackageSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PackagePackageSourceOutput struct{ *pulumi.OutputState }
+
+func (PackagePackageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagePackageSource)(nil)).Elem()
+}
+
+func (o PackagePackageSourceOutput) ToPackagePackageSourceOutput() PackagePackageSourceOutput {
+	return o
+}
+
+func (o PackagePackageSourceOutput) ToPackagePackageSourceOutputWithContext(ctx context.Context) PackagePackageSourceOutput {
+	return o
+}
+
+func (o PackagePackageSourceOutput) ToPackagePackageSourcePtrOutput() PackagePackageSourcePtrOutput {
+	return o.ToPackagePackageSourcePtrOutputWithContext(context.Background())
+}
+
+func (o PackagePackageSourceOutput) ToPackagePackageSourcePtrOutputWithContext(ctx context.Context) PackagePackageSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagePackageSource) *PackagePackageSource {
+		return &v
+	}).(PackagePackageSourcePtrOutput)
+}
+
+func (o PackagePackageSourceOutput) ToOutput(ctx context.Context) pulumix.Output[PackagePackageSource] {
+	return pulumix.Output[PackagePackageSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the Amazon S3 bucket containing the package.
+func (o PackagePackageSourceOutput) S3BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagePackageSource) string { return v.S3BucketName }).(pulumi.StringOutput)
+}
+
+// Key (file name) of the package.
+func (o PackagePackageSourceOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagePackageSource) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type PackagePackageSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PackagePackageSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagePackageSource)(nil)).Elem()
+}
+
+func (o PackagePackageSourcePtrOutput) ToPackagePackageSourcePtrOutput() PackagePackageSourcePtrOutput {
+	return o
+}
+
+func (o PackagePackageSourcePtrOutput) ToPackagePackageSourcePtrOutputWithContext(ctx context.Context) PackagePackageSourcePtrOutput {
+	return o
+}
+
+func (o PackagePackageSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagePackageSource] {
+	return pulumix.Output[*PackagePackageSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PackagePackageSourcePtrOutput) Elem() PackagePackageSourceOutput {
+	return o.ApplyT(func(v *PackagePackageSource) PackagePackageSource {
+		if v != nil {
+			return *v
+		}
+		var ret PackagePackageSource
+		return ret
+	}).(PackagePackageSourceOutput)
+}
+
+// The name of the Amazon S3 bucket containing the package.
+func (o PackagePackageSourcePtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackagePackageSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Key (file name) of the package.
+func (o PackagePackageSourcePtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PackagePackageSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerlessCollectionTimeouts struct {
 	Create *string `pulumi:"create"`
 	Delete *string `pulumi:"delete"`
@@ -8190,6 +8370,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagePackageSourceInput)(nil)).Elem(), PackagePackageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagePackageSourcePtrInput)(nil)).Elem(), PackagePackageSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
@@ -8283,6 +8465,8 @@ func init() {
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
+	pulumi.RegisterOutputType(PackagePackageSourceOutput{})
+	pulumi.RegisterOutputType(PackagePackageSourcePtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})

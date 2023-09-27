@@ -1,4 +1,4 @@
-From 45060c82b6e595170b2eed51f7363b665273dca3 Mon Sep 17 00:00:00 2001
+From de4e155a7b4b53e35bcfd775ec306a5c3decfd41 Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
 Subject: [PATCH 17/29] fix: Adding back in removeAddons
@@ -23,5 +23,5 @@ index 01c6b3caa0..4d7e5760fd 100644
  }
  
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

@@ -170,6 +170,12 @@ namespace Pulumi.Aws.S3
         public string Bucket { get; set; } = null!;
 
         /// <summary>
+        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+        /// </summary>
+        [Input("checksumMode")]
+        public string? ChecksumMode { get; set; }
+
+        /// <summary>
         /// Full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
@@ -209,6 +215,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+        /// </summary>
+        [Input("checksumMode")]
+        public Input<string>? ChecksumMode { get; set; }
 
         /// <summary>
         /// Full path to the object inside the bucket
@@ -260,6 +272,23 @@ namespace Pulumi.Aws.S3
         /// Caching behavior along the request/reply chain.
         /// </summary>
         public readonly string CacheControl;
+        /// <summary>
+        /// The base64-encoded, 32-bit CRC32 checksum of the object.
+        /// </summary>
+        public readonly string ChecksumCrc32;
+        /// <summary>
+        /// The base64-encoded, 32-bit CRC32C checksum of the object.
+        /// </summary>
+        public readonly string ChecksumCrc32c;
+        public readonly string? ChecksumMode;
+        /// <summary>
+        /// The base64-encoded, 160-bit SHA-1 digest of the object.
+        /// </summary>
+        public readonly string ChecksumSha1;
+        /// <summary>
+        /// The base64-encoded, 256-bit SHA-256 digest of the object.
+        /// </summary>
+        public readonly string ChecksumSha256;
         /// <summary>
         /// Presentational information for the object.
         /// </summary>
@@ -353,6 +382,16 @@ namespace Pulumi.Aws.S3
 
             string cacheControl,
 
+            string checksumCrc32,
+
+            string checksumCrc32c,
+
+            string? checksumMode,
+
+            string checksumSha1,
+
+            string checksumSha256,
+
             string contentDisposition,
 
             string contentEncoding,
@@ -401,6 +440,11 @@ namespace Pulumi.Aws.S3
             Bucket = bucket;
             BucketKeyEnabled = bucketKeyEnabled;
             CacheControl = cacheControl;
+            ChecksumCrc32 = checksumCrc32;
+            ChecksumCrc32c = checksumCrc32c;
+            ChecksumMode = checksumMode;
+            ChecksumSha1 = checksumSha1;
+            ChecksumSha256 = checksumSha256;
             ContentDisposition = contentDisposition;
             ContentEncoding = contentEncoding;
             ContentLanguage = contentLanguage;

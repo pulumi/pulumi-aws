@@ -208,14 +208,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of the schema. Valid values: `OpenApi3`.
+     * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the schema. Valid values: `OpenApi3`.
+     * @return The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
     public Output<String> type() {

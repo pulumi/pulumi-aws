@@ -4,6 +4,7 @@
 package com.pulumi.aws.transfer;
 
 import com.pulumi.aws.transfer.inputs.ConnectorAs2ConfigArgs;
+import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -33,18 +34,18 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters to configure for the connector object. Fields documented below.
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    @Import(name="as2Config", required=true)
-    private Output<ConnectorAs2ConfigArgs> as2Config;
+    @Import(name="as2Config")
+    private @Nullable Output<ConnectorAs2ConfigArgs> as2Config;
 
     /**
-     * @return The parameters to configure for the connector object. Fields documented below.
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    public Output<ConnectorAs2ConfigArgs> as2Config() {
-        return this.as2Config;
+    public Optional<Output<ConnectorAs2ConfigArgs>> as2Config() {
+        return Optional.ofNullable(this.as2Config);
     }
 
     /**
@@ -63,6 +64,21 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    @Import(name="sftpConfig")
+    private @Nullable Output<ConnectorSftpConfigArgs> sftpConfig;
+
+    /**
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    public Optional<Output<ConnectorSftpConfigArgs>> sftpConfig() {
+        return Optional.ofNullable(this.sftpConfig);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -78,14 +94,14 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the partners AS2 endpoint.
+     * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint.
+     * @return The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     public Output<String> url() {
@@ -98,6 +114,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         this.accessRole = $.accessRole;
         this.as2Config = $.as2Config;
         this.loggingRole = $.loggingRole;
+        this.sftpConfig = $.sftpConfig;
         this.tags = $.tags;
         this.url = $.url;
     }
@@ -142,18 +159,18 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param as2Config The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
          * 
          * @return builder
          * 
          */
-        public Builder as2Config(Output<ConnectorAs2ConfigArgs> as2Config) {
+        public Builder as2Config(@Nullable Output<ConnectorAs2ConfigArgs> as2Config) {
             $.as2Config = as2Config;
             return this;
         }
 
         /**
-         * @param as2Config The parameters to configure for the connector object. Fields documented below.
+         * @param as2Config Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
          * 
          * @return builder
          * 
@@ -184,6 +201,27 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpConfig(@Nullable Output<ConnectorSftpConfigArgs> sftpConfig) {
+            $.sftpConfig = sftpConfig;
+            return this;
+        }
+
+        /**
+         * @param sftpConfig Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sftpConfig(ConnectorSftpConfigArgs sftpConfig) {
+            return sftpConfig(Output.of(sftpConfig));
+        }
+
+        /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -205,7 +243,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
          * 
          * @return builder
          * 
@@ -216,7 +254,7 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param url The URL of the partners AS2 endpoint.
+         * @param url The URL of the partners AS2 endpoint or SFTP endpoint.
          * 
          * @return builder
          * 
@@ -227,7 +265,6 @@ public final class ConnectorArgs extends com.pulumi.resources.ResourceArgs {
 
         public ConnectorArgs build() {
             $.accessRole = Objects.requireNonNull($.accessRole, "expected parameter 'accessRole' to be non-null");
-            $.as2Config = Objects.requireNonNull($.as2Config, "expected parameter 'as2Config' to be non-null");
             $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
             return $;
         }

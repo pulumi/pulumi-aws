@@ -301,6 +301,76 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cacheControl);
     }
     /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    @Export(name="checksumAlgorithm", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> checksumAlgorithm;
+
+    /**
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    public Output<Optional<String>> checksumAlgorithm() {
+        return Codegen.optional(this.checksumAlgorithm);
+    }
+    /**
+     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    @Export(name="checksumCrc32", refs={String.class}, tree="[0]")
+    private Output<String> checksumCrc32;
+
+    /**
+     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    public Output<String> checksumCrc32() {
+        return this.checksumCrc32;
+    }
+    /**
+     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    @Export(name="checksumCrc32c", refs={String.class}, tree="[0]")
+    private Output<String> checksumCrc32c;
+
+    /**
+     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    public Output<String> checksumCrc32c() {
+        return this.checksumCrc32c;
+    }
+    /**
+     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    @Export(name="checksumSha1", refs={String.class}, tree="[0]")
+    private Output<String> checksumSha1;
+
+    /**
+     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    public Output<String> checksumSha1() {
+        return this.checksumSha1;
+    }
+    /**
+     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    @Export(name="checksumSha256", refs={String.class}, tree="[0]")
+    private Output<String> checksumSha256;
+
+    /**
+     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    public Output<String> checksumSha256() {
+        return this.checksumSha256;
+    }
+    /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      * 
      */

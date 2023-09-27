@@ -25604,6 +25604,50 @@ export namespace fsx {
         storageCapacity: pulumi.Input<number>;
     }
 
+    export interface GetOntapStorageVirtualMachineFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachineFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetOntapStorageVirtualMachinesFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetOntapStorageVirtualMachinesFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetOpenZfsSnapshotFilter {
         /**
          * Name of the snapshot.
@@ -40165,6 +40209,17 @@ export namespace opensearch {
         region: pulumi.Input<string>;
     }
 
+    export interface PackagePackageSource {
+        /**
+         * The name of the Amazon S3 bucket containing the package.
+         */
+        s3BucketName: pulumi.Input<string>;
+        /**
+         * Key (file name) of the package.
+         */
+        s3Key: pulumi.Input<string>;
+    }
+
     export interface ServerlessCollectionTimeouts {
         create?: pulumi.Input<string>;
         delete?: pulumi.Input<string>;
@@ -44102,38 +44157,38 @@ export namespace rds {
 
     export interface OptionGroupOption {
         /**
-         * A list of DB Security Groups for which the option is enabled.
+         * List of DB Security Groups for which the option is enabled.
          */
         dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Name of the Option (e.g., MEMCACHED).
+         * Name of the option (e.g., MEMCACHED).
          */
         optionName: pulumi.Input<string>;
         /**
-         * A list of option settings to apply.
+         * List of option settings to apply.
          */
         optionSettings?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionOptionSetting>[]>;
         /**
-         * The Port number when connecting to the Option (e.g., 11211).
+         * Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
          */
         port?: pulumi.Input<number>;
         /**
-         * The version of the option (e.g., 13.1.0.0).
+         * Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
          */
         version?: pulumi.Input<string>;
         /**
-         * A list of VPC Security Groups for which the option is enabled.
+         * List of VPC Security Groups for which the option is enabled.
          */
         vpcSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface OptionGroupOptionOptionSetting {
         /**
-         * The Name of the setting.
+         * Name of the setting.
          */
         name: pulumi.Input<string>;
         /**
-         * The Value of the setting.
+         * Value of the setting.
          */
         value: pulumi.Input<string>;
     }
@@ -47126,6 +47181,8 @@ export namespace s3control {
 
     export interface MultiRegionAccessPointDetailsRegion {
         bucket: pulumi.Input<string>;
+        bucketAccountId?: pulumi.Input<string>;
+        region?: pulumi.Input<string>;
     }
 
     export interface MultiRegionAccessPointPolicyDetails {
@@ -51859,6 +51916,12 @@ export namespace sfn {
 }
 
 export namespace shield {
+    export interface ApplicationLayerAutomaticResponseTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
+
     export interface DrtAccessLogBucketAssociationTimeouts {
         create?: pulumi.Input<string>;
         delete?: pulumi.Input<string>;
@@ -52859,6 +52922,17 @@ export namespace transfer {
         signingAlgorithm: pulumi.Input<string>;
     }
 
+    export interface ConnectorSftpConfig {
+        /**
+         * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         */
+        trustedHostKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         */
+        userSecretId?: pulumi.Input<string>;
+    }
+
     export interface ServerEndpointDetails {
         /**
          * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
@@ -53350,6 +53424,29 @@ export namespace transfer {
 }
 
 export namespace verifiedaccess {
+    export interface InstanceVerifiedAccessTrustProvider {
+        /**
+         * A description for the AWS Verified Access Instance.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The type of device-based trust provider.
+         */
+        deviceTrustProviderType?: pulumi.Input<string>;
+        /**
+         * The type of trust provider (user- or device-based).
+         */
+        trustProviderType?: pulumi.Input<string>;
+        /**
+         * The type of user-based trust provider.
+         */
+        userTrustProviderType?: pulumi.Input<string>;
+        /**
+         * The ID of the trust provider.
+         */
+        verifiedAccessTrustProviderId?: pulumi.Input<string>;
+    }
+
     export interface TrustProviderDeviceOptions {
         tenantId?: pulumi.Input<string>;
     }

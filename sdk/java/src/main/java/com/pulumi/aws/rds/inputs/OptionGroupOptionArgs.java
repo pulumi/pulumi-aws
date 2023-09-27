@@ -19,14 +19,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     public static final OptionGroupOptionArgs Empty = new OptionGroupOptionArgs();
 
     /**
-     * A list of DB Security Groups for which the option is enabled.
+     * List of DB Security Groups for which the option is enabled.
      * 
      */
     @Import(name="dbSecurityGroupMemberships")
     private @Nullable Output<List<String>> dbSecurityGroupMemberships;
 
     /**
-     * @return A list of DB Security Groups for which the option is enabled.
+     * @return List of DB Security Groups for which the option is enabled.
      * 
      */
     public Optional<Output<List<String>>> dbSecurityGroupMemberships() {
@@ -34,14 +34,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Name of the Option (e.g., MEMCACHED).
+     * Name of the option (e.g., MEMCACHED).
      * 
      */
     @Import(name="optionName", required=true)
     private Output<String> optionName;
 
     /**
-     * @return The Name of the Option (e.g., MEMCACHED).
+     * @return Name of the option (e.g., MEMCACHED).
      * 
      */
     public Output<String> optionName() {
@@ -49,14 +49,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of option settings to apply.
+     * List of option settings to apply.
      * 
      */
     @Import(name="optionSettings")
     private @Nullable Output<List<OptionGroupOptionOptionSettingArgs>> optionSettings;
 
     /**
-     * @return A list of option settings to apply.
+     * @return List of option settings to apply.
      * 
      */
     public Optional<Output<List<OptionGroupOptionOptionSettingArgs>>> optionSettings() {
@@ -64,14 +64,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Port number when connecting to the Option (e.g., 11211).
+     * Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The Port number when connecting to the Option (e.g., 11211).
+     * @return Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -79,14 +79,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The version of the option (e.g., 13.1.0.0).
+     * Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the option (e.g., 13.1.0.0).
+     * @return Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
      * 
      */
     public Optional<Output<String>> version() {
@@ -94,14 +94,14 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of VPC Security Groups for which the option is enabled.
+     * List of VPC Security Groups for which the option is enabled.
      * 
      */
     @Import(name="vpcSecurityGroupMemberships")
     private @Nullable Output<List<String>> vpcSecurityGroupMemberships;
 
     /**
-     * @return A list of VPC Security Groups for which the option is enabled.
+     * @return List of VPC Security Groups for which the option is enabled.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupMemberships() {
@@ -138,7 +138,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * @param dbSecurityGroupMemberships List of DB Security Groups for which the option is enabled.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * @param dbSecurityGroupMemberships List of DB Security Groups for which the option is enabled.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dbSecurityGroupMemberships A list of DB Security Groups for which the option is enabled.
+         * @param dbSecurityGroupMemberships List of DB Security Groups for which the option is enabled.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionName The Name of the Option (e.g., MEMCACHED).
+         * @param optionName Name of the option (e.g., MEMCACHED).
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionName The Name of the Option (e.g., MEMCACHED).
+         * @param optionName Name of the option (e.g., MEMCACHED).
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings A list of option settings to apply.
+         * @param optionSettings List of option settings to apply.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings A list of option settings to apply.
+         * @param optionSettings List of option settings to apply.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param optionSettings A list of option settings to apply.
+         * @param optionSettings List of option settings to apply.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The Port number when connecting to the Option (e.g., 11211).
+         * @param port Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The Port number when connecting to the Option (e.g., 11211).
+         * @param port Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param version The version of the option (e.g., 13.1.0.0).
+         * @param version Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param version The version of the option (e.g., 13.1.0.0).
+         * @param version Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * @param vpcSecurityGroupMemberships List of VPC Security Groups for which the option is enabled.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * @param vpcSecurityGroupMemberships List of VPC Security Groups for which the option is enabled.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class OptionGroupOptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcSecurityGroupMemberships A list of VPC Security Groups for which the option is enabled.
+         * @param vpcSecurityGroupMemberships List of VPC Security Groups for which the option is enabled.
          * 
          * @return builder
          * 

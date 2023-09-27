@@ -23,7 +23,7 @@ class NetworkInsightsPathArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
-        :param pulumi.Input[str] destination: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
@@ -49,7 +49,7 @@ class NetworkInsightsPathArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
         """
-        ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         """
         return pulumi.get(self, "destination")
 
@@ -149,7 +149,7 @@ class _NetworkInsightsPathState:
         """
         Input properties used for looking up and filtering NetworkInsightsPath resources.
         :param pulumi.Input[str] arn: ARN of the Network Insights Path.
-        :param pulumi.Input[str] destination: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] destination_arn: ARN of the destination.
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
@@ -204,7 +204,7 @@ class _NetworkInsightsPathState:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         """
         return pulumi.get(self, "destination")
 
@@ -364,7 +364,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -482,7 +482,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Network Insights Path.
-        :param pulumi.Input[str] destination: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        :param pulumi.Input[str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[str] destination_arn: ARN of the destination.
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
@@ -524,7 +524,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
         """
-        ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
+        ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         """
         return pulumi.get(self, "destination")
 

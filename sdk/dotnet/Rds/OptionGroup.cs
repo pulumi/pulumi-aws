@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Option groups using the `name`. For example:
+    /// Using `pulumi import`, import DB option groups using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Rds
     public partial class OptionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the db option group.
+        /// ARN of the DB option group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the setting.
+        /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,25 +120,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the option group. Defaults to "Managed by Pulumi".
+        /// Description of the option group.
         /// </summary>
         [Output("optionGroupDescription")]
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Options to apply.
+        /// List of options to apply.
         /// </summary>
         [Output("options")]
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Rds
         public Input<string> MajorEngineVersion { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the setting.
+        /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The description of the option group. Defaults to "Managed by Pulumi".
+        /// Description of the option group.
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionArgs>? _options;
 
         /// <summary>
-        /// A list of Options to apply.
+        /// List of options to apply.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionArgs> Options
         {
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Rds
     public sealed class OptionGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the db option group.
+        /// ARN of the DB option group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MajorEngineVersion { get; set; }
 
         /// <summary>
-        /// The Name of the setting.
+        /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The description of the option group. Defaults to "Managed by Pulumi".
+        /// Description of the option group.
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionGetArgs>? _options;
 
         /// <summary>
-        /// A list of Options to apply.
+        /// List of options to apply.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionGetArgs> Options
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

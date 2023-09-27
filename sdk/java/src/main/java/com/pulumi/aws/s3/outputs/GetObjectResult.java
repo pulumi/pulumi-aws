@@ -31,6 +31,27 @@ public final class GetObjectResult {
      */
     private String cacheControl;
     /**
+     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    private String checksumCrc32;
+    /**
+     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    private String checksumCrc32c;
+    private @Nullable String checksumMode;
+    /**
+     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    private String checksumSha1;
+    /**
+     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    private String checksumSha256;
+    /**
      * @return Presentational information for the object.
      * 
      */
@@ -157,6 +178,37 @@ public final class GetObjectResult {
      */
     public String cacheControl() {
         return this.cacheControl;
+    }
+    /**
+     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    public String checksumCrc32() {
+        return this.checksumCrc32;
+    }
+    /**
+     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    public String checksumCrc32c() {
+        return this.checksumCrc32c;
+    }
+    public Optional<String> checksumMode() {
+        return Optional.ofNullable(this.checksumMode);
+    }
+    /**
+     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    public String checksumSha1() {
+        return this.checksumSha1;
+    }
+    /**
+     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    public String checksumSha256() {
+        return this.checksumSha256;
     }
     /**
      * @return Presentational information for the object.
@@ -318,6 +370,11 @@ public final class GetObjectResult {
         private String bucket;
         private Boolean bucketKeyEnabled;
         private String cacheControl;
+        private String checksumCrc32;
+        private String checksumCrc32c;
+        private @Nullable String checksumMode;
+        private String checksumSha1;
+        private String checksumSha256;
         private String contentDisposition;
         private String contentEncoding;
         private String contentLanguage;
@@ -347,6 +404,11 @@ public final class GetObjectResult {
     	      this.bucket = defaults.bucket;
     	      this.bucketKeyEnabled = defaults.bucketKeyEnabled;
     	      this.cacheControl = defaults.cacheControl;
+    	      this.checksumCrc32 = defaults.checksumCrc32;
+    	      this.checksumCrc32c = defaults.checksumCrc32c;
+    	      this.checksumMode = defaults.checksumMode;
+    	      this.checksumSha1 = defaults.checksumSha1;
+    	      this.checksumSha256 = defaults.checksumSha256;
     	      this.contentDisposition = defaults.contentDisposition;
     	      this.contentEncoding = defaults.contentEncoding;
     	      this.contentLanguage = defaults.contentLanguage;
@@ -389,6 +451,31 @@ public final class GetObjectResult {
         @CustomType.Setter
         public Builder cacheControl(String cacheControl) {
             this.cacheControl = Objects.requireNonNull(cacheControl);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumCrc32(String checksumCrc32) {
+            this.checksumCrc32 = Objects.requireNonNull(checksumCrc32);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumCrc32c(String checksumCrc32c) {
+            this.checksumCrc32c = Objects.requireNonNull(checksumCrc32c);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumMode(@Nullable String checksumMode) {
+            this.checksumMode = checksumMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumSha1(String checksumSha1) {
+            this.checksumSha1 = Objects.requireNonNull(checksumSha1);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder checksumSha256(String checksumSha256) {
+            this.checksumSha256 = Objects.requireNonNull(checksumSha256);
             return this;
         }
         @CustomType.Setter
@@ -507,6 +594,11 @@ public final class GetObjectResult {
             o.bucket = bucket;
             o.bucketKeyEnabled = bucketKeyEnabled;
             o.cacheControl = cacheControl;
+            o.checksumCrc32 = checksumCrc32;
+            o.checksumCrc32c = checksumCrc32c;
+            o.checksumMode = checksumMode;
+            o.checksumSha1 = checksumSha1;
+            o.checksumSha256 = checksumSha256;
             o.contentDisposition = contentDisposition;
             o.contentEncoding = contentEncoding;
             o.contentLanguage = contentLanguage;

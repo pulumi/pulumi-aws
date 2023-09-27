@@ -14,6 +14,7 @@ __all__ = [
     'AccessHomeDirectoryMapping',
     'AccessPosixProfile',
     'ConnectorAs2Config',
+    'ConnectorSftpConfig',
     'ServerEndpointDetails',
     'ServerProtocolDetails',
     'ServerWorkflowDetails',
@@ -260,6 +261,56 @@ class ConnectorAs2Config(dict):
         Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
         """
         return pulumi.get(self, "message_subject")
+
+
+@pulumi.output_type
+class ConnectorSftpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustedHostKeys":
+            suggest = "trusted_host_keys"
+        elif key == "userSecretId":
+            suggest = "user_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorSftpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorSftpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorSftpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trusted_host_keys: Optional[Sequence[str]] = None,
+                 user_secret_id: Optional[str] = None):
+        """
+        :param Sequence[str] trusted_host_keys: A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+        :param str user_secret_id: The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        """
+        if trusted_host_keys is not None:
+            pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
+        if user_secret_id is not None:
+            pulumi.set(__self__, "user_secret_id", user_secret_id)
+
+    @property
+    @pulumi.getter(name="trustedHostKeys")
+    def trusted_host_keys(self) -> Optional[Sequence[str]]:
+        """
+        A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+        """
+        return pulumi.get(self, "trusted_host_keys")
+
+    @property
+    @pulumi.getter(name="userSecretId")
+    def user_secret_id(self) -> Optional[str]:
+        """
+        The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        """
+        return pulumi.get(self, "user_secret_id")
 
 
 @pulumi.output_type

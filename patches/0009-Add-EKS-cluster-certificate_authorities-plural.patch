@@ -1,4 +1,4 @@
-From e0d020562712caddbbaecdc27a0e44392d8d01d3 Mon Sep 17 00:00:00 2001
+From 8f94a529126b5b4ea622c7fba07badf8d15ec17e Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
 Subject: [PATCH 09/29] Add EKS cluster certificate_authorities (plural)
@@ -51,5 +51,5 @@ index d8544be700..01c6b3caa0 100644
  		return diag.Errorf("setting certificate_authority: %s", err)
  	}
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

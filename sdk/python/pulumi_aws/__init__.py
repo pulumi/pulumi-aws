@@ -7323,6 +7323,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearch/package",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/package:Package": "Package"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/packageAssociation",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/packageAssociation:PackageAssociation": "PackageAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opensearch/serverlessAccessPolicy",
   "fqn": "pulumi_aws.opensearch",
   "classes": {
@@ -9619,6 +9635,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "shield/applicationLayerAutomaticResponse",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse": "ApplicationLayerAutomaticResponse"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "shield/drtAccessLogBucketAssociation",
   "fqn": "pulumi_aws.shield",
   "classes": {
@@ -10199,6 +10223,14 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedaccess/instance",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/instance:Instance": "Instance"
   }
  },
  {

@@ -32,6 +32,21 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * 
+     */
+    @Import(name="checksumMode")
+    private @Nullable Output<String> checksumMode;
+
+    /**
+     * @return To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+     * 
+     */
+    public Optional<Output<String>> checksumMode() {
+        return Optional.ofNullable(this.checksumMode);
+    }
+
+    /**
      * Full path to the object inside the bucket
      * 
      */
@@ -87,6 +102,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetObjectArgs(GetObjectArgs $) {
         this.bucket = $.bucket;
+        this.checksumMode = $.checksumMode;
         this.key = $.key;
         this.range = $.range;
         this.tags = $.tags;
@@ -130,6 +146,27 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
+        }
+
+        /**
+         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumMode(@Nullable Output<String> checksumMode) {
+            $.checksumMode = checksumMode;
+            return this;
+        }
+
+        /**
+         * @param checksumMode To retrieve the object&#39;s checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumMode(String checksumMode) {
+            return checksumMode(Output.of(checksumMode));
         }
 
         /**

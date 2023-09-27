@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.transfer.ConnectorArgs;
 import com.pulumi.aws.transfer.inputs.ConnectorState;
 import com.pulumi.aws.transfer.outputs.ConnectorAs2Config;
+import com.pulumi.aws.transfer.outputs.ConnectorSftpConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -62,6 +63,41 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### SFTP Connector
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.Connector;
+ * import com.pulumi.aws.transfer.ConnectorArgs;
+ * import com.pulumi.aws.transfer.inputs.ConnectorSftpConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Connector(&#34;example&#34;, ConnectorArgs.builder()        
+ *             .accessRole(aws_iam_role.test().arn())
+ *             .sftpConfig(ConnectorSftpConfigArgs.builder()
+ *                 .trustedHostKeys(&#34;ssh-rsa AAAAB3NYourKeysHere&#34;)
+ *                 .userSecretId(aws_secretsmanager_secret.example().id())
+ *                 .build())
+ *             .url(&#34;sftp://test.com&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -103,28 +139,28 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The parameters to configure for the connector object. Fields documented below.
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
     @Export(name="as2Config", refs={ConnectorAs2Config.class}, tree="[0]")
-    private Output<ConnectorAs2Config> as2Config;
+    private Output</* @Nullable */ ConnectorAs2Config> as2Config;
 
     /**
-     * @return The parameters to configure for the connector object. Fields documented below.
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    public Output<ConnectorAs2Config> as2Config() {
-        return this.as2Config;
+    public Output<Optional<ConnectorAs2Config>> as2Config() {
+        return Codegen.optional(this.as2Config);
     }
     /**
-     * The unique identifier for the AS2 profile.
+     * The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     @Export(name="connectorId", refs={String.class}, tree="[0]")
     private Output<String> connectorId;
 
     /**
-     * @return The unique identifier for the AS2 profile.
+     * @return The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
     public Output<String> connectorId() {
@@ -143,6 +179,20 @@ public class Connector extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> loggingRole() {
         return Codegen.optional(this.loggingRole);
+    }
+    /**
+     * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    @Export(name="sftpConfig", refs={ConnectorSftpConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ConnectorSftpConfig> sftpConfig;
+
+    /**
+     * @return Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+     * 
+     */
+    public Output<Optional<ConnectorSftpConfig>> sftpConfig() {
+        return Codegen.optional(this.sftpConfig);
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,14 +221,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The URL of the partners AS2 endpoint.
+     * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return The URL of the partners AS2 endpoint.
+     * @return The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
     public Output<String> url() {

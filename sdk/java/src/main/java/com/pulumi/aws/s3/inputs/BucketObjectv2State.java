@@ -79,6 +79,81 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    @Import(name="checksumAlgorithm")
+    private @Nullable Output<String> checksumAlgorithm;
+
+    /**
+     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+     * 
+     */
+    public Optional<Output<String>> checksumAlgorithm() {
+        return Optional.ofNullable(this.checksumAlgorithm);
+    }
+
+    /**
+     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    @Import(name="checksumCrc32")
+    private @Nullable Output<String> checksumCrc32;
+
+    /**
+     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * 
+     */
+    public Optional<Output<String>> checksumCrc32() {
+        return Optional.ofNullable(this.checksumCrc32);
+    }
+
+    /**
+     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    @Import(name="checksumCrc32c")
+    private @Nullable Output<String> checksumCrc32c;
+
+    /**
+     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * 
+     */
+    public Optional<Output<String>> checksumCrc32c() {
+        return Optional.ofNullable(this.checksumCrc32c);
+    }
+
+    /**
+     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    @Import(name="checksumSha1")
+    private @Nullable Output<String> checksumSha1;
+
+    /**
+     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * 
+     */
+    public Optional<Output<String>> checksumSha1() {
+        return Optional.ofNullable(this.checksumSha1);
+    }
+
+    /**
+     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    @Import(name="checksumSha256")
+    private @Nullable Output<String> checksumSha256;
+
+    /**
+     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * 
+     */
+    public Optional<Output<String>> checksumSha256() {
+        return Optional.ofNullable(this.checksumSha256);
+    }
+
+    /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      * 
      */
@@ -435,6 +510,11 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         this.bucket = $.bucket;
         this.bucketKeyEnabled = $.bucketKeyEnabled;
         this.cacheControl = $.cacheControl;
+        this.checksumAlgorithm = $.checksumAlgorithm;
+        this.checksumCrc32 = $.checksumCrc32;
+        this.checksumCrc32c = $.checksumCrc32c;
+        this.checksumSha1 = $.checksumSha1;
+        this.checksumSha256 = $.checksumSha256;
         this.content = $.content;
         this.contentBase64 = $.contentBase64;
         this.contentDisposition = $.contentDisposition;
@@ -559,6 +639,111 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
          */
         public Builder cacheControl(String cacheControl) {
             return cacheControl(Output.of(cacheControl));
+        }
+
+        /**
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumAlgorithm(@Nullable Output<String> checksumAlgorithm) {
+            $.checksumAlgorithm = checksumAlgorithm;
+            return this;
+        }
+
+        /**
+         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumAlgorithm(String checksumAlgorithm) {
+            return checksumAlgorithm(Output.of(checksumAlgorithm));
+        }
+
+        /**
+         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc32(@Nullable Output<String> checksumCrc32) {
+            $.checksumCrc32 = checksumCrc32;
+            return this;
+        }
+
+        /**
+         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc32(String checksumCrc32) {
+            return checksumCrc32(Output.of(checksumCrc32));
+        }
+
+        /**
+         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc32c(@Nullable Output<String> checksumCrc32c) {
+            $.checksumCrc32c = checksumCrc32c;
+            return this;
+        }
+
+        /**
+         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumCrc32c(String checksumCrc32c) {
+            return checksumCrc32c(Output.of(checksumCrc32c));
+        }
+
+        /**
+         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumSha1(@Nullable Output<String> checksumSha1) {
+            $.checksumSha1 = checksumSha1;
+            return this;
+        }
+
+        /**
+         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumSha1(String checksumSha1) {
+            return checksumSha1(Output.of(checksumSha1));
+        }
+
+        /**
+         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumSha256(@Nullable Output<String> checksumSha256) {
+            $.checksumSha256 = checksumSha256;
+            return this;
+        }
+
+        /**
+         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder checksumSha256(String checksumSha256) {
+            return checksumSha256(Output.of(checksumSha256));
         }
 
         /**

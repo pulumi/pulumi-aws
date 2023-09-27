@@ -1,4 +1,4 @@
-From 9391e7105b1ab1341984d84001efb51901b67ec7 Mon Sep 17 00:00:00 2001
+From 5e8bdb6ebdfb810be4d229b93c92a6779c5e666d Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:31:27 +0000
 Subject: [PATCH 08/29] Add EKS cluster default_addons_to_remove
@@ -268,5 +268,5 @@ index 57a94e414f..6568e06549 100644
  )
  
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

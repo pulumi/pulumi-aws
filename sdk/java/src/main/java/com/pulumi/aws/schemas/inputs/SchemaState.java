@@ -145,14 +145,14 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the schema. Valid values: `OpenApi3`.
+     * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the schema. Valid values: `OpenApi3`.
+     * @return The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -400,7 +400,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the schema. Valid values: `OpenApi3`.
+         * @param type The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class SchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the schema. Valid values: `OpenApi3`.
+         * @param type The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
          * 
          * @return builder
          * 

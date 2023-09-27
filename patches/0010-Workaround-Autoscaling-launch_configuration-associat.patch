@@ -1,4 +1,4 @@
-From ae8fb058d67d2fe7e4395c6215e7bac444b504b9 Mon Sep 17 00:00:00 2001
+From cc8d6e10e258e0bacc1c197026cf09a5ba9a5eda Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
 Subject: [PATCH 10/29] Workaround Autoscaling launch_configuration
@@ -52,5 +52,5 @@ index 0cd504e232..74d309153f 100644
  	if v, ok := d.GetOk("iam_instance_profile"); ok {
  		input.IamInstanceProfile = aws.String(v.(string))
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

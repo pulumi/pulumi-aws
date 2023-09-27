@@ -14,6 +14,193 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationLayerAutomaticResponseTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ApplicationLayerAutomaticResponseTimeoutsInput is an input type that accepts ApplicationLayerAutomaticResponseTimeoutsArgs and ApplicationLayerAutomaticResponseTimeoutsOutput values.
+// You can construct a concrete instance of `ApplicationLayerAutomaticResponseTimeoutsInput` via:
+//
+//	ApplicationLayerAutomaticResponseTimeoutsArgs{...}
+type ApplicationLayerAutomaticResponseTimeoutsInput interface {
+	pulumi.Input
+
+	ToApplicationLayerAutomaticResponseTimeoutsOutput() ApplicationLayerAutomaticResponseTimeoutsOutput
+	ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(context.Context) ApplicationLayerAutomaticResponseTimeoutsOutput
+}
+
+type ApplicationLayerAutomaticResponseTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ApplicationLayerAutomaticResponseTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLayerAutomaticResponseTimeouts)(nil)).Elem()
+}
+
+func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsOutput() ApplicationLayerAutomaticResponseTimeoutsOutput {
+	return i.ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseTimeoutsOutput)
+}
+
+func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLayerAutomaticResponseTimeouts] {
+	return pulumix.Output[ApplicationLayerAutomaticResponseTimeouts]{
+		OutputState: i.ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return i.ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseTimeoutsOutput).ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ApplicationLayerAutomaticResponseTimeoutsPtrInput is an input type that accepts ApplicationLayerAutomaticResponseTimeoutsArgs, ApplicationLayerAutomaticResponseTimeoutsPtr and ApplicationLayerAutomaticResponseTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ApplicationLayerAutomaticResponseTimeoutsPtrInput` via:
+//
+//	        ApplicationLayerAutomaticResponseTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationLayerAutomaticResponseTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput
+	ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput
+}
+
+type applicationLayerAutomaticResponseTimeoutsPtrType ApplicationLayerAutomaticResponseTimeoutsArgs
+
+func ApplicationLayerAutomaticResponseTimeoutsPtr(v *ApplicationLayerAutomaticResponseTimeoutsArgs) ApplicationLayerAutomaticResponseTimeoutsPtrInput {
+	return (*applicationLayerAutomaticResponseTimeoutsPtrType)(v)
+}
+
+func (*applicationLayerAutomaticResponseTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLayerAutomaticResponseTimeouts)(nil)).Elem()
+}
+
+func (i *applicationLayerAutomaticResponseTimeoutsPtrType) ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return i.ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationLayerAutomaticResponseTimeoutsPtrType) ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseTimeoutsPtrOutput)
+}
+
+func (i *applicationLayerAutomaticResponseTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts] {
+	return pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts]{
+		OutputState: i.ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ApplicationLayerAutomaticResponseTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLayerAutomaticResponseTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLayerAutomaticResponseTimeouts)(nil)).Elem()
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutomaticResponseTimeoutsOutput() ApplicationLayerAutomaticResponseTimeoutsOutput {
+	return o
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsOutput {
+	return o
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return o.ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLayerAutomaticResponseTimeouts) *ApplicationLayerAutomaticResponseTimeouts {
+		return &v
+	}).(ApplicationLayerAutomaticResponseTimeoutsPtrOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLayerAutomaticResponseTimeouts] {
+	return pulumix.Output[ApplicationLayerAutomaticResponseTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationLayerAutomaticResponseTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationLayerAutomaticResponseTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLayerAutomaticResponseTimeouts)(nil)).Elem()
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return o
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
+	return o
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts] {
+	return pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Elem() ApplicationLayerAutomaticResponseTimeoutsOutput {
+	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) ApplicationLayerAutomaticResponseTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationLayerAutomaticResponseTimeouts
+		return ret
+	}).(ApplicationLayerAutomaticResponseTimeoutsOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationLayerAutomaticResponseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DrtAccessLogBucketAssociationTimeouts struct {
 	Create *string `pulumi:"create"`
 	Delete *string `pulumi:"delete"`
@@ -389,10 +576,14 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOut
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLayerAutomaticResponseTimeoutsInput)(nil)).Elem(), ApplicationLayerAutomaticResponseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLayerAutomaticResponseTimeoutsPtrInput)(nil)).Elem(), ApplicationLayerAutomaticResponseTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessLogBucketAssociationTimeoutsInput)(nil)).Elem(), DrtAccessLogBucketAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessLogBucketAssociationTimeoutsPtrInput)(nil)).Elem(), DrtAccessLogBucketAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessRoleArnAssociationTimeoutsInput)(nil)).Elem(), DrtAccessRoleArnAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DrtAccessRoleArnAssociationTimeoutsPtrInput)(nil)).Elem(), DrtAccessRoleArnAssociationTimeoutsArgs{})
+	pulumi.RegisterOutputType(ApplicationLayerAutomaticResponseTimeoutsOutput{})
+	pulumi.RegisterOutputType(ApplicationLayerAutomaticResponseTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DrtAccessLogBucketAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(DrtAccessLogBucketAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DrtAccessRoleArnAssociationTimeoutsOutput{})

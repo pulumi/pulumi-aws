@@ -23,7 +23,7 @@ class ConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] data: Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
@@ -49,7 +49,7 @@ class ConfigurationArgs:
     @pulumi.getter
     def data(self) -> pulumi.Input[str]:
         """
-        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         """
         return pulumi.get(self, "data")
 
@@ -149,7 +149,7 @@ class _ConfigurationState:
         Input properties used for looking up and filtering Configuration resources.
         :param pulumi.Input[str] arn: ARN of the configuration.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
-        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] data: Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         :param pulumi.Input[str] description: Description of the configuration.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine.
@@ -212,7 +212,7 @@ class _ConfigurationState:
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
         """
-        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         """
         return pulumi.get(self, "data")
 
@@ -329,6 +329,7 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+        ### ActiveMQ
 
         ```python
         import pulumi
@@ -349,6 +350,21 @@ class Configuration(pulumi.CustomResource):
             engine_type="ActiveMQ",
             engine_version="5.15.0")
         ```
+        ### RabbitMQ
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mq.Configuration("example",
+            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+        consumer_timeout = 1800000
+
+        \"\"\",
+            description="Example Configuration",
+            engine_type="RabbitMQ",
+            engine_version="3.11.16")
+        ```
 
         ## Import
 
@@ -361,7 +377,7 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
-        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] data: Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         :param pulumi.Input[str] description: Description of the configuration.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine.
@@ -382,6 +398,7 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+        ### ActiveMQ
 
         ```python
         import pulumi
@@ -401,6 +418,21 @@ class Configuration(pulumi.CustomResource):
             description="Example Configuration",
             engine_type="ActiveMQ",
             engine_version="5.15.0")
+        ```
+        ### RabbitMQ
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.mq.Configuration("example",
+            data=\"\"\"# Default RabbitMQ delivery acknowledgement timeout is 30 minutes in milliseconds
+        consumer_timeout = 1800000
+
+        \"\"\",
+            description="Example Configuration",
+            engine_type="RabbitMQ",
+            engine_version="3.11.16")
         ```
 
         ## Import
@@ -489,7 +521,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the configuration.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
-        :param pulumi.Input[str] data: Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        :param pulumi.Input[str] data: Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         :param pulumi.Input[str] description: Description of the configuration.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine.
@@ -536,7 +568,7 @@ class Configuration(pulumi.CustomResource):
     @pulumi.getter
     def data(self) -> pulumi.Output[str]:
         """
-        Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
+        Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         """
         return pulumi.get(self, "data")
 

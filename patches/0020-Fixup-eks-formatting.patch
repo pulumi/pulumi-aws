@@ -1,4 +1,4 @@
-From 17cd5924b42c5c9214783e8a3c5379284864700a Mon Sep 17 00:00:00 2001
+From cd825c40a435e48dc89154edac5ae7d27a8203dd Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:36 +0000
 Subject: [PATCH 20/29] Fixup eks formatting
@@ -25,5 +25,5 @@ index 6568e06549..fb1ec98588 100644
  )
  
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

@@ -8,6 +8,9 @@ import typing
 from .backup import *
 from .data_repository_association import *
 from .file_cache import *
+from .get_ontap_file_system import *
+from .get_ontap_storage_virtual_machine import *
+from .get_ontap_storage_virtual_machines import *
 from .get_open_zfs_snapshot import *
 from .get_windows_file_system import *
 from .lustre_file_system import *

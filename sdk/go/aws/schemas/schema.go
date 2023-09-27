@@ -106,7 +106,7 @@ type Schema struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the schema. Valid values: `OpenApi3`.
+	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the schema.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -175,7 +175,7 @@ type schemaState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the schema. Valid values: `OpenApi3`.
+	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type *string `pulumi:"type"`
 	// The version of the schema.
 	Version *string `pulumi:"version"`
@@ -202,7 +202,7 @@ type SchemaState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// The type of the schema. Valid values: `OpenApi3`.
+	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type pulumi.StringPtrInput
 	// The version of the schema.
 	Version pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type schemaArgs struct {
 	RegistryName string `pulumi:"registryName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the schema. Valid values: `OpenApi3`.
+	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type string `pulumi:"type"`
 }
 
@@ -241,7 +241,7 @@ type SchemaArgs struct {
 	RegistryName pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of the schema. Valid values: `OpenApi3`.
+	// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 	Type pulumi.StringInput
 }
 
@@ -398,7 +398,7 @@ func (o SchemaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of the schema. Valid values: `OpenApi3`.
+// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
 func (o SchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

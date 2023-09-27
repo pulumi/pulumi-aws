@@ -126,7 +126,7 @@ namespace Pulumi.Aws.Schemas
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3`.
+        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.Schemas
         }
 
         /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3`.
+        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Schemas
         }
 
         /// <summary>
-        /// The type of the schema. Valid values: `OpenApi3`.
+        /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

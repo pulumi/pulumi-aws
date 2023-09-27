@@ -18,6 +18,10 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// The AWS account ID that owns the bucket.
+        /// </summary>
+        public readonly string BucketAccountId;
+        /// <summary>
         /// The name of the region.
         /// </summary>
         public readonly string Region;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.S3Control.Outputs
         private GetMultiRegionAccessPointRegionResult(
             string bucket,
 
+            string bucketAccountId,
+
             string region)
         {
             Bucket = bucket;
+            BucketAccountId = bucketAccountId;
             Region = region;
         }
     }

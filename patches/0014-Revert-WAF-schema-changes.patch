@@ -1,4 +1,4 @@
-From 681657ef2f93fc068def4717fed9b4c7cb42aa66 Mon Sep 17 00:00:00 2001
+From 461bae8e19283f649c6fb4340c90c2772ea7ac36 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 13:59:57 +0000
 Subject: [PATCH 14/29] Revert WAF schema changes
@@ -32,5 +32,5 @@ index fdb18d188d..876317b038 100644
  				"regex_pattern_set_reference_statement": regexPatternSetReferenceStatementSchema(),
  				"size_constraint_statement":             sizeConstraintSchema(),
 -- 
-2.41.0
+2.39.2 (Apple Git-143)
 

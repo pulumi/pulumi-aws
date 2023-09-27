@@ -6,14 +6,24 @@ package com.pulumi.aws.s3control.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiRegionAccessPointDetailsRegion {
     private String bucket;
+    private @Nullable String bucketAccountId;
+    private @Nullable String region;
 
     private MultiRegionAccessPointDetailsRegion() {}
     public String bucket() {
         return this.bucket;
+    }
+    public Optional<String> bucketAccountId() {
+        return Optional.ofNullable(this.bucketAccountId);
+    }
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     public static Builder builder() {
@@ -26,10 +36,14 @@ public final class MultiRegionAccessPointDetailsRegion {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
+        private @Nullable String bucketAccountId;
+        private @Nullable String region;
         public Builder() {}
         public Builder(MultiRegionAccessPointDetailsRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
+    	      this.bucketAccountId = defaults.bucketAccountId;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -37,9 +51,21 @@ public final class MultiRegionAccessPointDetailsRegion {
             this.bucket = Objects.requireNonNull(bucket);
             return this;
         }
+        @CustomType.Setter
+        public Builder bucketAccountId(@Nullable String bucketAccountId) {
+            this.bucketAccountId = bucketAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(@Nullable String region) {
+            this.region = region;
+            return this;
+        }
         public MultiRegionAccessPointDetailsRegion build() {
             final var o = new MultiRegionAccessPointDetailsRegion();
             o.bucket = bucket;
+            o.bucketAccountId = bucketAccountId;
+            o.region = region;
             return o;
         }
     }
