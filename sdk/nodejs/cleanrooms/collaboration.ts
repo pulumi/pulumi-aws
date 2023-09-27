@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_collaboration` using the `id`. For exampleterraform import {
+ * terraform import {
  *
  *  to = aws_cleanrooms_collaboration.collaboration
  *
- *  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `TODO import`, import `aws_cleanrooms_collaboration` using the `id`. For exampleconsole % TODO import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ *  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import `aws:cleanrooms/collaboration:Collaboration` using the `id`. For exampleconsole % pulumi import aws:cleanrooms/collaboration:Collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
  */
 export class Collaboration extends pulumi.CustomResource {
     /**

@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_collaboration` using the `id`. For exampleterraform import {
+ * terraform import {
  * 
  *  to = aws_cleanrooms_collaboration.collaboration
  * 
- *  id = &#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34; } Using `TODO import`, import `aws_cleanrooms_collaboration` using the `id`. For exampleconsole % TODO import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ *  id = &#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34; } Using `pulumi import`, import `aws:cleanrooms/collaboration:Collaboration` using the `id`. For exampleconsole % pulumi import aws:cleanrooms/collaboration:Collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
  * 
  */
 @ResourceType(type="aws:cleanrooms/collaboration:Collaboration")

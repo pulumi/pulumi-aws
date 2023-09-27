@@ -59,9 +59,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
- *
- * Using `TODO import`, import DB option groups using the `name`. For example:
+ * Using `pulumi import`, import DB option groups using the `name`. For example:
  *
  * ```sh
  *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -116,7 +114,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * Description of the option group. Defaults to "Managed by TODO".
+     * Description of the option group.
      */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
@@ -206,7 +204,7 @@ export interface OptionGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Description of the option group. Defaults to "Managed by TODO".
+     * Description of the option group.
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
@@ -246,7 +244,7 @@ export interface OptionGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Description of the option group. Defaults to "Managed by TODO".
+     * Description of the option group.
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**

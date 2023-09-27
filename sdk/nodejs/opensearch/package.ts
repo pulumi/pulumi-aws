@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For exampleterraform import {
+ * terraform import {
  *
  *  to = aws_opensearch_package.example
  *
- *  id = "package-id" } Using `TODO import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % TODO import aws_opensearch_package.example package-id
+ *  id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
  */
 export class Package extends pulumi.CustomResource {
     /**

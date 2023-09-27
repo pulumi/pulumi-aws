@@ -199,11 +199,11 @@ class Package(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For exampleterraform import {
+        terraform import {
 
          to = aws_opensearch_package.example
 
-         id = "package-id" } Using `TODO import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % TODO import aws_opensearch_package.example package-id
+         id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,11 +225,11 @@ class Package(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For exampleterraform import {
+        terraform import {
 
          to = aws_opensearch_package.example
 
-         id = "package-id" } Using `TODO import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % TODO import aws_opensearch_package.example package-id
+         id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

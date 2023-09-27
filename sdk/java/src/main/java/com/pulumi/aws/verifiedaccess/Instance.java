@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For exampleterraform import {
+ * terraform import {
  * 
  *  to = aws_verifiedaccess_instance.example
  * 
- *  id = &#34;vai-1234567890abcdef0&#34; } Using `TODO import`, import Transfer Workflows using the
+ *  id = &#34;vai-1234567890abcdef0&#34; } Using `pulumi import`, import Transfer Workflows using the
  * 
- * `id`. For exampleconsole % TODO import aws_verifiedaccess_instance.example vai-1234567890abcdef0
+ * `id`. For exampleconsole % pulumi import aws:verifiedaccess/instance:Instance vai-1234567890abcdef0
  * 
  */
 @ResourceType(type="aws:verifiedaccess/instance:Instance")

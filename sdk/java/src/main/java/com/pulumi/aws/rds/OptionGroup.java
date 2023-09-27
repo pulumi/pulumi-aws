@@ -88,9 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
- * 
- * Using `TODO import`, import DB option groups using the `name`. For example:
+ * Using `pulumi import`, import DB option groups using the `name`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -170,14 +168,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+     * Description of the option group.
      * 
      */
     @Export(name="optionGroupDescription", refs={String.class}, tree="[0]")
     private Output<String> optionGroupDescription;
 
     /**
-     * @return Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+     * @return Description of the option group.
      * 
      */
     public Output<String> optionGroupDescription() {

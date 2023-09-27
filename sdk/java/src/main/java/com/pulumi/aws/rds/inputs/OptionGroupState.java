@@ -95,14 +95,14 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+     * Description of the option group.
      * 
      */
     @Import(name="optionGroupDescription")
     private @Nullable Output<String> optionGroupDescription;
 
     /**
-     * @return Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+     * @return Description of the option group.
      * 
      */
     public Optional<Output<String>> optionGroupDescription() {
@@ -300,7 +300,7 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+         * @param optionGroupDescription Description of the option group.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class OptionGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by TODO&#34;.
+         * @param optionGroupDescription Description of the option group.
          * 
          * @return builder
          * 

@@ -22,11 +22,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import AWS Opensearch Packages using the Package ID. For exampleterraform import {
+ * terraform import {
  * 
  *  to = aws_opensearch_package.example
  * 
- *  id = &#34;package-id&#34; } Using `TODO import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % TODO import aws_opensearch_package.example package-id
+ *  id = &#34;package-id&#34; } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
  * 
  */
 @ResourceType(type="aws:opensearch/package:Package")

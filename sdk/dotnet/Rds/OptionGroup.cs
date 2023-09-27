@@ -80,9 +80,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
-    /// 
-    /// Using `TODO import`, import DB option groups using the `name`. For example:
+    /// Using `pulumi import`, import DB option groups using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -122,7 +120,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the option group. Defaults to "Managed by TODO".
+        /// Description of the option group.
         /// </summary>
         [Output("optionGroupDescription")]
         public Output<string> OptionGroupDescription { get; private set; } = null!;
@@ -220,7 +218,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Description of the option group. Defaults to "Managed by TODO".
+        /// Description of the option group.
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
@@ -289,7 +287,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Description of the option group. Defaults to "Managed by TODO".
+        /// Description of the option group.
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }

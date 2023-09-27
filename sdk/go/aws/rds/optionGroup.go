@@ -83,9 +83,7 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
-//
-// Using `TODO import`, import DB option groups using the `name`. For example:
+// Using `pulumi import`, import DB option groups using the `name`. For example:
 //
 // ```sh
 //
@@ -105,7 +103,7 @@ type OptionGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by TODO".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// List of options to apply.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
@@ -170,7 +168,7 @@ type optionGroupState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by TODO".
+	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// List of options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
@@ -193,7 +191,7 @@ type OptionGroupState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// Description of the option group. Defaults to "Managed by TODO".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
 	// List of options to apply.
 	Options OptionGroupOptionArrayInput
@@ -218,7 +216,7 @@ type optionGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group. Defaults to "Managed by TODO".
+	// Description of the option group.
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// List of options to apply.
 	Options []OptionGroupOption `pulumi:"options"`
@@ -236,7 +234,7 @@ type OptionGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// Description of the option group. Defaults to "Managed by TODO".
+	// Description of the option group.
 	OptionGroupDescription pulumi.StringPtrInput
 	// List of options to apply.
 	Options OptionGroupOptionArrayInput
@@ -380,7 +378,7 @@ func (o OptionGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Description of the option group. Defaults to "Managed by TODO".
+// Description of the option group.
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }

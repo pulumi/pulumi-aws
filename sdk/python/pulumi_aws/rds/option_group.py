@@ -29,7 +29,7 @@ class OptionGroupArgs:
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] option_group_description: Description of the option group.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -100,7 +100,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the option group. Defaults to "Managed by TODO".
+        Description of the option group.
         """
         return pulumi.get(self, "option_group_description")
 
@@ -152,7 +152,7 @@ class _OptionGroupState:
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] option_group_description: Description of the option group.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -245,7 +245,7 @@ class _OptionGroupState:
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the option group. Defaults to "Managed by TODO".
+        Description of the option group.
         """
         return pulumi.get(self, "option_group_description")
 
@@ -357,9 +357,7 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
-
-        Using `TODO import`, import DB option groups using the `name`. For example:
+        Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -371,7 +369,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] option_group_description: Description of the option group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -432,9 +430,7 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import DB option groups using the `name`. For example:
-
-        Using `TODO import`, import DB option groups using the `name`. For example:
+        Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
          $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
@@ -519,7 +515,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] option_group_description: Description of the option group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -583,7 +579,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> pulumi.Output[str]:
         """
-        Description of the option group. Defaults to "Managed by TODO".
+        Description of the option group.
         """
         return pulumi.get(self, "option_group_description")
 
