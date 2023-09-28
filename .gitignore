@@ -38,3 +38,6 @@ sdk/python/build
 sdk/python/*.egg-info
 
 .envrc
+
+
+sdk/python/venv
