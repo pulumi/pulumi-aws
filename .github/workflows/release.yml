@@ -302,6 +302,26 @@ jobs:
     - name: Add SDK version tag
       run: git tag "sdk/v$(pulumictl get version --language generic)" && git push origin
         "sdk/v$(pulumictl get version --language generic)"
+
+  clean_up_release_labels:
+    name: Clean up release labels
+    needs: create_docs_build
+    
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+    - name: Unshallow clone for PR merge bases
+      run: git fetch --prune --unshallow --tags
+    - name: Clean up release labels
+      uses: pulumi/action-release-by-pr-label@main
+      with:
+        command: "clean-up-release-labels"
+        repo: ${{ github.repository }}
+        commit: ${{ github.sha }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   test:
     name: test
     needs: build_sdk

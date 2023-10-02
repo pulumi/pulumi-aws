@@ -332,6 +332,24 @@ jobs:
       if: failure()
       name: Send Publish Failure To Slack
       uses: rtCamp/action-slack-notify@v2
+
+  tag_release_if_labeled_needs_release:
+    name: Tag release if labeled as needs-release
+    needs: publish_sdk
+    runs-on: ubuntu-latest
+    steps:
+    - name: check if this commit needs release
+      uses: pulumi/action-release-by-pr-label@main
+      with:
+        command: "release-if-needed"
+        repo: ${{ github.repository }}
+        commit: ${{ github.sha }}
+        slack_channel: ${{ secrets.RELEASE_OPS_SLACK_CHANNEL }}
+      env:
+        RELEASE_BOT_ENDPOINT: ${{ secrets.RELEASE_BOT_ENDPOINT }}
+        RELEASE_BOT_KEY: ${{ secrets.RELEASE_BOT_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   test:
     name: test
     needs: build_sdk
