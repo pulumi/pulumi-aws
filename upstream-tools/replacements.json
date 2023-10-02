@@ -3469,6 +3469,32 @@
       "new": "Using `pulumi import`, import `aws:cleanrooms/collaboration:Collaboration` using the `id`. For example:"
     }
   ],
+  "website/docs/r/cleanrooms_configured_table.html.markdown": [
+    {
+      "old": "    Project = \"Terraform\"",
+      "new": "    Project = \"TODO\""
+    },
+    {
+      "old": "  description     = \"I made this table with terraform!\"",
+      "new": "  description     = \"I made this table with TODO!\""
+    },
+    {
+      "old": "  name            = \"terraform-example-table\"",
+      "new": "  name            = \"TODO-example-table\""
+    },
+    {
+      "old": "% terraform import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab",
+      "new": "% TODO import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_cleanrooms_configured_table` using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_configured_table` using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_cleanrooms_configured_table` using the `id`. For example:",
+      "new": "Using `TODO import`, import `aws_cleanrooms_configured_table` using the `id`. For example:"
+    }
+  ],
   "website/docs/r/cloud9_environment_membership.html.markdown": [
     {
       "old": "% terraform import aws_cloud9_environment_membership.test environment-id#user-arn",
@@ -6390,6 +6416,20 @@
     {
       "old": "Using `terraform import`, import event subscriptions using the `name`. For example:",
       "new": "Using `pulumi import`, import event subscriptions using the `name`. For example:"
+    }
+  ],
+  "website/docs/r/dms_replication_config.html.markdown": [
+    {
+      "old": "% terraform import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI",
+      "new": "% TODO import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import replication configs using the `arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import replication configs using the `arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import a replication config using the `arn`. For example:",
+      "new": "Using `TODO import`, import a replication config using the `arn`. For example:"
     }
   ],
   "website/docs/r/dms_replication_instance.html.markdown": [
@@ -11425,6 +11465,20 @@
       "new": "Using `pulumi import`, import slot types using their name. For example:"
     }
   ],
+  "website/docs/r/lexv2models_bot.html.markdown": [
+    {
+      "old": "% terraform import aws_lexv2models_bot.example bot-id-12345678",
+      "new": "% TODO import aws_lexv2models_bot.example bot-id-12345678"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Lex V2 Models Bot using the `example_id_arg`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Lex V2 Models Bot using the `example_id_arg`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Lex V2 Models Bot using the `example_id_arg`. For example:",
+      "new": "Using `TODO import`, import Lex V2 Models Bot using the `example_id_arg`. For example:"
+    }
+  ],
   "website/docs/r/licensemanager_association.html.markdown": [
     {
       "old": "% terraform import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
@@ -11517,6 +11571,10 @@
     {
       "old": "% terraform import aws_lightsail_bucket.test example-bucket",
       "new": "% pulumi import aws_lightsail_bucket.test example-bucket"
+    },
+    {
+      "old": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `terraform destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.",
+      "new": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty."
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_lightsail_bucket` using the `name` attribute. For example:",
@@ -14338,6 +14396,20 @@
     {
       "old": "Using `terraform import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:",
       "new": "Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:"
+    }
+  ],
+  "website/docs/r/rds_custom_db_engine_version.markdown": [
+    {
+      "old": "% terraform import aws_rds_custom_db_engine_version.example custom-oracle-ee-cdb:19.cdb_cev1",
+      "new": "% TODO import aws_rds_custom_db_engine_version.example custom-oracle-ee-cdb:19.cdb_cev1"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:",
+      "new": "Using `TODO import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:"
     }
   ],
   "website/docs/r/rds_export_task.html.markdown": [
