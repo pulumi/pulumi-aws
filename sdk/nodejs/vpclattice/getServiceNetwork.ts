@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getServiceNetwork({
- *     serviceNetworkIdentifier: "",
+ *     serviceNetworkIdentifier: "snsa-01112223334445556",
  * });
  * ```
  */
@@ -33,7 +33,7 @@ export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.Inv
  */
 export interface GetServiceNetworkArgs {
     /**
-     * Identifier of the network service.
+     * Identifier of the service network.
      */
     serviceNetworkIdentifier: string;
     tags?: {[key: string]: string};
@@ -89,7 +89,7 @@ export interface GetServiceNetworkResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.vpclattice.getServiceNetwork({
- *     serviceNetworkIdentifier: "",
+ *     serviceNetworkIdentifier: "snsa-01112223334445556",
  * });
  * ```
  */
@@ -102,7 +102,7 @@ export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?
  */
 export interface GetServiceNetworkOutputArgs {
     /**
-     * Identifier of the network service.
+     * Identifier of the service network.
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

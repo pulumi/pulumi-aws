@@ -68,6 +68,21 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     * 
+     */
+    @Import(name="deleteVolumeOptions")
+    private @Nullable Output<String> deleteVolumeOptions;
+
+    /**
+     * @return Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     * 
+     */
+    public Optional<Output<String>> deleteVolumeOptions() {
+        return Optional.ofNullable(this.deleteVolumeOptions);
+    }
+
+    /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
@@ -253,6 +268,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         this.arn = $.arn;
         this.copyTagsToSnapshots = $.copyTagsToSnapshots;
         this.dataCompressionType = $.dataCompressionType;
+        this.deleteVolumeOptions = $.deleteVolumeOptions;
         this.name = $.name;
         this.nfsExports = $.nfsExports;
         this.originSnapshot = $.originSnapshot;
@@ -346,6 +362,27 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder dataCompressionType(String dataCompressionType) {
             return dataCompressionType(Output.of(dataCompressionType));
+        }
+
+        /**
+         * @param deleteVolumeOptions Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteVolumeOptions(@Nullable Output<String> deleteVolumeOptions) {
+            $.deleteVolumeOptions = deleteVolumeOptions;
+            return this;
+        }
+
+        /**
+         * @param deleteVolumeOptions Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteVolumeOptions(String deleteVolumeOptions) {
+            return deleteVolumeOptions(Output.of(deleteVolumeOptions));
         }
 
         /**

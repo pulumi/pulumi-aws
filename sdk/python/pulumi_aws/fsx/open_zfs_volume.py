@@ -19,6 +19,7 @@ class OpenZfsVolumeArgs:
                  parent_volume_id: pulumi.Input[str],
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
+                 delete_volume_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nfs_exports: Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']] = None,
                  origin_snapshot: Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']] = None,
@@ -34,6 +35,7 @@ class OpenZfsVolumeArgs:
         :param pulumi.Input[str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input['OpenZfsVolumeOriginSnapshotArgs'] origin_snapshot: The ARN of the source snapshot to create the volume from.
@@ -49,6 +51,8 @@ class OpenZfsVolumeArgs:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
             pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if delete_volume_options is not None:
+            pulumi.set(__self__, "delete_volume_options", delete_volume_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nfs_exports is not None:
@@ -105,6 +109,18 @@ class OpenZfsVolumeArgs:
     @data_compression_type.setter
     def data_compression_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="deleteVolumeOptions")
+    def delete_volume_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        """
+        return pulumi.get(self, "delete_volume_options")
+
+    @delete_volume_options.setter
+    def delete_volume_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete_volume_options", value)
 
     @property
     @pulumi.getter
@@ -230,6 +246,7 @@ class _OpenZfsVolumeState:
                  arn: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
+                 delete_volume_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nfs_exports: Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']] = None,
                  origin_snapshot: Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']] = None,
@@ -247,6 +264,7 @@ class _OpenZfsVolumeState:
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input['OpenZfsVolumeNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input['OpenZfsVolumeOriginSnapshotArgs'] origin_snapshot: The ARN of the source snapshot to create the volume from.
@@ -265,6 +283,8 @@ class _OpenZfsVolumeState:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
             pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if delete_volume_options is not None:
+            pulumi.set(__self__, "delete_volume_options", delete_volume_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nfs_exports is not None:
@@ -328,6 +348,18 @@ class _OpenZfsVolumeState:
     @data_compression_type.setter
     def data_compression_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_compression_type", value)
+
+    @property
+    @pulumi.getter(name="deleteVolumeOptions")
+    def delete_volume_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        """
+        return pulumi.get(self, "delete_volume_options")
+
+    @delete_volume_options.setter
+    def delete_volume_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete_volume_options", value)
 
     @property
     @pulumi.getter
@@ -481,6 +513,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
+                 delete_volume_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nfs_exports: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']]] = None,
                  origin_snapshot: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']]] = None,
@@ -518,6 +551,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']] origin_snapshot: The ARN of the source snapshot to create the volume from.
@@ -573,6 +607,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
+                 delete_volume_options: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nfs_exports: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']]] = None,
                  origin_snapshot: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']]] = None,
@@ -595,6 +630,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
             __props__.__dict__["copy_tags_to_snapshots"] = copy_tags_to_snapshots
             __props__.__dict__["data_compression_type"] = data_compression_type
+            __props__.__dict__["delete_volume_options"] = delete_volume_options
             __props__.__dict__["name"] = name
             __props__.__dict__["nfs_exports"] = nfs_exports
             __props__.__dict__["origin_snapshot"] = origin_snapshot
@@ -625,6 +661,7 @@ class OpenZfsVolume(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
             data_compression_type: Optional[pulumi.Input[str]] = None,
+            delete_volume_options: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nfs_exports: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']]] = None,
             origin_snapshot: Optional[pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']]] = None,
@@ -647,6 +684,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param pulumi.Input[str] delete_volume_options: Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[pulumi.InputType['OpenZfsVolumeNfsExportsArgs']] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input[pulumi.InputType['OpenZfsVolumeOriginSnapshotArgs']] origin_snapshot: The ARN of the source snapshot to create the volume from.
@@ -666,6 +704,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["copy_tags_to_snapshots"] = copy_tags_to_snapshots
         __props__.__dict__["data_compression_type"] = data_compression_type
+        __props__.__dict__["delete_volume_options"] = delete_volume_options
         __props__.__dict__["name"] = name
         __props__.__dict__["nfs_exports"] = nfs_exports
         __props__.__dict__["origin_snapshot"] = origin_snapshot
@@ -703,6 +742,14 @@ class OpenZfsVolume(pulumi.CustomResource):
         Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
+
+    @property
+    @pulumi.getter(name="deleteVolumeOptions")
+    def delete_volume_options(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        """
+        return pulumi.get(self, "delete_volume_options")
 
     @property
     @pulumi.getter

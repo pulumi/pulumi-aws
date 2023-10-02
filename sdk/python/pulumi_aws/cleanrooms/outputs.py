@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'CollaborationDataEncryptionMetadata',
     'CollaborationMember',
+    'ConfiguredTableTableReference',
 ]
 
 @pulumi.output_type
@@ -123,5 +124,43 @@ class CollaborationMember(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ConfiguredTableTableReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableTableReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableTableReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableTableReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 table_name: str):
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        return pulumi.get(self, "table_name")
 
 

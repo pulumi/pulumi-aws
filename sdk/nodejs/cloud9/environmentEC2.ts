@@ -103,9 +103,11 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `ubuntu-18.04-x86_64`
+     * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
     public readonly imageId!: pulumi.Output<string | undefined>;
     /**
@@ -214,9 +216,11 @@ export interface EnvironmentEC2State {
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `ubuntu-18.04-x86_64`
+     * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
     imageId?: pulumi.Input<string>;
     /**
@@ -272,9 +276,11 @@ export interface EnvironmentEC2Args {
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `ubuntu-18.04-x86_64`
+     * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      */
     imageId?: pulumi.Input<string>;
     /**

@@ -203,9 +203,11 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `ubuntu-18.04-x86_64`
+     * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
@@ -216,9 +218,11 @@ public class EnvironmentEC2 extends com.pulumi.resources.CustomResource {
      * * `amazonlinux-1-x86_64`
      * * `amazonlinux-2-x86_64`
      * * `ubuntu-18.04-x86_64`
+     * * `ubuntu-22.04-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64`
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
+     * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
     public Output<Optional<String>> imageId() {

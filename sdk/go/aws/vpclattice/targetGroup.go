@@ -33,9 +33,9 @@ import (
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
 //				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
+//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
 //					Port:          pulumi.Int(443),
 //					Protocol:      pulumi.String("HTTPS"),
-//					VpcIdentifier: pulumi.Any(aws_vpc.Example.Id),
 //				},
 //			})
 //			if err != nil {
@@ -61,11 +61,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Type: pulumi.String("ALB"),
+//				Type: pulumi.String("IP"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
+//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
+//					IpAddressType:   pulumi.String("IPV4"),
 //					Port:            pulumi.Int(443),
 //					Protocol:        pulumi.String("HTTPS"),
-//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
 //					ProtocolVersion: pulumi.String("HTTP1"),
 //					HealthCheck: &vpclattice.TargetGroupConfigHealthCheckArgs{
 //						Enabled:                    pulumi.Bool(true),
@@ -81,6 +82,39 @@ import (
 //						Protocol:        pulumi.String("HTTP"),
 //						ProtocolVersion: pulumi.String("HTTP1"),
 //					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### ALB
+//
+// If the type is ALB, `healthCheck` block is not supported.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
+//				Type: pulumi.String("ALB"),
+//				Config: &vpclattice.TargetGroupConfigArgs{
+//					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
+//					Port:            pulumi.Int(443),
+//					Protocol:        pulumi.String("HTTPS"),
+//					ProtocolVersion: pulumi.String("HTTP1"),
 //				},
 //			})
 //			if err != nil {

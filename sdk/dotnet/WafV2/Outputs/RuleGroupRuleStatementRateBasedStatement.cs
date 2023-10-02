@@ -14,9 +14,13 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementRateBasedStatement
     {
         /// <summary>
-        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         /// </summary>
         public readonly string? AggregateKeyType;
+        /// <summary>
+        /// Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKey> CustomKeys;
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         /// </summary>
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         private RuleGroupRuleStatementRateBasedStatement(
             string? aggregateKeyType,
 
+            ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys,
+
             Outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig? forwardedIpConfig,
 
             int limit,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement? scopeDownStatement)
         {
             AggregateKeyType = aggregateKeyType;
+            CustomKeys = customKeys;
             ForwardedIpConfig = forwardedIpConfig;
             Limit = limit;
             ScopeDownStatement = scopeDownStatement;

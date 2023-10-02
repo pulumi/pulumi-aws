@@ -3301,6 +3301,1191 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInpu
 	}).(OntapStorageVirtualMachineEndpointSmbOutput)
 }
 
+type OntapVolumeSnaplockConfiguration struct {
+	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+	AuditLogVolume *bool `pulumi:"auditLogVolume"`
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+	AutocommitPeriod *OntapVolumeSnaplockConfigurationAutocommitPeriod `pulumi:"autocommitPeriod"`
+	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+	PrivilegedDelete *string `pulumi:"privilegedDelete"`
+	// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+	RetentionPeriod *OntapVolumeSnaplockConfigurationRetentionPeriod `pulumi:"retentionPeriod"`
+	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+	SnaplockType string `pulumi:"snaplockType"`
+	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+	VolumeAppendModeEnabled *bool `pulumi:"volumeAppendModeEnabled"`
+}
+
+// OntapVolumeSnaplockConfigurationInput is an input type that accepts OntapVolumeSnaplockConfigurationArgs and OntapVolumeSnaplockConfigurationOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationInput` via:
+//
+//	OntapVolumeSnaplockConfigurationArgs{...}
+type OntapVolumeSnaplockConfigurationInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationOutput() OntapVolumeSnaplockConfigurationOutput
+	ToOntapVolumeSnaplockConfigurationOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationOutput
+}
+
+type OntapVolumeSnaplockConfigurationArgs struct {
+	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+	AuditLogVolume pulumi.BoolPtrInput `pulumi:"auditLogVolume"`
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+	AutocommitPeriod OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput `pulumi:"autocommitPeriod"`
+	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+	PrivilegedDelete pulumi.StringPtrInput `pulumi:"privilegedDelete"`
+	// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+	RetentionPeriod OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
+	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+	SnaplockType pulumi.StringInput `pulumi:"snaplockType"`
+	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+	VolumeAppendModeEnabled pulumi.BoolPtrInput `pulumi:"volumeAppendModeEnabled"`
+}
+
+func (OntapVolumeSnaplockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfigurationOutput() OntapVolumeSnaplockConfigurationOutput {
+	return i.ToOntapVolumeSnaplockConfigurationOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfiguration] {
+	return pulumix.Output[OntapVolumeSnaplockConfiguration]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationOutput).ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationArgs, OntapVolumeSnaplockConfigurationPtr and OntapVolumeSnaplockConfigurationPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput
+	ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationPtrType OntapVolumeSnaplockConfigurationArgs
+
+func OntapVolumeSnaplockConfigurationPtr(v *OntapVolumeSnaplockConfigurationArgs) OntapVolumeSnaplockConfigurationPtrInput {
+	return (*ontapVolumeSnaplockConfigurationPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationPtrType) ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationPtrType) ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfiguration] {
+	return pulumix.Output[*OntapVolumeSnaplockConfiguration]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurationOutput() OntapVolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfiguration {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfiguration] {
+	return pulumix.Output[OntapVolumeSnaplockConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+func (o OntapVolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *bool { return v.AuditLogVolume }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+func (o OntapVolumeSnaplockConfigurationOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
+		return v.AutocommitPeriod
+	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
+}
+
+// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+func (o OntapVolumeSnaplockConfigurationOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *string { return v.PrivilegedDelete }).(pulumi.StringPtrOutput)
+}
+
+// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+func (o OntapVolumeSnaplockConfigurationOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
+		return v.RetentionPeriod
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
+}
+
+// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+func (o OntapVolumeSnaplockConfigurationOutput) SnaplockType() pulumi.StringOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) string { return v.SnaplockType }).(pulumi.StringOutput)
+}
+
+// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+func (o OntapVolumeSnaplockConfigurationOutput) VolumeAppendModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *bool { return v.VolumeAppendModeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfiguration] {
+	return pulumix.Output[*OntapVolumeSnaplockConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationPtrOutput) Elem() OntapVolumeSnaplockConfigurationOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) OntapVolumeSnaplockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfiguration
+		return ret
+	}).(OntapVolumeSnaplockConfigurationOutput)
+}
+
+// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AuditLogVolume
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.AutocommitPeriod
+	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
+}
+
+// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivilegedDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+// The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
+}
+
+// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) SnaplockType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnaplockType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+func (o OntapVolumeSnaplockConfigurationPtrOutput) VolumeAppendModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeAppendModeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationAutocommitPeriod struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
+}
+
+// OntapVolumeSnaplockConfigurationAutocommitPeriodInput is an input type that accepts OntapVolumeSnaplockConfigurationAutocommitPeriodArgs and OntapVolumeSnaplockConfigurationAutocommitPeriodOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationAutocommitPeriodInput` via:
+//
+//	OntapVolumeSnaplockConfigurationAutocommitPeriodArgs{...}
+type OntapVolumeSnaplockConfigurationAutocommitPeriodInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodOutput
+	ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodOutput
+}
+
+type OntapVolumeSnaplockConfigurationAutocommitPeriodArgs struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationAutocommitPeriod)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
+	return i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput).ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationAutocommitPeriodArgs, OntapVolumeSnaplockConfigurationAutocommitPeriodPtr and OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationAutocommitPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput
+	ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType OntapVolumeSnaplockConfigurationAutocommitPeriodArgs
+
+func OntapVolumeSnaplockConfigurationAutocommitPeriodPtr(v *OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput {
+	return (*ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationAutocommitPeriod)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationAutocommitPeriodOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationAutocommitPeriod)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationAutocommitPeriod) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationAutocommitPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationAutocommitPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationAutocommitPeriod)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Elem() OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationAutocommitPeriod) OntapVolumeSnaplockConfigurationAutocommitPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfigurationAutocommitPeriod
+		return ret
+	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput)
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationAutocommitPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationAutocommitPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriod struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+	DefaultRetention *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	MaximumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	MinimumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention `pulumi:"minimumRetention"`
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodArgs and OntapVolumeSnaplockConfigurationRetentionPeriodOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodInput` via:
+//
+//	OntapVolumeSnaplockConfigurationRetentionPeriodArgs{...}
+type OntapVolumeSnaplockConfigurationRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodOutput() OntapVolumeSnaplockConfigurationRetentionPeriodOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodOutput
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodArgs struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+	DefaultRetention OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	MaximumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+	MinimumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput `pulumi:"minimumRetention"`
+}
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriod)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodOutput() OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput).ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodArgs, OntapVolumeSnaplockConfigurationRetentionPeriodPtr and OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationRetentionPeriodPtrType OntapVolumeSnaplockConfigurationRetentionPeriodArgs
+
+func OntapVolumeSnaplockConfigurationRetentionPeriodPtr(v *OntapVolumeSnaplockConfigurationRetentionPeriodArgs) OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput {
+	return (*ontapVolumeSnaplockConfigurationRetentionPeriodPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriod)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriod)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodOutput() OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriod {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+		return v.DefaultRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
+}
+
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+		return v.MaximumRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
+}
+
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+		return v.MinimumRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriod)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) OntapVolumeSnaplockConfigurationRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfigurationRetentionPeriod
+		return ret
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
+}
+
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
+}
+
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
+}
+
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumRetention
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput` via:
+//
+//	OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs{...}
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput).ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs, OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtr and OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs
+
+func OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtr(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput {
+	return (*ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention
+		return ret
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput)
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput` via:
+//
+//	OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs{...}
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput).ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs, OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtr and OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs
+
+func OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtr(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput {
+	return (*ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention
+		return ret
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput)
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type *string `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs and OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput` via:
+//
+//	OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs{...}
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs struct {
+	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention)(nil)).Elem()
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput)
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput).ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput is an input type that accepts OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs, OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtr and OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput` via:
+//
+//	        OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
+	ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
+}
+
+type ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs
+
+func OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtr(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput {
+	return (*ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType)(v)
+}
+
+func (*ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention)(nil)).Elem()
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
+}
+
+func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
+		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+		return &v
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
+	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention)(nil)).Elem()
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
+	return o
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
+	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention
+		return ret
+	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput)
+}
+
+// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type OntapVolumeTieringPolicy struct {
 	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod *int `pulumi:"coolingPeriod"`
@@ -7857,6 +9042,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointNfArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointNfArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationAutocommitPeriodInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationAutocommitPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationAutocommitPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput)(nil)).Elem(), OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyPtrInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OpenZfsFileSystemDiskIopsConfigurationArgs{})
@@ -7959,6 +9156,18 @@ func init() {
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointNfArrayOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbOutput{})
 	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbArrayOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput{})
+	pulumi.RegisterOutputType(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput{})
 	pulumi.RegisterOutputType(OntapVolumeTieringPolicyOutput{})
 	pulumi.RegisterOutputType(OntapVolumeTieringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OpenZfsFileSystemDiskIopsConfigurationOutput{})

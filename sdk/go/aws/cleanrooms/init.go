@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cleanrooms/collaboration:Collaboration":
 		r = &Collaboration{}
+	case "aws:cleanrooms/configuredTable:ConfiguredTable":
+		r = &ConfiguredTable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cleanrooms/collaboration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cleanrooms/configuredTable",
 		&module{version},
 	)
 }

@@ -54,7 +54,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 type LookupServiceArgs struct {
 	// Service name.
 	Name *string `pulumi:"name"`
-	// ID or Amazon Resource Name (ARN) of the service network.
+	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags map[string]string `pulumi:"tags"`
@@ -99,7 +99,7 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 type LookupServiceOutputArgs struct {
 	// Service name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// ID or Amazon Resource Name (ARN) of the service network.
+	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

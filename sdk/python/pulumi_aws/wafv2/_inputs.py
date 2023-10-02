@@ -61,6 +61,21 @@ __all__ = [
     'RuleGroupRuleStatementNotStatementArgs',
     'RuleGroupRuleStatementOrStatementArgs',
     'RuleGroupRuleStatementRateBasedStatementArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs',
+    'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs',
     'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs',
     'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs',
@@ -511,6 +526,21 @@ __all__ = [
     'WebAclRuleStatementNotStatementArgs',
     'WebAclRuleStatementOrStatementArgs',
     'WebAclRuleStatementRateBasedStatementArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyIpArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs',
+    'WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs',
     'WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs',
     'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs',
@@ -2720,17 +2750,21 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
     def __init__(__self__, *,
                  limit: pulumi.Input[int],
                  aggregate_key_type: Optional[pulumi.Input[str]] = None,
+                 custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs']]]] = None,
                  forwarded_ip_config: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs']] = None):
         """
         :param pulumi.Input[int] limit: The limit on requests per 5-minute period for a single originating IP address.
-        :param pulumi.Input[str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        :param pulumi.Input[str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs']]] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs'] forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs'] scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
             pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+        if custom_keys is not None:
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -2752,13 +2786,25 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         """
         return pulumi.get(self, "aggregate_key_type")
 
     @aggregate_key_type.setter
     def aggregate_key_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aggregate_key_type", value)
+
+    @property
+    @pulumi.getter(name="customKeys")
+    def custom_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs']]]]:
+        """
+        Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        """
+        return pulumi.get(self, "custom_keys")
+
+    @custom_keys.setter
+    def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs']]]]):
+        pulumi.set(self, "custom_keys", value)
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
@@ -2783,6 +2829,657 @@ class RuleGroupRuleStatementRateBasedStatementArgs:
     @scope_down_statement.setter
     def scope_down_statement(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyArgs:
+    def __init__(__self__, *,
+                 cookie: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs']] = None,
+                 forwarded_ip: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']] = None,
+                 header: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs']] = None,
+                 http_method: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs']] = None,
+                 label_namespace: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']] = None,
+                 query_argument: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']] = None,
+                 query_string: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs']] = None,
+                 uri_path: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs']] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs'] cookie: (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs'] forwarded_ip: (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs'] header: (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs'] http_method: (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs'] ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs'] label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs'] query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs'] query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs'] uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        """
+        if cookie is not None:
+            pulumi.set(__self__, "cookie", cookie)
+        if forwarded_ip is not None:
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if label_namespace is not None:
+            pulumi.set(__self__, "label_namespace", label_namespace)
+        if query_argument is not None:
+            pulumi.set(__self__, "query_argument", query_argument)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def cookie(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs']]:
+        """
+        (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        """
+        return pulumi.get(self, "cookie")
+
+    @cookie.setter
+    def cookie(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs']]):
+        pulumi.set(self, "cookie", value)
+
+    @property
+    @pulumi.getter(name="forwardedIp")
+    def forwarded_ip(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']]:
+        """
+        (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        """
+        return pulumi.get(self, "forwarded_ip")
+
+    @forwarded_ip.setter
+    def forwarded_ip(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']]):
+        pulumi.set(self, "forwarded_ip", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs']]:
+        """
+        (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']]:
+        """
+        (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs']]:
+        """
+        (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs']]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']]:
+        """
+        (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        """
+        return pulumi.get(self, "label_namespace")
+
+    @label_namespace.setter
+    def label_namespace(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']]):
+        pulumi.set(self, "label_namespace", value)
+
+    @property
+    @pulumi.getter(name="queryArgument")
+    def query_argument(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']]:
+        """
+        (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        """
+        return pulumi.get(self, "query_argument")
+
+    @query_argument.setter
+    def query_argument(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']]):
+        pulumi.set(self, "query_argument", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs']]:
+        """
+        Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs']]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs']]:
+        """
+        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        """
+        return pulumi.get(self, "uri_path")
+
+    @uri_path.setter
+    def uri_path(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs']]):
+        pulumi.set(self, "uri_path", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name of the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name of the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: The namespace to use for aggregation
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace to use for aggregation
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A friendly name of the rule group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs:
+    def __init__(__self__, *,
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs:
+    def __init__(__self__, *,
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+               At least one required.
+               See Text Transformation below for details.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        At least one required.
+        See Text Transformation below for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -13969,7 +14666,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  success_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
-        :param pulumi.Input[str] name: The name of the header to match against. The name must be an exact match, including case.
+        :param pulumi.Input[str] name: The name of the header to use.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
         pulumi.set(__self__, "failure_values", failure_values)
@@ -13992,7 +14689,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the header to match against. The name must be an exact match, including case.
+        The name of the header to use.
         """
         return pulumi.get(self, "name")
 
@@ -19306,17 +20003,21 @@ class WebAclRuleStatementRateBasedStatementArgs:
     def __init__(__self__, *,
                  limit: pulumi.Input[int],
                  aggregate_key_type: Optional[pulumi.Input[str]] = None,
+                 custom_keys: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyArgs']]]] = None,
                  forwarded_ip_config: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs']] = None,
                  scope_down_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']] = None):
         """
         :param pulumi.Input[int] limit: Limit on requests per 5-minute period for a single originating IP address.
-        :param pulumi.Input[str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        :param pulumi.Input[str] aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyArgs']]] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs'] forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs'] scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
             pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+        if custom_keys is not None:
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -19338,13 +20039,25 @@ class WebAclRuleStatementRateBasedStatementArgs:
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
         """
         return pulumi.get(self, "aggregate_key_type")
 
     @aggregate_key_type.setter
     def aggregate_key_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aggregate_key_type", value)
+
+    @property
+    @pulumi.getter(name="customKeys")
+    def custom_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyArgs']]]]:
+        """
+        Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        """
+        return pulumi.get(self, "custom_keys")
+
+    @custom_keys.setter
+    def custom_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyArgs']]]]):
+        pulumi.set(self, "custom_keys", value)
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
@@ -19369,6 +20082,537 @@ class WebAclRuleStatementRateBasedStatementArgs:
     @scope_down_statement.setter
     def scope_down_statement(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyArgs:
+    def __init__(__self__, *,
+                 cookie: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs']] = None,
+                 forwarded_ip: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']] = None,
+                 header: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs']] = None,
+                 http_method: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyIpArgs']] = None,
+                 label_namespace: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']] = None,
+                 query_argument: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']] = None,
+                 query_string: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs']] = None,
+                 uri_path: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs'] cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs'] forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs'] header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs'] http_method: Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyIpArgs'] ip: Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs'] label_namespace: Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs'] query_argument: Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs'] query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs'] uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        """
+        if cookie is not None:
+            pulumi.set(__self__, "cookie", cookie)
+        if forwarded_ip is not None:
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if label_namespace is not None:
+            pulumi.set(__self__, "label_namespace", label_namespace)
+        if query_argument is not None:
+            pulumi.set(__self__, "query_argument", query_argument)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def cookie(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs']]:
+        """
+        Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        """
+        return pulumi.get(self, "cookie")
+
+    @cookie.setter
+    def cookie(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs']]):
+        pulumi.set(self, "cookie", value)
+
+    @property
+    @pulumi.getter(name="forwardedIp")
+    def forwarded_ip(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']]:
+        """
+        Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        """
+        return pulumi.get(self, "forwarded_ip")
+
+    @forwarded_ip.setter
+    def forwarded_ip(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs']]):
+        pulumi.set(self, "forwarded_ip", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs']]:
+        """
+        Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']]:
+        """
+        Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs']]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyIpArgs']]:
+        """
+        Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyIpArgs']]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']]:
+        """
+        Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        """
+        return pulumi.get(self, "label_namespace")
+
+    @label_namespace.setter
+    def label_namespace(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs']]):
+        pulumi.set(self, "label_namespace", value)
+
+    @property
+    @pulumi.getter(name="queryArgument")
+    def query_argument(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']]:
+        """
+        Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        """
+        return pulumi.get(self, "query_argument")
+
+    @query_argument.setter
+    def query_argument(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs']]):
+        pulumi.set(self, "query_argument", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs']]:
+        """
+        Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs']]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs']]:
+        """
+        Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        """
+        return pulumi.get(self, "uri_path")
+
+    @uri_path.setter
+    def uri_path(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs']]):
+        pulumi.set(self, "uri_path", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: The name of the cookie to use.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the cookie to use.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: The name of the header to use.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the header to use.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyIpArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs:
+    def __init__(__self__, *,
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] namespace: The namespace to use for aggregation
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace to use for aggregation
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[str] name: The name of the query argument to use.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the query argument to use.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs:
+    def __init__(__self__, *,
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs:
+    def __init__(__self__, *,
+                 text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]:
+        """
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        """
+        return pulumi.get(self, "text_transformations")
+
+    @text_transformations.setter
+    def text_transformations(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs']]]):
+        pulumi.set(self, "text_transformations", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs:
+    def __init__(__self__, *,
+                 priority: pulumi.Input[int],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param pulumi.Input[str] type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

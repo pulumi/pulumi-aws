@@ -18,15 +18,15 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+        /// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         /// </summary>
-        public readonly string OriginShieldRegion;
+        public readonly string? OriginShieldRegion;
 
         [OutputConstructor]
         private DistributionOriginOriginShield(
             bool enabled,
 
-            string originShieldRegion)
+            string? originShieldRegion)
         {
             Enabled = enabled;
             OriginShieldRegion = originShieldRegion;

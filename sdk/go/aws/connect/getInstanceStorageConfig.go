@@ -57,7 +57,7 @@ type LookupInstanceStorageConfigArgs struct {
 	AssociationId string `pulumi:"associationId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId string `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
 	ResourceType string `pulumi:"resourceType"`
 }
 
@@ -91,7 +91,7 @@ type LookupInstanceStorageConfigOutputArgs struct {
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 	// Reference to the hosting Amazon Connect Instance
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
 }
 

@@ -729,7 +729,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;&#34;)
+     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
      *             .build());
      * 
      *     }
@@ -767,7 +767,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;&#34;)
+     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
      *             .build());
      * 
      *     }
@@ -805,7 +805,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;&#34;)
+     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
      *             .build());
      * 
      *     }
@@ -843,7 +843,7 @@ public final class VpclatticeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = VpclatticeFunctions.getServiceNetwork(GetServiceNetworkArgs.builder()
-     *             .serviceNetworkIdentifier(&#34;&#34;)
+     *             .serviceNetworkIdentifier(&#34;snsa-01112223334445556&#34;)
      *             .build());
      * 
      *     }

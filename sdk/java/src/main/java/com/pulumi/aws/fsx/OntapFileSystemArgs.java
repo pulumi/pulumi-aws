@@ -65,14 +65,14 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OntapFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
     public Optional<Output<OntapFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -362,7 +362,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
          * 
          * @return builder
          * 

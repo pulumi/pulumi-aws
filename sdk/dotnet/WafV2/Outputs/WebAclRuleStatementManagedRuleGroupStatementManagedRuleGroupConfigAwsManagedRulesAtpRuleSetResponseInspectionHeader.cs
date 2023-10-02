@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FailureValues;
         /// <summary>
-        /// The name of the header to match against. The name must be an exact match, including case.
+        /// The name of the header to use.
         /// </summary>
         public readonly string Name;
         /// <summary>

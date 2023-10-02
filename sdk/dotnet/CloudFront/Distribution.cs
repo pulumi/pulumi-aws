@@ -373,7 +373,7 @@ namespace Pulumi.Aws.CloudFront
         /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         /// </summary>
         [Output("continuousDeploymentPolicyId")]
-        public Output<string?> ContinuousDeploymentPolicyId { get; private set; } = null!;
+        public Output<string> ContinuousDeploymentPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// One or more custom error response elements (multiples allowed).

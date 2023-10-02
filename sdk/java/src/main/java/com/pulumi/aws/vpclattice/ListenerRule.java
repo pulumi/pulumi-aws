@@ -154,28 +154,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/listenerRule:ListenerRule")
 public class ListenerRule extends com.pulumi.resources.CustomResource {
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      * 
      */
     @Export(name="action", refs={ListenerRuleAction.class}, tree="[0]")
     private Output<ListenerRuleAction> action;
 
     /**
-     * @return The action for the default rule.
+     * @return The action for the listener rule.
      * 
      */
     public Output<ListenerRuleAction> action() {
         return this.action;
     }
     /**
-     * ARN of the target group.
+     * The ARN for the listener rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the target group.
+     * @return The ARN for the listener rule.
      * 
      */
     public Output<String> arn() {
@@ -242,14 +242,14 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
         return this.priority;
     }
     /**
-     * Unique identifier for the target group.
+     * Unique identifier for the listener rule.
      * 
      */
     @Export(name="ruleId", refs={String.class}, tree="[0]")
     private Output<String> ruleId;
 
     /**
-     * @return Unique identifier for the target group.
+     * @return Unique identifier for the listener rule.
      * 
      */
     public Output<String> ruleId() {

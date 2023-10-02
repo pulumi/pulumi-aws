@@ -130,18 +130,16 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      * 
      */
     @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> computeEnvironments;
 
     /**
-     * @return Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * @return List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      * 
      */
     public Output<List<String>> computeEnvironments() {

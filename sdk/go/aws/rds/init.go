@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterRoleAssociation{}
 	case "aws:rds/clusterSnapshot:ClusterSnapshot":
 		r = &ClusterSnapshot{}
+	case "aws:rds/customDbEngineVersion:CustomDbEngineVersion":
+		r = &CustomDbEngineVersion{}
 	case "aws:rds/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
 	case "aws:rds/exportTask:ExportTask":
@@ -113,6 +115,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/clusterSnapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/customDbEngineVersion",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

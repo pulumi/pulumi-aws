@@ -42,7 +42,7 @@ export interface GetServiceArgs {
      */
     name?: string;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network.
+     * ID or Amazon Resource Name (ARN) of the service.
      */
     serviceIdentifier?: string;
     /**
@@ -118,7 +118,7 @@ export interface GetServiceOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network.
+     * ID or Amazon Resource Name (ARN) of the service.
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**

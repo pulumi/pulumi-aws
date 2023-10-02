@@ -41,6 +41,7 @@ import (
 //			}
 //			_, err = opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
 //				ConnectionAlias: pulumi.String("outbound_connection"),
+//				ConnectionMode:  pulumi.String("DIRECT"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
 //					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
 //					Region:     *pulumi.String(currentRegion.Name),
@@ -73,8 +74,14 @@ import (
 type OutboundConnection struct {
 	pulumi.CustomResourceState
 
+	// Accepts the connection.
+	AcceptConnection pulumi.BoolPtrOutput `pulumi:"acceptConnection"`
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias pulumi.StringOutput `pulumi:"connectionAlias"`
+	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+	ConnectionMode pulumi.StringPtrOutput `pulumi:"connectionMode"`
+	// Configuration block for the outbound connection.
+	ConnectionProperties OutboundConnectionConnectionPropertiesOutput `pulumi:"connectionProperties"`
 	// Status of the connection request.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
@@ -122,8 +129,14 @@ func GetOutboundConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundConnection resources.
 type outboundConnectionState struct {
+	// Accepts the connection.
+	AcceptConnection *bool `pulumi:"acceptConnection"`
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias *string `pulumi:"connectionAlias"`
+	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+	ConnectionMode *string `pulumi:"connectionMode"`
+	// Configuration block for the outbound connection.
+	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
 	// Status of the connection request.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
@@ -133,8 +146,14 @@ type outboundConnectionState struct {
 }
 
 type OutboundConnectionState struct {
+	// Accepts the connection.
+	AcceptConnection pulumi.BoolPtrInput
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias pulumi.StringPtrInput
+	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+	ConnectionMode pulumi.StringPtrInput
+	// Configuration block for the outbound connection.
+	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
 	// Status of the connection request.
 	ConnectionStatus pulumi.StringPtrInput
 	// Configuration block for the local Opensearch domain.
@@ -148,8 +167,14 @@ func (OutboundConnectionState) ElementType() reflect.Type {
 }
 
 type outboundConnectionArgs struct {
+	// Accepts the connection.
+	AcceptConnection *bool `pulumi:"acceptConnection"`
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias string `pulumi:"connectionAlias"`
+	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+	ConnectionMode *string `pulumi:"connectionMode"`
+	// Configuration block for the outbound connection.
+	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
 	// Configuration block for the remote Opensearch domain.
@@ -158,8 +183,14 @@ type outboundConnectionArgs struct {
 
 // The set of arguments for constructing a OutboundConnection resource.
 type OutboundConnectionArgs struct {
+	// Accepts the connection.
+	AcceptConnection pulumi.BoolPtrInput
 	// Specifies the connection alias that will be used by the customer for this connection.
 	ConnectionAlias pulumi.StringInput
+	// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+	ConnectionMode pulumi.StringPtrInput
+	// Configuration block for the outbound connection.
+	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoInput
 	// Configuration block for the remote Opensearch domain.
@@ -277,9 +308,26 @@ func (o OutboundConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
+// Accepts the connection.
+func (o OutboundConnectionOutput) AcceptConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OutboundConnection) pulumi.BoolPtrOutput { return v.AcceptConnection }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the connection alias that will be used by the customer for this connection.
 func (o OutboundConnectionOutput) ConnectionAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.ConnectionAlias }).(pulumi.StringOutput)
+}
+
+// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+func (o OutboundConnectionOutput) ConnectionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnection) pulumi.StringPtrOutput { return v.ConnectionMode }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for the outbound connection.
+func (o OutboundConnectionOutput) ConnectionProperties() OutboundConnectionConnectionPropertiesOutput {
+	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionConnectionPropertiesOutput {
+		return v.ConnectionProperties
+	}).(OutboundConnectionConnectionPropertiesOutput)
 }
 
 // Status of the connection request.

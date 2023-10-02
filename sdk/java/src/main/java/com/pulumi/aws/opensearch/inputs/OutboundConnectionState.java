@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
+import com.pulumi.aws.opensearch.inputs.OutboundConnectionConnectionPropertiesArgs;
 import com.pulumi.aws.opensearch.inputs.OutboundConnectionLocalDomainInfoArgs;
 import com.pulumi.aws.opensearch.inputs.OutboundConnectionRemoteDomainInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +18,21 @@ import javax.annotation.Nullable;
 public final class OutboundConnectionState extends com.pulumi.resources.ResourceArgs {
 
     public static final OutboundConnectionState Empty = new OutboundConnectionState();
+
+    /**
+     * Accepts the connection.
+     * 
+     */
+    @Import(name="acceptConnection")
+    private @Nullable Output<Boolean> acceptConnection;
+
+    /**
+     * @return Accepts the connection.
+     * 
+     */
+    public Optional<Output<Boolean>> acceptConnection() {
+        return Optional.ofNullable(this.acceptConnection);
+    }
 
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
@@ -30,6 +47,36 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> connectionAlias() {
         return Optional.ofNullable(this.connectionAlias);
+    }
+
+    /**
+     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     * 
+     */
+    @Import(name="connectionMode")
+    private @Nullable Output<String> connectionMode;
+
+    /**
+     * @return Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     * 
+     */
+    public Optional<Output<String>> connectionMode() {
+        return Optional.ofNullable(this.connectionMode);
+    }
+
+    /**
+     * Configuration block for the outbound connection.
+     * 
+     */
+    @Import(name="connectionProperties")
+    private @Nullable Output<OutboundConnectionConnectionPropertiesArgs> connectionProperties;
+
+    /**
+     * @return Configuration block for the outbound connection.
+     * 
+     */
+    public Optional<Output<OutboundConnectionConnectionPropertiesArgs>> connectionProperties() {
+        return Optional.ofNullable(this.connectionProperties);
     }
 
     /**
@@ -80,7 +127,10 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
     private OutboundConnectionState() {}
 
     private OutboundConnectionState(OutboundConnectionState $) {
+        this.acceptConnection = $.acceptConnection;
         this.connectionAlias = $.connectionAlias;
+        this.connectionMode = $.connectionMode;
+        this.connectionProperties = $.connectionProperties;
         this.connectionStatus = $.connectionStatus;
         this.localDomainInfo = $.localDomainInfo;
         this.remoteDomainInfo = $.remoteDomainInfo;
@@ -105,6 +155,27 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param acceptConnection Accepts the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptConnection(@Nullable Output<Boolean> acceptConnection) {
+            $.acceptConnection = acceptConnection;
+            return this;
+        }
+
+        /**
+         * @param acceptConnection Accepts the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceptConnection(Boolean acceptConnection) {
+            return acceptConnection(Output.of(acceptConnection));
+        }
+
+        /**
          * @param connectionAlias Specifies the connection alias that will be used by the customer for this connection.
          * 
          * @return builder
@@ -123,6 +194,48 @@ public final class OutboundConnectionState extends com.pulumi.resources.Resource
          */
         public Builder connectionAlias(String connectionAlias) {
             return connectionAlias(Output.of(connectionAlias));
+        }
+
+        /**
+         * @param connectionMode Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionMode(@Nullable Output<String> connectionMode) {
+            $.connectionMode = connectionMode;
+            return this;
+        }
+
+        /**
+         * @param connectionMode Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionMode(String connectionMode) {
+            return connectionMode(Output.of(connectionMode));
+        }
+
+        /**
+         * @param connectionProperties Configuration block for the outbound connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionProperties(@Nullable Output<OutboundConnectionConnectionPropertiesArgs> connectionProperties) {
+            $.connectionProperties = connectionProperties;
+            return this;
+        }
+
+        /**
+         * @param connectionProperties Configuration block for the outbound connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionProperties(OutboundConnectionConnectionPropertiesArgs connectionProperties) {
+            return connectionProperties(Output.of(connectionProperties));
         }
 
         /**

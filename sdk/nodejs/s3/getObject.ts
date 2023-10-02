@@ -169,7 +169,7 @@ export interface GetObjectResult {
      */
     readonly lastModified: string;
     /**
-     * Map of metadata stored with the object in S3
+     * Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      */
     readonly metadata: {[key: string]: string};
     /**

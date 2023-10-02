@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
  *             .type(&#34;INSTANCE&#34;)
  *             .config(TargetGroupConfigArgs.builder()
+ *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .build())
  *             .build());
  * 
@@ -82,11 +82,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
- *             .type(&#34;ALB&#34;)
+ *             .type(&#34;IP&#34;)
  *             .config(TargetGroupConfigArgs.builder()
+ *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .ipAddressType(&#34;IPV4&#34;)
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
- *                 .vpcIdentifier(aws_vpc.example().id())
  *                 .protocolVersion(&#34;HTTP1&#34;)
  *                 .healthCheck(TargetGroupConfigHealthCheckArgs.builder()
  *                     .enabled(true)
@@ -102,6 +103,44 @@ import javax.annotation.Nullable;
  *                     .protocol(&#34;HTTP&#34;)
  *                     .protocolVersion(&#34;HTTP1&#34;)
  *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### ALB
+ * 
+ * If the type is ALB, `health_check` block is not supported.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.vpclattice.TargetGroup;
+ * import com.pulumi.aws.vpclattice.TargetGroupArgs;
+ * import com.pulumi.aws.vpclattice.inputs.TargetGroupConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TargetGroup(&#34;example&#34;, TargetGroupArgs.builder()        
+ *             .type(&#34;ALB&#34;)
+ *             .config(TargetGroupConfigArgs.builder()
+ *                 .vpcIdentifier(aws_vpc.example().id())
+ *                 .port(443)
+ *                 .protocol(&#34;HTTPS&#34;)
+ *                 .protocolVersion(&#34;HTTP1&#34;)
  *                 .build())
  *             .build());
  * 

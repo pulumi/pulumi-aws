@@ -61,6 +61,8 @@ type Bucket struct {
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// The timestamp when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Web Services Region name.
@@ -121,6 +123,8 @@ type bucketState struct {
 	BundleId *string `pulumi:"bundleId"`
 	// The timestamp when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name *string `pulumi:"name"`
 	// The Amazon Web Services Region name.
@@ -145,6 +149,8 @@ type BucketState struct {
 	BundleId pulumi.StringPtrInput
 	// The timestamp when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
+	// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+	ForceDelete pulumi.BoolPtrInput
 	// The name for the bucket.
 	Name pulumi.StringPtrInput
 	// The Amazon Web Services Region name.
@@ -167,6 +173,8 @@ func (BucketState) ElementType() reflect.Type {
 type bucketArgs struct {
 	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
 	BundleId string `pulumi:"bundleId"`
+	// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// The name for the bucket.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,6 +185,8 @@ type bucketArgs struct {
 type BucketArgs struct {
 	// The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
 	BundleId pulumi.StringInput
+	// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+	ForceDelete pulumi.BoolPtrInput
 	// The name for the bucket.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -312,6 +322,11 @@ func (o BucketOutput) BundleId() pulumi.StringOutput {
 // The timestamp when the bucket was created.
 func (o BucketOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+func (o BucketOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
 // The name for the bucket.

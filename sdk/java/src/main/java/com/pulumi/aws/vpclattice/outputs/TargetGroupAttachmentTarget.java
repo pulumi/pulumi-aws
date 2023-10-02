@@ -18,7 +18,7 @@ public final class TargetGroupAttachmentTarget {
      */
     private String id;
     /**
-     * @return The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     private @Nullable Integer port;
@@ -32,7 +32,7 @@ public final class TargetGroupAttachmentTarget {
         return this.id;
     }
     /**
-     * @return The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     public Optional<Integer> port() {

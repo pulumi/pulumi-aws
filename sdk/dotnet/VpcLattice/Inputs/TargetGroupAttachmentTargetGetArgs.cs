@@ -19,7 +19,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        /// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

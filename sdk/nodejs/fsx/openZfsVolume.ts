@@ -69,6 +69,10 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public readonly dataCompressionType!: pulumi.Output<string | undefined>;
     /**
+     * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     */
+    public readonly deleteVolumeOptions!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     public readonly name!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["copyTagsToSnapshots"] = state ? state.copyTagsToSnapshots : undefined;
             resourceInputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
+            resourceInputs["deleteVolumeOptions"] = state ? state.deleteVolumeOptions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nfsExports"] = state ? state.nfsExports : undefined;
             resourceInputs["originSnapshot"] = state ? state.originSnapshot : undefined;
@@ -151,6 +156,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             }
             resourceInputs["copyTagsToSnapshots"] = args ? args.copyTagsToSnapshots : undefined;
             resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
+            resourceInputs["deleteVolumeOptions"] = args ? args.deleteVolumeOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nfsExports"] = args ? args.nfsExports : undefined;
             resourceInputs["originSnapshot"] = args ? args.originSnapshot : undefined;
@@ -188,6 +194,10 @@ export interface OpenZfsVolumeState {
      * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
     dataCompressionType?: pulumi.Input<string>;
+    /**
+     * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     */
+    deleteVolumeOptions?: pulumi.Input<string>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
@@ -249,6 +259,10 @@ export interface OpenZfsVolumeArgs {
      * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      */
     dataCompressionType?: pulumi.Input<string>;
+    /**
+     * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     */
+    deleteVolumeOptions?: pulumi.Input<string>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */

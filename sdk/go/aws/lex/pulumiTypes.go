@@ -4377,6 +4377,471 @@ func (o SlotTypeEnumerationValueArrayOutput) Index(i pulumi.IntInput) SlotTypeEn
 	}).(SlotTypeEnumerationValueOutput)
 }
 
+type V2modelsBotDataPrivacy struct {
+	// (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+	ChildDirected bool `pulumi:"childDirected"`
+}
+
+// V2modelsBotDataPrivacyInput is an input type that accepts V2modelsBotDataPrivacyArgs and V2modelsBotDataPrivacyOutput values.
+// You can construct a concrete instance of `V2modelsBotDataPrivacyInput` via:
+//
+//	V2modelsBotDataPrivacyArgs{...}
+type V2modelsBotDataPrivacyInput interface {
+	pulumi.Input
+
+	ToV2modelsBotDataPrivacyOutput() V2modelsBotDataPrivacyOutput
+	ToV2modelsBotDataPrivacyOutputWithContext(context.Context) V2modelsBotDataPrivacyOutput
+}
+
+type V2modelsBotDataPrivacyArgs struct {
+	// (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+	ChildDirected pulumi.BoolInput `pulumi:"childDirected"`
+}
+
+func (V2modelsBotDataPrivacyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotDataPrivacy)(nil)).Elem()
+}
+
+func (i V2modelsBotDataPrivacyArgs) ToV2modelsBotDataPrivacyOutput() V2modelsBotDataPrivacyOutput {
+	return i.ToV2modelsBotDataPrivacyOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotDataPrivacyArgs) ToV2modelsBotDataPrivacyOutputWithContext(ctx context.Context) V2modelsBotDataPrivacyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotDataPrivacyOutput)
+}
+
+func (i V2modelsBotDataPrivacyArgs) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotDataPrivacy] {
+	return pulumix.Output[V2modelsBotDataPrivacy]{
+		OutputState: i.ToV2modelsBotDataPrivacyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// V2modelsBotDataPrivacyArrayInput is an input type that accepts V2modelsBotDataPrivacyArray and V2modelsBotDataPrivacyArrayOutput values.
+// You can construct a concrete instance of `V2modelsBotDataPrivacyArrayInput` via:
+//
+//	V2modelsBotDataPrivacyArray{ V2modelsBotDataPrivacyArgs{...} }
+type V2modelsBotDataPrivacyArrayInput interface {
+	pulumi.Input
+
+	ToV2modelsBotDataPrivacyArrayOutput() V2modelsBotDataPrivacyArrayOutput
+	ToV2modelsBotDataPrivacyArrayOutputWithContext(context.Context) V2modelsBotDataPrivacyArrayOutput
+}
+
+type V2modelsBotDataPrivacyArray []V2modelsBotDataPrivacyInput
+
+func (V2modelsBotDataPrivacyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsBotDataPrivacy)(nil)).Elem()
+}
+
+func (i V2modelsBotDataPrivacyArray) ToV2modelsBotDataPrivacyArrayOutput() V2modelsBotDataPrivacyArrayOutput {
+	return i.ToV2modelsBotDataPrivacyArrayOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotDataPrivacyArray) ToV2modelsBotDataPrivacyArrayOutputWithContext(ctx context.Context) V2modelsBotDataPrivacyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotDataPrivacyArrayOutput)
+}
+
+func (i V2modelsBotDataPrivacyArray) ToOutput(ctx context.Context) pulumix.Output[[]V2modelsBotDataPrivacy] {
+	return pulumix.Output[[]V2modelsBotDataPrivacy]{
+		OutputState: i.ToV2modelsBotDataPrivacyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type V2modelsBotDataPrivacyOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotDataPrivacyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotDataPrivacy)(nil)).Elem()
+}
+
+func (o V2modelsBotDataPrivacyOutput) ToV2modelsBotDataPrivacyOutput() V2modelsBotDataPrivacyOutput {
+	return o
+}
+
+func (o V2modelsBotDataPrivacyOutput) ToV2modelsBotDataPrivacyOutputWithContext(ctx context.Context) V2modelsBotDataPrivacyOutput {
+	return o
+}
+
+func (o V2modelsBotDataPrivacyOutput) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotDataPrivacy] {
+	return pulumix.Output[V2modelsBotDataPrivacy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+func (o V2modelsBotDataPrivacyOutput) ChildDirected() pulumi.BoolOutput {
+	return o.ApplyT(func(v V2modelsBotDataPrivacy) bool { return v.ChildDirected }).(pulumi.BoolOutput)
+}
+
+type V2modelsBotDataPrivacyArrayOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotDataPrivacyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsBotDataPrivacy)(nil)).Elem()
+}
+
+func (o V2modelsBotDataPrivacyArrayOutput) ToV2modelsBotDataPrivacyArrayOutput() V2modelsBotDataPrivacyArrayOutput {
+	return o
+}
+
+func (o V2modelsBotDataPrivacyArrayOutput) ToV2modelsBotDataPrivacyArrayOutputWithContext(ctx context.Context) V2modelsBotDataPrivacyArrayOutput {
+	return o
+}
+
+func (o V2modelsBotDataPrivacyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]V2modelsBotDataPrivacy] {
+	return pulumix.Output[[]V2modelsBotDataPrivacy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o V2modelsBotDataPrivacyArrayOutput) Index(i pulumi.IntInput) V2modelsBotDataPrivacyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2modelsBotDataPrivacy {
+		return vs[0].([]V2modelsBotDataPrivacy)[vs[1].(int)]
+	}).(V2modelsBotDataPrivacyOutput)
+}
+
+type V2modelsBotMember struct {
+	// (Required) - Alias ID of a bot that is a member of this network of bots.
+	AliasId string `pulumi:"aliasId"`
+	// (Required) - Alias name of a bot that is a member of this network of bots.
+	AliasName string `pulumi:"aliasName"`
+	// (Required) - Unique ID of a bot that is a member of this network of bots.
+	Id string `pulumi:"id"`
+	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+	Name string `pulumi:"name"`
+	// (Required) - Version of a bot that is a member of this network of bots.
+	Version string `pulumi:"version"`
+}
+
+// V2modelsBotMemberInput is an input type that accepts V2modelsBotMemberArgs and V2modelsBotMemberOutput values.
+// You can construct a concrete instance of `V2modelsBotMemberInput` via:
+//
+//	V2modelsBotMemberArgs{...}
+type V2modelsBotMemberInput interface {
+	pulumi.Input
+
+	ToV2modelsBotMemberOutput() V2modelsBotMemberOutput
+	ToV2modelsBotMemberOutputWithContext(context.Context) V2modelsBotMemberOutput
+}
+
+type V2modelsBotMemberArgs struct {
+	// (Required) - Alias ID of a bot that is a member of this network of bots.
+	AliasId pulumi.StringInput `pulumi:"aliasId"`
+	// (Required) - Alias name of a bot that is a member of this network of bots.
+	AliasName pulumi.StringInput `pulumi:"aliasName"`
+	// (Required) - Unique ID of a bot that is a member of this network of bots.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Required) - Version of a bot that is a member of this network of bots.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (V2modelsBotMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotMember)(nil)).Elem()
+}
+
+func (i V2modelsBotMemberArgs) ToV2modelsBotMemberOutput() V2modelsBotMemberOutput {
+	return i.ToV2modelsBotMemberOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotMemberArgs) ToV2modelsBotMemberOutputWithContext(ctx context.Context) V2modelsBotMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotMemberOutput)
+}
+
+func (i V2modelsBotMemberArgs) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotMember] {
+	return pulumix.Output[V2modelsBotMember]{
+		OutputState: i.ToV2modelsBotMemberOutputWithContext(ctx).OutputState,
+	}
+}
+
+// V2modelsBotMemberArrayInput is an input type that accepts V2modelsBotMemberArray and V2modelsBotMemberArrayOutput values.
+// You can construct a concrete instance of `V2modelsBotMemberArrayInput` via:
+//
+//	V2modelsBotMemberArray{ V2modelsBotMemberArgs{...} }
+type V2modelsBotMemberArrayInput interface {
+	pulumi.Input
+
+	ToV2modelsBotMemberArrayOutput() V2modelsBotMemberArrayOutput
+	ToV2modelsBotMemberArrayOutputWithContext(context.Context) V2modelsBotMemberArrayOutput
+}
+
+type V2modelsBotMemberArray []V2modelsBotMemberInput
+
+func (V2modelsBotMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsBotMember)(nil)).Elem()
+}
+
+func (i V2modelsBotMemberArray) ToV2modelsBotMemberArrayOutput() V2modelsBotMemberArrayOutput {
+	return i.ToV2modelsBotMemberArrayOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotMemberArray) ToV2modelsBotMemberArrayOutputWithContext(ctx context.Context) V2modelsBotMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotMemberArrayOutput)
+}
+
+func (i V2modelsBotMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]V2modelsBotMember] {
+	return pulumix.Output[[]V2modelsBotMember]{
+		OutputState: i.ToV2modelsBotMemberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type V2modelsBotMemberOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotMember)(nil)).Elem()
+}
+
+func (o V2modelsBotMemberOutput) ToV2modelsBotMemberOutput() V2modelsBotMemberOutput {
+	return o
+}
+
+func (o V2modelsBotMemberOutput) ToV2modelsBotMemberOutputWithContext(ctx context.Context) V2modelsBotMemberOutput {
+	return o
+}
+
+func (o V2modelsBotMemberOutput) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotMember] {
+	return pulumix.Output[V2modelsBotMember]{
+		OutputState: o.OutputState,
+	}
+}
+
+// (Required) - Alias ID of a bot that is a member of this network of bots.
+func (o V2modelsBotMemberOutput) AliasId() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotMember) string { return v.AliasId }).(pulumi.StringOutput)
+}
+
+// (Required) - Alias name of a bot that is a member of this network of bots.
+func (o V2modelsBotMemberOutput) AliasName() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotMember) string { return v.AliasName }).(pulumi.StringOutput)
+}
+
+// (Required) - Unique ID of a bot that is a member of this network of bots.
+func (o V2modelsBotMemberOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotMember) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+func (o V2modelsBotMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// (Required) - Version of a bot that is a member of this network of bots.
+func (o V2modelsBotMemberOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotMember) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type V2modelsBotMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2modelsBotMember)(nil)).Elem()
+}
+
+func (o V2modelsBotMemberArrayOutput) ToV2modelsBotMemberArrayOutput() V2modelsBotMemberArrayOutput {
+	return o
+}
+
+func (o V2modelsBotMemberArrayOutput) ToV2modelsBotMemberArrayOutputWithContext(ctx context.Context) V2modelsBotMemberArrayOutput {
+	return o
+}
+
+func (o V2modelsBotMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]V2modelsBotMember] {
+	return pulumix.Output[[]V2modelsBotMember]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o V2modelsBotMemberArrayOutput) Index(i pulumi.IntInput) V2modelsBotMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2modelsBotMember {
+		return vs[0].([]V2modelsBotMember)[vs[1].(int)]
+	}).(V2modelsBotMemberOutput)
+}
+
+type V2modelsBotTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// V2modelsBotTimeoutsInput is an input type that accepts V2modelsBotTimeoutsArgs and V2modelsBotTimeoutsOutput values.
+// You can construct a concrete instance of `V2modelsBotTimeoutsInput` via:
+//
+//	V2modelsBotTimeoutsArgs{...}
+type V2modelsBotTimeoutsInput interface {
+	pulumi.Input
+
+	ToV2modelsBotTimeoutsOutput() V2modelsBotTimeoutsOutput
+	ToV2modelsBotTimeoutsOutputWithContext(context.Context) V2modelsBotTimeoutsOutput
+}
+
+type V2modelsBotTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (V2modelsBotTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotTimeouts)(nil)).Elem()
+}
+
+func (i V2modelsBotTimeoutsArgs) ToV2modelsBotTimeoutsOutput() V2modelsBotTimeoutsOutput {
+	return i.ToV2modelsBotTimeoutsOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotTimeoutsArgs) ToV2modelsBotTimeoutsOutputWithContext(ctx context.Context) V2modelsBotTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotTimeoutsOutput)
+}
+
+func (i V2modelsBotTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotTimeouts] {
+	return pulumix.Output[V2modelsBotTimeouts]{
+		OutputState: i.ToV2modelsBotTimeoutsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i V2modelsBotTimeoutsArgs) ToV2modelsBotTimeoutsPtrOutput() V2modelsBotTimeoutsPtrOutput {
+	return i.ToV2modelsBotTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotTimeoutsArgs) ToV2modelsBotTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotTimeoutsOutput).ToV2modelsBotTimeoutsPtrOutputWithContext(ctx)
+}
+
+// V2modelsBotTimeoutsPtrInput is an input type that accepts V2modelsBotTimeoutsArgs, V2modelsBotTimeoutsPtr and V2modelsBotTimeoutsPtrOutput values.
+// You can construct a concrete instance of `V2modelsBotTimeoutsPtrInput` via:
+//
+//	        V2modelsBotTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsBotTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToV2modelsBotTimeoutsPtrOutput() V2modelsBotTimeoutsPtrOutput
+	ToV2modelsBotTimeoutsPtrOutputWithContext(context.Context) V2modelsBotTimeoutsPtrOutput
+}
+
+type v2modelsBotTimeoutsPtrType V2modelsBotTimeoutsArgs
+
+func V2modelsBotTimeoutsPtr(v *V2modelsBotTimeoutsArgs) V2modelsBotTimeoutsPtrInput {
+	return (*v2modelsBotTimeoutsPtrType)(v)
+}
+
+func (*v2modelsBotTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotTimeouts)(nil)).Elem()
+}
+
+func (i *v2modelsBotTimeoutsPtrType) ToV2modelsBotTimeoutsPtrOutput() V2modelsBotTimeoutsPtrOutput {
+	return i.ToV2modelsBotTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsBotTimeoutsPtrType) ToV2modelsBotTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotTimeoutsPtrOutput)
+}
+
+func (i *v2modelsBotTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*V2modelsBotTimeouts] {
+	return pulumix.Output[*V2modelsBotTimeouts]{
+		OutputState: i.ToV2modelsBotTimeoutsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type V2modelsBotTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotTimeoutsOutput) ToV2modelsBotTimeoutsOutput() V2modelsBotTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotTimeoutsOutput) ToV2modelsBotTimeoutsOutputWithContext(ctx context.Context) V2modelsBotTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotTimeoutsOutput) ToV2modelsBotTimeoutsPtrOutput() V2modelsBotTimeoutsPtrOutput {
+	return o.ToV2modelsBotTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsBotTimeoutsOutput) ToV2modelsBotTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsBotTimeouts) *V2modelsBotTimeouts {
+		return &v
+	}).(V2modelsBotTimeoutsPtrOutput)
+}
+
+func (o V2modelsBotTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[V2modelsBotTimeouts] {
+	return pulumix.Output[V2modelsBotTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o V2modelsBotTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type V2modelsBotTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) ToV2modelsBotTimeoutsPtrOutput() V2modelsBotTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) ToV2modelsBotTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*V2modelsBotTimeouts] {
+	return pulumix.Output[*V2modelsBotTimeouts]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) Elem() V2modelsBotTimeoutsOutput {
+	return o.ApplyT(func(v *V2modelsBotTimeouts) V2modelsBotTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsBotTimeouts
+		return ret
+	}).(V2modelsBotTimeoutsOutput)
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSlotTypeEnumerationValue struct {
 	Synonyms []string `pulumi:"synonyms"`
 	Value    string   `pulumi:"value"`
@@ -4552,6 +5017,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentSlotValueElicitationPromptMessageArrayInput)(nil)).Elem(), IntentSlotValueElicitationPromptMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotTypeEnumerationValueInput)(nil)).Elem(), SlotTypeEnumerationValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotTypeEnumerationValueArrayInput)(nil)).Elem(), SlotTypeEnumerationValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotDataPrivacyInput)(nil)).Elem(), V2modelsBotDataPrivacyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotDataPrivacyArrayInput)(nil)).Elem(), V2modelsBotDataPrivacyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotMemberInput)(nil)).Elem(), V2modelsBotMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotMemberArrayInput)(nil)).Elem(), V2modelsBotMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotTimeoutsInput)(nil)).Elem(), V2modelsBotTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotTimeoutsPtrInput)(nil)).Elem(), V2modelsBotTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueInput)(nil)).Elem(), GetSlotTypeEnumerationValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueArrayInput)(nil)).Elem(), GetSlotTypeEnumerationValueArray{})
 	pulumi.RegisterOutputType(BotAbortStatementOutput{})
@@ -4604,6 +5075,12 @@ func init() {
 	pulumi.RegisterOutputType(IntentSlotValueElicitationPromptMessageArrayOutput{})
 	pulumi.RegisterOutputType(SlotTypeEnumerationValueOutput{})
 	pulumi.RegisterOutputType(SlotTypeEnumerationValueArrayOutput{})
+	pulumi.RegisterOutputType(V2modelsBotDataPrivacyOutput{})
+	pulumi.RegisterOutputType(V2modelsBotDataPrivacyArrayOutput{})
+	pulumi.RegisterOutputType(V2modelsBotMemberOutput{})
+	pulumi.RegisterOutputType(V2modelsBotMemberArrayOutput{})
+	pulumi.RegisterOutputType(V2modelsBotTimeoutsOutput{})
+	pulumi.RegisterOutputType(V2modelsBotTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetSlotTypeEnumerationValueOutput{})
 	pulumi.RegisterOutputType(GetSlotTypeEnumerationValueArrayOutput{})
 }

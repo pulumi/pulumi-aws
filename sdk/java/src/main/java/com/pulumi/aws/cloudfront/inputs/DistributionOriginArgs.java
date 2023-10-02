@@ -142,14 +142,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     @Import(name="originShield")
     private @Nullable Output<DistributionOriginOriginShieldArgs> originShield;
 
     /**
-     * @return The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * @return CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     public Optional<Output<DistributionOriginOriginShieldArgs>> originShield() {
@@ -157,14 +157,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     @Import(name="s3OriginConfig")
     private @Nullable Output<DistributionOriginS3OriginConfigArgs> s3OriginConfig;
 
     /**
-     * @return The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     public Optional<Output<DistributionOriginS3OriginConfigArgs>> s3OriginConfig() {
@@ -383,7 +383,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originShield The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         * @param originShield CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originShield The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         * @param originShield CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param s3OriginConfig The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+         * @param s3OriginConfig CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
          * 
          * @return builder
          * 

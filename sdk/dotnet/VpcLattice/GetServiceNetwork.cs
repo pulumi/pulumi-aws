@@ -29,7 +29,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
         ///     {
-        ///         ServiceNetworkIdentifier = "",
+        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.VpcLattice
         /// {
         ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
         ///     {
-        ///         ServiceNetworkIdentifier = "",
+        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
         ///     });
         /// 
         /// });
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetServiceNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Identifier of the network service.
+        /// Identifier of the service network.
         /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public string ServiceNetworkIdentifier { get; set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetServiceNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Identifier of the network service.
+        /// Identifier of the service network.
         /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public Input<string> ServiceNetworkIdentifier { get; set; } = null!;

@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,18 +21,33 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     public static final RuleGroupRuleStatementRateBasedStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementArgs();
 
     /**
-     * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+     * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     @Import(name="aggregateKeyType")
     private @Nullable Output<String> aggregateKeyType;
 
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     public Optional<Output<String>> aggregateKeyType() {
         return Optional.ofNullable(this.aggregateKeyType);
+    }
+
+    /**
+     * Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * 
+     */
+    @Import(name="customKeys")
+    private @Nullable Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>> customKeys;
+
+    /**
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * 
+     */
+    public Optional<Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>>> customKeys() {
+        return Optional.ofNullable(this.customKeys);
     }
 
     /**
@@ -82,6 +99,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
 
     private RuleGroupRuleStatementRateBasedStatementArgs(RuleGroupRuleStatementRateBasedStatementArgs $) {
         this.aggregateKeyType = $.aggregateKeyType;
+        this.customKeys = $.customKeys;
         this.forwardedIpConfig = $.forwardedIpConfig;
         this.limit = $.limit;
         this.scopeDownStatement = $.scopeDownStatement;
@@ -106,7 +124,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
@@ -117,13 +135,44 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
          */
         public Builder aggregateKeyType(String aggregateKeyType) {
             return aggregateKeyType(Output.of(aggregateKeyType));
+        }
+
+        /**
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeys(@Nullable Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>> customKeys) {
+            $.customKeys = customKeys;
+            return this;
+        }
+
+        /**
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeys(List<RuleGroupRuleStatementRateBasedStatementCustomKeyArgs> customKeys) {
+            return customKeys(Output.of(customKeys));
+        }
+
+        /**
+         * @param customKeys Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customKeys(RuleGroupRuleStatementRateBasedStatementCustomKeyArgs... customKeys) {
+            return customKeys(List.of(customKeys));
         }
 
         /**

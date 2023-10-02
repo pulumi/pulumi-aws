@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> DataCompressionType { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        /// </summary>
+        [Output("deleteVolumeOptions")]
+        public Output<string?> DeleteVolumeOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Output("name")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DataCompressionType { get; set; }
 
         /// <summary>
+        /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        /// </summary>
+        [Input("deleteVolumeOptions")]
+        public Input<string>? DeleteVolumeOptions { get; set; }
+
+        /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
@@ -291,6 +303,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dataCompressionType")]
         public Input<string>? DataCompressionType { get; set; }
+
+        /// <summary>
+        /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+        /// </summary>
+        [Input("deleteVolumeOptions")]
+        public Input<string>? DeleteVolumeOptions { get; set; }
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.

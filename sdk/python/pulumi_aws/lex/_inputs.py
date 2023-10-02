@@ -35,6 +35,9 @@ __all__ = [
     'IntentSlotValueElicitationPromptArgs',
     'IntentSlotValueElicitationPromptMessageArgs',
     'SlotTypeEnumerationValueArgs',
+    'V2modelsBotDataPrivacyArgs',
+    'V2modelsBotMemberArgs',
+    'V2modelsBotTimeoutsArgs',
 ]
 
 @pulumi.input_type
@@ -1423,5 +1426,150 @@ class SlotTypeEnumerationValueArgs:
     @synonyms.setter
     def synonyms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "synonyms", value)
+
+
+@pulumi.input_type
+class V2modelsBotDataPrivacyArgs:
+    def __init__(__self__, *,
+                 child_directed: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] child_directed: (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+        """
+        pulumi.set(__self__, "child_directed", child_directed)
+
+    @property
+    @pulumi.getter(name="childDirected")
+    def child_directed(self) -> pulumi.Input[bool]:
+        """
+        (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+        """
+        return pulumi.get(self, "child_directed")
+
+    @child_directed.setter
+    def child_directed(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "child_directed", value)
+
+
+@pulumi.input_type
+class V2modelsBotMemberArgs:
+    def __init__(__self__, *,
+                 alias_id: pulumi.Input[str],
+                 alias_name: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] alias_id: (Required) - Alias ID of a bot that is a member of this network of bots.
+        :param pulumi.Input[str] alias_name: (Required) - Alias name of a bot that is a member of this network of bots.
+        :param pulumi.Input[str] id: (Required) - Unique ID of a bot that is a member of this network of bots.
+        :param pulumi.Input[str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[str] version: (Required) - Version of a bot that is a member of this network of bots.
+        """
+        pulumi.set(__self__, "alias_id", alias_id)
+        pulumi.set(__self__, "alias_name", alias_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="aliasId")
+    def alias_id(self) -> pulumi.Input[str]:
+        """
+        (Required) - Alias ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "alias_id")
+
+    @alias_id.setter
+    def alias_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alias_id", value)
+
+    @property
+    @pulumi.getter(name="aliasName")
+    def alias_name(self) -> pulumi.Input[str]:
+        """
+        (Required) - Alias name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "alias_name")
+
+    @alias_name.setter
+    def alias_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alias_name", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        (Required) - Unique ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        (Required) - Version of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class V2modelsBotTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 

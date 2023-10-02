@@ -16,14 +16,14 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
     public static final GetServiceNetworkPlainArgs Empty = new GetServiceNetworkPlainArgs();
 
     /**
-     * Identifier of the network service.
+     * Identifier of the service network.
      * 
      */
     @Import(name="serviceNetworkIdentifier", required=true)
     private String serviceNetworkIdentifier;
 
     /**
-     * @return Identifier of the network service.
+     * @return Identifier of the service network.
      * 
      */
     public String serviceNetworkIdentifier() {
@@ -63,7 +63,7 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param serviceNetworkIdentifier Identifier of the network service.
+         * @param serviceNetworkIdentifier Identifier of the service network.
          * 
          * @return builder
          * 

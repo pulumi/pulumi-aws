@@ -1664,7 +1664,7 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="continuousDeploymentPolicyId")
-    def continuous_deployment_policy_id(self) -> pulumi.Output[Optional[str]]:
+    def continuous_deployment_policy_id(self) -> pulumi.Output[str]:
         """
         Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         """

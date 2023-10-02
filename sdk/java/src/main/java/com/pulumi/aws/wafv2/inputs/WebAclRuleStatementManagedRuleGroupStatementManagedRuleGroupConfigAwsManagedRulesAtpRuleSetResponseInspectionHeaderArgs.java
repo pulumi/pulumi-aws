@@ -30,14 +30,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
 
     /**
-     * The name of the header to match against. The name must be an exact match, including case.
+     * The name of the header to use.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the header to match against. The name must be an exact match, including case.
+     * @return The name of the header to use.
      * 
      */
     public Output<String> name() {
@@ -117,7 +117,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param name The name of the header to match against. The name must be an exact match, including case.
+         * @param name The name of the header to use.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
 
         /**
-         * @param name The name of the header to match against. The name must be an exact match, including case.
+         * @param name The name of the header to use.
          * 
          * @return builder
          * 

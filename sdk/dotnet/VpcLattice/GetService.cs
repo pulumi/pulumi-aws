@@ -80,7 +80,7 @@ namespace Pulumi.Aws.VpcLattice
         public string? Name { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network.
+        /// ID or Amazon Resource Name (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public string? ServiceIdentifier { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network.
+        /// ID or Amazon Resource Name (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }

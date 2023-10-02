@@ -45,6 +45,11 @@ export const getReplicationTask: typeof import("./getReplicationTask").getReplic
 export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
 
+export { ReplicationConfigArgs, ReplicationConfigState } from "./replicationConfig";
+export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
+export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
+
 export { ReplicationInstanceArgs, ReplicationInstanceState } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
 export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;
@@ -76,6 +81,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws:dms/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws:dms/replicationConfig:ReplicationConfig":
+                return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws:dms/replicationInstance:ReplicationInstance":
                 return new ReplicationInstance(name, <any>undefined, { urn })
             case "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup":
@@ -92,6 +99,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "dms/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "dms/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationSubnetGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationTask", _module)

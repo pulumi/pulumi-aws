@@ -166,7 +166,7 @@ def get_service(name: Optional[str] = None,
 
 
     :param str name: Service name.
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     __args__ = dict()
@@ -209,7 +209,7 @@ def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str name: Service name.
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     ...

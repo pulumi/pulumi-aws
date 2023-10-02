@@ -31,6 +31,12 @@ __all__ = [
     'OntapStorageVirtualMachineEndpointManagementArgs',
     'OntapStorageVirtualMachineEndpointNfArgs',
     'OntapStorageVirtualMachineEndpointSmbArgs',
+    'OntapVolumeSnaplockConfigurationArgs',
+    'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs',
     'OntapVolumeTieringPolicyArgs',
     'OpenZfsFileSystemDiskIopsConfigurationArgs',
     'OpenZfsFileSystemRootVolumeConfigurationArgs',
@@ -1069,6 +1075,319 @@ class OntapStorageVirtualMachineEndpointSmbArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationArgs:
+    def __init__(__self__, *,
+                 snaplock_type: pulumi.Input[str],
+                 audit_log_volume: Optional[pulumi.Input[bool]] = None,
+                 autocommit_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']] = None,
+                 privileged_delete: Optional[pulumi.Input[str]] = None,
+                 retention_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']] = None,
+                 volume_append_mode_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+        :param pulumi.Input[bool] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        :param pulumi.Input[str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs'] retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        :param pulumi.Input[bool] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        """
+        pulumi.set(__self__, "snaplock_type", snaplock_type)
+        if audit_log_volume is not None:
+            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
+        if autocommit_period is not None:
+            pulumi.set(__self__, "autocommit_period", autocommit_period)
+        if privileged_delete is not None:
+            pulumi.set(__self__, "privileged_delete", privileged_delete)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if volume_append_mode_enabled is not None:
+            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
+
+    @property
+    @pulumi.getter(name="snaplockType")
+    def snaplock_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+        """
+        return pulumi.get(self, "snaplock_type")
+
+    @snaplock_type.setter
+    def snaplock_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snaplock_type", value)
+
+    @property
+    @pulumi.getter(name="auditLogVolume")
+    def audit_log_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        """
+        return pulumi.get(self, "audit_log_volume")
+
+    @audit_log_volume.setter
+    def audit_log_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "audit_log_volume", value)
+
+    @property
+    @pulumi.getter(name="autocommitPeriod")
+    def autocommit_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]:
+        """
+        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        """
+        return pulumi.get(self, "autocommit_period")
+
+    @autocommit_period.setter
+    def autocommit_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]):
+        pulumi.set(self, "autocommit_period", value)
+
+    @property
+    @pulumi.getter(name="privilegedDelete")
+    def privileged_delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+        """
+        return pulumi.get(self, "privileged_delete")
+
+    @privileged_delete.setter
+    def privileged_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privileged_delete", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]:
+        """
+        The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]):
+        pulumi.set(self, "retention_period", value)
+
+    @property
+    @pulumi.getter(name="volumeAppendModeEnabled")
+    def volume_append_mode_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        """
+        return pulumi.get(self, "volume_append_mode_enabled")
+
+    @volume_append_mode_enabled.setter
+    def volume_append_mode_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "volume_append_mode_enabled", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 default_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']] = None,
+                 maximum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']] = None,
+                 minimum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']] = None):
+        """
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        """
+        if default_retention is not None:
+            pulumi.set(__self__, "default_retention", default_retention)
+        if maximum_retention is not None:
+            pulumi.set(__self__, "maximum_retention", maximum_retention)
+        if minimum_retention is not None:
+            pulumi.set(__self__, "minimum_retention", minimum_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]:
+        """
+        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        """
+        return pulumi.get(self, "default_retention")
+
+    @default_retention.setter
+    def default_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]):
+        pulumi.set(self, "default_retention", value)
+
+    @property
+    @pulumi.getter(name="maximumRetention")
+    def maximum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]:
+        """
+        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        """
+        return pulumi.get(self, "maximum_retention")
+
+    @maximum_retention.setter
+    def maximum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]):
+        pulumi.set(self, "maximum_retention", value)
+
+    @property
+    @pulumi.getter(name="minimumRetention")
+    def minimum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]:
+        """
+        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        """
+        return pulumi.get(self, "minimum_retention")
+
+    @minimum_retention.setter
+    def minimum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]):
+        pulumi.set(self, "minimum_retention", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        :param pulumi.Input[int] value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

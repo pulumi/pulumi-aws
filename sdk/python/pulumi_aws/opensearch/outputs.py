@@ -33,6 +33,8 @@ __all__ = [
     'DomainSnapshotOptions',
     'DomainSoftwareUpdateOptions',
     'DomainVpcOptions',
+    'OutboundConnectionConnectionProperties',
+    'OutboundConnectionConnectionPropertiesCrossClusterSearch',
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
     'PackagePackageSource',
@@ -1383,6 +1385,90 @@ class DomainVpcOptions(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class OutboundConnectionConnectionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossClusterSearch":
+            suggest = "cross_cluster_search"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundConnectionConnectionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundConnectionConnectionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundConnectionConnectionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_cluster_search: Optional['outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch'] = None,
+                 endpoint: Optional[str] = None):
+        """
+        :param 'OutboundConnectionConnectionPropertiesCrossClusterSearchArgs' cross_cluster_search: Configuration block for cross cluster search.
+        :param str endpoint: The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+        """
+        if cross_cluster_search is not None:
+            pulumi.set(__self__, "cross_cluster_search", cross_cluster_search)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="crossClusterSearch")
+    def cross_cluster_search(self) -> Optional['outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch']:
+        """
+        Configuration block for cross cluster search.
+        """
+        return pulumi.get(self, "cross_cluster_search")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class OutboundConnectionConnectionPropertiesCrossClusterSearch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skipUnavailable":
+            suggest = "skip_unavailable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundConnectionConnectionPropertiesCrossClusterSearch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundConnectionConnectionPropertiesCrossClusterSearch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundConnectionConnectionPropertiesCrossClusterSearch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 skip_unavailable: Optional[str] = None):
+        """
+        :param str skip_unavailable: Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+        """
+        if skip_unavailable is not None:
+            pulumi.set(__self__, "skip_unavailable", skip_unavailable)
+
+    @property
+    @pulumi.getter(name="skipUnavailable")
+    def skip_unavailable(self) -> Optional[str]:
+        """
+        Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "skip_unavailable")
 
 
 @pulumi.output_type

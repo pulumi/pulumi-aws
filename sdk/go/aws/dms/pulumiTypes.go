@@ -2642,6 +2642,339 @@ func (o EndpointS3SettingsPtrOutput) UseTaskStartTimeForFullLoadTimestamp() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ReplicationConfigComputeConfig struct {
+	// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+	DnsNameServers *string `pulumi:"dnsNameServers"`
+	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+	MaxCapacityUnits *int `pulumi:"maxCapacityUnits"`
+	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+	MinCapacityUnits *int `pulumi:"minCapacityUnits"`
+	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+	MultiAz *bool `pulumi:"multiAz"`
+	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
+	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
+	ReplicationSubnetGroupId string `pulumi:"replicationSubnetGroupId"`
+	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
+}
+
+// ReplicationConfigComputeConfigInput is an input type that accepts ReplicationConfigComputeConfigArgs and ReplicationConfigComputeConfigOutput values.
+// You can construct a concrete instance of `ReplicationConfigComputeConfigInput` via:
+//
+//	ReplicationConfigComputeConfigArgs{...}
+type ReplicationConfigComputeConfigInput interface {
+	pulumi.Input
+
+	ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput
+	ToReplicationConfigComputeConfigOutputWithContext(context.Context) ReplicationConfigComputeConfigOutput
+}
+
+type ReplicationConfigComputeConfigArgs struct {
+	// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+	DnsNameServers pulumi.StringPtrInput `pulumi:"dnsNameServers"`
+	// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+	MaxCapacityUnits pulumi.IntPtrInput `pulumi:"maxCapacityUnits"`
+	// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+	MinCapacityUnits pulumi.IntPtrInput `pulumi:"minCapacityUnits"`
+	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+	MultiAz pulumi.BoolPtrInput `pulumi:"multiAz"`
+	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
+	PreferredMaintenanceWindow pulumi.StringPtrInput `pulumi:"preferredMaintenanceWindow"`
+	// Specifies a subnet group identifier to associate with the DMS Serverless replication.
+	ReplicationSubnetGroupId pulumi.StringInput `pulumi:"replicationSubnetGroupId"`
+	// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+	VpcSecurityGroupIds pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
+}
+
+func (ReplicationConfigComputeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput {
+	return i.ToReplicationConfigComputeConfigOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput)
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
+	return pulumix.Output[ReplicationConfigComputeConfig]{
+		OutputState: i.ToReplicationConfigComputeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput).ToReplicationConfigComputeConfigPtrOutputWithContext(ctx)
+}
+
+// ReplicationConfigComputeConfigPtrInput is an input type that accepts ReplicationConfigComputeConfigArgs, ReplicationConfigComputeConfigPtr and ReplicationConfigComputeConfigPtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigComputeConfigPtrInput` via:
+//
+//	        ReplicationConfigComputeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationConfigComputeConfigPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput
+	ToReplicationConfigComputeConfigPtrOutputWithContext(context.Context) ReplicationConfigComputeConfigPtrOutput
+}
+
+type replicationConfigComputeConfigPtrType ReplicationConfigComputeConfigArgs
+
+func ReplicationConfigComputeConfigPtr(v *ReplicationConfigComputeConfigArgs) ReplicationConfigComputeConfigPtrInput {
+	return (*replicationConfigComputeConfigPtrType)(v)
+}
+
+func (*replicationConfigComputeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigPtrOutput)
+}
+
+func (i *replicationConfigComputeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
+	return pulumix.Output[*ReplicationConfigComputeConfig]{
+		OutputState: i.ToReplicationConfigComputeConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ReplicationConfigComputeConfigOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigComputeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return o.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigComputeConfig) *ReplicationConfigComputeConfig {
+		return &v
+	}).(ReplicationConfigComputeConfigPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
+	return pulumix.Output[ReplicationConfigComputeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+func (o ReplicationConfigComputeConfigOutput) DnsNameServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.DnsNameServers }).(pulumi.StringPtrOutput)
+}
+
+// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+func (o ReplicationConfigComputeConfigOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MaxCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+func (o ReplicationConfigComputeConfigOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
+}
+
+// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+//
+// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+// - Constraints: Minimum 30-minute window.
+func (o ReplicationConfigComputeConfigOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a subnet group identifier to associate with the DMS Serverless replication.
+func (o ReplicationConfigComputeConfigOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) string { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
+}
+
+// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+func (o ReplicationConfigComputeConfigOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type ReplicationConfigComputeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigComputeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
+	return pulumix.Output[*ReplicationConfigComputeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigComputeConfigOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) ReplicationConfigComputeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigComputeConfig
+		return ret
+	}).(ReplicationConfigComputeConfigOutput)
+}
+
+// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsNameServers
+	}).(pulumi.StringPtrOutput)
+}
+
+// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAz
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+//
+// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+// - Constraints: Minimum 30-minute window.
+func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a subnet group identifier to associate with the DMS Serverless replication.
+func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicationSubnetGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetEndpointElasticsearchSetting struct {
 	EndpointUri             string `pulumi:"endpointUri"`
 	ErrorRetryDuration      int    `pulumi:"errorRetryDuration"`
@@ -3963,6 +4296,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsInput)(nil)).Elem(), EndpointS3SettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsPtrInput)(nil)).Elem(), EndpointS3SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingInput)(nil)).Elem(), GetEndpointElasticsearchSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingArrayInput)(nil)).Elem(), GetEndpointElasticsearchSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKafkaSettingInput)(nil)).Elem(), GetEndpointKafkaSettingArgs{})
@@ -3991,6 +4326,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingOutput{})
 	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetEndpointKafkaSettingOutput{})

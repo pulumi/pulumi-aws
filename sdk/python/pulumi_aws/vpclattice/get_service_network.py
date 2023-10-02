@@ -159,11 +159,11 @@ def get_service_network(service_network_identifier: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service_network(service_network_identifier="")
+    example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
     ```
 
 
-    :param str service_network_identifier: Identifier of the network service.
+    :param str service_network_identifier: Identifier of the service network.
     """
     __args__ = dict()
     __args__['serviceNetworkIdentifier'] = service_network_identifier
@@ -198,10 +198,10 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service_network(service_network_identifier="")
+    example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
     ```
 
 
-    :param str service_network_identifier: Identifier of the network service.
+    :param str service_network_identifier: Identifier of the service network.
     """
     ...

@@ -5,6 +5,7 @@ package com.pulumi.aws.lightsail.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -74,6 +75,21 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
+    }
+
+    /**
+     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
+    @Import(name="forceDelete")
+    private @Nullable Output<Boolean> forceDelete;
+
+    /**
+     * @return Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDelete() {
+        return Optional.ofNullable(this.forceDelete);
     }
 
     /**
@@ -173,6 +189,7 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
         this.availabilityZone = $.availabilityZone;
         this.bundleId = $.bundleId;
         this.createdAt = $.createdAt;
+        this.forceDelete = $.forceDelete;
         this.name = $.name;
         this.region = $.region;
         this.supportCode = $.supportCode;
@@ -281,6 +298,27 @@ public final class BucketState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
+        }
+
+        /**
+         * @param forceDelete Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
+            $.forceDelete = forceDelete;
+            return this;
+        }
+
+        /**
+         * @param forceDelete Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(Boolean forceDelete) {
+            return forceDelete(Output.of(forceDelete));
         }
 
         /**

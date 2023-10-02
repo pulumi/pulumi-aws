@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionOriginOriginShield {
@@ -16,10 +18,10 @@ public final class DistributionOriginOriginShield {
      */
     private Boolean enabled;
     /**
-     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
      * 
      */
-    private String originShieldRegion;
+    private @Nullable String originShieldRegion;
 
     private DistributionOriginOriginShield() {}
     /**
@@ -30,11 +32,11 @@ public final class DistributionOriginOriginShield {
         return this.enabled;
     }
     /**
-     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+     * @return AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
      * 
      */
-    public String originShieldRegion() {
-        return this.originShieldRegion;
+    public Optional<String> originShieldRegion() {
+        return Optional.ofNullable(this.originShieldRegion);
     }
 
     public static Builder builder() {
@@ -47,7 +49,7 @@ public final class DistributionOriginOriginShield {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-        private String originShieldRegion;
+        private @Nullable String originShieldRegion;
         public Builder() {}
         public Builder(DistributionOriginOriginShield defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,8 +63,8 @@ public final class DistributionOriginOriginShield {
             return this;
         }
         @CustomType.Setter
-        public Builder originShieldRegion(String originShieldRegion) {
-            this.originShieldRegion = Objects.requireNonNull(originShieldRegion);
+        public Builder originShieldRegion(@Nullable String originShieldRegion) {
+            this.originShieldRegion = originShieldRegion;
             return this;
         }
         public DistributionOriginOriginShield build() {

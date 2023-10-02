@@ -118,11 +118,11 @@ export class ListenerRule extends pulumi.CustomResource {
     }
 
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      */
     public readonly action!: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
     /**
-     * ARN of the target group.
+     * The ARN for the listener rule.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Unique identifier for the target group.
+     * Unique identifier for the listener rule.
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
     /**
@@ -225,11 +225,11 @@ export class ListenerRule extends pulumi.CustomResource {
  */
 export interface ListenerRuleState {
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      */
     action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
-     * ARN of the target group.
+     * The ARN for the listener rule.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -251,7 +251,7 @@ export interface ListenerRuleState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Unique identifier for the target group.
+     * Unique identifier for the listener rule.
      */
     ruleId?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface ListenerRuleState {
  */
 export interface ListenerRuleArgs {
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
