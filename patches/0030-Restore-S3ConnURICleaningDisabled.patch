@@ -1,14 +1,14 @@
-From 6c2ce6c4b0ea782d1ac45ae32c4592f838fb5f77 Mon Sep 17 00:00:00 2001
+From 55f7f811198fcc5f71c2e3005eb2365a2ea04b2a Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 25 Sep 2023 15:22:30 -0400
-Subject: [PATCH 2/2] Restore S3ConnURICleaningDisabled
+Subject: [PATCH 30/30] Restore S3ConnURICleaningDisabled
 
 ---
  internal/conns/awsclient.go | 9 +++++++++
  1 file changed, 9 insertions(+)
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index 40f2242413..7740c0e671 100644
+index 1b833cb6ec..a173638519 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
 @@ -10,10 +10,12 @@ import (
@@ -24,7 +24,7 @@ index 40f2242413..7740c0e671 100644
  	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
  	"github.com/hashicorp/terraform-provider-aws/names"
  )
-@@ -61,6 +63,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
+@@ -69,6 +71,13 @@ func (client *AWSClient) S3UsePathStyle() bool {
  	return client.s3UsePathStyle
  }
  
@@ -39,5 +39,5 @@ index 40f2242413..7740c0e671 100644
  // To have effect it must be called before the AWS SDK v1 Session is created.
  func (client *AWSClient) SetHTTPClient(httpClient *http.Client) {
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

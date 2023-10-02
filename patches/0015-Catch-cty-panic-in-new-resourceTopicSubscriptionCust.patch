@@ -1,7 +1,7 @@
-From 0e95fc1c234a54882bea03da462da5fd1cfed105 Mon Sep 17 00:00:00 2001
+From a863120f586c57240becb4c180bb9378d957f6d4 Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@gmail.com>
 Date: Thu, 1 Dec 2022 10:56:32 -0800
-Subject: [PATCH 15/29] Catch cty panic in new
+Subject: [PATCH 15/30] Catch cty panic in new
  resourceTopicSubscriptionCustomizeDiff.
 
 The root cause is not fully understood yet but this might unblock us.
@@ -27,5 +27,5 @@ index 97e1d8a056..bb3caf2e1d 100644
  		if !hadScope {
  			// When the filter_policy_scope hasn't been read back from the API,
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

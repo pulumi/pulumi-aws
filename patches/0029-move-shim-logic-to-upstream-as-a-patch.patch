@@ -1,7 +1,7 @@
-From e212ed516b0fc74f1d92e3040b2e4872c33f4f52 Mon Sep 17 00:00:00 2001
+From f09e6dc45ccff18055d13bae2677499e71733f36 Mon Sep 17 00:00:00 2001
 From: Guinevere Saenger <guinevere@pulumi.com>
 Date: Wed, 6 Sep 2023 10:43:30 -0700
-Subject: [PATCH 29/29] move shim logic to upstream as a patch
+Subject: [PATCH 29/30] move shim logic to upstream as a patch
 
 ---
  shim/shim.go      | 36 ++++++++++++++++++++++++++++++++++++
@@ -88,5 +88,5 @@ index 0000000000..f8ee8a0c54
 +	}
 +}
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 
