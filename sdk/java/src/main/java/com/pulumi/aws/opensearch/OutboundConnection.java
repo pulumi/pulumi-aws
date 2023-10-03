@@ -6,13 +6,16 @@ package com.pulumi.aws.opensearch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.opensearch.OutboundConnectionArgs;
 import com.pulumi.aws.opensearch.inputs.OutboundConnectionState;
+import com.pulumi.aws.opensearch.outputs.OutboundConnectionConnectionProperties;
 import com.pulumi.aws.opensearch.outputs.OutboundConnectionLocalDomainInfo;
 import com.pulumi.aws.opensearch.outputs.OutboundConnectionRemoteDomainInfo;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -52,6 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var foo = new OutboundConnection(&#34;foo&#34;, OutboundConnectionArgs.builder()        
  *             .connectionAlias(&#34;outbound_connection&#34;)
+ *             .connectionMode(&#34;DIRECT&#34;)
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
  *                 .ownerId(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
  *                 .region(currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
@@ -80,6 +84,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/outboundConnection:OutboundConnection")
 public class OutboundConnection extends com.pulumi.resources.CustomResource {
     /**
+     * Accepts the connection.
+     * 
+     */
+    @Export(name="acceptConnection", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> acceptConnection;
+
+    /**
+     * @return Accepts the connection.
+     * 
+     */
+    public Output<Optional<Boolean>> acceptConnection() {
+        return Codegen.optional(this.acceptConnection);
+    }
+    /**
      * Specifies the connection alias that will be used by the customer for this connection.
      * 
      */
@@ -92,6 +110,34 @@ public class OutboundConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> connectionAlias() {
         return this.connectionAlias;
+    }
+    /**
+     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     * 
+     */
+    @Export(name="connectionMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> connectionMode;
+
+    /**
+     * @return Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     * 
+     */
+    public Output<Optional<String>> connectionMode() {
+        return Codegen.optional(this.connectionMode);
+    }
+    /**
+     * Configuration block for the outbound connection.
+     * 
+     */
+    @Export(name="connectionProperties", refs={OutboundConnectionConnectionProperties.class}, tree="[0]")
+    private Output<OutboundConnectionConnectionProperties> connectionProperties;
+
+    /**
+     * @return Configuration block for the outbound connection.
+     * 
+     */
+    public Output<OutboundConnectionConnectionProperties> connectionProperties() {
+        return this.connectionProperties;
     }
     /**
      * Status of the connection request.

@@ -11,21 +11,19 @@ import java.util.Objects;
 @CustomType
 public final class AliasRoutingConfiguration {
     /**
-     * @return A version of the state machine.
+     * @return The Amazon Resource Name (ARN) of the state machine version.
      * 
      */
     private String stateMachineVersionArn;
     /**
      * @return Percentage of traffic routed to the state machine version.
      * 
-     * The following arguments are optional:
-     * 
      */
     private Integer weight;
 
     private AliasRoutingConfiguration() {}
     /**
-     * @return A version of the state machine.
+     * @return The Amazon Resource Name (ARN) of the state machine version.
      * 
      */
     public String stateMachineVersionArn() {
@@ -33,8 +31,6 @@ public final class AliasRoutingConfiguration {
     }
     /**
      * @return Percentage of traffic routed to the state machine version.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Integer weight() {

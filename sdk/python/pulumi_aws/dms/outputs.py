@@ -17,6 +17,7 @@ __all__ = [
     'EndpointRedisSettings',
     'EndpointRedshiftSettings',
     'EndpointS3Settings',
+    'ReplicationConfigComputeConfig',
     'GetEndpointElasticsearchSettingResult',
     'GetEndpointKafkaSettingResult',
     'GetEndpointKinesisSettingResult',
@@ -1368,6 +1369,163 @@ class EndpointS3Settings(dict):
         When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
+
+
+@pulumi.output_type
+class ReplicationConfigComputeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicationSubnetGroupId":
+            suggest = "replication_subnet_group_id"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "dnsNameServers":
+            suggest = "dns_name_servers"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "maxCapacityUnits":
+            suggest = "max_capacity_units"
+        elif key == "minCapacityUnits":
+            suggest = "min_capacity_units"
+        elif key == "multiAz":
+            suggest = "multi_az"
+        elif key == "preferredMaintenanceWindow":
+            suggest = "preferred_maintenance_window"
+        elif key == "vpcSecurityGroupIds":
+            suggest = "vpc_security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigComputeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigComputeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigComputeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replication_subnet_group_id: str,
+                 availability_zone: Optional[str] = None,
+                 dns_name_servers: Optional[str] = None,
+                 kms_key_id: Optional[str] = None,
+                 max_capacity_units: Optional[int] = None,
+                 min_capacity_units: Optional[int] = None,
+                 multi_az: Optional[bool] = None,
+                 preferred_maintenance_window: Optional[str] = None,
+                 vpc_security_group_ids: Optional[Sequence[str]] = None):
+        """
+        :param str replication_subnet_group_id: Specifies a subnet group identifier to associate with the DMS Serverless replication.
+        :param str availability_zone: The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+        :param str dns_name_servers: A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+        :param str kms_key_id: An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        :param int max_capacity_units: Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+        :param int min_capacity_units: Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+        :param bool multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param str preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+               
+               - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+               - Format: `ddd:hh24:mi-ddd:hh24:mi`
+               - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+               - Constraints: Minimum 30-minute window.
+        :param Sequence[str] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        """
+        pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if dns_name_servers is not None:
+            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if max_capacity_units is not None:
+            pulumi.set(__self__, "max_capacity_units", max_capacity_units)
+        if min_capacity_units is not None:
+            pulumi.set(__self__, "min_capacity_units", min_capacity_units)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
+        if preferred_maintenance_window is not None:
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupId")
+    def replication_subnet_group_id(self) -> str:
+        """
+        Specifies a subnet group identifier to associate with the DMS Serverless replication.
+        """
+        return pulumi.get(self, "replication_subnet_group_id")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="dnsNameServers")
+    def dns_name_servers(self) -> Optional[str]:
+        """
+        A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+        """
+        return pulumi.get(self, "dns_name_servers")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="maxCapacityUnits")
+    def max_capacity_units(self) -> Optional[int]:
+        """
+        Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+        """
+        return pulumi.get(self, "max_capacity_units")
+
+    @property
+    @pulumi.getter(name="minCapacityUnits")
+    def min_capacity_units(self) -> Optional[int]:
+        """
+        Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+        """
+        return pulumi.get(self, "min_capacity_units")
+
+    @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[bool]:
+        """
+        Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[str]:
+        """
+        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+
+        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+        - Format: `ddd:hh24:mi-ddd:hh24:mi`
+        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+        - Constraints: Minimum 30-minute window.
+        """
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
 
 
 @pulumi.output_type

@@ -271,7 +271,7 @@ class GetObjectResult:
     @pulumi.getter
     def metadata(self) -> Mapping[str, str]:
         """
-        Map of metadata stored with the object in S3
+        Map of metadata stored with the object in S3. Keys are always returned in lowercase.
         """
         return pulumi.get(self, "metadata")
 

@@ -32,14 +32,14 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network.
+     * ID or Amazon Resource Name (ARN) of the service.
      * 
      */
     @Import(name="serviceIdentifier")
     private @Nullable Output<String> serviceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network.
+     * @return ID or Amazon Resource Name (ARN) of the service.
      * 
      */
     public Optional<Output<String>> serviceIdentifier() {
@@ -109,7 +109,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network.
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetServiceArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network.
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
          * 
          * @return builder
          * 

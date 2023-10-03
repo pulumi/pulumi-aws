@@ -128,14 +128,14 @@ public class OntapFileSystem extends com.pulumi.resources.CustomResource {
         return this.deploymentType;
     }
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
     @Export(name="diskIopsConfiguration", refs={OntapFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
     public Output<OntapFileSystemDiskIopsConfiguration> diskIopsConfiguration() {

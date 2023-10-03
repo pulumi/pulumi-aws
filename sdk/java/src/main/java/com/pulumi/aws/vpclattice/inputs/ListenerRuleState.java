@@ -20,14 +20,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     public static final ListenerRuleState Empty = new ListenerRuleState();
 
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      * 
      */
     @Import(name="action")
     private @Nullable Output<ListenerRuleActionArgs> action;
 
     /**
-     * @return The action for the default rule.
+     * @return The action for the listener rule.
      * 
      */
     public Optional<Output<ListenerRuleActionArgs>> action() {
@@ -35,14 +35,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the target group.
+     * The ARN for the listener rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the target group.
+     * @return The ARN for the listener rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -114,14 +114,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique identifier for the target group.
+     * Unique identifier for the listener rule.
      * 
      */
     @Import(name="ruleId")
     private @Nullable Output<String> ruleId;
 
     /**
-     * @return Unique identifier for the target group.
+     * @return Unique identifier for the listener rule.
      * 
      */
     public Optional<Output<String>> ruleId() {
@@ -215,7 +215,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the default rule.
+         * @param action The action for the listener rule.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the default rule.
+         * @param action The action for the listener rule.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target group.
+         * @param arn The ARN for the listener rule.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the target group.
+         * @param arn The ARN for the listener rule.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleId Unique identifier for the target group.
+         * @param ruleId Unique identifier for the listener rule.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleId Unique identifier for the target group.
+         * @param ruleId Unique identifier for the listener rule.
          * 
          * @return builder
          * 

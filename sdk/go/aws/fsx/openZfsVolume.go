@@ -60,6 +60,8 @@ type OpenZfsVolume struct {
 	CopyTagsToSnapshots pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrOutput `pulumi:"dataCompressionType"`
+	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+	DeleteVolumeOptions pulumi.StringPtrOutput `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
@@ -130,6 +132,8 @@ type openZfsVolumeState struct {
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
 	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
@@ -164,6 +168,8 @@ type OpenZfsVolumeState struct {
 	CopyTagsToSnapshots pulumi.BoolPtrInput
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput
+	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+	DeleteVolumeOptions pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
 	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
@@ -200,6 +206,8 @@ type openZfsVolumeArgs struct {
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+	DeleteVolumeOptions *string `pulumi:"deleteVolumeOptions"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name *string `pulumi:"name"`
 	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
@@ -229,6 +237,8 @@ type OpenZfsVolumeArgs struct {
 	CopyTagsToSnapshots pulumi.BoolPtrInput
 	// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput
+	// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+	DeleteVolumeOptions pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
 	Name pulumi.StringPtrInput
 	// NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
@@ -376,6 +386,11 @@ func (o OpenZfsVolumeOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 // Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsVolumeOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringPtrOutput { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+}
+
+// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+func (o OpenZfsVolumeOutput) DeleteVolumeOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringPtrOutput { return v.DeleteVolumeOptions }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.

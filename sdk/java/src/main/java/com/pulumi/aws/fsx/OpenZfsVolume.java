@@ -109,6 +109,20 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataCompressionType);
     }
     /**
+     * Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     * 
+     */
+    @Export(name="deleteVolumeOptions", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> deleteVolumeOptions;
+
+    /**
+     * @return Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
+     * 
+     */
+    public Output<Optional<String>> deleteVolumeOptions() {
+        return Codegen.optional(this.deleteVolumeOptions);
+    }
+    /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */

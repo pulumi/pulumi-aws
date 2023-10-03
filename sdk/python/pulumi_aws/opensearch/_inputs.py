@@ -32,6 +32,8 @@ __all__ = [
     'DomainSnapshotOptionsArgs',
     'DomainSoftwareUpdateOptionsArgs',
     'DomainVpcOptionsArgs',
+    'OutboundConnectionConnectionPropertiesArgs',
+    'OutboundConnectionConnectionPropertiesCrossClusterSearchArgs',
     'OutboundConnectionLocalDomainInfoArgs',
     'OutboundConnectionRemoteDomainInfoArgs',
     'PackagePackageSourceArgs',
@@ -1267,6 +1269,68 @@ class DomainVpcOptionsArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class OutboundConnectionConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 cross_cluster_search: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs']] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs'] cross_cluster_search: Configuration block for cross cluster search.
+        :param pulumi.Input[str] endpoint: The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+        """
+        if cross_cluster_search is not None:
+            pulumi.set(__self__, "cross_cluster_search", cross_cluster_search)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="crossClusterSearch")
+    def cross_cluster_search(self) -> Optional[pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs']]:
+        """
+        Configuration block for cross cluster search.
+        """
+        return pulumi.get(self, "cross_cluster_search")
+
+    @cross_cluster_search.setter
+    def cross_cluster_search(self, value: Optional[pulumi.Input['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs']]):
+        pulumi.set(self, "cross_cluster_search", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+
+@pulumi.input_type
+class OutboundConnectionConnectionPropertiesCrossClusterSearchArgs:
+    def __init__(__self__, *,
+                 skip_unavailable: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] skip_unavailable: Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+        """
+        if skip_unavailable is not None:
+            pulumi.set(__self__, "skip_unavailable", skip_unavailable)
+
+    @property
+    @pulumi.getter(name="skipUnavailable")
+    def skip_unavailable(self) -> Optional[pulumi.Input[str]]:
+        """
+        Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "skip_unavailable")
+
+    @skip_unavailable.setter
+    def skip_unavailable(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "skip_unavailable", value)
 
 
 @pulumi.input_type

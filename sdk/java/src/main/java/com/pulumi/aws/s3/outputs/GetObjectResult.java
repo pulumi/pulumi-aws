@@ -103,7 +103,7 @@ public final class GetObjectResult {
      */
     private String lastModified;
     /**
-     * @return Map of metadata stored with the object in S3
+     * @return Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      * 
      */
     private Map<String,String> metadata;
@@ -284,7 +284,7 @@ public final class GetObjectResult {
         return this.lastModified;
     }
     /**
-     * @return Map of metadata stored with the object in S3
+     * @return Map of metadata stored with the object in S3. Keys are always returned in lowercase.
      * 
      */
     public Map<String,String> metadata() {

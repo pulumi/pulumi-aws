@@ -15,14 +15,14 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
     public static final AliasRoutingConfigurationArgs Empty = new AliasRoutingConfigurationArgs();
 
     /**
-     * A version of the state machine.
+     * The Amazon Resource Name (ARN) of the state machine version.
      * 
      */
     @Import(name="stateMachineVersionArn", required=true)
     private Output<String> stateMachineVersionArn;
 
     /**
-     * @return A version of the state machine.
+     * @return The Amazon Resource Name (ARN) of the state machine version.
      * 
      */
     public Output<String> stateMachineVersionArn() {
@@ -32,16 +32,12 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
     /**
      * Percentage of traffic routed to the state machine version.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
     /**
      * @return Percentage of traffic routed to the state machine version.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Integer> weight() {
@@ -74,7 +70,7 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stateMachineVersionArn A version of the state machine.
+         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
          * 
          * @return builder
          * 
@@ -85,7 +81,7 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stateMachineVersionArn A version of the state machine.
+         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
          * 
          * @return builder
          * 
@@ -97,8 +93,6 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         /**
          * @param weight Percentage of traffic routed to the state machine version.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -109,8 +103,6 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param weight Percentage of traffic routed to the state machine version.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

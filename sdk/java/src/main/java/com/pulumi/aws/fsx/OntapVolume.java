@@ -6,6 +6,7 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.OntapVolumeArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeState;
+import com.pulumi.aws.fsx.outputs.OntapVolumeSnaplockConfiguration;
 import com.pulumi.aws.fsx.outputs.OntapVolumeTieringPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -122,6 +123,34 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Export(name="bypassSnaplockEnterpriseRetention", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> bypassSnaplockEnterpriseRetention;
+
+    /**
+     * @return Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> bypassSnaplockEnterpriseRetention() {
+        return Codegen.optional(this.bypassSnaplockEnterpriseRetention);
+    }
+    /**
+     * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * 
+     */
+    @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> copyTagsToBackups;
+
+    /**
+     * @return A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> copyTagsToBackups() {
+        return Codegen.optional(this.copyTagsToBackups);
+    }
+    /**
      * Describes the file system for the volume, e.g. `fs-12345679`
      * 
      */
@@ -234,6 +263,34 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
+     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * 
+     */
+    @Export(name="snaplockConfiguration", refs={OntapVolumeSnaplockConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ OntapVolumeSnaplockConfiguration> snaplockConfiguration;
+
+    /**
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * 
+     */
+    public Output<Optional<OntapVolumeSnaplockConfiguration>> snaplockConfiguration() {
+        return Codegen.optional(this.snaplockConfiguration);
+    }
+    /**
+     * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * 
+     */
+    @Export(name="snapshotPolicy", refs={String.class}, tree="[0]")
+    private Output<String> snapshotPolicy;
+
+    /**
+     * @return Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * 
+     */
+    public Output<String> snapshotPolicy() {
+        return this.snapshotPolicy;
+    }
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
@@ -293,9 +350,17 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * 
+     */
     @Export(name="tieringPolicy", refs={OntapVolumeTieringPolicy.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeTieringPolicy> tieringPolicy;
 
+    /**
+     * @return The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * 
+     */
     public Output<Optional<OntapVolumeTieringPolicy>> tieringPolicy() {
         return Codegen.optional(this.tieringPolicy);
     }

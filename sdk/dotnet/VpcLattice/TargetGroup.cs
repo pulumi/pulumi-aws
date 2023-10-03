@@ -28,9 +28,9 @@ namespace Pulumi.Aws.VpcLattice
     ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
+    ///             VpcIdentifier = aws_vpc.Example.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
-    ///             VpcIdentifier = aws_vpc.Example.Id,
     ///         },
     ///     });
     /// 
@@ -48,12 +48,13 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
-    ///         Type = "ALB",
+    ///         Type = "IP",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
+    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             IpAddressType = "IPV4",
     ///             Port = 443,
     ///             Protocol = "HTTPS",
-    ///             VpcIdentifier = aws_vpc.Example.Id,
     ///             ProtocolVersion = "HTTP1",
     ///             HealthCheck = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckArgs
     ///             {
@@ -71,6 +72,32 @@ namespace Pulumi.Aws.VpcLattice
     ///                 Protocol = "HTTP",
     ///                 ProtocolVersion = "HTTP1",
     ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### ALB
+    /// 
+    /// If the type is ALB, `health_check` block is not supported.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
+    ///     {
+    ///         Type = "ALB",
+    ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
+    ///         {
+    ///             VpcIdentifier = aws_vpc.Example.Id,
+    ///             Port = 443,
+    ///             Protocol = "HTTPS",
+    ///             ProtocolVersion = "HTTP1",
     ///         },
     ///     });
     /// 

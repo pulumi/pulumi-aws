@@ -205,7 +205,7 @@ type InstanceStorageConfig struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigOutput `pulumi:"storageConfig"`
@@ -254,7 +254,7 @@ type instanceStorageConfigState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId *string `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig *InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
@@ -265,7 +265,7 @@ type InstanceStorageConfigState struct {
 	AssociationId pulumi.StringPtrInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringPtrInput
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 	ResourceType pulumi.StringPtrInput
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigPtrInput
@@ -278,7 +278,7 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 type instanceStorageConfigArgs struct {
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 	ResourceType string `pulumi:"resourceType"`
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfig `pulumi:"storageConfig"`
@@ -288,7 +288,7 @@ type instanceStorageConfigArgs struct {
 type InstanceStorageConfigArgs struct {
 	// Specifies the identifier of the hosting Amazon Connect Instance.
 	InstanceId pulumi.StringInput
-	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+	// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 	ResourceType pulumi.StringInput
 	// Specifies the storage configuration options for the Connect Instance. Documented below.
 	StorageConfig InstanceStorageConfigStorageConfigInput
@@ -415,7 +415,7 @@ func (o InstanceStorageConfigOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
-// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS`.
+// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
 func (o InstanceStorageConfigOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }

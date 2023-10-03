@@ -1835,8 +1835,8 @@ class DistributionOrigin(dict):
         :param 'DistributionOriginCustomOriginConfigArgs' custom_origin_config: The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
         :param str origin_access_control_id: Unique identifier of a [CloudFront origin access control][8] for this origin.
         :param str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        :param 'DistributionOriginOriginShieldArgs' origin_shield: The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-        :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        :param 'DistributionOriginOriginShieldArgs' origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "origin_id", origin_id)
@@ -1925,7 +1925,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="originShield")
     def origin_shield(self) -> Optional['outputs.DistributionOriginOriginShield']:
         """
-        The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         """
         return pulumi.get(self, "origin_shield")
 
@@ -1933,7 +1933,7 @@ class DistributionOrigin(dict):
     @pulumi.getter(name="s3OriginConfig")
     def s3_origin_config(self) -> Optional['outputs.DistributionOriginS3OriginConfig']:
         """
-        The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         """
         return pulumi.get(self, "s3_origin_config")
 
@@ -2209,13 +2209,14 @@ class DistributionOriginOriginShield(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
-                 origin_shield_region: str):
+                 origin_shield_region: Optional[str] = None):
         """
         :param bool enabled: Whether the distribution is enabled to accept end user requests for content.
-        :param str origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+        :param str origin_shield_region: AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         """
         pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+        if origin_shield_region is not None:
+            pulumi.set(__self__, "origin_shield_region", origin_shield_region)
 
     @property
     @pulumi.getter
@@ -2227,9 +2228,9 @@ class DistributionOriginOriginShield(dict):
 
     @property
     @pulumi.getter(name="originShieldRegion")
-    def origin_shield_region(self) -> str:
+    def origin_shield_region(self) -> Optional[str]:
         """
-        AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+        AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
         """
         return pulumi.get(self, "origin_shield_region")
 

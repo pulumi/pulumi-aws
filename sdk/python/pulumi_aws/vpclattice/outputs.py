@@ -740,7 +740,7 @@ class TargetGroupAttachmentTarget(dict):
                  port: Optional[int] = None):
         """
         :param str id: The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-        :param int port: The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        :param int port: This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         pulumi.set(__self__, "id", id)
         if port is not None:
@@ -758,7 +758,7 @@ class TargetGroupAttachmentTarget(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         return pulumi.get(self, "port")
 

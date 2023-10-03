@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fsx.inputs;
 
+import com.pulumi.aws.fsx.inputs.OntapVolumeSnaplockConfigurationArgs;
 import com.pulumi.aws.fsx.inputs.OntapVolumeTieringPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,36 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Import(name="bypassSnaplockEnterpriseRetention")
+    private @Nullable Output<Boolean> bypassSnaplockEnterpriseRetention;
+
+    /**
+     * @return Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> bypassSnaplockEnterpriseRetention() {
+        return Optional.ofNullable(this.bypassSnaplockEnterpriseRetention);
+    }
+
+    /**
+     * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * 
+     */
+    @Import(name="copyTagsToBackups")
+    private @Nullable Output<Boolean> copyTagsToBackups;
+
+    /**
+     * @return A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> copyTagsToBackups() {
+        return Optional.ofNullable(this.copyTagsToBackups);
     }
 
     /**
@@ -155,6 +186,36 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * 
+     */
+    @Import(name="snaplockConfiguration")
+    private @Nullable Output<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration;
+
+    /**
+     * @return The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+     * 
+     */
+    public Optional<Output<OntapVolumeSnaplockConfigurationArgs>> snaplockConfiguration() {
+        return Optional.ofNullable(this.snaplockConfiguration);
+    }
+
+    /**
+     * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * 
+     */
+    @Import(name="snapshotPolicy")
+    private @Nullable Output<String> snapshotPolicy;
+
+    /**
+     * @return Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * 
+     */
+    public Optional<Output<String>> snapshotPolicy() {
+        return Optional.ofNullable(this.snapshotPolicy);
+    }
+
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
@@ -222,9 +283,17 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * 
+     */
     @Import(name="tieringPolicy")
     private @Nullable Output<OntapVolumeTieringPolicyArgs> tieringPolicy;
 
+    /**
+     * @return The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+     * 
+     */
     public Optional<Output<OntapVolumeTieringPolicyArgs>> tieringPolicy() {
         return Optional.ofNullable(this.tieringPolicy);
     }
@@ -263,6 +332,8 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
 
     private OntapVolumeState(OntapVolumeState $) {
         this.arn = $.arn;
+        this.bypassSnaplockEnterpriseRetention = $.bypassSnaplockEnterpriseRetention;
+        this.copyTagsToBackups = $.copyTagsToBackups;
         this.fileSystemId = $.fileSystemId;
         this.flexcacheEndpointType = $.flexcacheEndpointType;
         this.junctionPath = $.junctionPath;
@@ -271,6 +342,8 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         this.securityStyle = $.securityStyle;
         this.sizeInMegabytes = $.sizeInMegabytes;
         this.skipFinalBackup = $.skipFinalBackup;
+        this.snaplockConfiguration = $.snaplockConfiguration;
+        this.snapshotPolicy = $.snapshotPolicy;
         this.storageEfficiencyEnabled = $.storageEfficiencyEnabled;
         this.storageVirtualMachineId = $.storageVirtualMachineId;
         this.tags = $.tags;
@@ -317,6 +390,48 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param bypassSnaplockEnterpriseRetention Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassSnaplockEnterpriseRetention(@Nullable Output<Boolean> bypassSnaplockEnterpriseRetention) {
+            $.bypassSnaplockEnterpriseRetention = bypassSnaplockEnterpriseRetention;
+            return this;
+        }
+
+        /**
+         * @param bypassSnaplockEnterpriseRetention Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bypassSnaplockEnterpriseRetention(Boolean bypassSnaplockEnterpriseRetention) {
+            return bypassSnaplockEnterpriseRetention(Output.of(bypassSnaplockEnterpriseRetention));
+        }
+
+        /**
+         * @param copyTagsToBackups A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyTagsToBackups(@Nullable Output<Boolean> copyTagsToBackups) {
+            $.copyTagsToBackups = copyTagsToBackups;
+            return this;
+        }
+
+        /**
+         * @param copyTagsToBackups A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyTagsToBackups(Boolean copyTagsToBackups) {
+            return copyTagsToBackups(Output.of(copyTagsToBackups));
         }
 
         /**
@@ -488,6 +603,48 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snaplockConfiguration(@Nullable Output<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration) {
+            $.snaplockConfiguration = snaplockConfiguration;
+            return this;
+        }
+
+        /**
+         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snaplockConfiguration(OntapVolumeSnaplockConfigurationArgs snaplockConfiguration) {
+            return snaplockConfiguration(Output.of(snaplockConfiguration));
+        }
+
+        /**
+         * @param snapshotPolicy Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotPolicy(@Nullable Output<String> snapshotPolicy) {
+            $.snapshotPolicy = snapshotPolicy;
+            return this;
+        }
+
+        /**
+         * @param snapshotPolicy Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotPolicy(String snapshotPolicy) {
+            return snapshotPolicy(Output.of(snapshotPolicy));
+        }
+
+        /**
          * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
          * 
          * @return builder
@@ -579,11 +736,23 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tieringPolicy(@Nullable Output<OntapVolumeTieringPolicyArgs> tieringPolicy) {
             $.tieringPolicy = tieringPolicy;
             return this;
         }
 
+        /**
+         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tieringPolicy(OntapVolumeTieringPolicyArgs tieringPolicy) {
             return tieringPolicy(Output.of(tieringPolicy));
         }

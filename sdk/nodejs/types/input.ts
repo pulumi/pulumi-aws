@@ -9474,6 +9474,11 @@ export namespace cleanrooms {
         memberAbilities: pulumi.Input<pulumi.Input<string>[]>;
         status?: pulumi.Input<string>;
     }
+
+    export interface ConfiguredTableTableReference {
+        databaseName: pulumi.Input<string>;
+        tableName: pulumi.Input<string>;
+    }
 }
 
 export namespace cloudformation {
@@ -10053,11 +10058,11 @@ export namespace cloudfront {
          */
         originPath?: pulumi.Input<string>;
         /**
-         * The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         * CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
          */
         originShield?: pulumi.Input<inputs.cloudfront.DistributionOriginOriginShield>;
         /**
-         * The CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
+         * CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
          */
         s3OriginConfig?: pulumi.Input<inputs.cloudfront.DistributionOriginS3OriginConfig>;
     }
@@ -10129,9 +10134,9 @@ export namespace cloudfront {
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+         * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
          */
-        originShieldRegion: pulumi.Input<string>;
+        originShieldRegion?: pulumi.Input<string>;
     }
 
     export interface DistributionOriginS3OriginConfig {
@@ -16282,6 +16287,49 @@ export namespace dms {
         useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean>;
     }
 
+    export interface ReplicationConfigComputeConfig {
+        /**
+         * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+         */
+        dnsNameServers?: pulumi.Input<string>;
+        /**
+         * An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+         */
+        maxCapacityUnits?: pulumi.Input<number>;
+        /**
+         * Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS scans the current activity of available source tables to identify an optimum setting for this parameter.
+         */
+        minCapacityUnits?: pulumi.Input<number>;
+        /**
+         * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+         */
+        multiAz?: pulumi.Input<boolean>;
+        /**
+         * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+         *
+         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+         * - Constraints: Minimum 30-minute window.
+         */
+        preferredMaintenanceWindow?: pulumi.Input<string>;
+        /**
+         * Specifies a subnet group identifier to associate with the DMS Serverless replication.
+         */
+        replicationSubnetGroupId: pulumi.Input<string>;
+        /**
+         * Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+         */
+        vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace docdb {
@@ -25828,6 +25876,92 @@ export namespace fsx {
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface OntapVolumeSnaplockConfiguration {
+        /**
+         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+         */
+        auditLogVolume?: pulumi.Input<boolean>;
+        /**
+         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+         */
+        autocommitPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod>;
+        /**
+         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+         */
+        privilegedDelete?: pulumi.Input<string>;
+        /**
+         * The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+         */
+        retentionPeriod?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod>;
+        /**
+         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+         */
+        snaplockType: pulumi.Input<string>;
+        /**
+         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+         */
+        volumeAppendModeEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface OntapVolumeSnaplockConfigurationAutocommitPeriod {
+        /**
+         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
+        value?: pulumi.Input<number>;
+    }
+
+    export interface OntapVolumeSnaplockConfigurationRetentionPeriod {
+        /**
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+         */
+        defaultRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention>;
+        /**
+         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+         */
+        maximumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention>;
+        /**
+         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+         */
+        minimumRetention?: pulumi.Input<inputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention>;
+    }
+
+    export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
+        /**
+         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
+        value?: pulumi.Input<number>;
+    }
+
+    export interface OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
+        /**
+         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
+        value?: pulumi.Input<number>;
+    }
+
+    export interface OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
+        /**
+         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
+        value?: pulumi.Input<number>;
+    }
+
     export interface OntapVolumeTieringPolicy {
         /**
          * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
@@ -34410,6 +34544,42 @@ export namespace lex {
          */
         value: pulumi.Input<string>;
     }
+
+    export interface V2modelsBotDataPrivacy {
+        /**
+         * (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+         */
+        childDirected: pulumi.Input<boolean>;
+    }
+
+    export interface V2modelsBotMember {
+        /**
+         * (Required) - Alias ID of a bot that is a member of this network of bots.
+         */
+        aliasId: pulumi.Input<string>;
+        /**
+         * (Required) - Alias name of a bot that is a member of this network of bots.
+         */
+        aliasName: pulumi.Input<string>;
+        /**
+         * (Required) - Unique ID of a bot that is a member of this network of bots.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * (Required) - Version of a bot that is a member of this network of bots.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface V2modelsBotTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
 }
 
 export namespace licensemanager {
@@ -40177,6 +40347,24 @@ export namespace opensearch {
          * User attribute for this SAML integration.
          */
         userAttribute?: pulumi.Input<string>;
+    }
+
+    export interface OutboundConnectionConnectionProperties {
+        /**
+         * Configuration block for cross cluster search.
+         */
+        crossClusterSearch?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionPropertiesCrossClusterSearch>;
+        /**
+         * The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
+         */
+        endpoint?: pulumi.Input<string>;
+    }
+
+    export interface OutboundConnectionConnectionPropertiesCrossClusterSearch {
+        /**
+         * Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+         */
+        skipUnavailable?: pulumi.Input<string>;
     }
 
     export interface OutboundConnectionLocalDomainInfo {
@@ -51881,13 +52069,11 @@ export namespace sesv2 {
 export namespace sfn {
     export interface AliasRoutingConfiguration {
         /**
-         * A version of the state machine.
+         * The Amazon Resource Name (ARN) of the state machine version.
          */
         stateMachineVersionArn: pulumi.Input<string>;
         /**
          * Percentage of traffic routed to the state machine version.
-         *
-         * The following arguments are optional:
          */
         weight: pulumi.Input<number>;
     }
@@ -53677,7 +53863,7 @@ export namespace vpclattice {
          */
         id: pulumi.Input<string>;
         /**
-         * The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+         * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          */
         port?: pulumi.Input<number>;
     }
@@ -54977,9 +55163,13 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatement {
         /**
-         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
          */
         aggregateKeyType?: pulumi.Input<string>;
+        /**
+         * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+         */
+        customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKey>[]>;
         /**
          * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
          */
@@ -54992,6 +55182,223 @@ export namespace wafv2 {
          * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatement>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKey {
+        /**
+         * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         */
+        cookie?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie>;
+        /**
+         * (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         */
+        forwardedIp?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp>;
+        /**
+         * (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         */
+        header?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader>;
+        /**
+         * (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         */
+        httpMethod?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod>;
+        /**
+         * (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         */
+        ip?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyIp>;
+        /**
+         * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         */
+        labelNamespace?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace>;
+        /**
+         * (Optional) Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         */
+        queryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookie {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyIp {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace {
+        /**
+         * The namespace to use for aggregation
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString {
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementForwardedIpConfig {
@@ -58193,7 +58600,7 @@ export namespace wafv2 {
          */
         failureValues: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the header to match against. The name must be an exact match, including case.
+         * The name of the header to use.
          */
         name: pulumi.Input<string>;
         /**
@@ -59715,9 +60122,13 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatement {
         /**
-         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
          */
         aggregateKeyType?: pulumi.Input<string>;
+        /**
+         * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
+         */
+        customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKey>[]>;
         /**
          * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
          */
@@ -59730,6 +60141,163 @@ export namespace wafv2 {
          * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKey {
+        /**
+         * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+         */
+        cookie?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyCookie>;
+        /**
+         * Use the first IP address in an HTTP header as an aggregate key. See `forwardedIp` below for details.
+         */
+        forwardedIp?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp>;
+        /**
+         * Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+         */
+        header?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyHeader>;
+        /**
+         * Use the request's HTTP method as an aggregate key. See RateLimit `httpMethod` below for details.
+         */
+        httpMethod?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod>;
+        /**
+         * Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+         */
+        ip?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyIp>;
+        /**
+         * Use the specified label namespace as an aggregate key. See RateLimit `labelNamespace` below for details.
+         */
+        labelNamespace?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace>;
+        /**
+         * Use the specified query argument as an aggregate key. See RateLimit `queryArgument` below for details.
+         */
+        queryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument>;
+        /**
+         * Use the request's query string as an aggregate key. See RateLimit `queryString` below for details.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyQueryString>;
+        /**
+         * Use the request's URI path as an aggregate key. See RateLimit `uriPath` below for details.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyCookie {
+        /**
+         * The name of the cookie to use.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyHeader {
+        /**
+         * The name of the header to use.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyIp {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace {
+        /**
+         * The namespace to use for aggregation
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument {
+        /**
+         * The name of the query argument to use.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyQueryString {
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyUriPath {
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `textTransformation` above for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementForwardedIpConfig {

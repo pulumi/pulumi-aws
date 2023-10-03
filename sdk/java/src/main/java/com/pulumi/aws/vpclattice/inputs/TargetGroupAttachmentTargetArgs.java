@@ -32,14 +32,14 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
     }
 
     /**
-     * The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+     * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -93,7 +93,7 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param port The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TargetGroupAttachmentTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param port The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+         * @param port This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          * 
          * @return builder
          * 

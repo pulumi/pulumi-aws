@@ -105,7 +105,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str resource_type: A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+    :param str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -144,6 +144,6 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str resource_type: A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
+    :param str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     ...

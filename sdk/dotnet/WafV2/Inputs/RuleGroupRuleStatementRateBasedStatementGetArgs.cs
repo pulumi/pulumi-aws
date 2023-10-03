@@ -13,10 +13,22 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         /// </summary>
         [Input("aggregateKeyType")]
         public Input<string>? AggregateKeyType { get; set; }
+
+        [Input("customKeys")]
+        private InputList<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyGetArgs>? _customKeys;
+
+        /// <summary>
+        /// Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyGetArgs> CustomKeys
+        {
+            get => _customKeys ?? (_customKeys = new InputList<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyGetArgs>());
+            set => _customKeys = value;
+        }
 
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.

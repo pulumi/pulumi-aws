@@ -20,18 +20,16 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobQueueArgs Empty = new JobQueueArgs();
 
     /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      * 
      */
     @Import(name="computeEnvironments", required=true)
     private Output<List<String>> computeEnvironments;
 
     /**
-     * @return Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * @return List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      * 
      */
     public Output<List<String>> computeEnvironments() {
@@ -153,9 +151,8 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironments Specifies the set of compute environments
-         * mapped to a job queue and their order.  The position of the compute environments
-         * in the list will dictate the order.
+         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
+         * The position of the compute environments in the list will dictate the order.
          * 
          * @return builder
          * 
@@ -166,9 +163,8 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironments Specifies the set of compute environments
-         * mapped to a job queue and their order.  The position of the compute environments
-         * in the list will dictate the order.
+         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
+         * The position of the compute environments in the list will dictate the order.
          * 
          * @return builder
          * 
@@ -178,9 +174,8 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironments Specifies the set of compute environments
-         * mapped to a job queue and their order.  The position of the compute environments
-         * in the list will dictate the order.
+         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
+         * The position of the compute environments in the list will dictate the order.
          * 
          * @return builder
          * 

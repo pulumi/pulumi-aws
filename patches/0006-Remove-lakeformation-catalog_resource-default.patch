@@ -1,7 +1,7 @@
-From 6701906d24a0c539f8488d5e8dc040f4ca4161b6 Mon Sep 17 00:00:00 2001
+From b60aeba2c4cfdbf117f507abf7ad90c556540063 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:08:23 +0000
-Subject: [PATCH 06/29] Remove lakeformation catalog_resource default
+Subject: [PATCH 06/30] Remove lakeformation catalog_resource default
 
 ---
  internal/service/lakeformation/permissions.go | 4 ++--
@@ -23,5 +23,5 @@ index 594d25ee73..258163d0a5 100644
  				Optional: true,
  				ExactlyOneOf: []string{
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

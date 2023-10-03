@@ -4724,9 +4724,9 @@ type DistributionOrigin struct {
 	OriginId string `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
 	OriginPath *string `pulumi:"originPath"`
-	// The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+	// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 	OriginShield *DistributionOriginOriginShield `pulumi:"originShield"`
-	// The CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
+	// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
 	S3OriginConfig *DistributionOriginS3OriginConfig `pulumi:"s3OriginConfig"`
 }
 
@@ -4758,9 +4758,9 @@ type DistributionOriginArgs struct {
 	OriginId pulumi.StringInput `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
-	// The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+	// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 	OriginShield DistributionOriginOriginShieldPtrInput `pulumi:"originShield"`
-	// The CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
+	// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
 	S3OriginConfig DistributionOriginS3OriginConfigPtrInput `pulumi:"s3OriginConfig"`
 }
 
@@ -4873,12 +4873,12 @@ func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
 }
 
-// The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
 func (o DistributionOriginOutput) OriginShield() DistributionOriginOriginShieldPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginOriginShield { return v.OriginShield }).(DistributionOriginOriginShieldPtrOutput)
 }
 
-// The CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
+// CloudFront S3 origin configuration information. If a custom origin is required, use `customOriginConfig` instead.
 func (o DistributionOriginOutput) S3OriginConfig() DistributionOriginS3OriginConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginS3OriginConfig { return v.S3OriginConfig }).(DistributionOriginS3OriginConfigPtrOutput)
 }
@@ -5616,8 +5616,8 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 type DistributionOriginOriginShield struct {
 	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled bool `pulumi:"enabled"`
-	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
-	OriginShieldRegion string `pulumi:"originShieldRegion"`
+	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+	OriginShieldRegion *string `pulumi:"originShieldRegion"`
 }
 
 // DistributionOriginOriginShieldInput is an input type that accepts DistributionOriginOriginShieldArgs and DistributionOriginOriginShieldOutput values.
@@ -5634,8 +5634,8 @@ type DistributionOriginOriginShieldInput interface {
 type DistributionOriginOriginShieldArgs struct {
 	// Whether the distribution is enabled to accept end user requests for content.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
-	OriginShieldRegion pulumi.StringInput `pulumi:"originShieldRegion"`
+	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+	OriginShieldRegion pulumi.StringPtrInput `pulumi:"originShieldRegion"`
 }
 
 func (DistributionOriginOriginShieldArgs) ElementType() reflect.Type {
@@ -5738,9 +5738,9 @@ func (o DistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
-func (o DistributionOriginOriginShieldOutput) OriginShieldRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionOriginOriginShield) string { return v.OriginShieldRegion }).(pulumi.StringOutput)
+// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
+func (o DistributionOriginOriginShieldOutput) OriginShieldRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionOriginOriginShield) *string { return v.OriginShieldRegion }).(pulumi.StringPtrOutput)
 }
 
 type DistributionOriginOriginShieldPtrOutput struct{ *pulumi.OutputState }
@@ -5783,13 +5783,13 @@ func (o DistributionOriginOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
 func (o DistributionOriginOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginOriginShield) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.OriginShieldRegion
+		return v.OriginShieldRegion
 	}).(pulumi.StringPtrOutput)
 }
 

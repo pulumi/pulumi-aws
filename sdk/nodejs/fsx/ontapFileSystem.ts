@@ -83,7 +83,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
     public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
     /**
@@ -263,7 +263,7 @@ export interface OntapFileSystemState {
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
     /**
@@ -359,7 +359,7 @@ export interface OntapFileSystemArgs {
      */
     deploymentType: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
     /**

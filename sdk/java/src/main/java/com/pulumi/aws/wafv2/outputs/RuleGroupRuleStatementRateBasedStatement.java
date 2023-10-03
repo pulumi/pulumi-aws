@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKey;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,10 +17,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatement {
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     private @Nullable String aggregateKeyType;
+    /**
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys;
     /**
      * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
      * 
@@ -37,11 +44,18 @@ public final class RuleGroupRuleStatementRateBasedStatement {
 
     private RuleGroupRuleStatementRateBasedStatement() {}
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     public Optional<String> aggregateKeyType() {
         return Optional.ofNullable(this.aggregateKeyType);
+    }
+    /**
+     * @return Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys() {
+        return this.customKeys == null ? List.of() : this.customKeys;
     }
     /**
      * @return The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
@@ -75,6 +89,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String aggregateKeyType;
+        private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys;
         private @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
         private Integer limit;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
@@ -82,6 +97,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
         public Builder(RuleGroupRuleStatementRateBasedStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregateKeyType = defaults.aggregateKeyType;
+    	      this.customKeys = defaults.customKeys;
     	      this.forwardedIpConfig = defaults.forwardedIpConfig;
     	      this.limit = defaults.limit;
     	      this.scopeDownStatement = defaults.scopeDownStatement;
@@ -91,6 +107,14 @@ public final class RuleGroupRuleStatementRateBasedStatement {
         public Builder aggregateKeyType(@Nullable String aggregateKeyType) {
             this.aggregateKeyType = aggregateKeyType;
             return this;
+        }
+        @CustomType.Setter
+        public Builder customKeys(@Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys) {
+            this.customKeys = customKeys;
+            return this;
+        }
+        public Builder customKeys(RuleGroupRuleStatementRateBasedStatementCustomKey... customKeys) {
+            return customKeys(List.of(customKeys));
         }
         @CustomType.Setter
         public Builder forwardedIpConfig(@Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig) {
@@ -110,6 +134,7 @@ public final class RuleGroupRuleStatementRateBasedStatement {
         public RuleGroupRuleStatementRateBasedStatement build() {
             final var o = new RuleGroupRuleStatementRateBasedStatement();
             o.aggregateKeyType = aggregateKeyType;
+            o.customKeys = customKeys;
             o.forwardedIpConfig = forwardedIpConfig;
             o.limit = limit;
             o.scopeDownStatement = scopeDownStatement;

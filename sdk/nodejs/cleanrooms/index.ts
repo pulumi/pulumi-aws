@@ -10,6 +10,11 @@ export type Collaboration = import("./collaboration").Collaboration;
 export const Collaboration: typeof import("./collaboration").Collaboration = null as any;
 utilities.lazyLoad(exports, ["Collaboration"], () => require("./collaboration"));
 
+export { ConfiguredTableArgs, ConfiguredTableState } from "./configuredTable";
+export type ConfiguredTable = import("./configuredTable").ConfiguredTable;
+export const ConfiguredTable: typeof import("./configuredTable").ConfiguredTable = null as any;
+utilities.lazyLoad(exports, ["ConfiguredTable"], () => require("./configuredTable"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:cleanrooms/collaboration:Collaboration":
                 return new Collaboration(name, <any>undefined, { urn })
+            case "aws:cleanrooms/configuredTable:ConfiguredTable":
+                return new ConfiguredTable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cleanrooms/collaboration", _module)
+pulumi.runtime.registerResourceModule("aws", "cleanrooms/configuredTable", _module)

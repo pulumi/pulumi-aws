@@ -1955,6 +1955,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cleanrooms/configuredTable",
+  "fqn": "pulumi_aws.cleanrooms",
+  "classes": {
+   "aws:cleanrooms/configuredTable:ConfiguredTable": "ConfiguredTable"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloud9/environmentEC2",
   "fqn": "pulumi_aws.cloud9",
   "classes": {
@@ -3343,6 +3351,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dms",
   "classes": {
    "aws:dms/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dms/replicationConfig",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/replicationConfig:ReplicationConfig": "ReplicationConfig"
   }
  },
  {
@@ -6459,6 +6475,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lex/v2modelsBot",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsBot:V2modelsBot": "V2modelsBot"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "licensemanager/association",
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
@@ -7935,6 +7959,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/customDbEngineVersion",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/customDbEngineVersion:CustomDbEngineVersion": "CustomDbEngineVersion"
   }
  },
  {

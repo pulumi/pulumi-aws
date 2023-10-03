@@ -1,7 +1,7 @@
-From c3ae5941e19641066419184a5dab1e16f5f11201 Mon Sep 17 00:00:00 2001
+From 06e2059ba26ce7c2ea63a9d7a41685c16920bb5d Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel.dbphoto@gmail.com>
 Date: Tue, 28 Mar 2023 19:54:00 +0100
-Subject: [PATCH 23/29] remove required elements from schema and fix tests
+Subject: [PATCH 23/30] remove required elements from schema and fix tests
  (#77)
 
 Co-authored-by: Lee Briggs <lee@leebriggs.co.uk>
@@ -286,5 +286,5 @@ index 8788ef5b45..0d6b961c5b 100644
  		name := rs.Primary.Attributes["name"]
  		out, err := conn.DescribeMatchmakingRuleSets(&gamelift.DescribeMatchmakingRuleSetsInput{
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

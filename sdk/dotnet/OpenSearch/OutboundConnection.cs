@@ -30,6 +30,7 @@ namespace Pulumi.Aws.OpenSearch
     ///     var foo = new Aws.OpenSearch.OutboundConnection("foo", new()
     ///     {
     ///         ConnectionAlias = "outbound_connection",
+    ///         ConnectionMode = "DIRECT",
     ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
     ///         {
     ///             OwnerId = currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
@@ -59,10 +60,28 @@ namespace Pulumi.Aws.OpenSearch
     public partial class OutboundConnection : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Accepts the connection.
+        /// </summary>
+        [Output("acceptConnection")]
+        public Output<bool?> AcceptConnection { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
         [Output("connectionAlias")]
         public Output<string> ConnectionAlias { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+        /// </summary>
+        [Output("connectionMode")]
+        public Output<string?> ConnectionMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for the outbound connection.
+        /// </summary>
+        [Output("connectionProperties")]
+        public Output<Outputs.OutboundConnectionConnectionProperties> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// Status of the connection request.
@@ -129,10 +148,28 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class OutboundConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Accepts the connection.
+        /// </summary>
+        [Input("acceptConnection")]
+        public Input<bool>? AcceptConnection { get; set; }
+
+        /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
         [Input("connectionAlias", required: true)]
         public Input<string> ConnectionAlias { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+        /// </summary>
+        [Input("connectionMode")]
+        public Input<string>? ConnectionMode { get; set; }
+
+        /// <summary>
+        /// Configuration block for the outbound connection.
+        /// </summary>
+        [Input("connectionProperties")]
+        public Input<Inputs.OutboundConnectionConnectionPropertiesArgs>? ConnectionProperties { get; set; }
 
         /// <summary>
         /// Configuration block for the local Opensearch domain.
@@ -155,10 +192,28 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class OutboundConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Accepts the connection.
+        /// </summary>
+        [Input("acceptConnection")]
+        public Input<bool>? AcceptConnection { get; set; }
+
+        /// <summary>
         /// Specifies the connection alias that will be used by the customer for this connection.
         /// </summary>
         [Input("connectionAlias")]
         public Input<string>? ConnectionAlias { get; set; }
+
+        /// <summary>
+        /// Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+        /// </summary>
+        [Input("connectionMode")]
+        public Input<string>? ConnectionMode { get; set; }
+
+        /// <summary>
+        /// Configuration block for the outbound connection.
+        /// </summary>
+        [Input("connectionProperties")]
+        public Input<Inputs.OutboundConnectionConnectionPropertiesGetArgs>? ConnectionProperties { get; set; }
 
         /// <summary>
         /// Status of the connection request.

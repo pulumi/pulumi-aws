@@ -46,11 +46,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? OriginPath;
         /// <summary>
-        /// The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        /// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         /// </summary>
         public readonly Outputs.DistributionOriginOriginShield? OriginShield;
         /// <summary>
-        /// The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
 

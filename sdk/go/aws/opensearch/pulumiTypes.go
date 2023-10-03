@@ -4214,6 +4214,349 @@ func (o DomainVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OutboundConnectionConnectionProperties struct {
+	// Configuration block for cross cluster search.
+	CrossClusterSearch *OutboundConnectionConnectionPropertiesCrossClusterSearch `pulumi:"crossClusterSearch"`
+	// The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
+	Endpoint *string `pulumi:"endpoint"`
+}
+
+// OutboundConnectionConnectionPropertiesInput is an input type that accepts OutboundConnectionConnectionPropertiesArgs and OutboundConnectionConnectionPropertiesOutput values.
+// You can construct a concrete instance of `OutboundConnectionConnectionPropertiesInput` via:
+//
+//	OutboundConnectionConnectionPropertiesArgs{...}
+type OutboundConnectionConnectionPropertiesInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionConnectionPropertiesOutput() OutboundConnectionConnectionPropertiesOutput
+	ToOutboundConnectionConnectionPropertiesOutputWithContext(context.Context) OutboundConnectionConnectionPropertiesOutput
+}
+
+type OutboundConnectionConnectionPropertiesArgs struct {
+	// Configuration block for cross cluster search.
+	CrossClusterSearch OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput `pulumi:"crossClusterSearch"`
+	// The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+}
+
+func (OutboundConnectionConnectionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionConnectionProperties)(nil)).Elem()
+}
+
+func (i OutboundConnectionConnectionPropertiesArgs) ToOutboundConnectionConnectionPropertiesOutput() OutboundConnectionConnectionPropertiesOutput {
+	return i.ToOutboundConnectionConnectionPropertiesOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionConnectionPropertiesArgs) ToOutboundConnectionConnectionPropertiesOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesOutput)
+}
+
+func (i OutboundConnectionConnectionPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionConnectionProperties] {
+	return pulumix.Output[OutboundConnectionConnectionProperties]{
+		OutputState: i.ToOutboundConnectionConnectionPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OutboundConnectionConnectionPropertiesArgs) ToOutboundConnectionConnectionPropertiesPtrOutput() OutboundConnectionConnectionPropertiesPtrOutput {
+	return i.ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionConnectionPropertiesArgs) ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesOutput).ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx)
+}
+
+// OutboundConnectionConnectionPropertiesPtrInput is an input type that accepts OutboundConnectionConnectionPropertiesArgs, OutboundConnectionConnectionPropertiesPtr and OutboundConnectionConnectionPropertiesPtrOutput values.
+// You can construct a concrete instance of `OutboundConnectionConnectionPropertiesPtrInput` via:
+//
+//	        OutboundConnectionConnectionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OutboundConnectionConnectionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionConnectionPropertiesPtrOutput() OutboundConnectionConnectionPropertiesPtrOutput
+	ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(context.Context) OutboundConnectionConnectionPropertiesPtrOutput
+}
+
+type outboundConnectionConnectionPropertiesPtrType OutboundConnectionConnectionPropertiesArgs
+
+func OutboundConnectionConnectionPropertiesPtr(v *OutboundConnectionConnectionPropertiesArgs) OutboundConnectionConnectionPropertiesPtrInput {
+	return (*outboundConnectionConnectionPropertiesPtrType)(v)
+}
+
+func (*outboundConnectionConnectionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionConnectionProperties)(nil)).Elem()
+}
+
+func (i *outboundConnectionConnectionPropertiesPtrType) ToOutboundConnectionConnectionPropertiesPtrOutput() OutboundConnectionConnectionPropertiesPtrOutput {
+	return i.ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *outboundConnectionConnectionPropertiesPtrType) ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesPtrOutput)
+}
+
+func (i *outboundConnectionConnectionPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionConnectionProperties] {
+	return pulumix.Output[*OutboundConnectionConnectionProperties]{
+		OutputState: i.ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OutboundConnectionConnectionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionConnectionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionConnectionProperties)(nil)).Elem()
+}
+
+func (o OutboundConnectionConnectionPropertiesOutput) ToOutboundConnectionConnectionPropertiesOutput() OutboundConnectionConnectionPropertiesOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesOutput) ToOutboundConnectionConnectionPropertiesOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesOutput) ToOutboundConnectionConnectionPropertiesPtrOutput() OutboundConnectionConnectionPropertiesPtrOutput {
+	return o.ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundConnectionConnectionPropertiesOutput) ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionConnectionProperties) *OutboundConnectionConnectionProperties {
+		return &v
+	}).(OutboundConnectionConnectionPropertiesPtrOutput)
+}
+
+func (o OutboundConnectionConnectionPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionConnectionProperties] {
+	return pulumix.Output[OutboundConnectionConnectionProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Configuration block for cross cluster search.
+func (o OutboundConnectionConnectionPropertiesOutput) CrossClusterSearch() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o.ApplyT(func(v OutboundConnectionConnectionProperties) *OutboundConnectionConnectionPropertiesCrossClusterSearch {
+		return v.CrossClusterSearch
+	}).(OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput)
+}
+
+// The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
+func (o OutboundConnectionConnectionPropertiesOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutboundConnectionConnectionProperties) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+type OutboundConnectionConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionConnectionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionConnectionProperties)(nil)).Elem()
+}
+
+func (o OutboundConnectionConnectionPropertiesPtrOutput) ToOutboundConnectionConnectionPropertiesPtrOutput() OutboundConnectionConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesPtrOutput) ToOutboundConnectionConnectionPropertiesPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionConnectionProperties] {
+	return pulumix.Output[*OutboundConnectionConnectionProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OutboundConnectionConnectionPropertiesPtrOutput) Elem() OutboundConnectionConnectionPropertiesOutput {
+	return o.ApplyT(func(v *OutboundConnectionConnectionProperties) OutboundConnectionConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundConnectionConnectionProperties
+		return ret
+	}).(OutboundConnectionConnectionPropertiesOutput)
+}
+
+// Configuration block for cross cluster search.
+func (o OutboundConnectionConnectionPropertiesPtrOutput) CrossClusterSearch() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionConnectionProperties) *OutboundConnectionConnectionPropertiesCrossClusterSearch {
+		if v == nil {
+			return nil
+		}
+		return v.CrossClusterSearch
+	}).(OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput)
+}
+
+// The endpoint of the remote domain, is only set when `connectionMode` is `VPC_ENDPOINT` and `acceptConnection` is `TRUE`.
+func (o OutboundConnectionConnectionPropertiesPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundConnectionConnectionPropertiesCrossClusterSearch struct {
+	// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+	SkipUnavailable *string `pulumi:"skipUnavailable"`
+}
+
+// OutboundConnectionConnectionPropertiesCrossClusterSearchInput is an input type that accepts OutboundConnectionConnectionPropertiesCrossClusterSearchArgs and OutboundConnectionConnectionPropertiesCrossClusterSearchOutput values.
+// You can construct a concrete instance of `OutboundConnectionConnectionPropertiesCrossClusterSearchInput` via:
+//
+//	OutboundConnectionConnectionPropertiesCrossClusterSearchArgs{...}
+type OutboundConnectionConnectionPropertiesCrossClusterSearchInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchOutput
+	ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutputWithContext(context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchOutput
+}
+
+type OutboundConnectionConnectionPropertiesCrossClusterSearchArgs struct {
+	// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+	SkipUnavailable pulumi.StringPtrInput `pulumi:"skipUnavailable"`
+}
+
+func (OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionConnectionPropertiesCrossClusterSearch)(nil)).Elem()
+}
+
+func (i OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchOutput {
+	return i.ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesCrossClusterSearchOutput)
+}
+
+func (i OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionConnectionPropertiesCrossClusterSearch] {
+	return pulumix.Output[OutboundConnectionConnectionPropertiesCrossClusterSearch]{
+		OutputState: i.ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return i.ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(context.Background())
+}
+
+func (i OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesCrossClusterSearchOutput).ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx)
+}
+
+// OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput is an input type that accepts OutboundConnectionConnectionPropertiesCrossClusterSearchArgs, OutboundConnectionConnectionPropertiesCrossClusterSearchPtr and OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput values.
+// You can construct a concrete instance of `OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput` via:
+//
+//	        OutboundConnectionConnectionPropertiesCrossClusterSearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput interface {
+	pulumi.Input
+
+	ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput
+	ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput
+}
+
+type outboundConnectionConnectionPropertiesCrossClusterSearchPtrType OutboundConnectionConnectionPropertiesCrossClusterSearchArgs
+
+func OutboundConnectionConnectionPropertiesCrossClusterSearchPtr(v *OutboundConnectionConnectionPropertiesCrossClusterSearchArgs) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput {
+	return (*outboundConnectionConnectionPropertiesCrossClusterSearchPtrType)(v)
+}
+
+func (*outboundConnectionConnectionPropertiesCrossClusterSearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionConnectionPropertiesCrossClusterSearch)(nil)).Elem()
+}
+
+func (i *outboundConnectionConnectionPropertiesCrossClusterSearchPtrType) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return i.ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(context.Background())
+}
+
+func (i *outboundConnectionConnectionPropertiesCrossClusterSearchPtrType) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput)
+}
+
+func (i *outboundConnectionConnectionPropertiesCrossClusterSearchPtrType) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionConnectionPropertiesCrossClusterSearch] {
+	return pulumix.Output[*OutboundConnectionConnectionPropertiesCrossClusterSearch]{
+		OutputState: i.ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OutboundConnectionConnectionPropertiesCrossClusterSearchOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundConnectionConnectionPropertiesCrossClusterSearch)(nil)).Elem()
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o.ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundConnectionConnectionPropertiesCrossClusterSearch) *OutboundConnectionConnectionPropertiesCrossClusterSearch {
+		return &v
+	}).(OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput)
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundConnectionConnectionPropertiesCrossClusterSearch] {
+	return pulumix.Output[OutboundConnectionConnectionPropertiesCrossClusterSearch]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchOutput) SkipUnavailable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutboundConnectionConnectionPropertiesCrossClusterSearch) *string { return v.SkipUnavailable }).(pulumi.StringPtrOutput)
+}
+
+type OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundConnectionConnectionPropertiesCrossClusterSearch)(nil)).Elem()
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput() OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) ToOutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutputWithContext(ctx context.Context) OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput {
+	return o
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnectionConnectionPropertiesCrossClusterSearch] {
+	return pulumix.Output[*OutboundConnectionConnectionPropertiesCrossClusterSearch]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) Elem() OutboundConnectionConnectionPropertiesCrossClusterSearchOutput {
+	return o.ApplyT(func(v *OutboundConnectionConnectionPropertiesCrossClusterSearch) OutboundConnectionConnectionPropertiesCrossClusterSearch {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundConnectionConnectionPropertiesCrossClusterSearch
+		return ret
+	}).(OutboundConnectionConnectionPropertiesCrossClusterSearchOutput)
+}
+
+// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
+func (o OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput) SkipUnavailable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundConnectionConnectionPropertiesCrossClusterSearch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkipUnavailable
+	}).(pulumi.StringPtrOutput)
+}
+
 type OutboundConnectionLocalDomainInfo struct {
 	// The name of the local domain.
 	DomainName string `pulumi:"domainName"`
@@ -8366,6 +8709,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsPtrInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionConnectionPropertiesInput)(nil)).Elem(), OutboundConnectionConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionConnectionPropertiesPtrInput)(nil)).Elem(), OutboundConnectionConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionConnectionPropertiesCrossClusterSearchInput)(nil)).Elem(), OutboundConnectionConnectionPropertiesCrossClusterSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionConnectionPropertiesCrossClusterSearchPtrInput)(nil)).Elem(), OutboundConnectionConnectionPropertiesCrossClusterSearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
@@ -8461,6 +8808,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionConnectionPropertiesOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionConnectionPropertiesCrossClusterSearchOutput{})
+	pulumi.RegisterOutputType(OutboundConnectionConnectionPropertiesCrossClusterSearchPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})

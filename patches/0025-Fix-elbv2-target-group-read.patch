@@ -1,7 +1,7 @@
-From e18317d305024181cf84c159f9458a7863995781 Mon Sep 17 00:00:00 2001
+From ffb3aef9651312ea835d5ae49e0ad0cdb3fd02f4 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 12 May 2023 10:55:42 +0100
-Subject: [PATCH 25/29] Fix elbv2 target group read
+Subject: [PATCH 25/30] Fix elbv2 target group read
 
 Workaround for https://github.com/pulumi/pulumi-aws/issues/2517
 Don't return single empty map. Return empty list instead.
@@ -27,5 +27,5 @@ index 68f04ccc02..8854953fc5 100644
  }
  
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

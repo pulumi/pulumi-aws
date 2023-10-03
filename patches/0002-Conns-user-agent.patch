@@ -1,7 +1,7 @@
-From 3a0068c3be5228186afeec85841012577de7bc41 Mon Sep 17 00:00:00 2001
+From 5d1f7322d4c2d5850220ee1bdcaa721427a1a177 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:03:31 +0000
-Subject: [PATCH 02/29] Conns user agent
+Subject: [PATCH 02/30] Conns user agent
 
 Replace the useragent used for AWS client connections with a
 Pulumi-flavoured one.
@@ -36,5 +36,5 @@ index 954266ba7a..404a654792 100644
  	}
  }
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

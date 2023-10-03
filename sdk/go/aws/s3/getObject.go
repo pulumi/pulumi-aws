@@ -162,7 +162,7 @@ type GetObjectResult struct {
 	Key string `pulumi:"key"`
 	// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
 	LastModified string `pulumi:"lastModified"`
-	// Map of metadata stored with the object in S3
+	// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 	ObjectLockLegalHoldStatus string `pulumi:"objectLockLegalHoldStatus"`
@@ -335,7 +335,7 @@ func (o GetObjectResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// Map of metadata stored with the object in S3
+// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
 func (o GetObjectResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetObjectResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }

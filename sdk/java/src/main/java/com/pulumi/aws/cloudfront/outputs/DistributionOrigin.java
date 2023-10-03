@@ -58,12 +58,12 @@ public final class DistributionOrigin {
      */
     private @Nullable String originPath;
     /**
-     * @return The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * @return CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     private @Nullable DistributionOriginOriginShield originShield;
     /**
-     * @return The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
@@ -126,14 +126,14 @@ public final class DistributionOrigin {
         return Optional.ofNullable(this.originPath);
     }
     /**
-     * @return The CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+     * @return CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
     public Optional<DistributionOriginOriginShield> originShield() {
         return Optional.ofNullable(this.originShield);
     }
     /**
-     * @return The CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+     * @return CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
     public Optional<DistributionOriginS3OriginConfig> s3OriginConfig() {

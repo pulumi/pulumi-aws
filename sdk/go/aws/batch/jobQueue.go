@@ -107,9 +107,8 @@ type JobQueue struct {
 
 	// The Amazon Resource Name of the job queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the set of compute environments
-	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order.
+	// List of compute environment ARNs mapped to a job queue.
+	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -174,9 +173,8 @@ func GetJobQueue(ctx *pulumi.Context,
 type jobQueueState struct {
 	// The Amazon Resource Name of the job queue.
 	Arn *string `pulumi:"arn"`
-	// Specifies the set of compute environments
-	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order.
+	// List of compute environment ARNs mapped to a job queue.
+	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -199,9 +197,8 @@ type jobQueueState struct {
 type JobQueueState struct {
 	// The Amazon Resource Name of the job queue.
 	Arn pulumi.StringPtrInput
-	// Specifies the set of compute environments
-	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order.
+	// List of compute environment ARNs mapped to a job queue.
+	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
@@ -226,9 +223,8 @@ func (JobQueueState) ElementType() reflect.Type {
 }
 
 type jobQueueArgs struct {
-	// Specifies the set of compute environments
-	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order.
+	// List of compute environment ARNs mapped to a job queue.
+	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -246,9 +242,8 @@ type jobQueueArgs struct {
 
 // The set of arguments for constructing a JobQueue resource.
 type JobQueueArgs struct {
-	// Specifies the set of compute environments
-	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order.
+	// List of compute environment ARNs mapped to a job queue.
+	// The position of the compute environments in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
@@ -380,9 +375,8 @@ func (o JobQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the set of compute environments
-// mapped to a job queue and their order.  The position of the compute environments
-// in the list will dictate the order.
+// List of compute environment ARNs mapped to a job queue.
+// The position of the compute environments in the list will dictate the order.
 func (o JobQueueOutput) ComputeEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringArrayOutput { return v.ComputeEnvironments }).(pulumi.StringArrayOutput)
 }

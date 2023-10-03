@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpclattice.LookupServiceNetwork(ctx, &vpclattice.LookupServiceNetworkArgs{
-//				ServiceNetworkIdentifier: "",
+//				ServiceNetworkIdentifier: "snsa-01112223334445556",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -52,7 +52,7 @@ func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, o
 
 // A collection of arguments for invoking getServiceNetwork.
 type LookupServiceNetworkArgs struct {
-	// Identifier of the network service.
+	// Identifier of the service network.
 	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
@@ -94,7 +94,7 @@ func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOu
 
 // A collection of arguments for invoking getServiceNetwork.
 type LookupServiceNetworkOutputArgs struct {
-	// Identifier of the network service.
+	// Identifier of the service network.
 	ServiceNetworkIdentifier pulumi.StringInput    `pulumi:"serviceNetworkIdentifier"`
 	Tags                     pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -130,9 +130,9 @@ import (
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
-	// The action for the default rule.
+	// The action for the listener rule.
 	Action ListenerRuleActionOutput `pulumi:"action"`
-	// ARN of the target group.
+	// The ARN for the listener rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringOutput `pulumi:"listenerIdentifier"`
@@ -144,7 +144,7 @@ type ListenerRule struct {
 	//
 	// The following arguments are optional:
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Unique identifier for the target group.
+	// Unique identifier for the listener rule.
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
@@ -205,9 +205,9 @@ func GetListenerRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ListenerRule resources.
 type listenerRuleState struct {
-	// The action for the default rule.
+	// The action for the listener rule.
 	Action *ListenerRuleAction `pulumi:"action"`
-	// ARN of the target group.
+	// The ARN for the listener rule.
 	Arn *string `pulumi:"arn"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
@@ -219,7 +219,7 @@ type listenerRuleState struct {
 	//
 	// The following arguments are optional:
 	Priority *int `pulumi:"priority"`
-	// Unique identifier for the target group.
+	// Unique identifier for the listener rule.
 	RuleId *string `pulumi:"ruleId"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
@@ -232,9 +232,9 @@ type listenerRuleState struct {
 }
 
 type ListenerRuleState struct {
-	// The action for the default rule.
+	// The action for the listener rule.
 	Action ListenerRuleActionPtrInput
-	// ARN of the target group.
+	// The ARN for the listener rule.
 	Arn pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type ListenerRuleState struct {
 	//
 	// The following arguments are optional:
 	Priority pulumi.IntPtrInput
-	// Unique identifier for the target group.
+	// Unique identifier for the listener rule.
 	RuleId pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (ListenerRuleState) ElementType() reflect.Type {
 }
 
 type listenerRuleArgs struct {
-	// The action for the default rule.
+	// The action for the listener rule.
 	Action ListenerRuleAction `pulumi:"action"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier string `pulumi:"listenerIdentifier"`
@@ -283,7 +283,7 @@ type listenerRuleArgs struct {
 
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
-	// The action for the default rule.
+	// The action for the listener rule.
 	Action ListenerRuleActionInput
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringInput
@@ -412,12 +412,12 @@ func (o ListenerRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Listen
 	}
 }
 
-// The action for the default rule.
+// The action for the listener rule.
 func (o ListenerRuleOutput) Action() ListenerRuleActionOutput {
 	return o.ApplyT(func(v *ListenerRule) ListenerRuleActionOutput { return v.Action }).(ListenerRuleActionOutput)
 }
 
-// ARN of the target group.
+// The ARN for the listener rule.
 func (o ListenerRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -444,7 +444,7 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Unique identifier for the target group.
+// Unique identifier for the listener rule.
 func (o ListenerRuleOutput) RuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleId }).(pulumi.StringOutput)
 }

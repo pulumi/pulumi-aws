@@ -96,9 +96,8 @@ namespace Pulumi.Aws.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the set of compute environments
-        /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order.
+        /// List of compute environment ARNs mapped to a job queue.
+        /// The position of the compute environments in the list will dictate the order.
         /// </summary>
         [Output("computeEnvironments")]
         public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
@@ -197,9 +196,8 @@ namespace Pulumi.Aws.Batch
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// Specifies the set of compute environments
-        /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order.
+        /// List of compute environment ARNs mapped to a job queue.
+        /// The position of the compute environments in the list will dictate the order.
         /// </summary>
         public InputList<string> ComputeEnvironments
         {
@@ -265,9 +263,8 @@ namespace Pulumi.Aws.Batch
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// Specifies the set of compute environments
-        /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order.
+        /// List of compute environment ARNs mapped to a job queue.
+        /// The position of the compute environments in the list will dictate the order.
         /// </summary>
         public InputList<string> ComputeEnvironments
         {

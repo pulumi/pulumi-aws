@@ -306,7 +306,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// Map of metadata stored with the object in S3
+        /// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>

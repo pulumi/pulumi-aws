@@ -39,10 +39,8 @@ class AliasRoutingConfiguration(dict):
                  state_machine_version_arn: str,
                  weight: int):
         """
-        :param str state_machine_version_arn: A version of the state machine.
+        :param str state_machine_version_arn: The Amazon Resource Name (ARN) of the state machine version.
         :param int weight: Percentage of traffic routed to the state machine version.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
         pulumi.set(__self__, "weight", weight)
@@ -51,7 +49,7 @@ class AliasRoutingConfiguration(dict):
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> str:
         """
-        A version of the state machine.
+        The Amazon Resource Name (ARN) of the state machine version.
         """
         return pulumi.get(self, "state_machine_version_arn")
 
@@ -60,8 +58,6 @@ class AliasRoutingConfiguration(dict):
     def weight(self) -> int:
         """
         Percentage of traffic routed to the state machine version.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "weight")
 

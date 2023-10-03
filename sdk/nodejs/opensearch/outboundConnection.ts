@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * const currentRegion = aws.getRegion({});
  * const foo = new aws.opensearch.OutboundConnection("foo", {
  *     connectionAlias: "outbound_connection",
+ *     connectionMode: "DIRECT",
  *     localDomainInfo: {
  *         ownerId: currentCallerIdentity.then(currentCallerIdentity => currentCallerIdentity.accountId),
  *         region: currentRegion.then(currentRegion => currentRegion.name),
@@ -71,9 +72,21 @@ export class OutboundConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Accepts the connection.
+     */
+    public readonly acceptConnection!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
     public readonly connectionAlias!: pulumi.Output<string>;
+    /**
+     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     */
+    public readonly connectionMode!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for the outbound connection.
+     */
+    public readonly connectionProperties!: pulumi.Output<outputs.opensearch.OutboundConnectionConnectionProperties>;
     /**
      * Status of the connection request.
      */
@@ -100,7 +113,10 @@ export class OutboundConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutboundConnectionState | undefined;
+            resourceInputs["acceptConnection"] = state ? state.acceptConnection : undefined;
             resourceInputs["connectionAlias"] = state ? state.connectionAlias : undefined;
+            resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
+            resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
             resourceInputs["localDomainInfo"] = state ? state.localDomainInfo : undefined;
             resourceInputs["remoteDomainInfo"] = state ? state.remoteDomainInfo : undefined;
@@ -115,7 +131,10 @@ export class OutboundConnection extends pulumi.CustomResource {
             if ((!args || args.remoteDomainInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteDomainInfo'");
             }
+            resourceInputs["acceptConnection"] = args ? args.acceptConnection : undefined;
             resourceInputs["connectionAlias"] = args ? args.connectionAlias : undefined;
+            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
+            resourceInputs["connectionProperties"] = args ? args.connectionProperties : undefined;
             resourceInputs["localDomainInfo"] = args ? args.localDomainInfo : undefined;
             resourceInputs["remoteDomainInfo"] = args ? args.remoteDomainInfo : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
@@ -130,9 +149,21 @@ export class OutboundConnection extends pulumi.CustomResource {
  */
 export interface OutboundConnectionState {
     /**
+     * Accepts the connection.
+     */
+    acceptConnection?: pulumi.Input<boolean>;
+    /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
     connectionAlias?: pulumi.Input<string>;
+    /**
+     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     */
+    connectionMode?: pulumi.Input<string>;
+    /**
+     * Configuration block for the outbound connection.
+     */
+    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
     /**
      * Status of the connection request.
      */
@@ -152,9 +183,21 @@ export interface OutboundConnectionState {
  */
 export interface OutboundConnectionArgs {
     /**
+     * Accepts the connection.
+     */
+    acceptConnection?: pulumi.Input<boolean>;
+    /**
      * Specifies the connection alias that will be used by the customer for this connection.
      */
     connectionAlias: pulumi.Input<string>;
+    /**
+     * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
+     */
+    connectionMode?: pulumi.Input<string>;
+    /**
+     * Configuration block for the outbound connection.
+     */
+    connectionProperties?: pulumi.Input<inputs.opensearch.OutboundConnectionConnectionProperties>;
     /**
      * Configuration block for the local Opensearch domain.
      */

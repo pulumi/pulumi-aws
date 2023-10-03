@@ -15,11 +15,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AliasRoutingConfiguration struct {
-	// A version of the state machine.
+	// The Amazon Resource Name (ARN) of the state machine version.
 	StateMachineVersionArn string `pulumi:"stateMachineVersionArn"`
 	// Percentage of traffic routed to the state machine version.
-	//
-	// The following arguments are optional:
 	Weight int `pulumi:"weight"`
 }
 
@@ -35,11 +33,9 @@ type AliasRoutingConfigurationInput interface {
 }
 
 type AliasRoutingConfigurationArgs struct {
-	// A version of the state machine.
+	// The Amazon Resource Name (ARN) of the state machine version.
 	StateMachineVersionArn pulumi.StringInput `pulumi:"stateMachineVersionArn"`
 	// Percentage of traffic routed to the state machine version.
-	//
-	// The following arguments are optional:
 	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
@@ -112,14 +108,12 @@ func (o AliasRoutingConfigurationOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// A version of the state machine.
+// The Amazon Resource Name (ARN) of the state machine version.
 func (o AliasRoutingConfigurationOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) string { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }
 
 // Percentage of traffic routed to the state machine version.
-//
-// The following arguments are optional:
 func (o AliasRoutingConfigurationOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) int { return v.Weight }).(pulumi.IntOutput)
 }

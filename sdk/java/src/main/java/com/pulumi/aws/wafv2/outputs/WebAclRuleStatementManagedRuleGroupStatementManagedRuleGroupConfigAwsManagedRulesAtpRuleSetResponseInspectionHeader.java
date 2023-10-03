@@ -16,7 +16,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     private List<String> failureValues;
     /**
-     * @return The name of the header to match against. The name must be an exact match, including case.
+     * @return The name of the header to use.
      * 
      */
     private String name;
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         return this.failureValues;
     }
     /**
-     * @return The name of the header to match against. The name must be an exact match, including case.
+     * @return The name of the header to use.
      * 
      */
     public String name() {

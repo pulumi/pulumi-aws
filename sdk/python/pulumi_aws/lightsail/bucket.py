@@ -15,15 +15,19 @@ __all__ = ['BucketArgs', 'Bucket']
 class BucketArgs:
     def __init__(__self__, *,
                  bundle_id: pulumi.Input[str],
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[bool] force_delete: Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[str] name: The name for the bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -40,6 +44,18 @@ class BucketArgs:
     @bundle_id.setter
     def bundle_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "bundle_id", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
 
     @property
     @pulumi.getter
@@ -73,6 +89,7 @@ class _BucketState:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  support_code: Optional[pulumi.Input[str]] = None,
@@ -85,6 +102,7 @@ class _BucketState:
         :param pulumi.Input[str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[str] created_at: The timestamp when the bucket was created.
+        :param pulumi.Input[bool] force_delete: Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[str] name: The name for the bucket.
         :param pulumi.Input[str] region: The Amazon Web Services Region name.
         :param pulumi.Input[str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
@@ -99,6 +117,8 @@ class _BucketState:
             pulumi.set(__self__, "bundle_id", bundle_id)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -162,6 +182,18 @@ class _BucketState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
 
     @property
     @pulumi.getter
@@ -242,6 +274,7 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -268,6 +301,7 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
+        :param pulumi.Input[bool] force_delete: Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[str] name: The name for the bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -313,6 +347,7 @@ class Bucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -327,6 +362,7 @@ class Bucket(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
+            __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -352,6 +388,7 @@ class Bucket(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             bundle_id: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
+            force_delete: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             region: Optional[pulumi.Input[str]] = None,
             support_code: Optional[pulumi.Input[str]] = None,
@@ -369,6 +406,7 @@ class Bucket(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
         :param pulumi.Input[str] created_at: The timestamp when the bucket was created.
+        :param pulumi.Input[bool] force_delete: Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
         :param pulumi.Input[str] name: The name for the bucket.
         :param pulumi.Input[str] region: The Amazon Web Services Region name.
         :param pulumi.Input[str] support_code: The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
@@ -383,6 +421,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["bundle_id"] = bundle_id
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["support_code"] = support_code
@@ -422,6 +461,14 @@ class Bucket(pulumi.CustomResource):
         The timestamp when the bucket was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
+        """
+        return pulumi.get(self, "force_delete")
 
     @property
     @pulumi.getter

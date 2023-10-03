@@ -94,6 +94,10 @@ type OntapVolume struct {
 
 	// Amazon Resource Name of the volune.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	BypassSnaplockEnterpriseRetention pulumi.BoolPtrOutput `pulumi:"bypassSnaplockEnterpriseRetention"`
+	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
 	// Describes the file system for the volume, e.g. `fs-12345679`
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -110,6 +114,10 @@ type OntapVolume struct {
 	SizeInMegabytes pulumi.IntOutput `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
+	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+	SnaplockConfiguration OntapVolumeSnaplockConfigurationPtrOutput `pulumi:"snaplockConfiguration"`
+	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+	SnapshotPolicy pulumi.StringOutput `pulumi:"snapshotPolicy"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled pulumi.BoolPtrOutput `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
@@ -119,7 +127,8 @@ type OntapVolume struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll       pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
 	// The Volume's UUID (universally unique identifier).
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
@@ -169,6 +178,10 @@ func GetOntapVolume(ctx *pulumi.Context,
 type ontapVolumeState struct {
 	// Amazon Resource Name of the volune.
 	Arn *string `pulumi:"arn"`
+	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	BypassSnaplockEnterpriseRetention *bool `pulumi:"bypassSnaplockEnterpriseRetention"`
+	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// Describes the file system for the volume, e.g. `fs-12345679`
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -185,6 +198,10 @@ type ontapVolumeState struct {
 	SizeInMegabytes *int `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
+	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+	SnaplockConfiguration *OntapVolumeSnaplockConfiguration `pulumi:"snaplockConfiguration"`
+	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+	SnapshotPolicy *string `pulumi:"snapshotPolicy"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled *bool `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
@@ -194,7 +211,8 @@ type ontapVolumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll       map[string]string         `pulumi:"tagsAll"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
 	// The Volume's UUID (universally unique identifier).
 	Uuid *string `pulumi:"uuid"`
@@ -205,6 +223,10 @@ type ontapVolumeState struct {
 type OntapVolumeState struct {
 	// Amazon Resource Name of the volune.
 	Arn pulumi.StringPtrInput
+	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	BypassSnaplockEnterpriseRetention pulumi.BoolPtrInput
+	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+	CopyTagsToBackups pulumi.BoolPtrInput
 	// Describes the file system for the volume, e.g. `fs-12345679`
 	FileSystemId pulumi.StringPtrInput
 	// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
@@ -221,6 +243,10 @@ type OntapVolumeState struct {
 	SizeInMegabytes pulumi.IntPtrInput
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
+	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+	SnaplockConfiguration OntapVolumeSnaplockConfigurationPtrInput
+	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+	SnapshotPolicy pulumi.StringPtrInput
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled pulumi.BoolPtrInput
 	// Specifies the storage virtual machine in which to create the volume.
@@ -230,7 +256,8 @@ type OntapVolumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
-	TagsAll       pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
+	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
 	// The Volume's UUID (universally unique identifier).
 	Uuid pulumi.StringPtrInput
@@ -243,6 +270,10 @@ func (OntapVolumeState) ElementType() reflect.Type {
 }
 
 type ontapVolumeArgs struct {
+	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	BypassSnaplockEnterpriseRetention *bool `pulumi:"bypassSnaplockEnterpriseRetention"`
+	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
 	JunctionPath *string `pulumi:"junctionPath"`
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -255,12 +286,17 @@ type ontapVolumeArgs struct {
 	SizeInMegabytes int `pulumi:"sizeInMegabytes"`
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
+	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+	SnaplockConfiguration *OntapVolumeSnaplockConfiguration `pulumi:"snaplockConfiguration"`
+	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+	SnapshotPolicy *string `pulumi:"snapshotPolicy"`
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled *bool `pulumi:"storageEfficiencyEnabled"`
 	// Specifies the storage virtual machine in which to create the volume.
 	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags          map[string]string         `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType *string `pulumi:"volumeType"`
@@ -268,6 +304,10 @@ type ontapVolumeArgs struct {
 
 // The set of arguments for constructing a OntapVolume resource.
 type OntapVolumeArgs struct {
+	// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+	BypassSnaplockEnterpriseRetention pulumi.BoolPtrInput
+	// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+	CopyTagsToBackups pulumi.BoolPtrInput
 	// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
 	JunctionPath pulumi.StringPtrInput
 	// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -280,12 +320,17 @@ type OntapVolumeArgs struct {
 	SizeInMegabytes pulumi.IntInput
 	// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
+	// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+	SnaplockConfiguration OntapVolumeSnaplockConfigurationPtrInput
+	// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+	SnapshotPolicy pulumi.StringPtrInput
 	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 	StorageEfficiencyEnabled pulumi.BoolPtrInput
 	// Specifies the storage virtual machine in which to create the volume.
 	StorageVirtualMachineId pulumi.StringInput
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags          pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
 	// The type of volume, currently the only valid value is `ONTAP`.
 	VolumeType pulumi.StringPtrInput
@@ -407,6 +452,16 @@ func (o OntapVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+func (o OntapVolumeOutput) BypassSnaplockEnterpriseRetention() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.BypassSnaplockEnterpriseRetention }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+func (o OntapVolumeOutput) CopyTagsToBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.CopyTagsToBackups }).(pulumi.BoolPtrOutput)
+}
+
 // Describes the file system for the volume, e.g. `fs-12345679`
 func (o OntapVolumeOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
@@ -447,6 +502,16 @@ func (o OntapVolumeOutput) SkipFinalBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.SkipFinalBackup }).(pulumi.BoolPtrOutput)
 }
 
+// The SnapLock configuration for an FSx for ONTAP volume. See SnapLock Configuration below.
+func (o OntapVolumeOutput) SnaplockConfiguration() OntapVolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyT(func(v *OntapVolume) OntapVolumeSnaplockConfigurationPtrOutput { return v.SnaplockConfiguration }).(OntapVolumeSnaplockConfigurationPtrOutput)
+}
+
+// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+func (o OntapVolumeOutput) SnapshotPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.SnapshotPolicy }).(pulumi.StringOutput)
+}
+
 // Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
 func (o OntapVolumeOutput) StorageEfficiencyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.BoolPtrOutput { return v.StorageEfficiencyEnabled }).(pulumi.BoolPtrOutput)
@@ -469,6 +534,7 @@ func (o OntapVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 func (o OntapVolumeOutput) TieringPolicy() OntapVolumeTieringPolicyPtrOutput {
 	return o.ApplyT(func(v *OntapVolume) OntapVolumeTieringPolicyPtrOutput { return v.TieringPolicy }).(OntapVolumeTieringPolicyPtrOutput)
 }

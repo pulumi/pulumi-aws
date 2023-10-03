@@ -36,6 +36,9 @@ __all__ = [
     'IntentSlotValueElicitationPrompt',
     'IntentSlotValueElicitationPromptMessage',
     'SlotTypeEnumerationValue',
+    'V2modelsBotDataPrivacy',
+    'V2modelsBotMember',
+    'V2modelsBotTimeouts',
     'GetSlotTypeEnumerationValueResult',
 ]
 
@@ -1589,6 +1592,151 @@ class SlotTypeEnumerationValue(dict):
         Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         """
         return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class V2modelsBotDataPrivacy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "childDirected":
+            suggest = "child_directed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsBotDataPrivacy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsBotDataPrivacy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsBotDataPrivacy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 child_directed: bool):
+        """
+        :param bool child_directed: (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+        """
+        pulumi.set(__self__, "child_directed", child_directed)
+
+    @property
+    @pulumi.getter(name="childDirected")
+    def child_directed(self) -> bool:
+        """
+        (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
+        """
+        return pulumi.get(self, "child_directed")
+
+
+@pulumi.output_type
+class V2modelsBotMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasId":
+            suggest = "alias_id"
+        elif key == "aliasName":
+            suggest = "alias_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsBotMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsBotMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsBotMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias_id: str,
+                 alias_name: str,
+                 id: str,
+                 name: str,
+                 version: str):
+        """
+        :param str alias_id: (Required) - Alias ID of a bot that is a member of this network of bots.
+        :param str alias_name: (Required) - Alias name of a bot that is a member of this network of bots.
+        :param str id: (Required) - Unique ID of a bot that is a member of this network of bots.
+        :param str name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param str version: (Required) - Version of a bot that is a member of this network of bots.
+        """
+        pulumi.set(__self__, "alias_id", alias_id)
+        pulumi.set(__self__, "alias_name", alias_name)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="aliasId")
+    def alias_id(self) -> str:
+        """
+        (Required) - Alias ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "alias_id")
+
+    @property
+    @pulumi.getter(name="aliasName")
+    def alias_name(self) -> str:
+        """
+        (Required) - Alias name of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "alias_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        (Required) - Unique ID of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        (Required) - Version of a bot that is a member of this network of bots.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class V2modelsBotTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

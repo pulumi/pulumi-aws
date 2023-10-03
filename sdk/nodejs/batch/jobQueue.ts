@@ -92,9 +92,8 @@ export class JobQueue extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      */
     public readonly computeEnvironments!: pulumi.Output<string[]>;
     /**
@@ -185,9 +184,8 @@ export interface JobQueueState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -225,9 +223,8 @@ export interface JobQueueState {
  */
 export interface JobQueueArgs {
     /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
+     * List of compute environment ARNs mapped to a job queue.
+     * The position of the compute environments in the list will dictate the order.
      */
     computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
     /**

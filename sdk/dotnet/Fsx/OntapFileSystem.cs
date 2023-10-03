@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OntapFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OntapFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OntapFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }

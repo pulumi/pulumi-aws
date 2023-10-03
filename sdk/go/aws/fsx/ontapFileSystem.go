@@ -71,7 +71,7 @@ type OntapFileSystem struct {
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
 	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
@@ -171,7 +171,7 @@ type ontapFileSystemState struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
@@ -222,7 +222,7 @@ type OntapFileSystemState struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
 	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName pulumi.StringPtrInput
@@ -275,7 +275,7 @@ type ontapFileSystemArgs struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType string `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
 	EndpointIpAddressRange *string `pulumi:"endpointIpAddressRange"`
@@ -311,7 +311,7 @@ type OntapFileSystemArgs struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringInput
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
 	// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
 	EndpointIpAddressRange pulumi.StringPtrInput
@@ -470,7 +470,7 @@ func (o OntapFileSystemOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
+// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
 func (o OntapFileSystemOutput) DiskIopsConfiguration() OntapFileSystemDiskIopsConfigurationOutput {
 	return o.ApplyT(func(v *OntapFileSystem) OntapFileSystemDiskIopsConfigurationOutput { return v.DiskIopsConfiguration }).(OntapFileSystemDiskIopsConfigurationOutput)
 }

@@ -69,6 +69,10 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * The name for the bucket.
      */
     public readonly name!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["bundleId"] = state ? state.bundleId : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
@@ -121,6 +126,7 @@ export class Bucket extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bundleId'");
             }
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -159,6 +165,10 @@ export interface BucketState {
      */
     createdAt?: pulumi.Input<string>;
     /**
+     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
+    forceDelete?: pulumi.Input<boolean>;
+    /**
      * The name for the bucket.
      */
     name?: pulumi.Input<string>;
@@ -191,6 +201,10 @@ export interface BucketArgs {
      * The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      */
     bundleId: pulumi.Input<string>;
+    /**
+     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     */
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * The name for the bucket.
      */

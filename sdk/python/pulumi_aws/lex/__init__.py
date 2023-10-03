@@ -13,5 +13,6 @@ from .get_intent import *
 from .get_slot_type import *
 from .intent import *
 from .slot_type import *
+from .v2models_bot import *
 from ._inputs import *
 from . import outputs

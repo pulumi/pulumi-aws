@@ -40,6 +40,11 @@ export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
 export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
 
+export { CustomDbEngineVersionArgs, CustomDbEngineVersionState } from "./customDbEngineVersion";
+export type CustomDbEngineVersion = import("./customDbEngineVersion").CustomDbEngineVersion;
+export const CustomDbEngineVersion: typeof import("./customDbEngineVersion").CustomDbEngineVersion = null as any;
+utilities.lazyLoad(exports, ["CustomDbEngineVersion"], () => require("./customDbEngineVersion"));
+
 export * from "./engineMode";
 export * from "./engineType";
 export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
@@ -211,6 +216,8 @@ const _module = {
                 return new ClusterRoleAssociation(name, <any>undefined, { urn })
             case "aws:rds/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
+            case "aws:rds/customDbEngineVersion:CustomDbEngineVersion":
+                return new CustomDbEngineVersion(name, <any>undefined, { urn })
             case "aws:rds/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:rds/exportTask:ExportTask":
@@ -255,6 +262,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterRoleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/customDbEngineVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The name of the header to match against. The name must be an exact match, including case.
+        /// The name of the header to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

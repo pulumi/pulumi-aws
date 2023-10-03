@@ -352,13 +352,189 @@ func (o CollaborationMemberArrayOutput) Index(i pulumi.IntInput) CollaborationMe
 	}).(CollaborationMemberOutput)
 }
 
+type ConfiguredTableTableReference struct {
+	DatabaseName string `pulumi:"databaseName"`
+	TableName    string `pulumi:"tableName"`
+}
+
+// ConfiguredTableTableReferenceInput is an input type that accepts ConfiguredTableTableReferenceArgs and ConfiguredTableTableReferenceOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReferenceInput` via:
+//
+//	ConfiguredTableTableReferenceArgs{...}
+type ConfiguredTableTableReferenceInput interface {
+	pulumi.Input
+
+	ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput
+	ToConfiguredTableTableReferenceOutputWithContext(context.Context) ConfiguredTableTableReferenceOutput
+}
+
+type ConfiguredTableTableReferenceArgs struct {
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	TableName    pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (ConfiguredTableTableReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference)(nil)).Elem()
+}
+
+func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput {
+	return i.ToConfiguredTableTableReferenceOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferenceOutput)
+}
+
+func (i ConfiguredTableTableReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
+	return pulumix.Output[ConfiguredTableTableReference]{
+		OutputState: i.ToConfiguredTableTableReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferencePtrOutput() ConfiguredTableTableReferencePtrOutput {
+	return i.ToConfiguredTableTableReferencePtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableTableReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferenceOutput).ToConfiguredTableTableReferencePtrOutputWithContext(ctx)
+}
+
+// ConfiguredTableTableReferencePtrInput is an input type that accepts ConfiguredTableTableReferenceArgs, ConfiguredTableTableReferencePtr and ConfiguredTableTableReferencePtrOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReferencePtrInput` via:
+//
+//	        ConfiguredTableTableReferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredTableTableReferencePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableTableReferencePtrOutput() ConfiguredTableTableReferencePtrOutput
+	ToConfiguredTableTableReferencePtrOutputWithContext(context.Context) ConfiguredTableTableReferencePtrOutput
+}
+
+type configuredTableTableReferencePtrType ConfiguredTableTableReferenceArgs
+
+func ConfiguredTableTableReferencePtr(v *ConfiguredTableTableReferenceArgs) ConfiguredTableTableReferencePtrInput {
+	return (*configuredTableTableReferencePtrType)(v)
+}
+
+func (*configuredTableTableReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference)(nil)).Elem()
+}
+
+func (i *configuredTableTableReferencePtrType) ToConfiguredTableTableReferencePtrOutput() ConfiguredTableTableReferencePtrOutput {
+	return i.ToConfiguredTableTableReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *configuredTableTableReferencePtrType) ToConfiguredTableTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableTableReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferencePtrOutput)
+}
+
+func (i *configuredTableTableReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableTableReference] {
+	return pulumix.Output[*ConfiguredTableTableReference]{
+		OutputState: i.ToConfiguredTableTableReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConfiguredTableTableReferenceOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferencePtrOutput() ConfiguredTableTableReferencePtrOutput {
+	return o.ToConfiguredTableTableReferencePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableTableReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableTableReference) *ConfiguredTableTableReference {
+		return &v
+	}).(ConfiguredTableTableReferencePtrOutput)
+}
+
+func (o ConfiguredTableTableReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
+	return pulumix.Output[ConfiguredTableTableReference]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfiguredTableTableReferenceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableTableReferenceOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableTableReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) ToConfiguredTableTableReferencePtrOutput() ConfiguredTableTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) ToConfiguredTableTableReferencePtrOutputWithContext(ctx context.Context) ConfiguredTableTableReferencePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableTableReference] {
+	return pulumix.Output[*ConfiguredTableTableReference]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) Elem() ConfiguredTableTableReferenceOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference) ConfiguredTableTableReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableTableReference
+		return ret
+	}).(ConfiguredTableTableReferenceOutput)
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableTableReference) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberInput)(nil)).Elem(), CollaborationMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberArrayInput)(nil)).Elem(), CollaborationMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferencePtrInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReferencePtrOutput{})
 }

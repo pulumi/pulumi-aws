@@ -1,7 +1,7 @@
-From 395f6c144fc389e6531b76f42ee2b2a16f0c4f4e Mon Sep 17 00:00:00 2001
+From 6cd7a0707fa5cb11ed85c4868fb06f929dce3f38 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 10:08:05 +0000
-Subject: [PATCH 13/29] Add dedicated_host docs
+Subject: [PATCH 13/30] Add dedicated_host docs
 
 ---
  website/docs/d/dedicated_host.html.markdown | 75 +++++++++++++++++++++
@@ -169,5 +169,5 @@ index 0000000000..01845aa221
 +$ terraform import aws_dedicated_host.host_id h-0385a99d0e4b20cbb
 +```
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

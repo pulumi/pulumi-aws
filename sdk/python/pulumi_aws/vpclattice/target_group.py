@@ -241,9 +241,9 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
             ))
         ```
         ### Basic usage with Health check
@@ -253,11 +253,12 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            type="ALB",
+            type="IP",
             config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
+                ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
@@ -273,6 +274,23 @@ class TargetGroup(pulumi.CustomResource):
                     protocol="HTTP",
                     protocol_version="HTTP1",
                 ),
+            ))
+        ```
+        ### ALB
+
+        If the type is ALB, `health_check` block is not supported.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.TargetGroup("example",
+            type="ALB",
+            config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
+                port=443,
+                protocol="HTTPS",
+                protocol_version="HTTP1",
             ))
         ```
         ### Lambda
@@ -322,9 +340,9 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
             ))
         ```
         ### Basic usage with Health check
@@ -334,11 +352,12 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroup("example",
-            type="ALB",
+            type="IP",
             config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
+                ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
@@ -354,6 +373,23 @@ class TargetGroup(pulumi.CustomResource):
                     protocol="HTTP",
                     protocol_version="HTTP1",
                 ),
+            ))
+        ```
+        ### ALB
+
+        If the type is ALB, `health_check` block is not supported.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.vpclattice.TargetGroup("example",
+            type="ALB",
+            config=aws.vpclattice.TargetGroupConfigArgs(
+                vpc_identifier=aws_vpc["example"]["id"],
+                port=443,
+                protocol="HTTPS",
+                protocol_version="HTTP1",
             ))
         ```
         ### Lambda

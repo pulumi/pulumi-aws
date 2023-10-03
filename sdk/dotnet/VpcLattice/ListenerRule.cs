@@ -129,13 +129,13 @@ namespace Pulumi.Aws.VpcLattice
     public partial class ListenerRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action for the default rule.
+        /// The action for the listener rule.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ListenerRuleAction> Action { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the target group.
+        /// The ARN for the listener rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier for the target group.
+        /// Unique identifier for the listener rule.
         /// </summary>
         [Output("ruleId")]
         public Output<string> RuleId { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ListenerRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for the default rule.
+        /// The action for the listener rule.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
@@ -299,13 +299,13 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ListenerRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for the default rule.
+        /// The action for the listener rule.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ListenerRuleActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// ARN of the target group.
+        /// The ARN for the listener rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Unique identifier for the target group.
+        /// Unique identifier for the listener rule.
         /// </summary>
         [Input("ruleId")]
         public Input<string>? RuleId { get; set; }

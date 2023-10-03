@@ -408,14 +408,14 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="continuousDeploymentPolicyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> continuousDeploymentPolicyId;
+    private Output<String> continuousDeploymentPolicyId;
 
     /**
      * @return Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      * 
      */
-    public Output<Optional<String>> continuousDeploymentPolicyId() {
-        return Codegen.optional(this.continuousDeploymentPolicyId);
+    public Output<String> continuousDeploymentPolicyId() {
+        return this.continuousDeploymentPolicyId;
     }
     /**
      * One or more custom error response elements (multiples allowed).

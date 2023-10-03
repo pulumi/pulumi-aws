@@ -301,7 +301,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
      */
-    public readonly continuousDeploymentPolicyId!: pulumi.Output<string | undefined>;
+    public readonly continuousDeploymentPolicyId!: pulumi.Output<string>;
     /**
      * One or more custom error response elements (multiples allowed).
      */

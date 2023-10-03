@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * const example = new aws.vpclattice.TargetGroup("example", {
  *     type: "INSTANCE",
  *     config: {
+ *         vpcIdentifier: aws_vpc.example.id,
  *         port: 443,
  *         protocol: "HTTPS",
- *         vpcIdentifier: aws_vpc.example.id,
  *     },
  * });
  * ```
@@ -33,11 +33,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
- *     type: "ALB",
+ *     type: "IP",
  *     config: {
+ *         vpcIdentifier: aws_vpc.example.id,
+ *         ipAddressType: "IPV4",
  *         port: 443,
  *         protocol: "HTTPS",
- *         vpcIdentifier: aws_vpc.example.id,
  *         protocolVersion: "HTTP1",
  *         healthCheck: {
  *             enabled: true,
@@ -53,6 +54,24 @@ import * as utilities from "../utilities";
  *             protocol: "HTTP",
  *             protocolVersion: "HTTP1",
  *         },
+ *     },
+ * });
+ * ```
+ * ### ALB
+ *
+ * If the type is ALB, `healthCheck` block is not supported.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.vpclattice.TargetGroup("example", {
+ *     type: "ALB",
+ *     config: {
+ *         vpcIdentifier: aws_vpc.example.id,
+ *         port: 443,
+ *         protocol: "HTTPS",
+ *         protocolVersion: "HTTP1",
  *     },
  * });
  * ```

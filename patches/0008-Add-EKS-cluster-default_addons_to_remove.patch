@@ -1,7 +1,7 @@
-From 5e8bdb6ebdfb810be4d229b93c92a6779c5e666d Mon Sep 17 00:00:00 2001
+From fa9ec3bd90d868fb4e0fd09c7eaaca266dcb61dd Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:31:27 +0000
-Subject: [PATCH 08/29] Add EKS cluster default_addons_to_remove
+Subject: [PATCH 08/30] Add EKS cluster default_addons_to_remove
 
 ---
  internal/service/eks/cluster.go               |   7 +
@@ -268,5 +268,5 @@ index 57a94e414f..6568e06549 100644
  )
  
 -- 
-2.39.2 (Apple Git-143)
+2.40.0
 

@@ -20,14 +20,14 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final ListenerRuleArgs Empty = new ListenerRuleArgs();
 
     /**
-     * The action for the default rule.
+     * The action for the listener rule.
      * 
      */
     @Import(name="action", required=true)
     private Output<ListenerRuleActionArgs> action;
 
     /**
-     * @return The action for the default rule.
+     * @return The action for the listener rule.
      * 
      */
     public Output<ListenerRuleActionArgs> action() {
@@ -159,7 +159,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the default rule.
+         * @param action The action for the listener rule.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ListenerRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the default rule.
+         * @param action The action for the listener rule.
          * 
          * @return builder
          * 

@@ -332,7 +332,7 @@ type Distribution struct {
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-	ContinuousDeploymentPolicyId pulumi.StringPtrOutput `pulumi:"continuousDeploymentPolicyId"`
+	ContinuousDeploymentPolicyId pulumi.StringOutput `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -804,8 +804,8 @@ func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
-func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
+func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringOutput)
 }
 
 // One or more custom error response elements (multiples allowed).
