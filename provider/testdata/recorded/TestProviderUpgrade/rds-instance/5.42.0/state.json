@@ -1,0 +1,164 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-10-05T17:29:38.81181-04:00",
+            "magic": "cdb46f20d3397474c4b7038ce63a3c40fb0da4b95458ef275b6ce689aec88d17",
+            "version": "v3.86.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:Hk+ms9bN1YM=:v1:CIGk8tObiTPyv9Ha:L+3V/xNuuUra9OA23fTUIUqf8uozAA=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::pulumi:pulumi:Stack::test-p-it-antons-mac-rds-instan-c3f4122c",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-10-05T21:25:30.251254Z",
+                "modified": "2023-10-05T21:25:30.251254Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::pulumi:providers:aws::provider",
+                "custom": true,
+                "id": "03d1a41e-932c-43a8-85fc-43521503ab53",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::pulumi:pulumi:Stack::test-p-it-antons-mac-rds-instan-c3f4122c",
+                "propertyDependencies": {
+                    "version": []
+                },
+                "created": "2023-10-05T21:25:31.781545Z",
+                "modified": "2023-10-05T21:25:31.781545Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::aws:rds/instance:Instance::tested-resource",
+                "custom": true,
+                "id": "tested-resource32446a6",
+                "type": "aws:rds/instance:Instance",
+                "inputs": {
+                    "__defaults": [
+                        "applyImmediately",
+                        "autoMinorVersionUpgrade",
+                        "copyTagsToSnapshot",
+                        "deleteAutomatedBackups",
+                        "identifier",
+                        "monitoringInterval",
+                        "performanceInsightsEnabled",
+                        "publiclyAccessible"
+                    ],
+                    "allocatedStorage": 30,
+                    "applyImmediately": false,
+                    "autoMinorVersionUpgrade": true,
+                    "copyTagsToSnapshot": false,
+                    "deleteAutomatedBackups": true,
+                    "engine": "postgres",
+                    "identifier": "tested-resource32446a6",
+                    "instanceClass": "db.t4g.micro",
+                    "monitoringInterval": 0,
+                    "name": "mydbname",
+                    "password": "mypassword",
+                    "performanceInsightsEnabled": false,
+                    "publiclyAccessible": false,
+                    "skipFinalSnapshot": true,
+                    "username": "mydbuser"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
+                    "address": "tested-resource32446a6.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
+                    "allocatedStorage": 30,
+                    "applyImmediately": false,
+                    "arn": "arn:aws:rds:us-west-2:616138583583:db:tested-resource32446a6",
+                    "autoMinorVersionUpgrade": true,
+                    "availabilityZone": "us-west-2a",
+                    "backupRetentionPeriod": 0,
+                    "backupWindow": "06:08-06:38",
+                    "caCertIdentifier": "rds-ca-2019",
+                    "characterSetName": "",
+                    "copyTagsToSnapshot": false,
+                    "customIamInstanceProfile": "",
+                    "customerOwnedIpEnabled": false,
+                    "dbName": "mydbname",
+                    "dbSubnetGroupName": "default",
+                    "deleteAutomatedBackups": true,
+                    "deletionProtection": false,
+                    "domain": "",
+                    "domainIamRoleName": "",
+                    "enabledCloudwatchLogsExports": [],
+                    "endpoint": "tested-resource32446a6.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
+                    "engine": "postgres",
+                    "engineVersion": "15.3",
+                    "engineVersionActual": "15.3",
+                    "hostedZoneId": "Z1PVIF0B656C1W",
+                    "iamDatabaseAuthenticationEnabled": false,
+                    "id": "tested-resource32446a6",
+                    "identifier": "tested-resource32446a6",
+                    "identifierPrefix": "",
+                    "instanceClass": "db.t4g.micro",
+                    "iops": 0,
+                    "kmsKeyId": "",
+                    "latestRestorableTime": "",
+                    "licenseModel": "postgresql-license",
+                    "listenerEndpoints": [],
+                    "maintenanceWindow": "sat:10:36-sat:11:06",
+                    "masterUserSecrets": [],
+                    "maxAllocatedStorage": 0,
+                    "monitoringInterval": 0,
+                    "monitoringRoleArn": "",
+                    "multiAz": false,
+                    "name": "mydbname",
+                    "ncharCharacterSetName": "",
+                    "networkType": "IPV4",
+                    "optionGroupName": "default:postgres-15",
+                    "parameterGroupName": "default.postgres15",
+                    "password": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "v1:mUAfQWw621puT5mf:d3VHy2+9FGGmsJpJ76Taw5/LXkPweZaek5Gp4g=="
+                    },
+                    "performanceInsightsEnabled": false,
+                    "performanceInsightsKmsKeyId": "",
+                    "performanceInsightsRetentionPeriod": 0,
+                    "port": 5432,
+                    "publiclyAccessible": false,
+                    "replicaMode": "",
+                    "replicas": [],
+                    "replicateSourceDb": "",
+                    "resourceId": "db-APHDYQXAWC6637KYGRJPNEN5Y4",
+                    "securityGroupNames": [],
+                    "skipFinalSnapshot": true,
+                    "status": "available",
+                    "storageEncrypted": false,
+                    "storageThroughput": 0,
+                    "storageType": "gp2",
+                    "tags": {},
+                    "tagsAll": {},
+                    "timezone": "",
+                    "username": "mydbuser",
+                    "vpcSecurityGroupIds": [
+                        "sg-4d436f12"
+                    ]
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::pulumi:pulumi:Stack::test-p-it-antons-mac-rds-instan-c3f4122c",
+                "provider": "urn:pulumi:p-it-antons-mac-rds-instan-c3f4122c::test::pulumi:providers:aws::provider::03d1a41e-932c-43a8-85fc-43521503ab53",
+                "propertyDependencies": {
+                    "allocatedStorage": null,
+                    "engine": null,
+                    "instanceClass": null,
+                    "name": null,
+                    "password": null,
+                    "skipFinalSnapshot": null,
+                    "username": null
+                },
+                "created": "2023-10-05T21:29:38.811725Z",
+                "modified": "2023-10-05T21:29:38.811725Z"
+            }
+        ]
+    }
+}

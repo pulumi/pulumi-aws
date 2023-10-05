@@ -3,16 +3,12 @@ name: test
 runtime:
   name: yaml
 
-config:
-  providerVersion:
-    type: string
-
 resources:
 
   provider:
     type: pulumi:providers:aws
     options:
-      version: ${providerVersion}
+      version: 5.42.0
 
   tested-resource:
     type: aws:rds/instance:Instance
@@ -20,7 +16,7 @@ resources:
       engine: postgres
       instanceClass: db.t4g.micro
       allocatedStorage: 30
-      name: mydbname-${pulumi.stack}
+      name: mydbname
       username: mydbuser
       password: mypassword
       skipFinalSnapshot: true
