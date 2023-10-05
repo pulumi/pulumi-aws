@@ -1,0 +1,22 @@
+name: test
+
+runtime:
+  name: yaml
+
+config:
+  providerVersion:
+    type: string
+
+resources:
+
+  provider:
+    type: pulumi:providers:aws
+    options:
+      version: ${providerVersion}
+
+  tested-resource:
+    type: aws:s3/bucket:Bucket
+    properties:
+      bucket: testbucket-${pulumi.stack}
+    options:
+      provider: ${provider}

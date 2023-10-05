@@ -1,0 +1,55 @@
+name: test
+
+runtime:
+  name: yaml
+
+config:
+  providerVersion:
+    type: string
+
+resources:
+
+  provider:
+    type: pulumi:providers:aws
+    options:
+      version: ${providerVersion}
+
+  tested-resource:
+    type: aws:route53:ResolverEndpoint
+    properties:
+      direction: INBOUND
+      securityGroupIds:
+        - ${securityGroupAllowTLS1.id}
+      ipAddresses:
+        - subnetId: ${subnet1.id}
+        - subnetId: ${subnet2.id}
+          ip: 10.192.21.4
+    options:
+      provider: ${provider}
+
+  subnet1:
+    type: aws:ec2/subnet:Subnet
+    properties:
+      cidrBlock: 10.192.20.0/24
+      vpcId: ${vpc1.id}
+      mapPublicIpOnLaunch: false
+      availabilityZone: us-west-2a
+    options:
+      provider: ${provider}
+
+  subnet2:
+    type: aws:ec2/subnet:Subnet
+    properties:
+      cidrBlock: 10.192.21.0/24
+      vpcId: ${vpc1.id}
+      mapPublicIpOnLaunch: false
+      availabilityZone: us-west-2b
+    options:
+      provider: ${provider}
+
+  vpc1:
+    type: aws:ec2/vpc:Vpc
+    properties:
+      cidrBlock: "10.192.0.0/16"
+    options:
+      provider: ${provider}
