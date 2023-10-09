@@ -177,6 +177,8 @@ jobs:
         repo: pulumi/schema-tools
     - name: Build tfgen & provider binaries
       run: make provider
+    - name: Unit-test provider code
+      run: make test_provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
       run: |
