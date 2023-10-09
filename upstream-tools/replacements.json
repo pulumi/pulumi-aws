@@ -4466,8 +4466,16 @@
       "new": "% pulumi import aws_codecommit_repository.imported ExistingRepo"
     },
     {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:"
+    },
+    {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import Codecommit repository using repository name. For example:",
       "new": ""
+    },
+    {
+      "old": "Using `terraform import`, import CodeCommit repository using repository name. For example:",
+      "new": "Using `TODO import`, import CodeCommit repository using repository name. For example:"
     },
     {
       "old": "Using `terraform import`, import Codecommit repository using repository name. For example:",
@@ -17550,6 +17558,20 @@
       "new": "~> **NOTE:** This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation."
     }
   ],
+  "website/docs/r/servicequotas_template.html.markdown": [
+    {
+      "old": "% terraform import aws_servicequotas_template.example us-east-1,L-2ACBD22F,lambda",
+      "new": "% TODO import aws_servicequotas_template.example us-east-1,L-2ACBD22F,lambda"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Service Quotas Template using the `example_id_arg`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Service Quotas Template using the `example_id_arg`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Service Quotas Template using the `id`. For example:",
+      "new": "Using `TODO import`, import Service Quotas Template using the `id`. For example:"
+    }
+  ],
   "website/docs/r/ses_active_receipt_rule_set.html.markdown": [
     {
       "old": "% terraform import aws_ses_active_receipt_rule_set.my_rule_set my_rule_set_name",
@@ -17744,6 +17766,20 @@
     {
       "old": "Using `terraform import`, import SES templates using the template name. For example:",
       "new": "Using `pulumi import`, import SES templates using the template name. For example:"
+    }
+  ],
+  "website/docs/r/sesv2_account_vdm_attributes.html.markdown": [
+    {
+      "old": "% terraform import aws_sesv2_account_vdm_attributes.example ses-account-vdm-attributes",
+      "new": "% TODO import aws_sesv2_account_vdm_attributes.example ses-account-vdm-attributes"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:",
+      "new": "Using `TODO import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:"
     }
   ],
   "website/docs/r/sesv2_configuration_set.html.markdown": [
@@ -19032,6 +19068,20 @@
     {
       "old": "Using `terraform import`, import Transfer Workflows using the  `id`. For example:",
       "new": "Using `pulumi import`, import Transfer Workflows using the  `id`. For example:"
+    }
+  ],
+  "website/docs/r/verifiedaccess_instance_trust_provider_attachment.html.markdown": [
+    {
+      "old": "% terraform import aws_verifiedaccess_instance_trust_provider_attachment.example vai-1234567890abcdef0/vatp-8012925589",
+      "new": "% TODO import aws_verifiedaccess_instance_trust_provider_attachment.example vai-1234567890abcdef0/vatp-8012925589"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:",
+      "new": "Using `TODO import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:"
     }
   ],
   "website/docs/r/verifiedaccess_trust_provider.html.markdown": [

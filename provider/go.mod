@@ -8,10 +8,10 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.60.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.81.0
-	github.com/pulumi/pulumi/sdk/v3 v3.81.0
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.61.0
+	github.com/pulumi/pulumi/pkg/v3 v3.86.0
+	github.com/pulumi/pulumi/sdk/v3 v3.86.0
 	github.com/stretchr/testify v1.8.4
 	pgregory.net/rapid v0.6.1
 )
@@ -36,7 +36,7 @@ require (
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
 	dario.cat/mergo v1.0.0 // indirect
-	github.com/AlecAivazis/survey/v2 v2.0.5 // indirect
+	github.com/AlecAivazis/survey/v2 v2.3.7 // indirect
 	github.com/Azure/azure-sdk-for-go v66.0.0+incompatible // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.1.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.0.0 // indirect
@@ -69,7 +69,7 @@ require (
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
-	github.com/aws/aws-sdk-go v1.45.18 // indirect
+	github.com/aws/aws-sdk-go v1.45.19 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.21.0 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.13 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.18.42 // indirect
@@ -95,7 +95,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/directoryservice v1.18.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/docdbelastic v1.3.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.21.5 // indirect
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.121.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.122.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emrserverless v1.11.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/finspace v1.12.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/fis v1.16.0 // indirect
@@ -103,7 +103,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/healthlake v1.17.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/iam v1.22.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/identitystore v1.18.2 // indirect
-	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.16.6 // indirect
+	github.com/aws/aws-sdk-go-v2/service/inspector2 v1.16.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.9.14 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.1.36 // indirect
 	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.7.35 // indirect
@@ -124,7 +124,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/oam v1.3.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.5.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pipes v1.4.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/pricing v1.21.6 // indirect
+	github.com/aws/aws-sdk-go-v2/service/pricing v1.21.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/qldb v1.16.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rbin v1.10.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rds v1.54.0 // indirect
@@ -136,6 +136,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/s3control v1.33.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/scheduler v1.3.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/securitylake v1.7.0 // indirect
+	github.com/aws/aws-sdk-go-v2/service/servicequotas v1.16.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sesv2 v1.20.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/signer v1.16.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sqs v1.24.5 // indirect
@@ -227,7 +228,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.19.0 // indirect
 	github.com/hashicorp/terraform-json v0.17.1 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.4.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.19.0 // indirect
