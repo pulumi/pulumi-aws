@@ -3,20 +3,23 @@
 package provider
 
 import (
+	"strings"
+
 	"github.com/hashicorp/aws-sdk-go-base/v2/diag"
 )
 
 // formatDiags converts AWS SDK Diagnostics into a human-readable string.
 func formatDiags(diag diag.Diagnostics) string {
-	details := ""
+	var sb strings.Builder
 	for _, d := range diag {
-		if details != "" {
-			details += "\n"
+		if sb.Len() > 0 {
+			sb.WriteString("\n")
 		}
-		details += d.Summary()
+		sb.WriteString(d.Summary())
 		if d.Detail() != "" {
-			details += ". " + d.Detail()
+			sb.WriteString(". ")
+			sb.WriteString(d.Detail())
 		}
 	}
-	return details
+	return sb.String()
 }
