@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomDbEngineVersionArgs', 'CustomDbEngineVersion']
@@ -41,28 +41,59 @@ class CustomDbEngineVersionArgs:
         :param pulumi.Input[str] status: The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "engine", engine)
-        pulumi.set(__self__, "engine_version", engine_version)
+        CustomDbEngineVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engine=engine,
+            engine_version=engine_version,
+            database_installation_files_s3_bucket_name=database_installation_files_s3_bucket_name,
+            database_installation_files_s3_prefix=database_installation_files_s3_prefix,
+            description=description,
+            filename=filename,
+            kms_key_id=kms_key_id,
+            manifest=manifest,
+            manifest_hash=manifest_hash,
+            source_image_id=source_image_id,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engine: pulumi.Input[str],
+             engine_version: pulumi.Input[str],
+             database_installation_files_s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             manifest: Optional[pulumi.Input[str]] = None,
+             manifest_hash: Optional[pulumi.Input[str]] = None,
+             source_image_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("engine", engine)
+        _setter("engine_version", engine_version)
         if database_installation_files_s3_bucket_name is not None:
-            pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
+            _setter("database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         if database_installation_files_s3_prefix is not None:
-            pulumi.set(__self__, "database_installation_files_s3_prefix", database_installation_files_s3_prefix)
+            _setter("database_installation_files_s3_prefix", database_installation_files_s3_prefix)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if manifest is not None:
-            pulumi.set(__self__, "manifest", manifest)
+            _setter("manifest", manifest)
         if manifest_hash is not None:
-            pulumi.set(__self__, "manifest_hash", manifest_hash)
+            _setter("manifest_hash", manifest_hash)
         if source_image_id is not None:
-            pulumi.set(__self__, "source_image_id", source_image_id)
+            _setter("source_image_id", source_image_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -253,47 +284,92 @@ class _CustomDbEngineVersionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _CustomDbEngineVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            create_time=create_time,
+            database_installation_files_s3_bucket_name=database_installation_files_s3_bucket_name,
+            database_installation_files_s3_prefix=database_installation_files_s3_prefix,
+            db_parameter_group_family=db_parameter_group_family,
+            description=description,
+            engine=engine,
+            engine_version=engine_version,
+            filename=filename,
+            image_id=image_id,
+            kms_key_id=kms_key_id,
+            major_engine_version=major_engine_version,
+            manifest=manifest,
+            manifest_computed=manifest_computed,
+            manifest_hash=manifest_hash,
+            source_image_id=source_image_id,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             create_time: Optional[pulumi.Input[str]] = None,
+             database_installation_files_s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
+             db_parameter_group_family: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             major_engine_version: Optional[pulumi.Input[str]] = None,
+             manifest: Optional[pulumi.Input[str]] = None,
+             manifest_computed: Optional[pulumi.Input[str]] = None,
+             manifest_hash: Optional[pulumi.Input[str]] = None,
+             source_image_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if database_installation_files_s3_bucket_name is not None:
-            pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
+            _setter("database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         if database_installation_files_s3_prefix is not None:
-            pulumi.set(__self__, "database_installation_files_s3_prefix", database_installation_files_s3_prefix)
+            _setter("database_installation_files_s3_prefix", database_installation_files_s3_prefix)
         if db_parameter_group_family is not None:
-            pulumi.set(__self__, "db_parameter_group_family", db_parameter_group_family)
+            _setter("db_parameter_group_family", db_parameter_group_family)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if major_engine_version is not None:
-            pulumi.set(__self__, "major_engine_version", major_engine_version)
+            _setter("major_engine_version", major_engine_version)
         if manifest is not None:
-            pulumi.set(__self__, "manifest", manifest)
+            _setter("manifest", manifest)
         if manifest_computed is not None:
-            pulumi.set(__self__, "manifest_computed", manifest_computed)
+            _setter("manifest_computed", manifest_computed)
         if manifest_hash is not None:
-            pulumi.set(__self__, "manifest_hash", manifest_hash)
+            _setter("manifest_hash", manifest_hash)
         if source_image_id is not None:
-            pulumi.set(__self__, "source_image_id", source_image_id)
+            _setter("source_image_id", source_image_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -756,6 +832,10 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDbEngineVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

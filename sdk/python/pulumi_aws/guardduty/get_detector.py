@@ -6,8 +6,9 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDetectorResult',
@@ -21,7 +22,10 @@ class GetDetectorResult:
     """
     A collection of values returned by getDetector.
     """
-    def __init__(__self__, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None):
+    def __init__(__self__, features=None, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None):
+        if features and not isinstance(features, list):
+            raise TypeError("Expected argument 'features' to be a list")
+        pulumi.set(__self__, "features", features)
         if finding_publishing_frequency and not isinstance(finding_publishing_frequency, str):
             raise TypeError("Expected argument 'finding_publishing_frequency' to be a str")
         pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
@@ -34,6 +38,14 @@ class GetDetectorResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Sequence['outputs.GetDetectorFeatureResult']:
+        """
+        Current configuration of the detector features.
+        """
+        return pulumi.get(self, "features")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
@@ -71,6 +83,7 @@ class AwaitableGetDetectorResult(GetDetectorResult):
         if False:
             yield self
         return GetDetectorResult(
+            features=self.features,
             finding_publishing_frequency=self.finding_publishing_frequency,
             id=self.id,
             service_role_arn=self.service_role_arn,
@@ -100,6 +113,7 @@ def get_detector(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
+        features=pulumi.get(__ret__, 'features'),
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         id=pulumi.get(__ret__, 'id'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),

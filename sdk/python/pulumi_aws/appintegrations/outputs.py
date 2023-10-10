@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,9 +44,22 @@ class DataIntegrationScheduleConfig(dict):
         :param str object: The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
         :param str schedule_expression: How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
         """
-        pulumi.set(__self__, "first_execution_from", first_execution_from)
-        pulumi.set(__self__, "object", object)
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        DataIntegrationScheduleConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            first_execution_from=first_execution_from,
+            object=object,
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             first_execution_from: str,
+             object: str,
+             schedule_expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("first_execution_from", first_execution_from)
+        _setter("object", object)
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="firstExecutionFrom")
@@ -80,7 +93,16 @@ class GetEventIntegrationEventFilterResult(dict):
         """
         :param str source: The source of the events.
         """
-        pulumi.set(__self__, "source", source)
+        GetEventIntegrationEventFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
 
     @property
     @pulumi.getter

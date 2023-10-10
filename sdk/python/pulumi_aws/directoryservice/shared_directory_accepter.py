@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SharedDirectoryAccepterArgs', 'SharedDirectoryAccepter']
@@ -19,7 +19,16 @@ class SharedDirectoryAccepterArgs:
         The set of arguments for constructing a SharedDirectoryAccepter resource.
         :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
-        pulumi.set(__self__, "shared_directory_id", shared_directory_id)
+        SharedDirectoryAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            shared_directory_id=shared_directory_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             shared_directory_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("shared_directory_id", shared_directory_id)
 
     @property
     @pulumi.getter(name="sharedDirectoryId")
@@ -50,16 +59,33 @@ class _SharedDirectoryAccepterState:
         :param pulumi.Input[str] owner_directory_id: Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
         :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
+        _SharedDirectoryAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            notes=notes,
+            owner_account_id=owner_account_id,
+            owner_directory_id=owner_directory_id,
+            shared_directory_id=shared_directory_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             owner_directory_id: Optional[pulumi.Input[str]] = None,
+             shared_directory_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if owner_directory_id is not None:
-            pulumi.set(__self__, "owner_directory_id", owner_directory_id)
+            _setter("owner_directory_id", owner_directory_id)
         if shared_directory_id is not None:
-            pulumi.set(__self__, "shared_directory_id", shared_directory_id)
+            _setter("shared_directory_id", shared_directory_id)
 
     @property
     @pulumi.getter
@@ -207,6 +233,10 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedDirectoryAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class DeviceFleetArgs:
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
-        pulumi.set(__self__, "output_config", output_config)
-        pulumi.set(__self__, "role_arn", role_arn)
+        DeviceFleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_fleet_name=device_fleet_name,
+            output_config=output_config,
+            role_arn=role_arn,
+            description=description,
+            enable_iot_role_alias=enable_iot_role_alias,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_fleet_name: pulumi.Input[str],
+             output_config: pulumi.Input['DeviceFleetOutputConfigArgs'],
+             role_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_fleet_name", device_fleet_name)
+        _setter("output_config", output_config)
+        _setter("role_arn", role_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_iot_role_alias is not None:
-            pulumi.set(__self__, "enable_iot_role_alias", enable_iot_role_alias)
+            _setter("enable_iot_role_alias", enable_iot_role_alias)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deviceFleetName")
@@ -137,27 +156,52 @@ class _DeviceFleetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DeviceFleetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            device_fleet_name=device_fleet_name,
+            enable_iot_role_alias=enable_iot_role_alias,
+            iot_role_alias=iot_role_alias,
+            output_config=output_config,
+            role_arn=role_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             device_fleet_name: Optional[pulumi.Input[str]] = None,
+             enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
+             iot_role_alias: Optional[pulumi.Input[str]] = None,
+             output_config: Optional[pulumi.Input['DeviceFleetOutputConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_fleet_name is not None:
-            pulumi.set(__self__, "device_fleet_name", device_fleet_name)
+            _setter("device_fleet_name", device_fleet_name)
         if enable_iot_role_alias is not None:
-            pulumi.set(__self__, "enable_iot_role_alias", enable_iot_role_alias)
+            _setter("enable_iot_role_alias", enable_iot_role_alias)
         if iot_role_alias is not None:
-            pulumi.set(__self__, "iot_role_alias", iot_role_alias)
+            _setter("iot_role_alias", iot_role_alias)
         if output_config is not None:
-            pulumi.set(__self__, "output_config", output_config)
+            _setter("output_config", output_config)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -357,6 +401,10 @@ class DeviceFleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceFleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -382,6 +430,11 @@ class DeviceFleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_fleet_name'")
             __props__.__dict__["device_fleet_name"] = device_fleet_name
             __props__.__dict__["enable_iot_role_alias"] = enable_iot_role_alias
+            if output_config is not None and not isinstance(output_config, DeviceFleetOutputConfigArgs):
+                output_config = output_config or {}
+                def _setter(key, value):
+                    output_config[key] = value
+                DeviceFleetOutputConfigArgs._configure(_setter, **output_config)
             if output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_config'")
             __props__.__dict__["output_config"] = output_config

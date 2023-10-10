@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrafficPolicyInstanceArgs', 'TrafficPolicyInstance']
@@ -27,12 +27,29 @@ class TrafficPolicyInstanceArgs:
         :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         :param pulumi.Input[str] name: Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         """
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
-        pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
-        pulumi.set(__self__, "traffic_policy_version", traffic_policy_version)
-        pulumi.set(__self__, "ttl", ttl)
+        TrafficPolicyInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            traffic_policy_id=traffic_policy_id,
+            traffic_policy_version=traffic_policy_version,
+            ttl=ttl,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: pulumi.Input[str],
+             traffic_policy_id: pulumi.Input[str],
+             traffic_policy_version: pulumi.Input[int],
+             ttl: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hosted_zone_id", hosted_zone_id)
+        _setter("traffic_policy_id", traffic_policy_id)
+        _setter("traffic_policy_version", traffic_policy_version)
+        _setter("ttl", ttl)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -111,16 +128,33 @@ class _TrafficPolicyInstanceState:
         :param pulumi.Input[int] traffic_policy_version: Version of the traffic policy
         :param pulumi.Input[int] ttl: TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         """
+        _TrafficPolicyInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            name=name,
+            traffic_policy_id=traffic_policy_id,
+            traffic_policy_version=traffic_policy_version,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             traffic_policy_id: Optional[pulumi.Input[str]] = None,
+             traffic_policy_version: Optional[pulumi.Input[int]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if traffic_policy_id is not None:
-            pulumi.set(__self__, "traffic_policy_id", traffic_policy_id)
+            _setter("traffic_policy_id", traffic_policy_id)
         if traffic_policy_version is not None:
-            pulumi.set(__self__, "traffic_policy_version", traffic_policy_version)
+            _setter("traffic_policy_version", traffic_policy_version)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -266,6 +300,10 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficPolicyInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrimaryContactArgs', 'PrimaryContact']
@@ -43,26 +43,59 @@ class PrimaryContactArgs:
         :param pulumi.Input[str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
         :param pulumi.Input[str] website_url: The URL of the website associated with the primary contact information, if any.
         """
-        pulumi.set(__self__, "address_line1", address_line1)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "full_name", full_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "postal_code", postal_code)
+        PrimaryContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_line1=address_line1,
+            city=city,
+            country_code=country_code,
+            full_name=full_name,
+            phone_number=phone_number,
+            postal_code=postal_code,
+            account_id=account_id,
+            address_line2=address_line2,
+            address_line3=address_line3,
+            company_name=company_name,
+            district_or_county=district_or_county,
+            state_or_region=state_or_region,
+            website_url=website_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_line1: pulumi.Input[str],
+             city: pulumi.Input[str],
+             country_code: pulumi.Input[str],
+             full_name: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             postal_code: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             address_line2: Optional[pulumi.Input[str]] = None,
+             address_line3: Optional[pulumi.Input[str]] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             district_or_county: Optional[pulumi.Input[str]] = None,
+             state_or_region: Optional[pulumi.Input[str]] = None,
+             website_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_line1", address_line1)
+        _setter("city", city)
+        _setter("country_code", country_code)
+        _setter("full_name", full_name)
+        _setter("phone_number", phone_number)
+        _setter("postal_code", postal_code)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
+            _setter("address_line2", address_line2)
         if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
+            _setter("address_line3", address_line3)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if district_or_county is not None:
-            pulumi.set(__self__, "district_or_county", district_or_county)
+            _setter("district_or_county", district_or_county)
         if state_or_region is not None:
-            pulumi.set(__self__, "state_or_region", state_or_region)
+            _setter("state_or_region", state_or_region)
         if website_url is not None:
-            pulumi.set(__self__, "website_url", website_url)
+            _setter("website_url", website_url)
 
     @property
     @pulumi.getter(name="addressLine1")
@@ -253,32 +286,65 @@ class _PrimaryContactState:
         :param pulumi.Input[str] state_or_region: The state or region of the primary contact address. This field is required in selected countries.
         :param pulumi.Input[str] website_url: The URL of the website associated with the primary contact information, if any.
         """
+        _PrimaryContactState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            address_line1=address_line1,
+            address_line2=address_line2,
+            address_line3=address_line3,
+            city=city,
+            company_name=company_name,
+            country_code=country_code,
+            district_or_county=district_or_county,
+            full_name=full_name,
+            phone_number=phone_number,
+            postal_code=postal_code,
+            state_or_region=state_or_region,
+            website_url=website_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             address_line1: Optional[pulumi.Input[str]] = None,
+             address_line2: Optional[pulumi.Input[str]] = None,
+             address_line3: Optional[pulumi.Input[str]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             district_or_county: Optional[pulumi.Input[str]] = None,
+             full_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state_or_region: Optional[pulumi.Input[str]] = None,
+             website_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if address_line1 is not None:
-            pulumi.set(__self__, "address_line1", address_line1)
+            _setter("address_line1", address_line1)
         if address_line2 is not None:
-            pulumi.set(__self__, "address_line2", address_line2)
+            _setter("address_line2", address_line2)
         if address_line3 is not None:
-            pulumi.set(__self__, "address_line3", address_line3)
+            _setter("address_line3", address_line3)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if district_or_county is not None:
-            pulumi.set(__self__, "district_or_county", district_or_county)
+            _setter("district_or_county", district_or_county)
         if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
+            _setter("full_name", full_name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state_or_region is not None:
-            pulumi.set(__self__, "state_or_region", state_or_region)
+            _setter("state_or_region", state_or_region)
         if website_url is not None:
-            pulumi.set(__self__, "website_url", website_url)
+            _setter("website_url", website_url)
 
     @property
     @pulumi.getter(name="accountId")
@@ -548,6 +614,10 @@ class PrimaryContact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrimaryContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

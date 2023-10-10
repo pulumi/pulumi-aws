@@ -920,7 +920,7 @@ func (o PipeSourceParametersActivemqBrokerParametersPtrOutput) QueueName() pulum
 }
 
 type PipeSourceParametersActivemqBrokerParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth string `pulumi:"basicAuth"`
 }
 
@@ -936,7 +936,7 @@ type PipeSourceParametersActivemqBrokerParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersActivemqBrokerParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
 }
 
@@ -1035,7 +1035,7 @@ func (o PipeSourceParametersActivemqBrokerParametersCredentialsOutput) ToOutput(
 	}
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersActivemqBrokerParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersActivemqBrokerParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
@@ -1070,7 +1070,7 @@ func (o PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput) Elem()
 	}).(PipeSourceParametersActivemqBrokerParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersActivemqBrokerParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersActivemqBrokerParametersCredentials) *string {
 		if v == nil {
@@ -2981,7 +2981,7 @@ func (o PipeSourceParametersRabbitmqBrokerParametersPtrOutput) VirtualHost() pul
 }
 
 type PipeSourceParametersRabbitmqBrokerParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth string `pulumi:"basicAuth"`
 }
 
@@ -2997,7 +2997,7 @@ type PipeSourceParametersRabbitmqBrokerParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
 }
 
@@ -3096,7 +3096,7 @@ func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput) ToOutput(
 	}
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersRabbitmqBrokerParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
@@ -3131,7 +3131,7 @@ func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput) Elem()
 	}).(PipeSourceParametersRabbitmqBrokerParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersRabbitmqBrokerParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersRabbitmqBrokerParametersCredentials) *string {
 		if v == nil {
@@ -3459,7 +3459,7 @@ func (o PipeSourceParametersSelfManagedKafkaParametersPtrOutput) Vpc() PipeSourc
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersCredentials struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth string `pulumi:"basicAuth"`
 	// The ARN of the Secrets Manager secret containing the credentials.
 	ClientCertificateTlsAuth *string `pulumi:"clientCertificateTlsAuth"`
@@ -3481,7 +3481,7 @@ type PipeSourceParametersSelfManagedKafkaParametersCredentialsInput interface {
 }
 
 type PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs struct {
-	// The ARN of the Secrets Manager secret containing the basic auth credentials.
+	// The ARN of the Secrets Manager secret containing the credentials.
 	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
 	// The ARN of the Secrets Manager secret containing the credentials.
 	ClientCertificateTlsAuth pulumi.StringPtrInput `pulumi:"clientCertificateTlsAuth"`
@@ -3586,7 +3586,7 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) ToOutpu
 	}
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput) BasicAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSourceParametersSelfManagedKafkaParametersCredentials) string { return v.BasicAuth }).(pulumi.StringOutput)
 }
@@ -3638,7 +3638,7 @@ func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) Elem
 	}).(PipeSourceParametersSelfManagedKafkaParametersCredentialsOutput)
 }
 
-// The ARN of the Secrets Manager secret containing the basic auth credentials.
+// The ARN of the Secrets Manager secret containing the credentials.
 func (o PipeSourceParametersSelfManagedKafkaParametersCredentialsPtrOutput) BasicAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParametersSelfManagedKafkaParametersCredentials) *string {
 		if v == nil {
@@ -4867,13 +4867,13 @@ func (o PipeTargetParametersBatchJobParametersArrayPropertiesPtrOutput) Size() p
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverrides struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands []string `pulumi:"commands"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 	Environments []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment `pulumi:"environments"`
 	// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
 	InstanceType *string `pulumi:"instanceType"`
-	// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 	ResourceRequirements []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement `pulumi:"resourceRequirements"`
 }
 
@@ -4889,13 +4889,13 @@ type PipeTargetParametersBatchJobParametersContainerOverridesInput interface {
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesArgs struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 	Environments PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayInput `pulumi:"environments"`
 	// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 	ResourceRequirements PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 }
 
@@ -4994,12 +4994,12 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) ToOutput
 	}
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) Environments() PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
 		return v.Environments
@@ -5011,7 +5011,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) Instance
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesOutput) ResourceRequirements() PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
 		return v.ResourceRequirements
@@ -5048,7 +5048,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Elem(
 	}).(PipeTargetParametersBatchJobParametersContainerOverridesOutput)
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []string {
 		if v == nil {
@@ -5058,7 +5058,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Comma
 	}).(pulumi.StringArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Environments() PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
 		if v == nil {
@@ -5078,7 +5078,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Insta
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) ResourceRequirements() PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrayOutput {
 	return o.ApplyT(func(v *PipeTargetParametersBatchJobParametersContainerOverrides) []PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
 		if v == nil {
@@ -5091,7 +5091,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesPtrOutput) Resou
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value *string `pulumi:"value"`
 }
 
@@ -5109,7 +5109,7 @@ type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentInput in
 type PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -5187,7 +5187,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutpu
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesEnvironment) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5219,9 +5219,9 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArray
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -5237,9 +5237,9 @@ type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement
 }
 
 type PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5312,14 +5312,14 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirem
 	}
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement) string {
 		return v.Value
@@ -5355,7 +5355,7 @@ func (o PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirem
 type PipeTargetParametersBatchJobParametersDependsOn struct {
 	// The job ID of the AWS Batch job that's associated with this dependency.
 	JobId *string `pulumi:"jobId"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type *string `pulumi:"type"`
 }
 
@@ -5373,7 +5373,7 @@ type PipeTargetParametersBatchJobParametersDependsOnInput interface {
 type PipeTargetParametersBatchJobParametersDependsOnArgs struct {
 	// The job ID of the AWS Batch job that's associated with this dependency.
 	JobId pulumi.StringPtrInput `pulumi:"jobId"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -5451,7 +5451,7 @@ func (o PipeTargetParametersBatchJobParametersDependsOnOutput) JobId() pulumi.St
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersDependsOn) *string { return v.JobId }).(pulumi.StringPtrOutput)
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersBatchJobParametersDependsOnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersBatchJobParametersDependsOn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -6772,7 +6772,7 @@ func (o PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigura
 type PipeTargetParametersEcsTaskParametersOverrides struct {
 	// One or more container overrides that are sent to a task. Detailed below.
 	ContainerOverrides []PipeTargetParametersEcsTaskParametersOverridesContainerOverride `pulumi:"containerOverrides"`
-	// The cpu override for the task.
+	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu *string `pulumi:"cpu"`
 	// The ephemeral storage setting override for the task.  Detailed below.
 	EphemeralStorage *PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage `pulumi:"ephemeralStorage"`
@@ -6780,7 +6780,7 @@ type PipeTargetParametersEcsTaskParametersOverrides struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// List of Elastic Inference accelerator overrides for the task. Detailed below.
 	InferenceAcceleratorOverrides []PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
-	// The memory override for the task.
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory *string `pulumi:"memory"`
 	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
@@ -6800,7 +6800,7 @@ type PipeTargetParametersEcsTaskParametersOverridesInput interface {
 type PipeTargetParametersEcsTaskParametersOverridesArgs struct {
 	// One or more container overrides that are sent to a task. Detailed below.
 	ContainerOverrides PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayInput `pulumi:"containerOverrides"`
-	// The cpu override for the task.
+	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// The ephemeral storage setting override for the task.  Detailed below.
 	EphemeralStorage PipeTargetParametersEcsTaskParametersOverridesEphemeralStoragePtrInput `pulumi:"ephemeralStorage"`
@@ -6808,7 +6808,7 @@ type PipeTargetParametersEcsTaskParametersOverridesArgs struct {
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// List of Elastic Inference accelerator overrides for the task. Detailed below.
 	InferenceAcceleratorOverrides PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
-	// The memory override for the task.
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
 	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
@@ -6916,7 +6916,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesOutput) ContainerOverrides
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput)
 }
 
-// The cpu override for the task.
+// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
@@ -6940,7 +6940,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesOutput) InferenceAccelerat
 	}).(PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput)
 }
 
-// The memory override for the task.
+// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -6990,7 +6990,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) ContainerOverri
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutput)
 }
 
-// The cpu override for the task.
+// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -7030,7 +7030,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) InferenceAccele
 	}).(PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrayOutput)
 }
 
-// The memory override for the task.
+// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParametersEcsTaskParametersOverrides) *string {
 		if v == nil {
@@ -7051,21 +7051,21 @@ func (o PipeTargetParametersEcsTaskParametersOverridesPtrOutput) TaskRoleArn() p
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverride struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands []string `pulumi:"commands"`
-	// The cpu override for the task.
+	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu *int `pulumi:"cpu"`
 	// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
 	EnvironmentFiles []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile `pulumi:"environmentFiles"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 	Environments []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment `pulumi:"environments"`
-	// The memory override for the task.
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory *int `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
 	MemoryReservation *int `pulumi:"memoryReservation"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 	ResourceRequirements []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement `pulumi:"resourceRequirements"`
 }
 
@@ -7081,21 +7081,21 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideInput interf
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs struct {
-	// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+	// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The cpu override for the task.
+	// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
 	// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
 	EnvironmentFiles PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayInput `pulumi:"environmentFiles"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 	Environments PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayInput `pulumi:"environments"`
-	// The memory override for the task.
+	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 	Memory pulumi.IntPtrInput `pulumi:"memory"`
 	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
 	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 	ResourceRequirements PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 }
 
@@ -7168,12 +7168,12 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) T
 	}
 }
 
-// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The cpu override for the task.
+// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
@@ -7185,14 +7185,14 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) E
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrayOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Environments() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment {
 		return v.Environments
 	}).(PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrayOutput)
 }
 
-// The memory override for the task.
+// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
@@ -7209,7 +7209,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) N
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideOutput) ResourceRequirements() PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArrayOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverride) []PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
 		return v.ResourceRequirements
@@ -7245,7 +7245,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrayOutp
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value *string `pulumi:"value"`
 }
 
@@ -7263,7 +7263,7 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentI
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7343,7 +7343,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment) *string {
 		return v.Value
@@ -7377,9 +7377,9 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -7395,9 +7395,9 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentF
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7470,14 +7470,14 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 	}
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile) string {
 		return v.Value
@@ -7511,9 +7511,9 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironme
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type string `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -7529,9 +7529,9 @@ type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequ
 }
 
 type PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs struct {
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -7604,14 +7604,14 @@ func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceR
 	}
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement) string {
 		return v.Type
 	}).(pulumi.StringOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement) string {
 		return v.Value
@@ -7942,7 +7942,7 @@ func (o PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverri
 type PipeTargetParametersEcsTaskParametersPlacementConstraint struct {
 	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
 	Expression *string `pulumi:"expression"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type *string `pulumi:"type"`
 }
 
@@ -7960,7 +7960,7 @@ type PipeTargetParametersEcsTaskParametersPlacementConstraintInput interface {
 type PipeTargetParametersEcsTaskParametersPlacementConstraintArgs struct {
 	// A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8038,7 +8038,7 @@ func (o PipeTargetParametersEcsTaskParametersPlacementConstraintOutput) Expressi
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersPlacementConstraintOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementConstraint) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8072,7 +8072,7 @@ func (o PipeTargetParametersEcsTaskParametersPlacementConstraintArrayOutput) Ind
 type PipeTargetParametersEcsTaskParametersPlacementStrategy struct {
 	// The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field *string `pulumi:"field"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type *string `pulumi:"type"`
 }
 
@@ -8090,7 +8090,7 @@ type PipeTargetParametersEcsTaskParametersPlacementStrategyInput interface {
 type PipeTargetParametersEcsTaskParametersPlacementStrategyArgs struct {
 	// The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+	// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -8168,7 +8168,7 @@ func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) Field() pu
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+// The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
 func (o PipeTargetParametersEcsTaskParametersPlacementStrategyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParametersEcsTaskParametersPlacementStrategy) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -9379,7 +9379,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPtrOutput) PipelineParame
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameter struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name string `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value string `pulumi:"value"`
 }
 
@@ -9397,7 +9397,7 @@ type PipeTargetParametersSagemakerPipelineParametersPipelineParameterInput inter
 type PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs struct {
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9475,7 +9475,7 @@ func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) 
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
 func (o PipeTargetParametersSagemakerPipelineParametersPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeTargetParametersSagemakerPipelineParametersPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }

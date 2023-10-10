@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,44 @@ class InternetMonitorArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
+        InternetMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            health_events_config=health_events_config,
+            internet_measurements_log_delivery=internet_measurements_log_delivery,
+            max_city_networks_to_monitor=max_city_networks_to_monitor,
+            resources=resources,
+            status=status,
+            tags=tags,
+            traffic_percentage_to_monitor=traffic_percentage_to_monitor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: pulumi.Input[str],
+             health_events_config: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']] = None,
+             internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
+             max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitor_name", monitor_name)
         if health_events_config is not None:
-            pulumi.set(__self__, "health_events_config", health_events_config)
+            _setter("health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
-            pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
+            _setter("internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
-            pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
+            _setter("max_city_networks_to_monitor", max_city_networks_to_monitor)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_percentage_to_monitor is not None:
-            pulumi.set(__self__, "traffic_percentage_to_monitor", traffic_percentage_to_monitor)
+            _setter("traffic_percentage_to_monitor", traffic_percentage_to_monitor)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -180,29 +203,56 @@ class _InternetMonitorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] traffic_percentage_to_monitor: The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
         """
+        _InternetMonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            health_events_config=health_events_config,
+            internet_measurements_log_delivery=internet_measurements_log_delivery,
+            max_city_networks_to_monitor=max_city_networks_to_monitor,
+            monitor_name=monitor_name,
+            resources=resources,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            traffic_percentage_to_monitor=traffic_percentage_to_monitor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             health_events_config: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']] = None,
+             internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
+             max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
+             monitor_name: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if health_events_config is not None:
-            pulumi.set(__self__, "health_events_config", health_events_config)
+            _setter("health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
-            pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
+            _setter("internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
-            pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
+            _setter("max_city_networks_to_monitor", max_city_networks_to_monitor)
         if monitor_name is not None:
-            pulumi.set(__self__, "monitor_name", monitor_name)
+            _setter("monitor_name", monitor_name)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if traffic_percentage_to_monitor is not None:
-            pulumi.set(__self__, "traffic_percentage_to_monitor", traffic_percentage_to_monitor)
+            _setter("traffic_percentage_to_monitor", traffic_percentage_to_monitor)
 
     @property
     @pulumi.getter
@@ -413,6 +463,10 @@ class InternetMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InternetMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -435,7 +489,17 @@ class InternetMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InternetMonitorArgs.__new__(InternetMonitorArgs)
 
+            if health_events_config is not None and not isinstance(health_events_config, InternetMonitorHealthEventsConfigArgs):
+                health_events_config = health_events_config or {}
+                def _setter(key, value):
+                    health_events_config[key] = value
+                InternetMonitorHealthEventsConfigArgs._configure(_setter, **health_events_config)
             __props__.__dict__["health_events_config"] = health_events_config
+            if internet_measurements_log_delivery is not None and not isinstance(internet_measurements_log_delivery, InternetMonitorInternetMeasurementsLogDeliveryArgs):
+                internet_measurements_log_delivery = internet_measurements_log_delivery or {}
+                def _setter(key, value):
+                    internet_measurements_log_delivery[key] = value
+                InternetMonitorInternetMeasurementsLogDeliveryArgs._configure(_setter, **internet_measurements_log_delivery)
             __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             if monitor_name is None and not opts.urn:

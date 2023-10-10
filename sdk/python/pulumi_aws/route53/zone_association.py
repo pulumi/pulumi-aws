@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ZoneAssociationArgs', 'ZoneAssociation']
@@ -23,10 +23,23 @@ class ZoneAssociationArgs:
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "zone_id", zone_id)
+        ZoneAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            zone_id=zone_id,
+            vpc_region=vpc_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: pulumi.Input[str],
+             zone_id: pulumi.Input[str],
+             vpc_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_id", vpc_id)
+        _setter("zone_id", zone_id)
         if vpc_region is not None:
-            pulumi.set(__self__, "vpc_region", vpc_region)
+            _setter("vpc_region", vpc_region)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -79,14 +92,29 @@ class _ZoneAssociationState:
         :param pulumi.Input[str] vpc_region: The VPC's region. Defaults to the region of the AWS provider.
         :param pulumi.Input[str] zone_id: The private hosted zone to associate.
         """
+        _ZoneAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owning_account=owning_account,
+            vpc_id=vpc_id,
+            vpc_region=vpc_region,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owning_account: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpc_region: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if owning_account is not None:
-            pulumi.set(__self__, "owning_account", owning_account)
+            _setter("owning_account", owning_account)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpc_region is not None:
-            pulumi.set(__self__, "vpc_region", vpc_region)
+            _setter("vpc_region", vpc_region)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="owningAccount")
@@ -264,6 +292,10 @@ class ZoneAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

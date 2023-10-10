@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReportDefinitionArgs', 'ReportDefinition']
@@ -39,21 +39,50 @@ class ReportDefinitionArgs:
         :param pulumi.Input[str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[str] s3_prefix: Report path prefix. Limited to 256 characters.
         """
-        pulumi.set(__self__, "additional_schema_elements", additional_schema_elements)
-        pulumi.set(__self__, "compression", compression)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "report_name", report_name)
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_region", s3_region)
-        pulumi.set(__self__, "time_unit", time_unit)
+        ReportDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_schema_elements=additional_schema_elements,
+            compression=compression,
+            format=format,
+            report_name=report_name,
+            s3_bucket=s3_bucket,
+            s3_region=s3_region,
+            time_unit=time_unit,
+            additional_artifacts=additional_artifacts,
+            refresh_closed_reports=refresh_closed_reports,
+            report_versioning=report_versioning,
+            s3_prefix=s3_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_schema_elements: pulumi.Input[Sequence[pulumi.Input[str]]],
+             compression: pulumi.Input[str],
+             format: pulumi.Input[str],
+             report_name: pulumi.Input[str],
+             s3_bucket: pulumi.Input[str],
+             s3_region: pulumi.Input[str],
+             time_unit: pulumi.Input[str],
+             additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
+             report_versioning: Optional[pulumi.Input[str]] = None,
+             s3_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_schema_elements", additional_schema_elements)
+        _setter("compression", compression)
+        _setter("format", format)
+        _setter("report_name", report_name)
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_region", s3_region)
+        _setter("time_unit", time_unit)
         if additional_artifacts is not None:
-            pulumi.set(__self__, "additional_artifacts", additional_artifacts)
+            _setter("additional_artifacts", additional_artifacts)
         if refresh_closed_reports is not None:
-            pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
+            _setter("refresh_closed_reports", refresh_closed_reports)
         if report_versioning is not None:
-            pulumi.set(__self__, "report_versioning", report_versioning)
+            _setter("report_versioning", report_versioning)
         if s3_prefix is not None:
-            pulumi.set(__self__, "s3_prefix", s3_prefix)
+            _setter("s3_prefix", s3_prefix)
 
     @property
     @pulumi.getter(name="additionalSchemaElements")
@@ -218,30 +247,61 @@ class _ReportDefinitionState:
         :param pulumi.Input[str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         """
+        _ReportDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_artifacts=additional_artifacts,
+            additional_schema_elements=additional_schema_elements,
+            arn=arn,
+            compression=compression,
+            format=format,
+            refresh_closed_reports=refresh_closed_reports,
+            report_name=report_name,
+            report_versioning=report_versioning,
+            s3_bucket=s3_bucket,
+            s3_prefix=s3_prefix,
+            s3_region=s3_region,
+            time_unit=time_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
+             report_name: Optional[pulumi.Input[str]] = None,
+             report_versioning: Optional[pulumi.Input[str]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_prefix: Optional[pulumi.Input[str]] = None,
+             s3_region: Optional[pulumi.Input[str]] = None,
+             time_unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_artifacts is not None:
-            pulumi.set(__self__, "additional_artifacts", additional_artifacts)
+            _setter("additional_artifacts", additional_artifacts)
         if additional_schema_elements is not None:
-            pulumi.set(__self__, "additional_schema_elements", additional_schema_elements)
+            _setter("additional_schema_elements", additional_schema_elements)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if refresh_closed_reports is not None:
-            pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
+            _setter("refresh_closed_reports", refresh_closed_reports)
         if report_name is not None:
-            pulumi.set(__self__, "report_name", report_name)
+            _setter("report_name", report_name)
         if report_versioning is not None:
-            pulumi.set(__self__, "report_versioning", report_versioning)
+            _setter("report_versioning", report_versioning)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_prefix is not None:
-            pulumi.set(__self__, "s3_prefix", s3_prefix)
+            _setter("s3_prefix", s3_prefix)
         if s3_region is not None:
-            pulumi.set(__self__, "s3_region", s3_region)
+            _setter("s3_region", s3_region)
         if time_unit is not None:
-            pulumi.set(__self__, "time_unit", time_unit)
+            _setter("time_unit", time_unit)
 
     @property
     @pulumi.getter(name="additionalArtifacts")
@@ -507,6 +567,10 @@ class ReportDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReportDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

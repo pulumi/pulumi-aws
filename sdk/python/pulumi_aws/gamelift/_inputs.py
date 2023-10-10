@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,11 +37,24 @@ class AliasRoutingStrategyArgs:
         :param pulumi.Input[str] fleet_id: ID of the GameLift Fleet to point the alias to.
         :param pulumi.Input[str] message: Message text to be used with the `TERMINAL` routing strategy.
         """
-        pulumi.set(__self__, "type", type)
+        AliasRoutingStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            fleet_id=fleet_id,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             fleet_id: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if fleet_id is not None:
-            pulumi.set(__self__, "fleet_id", fleet_id)
+            _setter("fleet_id", fleet_id)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -93,11 +106,26 @@ class BuildStorageLocationArgs:
         :param pulumi.Input[str] role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         :param pulumi.Input[str] object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        BuildStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            role_arn=role_arn,
+            object_version=object_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             object_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if object_version is not None:
-            pulumi.set(__self__, "object_version", object_version)
+            _setter("object_version", object_version)
 
     @property
     @pulumi.getter
@@ -155,8 +183,17 @@ class FleetCertificateConfigurationArgs:
         """
         :param pulumi.Input[str] certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
+        FleetCertificateConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_type=certificate_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_type is not None:
-            pulumi.set(__self__, "certificate_type", certificate_type)
+            _setter("certificate_type", certificate_type)
 
     @property
     @pulumi.getter(name="certificateType")
@@ -184,10 +221,25 @@ class FleetEc2InboundPermissionArgs:
         :param pulumi.Input[str] protocol: Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         :param pulumi.Input[int] to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
-        pulumi.set(__self__, "from_port", from_port)
-        pulumi.set(__self__, "ip_range", ip_range)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "to_port", to_port)
+        FleetEc2InboundPermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_port=from_port,
+            ip_range=ip_range,
+            protocol=protocol,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_port: pulumi.Input[int],
+             ip_range: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             to_port: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_port", from_port)
+        _setter("ip_range", ip_range)
+        _setter("protocol", protocol)
+        _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -247,10 +299,21 @@ class FleetResourceCreationLimitPolicyArgs:
         :param pulumi.Input[int] new_game_sessions_per_creator: Maximum number of game sessions that an individual can create during the policy period.
         :param pulumi.Input[int] policy_period_in_minutes: Time span used in evaluating the resource creation limit policy.
         """
+        FleetResourceCreationLimitPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            new_game_sessions_per_creator=new_game_sessions_per_creator,
+            policy_period_in_minutes=policy_period_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             new_game_sessions_per_creator: Optional[pulumi.Input[int]] = None,
+             policy_period_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if new_game_sessions_per_creator is not None:
-            pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
+            _setter("new_game_sessions_per_creator", new_game_sessions_per_creator)
         if policy_period_in_minutes is not None:
-            pulumi.set(__self__, "policy_period_in_minutes", policy_period_in_minutes)
+            _setter("policy_period_in_minutes", policy_period_in_minutes)
 
     @property
     @pulumi.getter(name="newGameSessionsPerCreator")
@@ -288,12 +351,25 @@ class FleetRuntimeConfigurationArgs:
         :param pulumi.Input[int] max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         :param pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
+        FleetRuntimeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            game_session_activation_timeout_seconds=game_session_activation_timeout_seconds,
+            max_concurrent_game_session_activations=max_concurrent_game_session_activations,
+            server_processes=server_processes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             game_session_activation_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             max_concurrent_game_session_activations: Optional[pulumi.Input[int]] = None,
+             server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if game_session_activation_timeout_seconds is not None:
-            pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
+            _setter("game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
         if max_concurrent_game_session_activations is not None:
-            pulumi.set(__self__, "max_concurrent_game_session_activations", max_concurrent_game_session_activations)
+            _setter("max_concurrent_game_session_activations", max_concurrent_game_session_activations)
         if server_processes is not None:
-            pulumi.set(__self__, "server_processes", server_processes)
+            _setter("server_processes", server_processes)
 
     @property
     @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
@@ -343,10 +419,23 @@ class FleetRuntimeConfigurationServerProcessArgs:
         :param pulumi.Input[str] launch_path: Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\\game`, and for Linux instances `/local/game`.
         :param pulumi.Input[str] parameters: Optional list of parameters to pass to the server executable on launch.
         """
-        pulumi.set(__self__, "concurrent_executions", concurrent_executions)
-        pulumi.set(__self__, "launch_path", launch_path)
+        FleetRuntimeConfigurationServerProcessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_executions=concurrent_executions,
+            launch_path=launch_path,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_executions: pulumi.Input[int],
+             launch_path: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("concurrent_executions", concurrent_executions)
+        _setter("launch_path", launch_path)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="concurrentExecutions")
@@ -396,9 +485,20 @@ class GameServerGroupAutoScalingPolicyArgs:
                Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
                because it avoids prematurely starting new instances. Defaults to `60`.
         """
-        pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
+        GameServerGroupAutoScalingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_tracking_configuration=target_tracking_configuration,
+            estimated_instance_warmup=estimated_instance_warmup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs'],
+             estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
-            pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
+            _setter("estimated_instance_warmup", estimated_instance_warmup)
 
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
@@ -432,7 +532,16 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
         """
         :param pulumi.Input[float] target_value: Desired value to use with a game server group target-based scaling policy.
         """
-        pulumi.set(__self__, "target_value", target_value)
+        GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_value=target_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_value: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_value", target_value)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -459,9 +568,20 @@ class GameServerGroupInstanceDefinitionArgs:
                Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
                the most cost-effective options.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        GameServerGroupInstanceDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            weighted_capacity=weighted_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: pulumi.Input[str],
+             weighted_capacity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_type", instance_type)
         if weighted_capacity is not None:
-            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+            _setter("weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -502,12 +622,25 @@ class GameServerGroupLaunchTemplateArgs:
         :param pulumi.Input[str] name: A readable identifier for an existing EC2 launch template.
         :param pulumi.Input[str] version: The version of the EC2 launch template to use. If none is set, the default is the first version created.
         """
+        GameServerGroupLaunchTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -555,9 +688,20 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
         :param pulumi.Input[int] maximum_individual_player_latency_milliseconds: Maximum latency value that is allowed for any player.
         :param pulumi.Input[int] policy_duration_seconds: Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
-        pulumi.set(__self__, "maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
+        GameSessionQueuePlayerLatencyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_individual_player_latency_milliseconds=maximum_individual_player_latency_milliseconds,
+            policy_duration_seconds=policy_duration_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_individual_player_latency_milliseconds: pulumi.Input[int],
+             policy_duration_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
-            pulumi.set(__self__, "policy_duration_seconds", policy_duration_seconds)
+            _setter("policy_duration_seconds", policy_duration_seconds)
 
     @property
     @pulumi.getter(name="maximumIndividualPlayerLatencyMilliseconds")
@@ -593,8 +737,19 @@ class MatchmakingConfigurationGamePropertyArgs:
         :param pulumi.Input[str] key: A game property key
         :param pulumi.Input[str] value: A game property value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        MatchmakingConfigurationGamePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -634,11 +789,26 @@ class ScriptStorageLocationArgs:
         :param pulumi.Input[str] role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         :param pulumi.Input[str] object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ScriptStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            role_arn=role_arn,
+            object_version=object_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             key: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             object_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if object_version is not None:
-            pulumi.set(__self__, "object_version", object_version)
+            _setter("object_version", object_version)
 
     @property
     @pulumi.getter

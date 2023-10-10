@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,10 +30,23 @@ class AccessPointPosixUserArgs:
         :param pulumi.Input[int] uid: POSIX user ID used for all file system operations using this access point.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
-        pulumi.set(__self__, "gid", gid)
-        pulumi.set(__self__, "uid", uid)
+        AccessPointPosixUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            uid=uid,
+            secondary_gids=secondary_gids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: pulumi.Input[int],
+             uid: pulumi.Input[int],
+             secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gid", gid)
+        _setter("uid", uid)
         if secondary_gids is not None:
-            pulumi.set(__self__, "secondary_gids", secondary_gids)
+            _setter("secondary_gids", secondary_gids)
 
     @property
     @pulumi.getter
@@ -81,10 +94,21 @@ class AccessPointRootDirectoryArgs:
         :param pulumi.Input['AccessPointRootDirectoryCreationInfoArgs'] creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         :param pulumi.Input[str] path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
+        AccessPointRootDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_info=creation_info,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_info: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_info is not None:
-            pulumi.set(__self__, "creation_info", creation_info)
+            _setter("creation_info", creation_info)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="creationInfo")
@@ -122,9 +146,22 @@ class AccessPointRootDirectoryCreationInfoArgs:
         :param pulumi.Input[int] owner_uid: POSIX user ID to apply to the `root_directory`.
         :param pulumi.Input[str] permissions: POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
-        pulumi.set(__self__, "owner_gid", owner_gid)
-        pulumi.set(__self__, "owner_uid", owner_uid)
-        pulumi.set(__self__, "permissions", permissions)
+        AccessPointRootDirectoryCreationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            owner_gid=owner_gid,
+            owner_uid=owner_uid,
+            permissions=permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             owner_gid: pulumi.Input[int],
+             owner_uid: pulumi.Input[int],
+             permissions: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("owner_gid", owner_gid)
+        _setter("owner_uid", owner_uid)
+        _setter("permissions", permissions)
 
     @property
     @pulumi.getter(name="ownerGid")
@@ -170,7 +207,16 @@ class BackupPolicyBackupPolicyArgs:
         """
         :param pulumi.Input[str] status: A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
         """
-        pulumi.set(__self__, "status", status)
+        BackupPolicyBackupPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -194,10 +240,21 @@ class FileSystemLifecyclePolicyArgs:
         :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         :param pulumi.Input[str] transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
+        FileSystemLifecyclePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transition_to_ia=transition_to_ia,
+            transition_to_primary_storage_class=transition_to_primary_storage_class,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transition_to_ia: Optional[pulumi.Input[str]] = None,
+             transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if transition_to_ia is not None:
-            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+            _setter("transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
-            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+            _setter("transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIa")
@@ -235,12 +292,25 @@ class FileSystemSizeInByteArgs:
         :param pulumi.Input[int] value_in_ia: The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
         :param pulumi.Input[int] value_in_standard: The latest known metered size (in bytes) of data stored in the Standard storage class.
         """
+        FileSystemSizeInByteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            value_in_ia=value_in_ia,
+            value_in_standard=value_in_standard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[int]] = None,
+             value_in_ia: Optional[pulumi.Input[int]] = None,
+             value_in_standard: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if value_in_ia is not None:
-            pulumi.set(__self__, "value_in_ia", value_in_ia)
+            _setter("value_in_ia", value_in_ia)
         if value_in_standard is not None:
-            pulumi.set(__self__, "value_in_standard", value_in_standard)
+            _setter("value_in_standard", value_in_standard)
 
     @property
     @pulumi.getter
@@ -292,16 +362,33 @@ class ReplicationConfigurationDestinationArgs:
         :param pulumi.Input[str] kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
         :param pulumi.Input[str] region: The region in which the replica should be created.
         """
+        ReplicationConfigurationDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone_name=availability_zone_name,
+            file_system_id=file_system_id,
+            kms_key_id=kms_key_id,
+            region=region,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone_name: Optional[pulumi.Input[str]] = None,
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone_name is not None:
-            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+            _setter("availability_zone_name", availability_zone_name)
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="availabilityZoneName")

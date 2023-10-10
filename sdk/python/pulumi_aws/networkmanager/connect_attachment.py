@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,12 +31,29 @@ class ConnectAttachmentArgs:
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "core_network_id", core_network_id)
-        pulumi.set(__self__, "edge_location", edge_location)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+        ConnectAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            options=options,
+            transport_attachment_id=transport_attachment_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_network_id: pulumi.Input[str],
+             edge_location: pulumi.Input[str],
+             options: pulumi.Input['ConnectAttachmentOptionsArgs'],
+             transport_attachment_id: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("core_network_id", core_network_id)
+        _setter("edge_location", edge_location)
+        _setter("options", options)
+        _setter("transport_attachment_id", transport_attachment_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -138,39 +155,76 @@ class _ConnectAttachmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         """
+        _ConnectAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attachment_id=attachment_id,
+            attachment_policy_rule_number=attachment_policy_rule_number,
+            attachment_type=attachment_type,
+            core_network_arn=core_network_arn,
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            options=options,
+            owner_account_id=owner_account_id,
+            resource_arn=resource_arn,
+            segment_name=segment_name,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            transport_attachment_id=transport_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attachment_id: Optional[pulumi.Input[str]] = None,
+             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+             attachment_type: Optional[pulumi.Input[str]] = None,
+             core_network_arn: Optional[pulumi.Input[str]] = None,
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             segment_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transport_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attachment_id is not None:
-            pulumi.set(__self__, "attachment_id", attachment_id)
+            _setter("attachment_id", attachment_id)
         if attachment_policy_rule_number is not None:
-            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if attachment_type is not None:
-            pulumi.set(__self__, "attachment_type", attachment_type)
+            _setter("attachment_type", attachment_type)
         if core_network_arn is not None:
-            pulumi.set(__self__, "core_network_arn", core_network_arn)
+            _setter("core_network_arn", core_network_arn)
         if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+            _setter("core_network_id", core_network_id)
         if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
+            _setter("edge_location", edge_location)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if segment_name is not None:
-            pulumi.set(__self__, "segment_name", segment_name)
+            _setter("segment_name", segment_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transport_attachment_id is not None:
-            pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
+            _setter("transport_attachment_id", transport_attachment_id)
 
     @property
     @pulumi.getter
@@ -418,6 +472,10 @@ class ConnectAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -443,6 +501,11 @@ class ConnectAttachment(pulumi.CustomResource):
             if edge_location is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_location'")
             __props__.__dict__["edge_location"] = edge_location
+            if options is not None and not isinstance(options, ConnectAttachmentOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                ConnectAttachmentOptionsArgs._configure(_setter, **options)
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options

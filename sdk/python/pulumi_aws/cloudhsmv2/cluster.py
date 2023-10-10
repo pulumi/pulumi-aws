@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class ClusterArgs:
         :param pulumi.Input[str] source_backup_identifier: ID of Cloud HSM v2 cluster backup to be restored.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "hsm_type", hsm_type)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hsm_type=hsm_type,
+            subnet_ids=subnet_ids,
+            source_backup_identifier=source_backup_identifier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hsm_type: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             source_backup_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hsm_type", hsm_type)
+        _setter("subnet_ids", subnet_ids)
         if source_backup_identifier is not None:
-            pulumi.set(__self__, "source_backup_identifier", source_backup_identifier)
+            _setter("source_backup_identifier", source_backup_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="hsmType")
@@ -114,29 +129,56 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The id of the VPC that the CloudHSM cluster resides in.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_certificates=cluster_certificates,
+            cluster_id=cluster_id,
+            cluster_state=cluster_state,
+            hsm_type=hsm_type,
+            security_group_id=security_group_id,
+            source_backup_identifier=source_backup_identifier,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             cluster_state: Optional[pulumi.Input[str]] = None,
+             hsm_type: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             source_backup_identifier: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_certificates is not None:
-            pulumi.set(__self__, "cluster_certificates", cluster_certificates)
+            _setter("cluster_certificates", cluster_certificates)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if cluster_state is not None:
-            pulumi.set(__self__, "cluster_state", cluster_state)
+            _setter("cluster_state", cluster_state)
         if hsm_type is not None:
-            pulumi.set(__self__, "hsm_type", hsm_type)
+            _setter("hsm_type", hsm_type)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if source_backup_identifier is not None:
-            pulumi.set(__self__, "source_backup_identifier", source_backup_identifier)
+            _setter("source_backup_identifier", source_backup_identifier)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="clusterCertificates")
@@ -340,6 +382,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,26 +41,55 @@ class TriggerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "type", type)
+        TriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            type=type,
+            description=description,
+            enabled=enabled,
+            event_batching_conditions=event_batching_conditions,
+            name=name,
+            predicate=predicate,
+            schedule=schedule,
+            start_on_creation=start_on_creation,
+            tags=tags,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
+             type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             start_on_creation: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_batching_conditions is not None:
-            pulumi.set(__self__, "event_batching_conditions", event_batching_conditions)
+            _setter("event_batching_conditions", event_batching_conditions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if predicate is not None:
-            pulumi.set(__self__, "predicate", predicate)
+            _setter("predicate", predicate)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
+            _setter("start_on_creation", start_on_creation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter
@@ -229,37 +258,72 @@ class _TriggerState:
         :param pulumi.Input[str] type: The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         :param pulumi.Input[str] workflow_name: A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         """
+        _TriggerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            arn=arn,
+            description=description,
+            enabled=enabled,
+            event_batching_conditions=event_batching_conditions,
+            name=name,
+            predicate=predicate,
+            schedule=schedule,
+            start_on_creation=start_on_creation,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             start_on_creation: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_batching_conditions is not None:
-            pulumi.set(__self__, "event_batching_conditions", event_batching_conditions)
+            _setter("event_batching_conditions", event_batching_conditions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if predicate is not None:
-            pulumi.set(__self__, "predicate", predicate)
+            _setter("predicate", predicate)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
+            _setter("start_on_creation", start_on_creation)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter
@@ -672,6 +736,10 @@ class Trigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -704,6 +772,11 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_batching_conditions"] = event_batching_conditions
             __props__.__dict__["name"] = name
+            if predicate is not None and not isinstance(predicate, TriggerPredicateArgs):
+                predicate = predicate or {}
+                def _setter(key, value):
+                    predicate[key] = value
+                TriggerPredicateArgs._configure(_setter, **predicate)
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_on_creation"] = start_on_creation

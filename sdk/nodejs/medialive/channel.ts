@@ -181,7 +181,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Settings for the VPC outputs.
+     * Settings for the VPC outputs. See VPC for more details.
      */
     public readonly vpc!: pulumi.Output<outputs.medialive.ChannelVpc | undefined>;
 
@@ -322,7 +322,7 @@ export interface ChannelState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Settings for the VPC outputs.
+     * Settings for the VPC outputs. See VPC for more details.
      */
     vpc?: pulumi.Input<inputs.medialive.ChannelVpc>;
 }
@@ -382,7 +382,7 @@ export interface ChannelArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Settings for the VPC outputs.
+     * Settings for the VPC outputs. See VPC for more details.
      */
     vpc?: pulumi.Input<inputs.medialive.ChannelVpc>;
 }

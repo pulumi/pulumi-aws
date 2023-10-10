@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StackArgs', 'Stack']
@@ -48,32 +48,65 @@ class StackArgs:
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
+        StackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            disable_rollback=disable_rollback,
+            iam_role_arn=iam_role_arn,
+            name=name,
+            notification_arns=notification_arns,
+            on_failure=on_failure,
+            parameters=parameters,
+            policy_body=policy_body,
+            policy_url=policy_url,
+            tags=tags,
+            template_body=template_body,
+            template_url=template_url,
+            timeout_in_minutes=timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disable_rollback: Optional[pulumi.Input[bool]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             on_failure: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             policy_body: Optional[pulumi.Input[str]] = None,
+             policy_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if disable_rollback is not None:
-            pulumi.set(__self__, "disable_rollback", disable_rollback)
+            _setter("disable_rollback", disable_rollback)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_arns is not None:
-            pulumi.set(__self__, "notification_arns", notification_arns)
+            _setter("notification_arns", notification_arns)
         if on_failure is not None:
-            pulumi.set(__self__, "on_failure", on_failure)
+            _setter("on_failure", on_failure)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_body is not None:
-            pulumi.set(__self__, "policy_body", policy_body)
+            _setter("policy_body", policy_body)
         if policy_url is not None:
-            pulumi.set(__self__, "policy_url", policy_url)
+            _setter("policy_url", policy_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
         if timeout_in_minutes is not None:
-            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+            _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -278,39 +311,76 @@ class _StackState:
         :param pulumi.Input[str] template_url: Location of a file containing the template body (max size: 460,800 bytes).
         :param pulumi.Input[int] timeout_in_minutes: The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
         """
+        _StackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            disable_rollback=disable_rollback,
+            iam_role_arn=iam_role_arn,
+            name=name,
+            notification_arns=notification_arns,
+            on_failure=on_failure,
+            outputs=outputs,
+            parameters=parameters,
+            policy_body=policy_body,
+            policy_url=policy_url,
+            tags=tags,
+            tags_all=tags_all,
+            template_body=template_body,
+            template_url=template_url,
+            timeout_in_minutes=timeout_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disable_rollback: Optional[pulumi.Input[bool]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             on_failure: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             policy_body: Optional[pulumi.Input[str]] = None,
+             policy_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if disable_rollback is not None:
-            pulumi.set(__self__, "disable_rollback", disable_rollback)
+            _setter("disable_rollback", disable_rollback)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_arns is not None:
-            pulumi.set(__self__, "notification_arns", notification_arns)
+            _setter("notification_arns", notification_arns)
         if on_failure is not None:
-            pulumi.set(__self__, "on_failure", on_failure)
+            _setter("on_failure", on_failure)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_body is not None:
-            pulumi.set(__self__, "policy_body", policy_body)
+            _setter("policy_body", policy_body)
         if policy_url is not None:
-            pulumi.set(__self__, "policy_url", policy_url)
+            _setter("policy_url", policy_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
         if timeout_in_minutes is not None:
-            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+            _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -651,6 +721,10 @@ class Stack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

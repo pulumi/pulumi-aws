@@ -10,6 +10,11 @@ export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
+export { InstanceTrustProviderAttachmentArgs, InstanceTrustProviderAttachmentState } from "./instanceTrustProviderAttachment";
+export type InstanceTrustProviderAttachment = import("./instanceTrustProviderAttachment").InstanceTrustProviderAttachment;
+export const InstanceTrustProviderAttachment: typeof import("./instanceTrustProviderAttachment").InstanceTrustProviderAttachment = null as any;
+utilities.lazyLoad(exports, ["InstanceTrustProviderAttachment"], () => require("./instanceTrustProviderAttachment"));
+
 export { TrustProviderArgs, TrustProviderState } from "./trustProvider";
 export type TrustProvider = import("./trustProvider").TrustProvider;
 export const TrustProvider: typeof import("./trustProvider").TrustProvider = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "aws:verifiedaccess/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment":
+                return new InstanceTrustProviderAttachment(name, <any>undefined, { urn })
             case "aws:verifiedaccess/trustProvider:TrustProvider":
                 return new TrustProvider(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instanceTrustProviderAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/trustProvider", _module)

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AlternativeContactArgs', 'AlternativeContact']
@@ -29,14 +29,33 @@ class AlternativeContactArgs:
         :param pulumi.Input[str] account_id: ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[str] name: Name of the alternate contact.
         """
-        pulumi.set(__self__, "alternate_contact_type", alternate_contact_type)
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "title", title)
+        AlternativeContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate_contact_type=alternate_contact_type,
+            email_address=email_address,
+            phone_number=phone_number,
+            title=title,
+            account_id=account_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate_contact_type: pulumi.Input[str],
+             email_address: pulumi.Input[str],
+             phone_number: pulumi.Input[str],
+             title: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alternate_contact_type", alternate_contact_type)
+        _setter("email_address", email_address)
+        _setter("phone_number", phone_number)
+        _setter("title", title)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="alternateContactType")
@@ -129,18 +148,37 @@ class _AlternativeContactState:
         :param pulumi.Input[str] phone_number: Phone number for the alternate contact.
         :param pulumi.Input[str] title: Title for the alternate contact.
         """
+        _AlternativeContactState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            alternate_contact_type=alternate_contact_type,
+            email_address=email_address,
+            name=name,
+            phone_number=phone_number,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             alternate_contact_type: Optional[pulumi.Input[str]] = None,
+             email_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if alternate_contact_type is not None:
-            pulumi.set(__self__, "alternate_contact_type", alternate_contact_type)
+            _setter("alternate_contact_type", alternate_contact_type)
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="accountId")
@@ -322,6 +360,10 @@ class AlternativeContact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlternativeContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

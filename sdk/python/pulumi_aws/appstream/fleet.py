@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,38 +55,79 @@ class FleetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
-        pulumi.set(__self__, "compute_capacity", compute_capacity)
-        pulumi.set(__self__, "instance_type", instance_type)
+        FleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_capacity=compute_capacity,
+            instance_type=instance_type,
+            description=description,
+            disconnect_timeout_in_seconds=disconnect_timeout_in_seconds,
+            display_name=display_name,
+            domain_join_info=domain_join_info,
+            enable_default_internet_access=enable_default_internet_access,
+            fleet_type=fleet_type,
+            iam_role_arn=iam_role_arn,
+            idle_disconnect_timeout_in_seconds=idle_disconnect_timeout_in_seconds,
+            image_arn=image_arn,
+            image_name=image_name,
+            max_user_duration_in_seconds=max_user_duration_in_seconds,
+            name=name,
+            stream_view=stream_view,
+            tags=tags,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_capacity: pulumi.Input['FleetComputeCapacityArgs'],
+             instance_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain_join_info: Optional[pulumi.Input['FleetDomainJoinInfoArgs']] = None,
+             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
+             fleet_type: Optional[pulumi.Input[str]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             idle_disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             image_arn: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             stream_view: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("compute_capacity", compute_capacity)
+        _setter("instance_type", instance_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disconnect_timeout_in_seconds is not None:
-            pulumi.set(__self__, "disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
+            _setter("disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if domain_join_info is not None:
-            pulumi.set(__self__, "domain_join_info", domain_join_info)
+            _setter("domain_join_info", domain_join_info)
         if enable_default_internet_access is not None:
-            pulumi.set(__self__, "enable_default_internet_access", enable_default_internet_access)
+            _setter("enable_default_internet_access", enable_default_internet_access)
         if fleet_type is not None:
-            pulumi.set(__self__, "fleet_type", fleet_type)
+            _setter("fleet_type", fleet_type)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if idle_disconnect_timeout_in_seconds is not None:
-            pulumi.set(__self__, "idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
+            _setter("idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
         if image_arn is not None:
-            pulumi.set(__self__, "image_arn", image_arn)
+            _setter("image_arn", image_arn)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if max_user_duration_in_seconds is not None:
-            pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
+            _setter("max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if stream_view is not None:
-            pulumi.set(__self__, "stream_view", stream_view)
+            _setter("stream_view", stream_view)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="computeCapacity")
@@ -344,51 +385,100 @@ class _FleetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
+        _FleetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            compute_capacity=compute_capacity,
+            created_time=created_time,
+            description=description,
+            disconnect_timeout_in_seconds=disconnect_timeout_in_seconds,
+            display_name=display_name,
+            domain_join_info=domain_join_info,
+            enable_default_internet_access=enable_default_internet_access,
+            fleet_type=fleet_type,
+            iam_role_arn=iam_role_arn,
+            idle_disconnect_timeout_in_seconds=idle_disconnect_timeout_in_seconds,
+            image_arn=image_arn,
+            image_name=image_name,
+            instance_type=instance_type,
+            max_user_duration_in_seconds=max_user_duration_in_seconds,
+            name=name,
+            state=state,
+            stream_view=stream_view,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             compute_capacity: Optional[pulumi.Input['FleetComputeCapacityArgs']] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain_join_info: Optional[pulumi.Input['FleetDomainJoinInfoArgs']] = None,
+             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
+             fleet_type: Optional[pulumi.Input[str]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             idle_disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             image_arn: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             max_user_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             stream_view: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compute_capacity is not None:
-            pulumi.set(__self__, "compute_capacity", compute_capacity)
+            _setter("compute_capacity", compute_capacity)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disconnect_timeout_in_seconds is not None:
-            pulumi.set(__self__, "disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
+            _setter("disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if domain_join_info is not None:
-            pulumi.set(__self__, "domain_join_info", domain_join_info)
+            _setter("domain_join_info", domain_join_info)
         if enable_default_internet_access is not None:
-            pulumi.set(__self__, "enable_default_internet_access", enable_default_internet_access)
+            _setter("enable_default_internet_access", enable_default_internet_access)
         if fleet_type is not None:
-            pulumi.set(__self__, "fleet_type", fleet_type)
+            _setter("fleet_type", fleet_type)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if idle_disconnect_timeout_in_seconds is not None:
-            pulumi.set(__self__, "idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
+            _setter("idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
         if image_arn is not None:
-            pulumi.set(__self__, "image_arn", image_arn)
+            _setter("image_arn", image_arn)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if max_user_duration_in_seconds is not None:
-            pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
+            _setter("max_user_duration_in_seconds", max_user_duration_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if stream_view is not None:
-            pulumi.set(__self__, "stream_view", stream_view)
+            _setter("stream_view", stream_view)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -780,6 +870,10 @@ class Fleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -811,12 +905,22 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
+            if compute_capacity is not None and not isinstance(compute_capacity, FleetComputeCapacityArgs):
+                compute_capacity = compute_capacity or {}
+                def _setter(key, value):
+                    compute_capacity[key] = value
+                FleetComputeCapacityArgs._configure(_setter, **compute_capacity)
             if compute_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_capacity'")
             __props__.__dict__["compute_capacity"] = compute_capacity
             __props__.__dict__["description"] = description
             __props__.__dict__["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
             __props__.__dict__["display_name"] = display_name
+            if domain_join_info is not None and not isinstance(domain_join_info, FleetDomainJoinInfoArgs):
+                domain_join_info = domain_join_info or {}
+                def _setter(key, value):
+                    domain_join_info[key] = value
+                FleetDomainJoinInfoArgs._configure(_setter, **domain_join_info)
             __props__.__dict__["domain_join_info"] = domain_join_info
             __props__.__dict__["enable_default_internet_access"] = enable_default_internet_access
             __props__.__dict__["fleet_type"] = fleet_type
@@ -831,6 +935,11 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
+            if vpc_config is not None and not isinstance(vpc_config, FleetVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                FleetVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

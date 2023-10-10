@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RepositoryArgs', 'Repository']
@@ -25,13 +25,28 @@ class RepositoryArgs:
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            default_branch=default_branch,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: pulumi.Input[str],
+             default_branch: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_name", repository_name)
         if default_branch is not None:
-            pulumi.set(__self__, "default_branch", default_branch)
+            _setter("default_branch", default_branch)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -106,27 +121,52 @@ class _RepositoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            clone_url_http=clone_url_http,
+            clone_url_ssh=clone_url_ssh,
+            default_branch=default_branch,
+            description=description,
+            repository_id=repository_id,
+            repository_name=repository_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             clone_url_http: Optional[pulumi.Input[str]] = None,
+             clone_url_ssh: Optional[pulumi.Input[str]] = None,
+             default_branch: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if clone_url_http is not None:
-            pulumi.set(__self__, "clone_url_http", clone_url_http)
+            _setter("clone_url_http", clone_url_http)
         if clone_url_ssh is not None:
-            pulumi.set(__self__, "clone_url_ssh", clone_url_ssh)
+            _setter("clone_url_ssh", clone_url_ssh)
         if default_branch is not None:
-            pulumi.set(__self__, "default_branch", default_branch)
+            _setter("default_branch", default_branch)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -266,7 +306,9 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Codecommit repository using repository name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:
+
+        Using `TODO import`, import CodeCommit repository using repository name. For example:
 
         ```sh
          $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
@@ -301,7 +343,9 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Codecommit repository using repository name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:
+
+        Using `TODO import`, import CodeCommit repository using repository name. For example:
 
         ```sh
          $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
@@ -317,6 +361,10 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

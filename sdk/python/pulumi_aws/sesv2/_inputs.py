@@ -6,10 +6,12 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountVdmAttributesDashboardAttributesArgs',
+    'AccountVdmAttributesGuardianAttributesArgs',
     'ConfigurationSetDeliveryOptionsArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs',
@@ -29,6 +31,70 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AccountVdmAttributesDashboardAttributesArgs:
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        AccountVdmAttributesDashboardAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engagement_metrics=engagement_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engagement_metrics: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if engagement_metrics is not None:
+            _setter("engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+    @engagement_metrics.setter
+    def engagement_metrics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engagement_metrics", value)
+
+
+@pulumi.input_type
+class AccountVdmAttributesGuardianAttributesArgs:
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        AccountVdmAttributesGuardianAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            optimized_shared_delivery=optimized_shared_delivery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             optimized_shared_delivery: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        if optimized_shared_delivery is not None:
+            _setter("optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+    @optimized_shared_delivery.setter
+    def optimized_shared_delivery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optimized_shared_delivery", value)
+
+
+@pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
                  sending_pool_name: Optional[pulumi.Input[str]] = None,
@@ -37,10 +103,21 @@ class ConfigurationSetDeliveryOptionsArgs:
         :param pulumi.Input[str] sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param pulumi.Input[str] tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
         """
+        ConfigurationSetDeliveryOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_pool_name=sending_pool_name,
+            tls_policy=tls_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_pool_name: Optional[pulumi.Input[str]] = None,
+             tls_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_pool_name is not None:
-            pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+            _setter("sending_pool_name", sending_pool_name)
         if tls_policy is not None:
-            pulumi.set(__self__, "tls_policy", tls_policy)
+            _setter("tls_policy", tls_policy)
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -86,17 +163,36 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs'] pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs'] sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
         """
-        pulumi.set(__self__, "matching_event_types", matching_event_types)
+        ConfigurationSetEventDestinationEventDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matching_event_types=matching_event_types,
+            cloud_watch_destination=cloud_watch_destination,
+            enabled=enabled,
+            kinesis_firehose_destination=kinesis_firehose_destination,
+            pinpoint_destination=pinpoint_destination,
+            sns_destination=sns_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']] = None,
+             pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']] = None,
+             sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
-            pulumi.set(__self__, "cloud_watch_destination", cloud_watch_destination)
+            _setter("cloud_watch_destination", cloud_watch_destination)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if kinesis_firehose_destination is not None:
-            pulumi.set(__self__, "kinesis_firehose_destination", kinesis_firehose_destination)
+            _setter("kinesis_firehose_destination", kinesis_firehose_destination)
         if pinpoint_destination is not None:
-            pulumi.set(__self__, "pinpoint_destination", pinpoint_destination)
+            _setter("pinpoint_destination", pinpoint_destination)
         if sns_destination is not None:
-            pulumi.set(__self__, "sns_destination", sns_destination)
+            _setter("sns_destination", sns_destination)
 
     @property
     @pulumi.getter(name="matchingEventTypes")
@@ -180,7 +276,16 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
         """
-        pulumi.set(__self__, "dimension_configurations", dimension_configurations)
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_configurations=dimension_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_configurations: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dimension_configurations", dimension_configurations)
 
     @property
     @pulumi.getter(name="dimensionConfigurations")
@@ -206,9 +311,22 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
         :param pulumi.Input[str] dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
         :param pulumi.Input[str] dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
-        pulumi.set(__self__, "default_dimension_value", default_dimension_value)
-        pulumi.set(__self__, "dimension_name", dimension_name)
-        pulumi.set(__self__, "dimension_value_source", dimension_value_source)
+        ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_dimension_value=default_dimension_value,
+            dimension_name=dimension_name,
+            dimension_value_source=dimension_value_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_dimension_value: pulumi.Input[str],
+             dimension_name: pulumi.Input[str],
+             dimension_value_source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_dimension_value", default_dimension_value)
+        _setter("dimension_name", dimension_name)
+        _setter("dimension_value_source", dimension_value_source)
 
     @property
     @pulumi.getter(name="defaultDimensionValue")
@@ -256,8 +374,19 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
         :param pulumi.Input[str] delivery_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
         """
-        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_arn=delivery_stream_arn,
+            iam_role_arn=iam_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_arn: pulumi.Input[str],
+             iam_role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delivery_stream_arn", delivery_stream_arn)
+        _setter("iam_role_arn", iam_role_arn)
 
     @property
     @pulumi.getter(name="deliveryStreamArn")
@@ -288,7 +417,16 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
 class ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs:
     def __init__(__self__, *,
                  application_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "application_arn", application_arn)
+        ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_arn=application_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_arn", application_arn)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -307,7 +445,16 @@ class ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs:
         """
         :param pulumi.Input[str] topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
         """
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -331,10 +478,21 @@ class ConfigurationSetReputationOptionsArgs:
         :param pulumi.Input[str] last_fresh_start: The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
         :param pulumi.Input[bool] reputation_metrics_enabled: If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
         """
+        ConfigurationSetReputationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_fresh_start=last_fresh_start,
+            reputation_metrics_enabled=reputation_metrics_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_fresh_start: Optional[pulumi.Input[str]] = None,
+             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if last_fresh_start is not None:
-            pulumi.set(__self__, "last_fresh_start", last_fresh_start)
+            _setter("last_fresh_start", last_fresh_start)
         if reputation_metrics_enabled is not None:
-            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+            _setter("reputation_metrics_enabled", reputation_metrics_enabled)
 
     @property
     @pulumi.getter(name="lastFreshStart")
@@ -368,8 +526,17 @@ class ConfigurationSetSendingOptionsArgs:
         """
         :param pulumi.Input[bool] sending_enabled: If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
         """
+        ConfigurationSetSendingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sending_enabled=sending_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sending_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if sending_enabled is not None:
-            pulumi.set(__self__, "sending_enabled", sending_enabled)
+            _setter("sending_enabled", sending_enabled)
 
     @property
     @pulumi.getter(name="sendingEnabled")
@@ -391,8 +558,17 @@ class ConfigurationSetSuppressionOptionsArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
+        ConfigurationSetSuppressionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suppressed_reasons=suppressed_reasons,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if suppressed_reasons is not None:
-            pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+            _setter("suppressed_reasons", suppressed_reasons)
 
     @property
     @pulumi.getter(name="suppressedReasons")
@@ -414,7 +590,16 @@ class ConfigurationSetTrackingOptionsArgs:
         """
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
         """
-        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        ConfigurationSetTrackingOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_redirect_domain=custom_redirect_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_redirect_domain: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -438,10 +623,21 @@ class ConfigurationSetVdmOptionsArgs:
         :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
+        ConfigurationSetVdmOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_options=dashboard_options,
+            guardian_options=guardian_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']] = None,
+             guardian_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dashboard_options is not None:
-            pulumi.set(__self__, "dashboard_options", dashboard_options)
+            _setter("dashboard_options", dashboard_options)
         if guardian_options is not None:
-            pulumi.set(__self__, "guardian_options", guardian_options)
+            _setter("guardian_options", guardian_options)
 
     @property
     @pulumi.getter(name="dashboardOptions")
@@ -475,8 +671,17 @@ class ConfigurationSetVdmOptionsDashboardOptionsArgs:
         """
         :param pulumi.Input[str] engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         """
+        ConfigurationSetVdmOptionsDashboardOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engagement_metrics=engagement_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engagement_metrics: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if engagement_metrics is not None:
-            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+            _setter("engagement_metrics", engagement_metrics)
 
     @property
     @pulumi.getter(name="engagementMetrics")
@@ -498,8 +703,17 @@ class ConfigurationSetVdmOptionsGuardianOptionsArgs:
         """
         :param pulumi.Input[str] optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         """
+        ConfigurationSetVdmOptionsGuardianOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            optimized_shared_delivery=optimized_shared_delivery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             optimized_shared_delivery: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if optimized_shared_delivery is not None:
-            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+            _setter("optimized_shared_delivery", optimized_shared_delivery)
 
     @property
     @pulumi.getter(name="optimizedSharedDelivery")
@@ -529,11 +743,26 @@ class ContactListTopicArgs:
                The following arguments are optional:
         :param pulumi.Input[str] description: A description of what the topic is about, which the contact will see.
         """
-        pulumi.set(__self__, "default_subscription_status", default_subscription_status)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "topic_name", topic_name)
+        ContactListTopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_subscription_status=default_subscription_status,
+            display_name=display_name,
+            topic_name=topic_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_subscription_status: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             topic_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_subscription_status", default_subscription_status)
+        _setter("display_name", display_name)
+        _setter("topic_name", topic_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="defaultSubscriptionStatus")
@@ -609,22 +838,45 @@ class EmailIdentityDkimSigningAttributesArgs:
         :param pulumi.Input[str] status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """
+        EmailIdentityDkimSigningAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_signing_key_length=current_signing_key_length,
+            domain_signing_private_key=domain_signing_private_key,
+            domain_signing_selector=domain_signing_selector,
+            last_key_generation_timestamp=last_key_generation_timestamp,
+            next_signing_key_length=next_signing_key_length,
+            signing_attributes_origin=signing_attributes_origin,
+            status=status,
+            tokens=tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_signing_key_length: Optional[pulumi.Input[str]] = None,
+             domain_signing_private_key: Optional[pulumi.Input[str]] = None,
+             domain_signing_selector: Optional[pulumi.Input[str]] = None,
+             last_key_generation_timestamp: Optional[pulumi.Input[str]] = None,
+             next_signing_key_length: Optional[pulumi.Input[str]] = None,
+             signing_attributes_origin: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if current_signing_key_length is not None:
-            pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
+            _setter("current_signing_key_length", current_signing_key_length)
         if domain_signing_private_key is not None:
-            pulumi.set(__self__, "domain_signing_private_key", domain_signing_private_key)
+            _setter("domain_signing_private_key", domain_signing_private_key)
         if domain_signing_selector is not None:
-            pulumi.set(__self__, "domain_signing_selector", domain_signing_selector)
+            _setter("domain_signing_selector", domain_signing_selector)
         if last_key_generation_timestamp is not None:
-            pulumi.set(__self__, "last_key_generation_timestamp", last_key_generation_timestamp)
+            _setter("last_key_generation_timestamp", last_key_generation_timestamp)
         if next_signing_key_length is not None:
-            pulumi.set(__self__, "next_signing_key_length", next_signing_key_length)
+            _setter("next_signing_key_length", next_signing_key_length)
         if signing_attributes_origin is not None:
-            pulumi.set(__self__, "signing_attributes_origin", signing_attributes_origin)
+            _setter("signing_attributes_origin", signing_attributes_origin)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tokens is not None:
-            pulumi.set(__self__, "tokens", tokens)
+            _setter("tokens", tokens)
 
     @property
     @pulumi.getter(name="currentSigningKeyLength")

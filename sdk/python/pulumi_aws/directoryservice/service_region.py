@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,30 @@ class ServiceRegionArgs:
         :param pulumi.Input[int] desired_number_of_domain_controllers: The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "region_name", region_name)
-        pulumi.set(__self__, "vpc_settings", vpc_settings)
+        ServiceRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            region_name=region_name,
+            vpc_settings=vpc_settings,
+            desired_number_of_domain_controllers=desired_number_of_domain_controllers,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: pulumi.Input[str],
+             region_name: pulumi.Input[str],
+             vpc_settings: pulumi.Input['ServiceRegionVpcSettingsArgs'],
+             desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("directory_id", directory_id)
+        _setter("region_name", region_name)
+        _setter("vpc_settings", vpc_settings)
         if desired_number_of_domain_controllers is not None:
-            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
+            _setter("desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -116,21 +133,40 @@ class _ServiceRegionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ServiceRegionVpcSettingsArgs'] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
+        _ServiceRegionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_number_of_domain_controllers=desired_number_of_domain_controllers,
+            directory_id=directory_id,
+            region_name=region_name,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_settings=vpc_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             region_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_settings: Optional[pulumi.Input['ServiceRegionVpcSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if desired_number_of_domain_controllers is not None:
-            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
+            _setter("desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if region_name is not None:
-            pulumi.set(__self__, "region_name", region_name)
+            _setter("region_name", region_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_settings is not None:
-            pulumi.set(__self__, "vpc_settings", vpc_settings)
+            _setter("vpc_settings", vpc_settings)
 
     @property
     @pulumi.getter(name="desiredNumberOfDomainControllers")
@@ -267,6 +303,10 @@ class ServiceRegion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceRegionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,6 +334,11 @@ class ServiceRegion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'region_name'")
             __props__.__dict__["region_name"] = region_name
             __props__.__dict__["tags"] = tags
+            if vpc_settings is not None and not isinstance(vpc_settings, ServiceRegionVpcSettingsArgs):
+                vpc_settings = vpc_settings or {}
+                def _setter(key, value):
+                    vpc_settings[key] = value
+                ServiceRegionVpcSettingsArgs._configure(_setter, **vpc_settings)
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings

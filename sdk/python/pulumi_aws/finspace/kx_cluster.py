@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,36 +62,79 @@ class KxClusterArgs:
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "az_mode", az_mode)
-        pulumi.set(__self__, "capacity_configuration", capacity_configuration)
-        pulumi.set(__self__, "environment_id", environment_id)
-        pulumi.set(__self__, "release_label", release_label)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        KxClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            az_mode=az_mode,
+            capacity_configuration=capacity_configuration,
+            environment_id=environment_id,
+            release_label=release_label,
+            type=type,
+            vpc_configuration=vpc_configuration,
+            auto_scaling_configuration=auto_scaling_configuration,
+            availability_zone_id=availability_zone_id,
+            cache_storage_configurations=cache_storage_configurations,
+            code=code,
+            command_line_arguments=command_line_arguments,
+            databases=databases,
+            description=description,
+            execution_role=execution_role,
+            initialization_script=initialization_script,
+            name=name,
+            savedown_storage_configuration=savedown_storage_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             az_mode: pulumi.Input[str],
+             capacity_configuration: pulumi.Input['KxClusterCapacityConfigurationArgs'],
+             environment_id: pulumi.Input[str],
+             release_label: pulumi.Input[str],
+             type: pulumi.Input[str],
+             vpc_configuration: pulumi.Input['KxClusterVpcConfigurationArgs'],
+             auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
+             code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
+             command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             execution_role: Optional[pulumi.Input[str]] = None,
+             initialization_script: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("az_mode", az_mode)
+        _setter("capacity_configuration", capacity_configuration)
+        _setter("environment_id", environment_id)
+        _setter("release_label", release_label)
+        _setter("type", type)
+        _setter("vpc_configuration", vpc_configuration)
         if auto_scaling_configuration is not None:
-            pulumi.set(__self__, "auto_scaling_configuration", auto_scaling_configuration)
+            _setter("auto_scaling_configuration", auto_scaling_configuration)
         if availability_zone_id is not None:
-            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+            _setter("availability_zone_id", availability_zone_id)
         if cache_storage_configurations is not None:
-            pulumi.set(__self__, "cache_storage_configurations", cache_storage_configurations)
+            _setter("cache_storage_configurations", cache_storage_configurations)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if command_line_arguments is not None:
-            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+            _setter("command_line_arguments", command_line_arguments)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+            _setter("execution_role", execution_role)
         if initialization_script is not None:
-            pulumi.set(__self__, "initialization_script", initialization_script)
+            _setter("initialization_script", initialization_script)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if savedown_storage_configuration is not None:
-            pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
+            _setter("savedown_storage_configuration", savedown_storage_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="azMode")
@@ -376,57 +419,112 @@ class _KxClusterState:
                
                The following arguments are optional:
         """
+        _KxClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_scaling_configuration=auto_scaling_configuration,
+            availability_zone_id=availability_zone_id,
+            az_mode=az_mode,
+            cache_storage_configurations=cache_storage_configurations,
+            capacity_configuration=capacity_configuration,
+            code=code,
+            command_line_arguments=command_line_arguments,
+            created_timestamp=created_timestamp,
+            databases=databases,
+            description=description,
+            environment_id=environment_id,
+            execution_role=execution_role,
+            initialization_script=initialization_script,
+            last_modified_timestamp=last_modified_timestamp,
+            name=name,
+            release_label=release_label,
+            savedown_storage_configuration=savedown_storage_configuration,
+            status=status,
+            status_reason=status_reason,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             az_mode: Optional[pulumi.Input[str]] = None,
+             cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
+             capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']] = None,
+             code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
+             command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             created_timestamp: Optional[pulumi.Input[str]] = None,
+             databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             execution_role: Optional[pulumi.Input[str]] = None,
+             initialization_script: Optional[pulumi.Input[str]] = None,
+             last_modified_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             release_label: Optional[pulumi.Input[str]] = None,
+             savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_reason: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_scaling_configuration is not None:
-            pulumi.set(__self__, "auto_scaling_configuration", auto_scaling_configuration)
+            _setter("auto_scaling_configuration", auto_scaling_configuration)
         if availability_zone_id is not None:
-            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+            _setter("availability_zone_id", availability_zone_id)
         if az_mode is not None:
-            pulumi.set(__self__, "az_mode", az_mode)
+            _setter("az_mode", az_mode)
         if cache_storage_configurations is not None:
-            pulumi.set(__self__, "cache_storage_configurations", cache_storage_configurations)
+            _setter("cache_storage_configurations", cache_storage_configurations)
         if capacity_configuration is not None:
-            pulumi.set(__self__, "capacity_configuration", capacity_configuration)
+            _setter("capacity_configuration", capacity_configuration)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if command_line_arguments is not None:
-            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+            _setter("command_line_arguments", command_line_arguments)
         if created_timestamp is not None:
-            pulumi.set(__self__, "created_timestamp", created_timestamp)
+            _setter("created_timestamp", created_timestamp)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+            _setter("execution_role", execution_role)
         if initialization_script is not None:
-            pulumi.set(__self__, "initialization_script", initialization_script)
+            _setter("initialization_script", initialization_script)
         if last_modified_timestamp is not None:
-            pulumi.set(__self__, "last_modified_timestamp", last_modified_timestamp)
+            _setter("last_modified_timestamp", last_modified_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if release_label is not None:
-            pulumi.set(__self__, "release_label", release_label)
+            _setter("release_label", release_label)
         if savedown_storage_configuration is not None:
-            pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
+            _setter("savedown_storage_configuration", savedown_storage_configuration)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_reason is not None:
-            pulumi.set(__self__, "status_reason", status_reason)
+            _setter("status_reason", status_reason)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+            _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter
@@ -815,6 +913,10 @@ class KxCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KxClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -847,15 +949,30 @@ class KxCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KxClusterArgs.__new__(KxClusterArgs)
 
+            if auto_scaling_configuration is not None and not isinstance(auto_scaling_configuration, KxClusterAutoScalingConfigurationArgs):
+                auto_scaling_configuration = auto_scaling_configuration or {}
+                def _setter(key, value):
+                    auto_scaling_configuration[key] = value
+                KxClusterAutoScalingConfigurationArgs._configure(_setter, **auto_scaling_configuration)
             __props__.__dict__["auto_scaling_configuration"] = auto_scaling_configuration
             __props__.__dict__["availability_zone_id"] = availability_zone_id
             if az_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'az_mode'")
             __props__.__dict__["az_mode"] = az_mode
             __props__.__dict__["cache_storage_configurations"] = cache_storage_configurations
+            if capacity_configuration is not None and not isinstance(capacity_configuration, KxClusterCapacityConfigurationArgs):
+                capacity_configuration = capacity_configuration or {}
+                def _setter(key, value):
+                    capacity_configuration[key] = value
+                KxClusterCapacityConfigurationArgs._configure(_setter, **capacity_configuration)
             if capacity_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity_configuration'")
             __props__.__dict__["capacity_configuration"] = capacity_configuration
+            if code is not None and not isinstance(code, KxClusterCodeArgs):
+                code = code or {}
+                def _setter(key, value):
+                    code[key] = value
+                KxClusterCodeArgs._configure(_setter, **code)
             __props__.__dict__["code"] = code
             __props__.__dict__["command_line_arguments"] = command_line_arguments
             __props__.__dict__["databases"] = databases
@@ -869,11 +986,21 @@ class KxCluster(pulumi.CustomResource):
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
+            if savedown_storage_configuration is not None and not isinstance(savedown_storage_configuration, KxClusterSavedownStorageConfigurationArgs):
+                savedown_storage_configuration = savedown_storage_configuration or {}
+                def _setter(key, value):
+                    savedown_storage_configuration[key] = value
+                KxClusterSavedownStorageConfigurationArgs._configure(_setter, **savedown_storage_configuration)
             __props__.__dict__["savedown_storage_configuration"] = savedown_storage_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            if vpc_configuration is not None and not isinstance(vpc_configuration, KxClusterVpcConfigurationArgs):
+                vpc_configuration = vpc_configuration or {}
+                def _setter(key, value):
+                    vpc_configuration[key] = value
+                KxClusterVpcConfigurationArgs._configure(_setter, **vpc_configuration)
             if vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_configuration'")
             __props__.__dict__["vpc_configuration"] = vpc_configuration

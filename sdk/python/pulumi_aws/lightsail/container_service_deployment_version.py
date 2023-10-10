@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class ContainerServiceDeploymentVersionArgs:
         :param pulumi.Input[str] service_name: The name for the container service.
         :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
-        pulumi.set(__self__, "containers", containers)
-        pulumi.set(__self__, "service_name", service_name)
+        ContainerServiceDeploymentVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            service_name=service_name,
+            public_endpoint=public_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]],
+             service_name: pulumi.Input[str],
+             public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("containers", containers)
+        _setter("service_name", service_name)
         if public_endpoint is not None:
-            pulumi.set(__self__, "public_endpoint", public_endpoint)
+            _setter("public_endpoint", public_endpoint)
 
     @property
     @pulumi.getter
@@ -85,18 +98,37 @@ class _ContainerServiceDeploymentVersionState:
         :param pulumi.Input[str] state: The current state of the container service.
         :param pulumi.Input[int] version: The version number of the deployment.
         """
+        _ContainerServiceDeploymentVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            created_at=created_at,
+            public_endpoint=public_endpoint,
+            service_name=service_name,
+            state=state,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if public_endpoint is not None:
-            pulumi.set(__self__, "public_endpoint", public_endpoint)
+            _setter("public_endpoint", public_endpoint)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -300,6 +332,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerServiceDeploymentVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -320,6 +356,11 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
+            if public_endpoint is not None and not isinstance(public_endpoint, ContainerServiceDeploymentVersionPublicEndpointArgs):
+                public_endpoint = public_endpoint or {}
+                def _setter(key, value):
+                    public_endpoint[key] = value
+                ContainerServiceDeploymentVersionPublicEndpointArgs._configure(_setter, **public_endpoint)
             __props__.__dict__["public_endpoint"] = public_endpoint
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

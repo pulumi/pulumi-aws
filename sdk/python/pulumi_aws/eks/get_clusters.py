@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetClustersResult',
     'AwaitableGetClustersResult',
     'get_clusters',
+    'get_clusters_output',
 ]
 
 @pulumi.output_type
@@ -66,3 +67,11 @@ def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClu
     return AwaitableGetClustersResult(
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
+
+
+@_utilities.lift_output_func(get_clusters)
+def get_clusters_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClustersResult]:
+    """
+    Retrieve EKS Clusters list
+    """
+    ...

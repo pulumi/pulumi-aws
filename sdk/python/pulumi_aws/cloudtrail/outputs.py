@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -46,10 +46,21 @@ class EventDataStoreAdvancedEventSelector(dict):
         :param Sequence['EventDataStoreAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param str name: Specifies the name of the advanced event selector.
         """
+        EventDataStoreAdvancedEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_selectors=field_selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_selectors: Optional[Sequence['outputs.EventDataStoreAdvancedEventSelectorFieldSelector']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if field_selectors is not None:
-            pulumi.set(__self__, "field_selectors", field_selectors)
+            _setter("field_selectors", field_selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fieldSelectors")
@@ -112,20 +123,41 @@ class EventDataStoreAdvancedEventSelectorFieldSelector(dict):
         :param Sequence[str] not_starts_withs: A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
         :param Sequence[str] starts_withs: A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
         """
+        EventDataStoreAdvancedEventSelectorFieldSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ends_withs=ends_withs,
+            equals=equals,
+            field=field,
+            not_ends_withs=not_ends_withs,
+            not_equals=not_equals,
+            not_starts_withs=not_starts_withs,
+            starts_withs=starts_withs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ends_withs: Optional[Sequence[str]] = None,
+             equals: Optional[Sequence[str]] = None,
+             field: Optional[str] = None,
+             not_ends_withs: Optional[Sequence[str]] = None,
+             not_equals: Optional[Sequence[str]] = None,
+             not_starts_withs: Optional[Sequence[str]] = None,
+             starts_withs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ends_withs is not None:
-            pulumi.set(__self__, "ends_withs", ends_withs)
+            _setter("ends_withs", ends_withs)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if not_ends_withs is not None:
-            pulumi.set(__self__, "not_ends_withs", not_ends_withs)
+            _setter("not_ends_withs", not_ends_withs)
         if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
+            _setter("not_equals", not_equals)
         if not_starts_withs is not None:
-            pulumi.set(__self__, "not_starts_withs", not_starts_withs)
+            _setter("not_starts_withs", not_starts_withs)
         if starts_withs is not None:
-            pulumi.set(__self__, "starts_withs", starts_withs)
+            _setter("starts_withs", starts_withs)
 
     @property
     @pulumi.getter(name="endsWiths")
@@ -210,9 +242,20 @@ class TrailAdvancedEventSelector(dict):
         :param Sequence['TrailAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param str name: Name of the trail.
         """
-        pulumi.set(__self__, "field_selectors", field_selectors)
+        TrailAdvancedEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_selectors=field_selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_selectors: Sequence['outputs.TrailAdvancedEventSelectorFieldSelector'],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_selectors", field_selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fieldSelectors")
@@ -275,19 +318,40 @@ class TrailAdvancedEventSelectorFieldSelector(dict):
         :param Sequence[str] not_starts_withs: A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
         :param Sequence[str] starts_withs: A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
         """
-        pulumi.set(__self__, "field", field)
+        TrailAdvancedEventSelectorFieldSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            ends_withs=ends_withs,
+            equals=equals,
+            not_ends_withs=not_ends_withs,
+            not_equals=not_equals,
+            not_starts_withs=not_starts_withs,
+            starts_withs=starts_withs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             ends_withs: Optional[Sequence[str]] = None,
+             equals: Optional[Sequence[str]] = None,
+             not_ends_withs: Optional[Sequence[str]] = None,
+             not_equals: Optional[Sequence[str]] = None,
+             not_starts_withs: Optional[Sequence[str]] = None,
+             starts_withs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
         if ends_withs is not None:
-            pulumi.set(__self__, "ends_withs", ends_withs)
+            _setter("ends_withs", ends_withs)
         if equals is not None:
-            pulumi.set(__self__, "equals", equals)
+            _setter("equals", equals)
         if not_ends_withs is not None:
-            pulumi.set(__self__, "not_ends_withs", not_ends_withs)
+            _setter("not_ends_withs", not_ends_withs)
         if not_equals is not None:
-            pulumi.set(__self__, "not_equals", not_equals)
+            _setter("not_equals", not_equals)
         if not_starts_withs is not None:
-            pulumi.set(__self__, "not_starts_withs", not_starts_withs)
+            _setter("not_starts_withs", not_starts_withs)
         if starts_withs is not None:
-            pulumi.set(__self__, "starts_withs", starts_withs)
+            _setter("starts_withs", starts_withs)
 
     @property
     @pulumi.getter
@@ -382,14 +446,29 @@ class TrailEventSelector(dict):
         :param bool include_management_events: Whether to include management events for your trail. Defaults to `true`.
         :param str read_write_type: Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         """
+        TrailEventSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_resources=data_resources,
+            exclude_management_event_sources=exclude_management_event_sources,
+            include_management_events=include_management_events,
+            read_write_type=read_write_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_resources: Optional[Sequence['outputs.TrailEventSelectorDataResource']] = None,
+             exclude_management_event_sources: Optional[Sequence[str]] = None,
+             include_management_events: Optional[bool] = None,
+             read_write_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_resources is not None:
-            pulumi.set(__self__, "data_resources", data_resources)
+            _setter("data_resources", data_resources)
         if exclude_management_event_sources is not None:
-            pulumi.set(__self__, "exclude_management_event_sources", exclude_management_event_sources)
+            _setter("exclude_management_event_sources", exclude_management_event_sources)
         if include_management_events is not None:
-            pulumi.set(__self__, "include_management_events", include_management_events)
+            _setter("include_management_events", include_management_events)
         if read_write_type is not None:
-            pulumi.set(__self__, "read_write_type", read_write_type)
+            _setter("read_write_type", read_write_type)
 
     @property
     @pulumi.getter(name="dataResources")
@@ -433,8 +512,19 @@ class TrailEventSelectorDataResource(dict):
         :param str type: Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
         :param Sequence[str] values: List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "values", values)
+        TrailEventSelectorDataResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -477,7 +567,16 @@ class TrailInsightSelector(dict):
         """
         :param str insight_type: Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
         """
-        pulumi.set(__self__, "insight_type", insight_type)
+        TrailInsightSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insight_type=insight_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insight_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insight_type", insight_type)
 
     @property
     @pulumi.getter(name="insightType")

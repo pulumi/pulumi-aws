@@ -313,7 +313,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
  * ```
- * ### Opensearch Destination
+ * ### OpenSearch Destination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -346,7 +346,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Opensearch Destination With VPC
+ * ### OpenSearch Destination With VPC
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -426,6 +426,39 @@ import * as utilities from "../utilities";
  *     },
  * }, {
  *     dependsOn: [firehose_opensearch],
+ * });
+ * ```
+ * ### OpenSearch Serverless Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testCollection = new aws.opensearch.ServerlessCollection("testCollection", {});
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
+ *     destination: "opensearchserverless",
+ *     opensearchserverlessConfiguration: {
+ *         collectionEndpoint: testCollection.collectionEndpoint,
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         indexName: "test",
+ *         s3Configuration: {
+ *             roleArn: aws_iam_role.firehose_role.arn,
+ *             bucketArn: aws_s3_bucket.bucket.arn,
+ *             bufferingSize: 10,
+ *             bufferingInterval: 400,
+ *             compressionFormat: "GZIP",
+ *         },
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [{
+ *                 type: "Lambda",
+ *                 parameters: [{
+ *                     parameterName: "LambdaArn",
+ *                     parameterValue: `${aws_lambda_function.lambda_processor.arn}:$LATEST`,
+ *                 }],
+ *             }],
+ *         },
+ *     },
  * });
  * ```
  * ### Splunk Destination
@@ -534,13 +567,13 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
     /**
-     * Configuration options if elasticsearch is the destination. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. More details are given below.
      */
     public readonly elasticsearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration | undefined>;
     /**
@@ -548,25 +581,31 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly extendedS3Configuration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration | undefined>;
     /**
-     * Configuration options if httpEndpoint is the destination. requires the user to also specify a `s3Configuration` block.  More details are given below.
+     * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
      */
     public readonly httpEndpointConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration | undefined>;
     /**
-     * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
      */
     public readonly kinesisSourceConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     */
+    public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamMskSourceConfiguration | undefined>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Configuration options if opensearch is the destination. More details are given below.
+     * Configuration options when `destination` is `opensearch`. More details are given below.
      */
     public readonly opensearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration | undefined>;
     /**
-     * Configuration options if redshift is the destination.
-     * Using `redshiftConfiguration` requires the user to also specify a
-     * `s3Configuration` block. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     */
+    public readonly opensearchserverlessConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration | undefined>;
+    /**
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
      */
     public readonly redshiftConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
     /**
@@ -575,7 +614,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     /**
-     * Configuration options if splunk is the destination. More details are given below.
+     * Configuration options when `destination` is `splunk`. More details are given below.
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     /**
@@ -613,8 +652,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
             resourceInputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
+            resourceInputs["mskSourceConfiguration"] = state ? state.mskSourceConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
+            resourceInputs["opensearchserverlessConfiguration"] = state ? state.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
@@ -633,8 +674,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
             resourceInputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
+            resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
+            resourceInputs["opensearchserverlessConfiguration"] = args ? args.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
@@ -658,13 +701,13 @@ export interface FirehoseDeliveryStreamState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      */
     destination?: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
     /**
-     * Configuration options if elasticsearch is the destination. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. More details are given below.
      */
     elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
@@ -672,25 +715,31 @@ export interface FirehoseDeliveryStreamState {
      */
     extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
     /**
-     * Configuration options if httpEndpoint is the destination. requires the user to also specify a `s3Configuration` block.  More details are given below.
+     * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
      */
     httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
     /**
-     * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
      */
     kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     */
+    mskSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamMskSourceConfiguration>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration options if opensearch is the destination. More details are given below.
+     * Configuration options when `destination` is `opensearch`. More details are given below.
      */
     opensearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration>;
     /**
-     * Configuration options if redshift is the destination.
-     * Using `redshiftConfiguration` requires the user to also specify a
-     * `s3Configuration` block. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     */
+    opensearchserverlessConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration>;
+    /**
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
@@ -699,7 +748,7 @@ export interface FirehoseDeliveryStreamState {
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
-     * Configuration options if splunk is the destination. More details are given below.
+     * Configuration options when `destination` is `splunk`. More details are given below.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**
@@ -727,13 +776,13 @@ export interface FirehoseDeliveryStreamArgs {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      */
     destination: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
     /**
-     * Configuration options if elasticsearch is the destination. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. More details are given below.
      */
     elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
@@ -741,25 +790,31 @@ export interface FirehoseDeliveryStreamArgs {
      */
     extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
     /**
-     * Configuration options if httpEndpoint is the destination. requires the user to also specify a `s3Configuration` block.  More details are given below.
+     * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  More details are given below.
      */
     httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
     /**
-     * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
      */
     kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     */
+    mskSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamMskSourceConfiguration>;
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration options if opensearch is the destination. More details are given below.
+     * Configuration options when `destination` is `opensearch`. More details are given below.
      */
     opensearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration>;
     /**
-     * Configuration options if redshift is the destination.
-     * Using `redshiftConfiguration` requires the user to also specify a
-     * `s3Configuration` block. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     */
+    opensearchserverlessConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfiguration>;
+    /**
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3Configuration` block. More details are given below.
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
@@ -768,7 +823,7 @@ export interface FirehoseDeliveryStreamArgs {
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
-     * Configuration options if splunk is the destination. More details are given below.
+     * Configuration options when `destination` is `splunk`. More details are given below.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**

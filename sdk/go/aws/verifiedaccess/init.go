@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:verifiedaccess/instance:Instance":
 		r = &Instance{}
+	case "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment":
+		r = &InstanceTrustProviderAttachment{}
 	case "aws:verifiedaccess/trustProvider:TrustProvider":
 		r = &TrustProvider{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"verifiedaccess/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"verifiedaccess/instanceTrustProviderAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,8 +22,19 @@ class GetProductFilterResult(dict):
         :param str field: Product attribute name that you want to filter on.
         :param str value: Product attribute value that you want to filter on.
         """
-        pulumi.set(__self__, "field", field)
-        pulumi.set(__self__, "value", value)
+        GetProductFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field", field)
+        _setter("value", value)
 
     @property
     @pulumi.getter

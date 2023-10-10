@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class BotAssociationArgs:
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "lex_bot", lex_bot)
+        BotAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            lex_bot=lex_bot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: pulumi.Input[str],
+             lex_bot: pulumi.Input['BotAssociationLexBotArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_id", instance_id)
+        _setter("lex_bot", lex_bot)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -61,10 +72,21 @@ class _BotAssociationState:
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
+        _BotAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            lex_bot=lex_bot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: Optional[pulumi.Input[str]] = None,
+             lex_bot: Optional[pulumi.Input['BotAssociationLexBotArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if lex_bot is not None:
-            pulumi.set(__self__, "lex_bot", lex_bot)
+            _setter("lex_bot", lex_bot)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -262,6 +284,10 @@ class BotAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BotAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -281,6 +307,11 @@ class BotAssociation(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
+            if lex_bot is not None and not isinstance(lex_bot, BotAssociationLexBotArgs):
+                lex_bot = lex_bot or {}
+                def _setter(key, value):
+                    lex_bot[key] = value
+                BotAssociationLexBotArgs._configure(_setter, **lex_bot)
             if lex_bot is None and not opts.urn:
                 raise TypeError("Missing required property 'lex_bot'")
             __props__.__dict__["lex_bot"] = lex_bot

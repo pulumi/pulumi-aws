@@ -14,6 +14,328 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccountVdmAttributesDashboardAttributes struct {
+	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	EngagementMetrics *string `pulumi:"engagementMetrics"`
+}
+
+// AccountVdmAttributesDashboardAttributesInput is an input type that accepts AccountVdmAttributesDashboardAttributesArgs and AccountVdmAttributesDashboardAttributesOutput values.
+// You can construct a concrete instance of `AccountVdmAttributesDashboardAttributesInput` via:
+//
+//	AccountVdmAttributesDashboardAttributesArgs{...}
+type AccountVdmAttributesDashboardAttributesInput interface {
+	pulumi.Input
+
+	ToAccountVdmAttributesDashboardAttributesOutput() AccountVdmAttributesDashboardAttributesOutput
+	ToAccountVdmAttributesDashboardAttributesOutputWithContext(context.Context) AccountVdmAttributesDashboardAttributesOutput
+}
+
+type AccountVdmAttributesDashboardAttributesArgs struct {
+	// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
+}
+
+func (AccountVdmAttributesDashboardAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountVdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesOutput() AccountVdmAttributesDashboardAttributesOutput {
+	return i.ToAccountVdmAttributesDashboardAttributesOutputWithContext(context.Background())
+}
+
+func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesDashboardAttributesOutput)
+}
+
+func (i AccountVdmAttributesDashboardAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesDashboardAttributes] {
+	return pulumix.Output[AccountVdmAttributesDashboardAttributes]{
+		OutputState: i.ToAccountVdmAttributesDashboardAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput {
+	return i.ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesDashboardAttributesOutput).ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx)
+}
+
+// AccountVdmAttributesDashboardAttributesPtrInput is an input type that accepts AccountVdmAttributesDashboardAttributesArgs, AccountVdmAttributesDashboardAttributesPtr and AccountVdmAttributesDashboardAttributesPtrOutput values.
+// You can construct a concrete instance of `AccountVdmAttributesDashboardAttributesPtrInput` via:
+//
+//	        AccountVdmAttributesDashboardAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountVdmAttributesDashboardAttributesPtrInput interface {
+	pulumi.Input
+
+	ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput
+	ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(context.Context) AccountVdmAttributesDashboardAttributesPtrOutput
+}
+
+type accountVdmAttributesDashboardAttributesPtrType AccountVdmAttributesDashboardAttributesArgs
+
+func AccountVdmAttributesDashboardAttributesPtr(v *AccountVdmAttributesDashboardAttributesArgs) AccountVdmAttributesDashboardAttributesPtrInput {
+	return (*accountVdmAttributesDashboardAttributesPtrType)(v)
+}
+
+func (*accountVdmAttributesDashboardAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountVdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (i *accountVdmAttributesDashboardAttributesPtrType) ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput {
+	return i.ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *accountVdmAttributesDashboardAttributesPtrType) ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesDashboardAttributesPtrOutput)
+}
+
+func (i *accountVdmAttributesDashboardAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesDashboardAttributes] {
+	return pulumix.Output[*AccountVdmAttributesDashboardAttributes]{
+		OutputState: i.ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AccountVdmAttributesDashboardAttributesOutput struct{ *pulumi.OutputState }
+
+func (AccountVdmAttributesDashboardAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountVdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDashboardAttributesOutput() AccountVdmAttributesDashboardAttributesOutput {
+	return o
+}
+
+func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDashboardAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesOutput {
+	return o
+}
+
+func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput {
+	return o.ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountVdmAttributesDashboardAttributes) *AccountVdmAttributesDashboardAttributes {
+		return &v
+	}).(AccountVdmAttributesDashboardAttributesPtrOutput)
+}
+
+func (o AccountVdmAttributesDashboardAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesDashboardAttributes] {
+	return pulumix.Output[AccountVdmAttributesDashboardAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountVdmAttributesDashboardAttributesOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountVdmAttributesDashboardAttributes) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
+}
+
+type AccountVdmAttributesDashboardAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountVdmAttributesDashboardAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountVdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput {
+	return o
+}
+
+func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesPtrOutput {
+	return o
+}
+
+func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesDashboardAttributes] {
+	return pulumix.Output[*AccountVdmAttributesDashboardAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccountVdmAttributesDashboardAttributesPtrOutput) Elem() AccountVdmAttributesDashboardAttributesOutput {
+	return o.ApplyT(func(v *AccountVdmAttributesDashboardAttributes) AccountVdmAttributesDashboardAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret AccountVdmAttributesDashboardAttributes
+		return ret
+	}).(AccountVdmAttributesDashboardAttributesOutput)
+}
+
+// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountVdmAttributesDashboardAttributesPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountVdmAttributesDashboardAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EngagementMetrics
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountVdmAttributesGuardianAttributes struct {
+	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
+}
+
+// AccountVdmAttributesGuardianAttributesInput is an input type that accepts AccountVdmAttributesGuardianAttributesArgs and AccountVdmAttributesGuardianAttributesOutput values.
+// You can construct a concrete instance of `AccountVdmAttributesGuardianAttributesInput` via:
+//
+//	AccountVdmAttributesGuardianAttributesArgs{...}
+type AccountVdmAttributesGuardianAttributesInput interface {
+	pulumi.Input
+
+	ToAccountVdmAttributesGuardianAttributesOutput() AccountVdmAttributesGuardianAttributesOutput
+	ToAccountVdmAttributesGuardianAttributesOutputWithContext(context.Context) AccountVdmAttributesGuardianAttributesOutput
+}
+
+type AccountVdmAttributesGuardianAttributesArgs struct {
+	// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
+}
+
+func (AccountVdmAttributesGuardianAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountVdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardianAttributesOutput() AccountVdmAttributesGuardianAttributesOutput {
+	return i.ToAccountVdmAttributesGuardianAttributesOutputWithContext(context.Background())
+}
+
+func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardianAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesGuardianAttributesOutput)
+}
+
+func (i AccountVdmAttributesGuardianAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesGuardianAttributes] {
+	return pulumix.Output[AccountVdmAttributesGuardianAttributes]{
+		OutputState: i.ToAccountVdmAttributesGuardianAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput {
+	return i.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesGuardianAttributesOutput).ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx)
+}
+
+// AccountVdmAttributesGuardianAttributesPtrInput is an input type that accepts AccountVdmAttributesGuardianAttributesArgs, AccountVdmAttributesGuardianAttributesPtr and AccountVdmAttributesGuardianAttributesPtrOutput values.
+// You can construct a concrete instance of `AccountVdmAttributesGuardianAttributesPtrInput` via:
+//
+//	        AccountVdmAttributesGuardianAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountVdmAttributesGuardianAttributesPtrInput interface {
+	pulumi.Input
+
+	ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput
+	ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(context.Context) AccountVdmAttributesGuardianAttributesPtrOutput
+}
+
+type accountVdmAttributesGuardianAttributesPtrType AccountVdmAttributesGuardianAttributesArgs
+
+func AccountVdmAttributesGuardianAttributesPtr(v *AccountVdmAttributesGuardianAttributesArgs) AccountVdmAttributesGuardianAttributesPtrInput {
+	return (*accountVdmAttributesGuardianAttributesPtrType)(v)
+}
+
+func (*accountVdmAttributesGuardianAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountVdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (i *accountVdmAttributesGuardianAttributesPtrType) ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput {
+	return i.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *accountVdmAttributesGuardianAttributesPtrType) ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesGuardianAttributesPtrOutput)
+}
+
+func (i *accountVdmAttributesGuardianAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesGuardianAttributes] {
+	return pulumix.Output[*AccountVdmAttributesGuardianAttributes]{
+		OutputState: i.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type AccountVdmAttributesGuardianAttributesOutput struct{ *pulumi.OutputState }
+
+func (AccountVdmAttributesGuardianAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountVdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuardianAttributesOutput() AccountVdmAttributesGuardianAttributesOutput {
+	return o
+}
+
+func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuardianAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesOutput {
+	return o
+}
+
+func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput {
+	return o.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountVdmAttributesGuardianAttributes) *AccountVdmAttributesGuardianAttributes {
+		return &v
+	}).(AccountVdmAttributesGuardianAttributesPtrOutput)
+}
+
+func (o AccountVdmAttributesGuardianAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesGuardianAttributes] {
+	return pulumix.Output[AccountVdmAttributesGuardianAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountVdmAttributesGuardianAttributesOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountVdmAttributesGuardianAttributes) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
+}
+
+type AccountVdmAttributesGuardianAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountVdmAttributesGuardianAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountVdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput {
+	return o
+}
+
+func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesPtrOutput {
+	return o
+}
+
+func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesGuardianAttributes] {
+	return pulumix.Output[*AccountVdmAttributesGuardianAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccountVdmAttributesGuardianAttributesPtrOutput) Elem() AccountVdmAttributesGuardianAttributesOutput {
+	return o.ApplyT(func(v *AccountVdmAttributesGuardianAttributes) AccountVdmAttributesGuardianAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret AccountVdmAttributesGuardianAttributes
+		return ret
+	}).(AccountVdmAttributesGuardianAttributesOutput)
+}
+
+// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountVdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountVdmAttributesGuardianAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizedSharedDelivery
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetDeliveryOptions struct {
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName *string `pulumi:"sendingPoolName"`
@@ -4220,6 +4542,10 @@ func (o GetEmailIdentityDkimSigningAttributeArrayOutput) Index(i pulumi.IntInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountVdmAttributesDashboardAttributesInput)(nil)).Elem(), AccountVdmAttributesDashboardAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountVdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), AccountVdmAttributesDashboardAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountVdmAttributesGuardianAttributesInput)(nil)).Elem(), AccountVdmAttributesGuardianAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountVdmAttributesGuardianAttributesPtrInput)(nil)).Elem(), AccountVdmAttributesGuardianAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationEventDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationEventDestinationArgs{})
@@ -4272,6 +4598,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailIdentityDkimSigningAttributeInput)(nil)).Elem(), GetEmailIdentityDkimSigningAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailIdentityDkimSigningAttributeArrayInput)(nil)).Elem(), GetEmailIdentityDkimSigningAttributeArray{})
+	pulumi.RegisterOutputType(AccountVdmAttributesDashboardAttributesOutput{})
+	pulumi.RegisterOutputType(AccountVdmAttributesDashboardAttributesPtrOutput{})
+	pulumi.RegisterOutputType(AccountVdmAttributesGuardianAttributesOutput{})
+	pulumi.RegisterOutputType(AccountVdmAttributesGuardianAttributesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class InstanceAccessControlAttributesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        InstanceAccessControlAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            instance_arn=instance_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]],
+             instance_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("instance_arn", instance_arn)
 
     @property
     @pulumi.getter
@@ -63,14 +74,29 @@ class _InstanceAccessControlAttributesState:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
+        _InstanceAccessControlAttributesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            instance_arn=instance_arn,
+            status=status,
+            status_reason=status_reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_reason: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
+            _setter("instance_arn", instance_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_reason is not None:
-            pulumi.set(__self__, "status_reason", status_reason)
+            _setter("status_reason", status_reason)
 
     @property
     @pulumi.getter
@@ -166,6 +192,10 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceAccessControlAttributesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

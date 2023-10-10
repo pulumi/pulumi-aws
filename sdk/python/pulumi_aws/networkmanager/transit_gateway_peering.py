@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayPeeringArgs', 'TransitGatewayPeering']
@@ -23,10 +23,23 @@ class TransitGatewayPeeringArgs:
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "core_network_id", core_network_id)
-        pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
+        TransitGatewayPeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            core_network_id=core_network_id,
+            transit_gateway_arn=transit_gateway_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             core_network_id: pulumi.Input[str],
+             transit_gateway_arn: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("core_network_id", core_network_id)
+        _setter("transit_gateway_arn", transit_gateway_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -93,31 +106,60 @@ class _TransitGatewayPeeringState:
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         :param pulumi.Input[str] transit_gateway_peering_attachment_id: The ID of the transit gateway peering attachment.
         """
+        _TransitGatewayPeeringState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            core_network_arn=core_network_arn,
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            owner_account_id=owner_account_id,
+            peering_type=peering_type,
+            resource_arn=resource_arn,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_arn=transit_gateway_arn,
+            transit_gateway_peering_attachment_id=transit_gateway_peering_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             core_network_arn: Optional[pulumi.Input[str]] = None,
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             peering_type: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_arn: Optional[pulumi.Input[str]] = None,
+             transit_gateway_peering_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if core_network_arn is not None:
-            pulumi.set(__self__, "core_network_arn", core_network_arn)
+            _setter("core_network_arn", core_network_arn)
         if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+            _setter("core_network_id", core_network_id)
         if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
+            _setter("edge_location", edge_location)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if peering_type is not None:
-            pulumi.set(__self__, "peering_type", peering_type)
+            _setter("peering_type", peering_type)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_arn is not None:
-            pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
+            _setter("transit_gateway_arn", transit_gateway_arn)
         if transit_gateway_peering_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_peering_attachment_id", transit_gateway_peering_attachment_id)
+            _setter("transit_gateway_peering_attachment_id", transit_gateway_peering_attachment_id)
 
     @property
     @pulumi.getter
@@ -330,6 +372,10 @@ class TransitGatewayPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayPeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

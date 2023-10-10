@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NatGatewayArgs', 'NatGateway']
@@ -33,21 +33,44 @@ class NatGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NatGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            allocation_id=allocation_id,
+            connectivity_type=connectivity_type,
+            private_ip=private_ip,
+            secondary_allocation_ids=secondary_allocation_ids,
+            secondary_private_ip_address_count=secondary_private_ip_address_count,
+            secondary_private_ip_addresses=secondary_private_ip_addresses,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             connectivity_type: Optional[pulumi.Input[str]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+             secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if connectivity_type is not None:
-            pulumi.set(__self__, "connectivity_type", connectivity_type)
+            _setter("connectivity_type", connectivity_type)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if secondary_allocation_ids is not None:
-            pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+            _setter("secondary_allocation_ids", secondary_allocation_ids)
         if secondary_private_ip_address_count is not None:
-            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+            _setter("secondary_private_ip_address_count", secondary_private_ip_address_count)
         if secondary_private_ip_addresses is not None:
-            pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
+            _setter("secondary_private_ip_addresses", secondary_private_ip_addresses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -176,33 +199,64 @@ class _NatGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _NatGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_id=allocation_id,
+            association_id=association_id,
+            connectivity_type=connectivity_type,
+            network_interface_id=network_interface_id,
+            private_ip=private_ip,
+            public_ip=public_ip,
+            secondary_allocation_ids=secondary_allocation_ids,
+            secondary_private_ip_address_count=secondary_private_ip_address_count,
+            secondary_private_ip_addresses=secondary_private_ip_addresses,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             association_id: Optional[pulumi.Input[str]] = None,
+             connectivity_type: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+             secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if connectivity_type is not None:
-            pulumi.set(__self__, "connectivity_type", connectivity_type)
+            _setter("connectivity_type", connectivity_type)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if secondary_allocation_ids is not None:
-            pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+            _setter("secondary_allocation_ids", secondary_allocation_ids)
         if secondary_private_ip_address_count is not None:
-            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+            _setter("secondary_private_ip_address_count", secondary_private_ip_address_count)
         if secondary_private_ip_addresses is not None:
-            pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
+            _setter("secondary_private_ip_addresses", secondary_private_ip_addresses)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -513,6 +567,10 @@ class NatGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NatGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

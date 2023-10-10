@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -29,14 +29,31 @@ class ResourceArgs:
         :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
-        pulumi.set(__self__, "desired_state", desired_state)
-        pulumi.set(__self__, "type_name", type_name)
+        ResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_state=desired_state,
+            type_name=type_name,
+            role_arn=role_arn,
+            schema=schema,
+            type_version_id=type_version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_state: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             type_version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("desired_state", desired_state)
+        _setter("type_name", type_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if type_version_id is not None:
-            pulumi.set(__self__, "type_version_id", type_version_id)
+            _setter("type_version_id", type_version_id)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -121,18 +138,37 @@ class _ResourceState:
                The following arguments are optional:
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
+        _ResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_state=desired_state,
+            properties=properties,
+            role_arn=role_arn,
+            schema=schema,
+            type_name=type_name,
+            type_version_id=type_version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_state: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             type_version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if desired_state is not None:
-            pulumi.set(__self__, "desired_state", desired_state)
+            _setter("desired_state", desired_state)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if type_version_id is not None:
-            pulumi.set(__self__, "type_version_id", type_version_id)
+            _setter("type_version_id", type_version_id)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -288,6 +324,10 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

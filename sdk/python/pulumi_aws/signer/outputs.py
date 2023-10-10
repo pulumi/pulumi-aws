@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -37,7 +37,16 @@ class SigningJobDestination(dict):
         """
         :param 'SigningJobDestinationS3Args' s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
-        pulumi.set(__self__, "s3", s3)
+        SigningJobDestination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: 'outputs.SigningJobDestinationS3',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -57,9 +66,20 @@ class SigningJobDestinationS3(dict):
         :param str bucket: Name of the S3 bucket.
         :param str prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        SigningJobDestinationS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: str,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -103,12 +123,25 @@ class SigningJobRevocationRecord(dict):
                  reason: Optional[str] = None,
                  revoked_at: Optional[str] = None,
                  revoked_by: Optional[str] = None):
+        SigningJobRevocationRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reason=reason,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reason: Optional[str] = None,
+             revoked_at: Optional[str] = None,
+             revoked_by: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
         if revoked_at is not None:
-            pulumi.set(__self__, "revoked_at", revoked_at)
+            _setter("revoked_at", revoked_at)
         if revoked_by is not None:
-            pulumi.set(__self__, "revoked_by", revoked_by)
+            _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter
@@ -131,16 +164,25 @@ class SigningJobSignedObject(dict):
     def __init__(__self__, *,
                  s3s: Optional[Sequence['outputs.SigningJobSignedObjectS3']] = None):
         """
-        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Source object: See S3 Source below for details.
+        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
+        SigningJobSignedObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3s=s3s,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3s: Optional[Sequence['outputs.SigningJobSignedObjectS3']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3s is not None:
-            pulumi.set(__self__, "s3s", s3s)
+            _setter("s3s", s3s)
 
     @property
     @pulumi.getter
     def s3s(self) -> Optional[Sequence['outputs.SigningJobSignedObjectS3']]:
         """
-        A configuration block describing the S3 Source object: See S3 Source below for details.
+        A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3s")
 
@@ -154,10 +196,21 @@ class SigningJobSignedObjectS3(dict):
         :param str bucket: Name of the S3 bucket.
         :param str key: Key name of the object that contains your unsigned code.
         """
+        SigningJobSignedObjectS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -183,7 +236,16 @@ class SigningJobSource(dict):
         """
         :param 'SigningJobSourceS3Args' s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
-        pulumi.set(__self__, "s3", s3)
+        SigningJobSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: 'outputs.SigningJobSourceS3',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -205,9 +267,22 @@ class SigningJobSourceS3(dict):
         :param str key: Key name of the object that contains your unsigned code.
         :param str version: Version of your source image in your version enabled S3 bucket.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "version", version)
+        SigningJobSourceS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: str,
+             key: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -261,12 +336,25 @@ class SigningProfileRevocationRecord(dict):
                  revocation_effective_from: Optional[str] = None,
                  revoked_at: Optional[str] = None,
                  revoked_by: Optional[str] = None):
+        SigningProfileRevocationRecord._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            revocation_effective_from=revocation_effective_from,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             revocation_effective_from: Optional[str] = None,
+             revoked_at: Optional[str] = None,
+             revoked_by: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if revocation_effective_from is not None:
-            pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
+            _setter("revocation_effective_from", revocation_effective_from)
         if revoked_at is not None:
-            pulumi.set(__self__, "revoked_at", revoked_at)
+            _setter("revoked_at", revoked_at)
         if revoked_by is not None:
-            pulumi.set(__self__, "revoked_by", revoked_by)
+            _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter(name="revocationEffectiveFrom")
@@ -289,8 +377,19 @@ class SigningProfileSignatureValidityPeriod(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        SigningProfileSignatureValidityPeriod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -324,7 +423,16 @@ class SigningProfileSigningMaterial(dict):
 
     def __init__(__self__, *,
                  certificate_arn: str):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        SigningProfileSigningMaterial._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -338,9 +446,22 @@ class GetSigningJobRevocationRecordResult(dict):
                  reason: str,
                  revoked_at: str,
                  revoked_by: str):
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "revoked_at", revoked_at)
-        pulumi.set(__self__, "revoked_by", revoked_by)
+        GetSigningJobRevocationRecordResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reason=reason,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reason: str,
+             revoked_at: str,
+             revoked_by: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("reason", reason)
+        _setter("revoked_at", revoked_at)
+        _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter
@@ -362,7 +483,16 @@ class GetSigningJobRevocationRecordResult(dict):
 class GetSigningJobSignedObjectResult(dict):
     def __init__(__self__, *,
                  s3s: Sequence['outputs.GetSigningJobSignedObjectS3Result']):
-        pulumi.set(__self__, "s3s", s3s)
+        GetSigningJobSignedObjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3s=s3s,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3s: Sequence['outputs.GetSigningJobSignedObjectS3Result'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3s", s3s)
 
     @property
     @pulumi.getter
@@ -375,8 +505,19 @@ class GetSigningJobSignedObjectS3Result(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
+        GetSigningJobSignedObjectS3Result._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: str,
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -393,7 +534,16 @@ class GetSigningJobSignedObjectS3Result(dict):
 class GetSigningJobSourceResult(dict):
     def __init__(__self__, *,
                  s3s: Sequence['outputs.GetSigningJobSourceS3Result']):
-        pulumi.set(__self__, "s3s", s3s)
+        GetSigningJobSourceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3s=s3s,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3s: Sequence['outputs.GetSigningJobSourceS3Result'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3s", s3s)
 
     @property
     @pulumi.getter
@@ -407,9 +557,22 @@ class GetSigningJobSourceS3Result(dict):
                  bucket: str,
                  key: str,
                  version: str):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "version", version)
+        GetSigningJobSourceS3Result._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: str,
+             key: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -433,9 +596,22 @@ class GetSigningProfileRevocationRecordResult(dict):
                  revocation_effective_from: str,
                  revoked_at: str,
                  revoked_by: str):
-        pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
-        pulumi.set(__self__, "revoked_at", revoked_at)
-        pulumi.set(__self__, "revoked_by", revoked_by)
+        GetSigningProfileRevocationRecordResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            revocation_effective_from=revocation_effective_from,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             revocation_effective_from: str,
+             revoked_at: str,
+             revoked_by: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("revocation_effective_from", revocation_effective_from)
+        _setter("revoked_at", revoked_at)
+        _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter(name="revocationEffectiveFrom")
@@ -458,8 +634,19 @@ class GetSigningProfileSignatureValidityPeriodResult(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        GetSigningProfileSignatureValidityPeriodResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter

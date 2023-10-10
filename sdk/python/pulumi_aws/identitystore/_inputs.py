@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,10 +35,21 @@ class GroupExternalIdArgs:
         :param pulumi.Input[str] id: The identifier issued to this resource by an external identity provider.
         :param pulumi.Input[str] issuer: The issuer for an external identifier.
         """
+        GroupExternalIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
 
     @property
     @pulumi.getter
@@ -86,22 +97,45 @@ class UserAddressesArgs:
         :param pulumi.Input[str] street_address: The street of the address.
         :param pulumi.Input[str] type: The type of address.
         """
+        UserAddressesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            formatted=formatted,
+            locality=locality,
+            postal_code=postal_code,
+            primary=primary,
+            region=region,
+            street_address=street_address,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: Optional[pulumi.Input[str]] = None,
+             formatted: Optional[pulumi.Input[str]] = None,
+             locality: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             primary: Optional[pulumi.Input[bool]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             street_address: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if formatted is not None:
-            pulumi.set(__self__, "formatted", formatted)
+            _setter("formatted", formatted)
         if locality is not None:
-            pulumi.set(__self__, "locality", locality)
+            _setter("locality", locality)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if street_address is not None:
-            pulumi.set(__self__, "street_address", street_address)
+            _setter("street_address", street_address)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -211,12 +245,25 @@ class UserEmailsArgs:
         :param pulumi.Input[str] type: The type of email.
         :param pulumi.Input[str] value: The email address. This value must be unique across the identity store.
         """
+        UserEmailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary=primary,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -264,10 +311,21 @@ class UserExternalIdArgs:
         :param pulumi.Input[str] id: The identifier issued to this resource by an external identity provider.
         :param pulumi.Input[str] issuer: The issuer for an external identifier.
         """
+        UserExternalIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
 
     @property
     @pulumi.getter
@@ -313,16 +371,35 @@ class UserNameArgs:
         :param pulumi.Input[str] honorific_suffix: The honorific suffix of the user.
         :param pulumi.Input[str] middle_name: The middle name of the user.
         """
-        pulumi.set(__self__, "family_name", family_name)
-        pulumi.set(__self__, "given_name", given_name)
+        UserNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family_name=family_name,
+            given_name=given_name,
+            formatted=formatted,
+            honorific_prefix=honorific_prefix,
+            honorific_suffix=honorific_suffix,
+            middle_name=middle_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family_name: pulumi.Input[str],
+             given_name: pulumi.Input[str],
+             formatted: Optional[pulumi.Input[str]] = None,
+             honorific_prefix: Optional[pulumi.Input[str]] = None,
+             honorific_suffix: Optional[pulumi.Input[str]] = None,
+             middle_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("family_name", family_name)
+        _setter("given_name", given_name)
         if formatted is not None:
-            pulumi.set(__self__, "formatted", formatted)
+            _setter("formatted", formatted)
         if honorific_prefix is not None:
-            pulumi.set(__self__, "honorific_prefix", honorific_prefix)
+            _setter("honorific_prefix", honorific_prefix)
         if honorific_suffix is not None:
-            pulumi.set(__self__, "honorific_suffix", honorific_suffix)
+            _setter("honorific_suffix", honorific_suffix)
         if middle_name is not None:
-            pulumi.set(__self__, "middle_name", middle_name)
+            _setter("middle_name", middle_name)
 
     @property
     @pulumi.getter(name="familyName")
@@ -410,12 +487,25 @@ class UserPhoneNumbersArgs:
         :param pulumi.Input[str] type: The type of phone number.
         :param pulumi.Input[str] value: The user's phone number.
         """
+        UserPhoneNumbersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary=primary,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -465,10 +555,21 @@ class GetGroupAlternateIdentifierArgs:
                
                > Exactly one of the above arguments must be provided.
         """
+        GetGroupAlternateIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_id=external_id,
+            unique_attribute=unique_attribute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_id: Optional['GetGroupAlternateIdentifierExternalIdArgs'] = None,
+             unique_attribute: Optional['GetGroupAlternateIdentifierUniqueAttributeArgs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if unique_attribute is not None:
-            pulumi.set(__self__, "unique_attribute", unique_attribute)
+            _setter("unique_attribute", unique_attribute)
 
     @property
     @pulumi.getter(name="externalId")
@@ -506,8 +607,19 @@ class GetGroupAlternateIdentifierExternalIdArgs:
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "issuer", issuer)
+        GetGroupAlternateIdentifierExternalIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             issuer: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("issuer", issuer)
 
     @property
     @pulumi.getter
@@ -543,8 +655,19 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
         :param str attribute_value: Value for an attribute.
         """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
+        GetGroupAlternateIdentifierUniqueAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_path=attribute_path,
+            attribute_value=attribute_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_path: str,
+             attribute_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_path", attribute_path)
+        _setter("attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -580,8 +703,19 @@ class GetGroupFilterArgs:
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
+        GetGroupFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_path=attribute_path,
+            attribute_value=attribute_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_path: str,
+             attribute_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_path", attribute_path)
+        _setter("attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -619,10 +753,21 @@ class GetUserAlternateIdentifierArgs:
                
                > Exactly one of the above arguments must be provided.
         """
+        GetUserAlternateIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_id=external_id,
+            unique_attribute=unique_attribute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_id: Optional['GetUserAlternateIdentifierExternalIdArgs'] = None,
+             unique_attribute: Optional['GetUserAlternateIdentifierUniqueAttributeArgs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if unique_attribute is not None:
-            pulumi.set(__self__, "unique_attribute", unique_attribute)
+            _setter("unique_attribute", unique_attribute)
 
     @property
     @pulumi.getter(name="externalId")
@@ -660,8 +805,19 @@ class GetUserAlternateIdentifierExternalIdArgs:
         :param str id: The identifier issued to this resource by an external identity provider.
         :param str issuer: The issuer for an external identifier.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "issuer", issuer)
+        GetUserAlternateIdentifierExternalIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             issuer: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("issuer", issuer)
 
     @property
     @pulumi.getter
@@ -697,8 +853,19 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
         :param str attribute_value: Value for an attribute.
         """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
+        GetUserAlternateIdentifierUniqueAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_path=attribute_path,
+            attribute_value=attribute_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_path: str,
+             attribute_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_path", attribute_path)
+        _setter("attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")
@@ -734,8 +901,19 @@ class GetUserFilterArgs:
         :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         :param str attribute_value: Value for an attribute.
         """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
+        GetUserFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_path=attribute_path,
+            attribute_value=attribute_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_path: str,
+             attribute_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attribute_path", attribute_path)
+        _setter("attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributePath")

@@ -37,14 +37,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Arib Source Settings.
+     * ARIB Source Settings.
      * 
      */
     @Import(name="aribSourceSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> aribSourceSettings;
 
     /**
-     * @return Arib Source Settings.
+     * @return ARIB Source Settings.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs>> aribSourceSettings() {
@@ -178,7 +178,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param aribSourceSettings Arib Source Settings.
+         * @param aribSourceSettings ARIB Source Settings.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param aribSourceSettings Arib Source Settings.
+         * @param aribSourceSettings ARIB Source Settings.
          * 
          * @return builder
          * 

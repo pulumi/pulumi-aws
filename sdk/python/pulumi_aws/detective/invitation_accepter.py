@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InvitationAccepterArgs', 'InvitationAccepter']
@@ -19,7 +19,16 @@ class InvitationAccepterArgs:
         The set of arguments for constructing a InvitationAccepter resource.
         :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
-        pulumi.set(__self__, "graph_arn", graph_arn)
+        InvitationAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            graph_arn=graph_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             graph_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("graph_arn", graph_arn)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -42,8 +51,17 @@ class _InvitationAccepterState:
         Input properties used for looking up and filtering InvitationAccepter resources.
         :param pulumi.Input[str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
         """
+        _InvitationAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            graph_arn=graph_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             graph_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if graph_arn is not None:
-            pulumi.set(__self__, "graph_arn", graph_arn)
+            _setter("graph_arn", graph_arn)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -141,6 +159,10 @@ class InvitationAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvitationAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

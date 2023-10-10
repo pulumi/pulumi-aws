@@ -5384,7 +5384,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionArrayOutput) Index(i pulumi.IntI
 }
 
 type ChannelEncoderSettingsCaptionDescriptionDestinationSettings struct {
-	// Arib Destination Settings.
+	// ARIB Destination Settings.
 	AribDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings `pulumi:"burnInDestinationSettings"`
@@ -5424,7 +5424,7 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput interface 
 }
 
 type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs struct {
-	// Arib Destination Settings.
+	// ARIB Destination Settings.
 	AribDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput `pulumi:"burnInDestinationSettings"`
@@ -5547,7 +5547,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToOut
 	}
 }
 
-// Arib Destination Settings.
+// ARIB Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
 		return v.AribDestinationSettings
@@ -5668,7 +5668,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) El
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput)
 }
 
-// Arib Destination Settings.
+// ARIB Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
 		if v == nil {
@@ -9380,7 +9380,7 @@ type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSla
 	PasswordParam *string `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri string `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username *string `pulumi:"username"`
 }
 
@@ -9400,7 +9400,7 @@ type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSla
 	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -9513,7 +9513,7 @@ func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImage
 	}).(pulumi.StringOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
 		return v.Username
@@ -9570,7 +9570,7 @@ func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImage
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
 		if v == nil {
@@ -14634,7 +14634,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProv
 	PasswordParam *string `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri string `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username *string `pulumi:"username"`
 }
 
@@ -14654,7 +14654,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProv
 	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -14767,7 +14767,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyP
 	}).(pulumi.StringOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer) *string {
 		return v.Username
@@ -14824,7 +14824,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer) *string {
 		if v == nil {
@@ -16784,7 +16784,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings `pulumi:"m2tsSettings"`
 	// Raw Settings. This can be set as an empty block.
 	RawSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings `pulumi:"rawSettings"`
@@ -16802,7 +16802,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrInput `pulumi:"m2tsSettings"`
 	// Raw Settings. This can be set as an empty block.
 	RawSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsPtrInput `pulumi:"rawSettings"`
@@ -16903,7 +16903,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
 		return v.M2tsSettings
@@ -16947,7 +16947,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsOutput)
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsPtrOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
 		if v == nil {
@@ -19422,7 +19422,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSe
 	PasswordParam *string `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri string `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username *string `pulumi:"username"`
 }
 
@@ -19442,7 +19442,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSe
 	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
 	// Path to a file accessible to the live stream.
 	Uri pulumi.StringInput `pulumi:"uri"`
-	// Username for destination.
+	// . Username to be used.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -19555,7 +19555,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHl
 	}).(pulumi.StringOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage) *string {
 		return v.Username
@@ -19612,7 +19612,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHl
 	}).(pulumi.StringPtrOutput)
 }
 
-// Username for destination.
+// . Username to be used.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImagePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage) *string {
 		if v == nil {
@@ -21828,7 +21828,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsPt
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings `pulumi:"m2tsSettings"`
 }
 
@@ -21844,7 +21844,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsConta
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrInput `pulumi:"m2tsSettings"`
 }
 
@@ -21943,7 +21943,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
 		return v.M2tsSettings
@@ -21980,7 +21980,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsOutput)
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsPtrOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
 		if v == nil {
@@ -24625,7 +24625,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings struct {
 	ColorMetadata *string `pulumi:"colorMetadata"`
 	// Entropy encoding mode.
 	EntropyEncoding *string `pulumi:"entropyEncoding"`
-	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	// Filters to apply to an encode. See H265 Filter Settings for more details.
 	FilterSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings `pulumi:"filterSettings"`
 	// Four bit AFD value to write on all frames of video in the output stream.
 	FixedAfd  *string `pulumi:"fixedAfd"`
@@ -24648,7 +24648,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings struct {
 	GopSize *float64 `pulumi:"gopSize"`
 	// Indicates if the `gopSize` is specified in frames or seconds.
 	GopSizeUnits *string `pulumi:"gopSizeUnits"`
-	// H264 level.
+	// H265 level.
 	Level *string `pulumi:"level"`
 	// Amount of lookahead.
 	LookAheadRateControl *string `pulumi:"lookAheadRateControl"`
@@ -24716,7 +24716,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs struct 
 	ColorMetadata pulumi.StringPtrInput `pulumi:"colorMetadata"`
 	// Entropy encoding mode.
 	EntropyEncoding pulumi.StringPtrInput `pulumi:"entropyEncoding"`
-	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	// Filters to apply to an encode. See H265 Filter Settings for more details.
 	FilterSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsPtrInput `pulumi:"filterSettings"`
 	// Four bit AFD value to write on all frames of video in the output stream.
 	FixedAfd  pulumi.StringPtrInput `pulumi:"fixedAfd"`
@@ -24739,7 +24739,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs struct 
 	GopSize pulumi.Float64PtrInput `pulumi:"gopSize"`
 	// Indicates if the `gopSize` is specified in frames or seconds.
 	GopSizeUnits pulumi.StringPtrInput `pulumi:"gopSizeUnits"`
-	// H264 level.
+	// H265 level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Amount of lookahead.
 	LookAheadRateControl pulumi.StringPtrInput `pulumi:"lookAheadRateControl"`
@@ -24917,7 +24917,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) E
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filters to apply to an encode. See H264 Filter Settings for more details.
+// Filters to apply to an encode. See H265 Filter Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
 		return v.FilterSettings
@@ -24990,7 +24990,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) G
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *string { return v.GopSizeUnits }).(pulumi.StringPtrOutput)
 }
 
-// H264 level.
+// H265 level.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
@@ -25203,7 +25203,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Filters to apply to an encode. See H264 Filter Settings for more details.
+// Filters to apply to an encode. See H265 Filter Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
 		if v == nil {
@@ -25322,7 +25322,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// H264 level.
+// H265 level.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *string {
 		if v == nil {
@@ -25893,7 +25893,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings struct {
 	ColorMetadata *string `pulumi:"colorMetadata"`
 	// Define the color metadata for the output. H265 Color Space Settings for more details.
 	ColorSpaceSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings `pulumi:"colorSpaceSettings"`
-	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	// Filters to apply to an encode. See H265 Filter Settings for more details.
 	FilterSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings `pulumi:"filterSettings"`
 	// Four bit AFD value to write on all frames of video in the output stream.
 	FixedAfd  *string `pulumi:"fixedAfd"`
@@ -25908,7 +25908,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings struct {
 	GopSize *float64 `pulumi:"gopSize"`
 	// Indicates if the `gopSize` is specified in frames or seconds.
 	GopSizeUnits *string `pulumi:"gopSizeUnits"`
-	// H264 level.
+	// H265 level.
 	Level *string `pulumi:"level"`
 	// Amount of lookahead.
 	LookAheadRateControl *string `pulumi:"lookAheadRateControl"`
@@ -25965,7 +25965,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs struct 
 	ColorMetadata pulumi.StringPtrInput `pulumi:"colorMetadata"`
 	// Define the color metadata for the output. H265 Color Space Settings for more details.
 	ColorSpaceSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput `pulumi:"colorSpaceSettings"`
-	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	// Filters to apply to an encode. See H265 Filter Settings for more details.
 	FilterSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput `pulumi:"filterSettings"`
 	// Four bit AFD value to write on all frames of video in the output stream.
 	FixedAfd  pulumi.StringPtrInput `pulumi:"fixedAfd"`
@@ -25980,7 +25980,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs struct 
 	GopSize pulumi.Float64PtrInput `pulumi:"gopSize"`
 	// Indicates if the `gopSize` is specified in frames or seconds.
 	GopSizeUnits pulumi.StringPtrInput `pulumi:"gopSizeUnits"`
-	// H264 level.
+	// H265 level.
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// Amount of lookahead.
 	LookAheadRateControl pulumi.StringPtrInput `pulumi:"lookAheadRateControl"`
@@ -26149,7 +26149,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) C
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
 }
 
-// Filters to apply to an encode. See H264 Filter Settings for more details.
+// Filters to apply to an encode. See H265 Filter Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
 		return v.FilterSettings
@@ -26196,7 +26196,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) G
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.GopSizeUnits }).(pulumi.StringPtrOutput)
 }
 
-// H264 level.
+// H265 level.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
@@ -26382,7 +26382,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
 }
 
-// Filters to apply to an encode. See H264 Filter Settings for more details.
+// Filters to apply to an encode. See H265 Filter Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
 		if v == nil {
@@ -26461,7 +26461,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// H264 level.
+// H265 level.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
 		if v == nil {
@@ -28856,7 +28856,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings struct {
-	// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+	// The name of the audio selector used as the source for this AudioDescription.
 	AudioSelectorName string `pulumi:"audioSelectorName"`
 	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 	AudioSilenceThresholdMsec *int `pulumi:"audioSilenceThresholdMsec"`
@@ -28874,7 +28874,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs struct {
-	// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+	// The name of the audio selector used as the source for this AudioDescription.
 	AudioSelectorName pulumi.StringInput `pulumi:"audioSelectorName"`
 	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 	AudioSilenceThresholdMsec pulumi.IntPtrInput `pulumi:"audioSilenceThresholdMsec"`
@@ -28975,7 +28975,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}
 }
 
-// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+// The name of the audio selector used as the source for this AudioDescription.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput) AudioSelectorName() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) string {
 		return v.AudioSelectorName
@@ -29019,7 +29019,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput)
 }
 
-// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+// The name of the audio selector used as the source for this AudioDescription.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput) AudioSelectorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *string {
 		if v == nil {
@@ -31248,7 +31248,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput) Index(i p
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings struct {
 	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings `pulumi:"ancillarySourceSettings"`
-	// Arib Source Settings.
+	// ARIB Source Settings.
 	AribSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings `pulumi:"aribSourceSettings"`
 	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 	DvbSubSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings `pulumi:"dvbSubSourceSettings"`
@@ -31276,7 +31276,7 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput int
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs struct {
 	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrInput `pulumi:"ancillarySourceSettings"`
-	// Arib Source Settings.
+	// ARIB Source Settings.
 	AribSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput `pulumi:"aribSourceSettings"`
 	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 	DvbSubSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput `pulumi:"dvbSubSourceSettings"`
@@ -31392,7 +31392,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-// Arib Source Settings.
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		return v.AribSourceSettings
@@ -31474,7 +31474,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-// Arib Source Settings.
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		if v == nil {
@@ -33969,10 +33969,14 @@ func (o ChannelMaintenancePtrOutput) MaintenanceStartTime() pulumi.StringPtrOutp
 }
 
 type ChannelVpc struct {
-	AvailabilityZones          []string `pulumi:"availabilityZones"`
+	AvailabilityZones   []string `pulumi:"availabilityZones"`
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 	PublicAddressAllocationIds []string `pulumi:"publicAddressAllocationIds"`
-	SecurityGroupIds           []string `pulumi:"securityGroupIds"`
-	SubnetIds                  []string `pulumi:"subnetIds"`
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ChannelVpcInput is an input type that accepts ChannelVpcArgs and ChannelVpcOutput values.
@@ -33987,10 +33991,14 @@ type ChannelVpcInput interface {
 }
 
 type ChannelVpcArgs struct {
-	AvailabilityZones          pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	AvailabilityZones   pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
+	// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 	PublicAddressAllocationIds pulumi.StringArrayInput `pulumi:"publicAddressAllocationIds"`
-	SecurityGroupIds           pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds                  pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ChannelVpcArgs) ElementType() reflect.Type {
@@ -34092,14 +34100,21 @@ func (o ChannelVpcOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+func (o ChannelVpcOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ChannelVpc) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 func (o ChannelVpcOutput) PublicAddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.PublicAddressAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
 func (o ChannelVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
 func (o ChannelVpcOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -34143,6 +34158,16 @@ func (o ChannelVpcPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o ChannelVpcPtrOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ChannelVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 func (o ChannelVpcPtrOutput) PublicAddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {
@@ -34152,6 +34177,7 @@ func (o ChannelVpcPtrOutput) PublicAddressAllocationIds() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
 func (o ChannelVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {
@@ -34161,6 +34187,7 @@ func (o ChannelVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
 func (o ChannelVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {

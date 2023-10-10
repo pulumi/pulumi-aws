@@ -11555,7 +11555,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector stru
 	CustomProperties map[string]string `pulumi:"customProperties"`
 	// Entity specified in the custom connector as a destination in the flow.
 	EntityName string `pulumi:"entityName"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -11579,7 +11579,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs 
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
 	// Entity specified in the custom connector as a destination in the flow.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -11696,7 +11696,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOu
 	}).(pulumi.StringOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -11767,7 +11767,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
 		if v == nil {
@@ -12187,7 +12187,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object string `pulumi:"object"`
@@ -12205,7 +12205,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeInput int
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object pulumi.StringInput `pulumi:"object"`
@@ -12306,7 +12306,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -12348,7 +12348,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOut
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
 		if v == nil {
@@ -12574,7 +12574,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object string `pulumi:"object"`
@@ -12592,7 +12592,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeInput inter
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object pulumi.StringInput `pulumi:"object"`
@@ -12693,7 +12693,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) 
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -12735,7 +12735,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
 		if v == nil {
@@ -13103,7 +13103,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtr
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object string `pulumi:"object"`
@@ -13121,7 +13121,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoInput interfa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Object specified in the flow destination.
 	Object pulumi.StringInput `pulumi:"object"`
@@ -13222,7 +13222,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) To
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -13264,7 +13264,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
 		if v == nil {
@@ -13490,9 +13490,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift struct {
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
@@ -13512,9 +13512,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs struct {
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
@@ -13617,12 +13617,12 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) T
 	}
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -13671,7 +13671,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *string {
 		if v == nil {
@@ -13681,7 +13681,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
 		if v == nil {
@@ -13917,9 +13917,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3 struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
 	S3OutputFormatConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
@@ -13937,9 +13937,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Input interface {
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrInput `pulumi:"s3OutputFormatConfig"`
@@ -14040,12 +14040,12 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) ToOutpu
 	}
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -14087,7 +14087,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Elem
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output)
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string {
 		if v == nil {
@@ -14097,7 +14097,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Buck
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *string {
 		if v == nil {
@@ -14691,7 +14691,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -14713,7 +14713,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceInput inte
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -14818,7 +14818,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -14874,7 +14874,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		if v == nil {
@@ -15120,7 +15120,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -15144,7 +15144,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -15251,7 +15251,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) T
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -15314,7 +15314,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
 		if v == nil {
@@ -15754,9 +15754,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake struct {
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
@@ -15776,9 +15776,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeInput inter
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs struct {
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
@@ -15881,14 +15881,14 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) 
 	}
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		return v.BucketPrefix
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -15937,7 +15937,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *string {
 		if v == nil {
@@ -15947,7 +15947,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
 		if v == nil {
@@ -16183,9 +16183,9 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
@@ -16203,9 +16203,9 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverInput interf
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
 	S3OutputFormatConfig FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigInput `pulumi:"s3OutputFormatConfig"`
@@ -16306,12 +16306,12 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) T
 	}
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -16353,7 +16353,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput)
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string {
 		if v == nil {
@@ -16363,7 +16363,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *string {
 		if v == nil {
@@ -16936,7 +16936,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -16958,7 +16958,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskInput interfa
 }
 
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs struct {
-	// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+	// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 	ErrorHandlingConfig FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -17063,7 +17063,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) To
 	}
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -17117,7 +17117,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput)
 }
 
-// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) ErrorHandlingConfig() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
 		if v == nil {
@@ -19391,9 +19391,9 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Object() 
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3 struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig *FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig `pulumi:"s3InputFormatConfig"`
@@ -19411,9 +19411,9 @@ type FlowSourceFlowConfigSourceConnectorPropertiesS3Input interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesS3Args struct {
-	// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Object key for the bucket in which Amazon AppFlow places the destination files.
+	// Amazon S3 bucket prefix.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
 	S3InputFormatConfig FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrInput `pulumi:"s3InputFormatConfig"`
@@ -19514,12 +19514,12 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) ToOutput(ctx cont
 	}
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -19561,7 +19561,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) Elem() FlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3Output)
 }
 
-// Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+// Name of the Amazon S3 bucket.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3) *string {
 		if v == nil {
@@ -19571,7 +19571,7 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object key for the bucket in which Amazon AppFlow places the destination files.
+// Amazon S3 bucket prefix.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesS3) *string {
 		if v == nil {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,28 +45,59 @@ class VpcEndpointArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         """
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+            vpc_id=vpc_id,
+            auto_accept=auto_accept,
+            dns_options=dns_options,
+            ip_address_type=ip_address_type,
+            policy=policy,
+            private_dns_enabled=private_dns_enabled,
+            route_table_ids=route_table_ids,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            vpc_endpoint_type=vpc_endpoint_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: pulumi.Input[str],
+             vpc_id: pulumi.Input[str],
+             auto_accept: Optional[pulumi.Input[bool]] = None,
+             dns_options: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("service_name", service_name)
+        _setter("vpc_id", vpc_id)
         if auto_accept is not None:
-            pulumi.set(__self__, "auto_accept", auto_accept)
+            _setter("auto_accept", auto_accept)
         if dns_options is not None:
-            pulumi.set(__self__, "dns_options", dns_options)
+            _setter("dns_options", dns_options)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if private_dns_enabled is not None:
-            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+            _setter("private_dns_enabled", private_dns_enabled)
         if route_table_ids is not None:
-            pulumi.set(__self__, "route_table_ids", route_table_ids)
+            _setter("route_table_ids", route_table_ids)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_endpoint_type is not None:
-            pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
+            _setter("vpc_endpoint_type", vpc_endpoint_type)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -265,51 +296,100 @@ class _VpcEndpointState:
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
+        _VpcEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_accept=auto_accept,
+            cidr_blocks=cidr_blocks,
+            dns_entries=dns_entries,
+            dns_options=dns_options,
+            ip_address_type=ip_address_type,
+            network_interface_ids=network_interface_ids,
+            owner_id=owner_id,
+            policy=policy,
+            prefix_list_id=prefix_list_id,
+            private_dns_enabled=private_dns_enabled,
+            requester_managed=requester_managed,
+            route_table_ids=route_table_ids,
+            security_group_ids=security_group_ids,
+            service_name=service_name,
+            state=state,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_endpoint_type=vpc_endpoint_type,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_accept: Optional[pulumi.Input[bool]] = None,
+             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]] = None,
+             dns_options: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+             requester_managed: Optional[pulumi.Input[bool]] = None,
+             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_accept is not None:
-            pulumi.set(__self__, "auto_accept", auto_accept)
+            _setter("auto_accept", auto_accept)
         if cidr_blocks is not None:
-            pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+            _setter("cidr_blocks", cidr_blocks)
         if dns_entries is not None:
-            pulumi.set(__self__, "dns_entries", dns_entries)
+            _setter("dns_entries", dns_entries)
         if dns_options is not None:
-            pulumi.set(__self__, "dns_options", dns_options)
+            _setter("dns_options", dns_options)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if network_interface_ids is not None:
-            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+            _setter("network_interface_ids", network_interface_ids)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if prefix_list_id is not None:
-            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+            _setter("prefix_list_id", prefix_list_id)
         if private_dns_enabled is not None:
-            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+            _setter("private_dns_enabled", private_dns_enabled)
         if requester_managed is not None:
-            pulumi.set(__self__, "requester_managed", requester_managed)
+            _setter("requester_managed", requester_managed)
         if route_table_ids is not None:
-            pulumi.set(__self__, "route_table_ids", route_table_ids)
+            _setter("route_table_ids", route_table_ids)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_endpoint_type is not None:
-            pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
+            _setter("vpc_endpoint_type", vpc_endpoint_type)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -768,6 +848,10 @@ class VpcEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -795,6 +879,11 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
             __props__.__dict__["auto_accept"] = auto_accept
+            if dns_options is not None and not isinstance(dns_options, VpcEndpointDnsOptionsArgs):
+                dns_options = dns_options or {}
+                def _setter(key, value):
+                    dns_options[key] = value
+                VpcEndpointDnsOptionsArgs._configure(_setter, **dns_options)
             __props__.__dict__["dns_options"] = dns_options
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["policy"] = policy

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayArgs', 'Gateway']
@@ -21,9 +21,20 @@ class GatewayArgs:
         :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         :param pulumi.Input[str] name: The name of the connection.
         """
-        pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+        GatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_side_asn=amazon_side_asn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_side_asn: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amazon_side_asn", amazon_side_asn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -62,12 +73,25 @@ class _GatewayState:
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: AWS Account ID of the gateway.
         """
+        _GatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_side_asn=amazon_side_asn,
+            name=name,
+            owner_account_id=owner_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_side_asn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -175,6 +199,10 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

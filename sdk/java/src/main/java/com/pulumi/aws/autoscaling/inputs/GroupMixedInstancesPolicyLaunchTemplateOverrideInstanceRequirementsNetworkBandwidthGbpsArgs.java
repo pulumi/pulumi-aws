@@ -16,14 +16,14 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
     public static final GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs();
 
     /**
-     * Maximum. Set to `0` to exclude instance types with accelerators.
+     * Maximum.
      * 
      */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
     /**
-     * @return Maximum. Set to `0` to exclude instance types with accelerators.
+     * @return Maximum.
      * 
      */
     public Optional<Output<Double>> max() {
@@ -71,7 +71,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * @param max Maximum.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         }
 
         /**
-         * @param max Maximum. Set to `0` to exclude instance types with accelerators.
+         * @param max Maximum.
          * 
          * @return builder
          * 

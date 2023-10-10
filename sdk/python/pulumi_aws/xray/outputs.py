@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,9 +41,20 @@ class GroupInsightsConfiguration(dict):
         :param bool insights_enabled: Specifies whether insights are enabled.
         :param bool notifications_enabled: Specifies whether insight notifications are enabled.
         """
-        pulumi.set(__self__, "insights_enabled", insights_enabled)
+        GroupInsightsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_enabled=insights_enabled,
+            notifications_enabled=notifications_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_enabled: bool,
+             notifications_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insights_enabled", insights_enabled)
         if notifications_enabled is not None:
-            pulumi.set(__self__, "notifications_enabled", notifications_enabled)
+            _setter("notifications_enabled", notifications_enabled)
 
     @property
     @pulumi.getter(name="insightsEnabled")

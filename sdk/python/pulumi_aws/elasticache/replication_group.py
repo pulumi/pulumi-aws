@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -99,74 +99,149 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
+        ReplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            at_rest_encryption_enabled=at_rest_encryption_enabled,
+            auth_token=auth_token,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            automatic_failover_enabled=automatic_failover_enabled,
+            data_tiering_enabled=data_tiering_enabled,
+            description=description,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_replication_group_id=global_replication_group_id,
+            kms_key_id=kms_key_id,
+            log_delivery_configurations=log_delivery_configurations,
+            maintenance_window=maintenance_window,
+            multi_az_enabled=multi_az_enabled,
+            node_type=node_type,
+            notification_topic_arn=notification_topic_arn,
+            num_cache_clusters=num_cache_clusters,
+            num_node_groups=num_node_groups,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            preferred_cache_cluster_azs=preferred_cache_cluster_azs,
+            replicas_per_node_group=replicas_per_node_group,
+            replication_group_id=replication_group_id,
+            security_group_ids=security_group_ids,
+            security_group_names=security_group_names,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            transit_encryption_enabled=transit_encryption_enabled,
+            user_group_ids=user_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_token: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             num_cache_clusters: Optional[pulumi.Input[int]] = None,
+             num_node_groups: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             replicas_per_node_group: Optional[pulumi.Input[int]] = None,
+             replication_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if at_rest_encryption_enabled is not None:
-            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if data_tiering_enabled is not None:
-            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
+            _setter("data_tiering_enabled", data_tiering_enabled)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_replication_group_id is not None:
-            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+            _setter("global_replication_group_id", global_replication_group_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if multi_az_enabled is not None:
-            pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
+            _setter("multi_az_enabled", multi_az_enabled)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if num_cache_clusters is not None:
-            pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
+            _setter("num_cache_clusters", num_cache_clusters)
         if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
+            _setter("num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_cache_cluster_azs is not None:
-            pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+            _setter("preferred_cache_cluster_azs", preferred_cache_cluster_azs)
         if replicas_per_node_group is not None:
-            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
+            _setter("replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
-            pulumi.set(__self__, "replication_group_id", replication_group_id)
+            _setter("replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
+            _setter("security_group_names", security_group_names)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
         if user_group_ids is not None:
-            pulumi.set(__self__, "user_group_ids", user_group_ids)
+            _setter("user_group_ids", user_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -691,93 +766,184 @@ class _ReplicationGroupState:
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
+        _ReplicationGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            arn=arn,
+            at_rest_encryption_enabled=at_rest_encryption_enabled,
+            auth_token=auth_token,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            automatic_failover_enabled=automatic_failover_enabled,
+            cluster_enabled=cluster_enabled,
+            configuration_endpoint_address=configuration_endpoint_address,
+            data_tiering_enabled=data_tiering_enabled,
+            description=description,
+            engine=engine,
+            engine_version=engine_version,
+            engine_version_actual=engine_version_actual,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_replication_group_id=global_replication_group_id,
+            kms_key_id=kms_key_id,
+            log_delivery_configurations=log_delivery_configurations,
+            maintenance_window=maintenance_window,
+            member_clusters=member_clusters,
+            multi_az_enabled=multi_az_enabled,
+            node_type=node_type,
+            notification_topic_arn=notification_topic_arn,
+            num_cache_clusters=num_cache_clusters,
+            num_node_groups=num_node_groups,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            preferred_cache_cluster_azs=preferred_cache_cluster_azs,
+            primary_endpoint_address=primary_endpoint_address,
+            reader_endpoint_address=reader_endpoint_address,
+            replicas_per_node_group=replicas_per_node_group,
+            replication_group_id=replication_group_id,
+            security_group_ids=security_group_ids,
+            security_group_names=security_group_names,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            tags_all=tags_all,
+            transit_encryption_enabled=transit_encryption_enabled,
+            user_group_ids=user_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_token: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
+             data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             engine_version_actual: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             num_cache_clusters: Optional[pulumi.Input[int]] = None,
+             num_node_groups: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             primary_endpoint_address: Optional[pulumi.Input[str]] = None,
+             reader_endpoint_address: Optional[pulumi.Input[str]] = None,
+             replicas_per_node_group: Optional[pulumi.Input[int]] = None,
+             replication_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if at_rest_encryption_enabled is not None:
-            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
-            pulumi.set(__self__, "auth_token", auth_token)
+            _setter("auth_token", auth_token)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if cluster_enabled is not None:
-            pulumi.set(__self__, "cluster_enabled", cluster_enabled)
+            _setter("cluster_enabled", cluster_enabled)
         if configuration_endpoint_address is not None:
-            pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
+            _setter("configuration_endpoint_address", configuration_endpoint_address)
         if data_tiering_enabled is not None:
-            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
+            _setter("data_tiering_enabled", data_tiering_enabled)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if engine_version_actual is not None:
-            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
+            _setter("engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_replication_group_id is not None:
-            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+            _setter("global_replication_group_id", global_replication_group_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
-            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+            _setter("log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if member_clusters is not None:
-            pulumi.set(__self__, "member_clusters", member_clusters)
+            _setter("member_clusters", member_clusters)
         if multi_az_enabled is not None:
-            pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
+            _setter("multi_az_enabled", multi_az_enabled)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
         if num_cache_clusters is not None:
-            pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
+            _setter("num_cache_clusters", num_cache_clusters)
         if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
+            _setter("num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_cache_cluster_azs is not None:
-            pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+            _setter("preferred_cache_cluster_azs", preferred_cache_cluster_azs)
         if primary_endpoint_address is not None:
-            pulumi.set(__self__, "primary_endpoint_address", primary_endpoint_address)
+            _setter("primary_endpoint_address", primary_endpoint_address)
         if reader_endpoint_address is not None:
-            pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
+            _setter("reader_endpoint_address", reader_endpoint_address)
         if replicas_per_node_group is not None:
-            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
+            _setter("replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
-            pulumi.set(__self__, "replication_group_id", replication_group_id)
+            _setter("replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
+            _setter("security_group_names", security_group_names)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
         if user_group_ids is not None:
-            pulumi.set(__self__, "user_group_ids", user_group_ids)
+            _setter("user_group_ids", user_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1710,6 +1876,10 @@ class ReplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

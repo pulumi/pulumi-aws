@@ -99,7 +99,7 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly enaSupport!: pulumi.Output<boolean>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
@@ -318,7 +318,7 @@ export interface AmiCopyState {
      */
     enaSupport?: pulumi.Input<boolean>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     encrypted?: pulumi.Input<boolean>;
     /**
@@ -425,7 +425,7 @@ export interface AmiCopyArgs {
      */
     ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
     /**
-     * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
+     * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      */
     encrypted?: pulumi.Input<boolean>;
     /**

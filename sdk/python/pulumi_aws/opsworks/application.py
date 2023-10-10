@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,38 +53,79 @@ class ApplicationArgs:
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
         """
-        pulumi.set(__self__, "stack_id", stack_id)
-        pulumi.set(__self__, "type", type)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stack_id=stack_id,
+            type=type,
+            app_sources=app_sources,
+            auto_bundle_on_deploy=auto_bundle_on_deploy,
+            aws_flow_ruby_settings=aws_flow_ruby_settings,
+            data_source_arn=data_source_arn,
+            data_source_database_name=data_source_database_name,
+            data_source_type=data_source_type,
+            description=description,
+            document_root=document_root,
+            domains=domains,
+            enable_ssl=enable_ssl,
+            environments=environments,
+            name=name,
+            rails_env=rails_env,
+            short_name=short_name,
+            ssl_configurations=ssl_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stack_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]] = None,
+             auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
+             aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
+             data_source_arn: Optional[pulumi.Input[str]] = None,
+             data_source_database_name: Optional[pulumi.Input[str]] = None,
+             data_source_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             document_root: Optional[pulumi.Input[str]] = None,
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_ssl: Optional[pulumi.Input[bool]] = None,
+             environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rails_env: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stack_id", stack_id)
+        _setter("type", type)
         if app_sources is not None:
-            pulumi.set(__self__, "app_sources", app_sources)
+            _setter("app_sources", app_sources)
         if auto_bundle_on_deploy is not None:
-            pulumi.set(__self__, "auto_bundle_on_deploy", auto_bundle_on_deploy)
+            _setter("auto_bundle_on_deploy", auto_bundle_on_deploy)
         if aws_flow_ruby_settings is not None:
-            pulumi.set(__self__, "aws_flow_ruby_settings", aws_flow_ruby_settings)
+            _setter("aws_flow_ruby_settings", aws_flow_ruby_settings)
         if data_source_arn is not None:
-            pulumi.set(__self__, "data_source_arn", data_source_arn)
+            _setter("data_source_arn", data_source_arn)
         if data_source_database_name is not None:
-            pulumi.set(__self__, "data_source_database_name", data_source_database_name)
+            _setter("data_source_database_name", data_source_database_name)
         if data_source_type is not None:
-            pulumi.set(__self__, "data_source_type", data_source_type)
+            _setter("data_source_type", data_source_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if document_root is not None:
-            pulumi.set(__self__, "document_root", document_root)
+            _setter("document_root", document_root)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if enable_ssl is not None:
-            pulumi.set(__self__, "enable_ssl", enable_ssl)
+            _setter("enable_ssl", enable_ssl)
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rails_env is not None:
-            pulumi.set(__self__, "rails_env", rails_env)
+            _setter("rails_env", rails_env)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if ssl_configurations is not None:
-            pulumi.set(__self__, "ssl_configurations", ssl_configurations)
+            _setter("ssl_configurations", ssl_configurations)
 
     @property
     @pulumi.getter(name="stackId")
@@ -331,40 +372,81 @@ class _ApplicationState:
         :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_sources=app_sources,
+            auto_bundle_on_deploy=auto_bundle_on_deploy,
+            aws_flow_ruby_settings=aws_flow_ruby_settings,
+            data_source_arn=data_source_arn,
+            data_source_database_name=data_source_database_name,
+            data_source_type=data_source_type,
+            description=description,
+            document_root=document_root,
+            domains=domains,
+            enable_ssl=enable_ssl,
+            environments=environments,
+            name=name,
+            rails_env=rails_env,
+            short_name=short_name,
+            ssl_configurations=ssl_configurations,
+            stack_id=stack_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]] = None,
+             auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
+             aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
+             data_source_arn: Optional[pulumi.Input[str]] = None,
+             data_source_database_name: Optional[pulumi.Input[str]] = None,
+             data_source_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             document_root: Optional[pulumi.Input[str]] = None,
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_ssl: Optional[pulumi.Input[bool]] = None,
+             environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rails_env: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_sources is not None:
-            pulumi.set(__self__, "app_sources", app_sources)
+            _setter("app_sources", app_sources)
         if auto_bundle_on_deploy is not None:
-            pulumi.set(__self__, "auto_bundle_on_deploy", auto_bundle_on_deploy)
+            _setter("auto_bundle_on_deploy", auto_bundle_on_deploy)
         if aws_flow_ruby_settings is not None:
-            pulumi.set(__self__, "aws_flow_ruby_settings", aws_flow_ruby_settings)
+            _setter("aws_flow_ruby_settings", aws_flow_ruby_settings)
         if data_source_arn is not None:
-            pulumi.set(__self__, "data_source_arn", data_source_arn)
+            _setter("data_source_arn", data_source_arn)
         if data_source_database_name is not None:
-            pulumi.set(__self__, "data_source_database_name", data_source_database_name)
+            _setter("data_source_database_name", data_source_database_name)
         if data_source_type is not None:
-            pulumi.set(__self__, "data_source_type", data_source_type)
+            _setter("data_source_type", data_source_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if document_root is not None:
-            pulumi.set(__self__, "document_root", document_root)
+            _setter("document_root", document_root)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if enable_ssl is not None:
-            pulumi.set(__self__, "enable_ssl", enable_ssl)
+            _setter("enable_ssl", enable_ssl)
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rails_env is not None:
-            pulumi.set(__self__, "rails_env", rails_env)
+            _setter("rails_env", rails_env)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if ssl_configurations is not None:
-            pulumi.set(__self__, "ssl_configurations", ssl_configurations)
+            _setter("ssl_configurations", ssl_configurations)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="appSources")
@@ -722,6 +804,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

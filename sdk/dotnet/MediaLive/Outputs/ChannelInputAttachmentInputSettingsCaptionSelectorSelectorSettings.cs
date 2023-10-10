@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings? AncillarySourceSettings;
         /// <summary>
-        /// Arib Source Settings.
+        /// ARIB Source Settings.
         /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings? AribSourceSettings;
         /// <summary>

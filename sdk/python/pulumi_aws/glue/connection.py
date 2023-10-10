@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,45 @@ class ConnectionArgs:
         :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            connection_properties=connection_properties,
+            connection_type=connection_type,
+            description=description,
+            match_criterias=match_criterias,
+            name=name,
+            physical_connection_requirements=physical_connection_requirements,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
+            _setter("connection_properties", connection_properties)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if match_criterias is not None:
-            pulumi.set(__self__, "match_criterias", match_criterias)
+            _setter("match_criterias", match_criterias)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if physical_connection_requirements is not None:
-            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+            _setter("physical_connection_requirements", physical_connection_requirements)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -175,29 +198,56 @@ class _ConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_id=catalog_id,
+            connection_properties=connection_properties,
+            connection_type=connection_type,
+            description=description,
+            match_criterias=match_criterias,
+            name=name,
+            physical_connection_requirements=physical_connection_requirements,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
+            _setter("connection_properties", connection_properties)
         if connection_type is not None:
-            pulumi.set(__self__, "connection_type", connection_type)
+            _setter("connection_type", connection_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if match_criterias is not None:
-            pulumi.set(__self__, "match_criterias", match_criterias)
+            _setter("match_criterias", match_criterias)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if physical_connection_requirements is not None:
-            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+            _setter("physical_connection_requirements", physical_connection_requirements)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -454,6 +504,10 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -482,6 +536,11 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["match_criterias"] = match_criterias
             __props__.__dict__["name"] = name
+            if physical_connection_requirements is not None and not isinstance(physical_connection_requirements, ConnectionPhysicalConnectionRequirementsArgs):
+                physical_connection_requirements = physical_connection_requirements or {}
+                def _setter(key, value):
+                    physical_connection_requirements[key] = value
+                ConnectionPhysicalConnectionRequirementsArgs._configure(_setter, **physical_connection_requirements)
             __props__.__dict__["physical_connection_requirements"] = physical_connection_requirements
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

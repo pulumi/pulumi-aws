@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetCanonicalUserIdResult',
     'AwaitableGetCanonicalUserIdResult',
     'get_canonical_user_id',
+    'get_canonical_user_id_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,24 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     return AwaitableGetCanonicalUserIdResult(
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_canonical_user_id)
+def get_canonical_user_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCanonicalUserIdResult]:
+    """
+    The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
+    for the effective account in which this provider is working.
+
+    > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.s3.get_canonical_user_id()
+    pulumi.export("canonicalUserId", current.id)
+    ```
+    """
+    ...

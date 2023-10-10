@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,16 +21,33 @@ class ClusterClusterCertificateArgs:
                  cluster_csr: Optional[pulumi.Input[str]] = None,
                  hsm_certificate: Optional[pulumi.Input[str]] = None,
                  manufacturer_hardware_certificate: Optional[pulumi.Input[str]] = None):
+        ClusterClusterCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_hardware_certificate=aws_hardware_certificate,
+            cluster_certificate=cluster_certificate,
+            cluster_csr=cluster_csr,
+            hsm_certificate=hsm_certificate,
+            manufacturer_hardware_certificate=manufacturer_hardware_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_hardware_certificate: Optional[pulumi.Input[str]] = None,
+             cluster_certificate: Optional[pulumi.Input[str]] = None,
+             cluster_csr: Optional[pulumi.Input[str]] = None,
+             hsm_certificate: Optional[pulumi.Input[str]] = None,
+             manufacturer_hardware_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_hardware_certificate is not None:
-            pulumi.set(__self__, "aws_hardware_certificate", aws_hardware_certificate)
+            _setter("aws_hardware_certificate", aws_hardware_certificate)
         if cluster_certificate is not None:
-            pulumi.set(__self__, "cluster_certificate", cluster_certificate)
+            _setter("cluster_certificate", cluster_certificate)
         if cluster_csr is not None:
-            pulumi.set(__self__, "cluster_csr", cluster_csr)
+            _setter("cluster_csr", cluster_csr)
         if hsm_certificate is not None:
-            pulumi.set(__self__, "hsm_certificate", hsm_certificate)
+            _setter("hsm_certificate", hsm_certificate)
         if manufacturer_hardware_certificate is not None:
-            pulumi.set(__self__, "manufacturer_hardware_certificate", manufacturer_hardware_certificate)
+            _setter("manufacturer_hardware_certificate", manufacturer_hardware_certificate)
 
     @property
     @pulumi.getter(name="awsHardwareCertificate")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,33 @@ class ScriptArgs:
         :param pulumi.Input[str] version: Version that is associated with this script.
         :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
+        ScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_location=storage_location,
+            tags=tags,
+            version=version,
+            zip_file=zip_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['ScriptStorageLocationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             zip_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_location is not None:
-            pulumi.set(__self__, "storage_location", storage_location)
+            _setter("storage_location", storage_location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if zip_file is not None:
-            pulumi.set(__self__, "zip_file", zip_file)
+            _setter("zip_file", zip_file)
 
     @property
     @pulumi.getter
@@ -121,23 +138,44 @@ class _ScriptState:
         :param pulumi.Input[str] version: Version that is associated with this script.
         :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
         """
+        _ScriptState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            storage_location=storage_location,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+            zip_file=zip_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['ScriptStorageLocationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             zip_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_location is not None:
-            pulumi.set(__self__, "storage_location", storage_location)
+            _setter("storage_location", storage_location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if zip_file is not None:
-            pulumi.set(__self__, "zip_file", zip_file)
+            _setter("zip_file", zip_file)
 
     @property
     @pulumi.getter
@@ -310,6 +348,10 @@ class Script(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -330,6 +372,11 @@ class Script(pulumi.CustomResource):
             __props__ = ScriptArgs.__new__(ScriptArgs)
 
             __props__.__dict__["name"] = name
+            if storage_location is not None and not isinstance(storage_location, ScriptStorageLocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                ScriptStorageLocationArgs._configure(_setter, **storage_location)
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

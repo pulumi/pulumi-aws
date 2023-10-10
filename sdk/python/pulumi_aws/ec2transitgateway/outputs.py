@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,10 +37,21 @@ class InstanceConnectEndpointTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
+        InstanceConnectEndpointTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
 
     @property
     @pulumi.getter
@@ -62,8 +73,19 @@ class GetAttachmentFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetAttachmentFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -91,8 +113,19 @@ class GetAttachmentsFilterResult(dict):
         :param str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetAttachmentsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -120,8 +153,19 @@ class GetConnectFilterResult(dict):
         :param str name: Name of the filter.
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetConnectFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -149,8 +193,19 @@ class GetConnectPeerFilterResult(dict):
         :param str name: Name of the filter.
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetConnectPeerFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -178,8 +233,19 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetDirectConnectGatewayAttachmentFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -207,8 +273,19 @@ class GetMulticastDomainAssociationResult(dict):
         :param str subnet_id: The ID of the subnet associated with the transit gateway multicast domain.
         :param str transit_gateway_attachment_id: The ID of the transit gateway attachment.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        GetMulticastDomainAssociationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             transit_gateway_attachment_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
+        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -236,8 +313,19 @@ class GetMulticastDomainFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetMulticastDomainFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -265,8 +353,19 @@ class GetMulticastDomainMemberResult(dict):
         :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param str network_interface_id: The group members' network interface ID.
         """
-        pulumi.set(__self__, "group_ip_address", group_ip_address)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        GetMulticastDomainMemberResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ip_address=group_ip_address,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ip_address: str,
+             network_interface_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ip_address", group_ip_address)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
@@ -294,8 +393,19 @@ class GetMulticastDomainSourceResult(dict):
         :param str group_ip_address: The IP address assigned to the transit gateway multicast group.
         :param str network_interface_id: The group members' network interface ID.
         """
-        pulumi.set(__self__, "group_ip_address", group_ip_address)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        GetMulticastDomainSourceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ip_address=group_ip_address,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ip_address: str,
+             network_interface_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ip_address", group_ip_address)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
@@ -325,8 +435,19 @@ class GetPeeringAttachmentFilterResult(dict):
         :param Sequence[str] values: Set of values that are accepted for the given field.
                An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetPeeringAttachmentFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -358,8 +479,19 @@ class GetRouteTableAssociationsFilterResult(dict):
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Transit Gateway Route Table will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetRouteTableAssociationsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -389,8 +521,19 @@ class GetRouteTableFilterResult(dict):
         :param str name: Name of the filter.
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetRouteTableFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -420,8 +563,19 @@ class GetRouteTablePropagationsFilterResult(dict):
         :param Sequence[str] values: Set of values that are accepted for the given field.
                A Transit Gateway Route Table will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetRouteTablePropagationsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -452,8 +606,19 @@ class GetRouteTableRoutesFilterResult(dict):
                [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetRouteTableRoutesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -488,11 +653,28 @@ class GetRouteTableRoutesRouteResult(dict):
         :param str transit_gateway_route_table_announcement_id: The id of the transit gateway route table announcement, most of the time it is an empty string.
         :param str type: The type of the route, can be `propagated` or `static`.
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "transit_gateway_route_table_announcement_id", transit_gateway_route_table_announcement_id)
-        pulumi.set(__self__, "type", type)
+        GetRouteTableRoutesRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            prefix_list_id=prefix_list_id,
+            state=state,
+            transit_gateway_route_table_announcement_id=transit_gateway_route_table_announcement_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: str,
+             prefix_list_id: str,
+             state: str,
+             transit_gateway_route_table_announcement_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("prefix_list_id", prefix_list_id)
+        _setter("state", state)
+        _setter("transit_gateway_route_table_announcement_id", transit_gateway_route_table_announcement_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -544,8 +726,19 @@ class GetTransitGatewayFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetTransitGatewayFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -573,8 +766,19 @@ class GetVpcAttachmentFilterResult(dict):
         :param str name: Name of the filter.
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetVpcAttachmentFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -602,8 +806,19 @@ class GetVpcAttachmentsFilterResult(dict):
         :param str name: Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
         :param Sequence[str] values: List of one or more values for the filter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetVpcAttachmentsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -631,8 +846,19 @@ class GetVpnAttachmentFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetVpnAttachmentFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,12 +42,31 @@ class KxClusterAutoScalingConfigurationArgs:
         :param pulumi.Input[float] scale_in_cooldown_seconds: Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
         :param pulumi.Input[float] scale_out_cooldown_seconds: Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
         """
-        pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
-        pulumi.set(__self__, "max_node_count", max_node_count)
-        pulumi.set(__self__, "metric_target", metric_target)
-        pulumi.set(__self__, "min_node_count", min_node_count)
-        pulumi.set(__self__, "scale_in_cooldown_seconds", scale_in_cooldown_seconds)
-        pulumi.set(__self__, "scale_out_cooldown_seconds", scale_out_cooldown_seconds)
+        KxClusterAutoScalingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scaling_metric=auto_scaling_metric,
+            max_node_count=max_node_count,
+            metric_target=metric_target,
+            min_node_count=min_node_count,
+            scale_in_cooldown_seconds=scale_in_cooldown_seconds,
+            scale_out_cooldown_seconds=scale_out_cooldown_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scaling_metric: pulumi.Input[str],
+             max_node_count: pulumi.Input[int],
+             metric_target: pulumi.Input[float],
+             min_node_count: pulumi.Input[int],
+             scale_in_cooldown_seconds: pulumi.Input[float],
+             scale_out_cooldown_seconds: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_scaling_metric", auto_scaling_metric)
+        _setter("max_node_count", max_node_count)
+        _setter("metric_target", metric_target)
+        _setter("min_node_count", min_node_count)
+        _setter("scale_in_cooldown_seconds", scale_in_cooldown_seconds)
+        _setter("scale_out_cooldown_seconds", scale_out_cooldown_seconds)
 
     @property
     @pulumi.getter(name="autoScalingMetric")
@@ -134,8 +153,19 @@ class KxClusterCacheStorageConfigurationArgs:
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        KxClusterCacheStorageConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: pulumi.Input[int],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size", size)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -183,8 +213,19 @@ class KxClusterCapacityConfigurationArgs:
                * kx.s.16xlarge – The node type with a configuration of 432 GiB memory and 64 vCPUs.
                * kx.s.32xlarge – The node type with a configuration of 864 GiB memory and 128 vCPUs.
         """
-        pulumi.set(__self__, "node_count", node_count)
-        pulumi.set(__self__, "node_type", node_type)
+        KxClusterCapacityConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_count=node_count,
+            node_type=node_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_count: pulumi.Input[int],
+             node_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("node_count", node_count)
+        _setter("node_type", node_type)
 
     @property
     @pulumi.getter(name="nodeCount")
@@ -231,10 +272,23 @@ class KxClusterCodeArgs:
         :param pulumi.Input[str] s3_key: Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
         :param pulumi.Input[str] s3_object_version: Version of an S3 Object.
         """
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        KxClusterCodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_object_version=s3_object_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: pulumi.Input[str],
+             s3_key: pulumi.Input[str],
+             s3_object_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_key", s3_key)
         if s3_object_version is not None:
-            pulumi.set(__self__, "s3_object_version", s3_object_version)
+            _setter("s3_object_version", s3_object_version)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -284,11 +338,24 @@ class KxClusterDatabaseArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
-        pulumi.set(__self__, "database_name", database_name)
+        KxClusterDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            cache_configurations=cache_configurations,
+            changeset_id=changeset_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             cache_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]] = None,
+             changeset_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
         if cache_configurations is not None:
-            pulumi.set(__self__, "cache_configurations", cache_configurations)
+            _setter("cache_configurations", cache_configurations)
         if changeset_id is not None:
-            pulumi.set(__self__, "changeset_id", changeset_id)
+            _setter("changeset_id", changeset_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -336,9 +403,20 @@ class KxClusterDatabaseCacheConfigurationArgs:
         :param pulumi.Input[str] cache_type: Type of disk cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_paths: Paths within the database to cache.
         """
-        pulumi.set(__self__, "cache_type", cache_type)
+        KxClusterDatabaseCacheConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_type=cache_type,
+            db_paths=db_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_type: pulumi.Input[str],
+             db_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cache_type", cache_type)
         if db_paths is not None:
-            pulumi.set(__self__, "db_paths", db_paths)
+            _setter("db_paths", db_paths)
 
     @property
     @pulumi.getter(name="cacheType")
@@ -375,8 +453,19 @@ class KxClusterSavedownStorageConfigurationArgs:
         :param pulumi.Input[str] type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         """
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
+        KxClusterSavedownStorageConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: pulumi.Input[int],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size", size)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -417,10 +506,25 @@ class KxClusterVpcConfigurationArgs:
                * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC endpoint
         """
-        pulumi.set(__self__, "ip_address_type", ip_address_type)
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        KxClusterVpcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_type=ip_address_type,
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_type: pulumi.Input[str],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_address_type", ip_address_type)
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -478,8 +582,19 @@ class KxEnvironmentCustomDnsConfigurationArgs:
         :param pulumi.Input[str] custom_dns_server_ip: IP address of the DNS server.
         :param pulumi.Input[str] custom_dns_server_name: Name of the DNS server.
         """
-        pulumi.set(__self__, "custom_dns_server_ip", custom_dns_server_ip)
-        pulumi.set(__self__, "custom_dns_server_name", custom_dns_server_name)
+        KxEnvironmentCustomDnsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_dns_server_ip=custom_dns_server_ip,
+            custom_dns_server_name=custom_dns_server_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_dns_server_ip: pulumi.Input[str],
+             custom_dns_server_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_dns_server_ip", custom_dns_server_ip)
+        _setter("custom_dns_server_name", custom_dns_server_name)
 
     @property
     @pulumi.getter(name="customDnsServerIp")
@@ -517,10 +632,23 @@ class KxEnvironmentTransitGatewayConfigurationArgs:
         :param pulumi.Input[str] transit_gateway_id: Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
         :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
-        pulumi.set(__self__, "routable_cidr_space", routable_cidr_space)
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        KxEnvironmentTransitGatewayConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            routable_cidr_space=routable_cidr_space,
+            transit_gateway_id=transit_gateway_id,
+            attachment_network_acl_configurations=attachment_network_acl_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             routable_cidr_space: pulumi.Input[str],
+             transit_gateway_id: pulumi.Input[str],
+             attachment_network_acl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("routable_cidr_space", routable_cidr_space)
+        _setter("transit_gateway_id", transit_gateway_id)
         if attachment_network_acl_configurations is not None:
-            pulumi.set(__self__, "attachment_network_acl_configurations", attachment_network_acl_configurations)
+            _setter("attachment_network_acl_configurations", attachment_network_acl_configurations)
 
     @property
     @pulumi.getter(name="routableCidrSpace")
@@ -576,14 +704,33 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationA
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs'] icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs'] port_range: Range of ports the rule applies to. Defined below.
         """
-        pulumi.set(__self__, "cidr_block", cidr_block)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_block=cidr_block,
+            protocol=protocol,
+            rule_action=rule_action,
+            rule_number=rule_number,
+            icmp_type_code=icmp_type_code,
+            port_range=port_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_block: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             rule_action: pulumi.Input[str],
+             rule_number: pulumi.Input[int],
+             icmp_type_code: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']] = None,
+             port_range: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cidr_block", cidr_block)
+        _setter("protocol", protocol)
+        _setter("rule_action", rule_action)
+        _setter("rule_number", rule_number)
         if icmp_type_code is not None:
-            pulumi.set(__self__, "icmp_type_code", icmp_type_code)
+            _setter("icmp_type_code", icmp_type_code)
         if port_range is not None:
-            pulumi.set(__self__, "port_range", port_range)
+            _setter("port_range", port_range)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -667,8 +814,19 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationI
         :param pulumi.Input[int] code: ICMP code. A value of `-1` means all codes for the specified ICMP type.
         :param pulumi.Input[int] type: ICMP type. A value of `-1` means all types.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "type", type)
+        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: pulumi.Input[int],
+             type: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("code", code)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -704,8 +862,19 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationP
         :param pulumi.Input[int] from_: First port in the range.
         :param pulumi.Input[int] to: Last port in the range.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: pulumi.Input[int],
+             to: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")

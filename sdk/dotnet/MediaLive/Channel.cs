@@ -235,7 +235,7 @@ namespace Pulumi.Aws.MediaLive
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for the VPC outputs.
+        /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
         [Output("vpc")]
         public Output<Outputs.ChannelVpc?> Vpc { get; private set; } = null!;
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Settings for the VPC outputs.
+        /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.ChannelVpcArgs>? Vpc { get; set; }
@@ -514,7 +514,7 @@ namespace Pulumi.Aws.MediaLive
         }
 
         /// <summary>
-        /// Settings for the VPC outputs.
+        /// Settings for the VPC outputs. See VPC for more details.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.ChannelVpcGetArgs>? Vpc { get; set; }

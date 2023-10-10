@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -23,9 +23,22 @@ class ResourceArgs:
         :param pulumi.Input[str] path_part: Last path segment of this API resource.
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
-        pulumi.set(__self__, "parent_id", parent_id)
-        pulumi.set(__self__, "path_part", path_part)
-        pulumi.set(__self__, "rest_api", rest_api)
+        ResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_id=parent_id,
+            path_part=path_part,
+            rest_api=rest_api,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_id: pulumi.Input[str],
+             path_part: pulumi.Input[str],
+             rest_api: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parent_id", parent_id)
+        _setter("path_part", path_part)
+        _setter("rest_api", rest_api)
 
     @property
     @pulumi.getter(name="parentId")
@@ -78,14 +91,29 @@ class _ResourceState:
         :param pulumi.Input[str] path_part: Last path segment of this API resource.
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
+        _ResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_id=parent_id,
+            path=path,
+            path_part=path_part,
+            rest_api=rest_api,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_id: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             path_part: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if path_part is not None:
-            pulumi.set(__self__, "path_part", path_part)
+            _setter("path_part", path_part)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
 
     @property
     @pulumi.getter(name="parentId")
@@ -215,6 +243,10 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

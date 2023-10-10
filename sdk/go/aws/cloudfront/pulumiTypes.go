@@ -442,6 +442,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items []string `pulumi:"items"`
 }
 
@@ -457,6 +458,7 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -555,6 +557,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesO
 	}
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
 		return v.Items
@@ -591,6 +594,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesP
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput)
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) []string {
 		if v == nil {
@@ -785,6 +789,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items []string `pulumi:"items"`
 }
 
@@ -800,6 +805,7 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInpu
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -898,6 +904,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersO
 	}
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
 		return v.Items
@@ -934,6 +941,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersP
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput)
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) []string {
 		if v == nil {
@@ -1128,6 +1136,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items []string `pulumi:"items"`
 }
 
@@ -1143,6 +1152,7 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryS
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs struct {
+	// List of item names, such as cookies, headers, or query strings.
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -1241,6 +1251,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
 		return v.Items
@@ -1277,6 +1288,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput)
 }
 
+// List of item names, such as cookies, headers, or query strings.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) []string {
 		if v == nil {
@@ -4720,7 +4732,7 @@ type DistributionOrigin struct {
 	DomainName string `pulumi:"domainName"`
 	// Unique identifier of a [CloudFront origin access control][8] for this origin.
 	OriginAccessControlId *string `pulumi:"originAccessControlId"`
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId string `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
 	OriginPath *string `pulumi:"originPath"`
@@ -4754,7 +4766,7 @@ type DistributionOriginArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Unique identifier of a [CloudFront origin access control][8] for this origin.
 	OriginAccessControlId pulumi.StringPtrInput `pulumi:"originAccessControlId"`
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
@@ -4863,7 +4875,7 @@ func (o DistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
 }
 
-// Unique identifier for the origin.
+// Unique identifier of the member origin.
 func (o DistributionOriginOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -5294,7 +5306,7 @@ type DistributionOriginGroup struct {
 	FailoverCriteria DistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
 	// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
 	Members []DistributionOriginGroupMember `pulumi:"members"`
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId string `pulumi:"originId"`
 }
 
@@ -5314,7 +5326,7 @@ type DistributionOriginGroupArgs struct {
 	FailoverCriteria DistributionOriginGroupFailoverCriteriaInput `pulumi:"failoverCriteria"`
 	// Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
 	Members DistributionOriginGroupMemberArrayInput `pulumi:"members"`
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
@@ -5397,7 +5409,7 @@ func (o DistributionOriginGroupOutput) Members() DistributionOriginGroupMemberAr
 	return o.ApplyT(func(v DistributionOriginGroup) []DistributionOriginGroupMember { return v.Members }).(DistributionOriginGroupMemberArrayOutput)
 }
 
-// Unique identifier for the origin.
+// Unique identifier of the member origin.
 func (o DistributionOriginGroupOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -5493,7 +5505,7 @@ func (o DistributionOriginGroupFailoverCriteriaOutput) StatusCodes() pulumi.IntA
 }
 
 type DistributionOriginGroupMember struct {
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId string `pulumi:"originId"`
 }
 
@@ -5509,7 +5521,7 @@ type DistributionOriginGroupMemberInput interface {
 }
 
 type DistributionOriginGroupMemberArgs struct {
-	// Unique identifier for the origin.
+	// Unique identifier of the member origin.
 	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
@@ -5582,7 +5594,7 @@ func (o DistributionOriginGroupMemberOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// Unique identifier for the origin.
+// Unique identifier of the member origin.
 func (o DistributionOriginGroupMemberOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -5614,7 +5626,7 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 }
 
 type DistributionOriginOriginShield struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
 	OriginShieldRegion *string `pulumi:"originShieldRegion"`
@@ -5632,7 +5644,7 @@ type DistributionOriginOriginShieldInput interface {
 }
 
 type DistributionOriginOriginShieldArgs struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
 	OriginShieldRegion pulumi.StringPtrInput `pulumi:"originShieldRegion"`
@@ -5733,7 +5745,7 @@ func (o DistributionOriginOriginShieldOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
+// Whether Origin Shield is enabled.
 func (o DistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -5773,7 +5785,7 @@ func (o DistributionOriginOriginShieldPtrOutput) Elem() DistributionOriginOrigin
 	}).(DistributionOriginOriginShieldOutput)
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
+// Whether Origin Shield is enabled.
 func (o DistributionOriginOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginOriginShield) *bool {
 		if v == nil {
@@ -6292,7 +6304,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 }
 
 type DistributionTrustedKeyGroup struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
@@ -6310,7 +6322,7 @@ type DistributionTrustedKeyGroupInput interface {
 }
 
 type DistributionTrustedKeyGroupArgs struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
@@ -6385,7 +6397,7 @@ func (o DistributionTrustedKeyGroupOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
+// Whether Origin Shield is enabled.
 func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6552,7 +6564,7 @@ func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionTrustedSigner struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
@@ -6570,7 +6582,7 @@ type DistributionTrustedSignerInput interface {
 }
 
 type DistributionTrustedSignerArgs struct {
-	// Whether the distribution is enabled to accept end user requests for content.
+	// Whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
@@ -6645,7 +6657,7 @@ func (o DistributionTrustedSignerOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// Whether the distribution is enabled to accept end user requests for content.
+// Whether Origin Shield is enabled.
 func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11124,7 +11136,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigPtrOutput) Items() ResponseHeade
 type ResponseHeadersPolicyCustomHeadersConfigItem struct {
 	// The HTTP response header name.
 	Header string `pulumi:"header"`
-	// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+	// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
 	// The value for the HTTP response header.
 	Value string `pulumi:"value"`
@@ -11144,7 +11156,7 @@ type ResponseHeadersPolicyCustomHeadersConfigItemInput interface {
 type ResponseHeadersPolicyCustomHeadersConfigItemArgs struct {
 	// The HTTP response header name.
 	Header pulumi.StringInput `pulumi:"header"`
-	// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+	// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
 	// The value for the HTTP response header.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -11224,7 +11236,7 @@ func (o ResponseHeadersPolicyCustomHeadersConfigItemOutput) Header() pulumi.Stri
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeadersConfigItem) string { return v.Header }).(pulumi.StringOutput)
 }
 
-// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
 func (o ResponseHeadersPolicyCustomHeadersConfigItemOutput) Override() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicyCustomHeadersConfigItem) bool { return v.Override }).(pulumi.BoolOutput)
 }

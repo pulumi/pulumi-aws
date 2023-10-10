@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OriginAccessControlArgs', 'OriginAccessControl']
@@ -27,13 +27,30 @@ class OriginAccessControlArgs:
         :param pulumi.Input[str] description: The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         :param pulumi.Input[str] name: A name that identifies the Origin Access Control.
         """
-        pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
-        pulumi.set(__self__, "signing_behavior", signing_behavior)
-        pulumi.set(__self__, "signing_protocol", signing_protocol)
+        OriginAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origin_access_control_origin_type=origin_access_control_origin_type,
+            signing_behavior=signing_behavior,
+            signing_protocol=signing_protocol,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origin_access_control_origin_type: pulumi.Input[str],
+             signing_behavior: pulumi.Input[str],
+             signing_protocol: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("origin_access_control_origin_type", origin_access_control_origin_type)
+        _setter("signing_behavior", signing_behavior)
+        _setter("signing_protocol", signing_protocol)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="originAccessControlOriginType")
@@ -114,18 +131,37 @@ class _OriginAccessControlState:
         :param pulumi.Input[str] signing_behavior: Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         :param pulumi.Input[str] signing_protocol: Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         """
+        _OriginAccessControlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            etag=etag,
+            name=name,
+            origin_access_control_origin_type=origin_access_control_origin_type,
+            signing_behavior=signing_behavior,
+            signing_protocol=signing_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             origin_access_control_origin_type: Optional[pulumi.Input[str]] = None,
+             signing_behavior: Optional[pulumi.Input[str]] = None,
+             signing_protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if origin_access_control_origin_type is not None:
-            pulumi.set(__self__, "origin_access_control_origin_type", origin_access_control_origin_type)
+            _setter("origin_access_control_origin_type", origin_access_control_origin_type)
         if signing_behavior is not None:
-            pulumi.set(__self__, "signing_behavior", signing_behavior)
+            _setter("signing_behavior", signing_behavior)
         if signing_protocol is not None:
-            pulumi.set(__self__, "signing_protocol", signing_protocol)
+            _setter("signing_protocol", signing_protocol)
 
     @property
     @pulumi.getter
@@ -289,6 +325,10 @@ class OriginAccessControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginAccessControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

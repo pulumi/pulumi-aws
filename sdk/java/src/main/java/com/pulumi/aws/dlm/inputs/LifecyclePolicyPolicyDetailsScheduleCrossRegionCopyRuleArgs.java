@@ -19,14 +19,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
     public static final LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+     * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
     @Import(name="cmkArn")
     private @Nullable Output<String> cmkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+     * @return The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
      * 
      */
     public Optional<Output<String>> cmkArn() {
@@ -34,14 +34,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
     }
 
     /**
-     * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     @Import(name="copyTags")
     private @Nullable Output<Boolean> copyTags;
 
     /**
-     * @return Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+     * @return Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
      * 
      */
     public Optional<Output<Boolean>> copyTags() {
@@ -49,14 +49,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
     }
 
     /**
-     * See the `deprecate_rule` block. Max of 1 per schedule.
+     * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     @Import(name="deprecateRule")
     private @Nullable Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs> deprecateRule;
 
     /**
-     * @return See the `deprecate_rule` block. Max of 1 per schedule.
+     * @return The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs>> deprecateRule() {
@@ -64,14 +64,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
     }
 
     /**
-     * To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+     * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
     @Import(name="encrypted", required=true)
     private Output<Boolean> encrypted;
 
     /**
-     * @return To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+     * @return To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
      * 
      */
     public Output<Boolean> encrypted() {
@@ -138,7 +138,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         * @param cmkArn The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param copyTags Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * @param copyTags Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
+         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param deprecateRule See the `deprecate_rule` block. Max of 1 per schedule.
+         * @param deprecateRule The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs e
         }
 
         /**
-         * @param encrypted To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+         * @param encrypted To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
          * 
          * @return builder
          * 

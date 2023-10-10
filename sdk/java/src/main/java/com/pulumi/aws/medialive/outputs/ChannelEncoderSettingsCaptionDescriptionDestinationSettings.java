@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
     /**
-     * @return Arib Destination Settings.
+     * @return ARIB Destination Settings.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings aribDestinationSettings;
@@ -91,7 +91,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
 
     private ChannelEncoderSettingsCaptionDescriptionDestinationSettings() {}
     /**
-     * @return Arib Destination Settings.
+     * @return ARIB Destination Settings.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings> aribDestinationSettings() {

@@ -795,7 +795,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() p
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification struct {
-	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+	// Dimensions of the metric.
 	Dimensions []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName *string `pulumi:"metricName"`
@@ -805,7 +805,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Namespace *string `pulumi:"namespace"`
 	// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
 	Statistic *string `pulumi:"statistic"`
-	// Unit of the metric.
+	// Unit of the metrics to return.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -821,7 +821,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs struct {
-	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+	// Dimensions of the metric.
 	Dimensions PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
@@ -831,7 +831,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
 	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
-	// Unit of the metric.
+	// Unit of the metrics to return.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -930,7 +930,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}
 }
 
-// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+// Dimensions of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
 		return v.Dimensions
@@ -965,7 +965,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metric.
+// Unit of the metrics to return.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
 		return v.Unit
@@ -1002,7 +1002,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput)
 }
 
-// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+// Dimensions of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
 		if v == nil {
@@ -1052,7 +1052,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metric.
+// Unit of the metrics to return.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -1368,7 +1368,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Metric PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric `pulumi:"metric"`
 	// Statistic of the metrics to return.
 	Stat string `pulumi:"stat"`
-	// Unit of the metric.
+	// Unit of the metrics to return.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -1388,7 +1388,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 	Metric PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricInput `pulumi:"metric"`
 	// Statistic of the metrics to return.
 	Stat pulumi.StringInput `pulumi:"stat"`
-	// Unit of the metric.
+	// Unit of the metrics to return.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -1501,7 +1501,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringOutput)
 }
 
-// Unit of the metric.
+// Unit of the metrics to return.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat) *string {
 		return v.Unit
@@ -1558,7 +1558,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Unit of the metric.
+// Unit of the metrics to return.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat) *string {
 		if v == nil {
@@ -1569,7 +1569,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric struct {
-	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+	// Dimensions of the metric.
 	Dimensions []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName string `pulumi:"metricName"`
@@ -1589,7 +1589,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
 }
 
 type PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs struct {
-	// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+	// Dimensions of the metric.
 	Dimensions PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput `pulumi:"dimensions"`
 	// Name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
@@ -1692,7 +1692,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}
 }
 
-// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+// Dimensions of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
 		return v.Dimensions
@@ -1743,7 +1743,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput)
 }
 
-// Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+// Dimensions of the metric.
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) Dimensions() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) []PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
 		if v == nil {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -44,8 +44,19 @@ class GetLicenseGrantsFilterResult(dict):
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetLicenseGrantsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -86,9 +97,22 @@ class GetReceivedLicenseConsumptionConfigurationResult(dict):
         :param Sequence['GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs'] borrow_configurations: Details about a borrow configuration. Detailed below
         :param Sequence['GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs'] provisional_configurations: Details about a provisional configuration. Detailed below
         """
-        pulumi.set(__self__, "borrow_configurations", borrow_configurations)
-        pulumi.set(__self__, "provisional_configurations", provisional_configurations)
-        pulumi.set(__self__, "renew_type", renew_type)
+        GetReceivedLicenseConsumptionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            borrow_configurations=borrow_configurations,
+            provisional_configurations=provisional_configurations,
+            renew_type=renew_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             borrow_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult'],
+             provisional_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult'],
+             renew_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("borrow_configurations", borrow_configurations)
+        _setter("provisional_configurations", provisional_configurations)
+        _setter("renew_type", renew_type)
 
     @property
     @pulumi.getter(name="borrowConfigurations")
@@ -121,8 +145,19 @@ class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
         :param bool allow_early_check_in: Indicates whether early check-ins are allowed.
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_early_check_in=allow_early_check_in,
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_early_check_in: bool,
+             max_time_to_live_in_minutes: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_early_check_in", allow_early_check_in)
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
@@ -148,7 +183,16 @@ class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(d
         """
         :param int max_time_to_live_in_minutes: Maximum time for the provisional configuration, in minutes.
         """
-        pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
+        GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_time_to_live_in_minutes=max_time_to_live_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_time_to_live_in_minutes: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
@@ -174,11 +218,28 @@ class GetReceivedLicenseEntitlementResult(dict):
         :param str unit: Entitlement unit.
         :param str value: The value.
         """
-        pulumi.set(__self__, "allow_check_in", allow_check_in)
-        pulumi.set(__self__, "max_count", max_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetReceivedLicenseEntitlementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_check_in=allow_check_in,
+            max_count=max_count,
+            name=name,
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_check_in: bool,
+             max_count: int,
+             name: str,
+             unit: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_check_in", allow_check_in)
+        _setter("max_count", max_count)
+        _setter("name", name)
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="allowCheckIn")
@@ -232,9 +293,22 @@ class GetReceivedLicenseIssuerResult(dict):
         :param str name: The key name.
         :param str sign_key: Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
-        pulumi.set(__self__, "key_fingerprint", key_fingerprint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sign_key", sign_key)
+        GetReceivedLicenseIssuerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_fingerprint=key_fingerprint,
+            name=name,
+            sign_key=sign_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_fingerprint: str,
+             name: str,
+             sign_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_fingerprint", key_fingerprint)
+        _setter("name", name)
+        _setter("sign_key", sign_key)
 
     @property
     @pulumi.getter(name="keyFingerprint")
@@ -270,8 +344,19 @@ class GetReceivedLicenseLicenseMetadataResult(dict):
         :param str name: The key name.
         :param str value: The value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetReceivedLicenseLicenseMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -301,9 +386,22 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
         :param str received_status: Received status.
         :param str received_status_reason: Received status reason.
         """
-        pulumi.set(__self__, "allowed_operations", allowed_operations)
-        pulumi.set(__self__, "received_status", received_status)
-        pulumi.set(__self__, "received_status_reason", received_status_reason)
+        GetReceivedLicenseReceivedMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            received_status=received_status,
+            received_status_reason=received_status_reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Sequence[str],
+             received_status: str,
+             received_status_reason: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_operations", allowed_operations)
+        _setter("received_status", received_status)
+        _setter("received_status_reason", received_status_reason)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -339,8 +437,19 @@ class GetReceivedLicenseValidityResult(dict):
         :param str begin: Start of the validity time range.
         :param str end: End of the validity time range.
         """
-        pulumi.set(__self__, "begin", begin)
-        pulumi.set(__self__, "end", end)
+        GetReceivedLicenseValidityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: str,
+             end: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("begin", begin)
+        _setter("end", end)
 
     @property
     @pulumi.getter
@@ -380,8 +489,19 @@ class GetReceivedLicensesFilterResult(dict):
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetReceivedLicensesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

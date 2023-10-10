@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AddonArgs', 'Addon']
@@ -51,27 +51,54 @@ class AddonArgs:
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "addon_name", addon_name)
-        pulumi.set(__self__, "cluster_name", cluster_name)
+        AddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_name=addon_name,
+            cluster_name=cluster_name,
+            addon_version=addon_version,
+            configuration_values=configuration_values,
+            preserve=preserve,
+            resolve_conflicts=resolve_conflicts,
+            resolve_conflicts_on_create=resolve_conflicts_on_create,
+            resolve_conflicts_on_update=resolve_conflicts_on_update,
+            service_account_role_arn=service_account_role_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_name: pulumi.Input[str],
+             cluster_name: pulumi.Input[str],
+             addon_version: Optional[pulumi.Input[str]] = None,
+             configuration_values: Optional[pulumi.Input[str]] = None,
+             preserve: Optional[pulumi.Input[bool]] = None,
+             resolve_conflicts: Optional[pulumi.Input[str]] = None,
+             resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
+             resolve_conflicts_on_update: Optional[pulumi.Input[str]] = None,
+             service_account_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("addon_name", addon_name)
+        _setter("cluster_name", cluster_name)
         if addon_version is not None:
-            pulumi.set(__self__, "addon_version", addon_version)
+            _setter("addon_version", addon_version)
         if configuration_values is not None:
-            pulumi.set(__self__, "configuration_values", configuration_values)
+            _setter("configuration_values", configuration_values)
         if preserve is not None:
-            pulumi.set(__self__, "preserve", preserve)
+            _setter("preserve", preserve)
         if resolve_conflicts is not None:
             warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
             pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
         if resolve_conflicts is not None:
-            pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
+            _setter("resolve_conflicts", resolve_conflicts)
         if resolve_conflicts_on_create is not None:
-            pulumi.set(__self__, "resolve_conflicts_on_create", resolve_conflicts_on_create)
+            _setter("resolve_conflicts_on_create", resolve_conflicts_on_create)
         if resolve_conflicts_on_update is not None:
-            pulumi.set(__self__, "resolve_conflicts_on_update", resolve_conflicts_on_update)
+            _setter("resolve_conflicts_on_update", resolve_conflicts_on_update)
         if service_account_role_arn is not None:
-            pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
+            _setter("service_account_role_arn", service_account_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addonName")
@@ -259,40 +286,75 @@ class _AddonState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
+        _AddonState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_name=addon_name,
+            addon_version=addon_version,
+            arn=arn,
+            cluster_name=cluster_name,
+            configuration_values=configuration_values,
+            created_at=created_at,
+            modified_at=modified_at,
+            preserve=preserve,
+            resolve_conflicts=resolve_conflicts,
+            resolve_conflicts_on_create=resolve_conflicts_on_create,
+            resolve_conflicts_on_update=resolve_conflicts_on_update,
+            service_account_role_arn=service_account_role_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_name: Optional[pulumi.Input[str]] = None,
+             addon_version: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             configuration_values: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             modified_at: Optional[pulumi.Input[str]] = None,
+             preserve: Optional[pulumi.Input[bool]] = None,
+             resolve_conflicts: Optional[pulumi.Input[str]] = None,
+             resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
+             resolve_conflicts_on_update: Optional[pulumi.Input[str]] = None,
+             service_account_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+            _setter("addon_name", addon_name)
         if addon_version is not None:
-            pulumi.set(__self__, "addon_version", addon_version)
+            _setter("addon_version", addon_version)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if configuration_values is not None:
-            pulumi.set(__self__, "configuration_values", configuration_values)
+            _setter("configuration_values", configuration_values)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if modified_at is not None:
-            pulumi.set(__self__, "modified_at", modified_at)
+            _setter("modified_at", modified_at)
         if preserve is not None:
-            pulumi.set(__self__, "preserve", preserve)
+            _setter("preserve", preserve)
         if resolve_conflicts is not None:
             warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
             pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
         if resolve_conflicts is not None:
-            pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
+            _setter("resolve_conflicts", resolve_conflicts)
         if resolve_conflicts_on_create is not None:
-            pulumi.set(__self__, "resolve_conflicts_on_create", resolve_conflicts_on_create)
+            _setter("resolve_conflicts_on_create", resolve_conflicts_on_create)
         if resolve_conflicts_on_update is not None:
-            pulumi.set(__self__, "resolve_conflicts_on_update", resolve_conflicts_on_update)
+            _setter("resolve_conflicts_on_update", resolve_conflicts_on_update)
         if service_account_role_arn is not None:
-            pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
+            _setter("service_account_role_arn", service_account_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addonName")
@@ -694,6 +756,10 @@ class Addon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -727,9 +793,6 @@ class Addon(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_values"] = configuration_values
             __props__.__dict__["preserve"] = preserve
-            if resolve_conflicts is not None and not opts.urn:
-                warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-                pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["resolve_conflicts_on_create"] = resolve_conflicts_on_create
             __props__.__dict__["resolve_conflicts_on_update"] = resolve_conflicts_on_update

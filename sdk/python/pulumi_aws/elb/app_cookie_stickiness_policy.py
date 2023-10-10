@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AppCookieStickinessPolicyArgs', 'AppCookieStickinessPolicy']
@@ -28,11 +28,26 @@ class AppCookieStickinessPolicyArgs:
                should be attached.
         :param pulumi.Input[str] name: Name of the stickiness policy.
         """
-        pulumi.set(__self__, "cookie_name", cookie_name)
-        pulumi.set(__self__, "lb_port", lb_port)
-        pulumi.set(__self__, "load_balancer", load_balancer)
+        AppCookieStickinessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_name=cookie_name,
+            lb_port=lb_port,
+            load_balancer=load_balancer,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_name: pulumi.Input[str],
+             lb_port: pulumi.Input[int],
+             load_balancer: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cookie_name", cookie_name)
+        _setter("lb_port", lb_port)
+        _setter("load_balancer", load_balancer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cookieName")
@@ -103,14 +118,29 @@ class _AppCookieStickinessPolicyState:
                should be attached.
         :param pulumi.Input[str] name: Name of the stickiness policy.
         """
+        _AppCookieStickinessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie_name=cookie_name,
+            lb_port=lb_port,
+            load_balancer=load_balancer,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             lb_port: Optional[pulumi.Input[int]] = None,
+             load_balancer: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if lb_port is not None:
-            pulumi.set(__self__, "lb_port", lb_port)
+            _setter("lb_port", lb_port)
         if load_balancer is not None:
-            pulumi.set(__self__, "load_balancer", load_balancer)
+            _setter("load_balancer", load_balancer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cookieName")
@@ -262,6 +292,10 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppCookieStickinessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

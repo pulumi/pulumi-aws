@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,11 +42,24 @@ class RepositoryExternalConnections(dict):
         """
         :param str external_connection_name: The name of the external connection associated with a repository.
         """
-        pulumi.set(__self__, "external_connection_name", external_connection_name)
+        RepositoryExternalConnections._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_connection_name=external_connection_name,
+            package_format=package_format,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_connection_name: str,
+             package_format: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("external_connection_name", external_connection_name)
         if package_format is not None:
-            pulumi.set(__self__, "package_format", package_format)
+            _setter("package_format", package_format)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="externalConnectionName")
@@ -91,7 +104,16 @@ class RepositoryUpstream(dict):
         """
         :param str repository_name: The name of an upstream repository.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
+        RepositoryUpstream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="repositoryName")

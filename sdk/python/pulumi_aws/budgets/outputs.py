@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -62,8 +62,19 @@ class BudgetActionActionThreshold(dict):
         :param str action_threshold_type: The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
         :param float action_threshold_value: The threshold of a notification.
         """
-        pulumi.set(__self__, "action_threshold_type", action_threshold_type)
-        pulumi.set(__self__, "action_threshold_value", action_threshold_value)
+        BudgetActionActionThreshold._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_threshold_type=action_threshold_type,
+            action_threshold_value=action_threshold_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_threshold_type: str,
+             action_threshold_value: float,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_threshold_type", action_threshold_type)
+        _setter("action_threshold_value", action_threshold_value)
 
     @property
     @pulumi.getter(name="actionThresholdType")
@@ -114,12 +125,25 @@ class BudgetActionDefinition(dict):
         :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
         :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
+        BudgetActionDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_action_definition=iam_action_definition,
+            scp_action_definition=scp_action_definition,
+            ssm_action_definition=ssm_action_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_action_definition: Optional['outputs.BudgetActionDefinitionIamActionDefinition'] = None,
+             scp_action_definition: Optional['outputs.BudgetActionDefinitionScpActionDefinition'] = None,
+             ssm_action_definition: Optional['outputs.BudgetActionDefinitionSsmActionDefinition'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if iam_action_definition is not None:
-            pulumi.set(__self__, "iam_action_definition", iam_action_definition)
+            _setter("iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
-            pulumi.set(__self__, "scp_action_definition", scp_action_definition)
+            _setter("scp_action_definition", scp_action_definition)
         if ssm_action_definition is not None:
-            pulumi.set(__self__, "ssm_action_definition", ssm_action_definition)
+            _setter("ssm_action_definition", ssm_action_definition)
 
     @property
     @pulumi.getter(name="iamActionDefinition")
@@ -176,13 +200,28 @@ class BudgetActionDefinitionIamActionDefinition(dict):
         :param Sequence[str] roles: A list of roles to be attached. There must be at least one role.
         :param Sequence[str] users: A list of users to be attached. There must be at least one user.
         """
-        pulumi.set(__self__, "policy_arn", policy_arn)
+        BudgetActionDefinitionIamActionDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_arn=policy_arn,
+            groups=groups,
+            roles=roles,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_arn: str,
+             groups: Optional[Sequence[str]] = None,
+             roles: Optional[Sequence[str]] = None,
+             users: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_arn", policy_arn)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="policyArn")
@@ -245,8 +284,19 @@ class BudgetActionDefinitionScpActionDefinition(dict):
         :param str policy_id: The policy ID attached.
         :param Sequence[str] target_ids: A list of target IDs.
         """
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "target_ids", target_ids)
+        BudgetActionDefinitionScpActionDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_id=policy_id,
+            target_ids=target_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_id: str,
+             target_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_id", policy_id)
+        _setter("target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
@@ -295,9 +345,22 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
         :param Sequence[str] instance_ids: The EC2 and RDS instance IDs.
         :param str region: The Region to run the SSM document.
         """
-        pulumi.set(__self__, "action_sub_type", action_sub_type)
-        pulumi.set(__self__, "instance_ids", instance_ids)
-        pulumi.set(__self__, "region", region)
+        BudgetActionDefinitionSsmActionDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_sub_type=action_sub_type,
+            instance_ids=instance_ids,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_sub_type: str,
+             instance_ids: Sequence[str],
+             region: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_sub_type", action_sub_type)
+        _setter("instance_ids", instance_ids)
+        _setter("region", region)
 
     @property
     @pulumi.getter(name="actionSubType")
@@ -350,8 +413,19 @@ class BudgetActionSubscriber(dict):
         :param str address: The address that AWS sends budget notifications to, either an SNS topic or an email.
         :param str subscription_type: The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "subscription_type", subscription_type)
+        BudgetActionSubscriber._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            subscription_type=subscription_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: str,
+             subscription_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address", address)
+        _setter("subscription_type", subscription_type)
 
     @property
     @pulumi.getter
@@ -397,11 +471,24 @@ class BudgetAutoAdjustData(dict):
                  auto_adjust_type: str,
                  historical_options: Optional['outputs.BudgetAutoAdjustDataHistoricalOptions'] = None,
                  last_auto_adjust_time: Optional[str] = None):
-        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        BudgetAutoAdjustData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_adjust_type=auto_adjust_type,
+            historical_options=historical_options,
+            last_auto_adjust_time=last_auto_adjust_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_adjust_type: str,
+             historical_options: Optional['outputs.BudgetAutoAdjustDataHistoricalOptions'] = None,
+             last_auto_adjust_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
-            pulumi.set(__self__, "historical_options", historical_options)
+            _setter("historical_options", historical_options)
         if last_auto_adjust_time is not None:
-            pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
+            _setter("last_auto_adjust_time", last_auto_adjust_time)
 
     @property
     @pulumi.getter(name="autoAdjustType")
@@ -443,9 +530,20 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
     def __init__(__self__, *,
                  budget_adjustment_period: int,
                  lookback_available_periods: Optional[int] = None):
-        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+        BudgetAutoAdjustDataHistoricalOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            budget_adjustment_period=budget_adjustment_period,
+            lookback_available_periods=lookback_available_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             budget_adjustment_period: int,
+             lookback_available_periods: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("budget_adjustment_period", budget_adjustment_period)
         if lookback_available_periods is not None:
-            pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
+            _setter("lookback_available_periods", lookback_available_periods)
 
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
@@ -466,8 +564,19 @@ class BudgetCostFilter(dict):
         """
         :param str name: The name of a budget. Unique within accounts.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        BudgetCostFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -547,28 +656,57 @@ class BudgetCostTypes(dict):
         :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
         :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
         """
+        BudgetCostTypes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_credit=include_credit,
+            include_discount=include_discount,
+            include_other_subscription=include_other_subscription,
+            include_recurring=include_recurring,
+            include_refund=include_refund,
+            include_subscription=include_subscription,
+            include_support=include_support,
+            include_tax=include_tax,
+            include_upfront=include_upfront,
+            use_amortized=use_amortized,
+            use_blended=use_blended,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_credit: Optional[bool] = None,
+             include_discount: Optional[bool] = None,
+             include_other_subscription: Optional[bool] = None,
+             include_recurring: Optional[bool] = None,
+             include_refund: Optional[bool] = None,
+             include_subscription: Optional[bool] = None,
+             include_support: Optional[bool] = None,
+             include_tax: Optional[bool] = None,
+             include_upfront: Optional[bool] = None,
+             use_amortized: Optional[bool] = None,
+             use_blended: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_credit is not None:
-            pulumi.set(__self__, "include_credit", include_credit)
+            _setter("include_credit", include_credit)
         if include_discount is not None:
-            pulumi.set(__self__, "include_discount", include_discount)
+            _setter("include_discount", include_discount)
         if include_other_subscription is not None:
-            pulumi.set(__self__, "include_other_subscription", include_other_subscription)
+            _setter("include_other_subscription", include_other_subscription)
         if include_recurring is not None:
-            pulumi.set(__self__, "include_recurring", include_recurring)
+            _setter("include_recurring", include_recurring)
         if include_refund is not None:
-            pulumi.set(__self__, "include_refund", include_refund)
+            _setter("include_refund", include_refund)
         if include_subscription is not None:
-            pulumi.set(__self__, "include_subscription", include_subscription)
+            _setter("include_subscription", include_subscription)
         if include_support is not None:
-            pulumi.set(__self__, "include_support", include_support)
+            _setter("include_support", include_support)
         if include_tax is not None:
-            pulumi.set(__self__, "include_tax", include_tax)
+            _setter("include_tax", include_tax)
         if include_upfront is not None:
-            pulumi.set(__self__, "include_upfront", include_upfront)
+            _setter("include_upfront", include_upfront)
         if use_amortized is not None:
-            pulumi.set(__self__, "use_amortized", use_amortized)
+            _setter("use_amortized", use_amortized)
         if use_blended is not None:
-            pulumi.set(__self__, "use_blended", use_blended)
+            _setter("use_blended", use_blended)
 
     @property
     @pulumi.getter(name="includeCredit")
@@ -701,14 +839,33 @@ class BudgetNotification(dict):
         :param Sequence[str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         :param Sequence[str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "notification_type", notification_type)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_type", threshold_type)
+        BudgetNotification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            notification_type=notification_type,
+            threshold=threshold,
+            threshold_type=threshold_type,
+            subscriber_email_addresses=subscriber_email_addresses,
+            subscriber_sns_topic_arns=subscriber_sns_topic_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             notification_type: str,
+             threshold: float,
+             threshold_type: str,
+             subscriber_email_addresses: Optional[Sequence[str]] = None,
+             subscriber_sns_topic_arns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("notification_type", notification_type)
+        _setter("threshold", threshold)
+        _setter("threshold_type", threshold_type)
         if subscriber_email_addresses is not None:
-            pulumi.set(__self__, "subscriber_email_addresses", subscriber_email_addresses)
+            _setter("subscriber_email_addresses", subscriber_email_addresses)
         if subscriber_sns_topic_arns is not None:
-            pulumi.set(__self__, "subscriber_sns_topic_arns", subscriber_sns_topic_arns)
+            _setter("subscriber_sns_topic_arns", subscriber_sns_topic_arns)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -787,9 +944,22 @@ class BudgetPlannedLimit(dict):
         :param str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "unit", unit)
+        BudgetPlannedLimit._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            start_time=start_time,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: str,
+             start_time: str,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("start_time", start_time)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -827,9 +997,22 @@ class GetBudgetAutoAdjustDataResult(dict):
         :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
         :param str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
         """
-        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
-        pulumi.set(__self__, "historical_options", historical_options)
-        pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
+        GetBudgetAutoAdjustDataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_adjust_type=auto_adjust_type,
+            historical_options=historical_options,
+            last_auto_adjust_time=last_auto_adjust_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_adjust_type: str,
+             historical_options: Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult'],
+             last_auto_adjust_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_adjust_type", auto_adjust_type)
+        _setter("historical_options", historical_options)
+        _setter("last_auto_adjust_time", last_auto_adjust_time)
 
     @property
     @pulumi.getter(name="autoAdjustType")
@@ -865,8 +1048,19 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
         :param int budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
         :param int lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
         """
-        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
-        pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
+        GetBudgetAutoAdjustDataHistoricalOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            budget_adjustment_period=budget_adjustment_period,
+            lookback_available_periods=lookback_available_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             budget_adjustment_period: int,
+             lookback_available_periods: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("budget_adjustment_period", budget_adjustment_period)
+        _setter("lookback_available_periods", lookback_available_periods)
 
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
@@ -894,8 +1088,19 @@ class GetBudgetBudgetLimitResult(dict):
         :param str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        GetBudgetBudgetLimitResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: str,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -918,7 +1123,16 @@ class GetBudgetBudgetLimitResult(dict):
 class GetBudgetCalculatedSpendResult(dict):
     def __init__(__self__, *,
                  actual_spends: Sequence['outputs.GetBudgetCalculatedSpendActualSpendResult']):
-        pulumi.set(__self__, "actual_spends", actual_spends)
+        GetBudgetCalculatedSpendResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actual_spends=actual_spends,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actual_spends: Sequence['outputs.GetBudgetCalculatedSpendActualSpendResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actual_spends", actual_spends)
 
     @property
     @pulumi.getter(name="actualSpends")
@@ -935,8 +1149,19 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
         :param str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        GetBudgetCalculatedSpendActualSpendResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: str,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -965,8 +1190,19 @@ class GetBudgetCostFilterResult(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetBudgetCostFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1011,17 +1247,46 @@ class GetBudgetCostTypeResult(dict):
         :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`.
         :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
         """
-        pulumi.set(__self__, "include_credit", include_credit)
-        pulumi.set(__self__, "include_discount", include_discount)
-        pulumi.set(__self__, "include_other_subscription", include_other_subscription)
-        pulumi.set(__self__, "include_recurring", include_recurring)
-        pulumi.set(__self__, "include_refund", include_refund)
-        pulumi.set(__self__, "include_subscription", include_subscription)
-        pulumi.set(__self__, "include_support", include_support)
-        pulumi.set(__self__, "include_tax", include_tax)
-        pulumi.set(__self__, "include_upfront", include_upfront)
-        pulumi.set(__self__, "use_amortized", use_amortized)
-        pulumi.set(__self__, "use_blended", use_blended)
+        GetBudgetCostTypeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_credit=include_credit,
+            include_discount=include_discount,
+            include_other_subscription=include_other_subscription,
+            include_recurring=include_recurring,
+            include_refund=include_refund,
+            include_subscription=include_subscription,
+            include_support=include_support,
+            include_tax=include_tax,
+            include_upfront=include_upfront,
+            use_amortized=use_amortized,
+            use_blended=use_blended,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_credit: bool,
+             include_discount: bool,
+             include_other_subscription: bool,
+             include_recurring: bool,
+             include_refund: bool,
+             include_subscription: bool,
+             include_support: bool,
+             include_tax: bool,
+             include_upfront: bool,
+             use_amortized: bool,
+             use_blended: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("include_credit", include_credit)
+        _setter("include_discount", include_discount)
+        _setter("include_other_subscription", include_other_subscription)
+        _setter("include_recurring", include_recurring)
+        _setter("include_refund", include_refund)
+        _setter("include_subscription", include_subscription)
+        _setter("include_support", include_support)
+        _setter("include_tax", include_tax)
+        _setter("include_upfront", include_upfront)
+        _setter("use_amortized", use_amortized)
+        _setter("use_blended", use_blended)
 
     @property
     @pulumi.getter(name="includeCredit")
@@ -1129,12 +1394,31 @@ class GetBudgetNotificationResult(dict):
         :param float threshold: (Required) Threshold when the notification should be sent.
         :param str threshold_type: (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "notification_type", notification_type)
-        pulumi.set(__self__, "subscriber_email_addresses", subscriber_email_addresses)
-        pulumi.set(__self__, "subscriber_sns_topic_arns", subscriber_sns_topic_arns)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "threshold_type", threshold_type)
+        GetBudgetNotificationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            notification_type=notification_type,
+            subscriber_email_addresses=subscriber_email_addresses,
+            subscriber_sns_topic_arns=subscriber_sns_topic_arns,
+            threshold=threshold,
+            threshold_type=threshold_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             notification_type: str,
+             subscriber_email_addresses: Sequence[str],
+             subscriber_sns_topic_arns: Sequence[str],
+             threshold: float,
+             threshold_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("notification_type", notification_type)
+        _setter("subscriber_email_addresses", subscriber_email_addresses)
+        _setter("subscriber_sns_topic_arns", subscriber_sns_topic_arns)
+        _setter("threshold", threshold)
+        _setter("threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -1196,9 +1480,22 @@ class GetBudgetPlannedLimitResult(dict):
         :param str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "unit", unit)
+        GetBudgetPlannedLimitResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            start_time=start_time,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: str,
+             start_time: str,
+             unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("amount", amount)
+        _setter("start_time", start_time)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter

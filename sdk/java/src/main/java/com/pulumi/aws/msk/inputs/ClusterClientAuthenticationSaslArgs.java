@@ -16,14 +16,14 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
     public static final ClusterClientAuthenticationSaslArgs Empty = new ClusterClientAuthenticationSaslArgs();
 
     /**
-     * Enables SASL/IAM authentication for VPC connectivity.
+     * Enables IAM client authentication. Defaults to `false`.
      * 
      */
     @Import(name="iam")
     private @Nullable Output<Boolean> iam;
 
     /**
-     * @return Enables SASL/IAM authentication for VPC connectivity.
+     * @return Enables IAM client authentication. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> iam() {
@@ -31,14 +31,14 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
     }
 
     /**
-     * Enables SASL/SCRAM authentication for VPC connectivity.
+     * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
      * 
      */
     @Import(name="scram")
     private @Nullable Output<Boolean> scram;
 
     /**
-     * @return Enables SASL/SCRAM authentication for VPC connectivity.
+     * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> scram() {
@@ -71,7 +71,7 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
         }
 
         /**
-         * @param iam Enables SASL/IAM authentication for VPC connectivity.
+         * @param iam Enables IAM client authentication. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
         }
 
         /**
-         * @param iam Enables SASL/IAM authentication for VPC connectivity.
+         * @param iam Enables IAM client authentication. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
         }
 
         /**
-         * @param scram Enables SASL/SCRAM authentication for VPC connectivity.
+         * @param scram Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ClusterClientAuthenticationSaslArgs extends com.pulumi.resour
         }
 
         /**
-         * @param scram Enables SASL/SCRAM authentication for VPC connectivity.
+         * @param scram Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          * 
          * @return builder
          * 

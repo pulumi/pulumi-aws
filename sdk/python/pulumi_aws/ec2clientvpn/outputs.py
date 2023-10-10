@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -59,15 +59,32 @@ class EndpointAuthenticationOption(dict):
         :param str saml_provider_arn: The ARN of the IAM SAML identity provider if type is `federated-authentication`.
         :param str self_service_saml_provider_arn: The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
         """
-        pulumi.set(__self__, "type", type)
+        EndpointAuthenticationOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            active_directory_id=active_directory_id,
+            root_certificate_chain_arn=root_certificate_chain_arn,
+            saml_provider_arn=saml_provider_arn,
+            self_service_saml_provider_arn=self_service_saml_provider_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             active_directory_id: Optional[str] = None,
+             root_certificate_chain_arn: Optional[str] = None,
+             saml_provider_arn: Optional[str] = None,
+             self_service_saml_provider_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if active_directory_id is not None:
-            pulumi.set(__self__, "active_directory_id", active_directory_id)
+            _setter("active_directory_id", active_directory_id)
         if root_certificate_chain_arn is not None:
-            pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
+            _setter("root_certificate_chain_arn", root_certificate_chain_arn)
         if saml_provider_arn is not None:
-            pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+            _setter("saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
-            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+            _setter("self_service_saml_provider_arn", self_service_saml_provider_arn)
 
     @property
     @pulumi.getter
@@ -136,10 +153,21 @@ class EndpointClientConnectOptions(dict):
         :param bool enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
         :param str lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         """
+        EndpointClientConnectOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lambda_function_arn=lambda_function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             lambda_function_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if lambda_function_arn is not None:
-            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+            _setter("lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter
@@ -184,10 +212,21 @@ class EndpointClientLoginBannerOptions(dict):
         :param str banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
         :param bool enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
+        EndpointClientLoginBannerOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            banner_text=banner_text,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             banner_text: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if banner_text is not None:
-            pulumi.set(__self__, "banner_text", banner_text)
+            _setter("banner_text", banner_text)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="bannerText")
@@ -236,11 +275,24 @@ class EndpointConnectionLogOptions(dict):
         :param str cloudwatch_log_group: The name of the CloudWatch Logs log group.
         :param str cloudwatch_log_stream: The name of the CloudWatch Logs log stream to which the connection data is published.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        EndpointConnectionLogOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            cloudwatch_log_group=cloudwatch_log_group,
+            cloudwatch_log_stream=cloudwatch_log_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             cloudwatch_log_group: Optional[str] = None,
+             cloudwatch_log_stream: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if cloudwatch_log_group is not None:
-            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+            _setter("cloudwatch_log_group", cloudwatch_log_group)
         if cloudwatch_log_stream is not None:
-            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+            _setter("cloudwatch_log_stream", cloudwatch_log_stream)
 
     @property
     @pulumi.getter
@@ -275,11 +327,28 @@ class GetEndpointAuthenticationOptionResult(dict):
                  saml_provider_arn: str,
                  self_service_saml_provider_arn: str,
                  type: str):
-        pulumi.set(__self__, "active_directory_id", active_directory_id)
-        pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
-        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
-        pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
-        pulumi.set(__self__, "type", type)
+        GetEndpointAuthenticationOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory_id=active_directory_id,
+            root_certificate_chain_arn=root_certificate_chain_arn,
+            saml_provider_arn=saml_provider_arn,
+            self_service_saml_provider_arn=self_service_saml_provider_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory_id: str,
+             root_certificate_chain_arn: str,
+             saml_provider_arn: str,
+             self_service_saml_provider_arn: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("active_directory_id", active_directory_id)
+        _setter("root_certificate_chain_arn", root_certificate_chain_arn)
+        _setter("saml_provider_arn", saml_provider_arn)
+        _setter("self_service_saml_provider_arn", self_service_saml_provider_arn)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="activeDirectoryId")
@@ -312,8 +381,19 @@ class GetEndpointClientConnectOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  lambda_function_arn: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        GetEndpointClientConnectOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lambda_function_arn=lambda_function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             lambda_function_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter
@@ -331,8 +411,19 @@ class GetEndpointClientLoginBannerOptionResult(dict):
     def __init__(__self__, *,
                  banner_text: str,
                  enabled: bool):
-        pulumi.set(__self__, "banner_text", banner_text)
-        pulumi.set(__self__, "enabled", enabled)
+        GetEndpointClientLoginBannerOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            banner_text=banner_text,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             banner_text: str,
+             enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("banner_text", banner_text)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="bannerText")
@@ -351,9 +442,22 @@ class GetEndpointConnectionLogOptionResult(dict):
                  cloudwatch_log_group: str,
                  cloudwatch_log_stream: str,
                  enabled: bool):
-        pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
-        pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
-        pulumi.set(__self__, "enabled", enabled)
+        GetEndpointConnectionLogOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_log_group=cloudwatch_log_group,
+            cloudwatch_log_stream=cloudwatch_log_stream,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_log_group: str,
+             cloudwatch_log_stream: str,
+             enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_log_group", cloudwatch_log_group)
+        _setter("cloudwatch_log_stream", cloudwatch_log_stream)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroup")
@@ -380,8 +484,19 @@ class GetEndpointFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetEndpointFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

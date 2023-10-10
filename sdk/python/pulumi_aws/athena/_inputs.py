@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,7 +28,16 @@ class DatabaseAclConfigurationArgs:
                
                > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
         """
-        pulumi.set(__self__, "s3_acl_option", s3_acl_option)
+        DatabaseAclConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_acl_option=s3_acl_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_acl_option: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_acl_option", s3_acl_option)
 
     @property
     @pulumi.getter(name="s3AclOption")
@@ -54,9 +63,20 @@ class DatabaseEncryptionConfigurationArgs:
         :param pulumi.Input[str] encryption_option: Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
         :param pulumi.Input[str] kms_key: KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
         """
-        pulumi.set(__self__, "encryption_option", encryption_option)
+        DatabaseEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_option=encryption_option,
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_option: pulumi.Input[str],
+             kms_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encryption_option", encryption_option)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionOption")
@@ -102,20 +122,41 @@ class WorkgroupConfigurationArgs:
         :param pulumi.Input[bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. See Result Configuration below.
         """
+        WorkgroupConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_scanned_cutoff_per_query=bytes_scanned_cutoff_per_query,
+            enforce_workgroup_configuration=enforce_workgroup_configuration,
+            engine_version=engine_version,
+            execution_role=execution_role,
+            publish_cloudwatch_metrics_enabled=publish_cloudwatch_metrics_enabled,
+            requester_pays_enabled=requester_pays_enabled,
+            result_configuration=result_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
+             enforce_workgroup_configuration: Optional[pulumi.Input[bool]] = None,
+             engine_version: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']] = None,
+             execution_role: Optional[pulumi.Input[str]] = None,
+             publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
+             result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bytes_scanned_cutoff_per_query is not None:
-            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+            _setter("bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if enforce_workgroup_configuration is not None:
-            pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
+            _setter("enforce_workgroup_configuration", enforce_workgroup_configuration)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if execution_role is not None:
-            pulumi.set(__self__, "execution_role", execution_role)
+            _setter("execution_role", execution_role)
         if publish_cloudwatch_metrics_enabled is not None:
-            pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
+            _setter("publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
-            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
+            _setter("requester_pays_enabled", requester_pays_enabled)
         if result_configuration is not None:
-            pulumi.set(__self__, "result_configuration", result_configuration)
+            _setter("result_configuration", result_configuration)
 
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
@@ -211,10 +252,21 @@ class WorkgroupConfigurationEngineVersionArgs:
         :param pulumi.Input[str] effective_engine_version: The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
         :param pulumi.Input[str] selected_engine_version: Requested engine version. Defaults to `AUTO`.
         """
+        WorkgroupConfigurationEngineVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_engine_version=effective_engine_version,
+            selected_engine_version=selected_engine_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_engine_version: Optional[pulumi.Input[str]] = None,
+             selected_engine_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if effective_engine_version is not None:
-            pulumi.set(__self__, "effective_engine_version", effective_engine_version)
+            _setter("effective_engine_version", effective_engine_version)
         if selected_engine_version is not None:
-            pulumi.set(__self__, "selected_engine_version", selected_engine_version)
+            _setter("selected_engine_version", selected_engine_version)
 
     @property
     @pulumi.getter(name="effectiveEngineVersion")
@@ -254,14 +306,29 @@ class WorkgroupConfigurationResultConfigurationArgs:
         :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[str] output_location: Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
+        WorkgroupConfigurationResultConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_configuration=acl_configuration,
+            encryption_configuration=encryption_configuration,
+            expected_bucket_owner=expected_bucket_owner,
+            output_location=output_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationAclConfigurationArgs']] = None,
+             encryption_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs']] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             output_location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acl_configuration is not None:
-            pulumi.set(__self__, "acl_configuration", acl_configuration)
+            _setter("acl_configuration", acl_configuration)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if output_location is not None:
-            pulumi.set(__self__, "output_location", output_location)
+            _setter("output_location", output_location)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -319,7 +386,16 @@ class WorkgroupConfigurationResultConfigurationAclConfigurationArgs:
         """
         :param pulumi.Input[str] s3_acl_option: Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
         """
-        pulumi.set(__self__, "s3_acl_option", s3_acl_option)
+        WorkgroupConfigurationResultConfigurationAclConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_acl_option=s3_acl_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_acl_option: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_acl_option", s3_acl_option)
 
     @property
     @pulumi.getter(name="s3AclOption")
@@ -343,10 +419,21 @@ class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs:
         :param pulumi.Input[str] encryption_option: Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
         :param pulumi.Input[str] kms_key_arn: For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
         """
+        WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_option=encryption_option,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_option: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_option is not None:
-            pulumi.set(__self__, "encryption_option", encryption_option)
+            _setter("encryption_option", encryption_option)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="encryptionOption")

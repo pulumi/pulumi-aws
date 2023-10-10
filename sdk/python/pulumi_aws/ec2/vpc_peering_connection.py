@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,20 +39,43 @@ class VpcPeeringConnectionArgs:
                the peering connection (a maximum of one).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcPeeringConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_vpc_id=peer_vpc_id,
+            vpc_id=vpc_id,
+            accepter=accepter,
+            auto_accept=auto_accept,
+            peer_owner_id=peer_owner_id,
+            peer_region=peer_region,
+            requester=requester,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_vpc_id: pulumi.Input[str],
+             vpc_id: pulumi.Input[str],
+             accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterArgs']] = None,
+             auto_accept: Optional[pulumi.Input[bool]] = None,
+             peer_owner_id: Optional[pulumi.Input[str]] = None,
+             peer_region: Optional[pulumi.Input[str]] = None,
+             requester: Optional[pulumi.Input['VpcPeeringConnectionRequesterArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("peer_vpc_id", peer_vpc_id)
+        _setter("vpc_id", vpc_id)
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if auto_accept is not None:
-            pulumi.set(__self__, "auto_accept", auto_accept)
+            _setter("auto_accept", auto_accept)
         if peer_owner_id is not None:
-            pulumi.set(__self__, "peer_owner_id", peer_owner_id)
+            _setter("peer_owner_id", peer_owner_id)
         if peer_region is not None:
-            pulumi.set(__self__, "peer_region", peer_region)
+            _setter("peer_region", peer_region)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="peerVpcId")
@@ -185,29 +208,56 @@ class _VpcPeeringConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the requester VPC.
         """
+        _VpcPeeringConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_status=accept_status,
+            accepter=accepter,
+            auto_accept=auto_accept,
+            peer_owner_id=peer_owner_id,
+            peer_region=peer_region,
+            peer_vpc_id=peer_vpc_id,
+            requester=requester,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_status: Optional[pulumi.Input[str]] = None,
+             accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterArgs']] = None,
+             auto_accept: Optional[pulumi.Input[bool]] = None,
+             peer_owner_id: Optional[pulumi.Input[str]] = None,
+             peer_region: Optional[pulumi.Input[str]] = None,
+             peer_vpc_id: Optional[pulumi.Input[str]] = None,
+             requester: Optional[pulumi.Input['VpcPeeringConnectionRequesterArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_status is not None:
-            pulumi.set(__self__, "accept_status", accept_status)
+            _setter("accept_status", accept_status)
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if auto_accept is not None:
-            pulumi.set(__self__, "auto_accept", auto_accept)
+            _setter("auto_accept", auto_accept)
         if peer_owner_id is not None:
-            pulumi.set(__self__, "peer_owner_id", peer_owner_id)
+            _setter("peer_owner_id", peer_owner_id)
         if peer_region is not None:
-            pulumi.set(__self__, "peer_region", peer_region)
+            _setter("peer_region", peer_region)
         if peer_vpc_id is not None:
-            pulumi.set(__self__, "peer_vpc_id", peer_vpc_id)
+            _setter("peer_vpc_id", peer_vpc_id)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="acceptStatus")
@@ -572,6 +622,10 @@ class VpcPeeringConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcPeeringConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -594,6 +648,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcPeeringConnectionArgs.__new__(VpcPeeringConnectionArgs)
 
+            if accepter is not None and not isinstance(accepter, VpcPeeringConnectionAccepterArgs):
+                accepter = accepter or {}
+                def _setter(key, value):
+                    accepter[key] = value
+                VpcPeeringConnectionAccepterArgs._configure(_setter, **accepter)
             __props__.__dict__["accepter"] = accepter
             __props__.__dict__["auto_accept"] = auto_accept
             __props__.__dict__["peer_owner_id"] = peer_owner_id
@@ -601,6 +660,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
             if peer_vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_vpc_id'")
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
+            if requester is not None and not isinstance(requester, VpcPeeringConnectionRequesterArgs):
+                requester = requester or {}
+                def _setter(key, value):
+                    requester[key] = value
+                VpcPeeringConnectionRequesterArgs._configure(_setter, **requester)
             __props__.__dict__["requester"] = requester
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:

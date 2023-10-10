@@ -13,13 +13,13 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        /// Instructs AWS WAF to allow the web request. See `allow` below for details.
         /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowGetArgs>? Allow { get; set; }
 
         /// <summary>
-        /// Specifies that AWS WAF should block requests by default. See `block` below for details.
+        /// Instructs AWS WAF to block the web request. See `block` below for details.
         /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockGetArgs>? Block { get; set; }

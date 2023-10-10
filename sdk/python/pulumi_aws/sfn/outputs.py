@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,8 +42,19 @@ class AliasRoutingConfiguration(dict):
         :param str state_machine_version_arn: The Amazon Resource Name (ARN) of the state machine version.
         :param int weight: Percentage of traffic routed to the state machine version.
         """
-        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
-        pulumi.set(__self__, "weight", weight)
+        AliasRoutingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state_machine_version_arn=state_machine_version_arn,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state_machine_version_arn: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state_machine_version_arn", state_machine_version_arn)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")
@@ -92,12 +103,25 @@ class StateMachineLoggingConfiguration(dict):
         :param str level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         :param str log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
+        StateMachineLoggingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_execution_data=include_execution_data,
+            level=level,
+            log_destination=log_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_execution_data: Optional[bool] = None,
+             level: Optional[str] = None,
+             log_destination: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_execution_data is not None:
-            pulumi.set(__self__, "include_execution_data", include_execution_data)
+            _setter("include_execution_data", include_execution_data)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if log_destination is not None:
-            pulumi.set(__self__, "log_destination", log_destination)
+            _setter("log_destination", log_destination)
 
     @property
     @pulumi.getter(name="includeExecutionData")
@@ -131,8 +155,17 @@ class StateMachineTracingConfiguration(dict):
         """
         :param bool enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
         """
+        StateMachineTracingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -148,8 +181,19 @@ class GetAliasRoutingConfigurationResult(dict):
     def __init__(__self__, *,
                  state_machine_version_arn: str,
                  weight: int):
-        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
-        pulumi.set(__self__, "weight", weight)
+        GetAliasRoutingConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state_machine_version_arn=state_machine_version_arn,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state_machine_version_arn: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("state_machine_version_arn", state_machine_version_arn)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")

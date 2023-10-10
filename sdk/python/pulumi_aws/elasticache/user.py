@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,18 +37,41 @@ class UserArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
-        pulumi.set(__self__, "access_string", access_string)
-        pulumi.set(__self__, "engine", engine)
-        pulumi.set(__self__, "user_id", user_id)
-        pulumi.set(__self__, "user_name", user_name)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_string=access_string,
+            engine=engine,
+            user_id=user_id,
+            user_name=user_name,
+            authentication_mode=authentication_mode,
+            no_password_required=no_password_required,
+            passwords=passwords,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_string: pulumi.Input[str],
+             engine: pulumi.Input[str],
+             user_id: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
+             no_password_required: Optional[pulumi.Input[bool]] = None,
+             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_string", access_string)
+        _setter("engine", engine)
+        _setter("user_id", user_id)
+        _setter("user_name", user_name)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if no_password_required is not None:
-            pulumi.set(__self__, "no_password_required", no_password_required)
+            _setter("no_password_required", no_password_required)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessString")
@@ -176,29 +199,56 @@ class _UserState:
                
                The following arguments are optional:
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_string=access_string,
+            arn=arn,
+            authentication_mode=authentication_mode,
+            engine=engine,
+            no_password_required=no_password_required,
+            passwords=passwords,
+            tags=tags,
+            tags_all=tags_all,
+            user_id=user_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_string: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             no_password_required: Optional[pulumi.Input[bool]] = None,
+             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_string is not None:
-            pulumi.set(__self__, "access_string", access_string)
+            _setter("access_string", access_string)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if no_password_required is not None:
-            pulumi.set(__self__, "no_password_required", no_password_required)
+            _setter("no_password_required", no_password_required)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="accessString")
@@ -482,6 +532,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -507,6 +561,11 @@ class User(pulumi.CustomResource):
             if access_string is None and not opts.urn:
                 raise TypeError("Missing required property 'access_string'")
             __props__.__dict__["access_string"] = access_string
+            if authentication_mode is not None and not isinstance(authentication_mode, UserAuthenticationModeArgs):
+                authentication_mode = authentication_mode or {}
+                def _setter(key, value):
+                    authentication_mode[key] = value
+                UserAuthenticationModeArgs._configure(_setter, **authentication_mode)
             __props__.__dict__["authentication_mode"] = authentication_mode
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")

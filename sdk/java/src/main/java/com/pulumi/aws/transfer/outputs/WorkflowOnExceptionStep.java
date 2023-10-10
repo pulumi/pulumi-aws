@@ -42,7 +42,7 @@ public final class WorkflowOnExceptionStep {
      */
     private @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails;
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     private String type;
@@ -84,7 +84,7 @@ public final class WorkflowOnExceptionStep {
         return Optional.ofNullable(this.tagStepDetails);
     }
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     public String type() {

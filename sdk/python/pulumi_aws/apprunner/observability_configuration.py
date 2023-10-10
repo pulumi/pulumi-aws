@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,24 @@ class ObservabilityConfigurationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
-        pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
+        ObservabilityConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            observability_configuration_name=observability_configuration_name,
+            tags=tags,
+            trace_configuration=trace_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             observability_configuration_name: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("observability_configuration_name", observability_configuration_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trace_configuration is not None:
-            pulumi.set(__self__, "trace_configuration", trace_configuration)
+            _setter("trace_configuration", trace_configuration)
 
     @property
     @pulumi.getter(name="observabilityConfigurationName")
@@ -90,25 +103,48 @@ class _ObservabilityConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
+        _ObservabilityConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            latest=latest,
+            observability_configuration_name=observability_configuration_name,
+            observability_configuration_revision=observability_configuration_revision,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            trace_configuration=trace_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             latest: Optional[pulumi.Input[bool]] = None,
+             observability_configuration_name: Optional[pulumi.Input[str]] = None,
+             observability_configuration_revision: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if latest is not None:
-            pulumi.set(__self__, "latest", latest)
+            _setter("latest", latest)
         if observability_configuration_name is not None:
-            pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
+            _setter("observability_configuration_name", observability_configuration_name)
         if observability_configuration_revision is not None:
-            pulumi.set(__self__, "observability_configuration_revision", observability_configuration_revision)
+            _setter("observability_configuration_revision", observability_configuration_revision)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if trace_configuration is not None:
-            pulumi.set(__self__, "trace_configuration", trace_configuration)
+            _setter("trace_configuration", trace_configuration)
 
     @property
     @pulumi.getter
@@ -295,6 +331,10 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ObservabilityConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,6 +356,11 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'observability_configuration_name'")
             __props__.__dict__["observability_configuration_name"] = observability_configuration_name
             __props__.__dict__["tags"] = tags
+            if trace_configuration is not None and not isinstance(trace_configuration, ObservabilityConfigurationTraceConfigurationArgs):
+                trace_configuration = trace_configuration or {}
+                def _setter(key, value):
+                    trace_configuration[key] = value
+                ObservabilityConfigurationTraceConfigurationArgs._configure(_setter, **trace_configuration)
             __props__.__dict__["trace_configuration"] = trace_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest"] = None

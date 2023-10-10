@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,27 +43,58 @@ class MLTransformArgs:
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
-        pulumi.set(__self__, "input_record_tables", input_record_tables)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "role_arn", role_arn)
+        MLTransformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_record_tables=input_record_tables,
+            parameters=parameters,
+            role_arn=role_arn,
+            description=description,
+            glue_version=glue_version,
+            max_capacity=max_capacity,
+            max_retries=max_retries,
+            name=name,
+            number_of_workers=number_of_workers,
+            tags=tags,
+            timeout=timeout,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_record_tables: pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]],
+             parameters: pulumi.Input['MLTransformParametersArgs'],
+             role_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_record_tables", input_record_tables)
+        _setter("parameters", parameters)
+        _setter("role_arn", role_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter(name="inputRecordTables")
@@ -248,41 +279,80 @@ class _MLTransformState:
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
+        _MLTransformState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            glue_version=glue_version,
+            input_record_tables=input_record_tables,
+            label_count=label_count,
+            max_capacity=max_capacity,
+            max_retries=max_retries,
+            name=name,
+            number_of_workers=number_of_workers,
+            parameters=parameters,
+            role_arn=role_arn,
+            schemas=schemas,
+            tags=tags,
+            tags_all=tags_all,
+            timeout=timeout,
+            worker_type=worker_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             glue_version: Optional[pulumi.Input[str]] = None,
+             input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]] = None,
+             label_count: Optional[pulumi.Input[int]] = None,
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             parameters: Optional[pulumi.Input['MLTransformParametersArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             schemas: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             worker_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if glue_version is not None:
-            pulumi.set(__self__, "glue_version", glue_version)
+            _setter("glue_version", glue_version)
         if input_record_tables is not None:
-            pulumi.set(__self__, "input_record_tables", input_record_tables)
+            _setter("input_record_tables", input_record_tables)
         if label_count is not None:
-            pulumi.set(__self__, "label_count", label_count)
+            _setter("label_count", label_count)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if schemas is not None:
-            pulumi.set(__self__, "schemas", schemas)
+            _setter("schemas", schemas)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if worker_type is not None:
-            pulumi.set(__self__, "worker_type", worker_type)
+            _setter("worker_type", worker_type)
 
     @property
     @pulumi.getter
@@ -725,6 +795,10 @@ class MLTransform(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MLTransformArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -760,6 +834,11 @@ class MLTransform(pulumi.CustomResource):
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
             __props__.__dict__["number_of_workers"] = number_of_workers
+            if parameters is not None and not isinstance(parameters, MLTransformParametersArgs):
+                parameters = parameters or {}
+                def _setter(key, value):
+                    parameters[key] = value
+                MLTransformParametersArgs._configure(_setter, **parameters)
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters

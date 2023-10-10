@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class PartitionIndexArgs:
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] catalog_id: The catalog ID where the table resides.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partition_index", partition_index)
-        pulumi.set(__self__, "table_name", table_name)
+        PartitionIndexArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            partition_index=partition_index,
+            table_name=table_name,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             partition_index: pulumi.Input['PartitionIndexPartitionIndexArgs'],
+             table_name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("partition_index", partition_index)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -96,14 +111,29 @@ class _PartitionIndexState:
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
+        _PartitionIndexState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            partition_index=partition_index,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_index: Optional[pulumi.Input['PartitionIndexPartitionIndexArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if partition_index is not None:
-            pulumi.set(__self__, "partition_index", partition_index)
+            _setter("partition_index", partition_index)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -373,6 +403,10 @@ class PartitionIndex(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartitionIndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -395,6 +429,11 @@ class PartitionIndex(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if partition_index is not None and not isinstance(partition_index, PartitionIndexPartitionIndexArgs):
+                partition_index = partition_index or {}
+                def _setter(key, value):
+                    partition_index[key] = value
+                PartitionIndexPartitionIndexArgs._configure(_setter, **partition_index)
             if partition_index is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_index'")
             __props__.__dict__["partition_index"] = partition_index

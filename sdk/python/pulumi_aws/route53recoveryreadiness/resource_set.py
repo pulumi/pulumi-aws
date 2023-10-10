@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,11 +29,26 @@ class ResourceSetArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "resource_set_name", resource_set_name)
-        pulumi.set(__self__, "resource_set_type", resource_set_type)
-        pulumi.set(__self__, "resources", resources)
+        ResourceSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_set_name=resource_set_name,
+            resource_set_type=resource_set_type,
+            resources=resources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_set_name: pulumi.Input[str],
+             resource_set_type: pulumi.Input[str],
+             resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_set_name", resource_set_name)
+        _setter("resource_set_type", resource_set_type)
+        _setter("resources", resources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceSetName")
@@ -106,21 +121,40 @@ class _ResourceSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ResourceSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            resource_set_name=resource_set_name,
+            resource_set_type=resource_set_type,
+            resources=resources,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             resource_set_name: Optional[pulumi.Input[str]] = None,
+             resource_set_type: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if resource_set_name is not None:
-            pulumi.set(__self__, "resource_set_name", resource_set_name)
+            _setter("resource_set_name", resource_set_name)
         if resource_set_type is not None:
-            pulumi.set(__self__, "resource_set_type", resource_set_type)
+            _setter("resource_set_type", resource_set_type)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -285,6 +319,10 @@ class ResourceSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

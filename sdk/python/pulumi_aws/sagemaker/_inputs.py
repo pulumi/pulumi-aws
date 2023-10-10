@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -160,9 +160,20 @@ class AppImageConfigKernelGatewayImageConfigArgs:
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'] kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs'] file_system_config: The URL where the Git repository is located. See File System Config details below.
         """
-        pulumi.set(__self__, "kernel_spec", kernel_spec)
+        AppImageConfigKernelGatewayImageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kernel_spec=kernel_spec,
+            file_system_config=file_system_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kernel_spec: pulumi.Input['AppImageConfigKernelGatewayImageConfigKernelSpecArgs'],
+             file_system_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kernel_spec", kernel_spec)
         if file_system_config is not None:
-            pulumi.set(__self__, "file_system_config", file_system_config)
+            _setter("file_system_config", file_system_config)
 
     @property
     @pulumi.getter(name="kernelSpec")
@@ -202,12 +213,25 @@ class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs:
                
                > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
         """
+        AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_gid=default_gid,
+            default_uid=default_uid,
+            mount_path=mount_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_gid: Optional[pulumi.Input[int]] = None,
+             default_uid: Optional[pulumi.Input[int]] = None,
+             mount_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_gid is not None:
-            pulumi.set(__self__, "default_gid", default_gid)
+            _setter("default_gid", default_gid)
         if default_uid is not None:
-            pulumi.set(__self__, "default_uid", default_uid)
+            _setter("default_uid", default_uid)
         if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
+            _setter("mount_path", mount_path)
 
     @property
     @pulumi.getter(name="defaultGid")
@@ -257,9 +281,20 @@ class AppImageConfigKernelGatewayImageConfigKernelSpecArgs:
         :param pulumi.Input[str] name: The name of the kernel.
         :param pulumi.Input[str] display_name: The display name of the kernel.
         """
-        pulumi.set(__self__, "name", name)
+        AppImageConfigKernelGatewayImageConfigKernelSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -299,14 +334,29 @@ class AppResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        AppResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -368,11 +418,24 @@ class CodeRepositoryGitConfigArgs:
         :param pulumi.Input[str] branch: The default branch for the Git repository.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
         """
-        pulumi.set(__self__, "repository_url", repository_url)
+        CodeRepositoryGitConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+            branch=branch,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             branch: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -424,13 +487,28 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
         :param pulumi.Input[str] post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         :param pulumi.Input[str] record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
         """
-        pulumi.set(__self__, "image_uri", image_uri)
+        DataQualityJobDefinitionDataQualityAppSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_uri=image_uri,
+            environment=environment,
+            post_analytics_processor_source_uri=post_analytics_processor_source_uri,
+            record_preprocessor_source_uri=record_preprocessor_source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_uri: pulumi.Input[str],
+             environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             post_analytics_processor_source_uri: Optional[pulumi.Input[str]] = None,
+             record_preprocessor_source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image_uri", image_uri)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if post_analytics_processor_source_uri is not None:
-            pulumi.set(__self__, "post_analytics_processor_source_uri", post_analytics_processor_source_uri)
+            _setter("post_analytics_processor_source_uri", post_analytics_processor_source_uri)
         if record_preprocessor_source_uri is not None:
-            pulumi.set(__self__, "record_preprocessor_source_uri", record_preprocessor_source_uri)
+            _setter("record_preprocessor_source_uri", record_preprocessor_source_uri)
 
     @property
     @pulumi.getter(name="imageUri")
@@ -490,10 +568,21 @@ class DataQualityJobDefinitionDataQualityBaselineConfigArgs:
         :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs'] constraints_resource: The constraints resource for a monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs'] statistics_resource: The statistics resource for a monitoring job. Fields are documented below.
         """
+        DataQualityJobDefinitionDataQualityBaselineConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            constraints_resource=constraints_resource,
+            statistics_resource=statistics_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             constraints_resource: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs']] = None,
+             statistics_resource: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if constraints_resource is not None:
-            pulumi.set(__self__, "constraints_resource", constraints_resource)
+            _setter("constraints_resource", constraints_resource)
         if statistics_resource is not None:
-            pulumi.set(__self__, "statistics_resource", statistics_resource)
+            _setter("statistics_resource", statistics_resource)
 
     @property
     @pulumi.getter(name="constraintsResource")
@@ -527,8 +616,17 @@ class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs:
         """
         :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the constraints resource.
         """
+        DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_uri=s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_uri is not None:
-            pulumi.set(__self__, "s3_uri", s3_uri)
+            _setter("s3_uri", s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -550,8 +648,17 @@ class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs:
         """
         :param pulumi.Input[str] s3_uri: The Amazon S3 URI for the statistics resource.
         """
+        DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_uri=s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_uri is not None:
-            pulumi.set(__self__, "s3_uri", s3_uri)
+            _setter("s3_uri", s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -575,10 +682,21 @@ class DataQualityJobDefinitionDataQualityJobInputArgs:
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs'] batch_transform_input: Input object for the batch transform job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs'] endpoint_input: Input object for the endpoint. Fields are documented below.
         """
+        DataQualityJobDefinitionDataQualityJobInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_transform_input=batch_transform_input,
+            endpoint_input=endpoint_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_transform_input: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs']] = None,
+             endpoint_input: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_transform_input is not None:
-            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+            _setter("batch_transform_input", batch_transform_input)
         if endpoint_input is not None:
-            pulumi.set(__self__, "endpoint_input", endpoint_input)
+            _setter("endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="batchTransformInput")
@@ -620,14 +738,31 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs:
         :param pulumi.Input[str] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
         :param pulumi.Input[str] s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
         """
-        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
-        pulumi.set(__self__, "dataset_format", dataset_format)
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_captured_destination_s3_uri=data_captured_destination_s3_uri,
+            dataset_format=dataset_format,
+            local_path=local_path,
+            s3_data_distribution_type=s3_data_distribution_type,
+            s3_input_mode=s3_input_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_captured_destination_s3_uri: pulumi.Input[str],
+             dataset_format: pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs'],
+             local_path: Optional[pulumi.Input[str]] = None,
+             s3_data_distribution_type: Optional[pulumi.Input[str]] = None,
+             s3_input_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        _setter("dataset_format", dataset_format)
         if local_path is not None:
-            pulumi.set(__self__, "local_path", local_path)
+            _setter("local_path", local_path)
         if s3_data_distribution_type is not None:
-            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+            _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
-            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+            _setter("s3_input_mode", s3_input_mode)
 
     @property
     @pulumi.getter(name="dataCapturedDestinationS3Uri")
@@ -699,10 +834,21 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs'] csv: The CSV dataset used in the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs'] json: The JSON dataset used in the monitoring job. Fields are documented below.
         """
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv=csv,
+            json=json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs']] = None,
+             json: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv is not None:
-            pulumi.set(__self__, "csv", csv)
+            _setter("csv", csv)
         if json is not None:
-            pulumi.set(__self__, "json", json)
+            _setter("json", json)
 
     @property
     @pulumi.getter
@@ -736,8 +882,17 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
         """
         :param pulumi.Input[bool] header: Indicates if the CSV data has a header.
         """
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
 
     @property
     @pulumi.getter
@@ -759,8 +914,17 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
         """
         :param pulumi.Input[bool] line: Indicates if the file should be read as a json object per line.
         """
+        DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            line=line,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             line: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if line is not None:
-            pulumi.set(__self__, "line", line)
+            _setter("line", line)
 
     @property
     @pulumi.getter
@@ -788,13 +952,28 @@ class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs:
         :param pulumi.Input[str] s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
         :param pulumi.Input[str] s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            local_path=local_path,
+            s3_data_distribution_type=s3_data_distribution_type,
+            s3_input_mode=s3_input_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: pulumi.Input[str],
+             local_path: Optional[pulumi.Input[str]] = None,
+             s3_data_distribution_type: Optional[pulumi.Input[str]] = None,
+             s3_input_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_name", endpoint_name)
         if local_path is not None:
-            pulumi.set(__self__, "local_path", local_path)
+            _setter("local_path", local_path)
         if s3_data_distribution_type is not None:
-            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+            _setter("s3_data_distribution_type", s3_data_distribution_type)
         if s3_input_mode is not None:
-            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+            _setter("s3_input_mode", s3_input_mode)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -854,9 +1033,20 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigArgs:
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
-        pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
+        DataQualityJobDefinitionDataQualityJobOutputConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitoring_outputs=monitoring_outputs,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitoring_outputs: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs'],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="monitoringOutputs")
@@ -890,7 +1080,16 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs:
         """
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs'] s3_output: The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
         """
-        pulumi.set(__self__, "s3_output", s3_output)
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_output=s3_output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_output: pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
@@ -916,11 +1115,24 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
         :param pulumi.Input[str] local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
         :param pulumi.Input[str] s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
         """
-        pulumi.set(__self__, "s3_uri", s3_uri)
+        DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_uri=s3_uri,
+            local_path=local_path,
+            s3_upload_mode=s3_upload_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_uri: pulumi.Input[str],
+             local_path: Optional[pulumi.Input[str]] = None,
+             s3_upload_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_uri", s3_uri)
         if local_path is not None:
-            pulumi.set(__self__, "local_path", local_path)
+            _setter("local_path", local_path)
         if s3_upload_mode is not None:
-            pulumi.set(__self__, "s3_upload_mode", s3_upload_mode)
+            _setter("s3_upload_mode", s3_upload_mode)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -966,7 +1178,16 @@ class DataQualityJobDefinitionJobResourcesArgs:
         """
         :param pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs'] cluster_config: The configuration for the cluster resources used to run the processing job. Fields are documented below.
         """
-        pulumi.set(__self__, "cluster_config", cluster_config)
+        DataQualityJobDefinitionJobResourcesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_config=cluster_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_config: pulumi.Input['DataQualityJobDefinitionJobResourcesClusterConfigArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
@@ -994,11 +1215,26 @@ class DataQualityJobDefinitionJobResourcesClusterConfigArgs:
         :param pulumi.Input[int] volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         :param pulumi.Input[str] volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "instance_type", instance_type)
-        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        DataQualityJobDefinitionJobResourcesClusterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_count=instance_count,
+            instance_type=instance_type,
+            volume_size_in_gb=volume_size_in_gb,
+            volume_kms_key_id=volume_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_count: pulumi.Input[int],
+             instance_type: pulumi.Input[str],
+             volume_size_in_gb: pulumi.Input[int],
+             volume_kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_count", instance_count)
+        _setter("instance_type", instance_type)
+        _setter("volume_size_in_gb", volume_size_in_gb)
         if volume_kms_key_id is not None:
-            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+            _setter("volume_kms_key_id", volume_kms_key_id)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -1060,12 +1296,25 @@ class DataQualityJobDefinitionNetworkConfigArgs:
         :param pulumi.Input[bool] enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
         :param pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs'] vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
         """
+        DataQualityJobDefinitionNetworkConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_inter_container_traffic_encryption=enable_inter_container_traffic_encryption,
+            enable_network_isolation=enable_network_isolation,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_inter_container_traffic_encryption: Optional[pulumi.Input[bool]] = None,
+             enable_network_isolation: Optional[pulumi.Input[bool]] = None,
+             vpc_config: Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_inter_container_traffic_encryption is not None:
-            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+            _setter("enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
         if enable_network_isolation is not None:
-            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+            _setter("enable_network_isolation", enable_network_isolation)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
@@ -1113,8 +1362,19 @@ class DataQualityJobDefinitionNetworkConfigVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the `subnets` field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnets", subnets)
+        DataQualityJobDefinitionNetworkConfigVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnets=subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -1148,8 +1408,17 @@ class DataQualityJobDefinitionStoppingConditionArgs:
         """
         :param pulumi.Input[int] max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
+        DataQualityJobDefinitionStoppingConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_runtime_in_seconds=max_runtime_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_runtime_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_runtime_in_seconds is not None:
-            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+            _setter("max_runtime_in_seconds", max_runtime_in_seconds)
 
     @property
     @pulumi.getter(name="maxRuntimeInSeconds")
@@ -1175,11 +1444,24 @@ class DeviceDeviceArgs:
         :param pulumi.Input[str] description: A description for the device.
         :param pulumi.Input[str] iot_thing_name: Amazon Web Services Internet of Things (IoT) object name.
         """
-        pulumi.set(__self__, "device_name", device_name)
+        DeviceDeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            description=description,
+            iot_thing_name=iot_thing_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             iot_thing_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_name", device_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if iot_thing_name is not None:
-            pulumi.set(__self__, "iot_thing_name", iot_thing_name)
+            _setter("iot_thing_name", iot_thing_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -1227,9 +1509,20 @@ class DeviceFleetOutputConfigArgs:
         :param pulumi.Input[str] s3_output_location: The Amazon Simple Storage (S3) bucker URI.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
         """
-        pulumi.set(__self__, "s3_output_location", s3_output_location)
+        DeviceFleetOutputConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_output_location=s3_output_location,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_output_location: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_output_location", s3_output_location)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="s3OutputLocation")
@@ -1269,13 +1562,28 @@ class DomainDefaultSpaceSettingsArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
-        pulumi.set(__self__, "execution_role", execution_role)
+        DomainDefaultSpaceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role=execution_role,
+            jupyter_server_app_settings=jupyter_server_app_settings,
+            kernel_gateway_app_settings=kernel_gateway_app_settings,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role: pulumi.Input[str],
+             jupyter_server_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs']] = None,
+             kernel_gateway_app_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution_role", execution_role)
         if jupyter_server_app_settings is not None:
-            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+            _setter("jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
-            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+            _setter("kernel_gateway_app_settings", kernel_gateway_app_settings)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -1337,12 +1645,25 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_repositories=code_repositories,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code_repositories is not None:
-            pulumi.set(__self__, "code_repositories", code_repositories)
+            _setter("code_repositories", code_repositories)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -1388,7 +1709,16 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs:
         """
         :param pulumi.Input[str] repository_url: The URL of the Git repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
+        DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -1416,14 +1746,29 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1485,12 +1830,25 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_images=custom_images,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="customImages")
@@ -1540,10 +1898,23 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -1595,14 +1966,29 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1676,23 +2062,48 @@ class DomainDefaultUserSettingsArgs:
         :param pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
-        pulumi.set(__self__, "execution_role", execution_role)
+        DomainDefaultUserSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role=execution_role,
+            canvas_app_settings=canvas_app_settings,
+            jupyter_server_app_settings=jupyter_server_app_settings,
+            kernel_gateway_app_settings=kernel_gateway_app_settings,
+            r_session_app_settings=r_session_app_settings,
+            r_studio_server_pro_app_settings=r_studio_server_pro_app_settings,
+            security_groups=security_groups,
+            sharing_settings=sharing_settings,
+            tensor_board_app_settings=tensor_board_app_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role: pulumi.Input[str],
+             canvas_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsArgs']] = None,
+             jupyter_server_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsArgs']] = None,
+             kernel_gateway_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs']] = None,
+             r_session_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsArgs']] = None,
+             r_studio_server_pro_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sharing_settings: Optional[pulumi.Input['DomainDefaultUserSettingsSharingSettingsArgs']] = None,
+             tensor_board_app_settings: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution_role", execution_role)
         if canvas_app_settings is not None:
-            pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
+            _setter("canvas_app_settings", canvas_app_settings)
         if jupyter_server_app_settings is not None:
-            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+            _setter("jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
-            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+            _setter("kernel_gateway_app_settings", kernel_gateway_app_settings)
         if r_session_app_settings is not None:
-            pulumi.set(__self__, "r_session_app_settings", r_session_app_settings)
+            _setter("r_session_app_settings", r_session_app_settings)
         if r_studio_server_pro_app_settings is not None:
-            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
+            _setter("r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if sharing_settings is not None:
-            pulumi.set(__self__, "sharing_settings", sharing_settings)
+            _setter("sharing_settings", sharing_settings)
         if tensor_board_app_settings is not None:
-            pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
+            _setter("tensor_board_app_settings", tensor_board_app_settings)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -1814,12 +2225,25 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
+        DomainDefaultUserSettingsCanvasAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_register_settings=model_register_settings,
+            time_series_forecasting_settings=time_series_forecasting_settings,
+            workspace_settings=workspace_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_register_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
+             time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
+             workspace_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if model_register_settings is not None:
-            pulumi.set(__self__, "model_register_settings", model_register_settings)
+            _setter("model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
-            pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+            _setter("time_series_forecasting_settings", time_series_forecasting_settings)
         if workspace_settings is not None:
-            pulumi.set(__self__, "workspace_settings", workspace_settings)
+            _setter("workspace_settings", workspace_settings)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -1867,10 +2291,21 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
         :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
         :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
+        DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_account_model_register_role_arn=cross_account_model_register_role_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_account_model_register_role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cross_account_model_register_role_arn is not None:
-            pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
+            _setter("cross_account_model_register_role_arn", cross_account_model_register_role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="crossAccountModelRegisterRoleArn")
@@ -1906,10 +2341,21 @@ class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArg
         :param pulumi.Input[str] amazon_forecast_role_arn: The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
         :param pulumi.Input[str] status: Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
         """
+        DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_forecast_role_arn=amazon_forecast_role_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_forecast_role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_forecast_role_arn is not None:
-            pulumi.set(__self__, "amazon_forecast_role_arn", amazon_forecast_role_arn)
+            _setter("amazon_forecast_role_arn", amazon_forecast_role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="amazonForecastRoleArn")
@@ -1945,10 +2391,21 @@ class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
         :param pulumi.Input[str] s3_artifact_path: The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
         :param pulumi.Input[str] s3_kms_key_id: The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
         """
+        DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_artifact_path=s3_artifact_path,
+            s3_kms_key_id=s3_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_artifact_path: Optional[pulumi.Input[str]] = None,
+             s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_artifact_path is not None:
-            pulumi.set(__self__, "s3_artifact_path", s3_artifact_path)
+            _setter("s3_artifact_path", s3_artifact_path)
         if s3_kms_key_id is not None:
-            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+            _setter("s3_kms_key_id", s3_kms_key_id)
 
     @property
     @pulumi.getter(name="s3ArtifactPath")
@@ -1986,12 +2443,25 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
         :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        DomainDefaultUserSettingsJupyterServerAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_repositories=code_repositories,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code_repositories is not None:
-            pulumi.set(__self__, "code_repositories", code_repositories)
+            _setter("code_repositories", code_repositories)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -2037,7 +2507,16 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs:
         """
         :param pulumi.Input[str] repository_url: The URL of the Git repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
+        DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -2065,14 +2544,29 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2134,12 +2628,25 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
         :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        DomainDefaultUserSettingsKernelGatewayAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_images=custom_images,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="customImages")
@@ -2189,10 +2696,23 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -2244,14 +2764,29 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2311,10 +2846,21 @@ class DomainDefaultUserSettingsRSessionAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
+        DomainDefaultUserSettingsRSessionAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_images=custom_images,
+            default_resource_spec=default_resource_spec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="customImages")
@@ -2352,10 +2898,23 @@ class DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -2407,14 +2966,29 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2474,10 +3048,21 @@ class DomainDefaultUserSettingsRStudioServerProAppSettingsArgs:
         :param pulumi.Input[str] access_status: Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[str] user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
         """
+        DomainDefaultUserSettingsRStudioServerProAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_status=access_status,
+            user_group=user_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_status: Optional[pulumi.Input[str]] = None,
+             user_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_status is not None:
-            pulumi.set(__self__, "access_status", access_status)
+            _setter("access_status", access_status)
         if user_group is not None:
-            pulumi.set(__self__, "user_group", user_group)
+            _setter("user_group", user_group)
 
     @property
     @pulumi.getter(name="accessStatus")
@@ -2515,12 +3100,25 @@ class DomainDefaultUserSettingsSharingSettingsArgs:
         :param pulumi.Input[str] s3_kms_key_id: When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param pulumi.Input[str] s3_output_path: When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
         """
+        DomainDefaultUserSettingsSharingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notebook_output_option=notebook_output_option,
+            s3_kms_key_id=s3_kms_key_id,
+            s3_output_path=s3_output_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notebook_output_option: Optional[pulumi.Input[str]] = None,
+             s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+             s3_output_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notebook_output_option is not None:
-            pulumi.set(__self__, "notebook_output_option", notebook_output_option)
+            _setter("notebook_output_option", notebook_output_option)
         if s3_kms_key_id is not None:
-            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+            _setter("s3_kms_key_id", s3_kms_key_id)
         if s3_output_path is not None:
-            pulumi.set(__self__, "s3_output_path", s3_output_path)
+            _setter("s3_output_path", s3_output_path)
 
     @property
     @pulumi.getter(name="notebookOutputOption")
@@ -2566,8 +3164,17 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsArgs:
         """
         :param pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
+        DomainDefaultUserSettingsTensorBoardAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_resource_spec=default_resource_spec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -2595,14 +3202,29 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2664,12 +3286,25 @@ class DomainDomainSettingsArgs:
         :param pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
+        DomainDomainSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role_identity_config=execution_role_identity_config,
+            r_studio_server_pro_domain_settings=r_studio_server_pro_domain_settings,
+            security_group_ids=security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role_identity_config: Optional[pulumi.Input[str]] = None,
+             r_studio_server_pro_domain_settings: Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsArgs']] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if execution_role_identity_config is not None:
-            pulumi.set(__self__, "execution_role_identity_config", execution_role_identity_config)
+            _setter("execution_role_identity_config", execution_role_identity_config)
         if r_studio_server_pro_domain_settings is not None:
-            pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
+            _setter("r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
 
     @property
     @pulumi.getter(name="executionRoleIdentityConfig")
@@ -2721,13 +3356,28 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgs:
         :param pulumi.Input[str] r_studio_connect_url: A URL pointing to an RStudio Connect server.
         :param pulumi.Input[str] r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
         """
-        pulumi.set(__self__, "domain_execution_role_arn", domain_execution_role_arn)
+        DomainDomainSettingsRStudioServerProDomainSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_execution_role_arn=domain_execution_role_arn,
+            default_resource_spec=default_resource_spec,
+            r_studio_connect_url=r_studio_connect_url,
+            r_studio_package_manager_url=r_studio_package_manager_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_execution_role_arn: pulumi.Input[str],
+             default_resource_spec: Optional[pulumi.Input['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs']] = None,
+             r_studio_connect_url: Optional[pulumi.Input[str]] = None,
+             r_studio_package_manager_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_execution_role_arn", domain_execution_role_arn)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if r_studio_connect_url is not None:
-            pulumi.set(__self__, "r_studio_connect_url", r_studio_connect_url)
+            _setter("r_studio_connect_url", r_studio_connect_url)
         if r_studio_package_manager_url is not None:
-            pulumi.set(__self__, "r_studio_package_manager_url", r_studio_package_manager_url)
+            _setter("r_studio_package_manager_url", r_studio_package_manager_url)
 
     @property
     @pulumi.getter(name="domainExecutionRoleArn")
@@ -2791,14 +3441,29 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2856,8 +3521,17 @@ class DomainRetentionPolicyArgs:
         """
         :param pulumi.Input[str] home_efs_file_system: The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
         """
+        DomainRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            home_efs_file_system=home_efs_file_system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             home_efs_file_system: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if home_efs_file_system is not None:
-            pulumi.set(__self__, "home_efs_file_system", home_efs_file_system)
+            _setter("home_efs_file_system", home_efs_file_system)
 
     @property
     @pulumi.getter(name="homeEfsFileSystem")
@@ -2881,9 +3555,20 @@ class EndpointConfigurationAsyncInferenceConfigArgs:
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigArgs'] output_config: Specifies the configuration for asynchronous inference invocation outputs.
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs'] client_config: Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
         """
-        pulumi.set(__self__, "output_config", output_config)
+        EndpointConfigurationAsyncInferenceConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output_config=output_config,
+            client_config=client_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output_config: pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigArgs'],
+             client_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigClientConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("output_config", output_config)
         if client_config is not None:
-            pulumi.set(__self__, "client_config", client_config)
+            _setter("client_config", client_config)
 
     @property
     @pulumi.getter(name="outputConfig")
@@ -2917,8 +3602,17 @@ class EndpointConfigurationAsyncInferenceConfigClientConfigArgs:
         """
         :param pulumi.Input[int] max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
         """
+        EndpointConfigurationAsyncInferenceConfigClientConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrent_invocations_per_instance=max_concurrent_invocations_per_instance,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrent_invocations_per_instance: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_concurrent_invocations_per_instance is not None:
-            pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
+            _setter("max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
 
     @property
     @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
@@ -2946,13 +3640,28 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs:
         :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs'] notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
         :param pulumi.Input[str] s3_failure_path: The Amazon S3 location to upload failure inference responses to.
         """
-        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        EndpointConfigurationAsyncInferenceConfigOutputConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_output_path=s3_output_path,
+            kms_key_id=kms_key_id,
+            notification_config=notification_config,
+            s3_failure_path=s3_failure_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_output_path: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             notification_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs']] = None,
+             s3_failure_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_output_path", s3_output_path)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if notification_config is not None:
-            pulumi.set(__self__, "notification_config", notification_config)
+            _setter("notification_config", notification_config)
         if s3_failure_path is not None:
-            pulumi.set(__self__, "s3_failure_path", s3_failure_path)
+            _setter("s3_failure_path", s3_failure_path)
 
     @property
     @pulumi.getter(name="s3OutputPath")
@@ -3014,12 +3723,25 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArg
         :param pulumi.Input[Sequence[pulumi.Input[str]]] include_inference_response_ins: The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
         :param pulumi.Input[str] success_topic: Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         """
+        EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_topic=error_topic,
+            include_inference_response_ins=include_inference_response_ins,
+            success_topic=success_topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_topic: Optional[pulumi.Input[str]] = None,
+             include_inference_response_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             success_topic: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error_topic is not None:
-            pulumi.set(__self__, "error_topic", error_topic)
+            _setter("error_topic", error_topic)
         if include_inference_response_ins is not None:
-            pulumi.set(__self__, "include_inference_response_ins", include_inference_response_ins)
+            _setter("include_inference_response_ins", include_inference_response_ins)
         if success_topic is not None:
-            pulumi.set(__self__, "success_topic", success_topic)
+            _setter("success_topic", success_topic)
 
     @property
     @pulumi.getter(name="errorTopic")
@@ -3075,15 +3797,34 @@ class EndpointConfigurationDataCaptureConfigArgs:
         :param pulumi.Input[bool] enable_capture: Flag to enable data capture. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
-        pulumi.set(__self__, "capture_options", capture_options)
-        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
-        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        EndpointConfigurationDataCaptureConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capture_options=capture_options,
+            destination_s3_uri=destination_s3_uri,
+            initial_sampling_percentage=initial_sampling_percentage,
+            capture_content_type_header=capture_content_type_header,
+            enable_capture=enable_capture,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capture_options: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureOptionArgs']]],
+             destination_s3_uri: pulumi.Input[str],
+             initial_sampling_percentage: pulumi.Input[int],
+             capture_content_type_header: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']] = None,
+             enable_capture: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capture_options", capture_options)
+        _setter("destination_s3_uri", destination_s3_uri)
+        _setter("initial_sampling_percentage", initial_sampling_percentage)
         if capture_content_type_header is not None:
-            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+            _setter("capture_content_type_header", capture_content_type_header)
         if enable_capture is not None:
-            pulumi.set(__self__, "enable_capture", enable_capture)
+            _setter("enable_capture", enable_capture)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="captureOptions")
@@ -3167,10 +3908,21 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] csv_content_types: The CSV content type headers to capture.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] json_content_types: The JSON content type headers to capture.
         """
+        EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            csv_content_types=csv_content_types,
+            json_content_types=json_content_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             csv_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_content_types is not None:
-            pulumi.set(__self__, "csv_content_types", csv_content_types)
+            _setter("csv_content_types", csv_content_types)
         if json_content_types is not None:
-            pulumi.set(__self__, "json_content_types", json_content_types)
+            _setter("json_content_types", json_content_types)
 
     @property
     @pulumi.getter(name="csvContentTypes")
@@ -3204,7 +3956,16 @@ class EndpointConfigurationDataCaptureConfigCaptureOptionArgs:
         """
         :param pulumi.Input[str] capture_mode: Specifies the data to be captured. Should be one of `Input` or `Output`.
         """
-        pulumi.set(__self__, "capture_mode", capture_mode)
+        EndpointConfigurationDataCaptureConfigCaptureOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capture_mode=capture_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capture_mode: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capture_mode", capture_mode)
 
     @property
     @pulumi.getter(name="captureMode")
@@ -3248,29 +4009,60 @@ class EndpointConfigurationProductionVariantArgs:
         :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[int] volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
-        pulumi.set(__self__, "model_name", model_name)
+        EndpointConfigurationProductionVariantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_name=model_name,
+            accelerator_type=accelerator_type,
+            container_startup_health_check_timeout_in_seconds=container_startup_health_check_timeout_in_seconds,
+            core_dump_config=core_dump_config,
+            enable_ssm_access=enable_ssm_access,
+            initial_instance_count=initial_instance_count,
+            initial_variant_weight=initial_variant_weight,
+            instance_type=instance_type,
+            model_data_download_timeout_in_seconds=model_data_download_timeout_in_seconds,
+            serverless_config=serverless_config,
+            variant_name=variant_name,
+            volume_size_in_gb=volume_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_name: pulumi.Input[str],
+             accelerator_type: Optional[pulumi.Input[str]] = None,
+             container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             core_dump_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgs']] = None,
+             enable_ssm_access: Optional[pulumi.Input[bool]] = None,
+             initial_instance_count: Optional[pulumi.Input[int]] = None,
+             initial_variant_weight: Optional[pulumi.Input[float]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             serverless_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']] = None,
+             variant_name: Optional[pulumi.Input[str]] = None,
+             volume_size_in_gb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("model_name", model_name)
         if accelerator_type is not None:
-            pulumi.set(__self__, "accelerator_type", accelerator_type)
+            _setter("accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
-            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+            _setter("container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
-            pulumi.set(__self__, "core_dump_config", core_dump_config)
+            _setter("core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
-            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+            _setter("enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
-            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+            _setter("initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
-            pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+            _setter("initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
-            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+            _setter("model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if serverless_config is not None:
-            pulumi.set(__self__, "serverless_config", serverless_config)
+            _setter("serverless_config", serverless_config)
         if variant_name is not None:
-            pulumi.set(__self__, "variant_name", variant_name)
+            _setter("variant_name", variant_name)
         if volume_size_in_gb is not None:
-            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+            _setter("volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="modelName")
@@ -3426,9 +4218,20 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
         :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
         :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
-        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        EndpointConfigurationProductionVariantCoreDumpConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_s3_uri=destination_s3_uri,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_s3_uri: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_s3_uri", destination_s3_uri)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="destinationS3Uri")
@@ -3466,10 +4269,23 @@ class EndpointConfigurationProductionVariantServerlessConfigArgs:
         :param pulumi.Input[int] memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         :param pulumi.Input[int] provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
-        pulumi.set(__self__, "max_concurrency", max_concurrency)
-        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        EndpointConfigurationProductionVariantServerlessConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrency=max_concurrency,
+            memory_size_in_mb=memory_size_in_mb,
+            provisioned_concurrency=provisioned_concurrency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrency: pulumi.Input[int],
+             memory_size_in_mb: pulumi.Input[int],
+             provisioned_concurrency: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_concurrency", max_concurrency)
+        _setter("memory_size_in_mb", memory_size_in_mb)
         if provisioned_concurrency is not None:
-            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
+            _setter("provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3537,29 +4353,60 @@ class EndpointConfigurationShadowProductionVariantArgs:
         :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[int] volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
-        pulumi.set(__self__, "model_name", model_name)
+        EndpointConfigurationShadowProductionVariantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_name=model_name,
+            accelerator_type=accelerator_type,
+            container_startup_health_check_timeout_in_seconds=container_startup_health_check_timeout_in_seconds,
+            core_dump_config=core_dump_config,
+            enable_ssm_access=enable_ssm_access,
+            initial_instance_count=initial_instance_count,
+            initial_variant_weight=initial_variant_weight,
+            instance_type=instance_type,
+            model_data_download_timeout_in_seconds=model_data_download_timeout_in_seconds,
+            serverless_config=serverless_config,
+            variant_name=variant_name,
+            volume_size_in_gb=volume_size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_name: pulumi.Input[str],
+             accelerator_type: Optional[pulumi.Input[str]] = None,
+             container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             core_dump_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs']] = None,
+             enable_ssm_access: Optional[pulumi.Input[bool]] = None,
+             initial_instance_count: Optional[pulumi.Input[int]] = None,
+             initial_variant_weight: Optional[pulumi.Input[float]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             serverless_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']] = None,
+             variant_name: Optional[pulumi.Input[str]] = None,
+             volume_size_in_gb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("model_name", model_name)
         if accelerator_type is not None:
-            pulumi.set(__self__, "accelerator_type", accelerator_type)
+            _setter("accelerator_type", accelerator_type)
         if container_startup_health_check_timeout_in_seconds is not None:
-            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+            _setter("container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
-            pulumi.set(__self__, "core_dump_config", core_dump_config)
+            _setter("core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
-            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+            _setter("enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
-            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+            _setter("initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
-            pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+            _setter("initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if model_data_download_timeout_in_seconds is not None:
-            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+            _setter("model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if serverless_config is not None:
-            pulumi.set(__self__, "serverless_config", serverless_config)
+            _setter("serverless_config", serverless_config)
         if variant_name is not None:
-            pulumi.set(__self__, "variant_name", variant_name)
+            _setter("variant_name", variant_name)
         if volume_size_in_gb is not None:
-            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+            _setter("volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="modelName")
@@ -3715,8 +4562,19 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
         :param pulumi.Input[str] destination_s3_uri: The Amazon S3 bucket to send the core dump to.
         :param pulumi.Input[str] kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         """
-        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_s3_uri=destination_s3_uri,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_s3_uri: pulumi.Input[str],
+             kms_key_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_s3_uri", destination_s3_uri)
+        _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="destinationS3Uri")
@@ -3754,10 +4612,23 @@ class EndpointConfigurationShadowProductionVariantServerlessConfigArgs:
         :param pulumi.Input[int] memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         :param pulumi.Input[int] provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
-        pulumi.set(__self__, "max_concurrency", max_concurrency)
-        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        EndpointConfigurationShadowProductionVariantServerlessConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrency=max_concurrency,
+            memory_size_in_mb=memory_size_in_mb,
+            provisioned_concurrency=provisioned_concurrency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrency: pulumi.Input[int],
+             memory_size_in_mb: pulumi.Input[int],
+             provisioned_concurrency: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_concurrency", max_concurrency)
+        _setter("memory_size_in_mb", memory_size_in_mb)
         if provisioned_concurrency is not None:
-            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
+            _setter("provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3807,12 +4678,25 @@ class EndpointDeploymentConfigArgs:
         :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
         :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs'] rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
         """
+        EndpointDeploymentConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_rollback_configuration=auto_rollback_configuration,
+            blue_green_update_policy=blue_green_update_policy,
+            rolling_update_policy=rolling_update_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_rollback_configuration: Optional[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs']] = None,
+             blue_green_update_policy: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']] = None,
+             rolling_update_policy: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_rollback_configuration is not None:
-            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+            _setter("auto_rollback_configuration", auto_rollback_configuration)
         if blue_green_update_policy is not None:
-            pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+            _setter("blue_green_update_policy", blue_green_update_policy)
         if rolling_update_policy is not None:
-            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+            _setter("rolling_update_policy", rolling_update_policy)
 
     @property
     @pulumi.getter(name="autoRollbackConfiguration")
@@ -3858,8 +4742,17 @@ class EndpointDeploymentConfigAutoRollbackConfigurationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
         """
+        EndpointDeploymentConfigAutoRollbackConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
 
     @property
     @pulumi.getter
@@ -3881,7 +4774,16 @@ class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs:
         """
         :param pulumi.Input[str] alarm_name: The name of a CloudWatch alarm in your account.
         """
-        pulumi.set(__self__, "alarm_name", alarm_name)
+        EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_name=alarm_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alarm_name", alarm_name)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -3907,11 +4809,24 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs:
         :param pulumi.Input[int] maximum_execution_timeout_in_seconds: Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
         :param pulumi.Input[int] termination_wait_in_seconds: Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
         """
-        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        EndpointDeploymentConfigBlueGreenUpdatePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            traffic_routing_configuration=traffic_routing_configuration,
+            maximum_execution_timeout_in_seconds=maximum_execution_timeout_in_seconds,
+            termination_wait_in_seconds=termination_wait_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             traffic_routing_configuration: pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs'],
+             maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             termination_wait_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("traffic_routing_configuration", traffic_routing_configuration)
         if maximum_execution_timeout_in_seconds is not None:
-            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+            _setter("maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
         if termination_wait_in_seconds is not None:
-            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+            _setter("termination_wait_in_seconds", termination_wait_in_seconds)
 
     @property
     @pulumi.getter(name="trafficRoutingConfiguration")
@@ -3963,12 +4878,27 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationAr
         :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs'] canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
         :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs'] linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            wait_interval_in_seconds=wait_interval_in_seconds,
+            canary_size=canary_size,
+            linear_step_size=linear_step_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             wait_interval_in_seconds: pulumi.Input[int],
+             canary_size: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs']] = None,
+             linear_step_size: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("wait_interval_in_seconds", wait_interval_in_seconds)
         if canary_size is not None:
-            pulumi.set(__self__, "canary_size", canary_size)
+            _setter("canary_size", canary_size)
         if linear_step_size is not None:
-            pulumi.set(__self__, "linear_step_size", linear_step_size)
+            _setter("linear_step_size", linear_step_size)
 
     @property
     @pulumi.getter
@@ -4028,8 +4958,19 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCa
         :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
         :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4065,8 +5006,19 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLi
         :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
         :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4106,12 +5058,27 @@ class EndpointDeploymentConfigRollingUpdatePolicyArgs:
         :param pulumi.Input[int] maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
         :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs'] rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         """
-        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
-        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        EndpointDeploymentConfigRollingUpdatePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_batch_size=maximum_batch_size,
+            wait_interval_in_seconds=wait_interval_in_seconds,
+            maximum_execution_timeout_in_seconds=maximum_execution_timeout_in_seconds,
+            rollback_maximum_batch_size=rollback_maximum_batch_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_batch_size: pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'],
+             wait_interval_in_seconds: pulumi.Input[int],
+             maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             rollback_maximum_batch_size: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_batch_size", maximum_batch_size)
+        _setter("wait_interval_in_seconds", wait_interval_in_seconds)
         if maximum_execution_timeout_in_seconds is not None:
-            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+            _setter("maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
         if rollback_maximum_batch_size is not None:
-            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+            _setter("rollback_maximum_batch_size", rollback_maximum_batch_size)
 
     @property
     @pulumi.getter(name="maximumBatchSize")
@@ -4171,8 +5138,19 @@ class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs:
         :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
         :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4208,8 +5186,19 @@ class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs:
         :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
         :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             value: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4245,10 +5234,21 @@ class FeatureGroupFeatureDefinitionArgs:
         :param pulumi.Input[str] feature_name: The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
         :param pulumi.Input[str] feature_type: The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
         """
+        FeatureGroupFeatureDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            feature_name=feature_name,
+            feature_type=feature_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             feature_name: Optional[pulumi.Input[str]] = None,
+             feature_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
+            _setter("feature_name", feature_name)
         if feature_type is not None:
-            pulumi.set(__self__, "feature_type", feature_type)
+            _setter("feature_type", feature_type)
 
     @property
     @pulumi.getter(name="featureName")
@@ -4288,13 +5288,28 @@ class FeatureGroupOfflineStoreConfigArgs:
         :param pulumi.Input[bool] disable_glue_table_creation: Set to `true` to turn Online Store On.
         :param pulumi.Input[str] table_format: Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
         """
-        pulumi.set(__self__, "s3_storage_config", s3_storage_config)
+        FeatureGroupOfflineStoreConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_storage_config=s3_storage_config,
+            data_catalog_config=data_catalog_config,
+            disable_glue_table_creation=disable_glue_table_creation,
+            table_format=table_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_storage_config: pulumi.Input['FeatureGroupOfflineStoreConfigS3StorageConfigArgs'],
+             data_catalog_config: Optional[pulumi.Input['FeatureGroupOfflineStoreConfigDataCatalogConfigArgs']] = None,
+             disable_glue_table_creation: Optional[pulumi.Input[bool]] = None,
+             table_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_storage_config", s3_storage_config)
         if data_catalog_config is not None:
-            pulumi.set(__self__, "data_catalog_config", data_catalog_config)
+            _setter("data_catalog_config", data_catalog_config)
         if disable_glue_table_creation is not None:
-            pulumi.set(__self__, "disable_glue_table_creation", disable_glue_table_creation)
+            _setter("disable_glue_table_creation", disable_glue_table_creation)
         if table_format is not None:
-            pulumi.set(__self__, "table_format", table_format)
+            _setter("table_format", table_format)
 
     @property
     @pulumi.getter(name="s3StorageConfig")
@@ -4356,12 +5371,25 @@ class FeatureGroupOfflineStoreConfigDataCatalogConfigArgs:
         :param pulumi.Input[str] database: The name of the Glue table database.
         :param pulumi.Input[str] table_name: The name of the Glue table.
         """
+        FeatureGroupOfflineStoreConfigDataCatalogConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            database=database,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog is not None:
-            pulumi.set(__self__, "catalog", catalog)
+            _setter("catalog", catalog)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter
@@ -4409,9 +5437,20 @@ class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
         :param pulumi.Input[str] s3_uri: The S3 URI, or location in Amazon S3, of OfflineStore.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
         """
-        pulumi.set(__self__, "s3_uri", s3_uri)
+        FeatureGroupOfflineStoreConfigS3StorageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_uri=s3_uri,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_uri: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_uri", s3_uri)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -4447,10 +5486,21 @@ class FeatureGroupOnlineStoreConfigArgs:
         :param pulumi.Input[bool] enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs'] security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         """
+        FeatureGroupOnlineStoreConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_online_store=enable_online_store,
+            security_config=security_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_online_store: Optional[pulumi.Input[bool]] = None,
+             security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_online_store is not None:
-            pulumi.set(__self__, "enable_online_store", enable_online_store)
+            _setter("enable_online_store", enable_online_store)
         if security_config is not None:
-            pulumi.set(__self__, "security_config", security_config)
+            _setter("security_config", security_config)
 
     @property
     @pulumi.getter(name="enableOnlineStore")
@@ -4484,8 +5534,17 @@ class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
         """
         :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
         """
+        FeatureGroupOnlineStoreConfigSecurityConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -4507,8 +5566,17 @@ class FlowDefinitionHumanLoopActivationConfigArgs:
         """
         :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs'] human_loop_activation_conditions_config: defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
         """
+        FlowDefinitionHumanLoopActivationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            human_loop_activation_conditions_config=human_loop_activation_conditions_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             human_loop_activation_conditions_config: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if human_loop_activation_conditions_config is not None:
-            pulumi.set(__self__, "human_loop_activation_conditions_config", human_loop_activation_conditions_config)
+            _setter("human_loop_activation_conditions_config", human_loop_activation_conditions_config)
 
     @property
     @pulumi.getter(name="humanLoopActivationConditionsConfig")
@@ -4530,7 +5598,16 @@ class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig
         """
         :param pulumi.Input[str] human_loop_activation_conditions: A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
         """
-        pulumi.set(__self__, "human_loop_activation_conditions", human_loop_activation_conditions)
+        FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            human_loop_activation_conditions=human_loop_activation_conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             human_loop_activation_conditions: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("human_loop_activation_conditions", human_loop_activation_conditions)
 
     @property
     @pulumi.getter(name="humanLoopActivationConditions")
@@ -4568,19 +5645,44 @@ class FlowDefinitionHumanLoopConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] task_keywords: An array of keywords used to describe the task so that workers can discover the task.
         :param pulumi.Input[int] task_time_limit_in_seconds: The amount of time that a worker has to complete a task. The default value is `3600` seconds.
         """
-        pulumi.set(__self__, "human_task_ui_arn", human_task_ui_arn)
-        pulumi.set(__self__, "task_count", task_count)
-        pulumi.set(__self__, "task_description", task_description)
-        pulumi.set(__self__, "task_title", task_title)
-        pulumi.set(__self__, "workteam_arn", workteam_arn)
+        FlowDefinitionHumanLoopConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            human_task_ui_arn=human_task_ui_arn,
+            task_count=task_count,
+            task_description=task_description,
+            task_title=task_title,
+            workteam_arn=workteam_arn,
+            public_workforce_task_price=public_workforce_task_price,
+            task_availability_lifetime_in_seconds=task_availability_lifetime_in_seconds,
+            task_keywords=task_keywords,
+            task_time_limit_in_seconds=task_time_limit_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             human_task_ui_arn: pulumi.Input[str],
+             task_count: pulumi.Input[int],
+             task_description: pulumi.Input[str],
+             task_title: pulumi.Input[str],
+             workteam_arn: pulumi.Input[str],
+             public_workforce_task_price: Optional[pulumi.Input['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs']] = None,
+             task_availability_lifetime_in_seconds: Optional[pulumi.Input[int]] = None,
+             task_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             task_time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("human_task_ui_arn", human_task_ui_arn)
+        _setter("task_count", task_count)
+        _setter("task_description", task_description)
+        _setter("task_title", task_title)
+        _setter("workteam_arn", workteam_arn)
         if public_workforce_task_price is not None:
-            pulumi.set(__self__, "public_workforce_task_price", public_workforce_task_price)
+            _setter("public_workforce_task_price", public_workforce_task_price)
         if task_availability_lifetime_in_seconds is not None:
-            pulumi.set(__self__, "task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
+            _setter("task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
         if task_keywords is not None:
-            pulumi.set(__self__, "task_keywords", task_keywords)
+            _setter("task_keywords", task_keywords)
         if task_time_limit_in_seconds is not None:
-            pulumi.set(__self__, "task_time_limit_in_seconds", task_time_limit_in_seconds)
+            _setter("task_time_limit_in_seconds", task_time_limit_in_seconds)
 
     @property
     @pulumi.getter(name="humanTaskUiArn")
@@ -4698,8 +5800,17 @@ class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs:
         """
         :param pulumi.Input['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs'] amount_in_usd: Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
         """
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount_in_usd=amount_in_usd,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount_in_usd: Optional[pulumi.Input['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amount_in_usd is not None:
-            pulumi.set(__self__, "amount_in_usd", amount_in_usd)
+            _setter("amount_in_usd", amount_in_usd)
 
     @property
     @pulumi.getter(name="amountInUsd")
@@ -4725,12 +5836,25 @@ class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs:
         :param pulumi.Input[int] dollars: The whole number of dollars in the amount. Valid value range between `0` and `2`.
         :param pulumi.Input[int] tenth_fractions_of_a_cent: Fractions of a cent, in tenths. Valid value range between `0` and `9`.
         """
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cents=cents,
+            dollars=dollars,
+            tenth_fractions_of_a_cent=tenth_fractions_of_a_cent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cents: Optional[pulumi.Input[int]] = None,
+             dollars: Optional[pulumi.Input[int]] = None,
+             tenth_fractions_of_a_cent: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cents is not None:
-            pulumi.set(__self__, "cents", cents)
+            _setter("cents", cents)
         if dollars is not None:
-            pulumi.set(__self__, "dollars", dollars)
+            _setter("dollars", dollars)
         if tenth_fractions_of_a_cent is not None:
-            pulumi.set(__self__, "tenth_fractions_of_a_cent", tenth_fractions_of_a_cent)
+            _setter("tenth_fractions_of_a_cent", tenth_fractions_of_a_cent)
 
     @property
     @pulumi.getter
@@ -4776,7 +5900,16 @@ class FlowDefinitionHumanLoopRequestSourceArgs:
         """
         :param pulumi.Input[str] aws_managed_human_loop_request_source: Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
         """
-        pulumi.set(__self__, "aws_managed_human_loop_request_source", aws_managed_human_loop_request_source)
+        FlowDefinitionHumanLoopRequestSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_managed_human_loop_request_source=aws_managed_human_loop_request_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_managed_human_loop_request_source: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_managed_human_loop_request_source", aws_managed_human_loop_request_source)
 
     @property
     @pulumi.getter(name="awsManagedHumanLoopRequestSource")
@@ -4800,9 +5933,20 @@ class FlowDefinitionOutputConfigArgs:
         :param pulumi.Input[str] s3_output_path: The Amazon S3 path where the object containing human output will be made available.
         :param pulumi.Input[str] kms_key_id: The Amazon Key Management Service (KMS) key ARN for server-side encryption.
         """
-        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        FlowDefinitionOutputConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_output_path=s3_output_path,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_output_path: pulumi.Input[str],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_output_path", s3_output_path)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="s3OutputPath")
@@ -4840,12 +5984,25 @@ class HumanTaskUIUiTemplateArgs:
         :param pulumi.Input[str] content_sha256: The SHA-256 digest of the contents of the template.
         :param pulumi.Input[str] url: The URL for the user interface template.
         """
+        HumanTaskUIUiTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_sha256=content_sha256,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             content_sha256: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_sha256 is not None:
-            pulumi.set(__self__, "content_sha256", content_sha256)
+            _setter("content_sha256", content_sha256)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -4904,20 +6061,41 @@ class ModelContainerArgs:
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
+        ModelContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_hostname=container_hostname,
+            environment=environment,
+            image=image,
+            image_config=image_config,
+            mode=mode,
+            model_data_url=model_data_url,
+            model_package_name=model_package_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_hostname: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             model_data_url: Optional[pulumi.Input[str]] = None,
+             model_package_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_hostname is not None:
-            pulumi.set(__self__, "container_hostname", container_hostname)
+            _setter("container_hostname", container_hostname)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_config is not None:
-            pulumi.set(__self__, "image_config", image_config)
+            _setter("image_config", image_config)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if model_data_url is not None:
-            pulumi.set(__self__, "model_data_url", model_data_url)
+            _setter("model_data_url", model_data_url)
         if model_package_name is not None:
-            pulumi.set(__self__, "model_package_name", model_package_name)
+            _setter("model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -5014,9 +6192,20 @@ class ModelContainerImageConfigArgs:
         :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
         :param pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
-        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        ModelContainerImageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_access_mode=repository_access_mode,
+            repository_auth_config=repository_auth_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_access_mode: pulumi.Input[str],
+             repository_auth_config: Optional[pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
-            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+            _setter("repository_auth_config", repository_auth_config)
 
     @property
     @pulumi.getter(name="repositoryAccessMode")
@@ -5050,7 +6239,16 @@ class ModelContainerImageConfigRepositoryAuthConfigArgs:
         """
         :param pulumi.Input[str] repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
-        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+        ModelContainerImageConfigRepositoryAuthConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_credentials_provider_arn=repository_credentials_provider_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_credentials_provider_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_credentials_provider_arn", repository_credentials_provider_arn)
 
     @property
     @pulumi.getter(name="repositoryCredentialsProviderArn")
@@ -5072,7 +6270,16 @@ class ModelInferenceExecutionConfigArgs:
         """
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         """
-        pulumi.set(__self__, "mode", mode)
+        ModelInferenceExecutionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -5107,20 +6314,41 @@ class ModelPrimaryContainerArgs:
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
+        ModelPrimaryContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_hostname=container_hostname,
+            environment=environment,
+            image=image,
+            image_config=image_config,
+            mode=mode,
+            model_data_url=model_data_url,
+            model_package_name=model_package_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_hostname: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             model_data_url: Optional[pulumi.Input[str]] = None,
+             model_package_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_hostname is not None:
-            pulumi.set(__self__, "container_hostname", container_hostname)
+            _setter("container_hostname", container_hostname)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_config is not None:
-            pulumi.set(__self__, "image_config", image_config)
+            _setter("image_config", image_config)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if model_data_url is not None:
-            pulumi.set(__self__, "model_data_url", model_data_url)
+            _setter("model_data_url", model_data_url)
         if model_package_name is not None:
-            pulumi.set(__self__, "model_package_name", model_package_name)
+            _setter("model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -5217,9 +6445,20 @@ class ModelPrimaryContainerImageConfigArgs:
         :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
         :param pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
-        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        ModelPrimaryContainerImageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_access_mode=repository_access_mode,
+            repository_auth_config=repository_auth_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_access_mode: pulumi.Input[str],
+             repository_auth_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
-            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+            _setter("repository_auth_config", repository_auth_config)
 
     @property
     @pulumi.getter(name="repositoryAccessMode")
@@ -5253,7 +6492,16 @@ class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs:
         """
         :param pulumi.Input[str] repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
         """
-        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+        ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_credentials_provider_arn=repository_credentials_provider_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_credentials_provider_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_credentials_provider_arn", repository_credentials_provider_arn)
 
     @property
     @pulumi.getter(name="repositoryCredentialsProviderArn")
@@ -5273,8 +6521,19 @@ class ModelVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnets", subnets)
+        ModelVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnets=subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -5306,10 +6565,23 @@ class MonitoringScheduleMonitoringScheduleConfigArgs:
         :param pulumi.Input[str] monitoring_type: The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
         :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs'] schedule_config: Configures the monitoring schedule. Fields are documented below.
         """
-        pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
-        pulumi.set(__self__, "monitoring_type", monitoring_type)
+        MonitoringScheduleMonitoringScheduleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitoring_job_definition_name=monitoring_job_definition_name,
+            monitoring_type=monitoring_type,
+            schedule_config=schedule_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitoring_job_definition_name: pulumi.Input[str],
+             monitoring_type: pulumi.Input[str],
+             schedule_config: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("monitoring_job_definition_name", monitoring_job_definition_name)
+        _setter("monitoring_type", monitoring_type)
         if schedule_config is not None:
-            pulumi.set(__self__, "schedule_config", schedule_config)
+            _setter("schedule_config", schedule_config)
 
     @property
     @pulumi.getter(name="monitoringJobDefinitionName")
@@ -5355,7 +6627,16 @@ class MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs:
         """
         :param pulumi.Input[str] schedule_expression: A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -5377,8 +6658,17 @@ class NotebookInstanceInstanceMetadataServiceConfigurationArgs:
         """
         :param pulumi.Input[str] minimum_instance_metadata_service_version: Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
         """
+        NotebookInstanceInstanceMetadataServiceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimum_instance_metadata_service_version=minimum_instance_metadata_service_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimum_instance_metadata_service_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if minimum_instance_metadata_service_version is not None:
-            pulumi.set(__self__, "minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
+            _setter("minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
 
     @property
     @pulumi.getter(name="minimumInstanceMetadataServiceVersion")
@@ -5400,7 +6690,16 @@ class PipelineParallelismConfigurationArgs:
         """
         :param pulumi.Input[int] max_parallel_execution_steps: The max number of steps that can be executed in parallel.
         """
-        pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
+        PipelineParallelismConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_parallel_execution_steps=max_parallel_execution_steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_parallel_execution_steps: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_parallel_execution_steps", max_parallel_execution_steps)
 
     @property
     @pulumi.getter(name="maxParallelExecutionSteps")
@@ -5426,10 +6725,23 @@ class PipelinePipelineDefinitionS3LocationArgs:
         :param pulumi.Input[str] object_key: The object key (or key name) uniquely identifies the object in an S3 bucket.
         :param pulumi.Input[str] version_id: Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "object_key", object_key)
+        PipelinePipelineDefinitionS3LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            object_key=object_key,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             object_key: pulumi.Input[str],
+             version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("object_key", object_key)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter
@@ -5481,13 +6793,28 @@ class ProjectServiceCatalogProvisioningDetailsArgs:
         :param pulumi.Input[str] provisioning_artifact_id: The ID of the provisioning artifact.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]] provisioning_parameters: A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
         """
-        pulumi.set(__self__, "product_id", product_id)
+        ProjectServiceCatalogProvisioningDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product_id=product_id,
+            path_id=path_id,
+            provisioning_artifact_id=provisioning_artifact_id,
+            provisioning_parameters=provisioning_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product_id: pulumi.Input[str],
+             path_id: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+             provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("product_id", product_id)
         if path_id is not None:
-            pulumi.set(__self__, "path_id", path_id)
+            _setter("path_id", path_id)
         if provisioning_artifact_id is not None:
-            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+            _setter("provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_parameters is not None:
-            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
+            _setter("provisioning_parameters", provisioning_parameters)
 
     @property
     @pulumi.getter(name="productId")
@@ -5547,9 +6874,20 @@ class ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs:
         :param pulumi.Input[str] key: The key that identifies a provisioning parameter.
         :param pulumi.Input[str] value: The value of the provisioning parameter.
         """
-        pulumi.set(__self__, "key", key)
+        ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -5585,10 +6923,21 @@ class SpaceSpaceSettingsArgs:
         :param pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         """
+        SpaceSpaceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jupyter_server_app_settings=jupyter_server_app_settings,
+            kernel_gateway_app_settings=kernel_gateway_app_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jupyter_server_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsArgs']] = None,
+             kernel_gateway_app_settings: Optional[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if jupyter_server_app_settings is not None:
-            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+            _setter("jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
-            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+            _setter("kernel_gateway_app_settings", kernel_gateway_app_settings)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -5626,11 +6975,24 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        SpaceSpaceSettingsJupyterServerAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_resource_spec=default_resource_spec,
+            code_repositories=code_repositories,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_resource_spec: pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'],
+             code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_resource_spec", default_resource_spec)
         if code_repositories is not None:
-            pulumi.set(__self__, "code_repositories", code_repositories)
+            _setter("code_repositories", code_repositories)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -5676,7 +7038,16 @@ class SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs:
         """
         :param pulumi.Input[str] repository_url: The URL of the Git repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
+        SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -5704,14 +7075,29 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5773,11 +7159,24 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        SpaceSpaceSettingsKernelGatewayAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_resource_spec=default_resource_spec,
+            custom_images=custom_images,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_resource_spec: pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_resource_spec", default_resource_spec)
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -5827,10 +7226,23 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -5882,14 +7294,29 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5963,23 +7390,48 @@ class UserProfileUserSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsSharingSettingsArgs'] sharing_settings: The sharing settings. See Sharing Settings below.
         :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs'] tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
-        pulumi.set(__self__, "execution_role", execution_role)
+        UserProfileUserSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role=execution_role,
+            canvas_app_settings=canvas_app_settings,
+            jupyter_server_app_settings=jupyter_server_app_settings,
+            kernel_gateway_app_settings=kernel_gateway_app_settings,
+            r_session_app_settings=r_session_app_settings,
+            r_studio_server_pro_app_settings=r_studio_server_pro_app_settings,
+            security_groups=security_groups,
+            sharing_settings=sharing_settings,
+            tensor_board_app_settings=tensor_board_app_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role: pulumi.Input[str],
+             canvas_app_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsArgs']] = None,
+             jupyter_server_app_settings: Optional[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsArgs']] = None,
+             kernel_gateway_app_settings: Optional[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsArgs']] = None,
+             r_session_app_settings: Optional[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsArgs']] = None,
+             r_studio_server_pro_app_settings: Optional[pulumi.Input['UserProfileUserSettingsRStudioServerProAppSettingsArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sharing_settings: Optional[pulumi.Input['UserProfileUserSettingsSharingSettingsArgs']] = None,
+             tensor_board_app_settings: Optional[pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("execution_role", execution_role)
         if canvas_app_settings is not None:
-            pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
+            _setter("canvas_app_settings", canvas_app_settings)
         if jupyter_server_app_settings is not None:
-            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+            _setter("jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
-            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+            _setter("kernel_gateway_app_settings", kernel_gateway_app_settings)
         if r_session_app_settings is not None:
-            pulumi.set(__self__, "r_session_app_settings", r_session_app_settings)
+            _setter("r_session_app_settings", r_session_app_settings)
         if r_studio_server_pro_app_settings is not None:
-            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
+            _setter("r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if sharing_settings is not None:
-            pulumi.set(__self__, "sharing_settings", sharing_settings)
+            _setter("sharing_settings", sharing_settings)
         if tensor_board_app_settings is not None:
-            pulumi.set(__self__, "tensor_board_app_settings", tensor_board_app_settings)
+            _setter("tensor_board_app_settings", tensor_board_app_settings)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -6101,12 +7553,25 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
+        UserProfileUserSettingsCanvasAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_register_settings=model_register_settings,
+            time_series_forecasting_settings=time_series_forecasting_settings,
+            workspace_settings=workspace_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_register_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
+             time_series_forecasting_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
+             workspace_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if model_register_settings is not None:
-            pulumi.set(__self__, "model_register_settings", model_register_settings)
+            _setter("model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
-            pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+            _setter("time_series_forecasting_settings", time_series_forecasting_settings)
         if workspace_settings is not None:
-            pulumi.set(__self__, "workspace_settings", workspace_settings)
+            _setter("workspace_settings", workspace_settings)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -6154,10 +7619,21 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
         :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
         :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
+        UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_account_model_register_role_arn=cross_account_model_register_role_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_account_model_register_role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cross_account_model_register_role_arn is not None:
-            pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
+            _setter("cross_account_model_register_role_arn", cross_account_model_register_role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="crossAccountModelRegisterRoleArn")
@@ -6193,10 +7669,21 @@ class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs:
         :param pulumi.Input[str] amazon_forecast_role_arn: The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
         :param pulumi.Input[str] status: Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
         """
+        UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_forecast_role_arn=amazon_forecast_role_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_forecast_role_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_forecast_role_arn is not None:
-            pulumi.set(__self__, "amazon_forecast_role_arn", amazon_forecast_role_arn)
+            _setter("amazon_forecast_role_arn", amazon_forecast_role_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="amazonForecastRoleArn")
@@ -6232,10 +7719,21 @@ class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
         :param pulumi.Input[str] s3_artifact_path: The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
         :param pulumi.Input[str] s3_kms_key_id: The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
         """
+        UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_artifact_path=s3_artifact_path,
+            s3_kms_key_id=s3_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_artifact_path: Optional[pulumi.Input[str]] = None,
+             s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_artifact_path is not None:
-            pulumi.set(__self__, "s3_artifact_path", s3_artifact_path)
+            _setter("s3_artifact_path", s3_artifact_path)
         if s3_kms_key_id is not None:
-            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+            _setter("s3_kms_key_id", s3_kms_key_id)
 
     @property
     @pulumi.getter(name="s3ArtifactPath")
@@ -6273,12 +7771,25 @@ class UserProfileUserSettingsJupyterServerAppSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        UserProfileUserSettingsJupyterServerAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_repositories=code_repositories,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if code_repositories is not None:
-            pulumi.set(__self__, "code_repositories", code_repositories)
+            _setter("code_repositories", code_repositories)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -6324,7 +7835,16 @@ class UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs:
         """
         :param pulumi.Input[str] repository_url: The URL of the Git repository.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
+        UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_url", repository_url)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -6352,14 +7872,29 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6421,12 +7956,25 @@ class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
         :param pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        UserProfileUserSettingsKernelGatewayAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_images=custom_images,
+            default_resource_spec=default_resource_spec,
+            lifecycle_config_arns=lifecycle_config_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
+             lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
-            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+            _setter("lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="customImages")
@@ -6476,10 +8024,23 @@ class UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -6531,14 +8092,29 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6598,10 +8174,21 @@ class UserProfileUserSettingsRSessionAppSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
+        UserProfileUserSettingsRSessionAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_images=custom_images,
+            default_resource_spec=default_resource_spec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]]] = None,
+             default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_images is not None:
-            pulumi.set(__self__, "custom_images", custom_images)
+            _setter("custom_images", custom_images)
         if default_resource_spec is not None:
-            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+            _setter("default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="customImages")
@@ -6639,10 +8226,23 @@ class UserProfileUserSettingsRSessionAppSettingsCustomImageArgs:
         :param pulumi.Input[str] image_name: The name of the Custom Image.
         :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
         """
-        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
-        pulumi.set(__self__, "image_name", image_name)
+        UserProfileUserSettingsRSessionAppSettingsCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_image_config_name=app_image_config_name,
+            image_name=image_name,
+            image_version_number=image_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_image_config_name: pulumi.Input[str],
+             image_name: pulumi.Input[str],
+             image_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_image_config_name", app_image_config_name)
+        _setter("image_name", image_name)
         if image_version_number is not None:
-            pulumi.set(__self__, "image_version_number", image_version_number)
+            _setter("image_version_number", image_version_number)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -6694,14 +8294,29 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6761,10 +8376,21 @@ class UserProfileUserSettingsRStudioServerProAppSettingsArgs:
         :param pulumi.Input[str] access_status: Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[str] user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
         """
+        UserProfileUserSettingsRStudioServerProAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_status=access_status,
+            user_group=user_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_status: Optional[pulumi.Input[str]] = None,
+             user_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_status is not None:
-            pulumi.set(__self__, "access_status", access_status)
+            _setter("access_status", access_status)
         if user_group is not None:
-            pulumi.set(__self__, "user_group", user_group)
+            _setter("user_group", user_group)
 
     @property
     @pulumi.getter(name="accessStatus")
@@ -6802,12 +8428,25 @@ class UserProfileUserSettingsSharingSettingsArgs:
         :param pulumi.Input[str] s3_kms_key_id: When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param pulumi.Input[str] s3_output_path: When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
         """
+        UserProfileUserSettingsSharingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notebook_output_option=notebook_output_option,
+            s3_kms_key_id=s3_kms_key_id,
+            s3_output_path=s3_output_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notebook_output_option: Optional[pulumi.Input[str]] = None,
+             s3_kms_key_id: Optional[pulumi.Input[str]] = None,
+             s3_output_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notebook_output_option is not None:
-            pulumi.set(__self__, "notebook_output_option", notebook_output_option)
+            _setter("notebook_output_option", notebook_output_option)
         if s3_kms_key_id is not None:
-            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+            _setter("s3_kms_key_id", s3_kms_key_id)
         if s3_output_path is not None:
-            pulumi.set(__self__, "s3_output_path", s3_output_path)
+            _setter("s3_output_path", s3_output_path)
 
     @property
     @pulumi.getter(name="notebookOutputOption")
@@ -6853,7 +8492,16 @@ class UserProfileUserSettingsTensorBoardAppSettingsArgs:
         """
         :param pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
-        pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        UserProfileUserSettingsTensorBoardAppSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_resource_spec=default_resource_spec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_resource_spec: pulumi.Input['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_resource_spec", default_resource_spec)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -6881,14 +8529,29 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
         :param pulumi.Input[str] sagemaker_image_arn: The Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
         """
+        UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            lifecycle_config_arn=lifecycle_config_arn,
+            sagemaker_image_arn=sagemaker_image_arn,
+            sagemaker_image_version_arn=sagemaker_image_version_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             lifecycle_config_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
+             sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if lifecycle_config_arn is not None:
-            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+            _setter("lifecycle_config_arn", lifecycle_config_arn)
         if sagemaker_image_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+            _setter("sagemaker_image_arn", sagemaker_image_arn)
         if sagemaker_image_version_arn is not None:
-            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+            _setter("sagemaker_image_version_arn", sagemaker_image_version_arn)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6948,8 +8611,19 @@ class WorkforceCognitoConfigArgs:
         :param pulumi.Input[str] client_id: The client ID for your Amazon Cognito user pool.
         :param pulumi.Input[str] user_pool: ID for your Amazon Cognito user pool.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "user_pool", user_pool)
+        WorkforceCognitoConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            user_pool=user_pool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             user_pool: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("user_pool", user_pool)
 
     @property
     @pulumi.getter(name="clientId")
@@ -6997,14 +8671,37 @@ class WorkforceOidcConfigArgs:
         :param pulumi.Input[str] token_endpoint: The OIDC IdP token endpoint used to configure your private workforce.
         :param pulumi.Input[str] user_info_endpoint: The OIDC IdP user information endpoint used to configure your private workforce.
         """
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "jwks_uri", jwks_uri)
-        pulumi.set(__self__, "logout_endpoint", logout_endpoint)
-        pulumi.set(__self__, "token_endpoint", token_endpoint)
-        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+        WorkforceOidcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer=issuer,
+            jwks_uri=jwks_uri,
+            logout_endpoint=logout_endpoint,
+            token_endpoint=token_endpoint,
+            user_info_endpoint=user_info_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             issuer: pulumi.Input[str],
+             jwks_uri: pulumi.Input[str],
+             logout_endpoint: pulumi.Input[str],
+             token_endpoint: pulumi.Input[str],
+             user_info_endpoint: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("issuer", issuer)
+        _setter("jwks_uri", jwks_uri)
+        _setter("logout_endpoint", logout_endpoint)
+        _setter("token_endpoint", token_endpoint)
+        _setter("user_info_endpoint", user_info_endpoint)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -7110,7 +8807,16 @@ class WorkforceSourceIpConfigArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of up to 10 CIDR values.
         """
-        pulumi.set(__self__, "cidrs", cidrs)
+        WorkforceSourceIpConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidrs=cidrs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidrs: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cidrs", cidrs)
 
     @property
     @pulumi.getter
@@ -7137,14 +8843,29 @@ class WorkforceWorkforceVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The ID of the subnets in the VPC that you want to connect.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that the workforce uses for communication.
         """
+        WorkforceWorkforceVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnets=subnets,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -7201,10 +8922,21 @@ class WorkteamMemberDefinitionArgs:
         :param pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs'] cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
         :param pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs'] oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
+        WorkteamMemberDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognito_member_definition=cognito_member_definition,
+            oidc_member_definition=oidc_member_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognito_member_definition: Optional[pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs']] = None,
+             oidc_member_definition: Optional[pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cognito_member_definition is not None:
-            pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+            _setter("cognito_member_definition", cognito_member_definition)
         if oidc_member_definition is not None:
-            pulumi.set(__self__, "oidc_member_definition", oidc_member_definition)
+            _setter("oidc_member_definition", oidc_member_definition)
 
     @property
     @pulumi.getter(name="cognitoMemberDefinition")
@@ -7242,9 +8974,22 @@ class WorkteamMemberDefinitionCognitoMemberDefinitionArgs:
         :param pulumi.Input[str] user_group: An identifier for a user group.
         :param pulumi.Input[str] user_pool: An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "user_group", user_group)
-        pulumi.set(__self__, "user_pool", user_pool)
+        WorkteamMemberDefinitionCognitoMemberDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            user_group=user_group,
+            user_pool=user_pool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: pulumi.Input[str],
+             user_group: pulumi.Input[str],
+             user_pool: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("user_group", user_group)
+        _setter("user_pool", user_pool)
 
     @property
     @pulumi.getter(name="clientId")
@@ -7290,7 +9035,16 @@ class WorkteamMemberDefinitionOidcMemberDefinitionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
         """
-        pulumi.set(__self__, "groups", groups)
+        WorkteamMemberDefinitionOidcMemberDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("groups", groups)
 
     @property
     @pulumi.getter
@@ -7312,8 +9066,17 @@ class WorkteamNotificationConfigurationArgs:
         """
         :param pulumi.Input[str] notification_topic_arn: The ARN for the SNS topic to which notifications should be published.
         """
+        WorkteamNotificationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_topic_arn=notification_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notification_topic_arn is not None:
-            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+            _setter("notification_topic_arn", notification_topic_arn)
 
     @property
     @pulumi.getter(name="notificationTopicArn")

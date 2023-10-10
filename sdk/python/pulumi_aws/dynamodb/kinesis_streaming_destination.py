@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KinesisStreamingDestinationArgs', 'KinesisStreamingDestination']
@@ -22,8 +22,19 @@ class KinesisStreamingDestinationArgs:
         :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
                can only be one Kinesis streaming destination for a given DynamoDB table.
         """
-        pulumi.set(__self__, "stream_arn", stream_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        KinesisStreamingDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_arn=stream_arn,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("stream_arn", stream_arn)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -62,10 +73,21 @@ class _KinesisStreamingDestinationState:
         :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
                can only be one Kinesis streaming destination for a given DynamoDB table.
         """
+        _KinesisStreamingDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stream_arn=stream_arn,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if stream_arn is not None:
-            pulumi.set(__self__, "stream_arn", stream_arn)
+            _setter("stream_arn", stream_arn)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -181,6 +203,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KinesisStreamingDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

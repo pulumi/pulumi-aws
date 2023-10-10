@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -86,75 +86,146 @@ class FunctionArgs:
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block. Detailed below.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
-        pulumi.set(__self__, "role", role)
+        FunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+            architectures=architectures,
+            code=code,
+            code_signing_config_arn=code_signing_config_arn,
+            dead_letter_config=dead_letter_config,
+            description=description,
+            environment=environment,
+            ephemeral_storage=ephemeral_storage,
+            file_system_config=file_system_config,
+            handler=handler,
+            image_config=image_config,
+            image_uri=image_uri,
+            kms_key_arn=kms_key_arn,
+            layers=layers,
+            memory_size=memory_size,
+            name=name,
+            package_type=package_type,
+            publish=publish,
+            replace_security_groups_on_destroy=replace_security_groups_on_destroy,
+            replacement_security_group_ids=replacement_security_group_ids,
+            reserved_concurrent_executions=reserved_concurrent_executions,
+            runtime=runtime,
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_object_version=s3_object_version,
+            skip_destroy=skip_destroy,
+            snap_start=snap_start,
+            source_code_hash=source_code_hash,
+            tags=tags,
+            timeout=timeout,
+            tracing_config=tracing_config,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: pulumi.Input[str],
+             architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             code: Optional[pulumi.Input[pulumi.Archive]] = None,
+             code_signing_config_arn: Optional[pulumi.Input[str]] = None,
+             dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+             ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
+             file_system_config: Optional[pulumi.Input['FunctionFileSystemConfigArgs']] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
+             image_uri: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             memory_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             publish: Optional[pulumi.Input[bool]] = None,
+             replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+             replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
+             runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             s3_object_version: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
+             source_code_hash: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
+             vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("role", role)
         if architectures is not None:
-            pulumi.set(__self__, "architectures", architectures)
+            _setter("architectures", architectures)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if code_signing_config_arn is not None:
-            pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
+            _setter("code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if file_system_config is not None:
-            pulumi.set(__self__, "file_system_config", file_system_config)
+            _setter("file_system_config", file_system_config)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if image_config is not None:
-            pulumi.set(__self__, "image_config", image_config)
+            _setter("image_config", image_config)
         if image_uri is not None:
-            pulumi.set(__self__, "image_uri", image_uri)
+            _setter("image_uri", image_uri)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if memory_size is not None:
-            pulumi.set(__self__, "memory_size", memory_size)
+            _setter("memory_size", memory_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if publish is not None:
-            pulumi.set(__self__, "publish", publish)
+            _setter("publish", publish)
         if replace_security_groups_on_destroy is not None:
             warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
             pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replace_security_groups_on_destroy is not None:
-            pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+            _setter("replace_security_groups_on_destroy", replace_security_groups_on_destroy)
         if replacement_security_group_ids is not None:
             warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
             pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replacement_security_group_ids is not None:
-            pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
+            _setter("replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
-            pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
+            _setter("reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
         if s3_object_version is not None:
-            pulumi.set(__self__, "s3_object_version", s3_object_version)
+            _setter("s3_object_version", s3_object_version)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if snap_start is not None:
-            pulumi.set(__self__, "snap_start", snap_start)
+            _setter("snap_start", snap_start)
         if source_code_hash is not None:
-            pulumi.set(__self__, "source_code_hash", source_code_hash)
+            _setter("source_code_hash", source_code_hash)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tracing_config is not None:
-            pulumi.set(__self__, "tracing_config", tracing_config)
+            _setter("tracing_config", tracing_config)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -643,99 +714,190 @@ class _FunctionState:
                * `vpc_config.vpc_id` - ID of the VPC.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
+        _FunctionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architectures=architectures,
+            arn=arn,
+            code=code,
+            code_signing_config_arn=code_signing_config_arn,
+            dead_letter_config=dead_letter_config,
+            description=description,
+            environment=environment,
+            ephemeral_storage=ephemeral_storage,
+            file_system_config=file_system_config,
+            handler=handler,
+            image_config=image_config,
+            image_uri=image_uri,
+            invoke_arn=invoke_arn,
+            kms_key_arn=kms_key_arn,
+            last_modified=last_modified,
+            layers=layers,
+            memory_size=memory_size,
+            name=name,
+            package_type=package_type,
+            publish=publish,
+            qualified_arn=qualified_arn,
+            qualified_invoke_arn=qualified_invoke_arn,
+            replace_security_groups_on_destroy=replace_security_groups_on_destroy,
+            replacement_security_group_ids=replacement_security_group_ids,
+            reserved_concurrent_executions=reserved_concurrent_executions,
+            role=role,
+            runtime=runtime,
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_object_version=s3_object_version,
+            signing_job_arn=signing_job_arn,
+            signing_profile_version_arn=signing_profile_version_arn,
+            skip_destroy=skip_destroy,
+            snap_start=snap_start,
+            source_code_hash=source_code_hash,
+            source_code_size=source_code_size,
+            tags=tags,
+            tags_all=tags_all,
+            timeout=timeout,
+            tracing_config=tracing_config,
+            version=version,
+            vpc_config=vpc_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             code: Optional[pulumi.Input[pulumi.Archive]] = None,
+             code_signing_config_arn: Optional[pulumi.Input[str]] = None,
+             dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+             ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
+             file_system_config: Optional[pulumi.Input['FunctionFileSystemConfigArgs']] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
+             image_uri: Optional[pulumi.Input[str]] = None,
+             invoke_arn: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             last_modified: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             memory_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             publish: Optional[pulumi.Input[bool]] = None,
+             qualified_arn: Optional[pulumi.Input[str]] = None,
+             qualified_invoke_arn: Optional[pulumi.Input[str]] = None,
+             replace_security_groups_on_destroy: Optional[pulumi.Input[bool]] = None,
+             replacement_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input[Union[str, 'Runtime']]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             s3_object_version: Optional[pulumi.Input[str]] = None,
+             signing_job_arn: Optional[pulumi.Input[str]] = None,
+             signing_profile_version_arn: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
+             source_code_hash: Optional[pulumi.Input[str]] = None,
+             source_code_size: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if architectures is not None:
-            pulumi.set(__self__, "architectures", architectures)
+            _setter("architectures", architectures)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if code_signing_config_arn is not None:
-            pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
+            _setter("code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if file_system_config is not None:
-            pulumi.set(__self__, "file_system_config", file_system_config)
+            _setter("file_system_config", file_system_config)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if image_config is not None:
-            pulumi.set(__self__, "image_config", image_config)
+            _setter("image_config", image_config)
         if image_uri is not None:
-            pulumi.set(__self__, "image_uri", image_uri)
+            _setter("image_uri", image_uri)
         if invoke_arn is not None:
-            pulumi.set(__self__, "invoke_arn", invoke_arn)
+            _setter("invoke_arn", invoke_arn)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if memory_size is not None:
-            pulumi.set(__self__, "memory_size", memory_size)
+            _setter("memory_size", memory_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
         if publish is not None:
-            pulumi.set(__self__, "publish", publish)
+            _setter("publish", publish)
         if qualified_arn is not None:
-            pulumi.set(__self__, "qualified_arn", qualified_arn)
+            _setter("qualified_arn", qualified_arn)
         if qualified_invoke_arn is not None:
-            pulumi.set(__self__, "qualified_invoke_arn", qualified_invoke_arn)
+            _setter("qualified_invoke_arn", qualified_invoke_arn)
         if replace_security_groups_on_destroy is not None:
             warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
             pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replace_security_groups_on_destroy is not None:
-            pulumi.set(__self__, "replace_security_groups_on_destroy", replace_security_groups_on_destroy)
+            _setter("replace_security_groups_on_destroy", replace_security_groups_on_destroy)
         if replacement_security_group_ids is not None:
             warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
             pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
         if replacement_security_group_ids is not None:
-            pulumi.set(__self__, "replacement_security_group_ids", replacement_security_group_ids)
+            _setter("replacement_security_group_ids", replacement_security_group_ids)
         if reserved_concurrent_executions is not None:
-            pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
+            _setter("reserved_concurrent_executions", reserved_concurrent_executions)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
         if s3_object_version is not None:
-            pulumi.set(__self__, "s3_object_version", s3_object_version)
+            _setter("s3_object_version", s3_object_version)
         if signing_job_arn is not None:
-            pulumi.set(__self__, "signing_job_arn", signing_job_arn)
+            _setter("signing_job_arn", signing_job_arn)
         if signing_profile_version_arn is not None:
-            pulumi.set(__self__, "signing_profile_version_arn", signing_profile_version_arn)
+            _setter("signing_profile_version_arn", signing_profile_version_arn)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if snap_start is not None:
-            pulumi.set(__self__, "snap_start", snap_start)
+            _setter("snap_start", snap_start)
         if source_code_hash is not None:
-            pulumi.set(__self__, "source_code_hash", source_code_hash)
+            _setter("source_code_hash", source_code_hash)
         if source_code_size is not None:
-            pulumi.set(__self__, "source_code_size", source_code_size)
+            _setter("source_code_size", source_code_size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tracing_config is not None:
-            pulumi.set(__self__, "tracing_config", tracing_config)
+            _setter("tracing_config", tracing_config)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
 
     @property
     @pulumi.getter
@@ -1704,6 +1866,10 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1753,12 +1919,37 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["architectures"] = architectures
             __props__.__dict__["code"] = code
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
+            if dead_letter_config is not None and not isinstance(dead_letter_config, FunctionDeadLetterConfigArgs):
+                dead_letter_config = dead_letter_config or {}
+                def _setter(key, value):
+                    dead_letter_config[key] = value
+                FunctionDeadLetterConfigArgs._configure(_setter, **dead_letter_config)
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
+            if environment is not None and not isinstance(environment, FunctionEnvironmentArgs):
+                environment = environment or {}
+                def _setter(key, value):
+                    environment[key] = value
+                FunctionEnvironmentArgs._configure(_setter, **environment)
             __props__.__dict__["environment"] = environment
+            if ephemeral_storage is not None and not isinstance(ephemeral_storage, FunctionEphemeralStorageArgs):
+                ephemeral_storage = ephemeral_storage or {}
+                def _setter(key, value):
+                    ephemeral_storage[key] = value
+                FunctionEphemeralStorageArgs._configure(_setter, **ephemeral_storage)
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
+            if file_system_config is not None and not isinstance(file_system_config, FunctionFileSystemConfigArgs):
+                file_system_config = file_system_config or {}
+                def _setter(key, value):
+                    file_system_config[key] = value
+                FunctionFileSystemConfigArgs._configure(_setter, **file_system_config)
             __props__.__dict__["file_system_config"] = file_system_config
             __props__.__dict__["handler"] = handler
+            if image_config is not None and not isinstance(image_config, FunctionImageConfigArgs):
+                image_config = image_config or {}
+                def _setter(key, value):
+                    image_config[key] = value
+                FunctionImageConfigArgs._configure(_setter, **image_config)
             __props__.__dict__["image_config"] = image_config
             __props__.__dict__["image_uri"] = image_uri
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -1767,13 +1958,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["package_type"] = package_type
             __props__.__dict__["publish"] = publish
-            if replace_security_groups_on_destroy is not None and not opts.urn:
-                warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
-                pulumi.log.warn("""replace_security_groups_on_destroy is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
             __props__.__dict__["replace_security_groups_on_destroy"] = replace_security_groups_on_destroy
-            if replacement_security_group_ids is not None and not opts.urn:
-                warnings.warn("""AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""", DeprecationWarning)
-                pulumi.log.warn("""replacement_security_group_ids is deprecated: AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.""")
             __props__.__dict__["replacement_security_group_ids"] = replacement_security_group_ids
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
@@ -1784,11 +1969,26 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["s3_key"] = s3_key
             __props__.__dict__["s3_object_version"] = s3_object_version
             __props__.__dict__["skip_destroy"] = skip_destroy
+            if snap_start is not None and not isinstance(snap_start, FunctionSnapStartArgs):
+                snap_start = snap_start or {}
+                def _setter(key, value):
+                    snap_start[key] = value
+                FunctionSnapStartArgs._configure(_setter, **snap_start)
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["source_code_hash"] = source_code_hash
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
+            if tracing_config is not None and not isinstance(tracing_config, FunctionTracingConfigArgs):
+                tracing_config = tracing_config or {}
+                def _setter(key, value):
+                    tracing_config[key] = value
+                FunctionTracingConfigArgs._configure(_setter, **tracing_config)
             __props__.__dict__["tracing_config"] = tracing_config
+            if vpc_config is not None and not isinstance(vpc_config, FunctionVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                FunctionVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["invoke_arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -59,16 +59,35 @@ class ExperimentTemplateAction(dict):
         :param Sequence[str] start_afters: Set of action names that must complete before this action can be executed.
         :param 'ExperimentTemplateActionTargetArgs' target: Action's target, if applicable. See below.
         """
-        pulumi.set(__self__, "action_id", action_id)
-        pulumi.set(__self__, "name", name)
+        ExperimentTemplateAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_id=action_id,
+            name=name,
+            description=description,
+            parameters=parameters,
+            start_afters=start_afters,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_id: str,
+             name: str,
+             description: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ExperimentTemplateActionParameter']] = None,
+             start_afters: Optional[Sequence[str]] = None,
+             target: Optional['outputs.ExperimentTemplateActionTarget'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_id", action_id)
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if start_afters is not None:
-            pulumi.set(__self__, "start_afters", start_afters)
+            _setter("start_afters", start_afters)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="actionId")
@@ -130,8 +149,19 @@ class ExperimentTemplateActionParameter(dict):
                
                For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ExperimentTemplateActionParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -161,8 +191,19 @@ class ExperimentTemplateActionTarget(dict):
         :param str key: Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
         :param str value: Target name, referencing a corresponding target.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ExperimentTemplateActionTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -213,11 +254,24 @@ class ExperimentTemplateLogConfiguration(dict):
         :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs' cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
         :param 'ExperimentTemplateLogConfigurationS3ConfigurationArgs' s3_configuration: The configuration for experiment logging to Amazon S3. See below.
         """
-        pulumi.set(__self__, "log_schema_version", log_schema_version)
+        ExperimentTemplateLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_schema_version=log_schema_version,
+            cloudwatch_logs_configuration=cloudwatch_logs_configuration,
+            s3_configuration=s3_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_schema_version: int,
+             cloudwatch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration'] = None,
+             s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_schema_version", log_schema_version)
         if cloudwatch_logs_configuration is not None:
-            pulumi.set(__self__, "cloudwatch_logs_configuration", cloudwatch_logs_configuration)
+            _setter("cloudwatch_logs_configuration", cloudwatch_logs_configuration)
         if s3_configuration is not None:
-            pulumi.set(__self__, "s3_configuration", s3_configuration)
+            _setter("s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="logSchemaVersion")
@@ -268,7 +322,16 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
         """
         :param str log_group_arn: The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
         """
-        pulumi.set(__self__, "log_group_arn", log_group_arn)
+        ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_arn=log_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
@@ -305,9 +368,20 @@ class ExperimentTemplateLogConfigurationS3Configuration(dict):
         :param str bucket_name: The name of the destination bucket.
         :param str prefix: The bucket prefix.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        ExperimentTemplateLogConfigurationS3Configuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -335,9 +409,20 @@ class ExperimentTemplateStopCondition(dict):
         :param str source: Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
         :param str value: ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
         """
-        pulumi.set(__self__, "source", source)
+        ExperimentTemplateStopCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: str,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -400,17 +485,38 @@ class ExperimentTemplateTarget(dict):
         :param Sequence[str] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         :param Sequence['ExperimentTemplateTargetResourceTagArgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "selection_mode", selection_mode)
+        ExperimentTemplateTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_type=resource_type,
+            selection_mode=selection_mode,
+            filters=filters,
+            parameters=parameters,
+            resource_arns=resource_arns,
+            resource_tags=resource_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             resource_type: str,
+             selection_mode: str,
+             filters: Optional[Sequence['outputs.ExperimentTemplateTargetFilter']] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             resource_arns: Optional[Sequence[str]] = None,
+             resource_tags: Optional[Sequence['outputs.ExperimentTemplateTargetResourceTag']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("resource_type", resource_type)
+        _setter("selection_mode", selection_mode)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_arns is not None:
-            pulumi.set(__self__, "resource_arns", resource_arns)
+            _setter("resource_arns", resource_arns)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
 
     @property
     @pulumi.getter
@@ -482,8 +588,19 @@ class ExperimentTemplateTargetFilter(dict):
                
                > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "values", values)
+        ExperimentTemplateTargetFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -513,8 +630,19 @@ class ExperimentTemplateTargetResourceTag(dict):
         :param str key: Tag key.
         :param str value: Tag value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ExperimentTemplateTargetResourceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter

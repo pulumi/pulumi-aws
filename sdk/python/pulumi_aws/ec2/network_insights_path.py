@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
@@ -33,17 +33,38 @@ class NetworkInsightsPathArgs:
         :param pulumi.Input[str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source", source)
+        NetworkInsightsPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            protocol=protocol,
+            source=source,
+            destination_ip=destination_ip,
+            destination_port=destination_port,
+            source_ip=source_ip,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             source: pulumi.Input[str],
+             destination_ip: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             source_ip: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination", destination)
+        _setter("protocol", protocol)
+        _setter("source", source)
         if destination_ip is not None:
-            pulumi.set(__self__, "destination_ip", destination_ip)
+            _setter("destination_ip", destination_ip)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
+            _setter("source_ip", source_ip)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -162,31 +183,60 @@ class _NetworkInsightsPathState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _NetworkInsightsPathState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            destination=destination,
+            destination_arn=destination_arn,
+            destination_ip=destination_ip,
+            destination_port=destination_port,
+            protocol=protocol,
+            source=source,
+            source_arn=source_arn,
+            source_ip=source_ip,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             destination_ip: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             source_arn: Optional[pulumi.Input[str]] = None,
+             source_ip: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if destination_ip is not None:
-            pulumi.set(__self__, "destination_ip", destination_ip)
+            _setter("destination_ip", destination_ip)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if source_arn is not None:
-            pulumi.set(__self__, "source_arn", source_arn)
+            _setter("source_arn", source_arn)
         if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
+            _setter("source_ip", source_ip)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -413,6 +463,10 @@ class NetworkInsightsPath(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInsightsPathArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

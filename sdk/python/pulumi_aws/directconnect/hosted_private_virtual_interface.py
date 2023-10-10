@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedPrivateVirtualInterfaceArgs', 'HostedPrivateVirtualInterface']
@@ -37,21 +37,48 @@ class HostedPrivateVirtualInterfaceArgs:
         :param pulumi.Input[int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
         :param pulumi.Input[str] name: The name for the virtual interface.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "owner_account_id", owner_account_id)
-        pulumi.set(__self__, "vlan", vlan)
+        HostedPrivateVirtualInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            bgp_asn=bgp_asn,
+            connection_id=connection_id,
+            owner_account_id=owner_account_id,
+            vlan=vlan,
+            amazon_address=amazon_address,
+            bgp_auth_key=bgp_auth_key,
+            customer_address=customer_address,
+            mtu=mtu,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input[str],
+             bgp_asn: pulumi.Input[int],
+             connection_id: pulumi.Input[str],
+             owner_account_id: pulumi.Input[str],
+             vlan: pulumi.Input[int],
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_family", address_family)
+        _setter("bgp_asn", bgp_asn)
+        _setter("connection_id", connection_id)
+        _setter("owner_account_id", owner_account_id)
+        _setter("vlan", vlan)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -207,34 +234,69 @@ class _HostedPrivateVirtualInterfaceState:
         :param pulumi.Input[str] owner_account_id: The AWS account that will own the new virtual interface.
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
+        _HostedPrivateVirtualInterfaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            amazon_address=amazon_address,
+            amazon_side_asn=amazon_side_asn,
+            arn=arn,
+            aws_device=aws_device,
+            bgp_asn=bgp_asn,
+            bgp_auth_key=bgp_auth_key,
+            connection_id=connection_id,
+            customer_address=customer_address,
+            jumbo_frame_capable=jumbo_frame_capable,
+            mtu=mtu,
+            name=name,
+            owner_account_id=owner_account_id,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[str]] = None,
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             amazon_side_asn: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bgp_asn: Optional[pulumi.Input[int]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_family is not None:
-            pulumi.set(__self__, "address_family", address_family)
+            _setter("address_family", address_family)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bgp_asn is not None:
-            pulumi.set(__self__, "bgp_asn", bgp_asn)
+            _setter("bgp_asn", bgp_asn)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if jumbo_frame_capable is not None:
-            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
+            _setter("jumbo_frame_capable", jumbo_frame_capable)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -497,6 +559,10 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedPrivateVirtualInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

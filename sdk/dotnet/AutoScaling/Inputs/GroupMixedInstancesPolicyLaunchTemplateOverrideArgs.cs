@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// Nested argument defines the Launch Template. Defined below.
+        /// Override the instance launch template specification in the Launch Template.
         /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }

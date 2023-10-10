@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -82,23 +82,48 @@ class MediaInsightsPipelineConfigurationElement(dict):
         :param 'MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs' sqs_queue_sink_configuration: Configuration for SQS Queue sink.
         :param 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs' voice_analytics_processor_configuration: Configuration for Voice analytics processor.
         """
-        pulumi.set(__self__, "type", type)
+        MediaInsightsPipelineConfigurationElement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            amazon_transcribe_call_analytics_processor_configuration=amazon_transcribe_call_analytics_processor_configuration,
+            amazon_transcribe_processor_configuration=amazon_transcribe_processor_configuration,
+            kinesis_data_stream_sink_configuration=kinesis_data_stream_sink_configuration,
+            lambda_function_sink_configuration=lambda_function_sink_configuration,
+            s3_recording_sink_configuration=s3_recording_sink_configuration,
+            sns_topic_sink_configuration=sns_topic_sink_configuration,
+            sqs_queue_sink_configuration=sqs_queue_sink_configuration,
+            voice_analytics_processor_configuration=voice_analytics_processor_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             amazon_transcribe_call_analytics_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration'] = None,
+             amazon_transcribe_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration'] = None,
+             kinesis_data_stream_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration'] = None,
+             lambda_function_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration'] = None,
+             s3_recording_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration'] = None,
+             sns_topic_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration'] = None,
+             sqs_queue_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration'] = None,
+             voice_analytics_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if amazon_transcribe_call_analytics_processor_configuration is not None:
-            pulumi.set(__self__, "amazon_transcribe_call_analytics_processor_configuration", amazon_transcribe_call_analytics_processor_configuration)
+            _setter("amazon_transcribe_call_analytics_processor_configuration", amazon_transcribe_call_analytics_processor_configuration)
         if amazon_transcribe_processor_configuration is not None:
-            pulumi.set(__self__, "amazon_transcribe_processor_configuration", amazon_transcribe_processor_configuration)
+            _setter("amazon_transcribe_processor_configuration", amazon_transcribe_processor_configuration)
         if kinesis_data_stream_sink_configuration is not None:
-            pulumi.set(__self__, "kinesis_data_stream_sink_configuration", kinesis_data_stream_sink_configuration)
+            _setter("kinesis_data_stream_sink_configuration", kinesis_data_stream_sink_configuration)
         if lambda_function_sink_configuration is not None:
-            pulumi.set(__self__, "lambda_function_sink_configuration", lambda_function_sink_configuration)
+            _setter("lambda_function_sink_configuration", lambda_function_sink_configuration)
         if s3_recording_sink_configuration is not None:
-            pulumi.set(__self__, "s3_recording_sink_configuration", s3_recording_sink_configuration)
+            _setter("s3_recording_sink_configuration", s3_recording_sink_configuration)
         if sns_topic_sink_configuration is not None:
-            pulumi.set(__self__, "sns_topic_sink_configuration", sns_topic_sink_configuration)
+            _setter("sns_topic_sink_configuration", sns_topic_sink_configuration)
         if sqs_queue_sink_configuration is not None:
-            pulumi.set(__self__, "sqs_queue_sink_configuration", sqs_queue_sink_configuration)
+            _setter("sqs_queue_sink_configuration", sqs_queue_sink_configuration)
         if voice_analytics_processor_configuration is not None:
-            pulumi.set(__self__, "voice_analytics_processor_configuration", voice_analytics_processor_configuration)
+            _setter("voice_analytics_processor_configuration", voice_analytics_processor_configuration)
 
     @property
     @pulumi.getter
@@ -233,43 +258,76 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         """
         :param str language_code: Language code for the transcription model.
         :param Sequence[str] call_analytics_stream_categories: Filter for category events to be delivered to insights target.
-        :param str content_identification_type: Labels all personally identifiable information (PII) identified in Utterance events.
-        :param str content_redaction_type: Redacts all personally identifiable information (PII) identified in Utterance events.
-        :param bool enable_partial_results_stabilization: Enables partial result stabilization in Utterance events.
+        :param str content_identification_type: Labels all personally identifiable information (PII) identified in Transcript events.
+        :param str content_redaction_type: Redacts all personally identifiable information (PII) identified in Transcript events.
+        :param bool enable_partial_results_stabilization: Enables partial result stabilization in Transcript events.
         :param bool filter_partial_results: Filters partial Utterance events from delivery to the insights target.
         :param str language_model_name: Name of custom language model for transcription.
         :param str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
-        :param str pii_entity_types: Types of personally identifiable information (PII) to redact from an Utterance event.
+        :param str pii_entity_types: Types of personally identifiable information (PII) to redact from a Transcript event.
         :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs' post_call_analytics_settings: Settings for post call analytics.
-        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Utterance events.
-        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Utterance events.
-        :param str vocabulary_name: Name of the custom vocabulary to use when processing Utterance events.
+        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Transcript events.
+        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Transcript events.
+        :param str vocabulary_name: Name of the custom vocabulary to use when processing Transcript events.
         """
-        pulumi.set(__self__, "language_code", language_code)
+        MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            call_analytics_stream_categories=call_analytics_stream_categories,
+            content_identification_type=content_identification_type,
+            content_redaction_type=content_redaction_type,
+            enable_partial_results_stabilization=enable_partial_results_stabilization,
+            filter_partial_results=filter_partial_results,
+            language_model_name=language_model_name,
+            partial_results_stability=partial_results_stability,
+            pii_entity_types=pii_entity_types,
+            post_call_analytics_settings=post_call_analytics_settings,
+            vocabulary_filter_method=vocabulary_filter_method,
+            vocabulary_filter_name=vocabulary_filter_name,
+            vocabulary_name=vocabulary_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: str,
+             call_analytics_stream_categories: Optional[Sequence[str]] = None,
+             content_identification_type: Optional[str] = None,
+             content_redaction_type: Optional[str] = None,
+             enable_partial_results_stabilization: Optional[bool] = None,
+             filter_partial_results: Optional[bool] = None,
+             language_model_name: Optional[str] = None,
+             partial_results_stability: Optional[str] = None,
+             pii_entity_types: Optional[str] = None,
+             post_call_analytics_settings: Optional['outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings'] = None,
+             vocabulary_filter_method: Optional[str] = None,
+             vocabulary_filter_name: Optional[str] = None,
+             vocabulary_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("language_code", language_code)
         if call_analytics_stream_categories is not None:
-            pulumi.set(__self__, "call_analytics_stream_categories", call_analytics_stream_categories)
+            _setter("call_analytics_stream_categories", call_analytics_stream_categories)
         if content_identification_type is not None:
-            pulumi.set(__self__, "content_identification_type", content_identification_type)
+            _setter("content_identification_type", content_identification_type)
         if content_redaction_type is not None:
-            pulumi.set(__self__, "content_redaction_type", content_redaction_type)
+            _setter("content_redaction_type", content_redaction_type)
         if enable_partial_results_stabilization is not None:
-            pulumi.set(__self__, "enable_partial_results_stabilization", enable_partial_results_stabilization)
+            _setter("enable_partial_results_stabilization", enable_partial_results_stabilization)
         if filter_partial_results is not None:
-            pulumi.set(__self__, "filter_partial_results", filter_partial_results)
+            _setter("filter_partial_results", filter_partial_results)
         if language_model_name is not None:
-            pulumi.set(__self__, "language_model_name", language_model_name)
+            _setter("language_model_name", language_model_name)
         if partial_results_stability is not None:
-            pulumi.set(__self__, "partial_results_stability", partial_results_stability)
+            _setter("partial_results_stability", partial_results_stability)
         if pii_entity_types is not None:
-            pulumi.set(__self__, "pii_entity_types", pii_entity_types)
+            _setter("pii_entity_types", pii_entity_types)
         if post_call_analytics_settings is not None:
-            pulumi.set(__self__, "post_call_analytics_settings", post_call_analytics_settings)
+            _setter("post_call_analytics_settings", post_call_analytics_settings)
         if vocabulary_filter_method is not None:
-            pulumi.set(__self__, "vocabulary_filter_method", vocabulary_filter_method)
+            _setter("vocabulary_filter_method", vocabulary_filter_method)
         if vocabulary_filter_name is not None:
-            pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+            _setter("vocabulary_filter_name", vocabulary_filter_name)
         if vocabulary_name is not None:
-            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+            _setter("vocabulary_name", vocabulary_name)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -291,7 +349,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="contentIdentificationType")
     def content_identification_type(self) -> Optional[str]:
         """
-        Labels all personally identifiable information (PII) identified in Utterance events.
+        Labels all personally identifiable information (PII) identified in Transcript events.
         """
         return pulumi.get(self, "content_identification_type")
 
@@ -299,7 +357,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="contentRedactionType")
     def content_redaction_type(self) -> Optional[str]:
         """
-        Redacts all personally identifiable information (PII) identified in Utterance events.
+        Redacts all personally identifiable information (PII) identified in Transcript events.
         """
         return pulumi.get(self, "content_redaction_type")
 
@@ -307,7 +365,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="enablePartialResultsStabilization")
     def enable_partial_results_stabilization(self) -> Optional[bool]:
         """
-        Enables partial result stabilization in Utterance events.
+        Enables partial result stabilization in Transcript events.
         """
         return pulumi.get(self, "enable_partial_results_stabilization")
 
@@ -339,7 +397,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="piiEntityTypes")
     def pii_entity_types(self) -> Optional[str]:
         """
-        Types of personally identifiable information (PII) to redact from an Utterance event.
+        Types of personally identifiable information (PII) to redact from a Transcript event.
         """
         return pulumi.get(self, "pii_entity_types")
 
@@ -355,7 +413,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyFilterMethod")
     def vocabulary_filter_method(self) -> Optional[str]:
         """
-        Method for applying a vocabulary filter to Utterance events.
+        Method for applying a vocabulary filter to Transcript events.
         """
         return pulumi.get(self, "vocabulary_filter_method")
 
@@ -363,7 +421,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary filter to use when processing Utterance events.
+        Name of the custom vocabulary filter to use when processing Transcript events.
         """
         return pulumi.get(self, "vocabulary_filter_name")
 
@@ -371,7 +429,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary to use when processing Utterance events.
+        Name of the custom vocabulary to use when processing Transcript events.
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -412,12 +470,27 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         :param str content_redaction_output: Should output be redacted.
         :param str output_encryption_kms_key_id: ID of the KMS key used to encrypt the output.
         """
-        pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
-        pulumi.set(__self__, "output_location", output_location)
+        MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_access_role_arn=data_access_role_arn,
+            output_location=output_location,
+            content_redaction_output=content_redaction_output,
+            output_encryption_kms_key_id=output_encryption_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_access_role_arn: str,
+             output_location: str,
+             content_redaction_output: Optional[str] = None,
+             output_encryption_kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_access_role_arn", data_access_role_arn)
+        _setter("output_location", output_location)
         if content_redaction_output is not None:
-            pulumi.set(__self__, "content_redaction_output", content_redaction_output)
+            _setter("content_redaction_output", content_redaction_output)
         if output_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "output_encryption_kms_key_id", output_encryption_kms_key_id)
+            _setter("output_encryption_kms_key_id", output_encryption_kms_key_id)
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")
@@ -508,41 +581,72 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
                  vocabulary_name: Optional[str] = None):
         """
         :param str language_code: Language code for the transcription model.
-        :param str content_identification_type: Labels all personally identifiable information (PII) identified in Utterance events.
-        :param str content_redaction_type: Redacts all personally identifiable information (PII) identified in Utterance events.
-        :param bool enable_partial_results_stabilization: Enables partial result stabilization in Utterance events.
+        :param str content_identification_type: Labels all personally identifiable information (PII) identified in Transcript events.
+        :param str content_redaction_type: Redacts all personally identifiable information (PII) identified in Transcript events.
+        :param bool enable_partial_results_stabilization: Enables partial result stabilization in Transcript events.
         :param bool filter_partial_results: Filters partial Utterance events from delivery to the insights target.
         :param str language_model_name: Name of custom language model for transcription.
         :param str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
-        :param str pii_entity_types: Types of personally identifiable information (PII) to redact from an Utterance event.
+        :param str pii_entity_types: Types of personally identifiable information (PII) to redact from a Transcript event.
         :param bool show_speaker_label: Enables speaker partitioning (diarization) in your Transcript events.
-        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Utterance events.
-        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Utterance events.
-        :param str vocabulary_name: Name of the custom vocabulary to use when processing Utterance events.
+        :param str vocabulary_filter_method: Method for applying a vocabulary filter to Transcript events.
+        :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Transcript events.
+        :param str vocabulary_name: Name of the custom vocabulary to use when processing Transcript events.
         """
-        pulumi.set(__self__, "language_code", language_code)
+        MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            content_identification_type=content_identification_type,
+            content_redaction_type=content_redaction_type,
+            enable_partial_results_stabilization=enable_partial_results_stabilization,
+            filter_partial_results=filter_partial_results,
+            language_model_name=language_model_name,
+            partial_results_stability=partial_results_stability,
+            pii_entity_types=pii_entity_types,
+            show_speaker_label=show_speaker_label,
+            vocabulary_filter_method=vocabulary_filter_method,
+            vocabulary_filter_name=vocabulary_filter_name,
+            vocabulary_name=vocabulary_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: str,
+             content_identification_type: Optional[str] = None,
+             content_redaction_type: Optional[str] = None,
+             enable_partial_results_stabilization: Optional[bool] = None,
+             filter_partial_results: Optional[bool] = None,
+             language_model_name: Optional[str] = None,
+             partial_results_stability: Optional[str] = None,
+             pii_entity_types: Optional[str] = None,
+             show_speaker_label: Optional[bool] = None,
+             vocabulary_filter_method: Optional[str] = None,
+             vocabulary_filter_name: Optional[str] = None,
+             vocabulary_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("language_code", language_code)
         if content_identification_type is not None:
-            pulumi.set(__self__, "content_identification_type", content_identification_type)
+            _setter("content_identification_type", content_identification_type)
         if content_redaction_type is not None:
-            pulumi.set(__self__, "content_redaction_type", content_redaction_type)
+            _setter("content_redaction_type", content_redaction_type)
         if enable_partial_results_stabilization is not None:
-            pulumi.set(__self__, "enable_partial_results_stabilization", enable_partial_results_stabilization)
+            _setter("enable_partial_results_stabilization", enable_partial_results_stabilization)
         if filter_partial_results is not None:
-            pulumi.set(__self__, "filter_partial_results", filter_partial_results)
+            _setter("filter_partial_results", filter_partial_results)
         if language_model_name is not None:
-            pulumi.set(__self__, "language_model_name", language_model_name)
+            _setter("language_model_name", language_model_name)
         if partial_results_stability is not None:
-            pulumi.set(__self__, "partial_results_stability", partial_results_stability)
+            _setter("partial_results_stability", partial_results_stability)
         if pii_entity_types is not None:
-            pulumi.set(__self__, "pii_entity_types", pii_entity_types)
+            _setter("pii_entity_types", pii_entity_types)
         if show_speaker_label is not None:
-            pulumi.set(__self__, "show_speaker_label", show_speaker_label)
+            _setter("show_speaker_label", show_speaker_label)
         if vocabulary_filter_method is not None:
-            pulumi.set(__self__, "vocabulary_filter_method", vocabulary_filter_method)
+            _setter("vocabulary_filter_method", vocabulary_filter_method)
         if vocabulary_filter_name is not None:
-            pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+            _setter("vocabulary_filter_name", vocabulary_filter_name)
         if vocabulary_name is not None:
-            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+            _setter("vocabulary_name", vocabulary_name)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -556,7 +660,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="contentIdentificationType")
     def content_identification_type(self) -> Optional[str]:
         """
-        Labels all personally identifiable information (PII) identified in Utterance events.
+        Labels all personally identifiable information (PII) identified in Transcript events.
         """
         return pulumi.get(self, "content_identification_type")
 
@@ -564,7 +668,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="contentRedactionType")
     def content_redaction_type(self) -> Optional[str]:
         """
-        Redacts all personally identifiable information (PII) identified in Utterance events.
+        Redacts all personally identifiable information (PII) identified in Transcript events.
         """
         return pulumi.get(self, "content_redaction_type")
 
@@ -572,7 +676,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="enablePartialResultsStabilization")
     def enable_partial_results_stabilization(self) -> Optional[bool]:
         """
-        Enables partial result stabilization in Utterance events.
+        Enables partial result stabilization in Transcript events.
         """
         return pulumi.get(self, "enable_partial_results_stabilization")
 
@@ -604,7 +708,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="piiEntityTypes")
     def pii_entity_types(self) -> Optional[str]:
         """
-        Types of personally identifiable information (PII) to redact from an Utterance event.
+        Types of personally identifiable information (PII) to redact from a Transcript event.
         """
         return pulumi.get(self, "pii_entity_types")
 
@@ -620,7 +724,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="vocabularyFilterMethod")
     def vocabulary_filter_method(self) -> Optional[str]:
         """
-        Method for applying a vocabulary filter to Utterance events.
+        Method for applying a vocabulary filter to Transcript events.
         """
         return pulumi.get(self, "vocabulary_filter_method")
 
@@ -628,7 +732,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary filter to use when processing Utterance events.
+        Name of the custom vocabulary filter to use when processing Transcript events.
         """
         return pulumi.get(self, "vocabulary_filter_name")
 
@@ -636,7 +740,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> Optional[str]:
         """
-        Name of the custom vocabulary to use when processing Utterance events.
+        Name of the custom vocabulary to use when processing Transcript events.
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -663,15 +767,24 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: Kinesis Data Stream to deliver results.
+        :param str insights_target: SQS queue to deliver results.
         """
-        pulumi.set(__self__, "insights_target", insights_target)
+        MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_target=insights_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insights_target", insights_target)
 
     @property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        Kinesis Data Stream to deliver results.
+        SQS queue to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -698,15 +811,24 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: Kinesis Data Stream to deliver results.
+        :param str insights_target: SQS queue to deliver results.
         """
-        pulumi.set(__self__, "insights_target", insights_target)
+        MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_target=insights_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insights_target", insights_target)
 
     @property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        Kinesis Data Stream to deliver results.
+        SQS queue to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -718,8 +840,17 @@ class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration(dict
         """
         :param str destination: S3 URI to deliver recordings.
         """
+        MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -752,15 +883,24 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: Kinesis Data Stream to deliver results.
+        :param str insights_target: SQS queue to deliver results.
         """
-        pulumi.set(__self__, "insights_target", insights_target)
+        MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_target=insights_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insights_target", insights_target)
 
     @property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        Kinesis Data Stream to deliver results.
+        SQS queue to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -787,15 +927,24 @@ class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration(dict):
     def __init__(__self__, *,
                  insights_target: str):
         """
-        :param str insights_target: Kinesis Data Stream to deliver results.
+        :param str insights_target: SQS queue to deliver results.
         """
-        pulumi.set(__self__, "insights_target", insights_target)
+        MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_target=insights_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insights_target", insights_target)
 
     @property
     @pulumi.getter(name="insightsTarget")
     def insights_target(self) -> str:
         """
-        Kinesis Data Stream to deliver results.
+        SQS queue to deliver results.
         """
         return pulumi.get(self, "insights_target")
 
@@ -828,8 +977,19 @@ class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurat
         :param str speaker_search_status: Enable speaker search.
         :param str voice_tone_analysis_status: Enable voice tone analysis.
         """
-        pulumi.set(__self__, "speaker_search_status", speaker_search_status)
-        pulumi.set(__self__, "voice_tone_analysis_status", voice_tone_analysis_status)
+        MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            speaker_search_status=speaker_search_status,
+            voice_tone_analysis_status=voice_tone_analysis_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             speaker_search_status: str,
+             voice_tone_analysis_status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("speaker_search_status", speaker_search_status)
+        _setter("voice_tone_analysis_status", voice_tone_analysis_status)
 
     @property
     @pulumi.getter(name="speakerSearchStatus")
@@ -857,9 +1017,20 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
         :param Sequence['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs'] rules: Collection of real time alert rules
         :param bool disabled: Disables real time alert rules.
         """
-        pulumi.set(__self__, "rules", rules)
+        MediaInsightsPipelineConfigurationRealTimeAlertConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+            disabled=disabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule'],
+             disabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rules", rules)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
 
     @property
     @pulumi.getter
@@ -912,13 +1083,28 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
         :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs' keyword_match_configuration: Configuration for a keyword match rule.
         :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs' sentiment_configuration: Configuration for a sentiment rule.
         """
-        pulumi.set(__self__, "type", type)
+        MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            issue_detection_configuration=issue_detection_configuration,
+            keyword_match_configuration=keyword_match_configuration,
+            sentiment_configuration=sentiment_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             issue_detection_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration'] = None,
+             keyword_match_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration'] = None,
+             sentiment_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if issue_detection_configuration is not None:
-            pulumi.set(__self__, "issue_detection_configuration", issue_detection_configuration)
+            _setter("issue_detection_configuration", issue_detection_configuration)
         if keyword_match_configuration is not None:
-            pulumi.set(__self__, "keyword_match_configuration", keyword_match_configuration)
+            _setter("keyword_match_configuration", keyword_match_configuration)
         if sentiment_configuration is not None:
-            pulumi.set(__self__, "sentiment_configuration", sentiment_configuration)
+            _setter("sentiment_configuration", sentiment_configuration)
 
     @property
     @pulumi.getter
@@ -977,7 +1163,16 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetec
         """
         :param str rule_name: Rule name.
         """
-        pulumi.set(__self__, "rule_name", rule_name)
+        MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -1016,10 +1211,23 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
         :param str rule_name: Rule name.
         :param bool negate: Negate the rule.
         """
-        pulumi.set(__self__, "keywords", keywords)
-        pulumi.set(__self__, "rule_name", rule_name)
+        MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keywords=keywords,
+            rule_name=rule_name,
+            negate=negate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keywords: Sequence[str],
+             rule_name: str,
+             negate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("keywords", keywords)
+        _setter("rule_name", rule_name)
         if negate is not None:
-            pulumi.set(__self__, "negate", negate)
+            _setter("negate", negate)
 
     @property
     @pulumi.getter
@@ -1078,9 +1286,22 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentC
         :param str sentiment_type: Sentiment type to match.
         :param int time_period: Analysis interval.
         """
-        pulumi.set(__self__, "rule_name", rule_name)
-        pulumi.set(__self__, "sentiment_type", sentiment_type)
-        pulumi.set(__self__, "time_period", time_period)
+        MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+            sentiment_type=sentiment_type,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: str,
+             sentiment_type: str,
+             time_period: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rule_name", rule_name)
+        _setter("sentiment_type", sentiment_type)
+        _setter("time_period", time_period)
 
     @property
     @pulumi.getter(name="ruleName")

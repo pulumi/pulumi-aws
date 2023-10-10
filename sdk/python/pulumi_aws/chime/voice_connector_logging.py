@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VoiceConnectorLoggingArgs', 'VoiceConnectorLogging']
@@ -23,11 +23,24 @@ class VoiceConnectorLoggingArgs:
         :param pulumi.Input[bool] enable_media_metric_logs: When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         :param pulumi.Input[bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         """
-        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        VoiceConnectorLoggingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            voice_connector_id=voice_connector_id,
+            enable_media_metric_logs=enable_media_metric_logs,
+            enable_sip_logs=enable_sip_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             voice_connector_id: pulumi.Input[str],
+             enable_media_metric_logs: Optional[pulumi.Input[bool]] = None,
+             enable_sip_logs: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("voice_connector_id", voice_connector_id)
         if enable_media_metric_logs is not None:
-            pulumi.set(__self__, "enable_media_metric_logs", enable_media_metric_logs)
+            _setter("enable_media_metric_logs", enable_media_metric_logs)
         if enable_sip_logs is not None:
-            pulumi.set(__self__, "enable_sip_logs", enable_sip_logs)
+            _setter("enable_sip_logs", enable_sip_logs)
 
     @property
     @pulumi.getter(name="voiceConnectorId")
@@ -78,12 +91,25 @@ class _VoiceConnectorLoggingState:
         :param pulumi.Input[bool] enable_sip_logs: When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
+        _VoiceConnectorLoggingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_media_metric_logs=enable_media_metric_logs,
+            enable_sip_logs=enable_sip_logs,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_media_metric_logs: Optional[pulumi.Input[bool]] = None,
+             enable_sip_logs: Optional[pulumi.Input[bool]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_media_metric_logs is not None:
-            pulumi.set(__self__, "enable_media_metric_logs", enable_media_metric_logs)
+            _setter("enable_media_metric_logs", enable_media_metric_logs)
         if enable_sip_logs is not None:
-            pulumi.set(__self__, "enable_sip_logs", enable_sip_logs)
+            _setter("enable_sip_logs", enable_sip_logs)
         if voice_connector_id is not None:
-            pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+            _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter(name="enableMediaMetricLogs")
@@ -201,6 +227,10 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VoiceConnectorLoggingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TypeArgs', 'Type']
@@ -23,9 +23,22 @@ class TypeArgs:
         :param pulumi.Input[str] definition: The type definition.
         :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "format", format)
+        TypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            definition=definition,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             definition: pulumi.Input[str],
+             format: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_id", api_id)
+        _setter("definition", definition)
+        _setter("format", format)
 
     @property
     @pulumi.getter(name="apiId")
@@ -82,18 +95,37 @@ class _TypeState:
         :param pulumi.Input[str] format: The type format: `SDL` or `JSON`.
         :param pulumi.Input[str] name: The type name.
         """
+        _TypeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            arn=arn,
+            definition=definition,
+            description=description,
+            format=format,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             definition: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -259,6 +291,10 @@ class Type(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

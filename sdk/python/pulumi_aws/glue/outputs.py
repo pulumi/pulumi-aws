@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -98,10 +98,21 @@ class CatalogDatabaseCreateTableDefaultPermission(dict):
         :param Sequence[str] permissions: The permissions that are granted to the principal.
         :param 'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs' principal: The principal who is granted permissions.. See `principal` below.
         """
+        CatalogDatabaseCreateTableDefaultPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[Sequence[str]] = None,
+             principal: Optional['outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -144,8 +155,17 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
         """
         :param str data_lake_principal_identifier: An identifier for the Lake Formation principal.
         """
+        CatalogDatabaseCreateTableDefaultPermissionPrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_principal_identifier=data_lake_principal_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_principal_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_principal_identifier is not None:
-            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+            _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
     @property
     @pulumi.getter(name="dataLakePrincipalIdentifier")
@@ -186,10 +206,23 @@ class CatalogDatabaseTargetDatabase(dict):
         :param str database_name: Name of the catalog database.
         :param str region: Region of the target database.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
+        CatalogDatabaseTargetDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             database_name: str,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -240,7 +273,16 @@ class CatalogTableOpenTableFormatInput(dict):
         """
         :param 'CatalogTableOpenTableFormatInputIcebergInputArgs' iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
         """
-        pulumi.set(__self__, "iceberg_input", iceberg_input)
+        CatalogTableOpenTableFormatInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iceberg_input=iceberg_input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iceberg_input: 'outputs.CatalogTableOpenTableFormatInputIcebergInput',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iceberg_input", iceberg_input)
 
     @property
     @pulumi.getter(name="icebergInput")
@@ -277,9 +319,20 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
         :param str metadata_operation: A required metadata operation. Can only be set to CREATE.
         :param str version: The table version for the Iceberg table. Defaults to 2.
         """
-        pulumi.set(__self__, "metadata_operation", metadata_operation)
+        CatalogTableOpenTableFormatInputIcebergInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadata_operation=metadata_operation,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadata_operation: str,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metadata_operation", metadata_operation)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="metadataOperation")
@@ -327,10 +380,23 @@ class CatalogTablePartitionIndex(dict):
         :param str index_name: Name of the partition index.
         :param Sequence[str] keys: Keys for the partition index.
         """
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "keys", keys)
+        CatalogTablePartitionIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            keys=keys,
+            index_status=index_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: str,
+             keys: Sequence[str],
+             index_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("keys", keys)
         if index_status is not None:
-            pulumi.set(__self__, "index_status", index_status)
+            _setter("index_status", index_status)
 
     @property
     @pulumi.getter(name="indexName")
@@ -365,11 +431,24 @@ class CatalogTablePartitionKey(dict):
         :param str comment: Free-form text comment.
         :param str type: Datatype of data in the Partition Key.
         """
-        pulumi.set(__self__, "name", name)
+        CatalogTablePartitionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             comment: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -460,32 +539,65 @@ class CatalogTableStorageDescriptor(dict):
         :param Sequence['CatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
+        CatalogTableStorageDescriptor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_columns=bucket_columns,
+            columns=columns,
+            compressed=compressed,
+            input_format=input_format,
+            location=location,
+            number_of_buckets=number_of_buckets,
+            output_format=output_format,
+            parameters=parameters,
+            schema_reference=schema_reference,
+            ser_de_info=ser_de_info,
+            skewed_info=skewed_info,
+            sort_columns=sort_columns,
+            stored_as_sub_directories=stored_as_sub_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_columns: Optional[Sequence[str]] = None,
+             columns: Optional[Sequence['outputs.CatalogTableStorageDescriptorColumn']] = None,
+             compressed: Optional[bool] = None,
+             input_format: Optional[str] = None,
+             location: Optional[str] = None,
+             number_of_buckets: Optional[int] = None,
+             output_format: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             schema_reference: Optional['outputs.CatalogTableStorageDescriptorSchemaReference'] = None,
+             ser_de_info: Optional['outputs.CatalogTableStorageDescriptorSerDeInfo'] = None,
+             skewed_info: Optional['outputs.CatalogTableStorageDescriptorSkewedInfo'] = None,
+             sort_columns: Optional[Sequence['outputs.CatalogTableStorageDescriptorSortColumn']] = None,
+             stored_as_sub_directories: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_columns is not None:
-            pulumi.set(__self__, "bucket_columns", bucket_columns)
+            _setter("bucket_columns", bucket_columns)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if compressed is not None:
-            pulumi.set(__self__, "compressed", compressed)
+            _setter("compressed", compressed)
         if input_format is not None:
-            pulumi.set(__self__, "input_format", input_format)
+            _setter("input_format", input_format)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if number_of_buckets is not None:
-            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+            _setter("number_of_buckets", number_of_buckets)
         if output_format is not None:
-            pulumi.set(__self__, "output_format", output_format)
+            _setter("output_format", output_format)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_reference is not None:
-            pulumi.set(__self__, "schema_reference", schema_reference)
+            _setter("schema_reference", schema_reference)
         if ser_de_info is not None:
-            pulumi.set(__self__, "ser_de_info", ser_de_info)
+            _setter("ser_de_info", ser_de_info)
         if skewed_info is not None:
-            pulumi.set(__self__, "skewed_info", skewed_info)
+            _setter("skewed_info", skewed_info)
         if sort_columns is not None:
-            pulumi.set(__self__, "sort_columns", sort_columns)
+            _setter("sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
-            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+            _setter("stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -605,13 +717,28 @@ class CatalogTableStorageDescriptorColumn(dict):
         :param Mapping[str, str] parameters: Key-value pairs defining properties associated with the column.
         :param str type: Datatype of data in the Column.
         """
-        pulumi.set(__self__, "name", name)
+        CatalogTableStorageDescriptorColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            parameters=parameters,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             comment: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -678,11 +805,24 @@ class CatalogTableStorageDescriptorSchemaReference(dict):
         :param 'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs' schema_id: Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
         :param str schema_version_id: Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
         """
-        pulumi.set(__self__, "schema_version_number", schema_version_number)
+        CatalogTableStorageDescriptorSchemaReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_version_number=schema_version_number,
+            schema_id=schema_id,
+            schema_version_id=schema_version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_version_number: int,
+             schema_id: Optional['outputs.CatalogTableStorageDescriptorSchemaReferenceSchemaId'] = None,
+             schema_version_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_version_number", schema_version_number)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if schema_version_id is not None:
-            pulumi.set(__self__, "schema_version_id", schema_version_id)
+            _setter("schema_version_id", schema_version_id)
 
     @property
     @pulumi.getter(name="schemaVersionNumber")
@@ -741,12 +881,25 @@ class CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
         :param str schema_arn: ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
         :param str schema_name: Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
         """
+        CatalogTableStorageDescriptorSchemaReferenceSchemaId._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            schema_arn=schema_arn,
+            schema_name=schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[str] = None,
+             schema_arn: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if schema_arn is not None:
-            pulumi.set(__self__, "schema_arn", schema_arn)
+            _setter("schema_arn", schema_arn)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -801,12 +954,25 @@ class CatalogTableStorageDescriptorSerDeInfo(dict):
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param str serialization_library: Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         """
+        CatalogTableStorageDescriptorSerDeInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            serialization_library=serialization_library,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             serialization_library: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if serialization_library is not None:
-            pulumi.set(__self__, "serialization_library", serialization_library)
+            _setter("serialization_library", serialization_library)
 
     @property
     @pulumi.getter
@@ -865,12 +1031,25 @@ class CatalogTableStorageDescriptorSkewedInfo(dict):
         :param Mapping[str, str] skewed_column_value_location_maps: List of values that appear so frequently as to be considered skewed.
         :param Sequence[str] skewed_column_values: Map of skewed values to the columns that contain them.
         """
+        CatalogTableStorageDescriptorSkewedInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skewed_column_names=skewed_column_names,
+            skewed_column_value_location_maps=skewed_column_value_location_maps,
+            skewed_column_values=skewed_column_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skewed_column_names: Optional[Sequence[str]] = None,
+             skewed_column_value_location_maps: Optional[Mapping[str, str]] = None,
+             skewed_column_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if skewed_column_names is not None:
-            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+            _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
-            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+            _setter("skewed_column_value_location_maps", skewed_column_value_location_maps)
         if skewed_column_values is not None:
-            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+            _setter("skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
@@ -923,8 +1102,19 @@ class CatalogTableStorageDescriptorSortColumn(dict):
         :param str column: Name of the column.
         :param int sort_order: Whether the column is sorted in ascending (`1`) or descending order (`0`).
         """
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "sort_order", sort_order)
+        CatalogTableStorageDescriptorSortColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            sort_order=sort_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: str,
+             sort_order: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
+        _setter("sort_order", sort_order)
 
     @property
     @pulumi.getter
@@ -973,9 +1163,22 @@ class CatalogTableTargetTable(dict):
         :param str database_name: Name of the catalog database that contains the target table.
         :param str name: Name of the target table.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        CatalogTableTargetTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             database_name: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1050,22 +1253,45 @@ class ClassifierCsvClassifier(dict):
         :param Sequence[str] headers: A list of strings representing column names.
         :param str quote_symbol: A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         """
+        ClassifierCsvClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_single_column=allow_single_column,
+            contains_header=contains_header,
+            custom_datatype_configured=custom_datatype_configured,
+            custom_datatypes=custom_datatypes,
+            delimiter=delimiter,
+            disable_value_trimming=disable_value_trimming,
+            headers=headers,
+            quote_symbol=quote_symbol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_single_column: Optional[bool] = None,
+             contains_header: Optional[str] = None,
+             custom_datatype_configured: Optional[bool] = None,
+             custom_datatypes: Optional[Sequence[str]] = None,
+             delimiter: Optional[str] = None,
+             disable_value_trimming: Optional[bool] = None,
+             headers: Optional[Sequence[str]] = None,
+             quote_symbol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_single_column is not None:
-            pulumi.set(__self__, "allow_single_column", allow_single_column)
+            _setter("allow_single_column", allow_single_column)
         if contains_header is not None:
-            pulumi.set(__self__, "contains_header", contains_header)
+            _setter("contains_header", contains_header)
         if custom_datatype_configured is not None:
-            pulumi.set(__self__, "custom_datatype_configured", custom_datatype_configured)
+            _setter("custom_datatype_configured", custom_datatype_configured)
         if custom_datatypes is not None:
-            pulumi.set(__self__, "custom_datatypes", custom_datatypes)
+            _setter("custom_datatypes", custom_datatypes)
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if disable_value_trimming is not None:
-            pulumi.set(__self__, "disable_value_trimming", disable_value_trimming)
+            _setter("disable_value_trimming", disable_value_trimming)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if quote_symbol is not None:
-            pulumi.set(__self__, "quote_symbol", quote_symbol)
+            _setter("quote_symbol", quote_symbol)
 
     @property
     @pulumi.getter(name="allowSingleColumn")
@@ -1162,10 +1388,23 @@ class ClassifierGrokClassifier(dict):
         :param str grok_pattern: The grok pattern used by this classifier.
         :param str custom_patterns: Custom grok patterns used by this classifier.
         """
-        pulumi.set(__self__, "classification", classification)
-        pulumi.set(__self__, "grok_pattern", grok_pattern)
+        ClassifierGrokClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            grok_pattern=grok_pattern,
+            custom_patterns=custom_patterns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: str,
+             grok_pattern: str,
+             custom_patterns: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classification", classification)
+        _setter("grok_pattern", grok_pattern)
         if custom_patterns is not None:
-            pulumi.set(__self__, "custom_patterns", custom_patterns)
+            _setter("custom_patterns", custom_patterns)
 
     @property
     @pulumi.getter
@@ -1216,7 +1455,16 @@ class ClassifierJsonClassifier(dict):
         """
         :param str json_path: A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
         """
-        pulumi.set(__self__, "json_path", json_path)
+        ClassifierJsonClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            json_path=json_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             json_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("json_path", json_path)
 
     @property
     @pulumi.getter(name="jsonPath")
@@ -1253,8 +1501,19 @@ class ClassifierXmlClassifier(dict):
         :param str classification: An identifier of the data format that the classifier matches.
         :param str row_tag: The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
         """
-        pulumi.set(__self__, "classification", classification)
-        pulumi.set(__self__, "row_tag", row_tag)
+        ClassifierXmlClassifier._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            row_tag=row_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: str,
+             row_tag: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("classification", classification)
+        _setter("row_tag", row_tag)
 
     @property
     @pulumi.getter
@@ -1305,12 +1564,25 @@ class ConnectionPhysicalConnectionRequirements(dict):
         :param Sequence[str] security_group_id_lists: The security group ID list used by the connection.
         :param str subnet_id: The subnet ID used by the connection.
         """
+        ConnectionPhysicalConnectionRequirements._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            security_group_id_lists=security_group_id_lists,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             security_group_id_lists: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if security_group_id_lists is not None:
-            pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
+            _setter("security_group_id_lists", security_group_id_lists)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1379,14 +1651,31 @@ class CrawlerCatalogTarget(dict):
                > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         :param str event_queue_arn: A valid Amazon SQS ARN.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "tables", tables)
+        CrawlerCatalogTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            tables=tables,
+            connection_name=connection_name,
+            dlq_event_queue_arn=dlq_event_queue_arn,
+            event_queue_arn=event_queue_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             tables: Sequence[str],
+             connection_name: Optional[str] = None,
+             dlq_event_queue_arn: Optional[str] = None,
+             event_queue_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("tables", tables)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if dlq_event_queue_arn is not None:
-            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+            _setter("dlq_event_queue_arn", dlq_event_queue_arn)
         if event_queue_arn is not None:
-            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+            _setter("event_queue_arn", event_queue_arn)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1469,12 +1758,27 @@ class CrawlerDeltaTarget(dict):
         :param str connection_name: The name of the connection to use to connect to the Delta table target.
         :param bool create_native_delta_table: Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
         """
-        pulumi.set(__self__, "delta_tables", delta_tables)
-        pulumi.set(__self__, "write_manifest", write_manifest)
+        CrawlerDeltaTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delta_tables=delta_tables,
+            write_manifest=write_manifest,
+            connection_name=connection_name,
+            create_native_delta_table=create_native_delta_table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delta_tables: Sequence[str],
+             write_manifest: bool,
+             connection_name: Optional[str] = None,
+             create_native_delta_table: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delta_tables", delta_tables)
+        _setter("write_manifest", write_manifest)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if create_native_delta_table is not None:
-            pulumi.set(__self__, "create_native_delta_table", create_native_delta_table)
+            _setter("create_native_delta_table", create_native_delta_table)
 
     @property
     @pulumi.getter(name="deltaTables")
@@ -1539,11 +1843,24 @@ class CrawlerDynamodbTarget(dict):
         :param bool scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
         :param float scan_rate: The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
-        pulumi.set(__self__, "path", path)
+        CrawlerDynamodbTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            scan_all=scan_all,
+            scan_rate=scan_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             scan_all: Optional[bool] = None,
+             scan_rate: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if scan_all is not None:
-            pulumi.set(__self__, "scan_all", scan_all)
+            _setter("scan_all", scan_all)
         if scan_rate is not None:
-            pulumi.set(__self__, "scan_rate", scan_rate)
+            _setter("scan_rate", scan_rate)
 
     @property
     @pulumi.getter
@@ -1602,12 +1919,27 @@ class CrawlerHudiTarget(dict):
         :param str connection_name: The name of the connection to use to connect to the Hudi target.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         """
-        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
-        pulumi.set(__self__, "paths", paths)
+        CrawlerHudiTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_traversal_depth=maximum_traversal_depth,
+            paths=paths,
+            connection_name=connection_name,
+            exclusions=exclusions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_traversal_depth: int,
+             paths: Sequence[str],
+             connection_name: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_traversal_depth", maximum_traversal_depth)
+        _setter("paths", paths)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
 
     @property
     @pulumi.getter(name="maximumTraversalDepth")
@@ -1674,12 +2006,27 @@ class CrawlerIcebergTarget(dict):
         :param str connection_name: The name of the connection to use to connect to the Iceberg target.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         """
-        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
-        pulumi.set(__self__, "paths", paths)
+        CrawlerIcebergTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_traversal_depth=maximum_traversal_depth,
+            paths=paths,
+            connection_name=connection_name,
+            exclusions=exclusions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_traversal_depth: int,
+             paths: Sequence[str],
+             connection_name: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_traversal_depth", maximum_traversal_depth)
+        _setter("paths", paths)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
 
     @property
     @pulumi.getter(name="maximumTraversalDepth")
@@ -1746,12 +2093,27 @@ class CrawlerJdbcTarget(dict):
         :param Sequence[str] enable_additional_metadatas: Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         """
-        pulumi.set(__self__, "connection_name", connection_name)
-        pulumi.set(__self__, "path", path)
+        CrawlerJdbcTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            path=path,
+            enable_additional_metadatas=enable_additional_metadatas,
+            exclusions=exclusions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: str,
+             path: str,
+             enable_additional_metadatas: Optional[Sequence[str]] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_name", connection_name)
+        _setter("path", path)
         if enable_additional_metadatas is not None:
-            pulumi.set(__self__, "enable_additional_metadatas", enable_additional_metadatas)
+            _setter("enable_additional_metadatas", enable_additional_metadatas)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -1814,10 +2176,21 @@ class CrawlerLakeFormationConfiguration(dict):
         :param str account_id: Required for cross account crawls. For same account crawls as the target data, this can omitted.
         :param bool use_lake_formation_credentials: Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
         """
+        CrawlerLakeFormationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            use_lake_formation_credentials=use_lake_formation_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             use_lake_formation_credentials: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if use_lake_formation_credentials is not None:
-            pulumi.set(__self__, "use_lake_formation_credentials", use_lake_formation_credentials)
+            _setter("use_lake_formation_credentials", use_lake_formation_credentials)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1860,8 +2233,17 @@ class CrawlerLineageConfiguration(dict):
         """
         :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
+        CrawlerLineageConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crawler_lineage_settings=crawler_lineage_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crawler_lineage_settings: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crawler_lineage_settings is not None:
-            pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
+            _setter("crawler_lineage_settings", crawler_lineage_settings)
 
     @property
     @pulumi.getter(name="crawlerLineageSettings")
@@ -1902,10 +2284,23 @@ class CrawlerMongodbTarget(dict):
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param bool scan_all: Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         """
-        pulumi.set(__self__, "connection_name", connection_name)
-        pulumi.set(__self__, "path", path)
+        CrawlerMongodbTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_name=connection_name,
+            path=path,
+            scan_all=scan_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_name: str,
+             path: str,
+             scan_all: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_name", connection_name)
+        _setter("path", path)
         if scan_all is not None:
-            pulumi.set(__self__, "scan_all", scan_all)
+            _setter("scan_all", scan_all)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -1956,8 +2351,17 @@ class CrawlerRecrawlPolicy(dict):
         """
         :param str recrawl_behavior: Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
         """
+        CrawlerRecrawlPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recrawl_behavior=recrawl_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recrawl_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recrawl_behavior is not None:
-            pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
+            _setter("recrawl_behavior", recrawl_behavior)
 
     @property
     @pulumi.getter(name="recrawlBehavior")
@@ -2002,27 +2406,46 @@ class CrawlerS3Target(dict):
                  sample_size: Optional[int] = None):
         """
         :param str path: The name of the DynamoDB table to crawl.
-        :param str connection_name: The name of the connection to use to connect to the JDBC target.
-        :param str dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+        :param str connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+        :param str dlq_event_queue_arn: A valid Amazon SQS ARN.
                
                > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
                
                > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
-        :param str event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
+        :param str event_queue_arn: A valid Amazon SQS ARN.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         :param int sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
-        pulumi.set(__self__, "path", path)
+        CrawlerS3Target._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            connection_name=connection_name,
+            dlq_event_queue_arn=dlq_event_queue_arn,
+            event_queue_arn=event_queue_arn,
+            exclusions=exclusions,
+            sample_size=sample_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             connection_name: Optional[str] = None,
+             dlq_event_queue_arn: Optional[str] = None,
+             event_queue_arn: Optional[str] = None,
+             exclusions: Optional[Sequence[str]] = None,
+             sample_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if dlq_event_queue_arn is not None:
-            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+            _setter("dlq_event_queue_arn", dlq_event_queue_arn)
         if event_queue_arn is not None:
-            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
+            _setter("event_queue_arn", event_queue_arn)
         if exclusions is not None:
-            pulumi.set(__self__, "exclusions", exclusions)
+            _setter("exclusions", exclusions)
         if sample_size is not None:
-            pulumi.set(__self__, "sample_size", sample_size)
+            _setter("sample_size", sample_size)
 
     @property
     @pulumi.getter
@@ -2036,7 +2459,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[str]:
         """
-        The name of the connection to use to connect to the JDBC target.
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         """
         return pulumi.get(self, "connection_name")
 
@@ -2044,7 +2467,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="dlqEventQueueArn")
     def dlq_event_queue_arn(self) -> Optional[str]:
         """
-        The ARN of the dead-letter SQS queue.
+        A valid Amazon SQS ARN.
 
         > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
 
@@ -2056,7 +2479,7 @@ class CrawlerS3Target(dict):
     @pulumi.getter(name="eventQueueArn")
     def event_queue_arn(self) -> Optional[str]:
         """
-        The ARN of the SQS queue to receive S3 notifications from.
+        A valid Amazon SQS ARN.
         """
         return pulumi.get(self, "event_queue_arn")
 
@@ -2105,10 +2528,21 @@ class CrawlerSchemaChangePolicy(dict):
         :param str delete_behavior: The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
         :param str update_behavior: The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
         """
+        CrawlerSchemaChangePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_behavior=delete_behavior,
+            update_behavior=update_behavior,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_behavior: Optional[str] = None,
+             update_behavior: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delete_behavior is not None:
-            pulumi.set(__self__, "delete_behavior", delete_behavior)
+            _setter("delete_behavior", delete_behavior)
         if update_behavior is not None:
-            pulumi.set(__self__, "update_behavior", update_behavior)
+            _setter("update_behavior", update_behavior)
 
     @property
     @pulumi.getter(name="deleteBehavior")
@@ -2155,8 +2589,19 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
         :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs' connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs' encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
-        pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
-        pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_password_encryption=connection_password_encryption,
+            encryption_at_rest=encryption_at_rest,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_password_encryption: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption',
+             encryption_at_rest: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_password_encryption", connection_password_encryption)
+        _setter("encryption_at_rest", encryption_at_rest)
 
     @property
     @pulumi.getter(name="connectionPasswordEncryption")
@@ -2203,9 +2648,20 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswo
         :param bool return_connection_password_encrypted: When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         :param str aws_kms_key_id: A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
         """
-        pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            return_connection_password_encrypted=return_connection_password_encrypted,
+            aws_kms_key_id=aws_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             return_connection_password_encrypted: bool,
+             aws_kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("return_connection_password_encrypted", return_connection_password_encrypted)
         if aws_kms_key_id is not None:
-            pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
+            _setter("aws_kms_key_id", aws_kms_key_id)
 
     @property
     @pulumi.getter(name="returnConnectionPasswordEncrypted")
@@ -2252,9 +2708,20 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
         :param str sse_aws_kms_key_id: The ARN of the AWS KMS key to use for encryption at rest.
         """
-        pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_encryption_mode=catalog_encryption_mode,
+            sse_aws_kms_key_id=sse_aws_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_encryption_mode: str,
+             sse_aws_kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_encryption_mode", catalog_encryption_mode)
         if sse_aws_kms_key_id is not None:
-            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+            _setter("sse_aws_kms_key_id", sse_aws_kms_key_id)
 
     @property
     @pulumi.getter(name="catalogEncryptionMode")
@@ -2305,10 +2772,23 @@ class DataQualityRulesetTargetTable(dict):
         :param str table_name: Name of the AWS Glue table.
         :param str catalog_id: The catalog id where the AWS Glue table exists.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        DataQualityRulesetTargetTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             table_name: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2367,13 +2847,28 @@ class JobCommand(dict):
         :param str python_version: The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         :param str runtime: In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
         """
-        pulumi.set(__self__, "script_location", script_location)
+        JobCommand._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            script_location=script_location,
+            name=name,
+            python_version=python_version,
+            runtime=runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             script_location: str,
+             name: Optional[str] = None,
+             python_version: Optional[str] = None,
+             runtime: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("script_location", script_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
+            _setter("python_version", python_version)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
 
     @property
     @pulumi.getter(name="scriptLocation")
@@ -2432,8 +2927,17 @@ class JobExecutionProperty(dict):
         """
         :param int max_concurrent_runs: The maximum number of concurrent runs allowed for a job. The default is 1.
         """
+        JobExecutionProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_concurrent_runs=max_concurrent_runs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_concurrent_runs: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_concurrent_runs is not None:
-            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+            _setter("max_concurrent_runs", max_concurrent_runs)
 
     @property
     @pulumi.getter(name="maxConcurrentRuns")
@@ -2468,8 +2972,17 @@ class JobNotificationProperty(dict):
         """
         :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
         """
+        JobNotificationProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notify_delay_after=notify_delay_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notify_delay_after: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notify_delay_after is not None:
-            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+            _setter("notify_delay_after", notify_delay_after)
 
     @property
     @pulumi.getter(name="notifyDelayAfter")
@@ -2516,12 +3029,27 @@ class MLTransformInputRecordTable(dict):
         :param str catalog_id: A unique identifier for the AWS Glue Data Catalog.
         :param str connection_name: The name of the connection to the AWS Glue Data Catalog.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        MLTransformInputRecordTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+            catalog_id=catalog_id,
+            connection_name=connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             table_name: str,
+             catalog_id: Optional[str] = None,
+             connection_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2584,8 +3112,19 @@ class MLTransformParameters(dict):
         :param 'MLTransformParametersFindMatchesParametersArgs' find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
         :param str transform_type: The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
         """
-        pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
-        pulumi.set(__self__, "transform_type", transform_type)
+        MLTransformParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            find_matches_parameters=find_matches_parameters,
+            transform_type=transform_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             find_matches_parameters: 'outputs.MLTransformParametersFindMatchesParameters',
+             transform_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("find_matches_parameters", find_matches_parameters)
+        _setter("transform_type", transform_type)
 
     @property
     @pulumi.getter(name="findMatchesParameters")
@@ -2640,14 +3179,29 @@ class MLTransformParametersFindMatchesParameters(dict):
         :param float precision_recall_trade_off: The value selected when tuning your transform for a balance between precision and recall.
         :param str primary_key_column_name: The name of a column that uniquely identifies rows in the source table.
         """
+        MLTransformParametersFindMatchesParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accuracy_cost_trade_off=accuracy_cost_trade_off,
+            enforce_provided_labels=enforce_provided_labels,
+            precision_recall_trade_off=precision_recall_trade_off,
+            primary_key_column_name=primary_key_column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accuracy_cost_trade_off: Optional[float] = None,
+             enforce_provided_labels: Optional[bool] = None,
+             precision_recall_trade_off: Optional[float] = None,
+             primary_key_column_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accuracy_cost_trade_off is not None:
-            pulumi.set(__self__, "accuracy_cost_trade_off", accuracy_cost_trade_off)
+            _setter("accuracy_cost_trade_off", accuracy_cost_trade_off)
         if enforce_provided_labels is not None:
-            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+            _setter("enforce_provided_labels", enforce_provided_labels)
         if precision_recall_trade_off is not None:
-            pulumi.set(__self__, "precision_recall_trade_off", precision_recall_trade_off)
+            _setter("precision_recall_trade_off", precision_recall_trade_off)
         if primary_key_column_name is not None:
-            pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+            _setter("primary_key_column_name", primary_key_column_name)
 
     @property
     @pulumi.getter(name="accuracyCostTradeOff")
@@ -2708,10 +3262,21 @@ class MLTransformSchema(dict):
         :param str data_type: The type of data in the column.
         :param str name: The name you assign to this ML Transform. It must be unique in your account.
         """
+        MLTransformSchema._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -2759,12 +3324,25 @@ class PartitionIndexPartitionIndex(dict):
         :param str index_name: Name of the partition index.
         :param Sequence[str] keys: Keys for the partition index.
         """
+        PartitionIndexPartitionIndex._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            index_status=index_status,
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: Optional[str] = None,
+             index_status: Optional[str] = None,
+             keys: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if index_name is not None:
-            pulumi.set(__self__, "index_name", index_name)
+            _setter("index_name", index_name)
         if index_status is not None:
-            pulumi.set(__self__, "index_status", index_status)
+            _setter("index_status", index_status)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
 
     @property
     @pulumi.getter(name="indexName")
@@ -2848,30 +3426,61 @@ class PartitionStorageDescriptor(dict):
         :param Sequence['PartitionStorageDescriptorSortColumnArgs'] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
         :param bool stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
         """
+        PartitionStorageDescriptor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_columns=bucket_columns,
+            columns=columns,
+            compressed=compressed,
+            input_format=input_format,
+            location=location,
+            number_of_buckets=number_of_buckets,
+            output_format=output_format,
+            parameters=parameters,
+            ser_de_info=ser_de_info,
+            skewed_info=skewed_info,
+            sort_columns=sort_columns,
+            stored_as_sub_directories=stored_as_sub_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_columns: Optional[Sequence[str]] = None,
+             columns: Optional[Sequence['outputs.PartitionStorageDescriptorColumn']] = None,
+             compressed: Optional[bool] = None,
+             input_format: Optional[str] = None,
+             location: Optional[str] = None,
+             number_of_buckets: Optional[int] = None,
+             output_format: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             ser_de_info: Optional['outputs.PartitionStorageDescriptorSerDeInfo'] = None,
+             skewed_info: Optional['outputs.PartitionStorageDescriptorSkewedInfo'] = None,
+             sort_columns: Optional[Sequence['outputs.PartitionStorageDescriptorSortColumn']] = None,
+             stored_as_sub_directories: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_columns is not None:
-            pulumi.set(__self__, "bucket_columns", bucket_columns)
+            _setter("bucket_columns", bucket_columns)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if compressed is not None:
-            pulumi.set(__self__, "compressed", compressed)
+            _setter("compressed", compressed)
         if input_format is not None:
-            pulumi.set(__self__, "input_format", input_format)
+            _setter("input_format", input_format)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if number_of_buckets is not None:
-            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+            _setter("number_of_buckets", number_of_buckets)
         if output_format is not None:
-            pulumi.set(__self__, "output_format", output_format)
+            _setter("output_format", output_format)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if ser_de_info is not None:
-            pulumi.set(__self__, "ser_de_info", ser_de_info)
+            _setter("ser_de_info", ser_de_info)
         if skewed_info is not None:
-            pulumi.set(__self__, "skewed_info", skewed_info)
+            _setter("skewed_info", skewed_info)
         if sort_columns is not None:
-            pulumi.set(__self__, "sort_columns", sort_columns)
+            _setter("sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
-            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+            _setter("stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -2981,11 +3590,24 @@ class PartitionStorageDescriptorColumn(dict):
         :param str comment: Free-form text comment.
         :param str type: The datatype of data in the Column.
         """
-        pulumi.set(__self__, "name", name)
+        PartitionStorageDescriptorColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            comment=comment,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             comment: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3040,12 +3662,25 @@ class PartitionStorageDescriptorSerDeInfo(dict):
         :param Mapping[str, str] parameters: A map of initialization parameters for the SerDe, in key-value form.
         :param str serialization_library: Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
         """
+        PartitionStorageDescriptorSerDeInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            serialization_library=serialization_library,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             serialization_library: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if serialization_library is not None:
-            pulumi.set(__self__, "serialization_library", serialization_library)
+            _setter("serialization_library", serialization_library)
 
     @property
     @pulumi.getter
@@ -3104,12 +3739,25 @@ class PartitionStorageDescriptorSkewedInfo(dict):
         :param Mapping[str, str] skewed_column_value_location_maps: A list of values that appear so frequently as to be considered skewed.
         :param Sequence[str] skewed_column_values: A map of skewed values to the columns that contain them.
         """
+        PartitionStorageDescriptorSkewedInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skewed_column_names=skewed_column_names,
+            skewed_column_value_location_maps=skewed_column_value_location_maps,
+            skewed_column_values=skewed_column_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skewed_column_names: Optional[Sequence[str]] = None,
+             skewed_column_value_location_maps: Optional[Mapping[str, str]] = None,
+             skewed_column_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if skewed_column_names is not None:
-            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+            _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
-            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+            _setter("skewed_column_value_location_maps", skewed_column_value_location_maps)
         if skewed_column_values is not None:
-            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+            _setter("skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
@@ -3162,8 +3810,19 @@ class PartitionStorageDescriptorSortColumn(dict):
         :param str column: The name of the column.
         :param int sort_order: Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
         """
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "sort_order", sort_order)
+        PartitionStorageDescriptorSortColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            sort_order=sort_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: str,
+             sort_order: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
+        _setter("sort_order", sort_order)
 
     @property
     @pulumi.getter
@@ -3212,9 +3871,22 @@ class SecurityConfigurationEncryptionConfiguration(dict):
         """
         :param 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs' s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
         """
-        pulumi.set(__self__, "cloudwatch_encryption", cloudwatch_encryption)
-        pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
-        pulumi.set(__self__, "s3_encryption", s3_encryption)
+        SecurityConfigurationEncryptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_encryption=cloudwatch_encryption,
+            job_bookmarks_encryption=job_bookmarks_encryption,
+            s3_encryption=s3_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption',
+             job_bookmarks_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption',
+             s3_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationS3Encryption',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_encryption", cloudwatch_encryption)
+        _setter("job_bookmarks_encryption", job_bookmarks_encryption)
+        _setter("s3_encryption", s3_encryption)
 
     @property
     @pulumi.getter(name="cloudwatchEncryption")
@@ -3263,10 +3935,21 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
         :param str cloudwatch_encryption_mode: Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
         :param str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         """
+        SecurityConfigurationEncryptionConfigurationCloudwatchEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_encryption_mode=cloudwatch_encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloudwatch_encryption_mode is not None:
-            pulumi.set(__self__, "cloudwatch_encryption_mode", cloudwatch_encryption_mode)
+            _setter("cloudwatch_encryption_mode", cloudwatch_encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="cloudwatchEncryptionMode")
@@ -3313,10 +3996,21 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
         :param str job_bookmarks_encryption_mode: Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
         :param str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         """
+        SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_bookmarks_encryption_mode=job_bookmarks_encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_bookmarks_encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if job_bookmarks_encryption_mode is not None:
-            pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
+            _setter("job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="jobBookmarksEncryptionMode")
@@ -3363,10 +4057,21 @@ class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
         :param str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         :param str s3_encryption_mode: Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
         """
+        SecurityConfigurationEncryptionConfigurationS3Encryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_arn=kms_key_arn,
+            s3_encryption_mode=s3_encryption_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_arn: Optional[str] = None,
+             s3_encryption_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if s3_encryption_mode is not None:
-            pulumi.set(__self__, "s3_encryption_mode", s3_encryption_mode)
+            _setter("s3_encryption_mode", s3_encryption_mode)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -3425,18 +4130,37 @@ class TriggerAction(dict):
         :param str security_configuration: The name of the Security Configuration structure to be used with this action.
         :param int timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
+        TriggerAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            crawler_name=crawler_name,
+            job_name=job_name,
+            notification_property=notification_property,
+            security_configuration=security_configuration,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[Mapping[str, str]] = None,
+             crawler_name: Optional[str] = None,
+             job_name: Optional[str] = None,
+             notification_property: Optional['outputs.TriggerActionNotificationProperty'] = None,
+             security_configuration: Optional[str] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if crawler_name is not None:
-            pulumi.set(__self__, "crawler_name", crawler_name)
+            _setter("crawler_name", crawler_name)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if notification_property is not None:
-            pulumi.set(__self__, "notification_property", notification_property)
+            _setter("notification_property", notification_property)
         if security_configuration is not None:
-            pulumi.set(__self__, "security_configuration", security_configuration)
+            _setter("security_configuration", security_configuration)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -3511,8 +4235,17 @@ class TriggerActionNotificationProperty(dict):
         """
         :param int notify_delay_after: After a job run starts, the number of minutes to wait before sending a job run delay notification.
         """
+        TriggerActionNotificationProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notify_delay_after=notify_delay_after,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notify_delay_after: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if notify_delay_after is not None:
-            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+            _setter("notify_delay_after", notify_delay_after)
 
     @property
     @pulumi.getter(name="notifyDelayAfter")
@@ -3551,9 +4284,20 @@ class TriggerEventBatchingCondition(dict):
         :param int batch_size: Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
         :param int batch_window: Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
         """
-        pulumi.set(__self__, "batch_size", batch_size)
+        TriggerEventBatchingCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            batch_window=batch_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: int,
+             batch_window: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("batch_size", batch_size)
         if batch_window is not None:
-            pulumi.set(__self__, "batch_window", batch_window)
+            _setter("batch_window", batch_window)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -3581,9 +4325,20 @@ class TriggerPredicate(dict):
         :param Sequence['TriggerPredicateConditionArgs'] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
         :param str logical: How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
-        pulumi.set(__self__, "conditions", conditions)
+        TriggerPredicate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            logical=logical,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Sequence['outputs.TriggerPredicateCondition'],
+             logical: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("conditions", conditions)
         if logical is not None:
-            pulumi.set(__self__, "logical", logical)
+            _setter("logical", logical)
 
     @property
     @pulumi.getter
@@ -3640,16 +4395,33 @@ class TriggerPredicateCondition(dict):
         :param str logical_operator: A logical operator. Defaults to `EQUALS`.
         :param str state: The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         """
+        TriggerPredicateCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crawl_state=crawl_state,
+            crawler_name=crawler_name,
+            job_name=job_name,
+            logical_operator=logical_operator,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crawl_state: Optional[str] = None,
+             crawler_name: Optional[str] = None,
+             job_name: Optional[str] = None,
+             logical_operator: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if crawl_state is not None:
-            pulumi.set(__self__, "crawl_state", crawl_state)
+            _setter("crawl_state", crawl_state)
         if crawler_name is not None:
-            pulumi.set(__self__, "crawler_name", crawler_name)
+            _setter("crawler_name", crawler_name)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if logical_operator is not None:
-            pulumi.set(__self__, "logical_operator", logical_operator)
+            _setter("logical_operator", logical_operator)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="crawlState")
@@ -3718,8 +4490,19 @@ class UserDefinedFunctionResourceUri(dict):
         :param str resource_type: The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
         :param str uri: The URI for accessing the resource.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "uri", uri)
+        UserDefinedFunctionResourceUri._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: str,
+             uri: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_type", resource_type)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -3748,9 +4531,22 @@ class GetCatalogTablePartitionIndexResult(dict):
         :param str index_name: Name of the partition index.
         :param Sequence[str] keys: Keys for the partition index.
         """
-        pulumi.set(__self__, "index_name", index_name)
-        pulumi.set(__self__, "index_status", index_status)
-        pulumi.set(__self__, "keys", keys)
+        GetCatalogTablePartitionIndexResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            index_status=index_status,
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: str,
+             index_status: str,
+             keys: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_name", index_name)
+        _setter("index_status", index_status)
+        _setter("keys", keys)
 
     @property
     @pulumi.getter(name="indexName")
@@ -3785,9 +4581,22 @@ class GetCatalogTablePartitionKeyResult(dict):
         :param str name: Name of the table.
         :param str type: Datatype of data in the Column.
         """
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GetCatalogTablePartitionKeyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: str,
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comment", comment)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3845,19 +4654,52 @@ class GetCatalogTableStorageDescriptorResult(dict):
         :param Sequence['GetCatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
-        pulumi.set(__self__, "bucket_columns", bucket_columns)
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "compressed", compressed)
-        pulumi.set(__self__, "input_format", input_format)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "number_of_buckets", number_of_buckets)
-        pulumi.set(__self__, "output_format", output_format)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "ser_de_infos", ser_de_infos)
-        pulumi.set(__self__, "skewed_infos", skewed_infos)
-        pulumi.set(__self__, "sort_columns", sort_columns)
-        pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+        GetCatalogTableStorageDescriptorResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_columns=bucket_columns,
+            columns=columns,
+            compressed=compressed,
+            input_format=input_format,
+            location=location,
+            number_of_buckets=number_of_buckets,
+            output_format=output_format,
+            parameters=parameters,
+            schema_references=schema_references,
+            ser_de_infos=ser_de_infos,
+            skewed_infos=skewed_infos,
+            sort_columns=sort_columns,
+            stored_as_sub_directories=stored_as_sub_directories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_columns: Sequence[str],
+             columns: Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult'],
+             compressed: bool,
+             input_format: str,
+             location: str,
+             number_of_buckets: int,
+             output_format: str,
+             parameters: Mapping[str, str],
+             schema_references: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceResult'],
+             ser_de_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSerDeInfoResult'],
+             skewed_infos: Sequence['outputs.GetCatalogTableStorageDescriptorSkewedInfoResult'],
+             sort_columns: Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult'],
+             stored_as_sub_directories: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_columns", bucket_columns)
+        _setter("columns", columns)
+        _setter("compressed", compressed)
+        _setter("input_format", input_format)
+        _setter("location", location)
+        _setter("number_of_buckets", number_of_buckets)
+        _setter("output_format", output_format)
+        _setter("parameters", parameters)
+        _setter("schema_references", schema_references)
+        _setter("ser_de_infos", ser_de_infos)
+        _setter("skewed_infos", skewed_infos)
+        _setter("sort_columns", sort_columns)
+        _setter("stored_as_sub_directories", stored_as_sub_directories)
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -3977,10 +4819,25 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param str type: Datatype of data in the Column.
         """
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "type", type)
+        GetCatalogTableStorageDescriptorColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            name=name,
+            parameters=parameters,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: str,
+             name: str,
+             parameters: Mapping[str, str],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comment", comment)
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4026,9 +4883,22 @@ class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
         :param str schema_version_id: Unique ID assigned to a version of the schema.
         :param int schema_version_number: Version number of the schema.
         """
-        pulumi.set(__self__, "schema_ids", schema_ids)
-        pulumi.set(__self__, "schema_version_id", schema_version_id)
-        pulumi.set(__self__, "schema_version_number", schema_version_number)
+        GetCatalogTableStorageDescriptorSchemaReferenceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_ids=schema_ids,
+            schema_version_id=schema_version_id,
+            schema_version_number=schema_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_ids: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult'],
+             schema_version_id: str,
+             schema_version_number: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_ids", schema_ids)
+        _setter("schema_version_id", schema_version_id)
+        _setter("schema_version_number", schema_version_number)
 
     @property
     @pulumi.getter(name="schemaIds")
@@ -4066,9 +4936,22 @@ class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
         :param str schema_arn: ARN of the schema.
         :param str schema_name: Name of the schema.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "schema_arn", schema_arn)
-        pulumi.set(__self__, "schema_name", schema_name)
+        GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            schema_arn=schema_arn,
+            schema_name=schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: str,
+             schema_arn: str,
+             schema_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_name", registry_name)
+        _setter("schema_arn", schema_arn)
+        _setter("schema_name", schema_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -4106,9 +4989,22 @@ class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
         :param str serialization_library: Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "serialization_library", serialization_library)
+        GetCatalogTableStorageDescriptorSerDeInfoResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            serialization_library=serialization_library,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Mapping[str, str],
+             serialization_library: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("serialization_library", serialization_library)
 
     @property
     @pulumi.getter
@@ -4146,9 +5042,22 @@ class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
         :param Mapping[str, str] skewed_column_value_location_maps: List of values that appear so frequently as to be considered skewed.
         :param Sequence[str] skewed_column_values: Map of skewed values to the columns that contain them.
         """
-        pulumi.set(__self__, "skewed_column_names", skewed_column_names)
-        pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
-        pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+        GetCatalogTableStorageDescriptorSkewedInfoResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skewed_column_names=skewed_column_names,
+            skewed_column_value_location_maps=skewed_column_value_location_maps,
+            skewed_column_values=skewed_column_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skewed_column_names: Sequence[str],
+             skewed_column_value_location_maps: Mapping[str, str],
+             skewed_column_values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("skewed_column_names", skewed_column_names)
+        _setter("skewed_column_value_location_maps", skewed_column_value_location_maps)
+        _setter("skewed_column_values", skewed_column_values)
 
     @property
     @pulumi.getter(name="skewedColumnNames")
@@ -4184,8 +5093,19 @@ class GetCatalogTableStorageDescriptorSortColumnResult(dict):
         :param str column: Name of the column.
         :param int sort_order: Whether the column is sorted in ascending (`1`) or descending order (`0`).
         """
-        pulumi.set(__self__, "column", column)
-        pulumi.set(__self__, "sort_order", sort_order)
+        GetCatalogTableStorageDescriptorSortColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column=column,
+            sort_order=sort_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column: str,
+             sort_order: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column", column)
+        _setter("sort_order", sort_order)
 
     @property
     @pulumi.getter
@@ -4215,9 +5135,22 @@ class GetCatalogTableTargetTableResult(dict):
         :param str database_name: Name of the metadata database where the table metadata resides.
         :param str name: Name of the table.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        GetCatalogTableTargetTableResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             database_name: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -4250,9 +5183,22 @@ class GetConnectionPhysicalConnectionRequirementResult(dict):
                  availability_zone: str,
                  security_group_id_lists: Sequence[str],
                  subnet_id: str):
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        GetConnectionPhysicalConnectionRequirementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            security_group_id_lists=security_group_id_lists,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: str,
+             security_group_id_lists: Sequence[str],
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("availability_zone", availability_zone)
+        _setter("security_group_id_lists", security_group_id_lists)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -4279,8 +5225,19 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
         :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs'] connection_password_encryptions: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs'] encryption_at_rests: Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
-        pulumi.set(__self__, "connection_password_encryptions", connection_password_encryptions)
-        pulumi.set(__self__, "encryption_at_rests", encryption_at_rests)
+        GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_password_encryptions=connection_password_encryptions,
+            encryption_at_rests=encryption_at_rests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_password_encryptions: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult'],
+             encryption_at_rests: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_password_encryptions", connection_password_encryptions)
+        _setter("encryption_at_rests", encryption_at_rests)
 
     @property
     @pulumi.getter(name="connectionPasswordEncryptions")
@@ -4308,8 +5265,19 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
         :param str aws_kms_key_id: KMS key ARN that is used to encrypt the connection password.
         :param bool return_connection_password_encrypted: When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         """
-        pulumi.set(__self__, "aws_kms_key_id", aws_kms_key_id)
-        pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+        GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_kms_key_id=aws_kms_key_id,
+            return_connection_password_encrypted=return_connection_password_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_kms_key_id: str,
+             return_connection_password_encrypted: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_kms_key_id", aws_kms_key_id)
+        _setter("return_connection_password_encrypted", return_connection_password_encrypted)
 
     @property
     @pulumi.getter(name="awsKmsKeyId")
@@ -4337,8 +5305,19 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
         :param str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data.
         :param str sse_aws_kms_key_id: ARN of the AWS KMS key to use for encryption at rest.
         """
-        pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
-        pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+        GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_encryption_mode=catalog_encryption_mode,
+            sse_aws_kms_key_id=sse_aws_kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_encryption_mode: str,
+             sse_aws_kms_key_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog_encryption_mode", catalog_encryption_mode)
+        _setter("sse_aws_kms_key_id", sse_aws_kms_key_id)
 
     @property
     @pulumi.getter(name="catalogEncryptionMode")
@@ -4368,10 +5347,23 @@ class GetScriptDagEdgeResult(dict):
         :param str target: ID of the node at which the edge ends.
         :param str target_parameter: Target of the edge.
         """
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        GetScriptDagEdgeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            target=target,
+            target_parameter=target_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: str,
+             target: str,
+             target_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
+        _setter("target", target)
         if target_parameter is not None:
-            pulumi.set(__self__, "target_parameter", target_parameter)
+            _setter("target_parameter", target_parameter)
 
     @property
     @pulumi.getter
@@ -4411,11 +5403,26 @@ class GetScriptDagNodeResult(dict):
         :param str node_type: Type of node this is.
         :param int line_number: Line number of the node.
         """
-        pulumi.set(__self__, "args", args)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "node_type", node_type)
+        GetScriptDagNodeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            args=args,
+            id=id,
+            node_type=node_type,
+            line_number=line_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             args: Sequence['outputs.GetScriptDagNodeArgResult'],
+             id: str,
+             node_type: str,
+             line_number: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("args", args)
+        _setter("id", id)
+        _setter("node_type", node_type)
         if line_number is not None:
-            pulumi.set(__self__, "line_number", line_number)
+            _setter("line_number", line_number)
 
     @property
     @pulumi.getter
@@ -4461,10 +5468,23 @@ class GetScriptDagNodeArgResult(dict):
         :param str value: Value of the argument or property.
         :param bool param: Boolean if the value is used as a parameter. Defaults to `false`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetScriptDagNodeArgResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            param=param,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             param: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
         if param is not None:
-            pulumi.set(__self__, "param", param)
+            _setter("param", param)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayAssociationProposalArgs', 'GatewayAssociationProposal']
@@ -25,11 +25,26 @@ class GatewayAssociationProposalArgs:
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         """
-        pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
-        pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
-        pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
+        GatewayAssociationProposalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            associated_gateway_id=associated_gateway_id,
+            dx_gateway_id=dx_gateway_id,
+            dx_gateway_owner_account_id=dx_gateway_owner_account_id,
+            allowed_prefixes=allowed_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             associated_gateway_id: pulumi.Input[str],
+             dx_gateway_id: pulumi.Input[str],
+             dx_gateway_owner_account_id: pulumi.Input[str],
+             allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("associated_gateway_id", associated_gateway_id)
+        _setter("dx_gateway_id", dx_gateway_id)
+        _setter("dx_gateway_owner_account_id", dx_gateway_owner_account_id)
         if allowed_prefixes is not None:
-            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+            _setter("allowed_prefixes", allowed_prefixes)
 
     @property
     @pulumi.getter(name="associatedGatewayId")
@@ -98,18 +113,37 @@ class _GatewayAssociationProposalState:
         :param pulumi.Input[str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         """
+        _GatewayAssociationProposalState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_prefixes=allowed_prefixes,
+            associated_gateway_id=associated_gateway_id,
+            associated_gateway_owner_account_id=associated_gateway_owner_account_id,
+            associated_gateway_type=associated_gateway_type,
+            dx_gateway_id=dx_gateway_id,
+            dx_gateway_owner_account_id=dx_gateway_owner_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             associated_gateway_id: Optional[pulumi.Input[str]] = None,
+             associated_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
+             associated_gateway_type: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             dx_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_prefixes is not None:
-            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+            _setter("allowed_prefixes", allowed_prefixes)
         if associated_gateway_id is not None:
-            pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
+            _setter("associated_gateway_id", associated_gateway_id)
         if associated_gateway_owner_account_id is not None:
-            pulumi.set(__self__, "associated_gateway_owner_account_id", associated_gateway_owner_account_id)
+            _setter("associated_gateway_owner_account_id", associated_gateway_owner_account_id)
         if associated_gateway_type is not None:
-            pulumi.set(__self__, "associated_gateway_type", associated_gateway_type)
+            _setter("associated_gateway_type", associated_gateway_type)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if dx_gateway_owner_account_id is not None:
-            pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
+            _setter("dx_gateway_owner_account_id", dx_gateway_owner_account_id)
 
     @property
     @pulumi.getter(name="allowedPrefixes")
@@ -287,6 +321,10 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayAssociationProposalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

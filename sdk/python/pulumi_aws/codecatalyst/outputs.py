@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,10 +27,21 @@ class DevEnvironmentIdes(dict):
         :param str name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         :param str runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
         """
+        DevEnvironmentIdes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            runtime=runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             runtime: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
 
     @property
     @pulumi.getter
@@ -56,7 +67,16 @@ class DevEnvironmentPersistentStorage(dict):
         """
         :param int size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
         """
-        pulumi.set(__self__, "size", size)
+        DevEnvironmentPersistentStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size", size)
 
     @property
     @pulumi.getter
@@ -97,9 +117,20 @@ class DevEnvironmentRepository(dict):
                
                persistent storage (` persistent_storage`) supports the following:
         """
-        pulumi.set(__self__, "repository_name", repository_name)
+        DevEnvironmentRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            branch_name=branch_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: str,
+             branch_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("repository_name", repository_name)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -125,8 +156,19 @@ class GetDevEnvironmentIdeResult(dict):
     def __init__(__self__, *,
                  name: str,
                  runtime: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "runtime", runtime)
+        GetDevEnvironmentIdeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            runtime=runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             runtime: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("runtime", runtime)
 
     @property
     @pulumi.getter
@@ -143,7 +185,16 @@ class GetDevEnvironmentIdeResult(dict):
 class GetDevEnvironmentPersistentStorageResult(dict):
     def __init__(__self__, *,
                  size: int):
-        pulumi.set(__self__, "size", size)
+        GetDevEnvironmentPersistentStorageResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("size", size)
 
     @property
     @pulumi.getter
@@ -156,8 +207,19 @@ class GetDevEnvironmentRepositoryResult(dict):
     def __init__(__self__, *,
                  branch_name: str,
                  repository_name: str):
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "repository_name", repository_name)
+        GetDevEnvironmentRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name=branch_name,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name: str,
+             repository_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("branch_name", branch_name)
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="branchName")

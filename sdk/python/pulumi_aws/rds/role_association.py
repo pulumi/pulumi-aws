@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleAssociationArgs', 'RoleAssociation']
@@ -23,9 +23,22 @@ class RoleAssociationArgs:
         :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         """
-        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        RoleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_instance_identifier=db_instance_identifier,
+            feature_name=feature_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_instance_identifier: pulumi.Input[str],
+             feature_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("db_instance_identifier", db_instance_identifier)
+        _setter("feature_name", feature_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
@@ -76,12 +89,25 @@ class _RoleAssociationState:
         :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         """
+        _RoleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_instance_identifier=db_instance_identifier,
+            feature_name=feature_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_instance_identifier: Optional[pulumi.Input[str]] = None,
+             feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if db_instance_identifier is not None:
-            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+            _setter("db_instance_identifier", db_instance_identifier)
         if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
+            _setter("feature_name", feature_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
@@ -207,6 +233,10 @@ class RoleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

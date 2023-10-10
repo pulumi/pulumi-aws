@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class PackageArgs:
         :param pulumi.Input[str] package_type: The type of package.
         :param pulumi.Input[str] package_description: Description of the package.
         """
-        pulumi.set(__self__, "package_name", package_name)
-        pulumi.set(__self__, "package_source", package_source)
-        pulumi.set(__self__, "package_type", package_type)
+        PackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_name=package_name,
+            package_source=package_source,
+            package_type=package_type,
+            package_description=package_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_name: pulumi.Input[str],
+             package_source: pulumi.Input['PackagePackageSourceArgs'],
+             package_type: pulumi.Input[str],
+             package_description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("package_name", package_name)
+        _setter("package_source", package_source)
+        _setter("package_type", package_type)
         if package_description is not None:
-            pulumi.set(__self__, "package_description", package_description)
+            _setter("package_description", package_description)
 
     @property
     @pulumi.getter(name="packageName")
@@ -99,18 +114,37 @@ class _PackageState:
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
+        _PackageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_package_version=available_package_version,
+            package_description=package_description,
+            package_id=package_id,
+            package_name=package_name,
+            package_source=package_source,
+            package_type=package_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_package_version: Optional[pulumi.Input[str]] = None,
+             package_description: Optional[pulumi.Input[str]] = None,
+             package_id: Optional[pulumi.Input[str]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             package_source: Optional[pulumi.Input['PackagePackageSourceArgs']] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if available_package_version is not None:
-            pulumi.set(__self__, "available_package_version", available_package_version)
+            _setter("available_package_version", available_package_version)
         if package_description is not None:
-            pulumi.set(__self__, "package_description", package_description)
+            _setter("package_description", package_description)
         if package_id is not None:
-            pulumi.set(__self__, "package_id", package_id)
+            _setter("package_id", package_id)
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if package_source is not None:
-            pulumi.set(__self__, "package_source", package_source)
+            _setter("package_source", package_source)
         if package_type is not None:
-            pulumi.set(__self__, "package_type", package_type)
+            _setter("package_type", package_type)
 
     @property
     @pulumi.getter(name="availablePackageVersion")
@@ -241,6 +275,10 @@ class Package(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +301,11 @@ class Package(pulumi.CustomResource):
             if package_name is None and not opts.urn:
                 raise TypeError("Missing required property 'package_name'")
             __props__.__dict__["package_name"] = package_name
+            if package_source is not None and not isinstance(package_source, PackagePackageSourceArgs):
+                package_source = package_source or {}
+                def _setter(key, value):
+                    package_source[key] = value
+                PackagePackageSourceArgs._configure(_setter, **package_source)
             if package_source is None and not opts.urn:
                 raise TypeError("Missing required property 'package_source'")
             __props__.__dict__["package_source"] = package_source

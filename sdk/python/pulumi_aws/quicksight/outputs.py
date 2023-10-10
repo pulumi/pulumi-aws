@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -212,14 +212,29 @@ class AnalysisParameters(dict):
         :param Sequence['AnalysisParametersIntegerParameterArgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         :param Sequence['AnalysisParametersStringParameterArgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
+        AnalysisParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_time_parameters=date_time_parameters,
+            decimal_parameters=decimal_parameters,
+            integer_parameters=integer_parameters,
+            string_parameters=string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_time_parameters: Optional[Sequence['outputs.AnalysisParametersDateTimeParameter']] = None,
+             decimal_parameters: Optional[Sequence['outputs.AnalysisParametersDecimalParameter']] = None,
+             integer_parameters: Optional[Sequence['outputs.AnalysisParametersIntegerParameter']] = None,
+             string_parameters: Optional[Sequence['outputs.AnalysisParametersStringParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if date_time_parameters is not None:
-            pulumi.set(__self__, "date_time_parameters", date_time_parameters)
+            _setter("date_time_parameters", date_time_parameters)
         if decimal_parameters is not None:
-            pulumi.set(__self__, "decimal_parameters", decimal_parameters)
+            _setter("decimal_parameters", decimal_parameters)
         if integer_parameters is not None:
-            pulumi.set(__self__, "integer_parameters", integer_parameters)
+            _setter("integer_parameters", integer_parameters)
         if string_parameters is not None:
-            pulumi.set(__self__, "string_parameters", string_parameters)
+            _setter("string_parameters", string_parameters)
 
     @property
     @pulumi.getter(name="dateTimeParameters")
@@ -264,8 +279,19 @@ class AnalysisParametersDateTimeParameter(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        AnalysisParametersDateTimeParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -293,8 +319,19 @@ class AnalysisParametersDecimalParameter(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        AnalysisParametersDecimalParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -322,8 +359,19 @@ class AnalysisParametersIntegerParameter(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        AnalysisParametersIntegerParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -351,8 +399,19 @@ class AnalysisParametersStringParameter(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        AnalysisParametersStringParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -379,8 +438,19 @@ class AnalysisPermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        AnalysisPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -423,8 +493,17 @@ class AnalysisSourceEntity(dict):
         """
         :param 'AnalysisSourceEntitySourceTemplateArgs' source_template: The source template. See source_template.
         """
+        AnalysisSourceEntity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_template=source_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_template: Optional['outputs.AnalysisSourceEntitySourceTemplate'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
+            _setter("source_template", source_template)
 
     @property
     @pulumi.getter(name="sourceTemplate")
@@ -461,8 +540,19 @@ class AnalysisSourceEntitySourceTemplate(dict):
         :param str arn: The Amazon Resource Name (ARN) of the resource.
         :param Sequence['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
+        AnalysisSourceEntitySourceTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_set_references=data_set_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             data_set_references: Sequence['outputs.AnalysisSourceEntitySourceTemplateDataSetReference'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("data_set_references", data_set_references)
 
     @property
     @pulumi.getter
@@ -509,8 +599,19 @@ class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
         :param str data_set_arn: Dataset Amazon Resource Name (ARN).
         :param str data_set_placeholder: Dataset placeholder.
         """
-        pulumi.set(__self__, "data_set_arn", data_set_arn)
-        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+        AnalysisSourceEntitySourceTemplateDataSetReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_arn=data_set_arn,
+            data_set_placeholder=data_set_placeholder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_arn: str,
+             data_set_placeholder: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_set_arn", data_set_arn)
+        _setter("data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
@@ -589,26 +690,53 @@ class DashboardDashboardPublishOptions(dict):
         :param 'DashboardDashboardPublishOptionsVisualAxisSortOptionArgs' visual_axis_sort_option: The axis sort options of a dashboard. See visual_axis_sort_option.
         :param 'DashboardDashboardPublishOptionsVisualMenuOptionArgs' visual_menu_option: The menu options of a visual in a dashboard. See visual_menu_option.
         """
+        DashboardDashboardPublishOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ad_hoc_filtering_option=ad_hoc_filtering_option,
+            data_point_drill_up_down_option=data_point_drill_up_down_option,
+            data_point_menu_label_option=data_point_menu_label_option,
+            data_point_tooltip_option=data_point_tooltip_option,
+            export_to_csv_option=export_to_csv_option,
+            export_with_hidden_fields_option=export_with_hidden_fields_option,
+            sheet_controls_option=sheet_controls_option,
+            sheet_layout_element_maximization_option=sheet_layout_element_maximization_option,
+            visual_axis_sort_option=visual_axis_sort_option,
+            visual_menu_option=visual_menu_option,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ad_hoc_filtering_option: Optional['outputs.DashboardDashboardPublishOptionsAdHocFilteringOption'] = None,
+             data_point_drill_up_down_option: Optional['outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption'] = None,
+             data_point_menu_label_option: Optional['outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption'] = None,
+             data_point_tooltip_option: Optional['outputs.DashboardDashboardPublishOptionsDataPointTooltipOption'] = None,
+             export_to_csv_option: Optional['outputs.DashboardDashboardPublishOptionsExportToCsvOption'] = None,
+             export_with_hidden_fields_option: Optional['outputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption'] = None,
+             sheet_controls_option: Optional['outputs.DashboardDashboardPublishOptionsSheetControlsOption'] = None,
+             sheet_layout_element_maximization_option: Optional['outputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption'] = None,
+             visual_axis_sort_option: Optional['outputs.DashboardDashboardPublishOptionsVisualAxisSortOption'] = None,
+             visual_menu_option: Optional['outputs.DashboardDashboardPublishOptionsVisualMenuOption'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_hoc_filtering_option is not None:
-            pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
+            _setter("ad_hoc_filtering_option", ad_hoc_filtering_option)
         if data_point_drill_up_down_option is not None:
-            pulumi.set(__self__, "data_point_drill_up_down_option", data_point_drill_up_down_option)
+            _setter("data_point_drill_up_down_option", data_point_drill_up_down_option)
         if data_point_menu_label_option is not None:
-            pulumi.set(__self__, "data_point_menu_label_option", data_point_menu_label_option)
+            _setter("data_point_menu_label_option", data_point_menu_label_option)
         if data_point_tooltip_option is not None:
-            pulumi.set(__self__, "data_point_tooltip_option", data_point_tooltip_option)
+            _setter("data_point_tooltip_option", data_point_tooltip_option)
         if export_to_csv_option is not None:
-            pulumi.set(__self__, "export_to_csv_option", export_to_csv_option)
+            _setter("export_to_csv_option", export_to_csv_option)
         if export_with_hidden_fields_option is not None:
-            pulumi.set(__self__, "export_with_hidden_fields_option", export_with_hidden_fields_option)
+            _setter("export_with_hidden_fields_option", export_with_hidden_fields_option)
         if sheet_controls_option is not None:
-            pulumi.set(__self__, "sheet_controls_option", sheet_controls_option)
+            _setter("sheet_controls_option", sheet_controls_option)
         if sheet_layout_element_maximization_option is not None:
-            pulumi.set(__self__, "sheet_layout_element_maximization_option", sheet_layout_element_maximization_option)
+            _setter("sheet_layout_element_maximization_option", sheet_layout_element_maximization_option)
         if visual_axis_sort_option is not None:
-            pulumi.set(__self__, "visual_axis_sort_option", visual_axis_sort_option)
+            _setter("visual_axis_sort_option", visual_axis_sort_option)
         if visual_menu_option is not None:
-            pulumi.set(__self__, "visual_menu_option", visual_menu_option)
+            _setter("visual_menu_option", visual_menu_option)
 
     @property
     @pulumi.getter(name="adHocFilteringOption")
@@ -715,8 +843,17 @@ class DashboardDashboardPublishOptionsAdHocFilteringOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsAdHocFilteringOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -751,8 +888,17 @@ class DashboardDashboardPublishOptionsDataPointDrillUpDownOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsDataPointDrillUpDownOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -787,8 +933,17 @@ class DashboardDashboardPublishOptionsDataPointMenuLabelOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsDataPointMenuLabelOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -823,8 +978,17 @@ class DashboardDashboardPublishOptionsDataPointTooltipOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsDataPointTooltipOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -859,8 +1023,17 @@ class DashboardDashboardPublishOptionsExportToCsvOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsExportToCsvOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -895,8 +1068,17 @@ class DashboardDashboardPublishOptionsExportWithHiddenFieldsOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsExportWithHiddenFieldsOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -931,8 +1113,17 @@ class DashboardDashboardPublishOptionsSheetControlsOption(dict):
         """
         :param str visibility_state: Visibility state. Possibles values: EXPANDED, COLLAPSED.
         """
+        DashboardDashboardPublishOptionsSheetControlsOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            visibility_state=visibility_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             visibility_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if visibility_state is not None:
-            pulumi.set(__self__, "visibility_state", visibility_state)
+            _setter("visibility_state", visibility_state)
 
     @property
     @pulumi.getter(name="visibilityState")
@@ -967,8 +1158,17 @@ class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption(dict)
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -1003,8 +1203,17 @@ class DashboardDashboardPublishOptionsVisualAxisSortOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsVisualAxisSortOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -1039,8 +1248,17 @@ class DashboardDashboardPublishOptionsVisualMenuOption(dict):
         """
         :param str availability_status: Availability status. Possibles values: ENABLED, DISABLED.
         """
+        DashboardDashboardPublishOptionsVisualMenuOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_status=availability_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_status is not None:
-            pulumi.set(__self__, "availability_status", availability_status)
+            _setter("availability_status", availability_status)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -1087,14 +1305,29 @@ class DashboardParameters(dict):
         :param Sequence['DashboardParametersIntegerParameterArgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         :param Sequence['DashboardParametersStringParameterArgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
+        DashboardParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_time_parameters=date_time_parameters,
+            decimal_parameters=decimal_parameters,
+            integer_parameters=integer_parameters,
+            string_parameters=string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_time_parameters: Optional[Sequence['outputs.DashboardParametersDateTimeParameter']] = None,
+             decimal_parameters: Optional[Sequence['outputs.DashboardParametersDecimalParameter']] = None,
+             integer_parameters: Optional[Sequence['outputs.DashboardParametersIntegerParameter']] = None,
+             string_parameters: Optional[Sequence['outputs.DashboardParametersStringParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if date_time_parameters is not None:
-            pulumi.set(__self__, "date_time_parameters", date_time_parameters)
+            _setter("date_time_parameters", date_time_parameters)
         if decimal_parameters is not None:
-            pulumi.set(__self__, "decimal_parameters", decimal_parameters)
+            _setter("decimal_parameters", decimal_parameters)
         if integer_parameters is not None:
-            pulumi.set(__self__, "integer_parameters", integer_parameters)
+            _setter("integer_parameters", integer_parameters)
         if string_parameters is not None:
-            pulumi.set(__self__, "string_parameters", string_parameters)
+            _setter("string_parameters", string_parameters)
 
     @property
     @pulumi.getter(name="dateTimeParameters")
@@ -1137,8 +1370,19 @@ class DashboardParametersDateTimeParameter(dict):
         """
         :param str name: Display name for the dashboard.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        DashboardParametersDateTimeParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1162,8 +1406,19 @@ class DashboardParametersDecimalParameter(dict):
         """
         :param str name: Display name for the dashboard.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        DashboardParametersDecimalParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[float],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1187,8 +1442,19 @@ class DashboardParametersIntegerParameter(dict):
         """
         :param str name: Display name for the dashboard.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        DashboardParametersIntegerParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1212,8 +1478,19 @@ class DashboardParametersStringParameter(dict):
         """
         :param str name: Display name for the dashboard.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        DashboardParametersStringParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1238,8 +1515,19 @@ class DashboardPermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        DashboardPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -1282,8 +1570,17 @@ class DashboardSourceEntity(dict):
         """
         :param 'DashboardSourceEntitySourceTemplateArgs' source_template: The source template. See source_template.
         """
+        DashboardSourceEntity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_template=source_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_template: Optional['outputs.DashboardSourceEntitySourceTemplate'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
+            _setter("source_template", source_template)
 
     @property
     @pulumi.getter(name="sourceTemplate")
@@ -1320,8 +1617,19 @@ class DashboardSourceEntitySourceTemplate(dict):
         :param str arn: The Amazon Resource Name (ARN) of the resource.
         :param Sequence['DashboardSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
+        DashboardSourceEntitySourceTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_set_references=data_set_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             data_set_references: Sequence['outputs.DashboardSourceEntitySourceTemplateDataSetReference'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("data_set_references", data_set_references)
 
     @property
     @pulumi.getter
@@ -1368,8 +1676,19 @@ class DashboardSourceEntitySourceTemplateDataSetReference(dict):
         :param str data_set_arn: Dataset Amazon Resource Name (ARN).
         :param str data_set_placeholder: Dataset placeholder.
         """
-        pulumi.set(__self__, "data_set_arn", data_set_arn)
-        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+        DashboardSourceEntitySourceTemplateDataSetReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_arn=data_set_arn,
+            data_set_placeholder=data_set_placeholder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_arn: str,
+             data_set_placeholder: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_set_arn", data_set_arn)
+        _setter("data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
@@ -1412,8 +1731,17 @@ class DataSetColumnGroup(dict):
         """
         :param 'DataSetColumnGroupGeoSpatialColumnGroupArgs' geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
         """
+        DataSetColumnGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_spatial_column_group=geo_spatial_column_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_spatial_column_group: Optional['outputs.DataSetColumnGroupGeoSpatialColumnGroup'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if geo_spatial_column_group is not None:
-            pulumi.set(__self__, "geo_spatial_column_group", geo_spatial_column_group)
+            _setter("geo_spatial_column_group", geo_spatial_column_group)
 
     @property
     @pulumi.getter(name="geoSpatialColumnGroup")
@@ -1452,9 +1780,22 @@ class DataSetColumnGroupGeoSpatialColumnGroup(dict):
         :param str country_code: Country code. Valid values are `US`.
         :param str name: A display name for the hierarchy.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
+        DataSetColumnGroupGeoSpatialColumnGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            country_code=country_code,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence[str],
+             country_code: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("country_code", country_code)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1507,10 +1848,21 @@ class DataSetColumnLevelPermissionRule(dict):
         :param Sequence[str] column_names: An array of column names.
         :param Sequence[str] principals: An array of ARNs for Amazon QuickSight users or groups.
         """
+        DataSetColumnLevelPermissionRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_names=column_names,
+            principals=principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_names: Optional[Sequence[str]] = None,
+             principals: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if principals is not None:
-            pulumi.set(__self__, "principals", principals)
+            _setter("principals", principals)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -1557,10 +1909,21 @@ class DataSetDataSetUsageConfiguration(dict):
         :param bool disable_use_as_direct_query_source: Controls whether a child dataset of a direct query can use this dataset as a source.
         :param bool disable_use_as_imported_source: Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
         """
+        DataSetDataSetUsageConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_use_as_direct_query_source=disable_use_as_direct_query_source,
+            disable_use_as_imported_source=disable_use_as_imported_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_use_as_direct_query_source: Optional[bool] = None,
+             disable_use_as_imported_source: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disable_use_as_direct_query_source is not None:
-            pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+            _setter("disable_use_as_direct_query_source", disable_use_as_direct_query_source)
         if disable_use_as_imported_source is not None:
-            pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+            _setter("disable_use_as_imported_source", disable_use_as_imported_source)
 
     @property
     @pulumi.getter(name="disableUseAsDirectQuerySource")
@@ -1607,11 +1970,24 @@ class DataSetFieldFolder(dict):
         :param Sequence[str] columns: An array of column names to add to the folder. A column can only be in one folder.
         :param str description: Field folder description.
         """
-        pulumi.set(__self__, "field_folders_id", field_folders_id)
+        DataSetFieldFolder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_folders_id=field_folders_id,
+            columns=columns,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_folders_id: str,
+             columns: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("field_folders_id", field_folders_id)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="fieldFoldersId")
@@ -1670,11 +2046,26 @@ class DataSetLogicalTableMap(dict):
         :param 'DataSetLogicalTableMapSourceArgs' source: Source of this logical table. See source.
         :param Sequence['DataSetLogicalTableMapDataTransformArgs'] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
         """
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
-        pulumi.set(__self__, "source", source)
+        DataSetLogicalTableMap._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            logical_table_map_id=logical_table_map_id,
+            source=source,
+            data_transforms=data_transforms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: str,
+             logical_table_map_id: str,
+             source: 'outputs.DataSetLogicalTableMapSource',
+             data_transforms: Optional[Sequence['outputs.DataSetLogicalTableMapDataTransform']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alias", alias)
+        _setter("logical_table_map_id", logical_table_map_id)
+        _setter("source", source)
         if data_transforms is not None:
-            pulumi.set(__self__, "data_transforms", data_transforms)
+            _setter("data_transforms", data_transforms)
 
     @property
     @pulumi.getter
@@ -1757,20 +2148,41 @@ class DataSetLogicalTableMapDataTransform(dict):
         :param 'DataSetLogicalTableMapDataTransformTagColumnOperationArgs' tag_column_operation: An operation that tags a column with additional information. See tag_column_operation.
         :param 'DataSetLogicalTableMapDataTransformUntagColumnOperationArgs' untag_column_operation: A transform operation that removes tags associated with a column. See untag_column_operation.
         """
+        DataSetLogicalTableMapDataTransform._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cast_column_type_operation=cast_column_type_operation,
+            create_columns_operation=create_columns_operation,
+            filter_operation=filter_operation,
+            project_operation=project_operation,
+            rename_column_operation=rename_column_operation,
+            tag_column_operation=tag_column_operation,
+            untag_column_operation=untag_column_operation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cast_column_type_operation: Optional['outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation'] = None,
+             create_columns_operation: Optional['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation'] = None,
+             filter_operation: Optional['outputs.DataSetLogicalTableMapDataTransformFilterOperation'] = None,
+             project_operation: Optional['outputs.DataSetLogicalTableMapDataTransformProjectOperation'] = None,
+             rename_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation'] = None,
+             tag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperation'] = None,
+             untag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cast_column_type_operation is not None:
-            pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
+            _setter("cast_column_type_operation", cast_column_type_operation)
         if create_columns_operation is not None:
-            pulumi.set(__self__, "create_columns_operation", create_columns_operation)
+            _setter("create_columns_operation", create_columns_operation)
         if filter_operation is not None:
-            pulumi.set(__self__, "filter_operation", filter_operation)
+            _setter("filter_operation", filter_operation)
         if project_operation is not None:
-            pulumi.set(__self__, "project_operation", project_operation)
+            _setter("project_operation", project_operation)
         if rename_column_operation is not None:
-            pulumi.set(__self__, "rename_column_operation", rename_column_operation)
+            _setter("rename_column_operation", rename_column_operation)
         if tag_column_operation is not None:
-            pulumi.set(__self__, "tag_column_operation", tag_column_operation)
+            _setter("tag_column_operation", tag_column_operation)
         if untag_column_operation is not None:
-            pulumi.set(__self__, "untag_column_operation", untag_column_operation)
+            _setter("untag_column_operation", untag_column_operation)
 
     @property
     @pulumi.getter(name="castColumnTypeOperation")
@@ -1859,10 +2271,23 @@ class DataSetLogicalTableMapDataTransformCastColumnTypeOperation(dict):
         :param str new_column_type: New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
         :param str format: When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_type", new_column_type)
+        DataSetLogicalTableMapDataTransformCastColumnTypeOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            new_column_type=new_column_type,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             new_column_type: str,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("new_column_type", new_column_type)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter(name="columnName")
@@ -1896,7 +2321,16 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperation(dict):
         """
         :param Sequence['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs'] columns: Calculated columns to create. See columns.
         """
-        pulumi.set(__self__, "columns", columns)
+        DataSetLogicalTableMapDataTransformCreateColumnsOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -1937,9 +2371,22 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn(dict):
         :param str column_name: Column name.
         :param str expression: An expression that defines the calculated column.
         """
-        pulumi.set(__self__, "column_id", column_id)
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "expression", expression)
+        DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_id=column_id,
+            column_name=column_name,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_id: str,
+             column_name: str,
+             expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_id", column_id)
+        _setter("column_name", column_name)
+        _setter("expression", expression)
 
     @property
     @pulumi.getter(name="columnId")
@@ -1990,7 +2437,16 @@ class DataSetLogicalTableMapDataTransformFilterOperation(dict):
         """
         :param str condition_expression: An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
         """
-        pulumi.set(__self__, "condition_expression", condition_expression)
+        DataSetLogicalTableMapDataTransformFilterOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_expression=condition_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition_expression", condition_expression)
 
     @property
     @pulumi.getter(name="conditionExpression")
@@ -2025,7 +2481,16 @@ class DataSetLogicalTableMapDataTransformProjectOperation(dict):
         """
         :param Sequence[str] projected_columns: Projected columns.
         """
-        pulumi.set(__self__, "projected_columns", projected_columns)
+        DataSetLogicalTableMapDataTransformProjectOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            projected_columns=projected_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             projected_columns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("projected_columns", projected_columns)
 
     @property
     @pulumi.getter(name="projectedColumns")
@@ -2064,8 +2529,19 @@ class DataSetLogicalTableMapDataTransformRenameColumnOperation(dict):
         :param str column_name: Column to be renamed.
         :param str new_column_name: New name for the column.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_name", new_column_name)
+        DataSetLogicalTableMapDataTransformRenameColumnOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            new_column_name=new_column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             new_column_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("new_column_name", new_column_name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -2110,8 +2586,19 @@ class DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
         :param str column_name: Column name.
         :param Sequence['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs'] tags: The dataset column tag, currently only used for geospatial type tagging. See tags.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tags", tags)
+        DataSetLogicalTableMapDataTransformTagColumnOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             tags: Sequence['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("tags", tags)
 
     @property
     @pulumi.getter(name="columnName")
@@ -2158,10 +2645,21 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
         :param 'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs' column_description: A description for a column. See column_description.
         :param str column_geographic_role: A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
         """
+        DataSetLogicalTableMapDataTransformTagColumnOperationTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_description=column_description,
+            column_geographic_role=column_geographic_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_description: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription'] = None,
+             column_geographic_role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if column_description is not None:
-            pulumi.set(__self__, "column_description", column_description)
+            _setter("column_description", column_description)
         if column_geographic_role is not None:
-            pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+            _setter("column_geographic_role", column_geographic_role)
 
     @property
     @pulumi.getter(name="columnDescription")
@@ -2187,8 +2685,17 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription(
         """
         :param str text: The text of a description for a column.
         """
+        DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter
@@ -2227,8 +2734,19 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperation(dict):
         :param str column_name: Column name.
         :param Sequence[str] tag_names: The column tags to remove from this column.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tag_names", tag_names)
+        DataSetLogicalTableMapDataTransformUntagColumnOperation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            tag_names=tag_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             tag_names: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("tag_names", tag_names)
 
     @property
     @pulumi.getter(name="columnName")
@@ -2279,12 +2797,25 @@ class DataSetLogicalTableMapSource(dict):
         :param 'DataSetLogicalTableMapSourceJoinInstructionArgs' join_instruction: Specifies the result of a join of two logical tables. See join_instruction.
         :param str physical_table_id: Physical table ID.
         """
+        DataSetLogicalTableMapSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_arn=data_set_arn,
+            join_instruction=join_instruction,
+            physical_table_id=physical_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_arn: Optional[str] = None,
+             join_instruction: Optional['outputs.DataSetLogicalTableMapSourceJoinInstruction'] = None,
+             physical_table_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_set_arn is not None:
-            pulumi.set(__self__, "data_set_arn", data_set_arn)
+            _setter("data_set_arn", data_set_arn)
         if join_instruction is not None:
-            pulumi.set(__self__, "join_instruction", join_instruction)
+            _setter("join_instruction", join_instruction)
         if physical_table_id is not None:
-            pulumi.set(__self__, "physical_table_id", physical_table_id)
+            _setter("physical_table_id", physical_table_id)
 
     @property
     @pulumi.getter(name="dataSetArn")
@@ -2353,14 +2884,33 @@ class DataSetLogicalTableMapSourceJoinInstruction(dict):
         :param 'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs' left_join_key_properties: Join key properties of the left operand. See left_join_key_properties.
         :param 'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs' right_join_key_properties: Join key properties of the right operand. See right_join_key_properties.
         """
-        pulumi.set(__self__, "left_operand", left_operand)
-        pulumi.set(__self__, "on_clause", on_clause)
-        pulumi.set(__self__, "right_operand", right_operand)
-        pulumi.set(__self__, "type", type)
+        DataSetLogicalTableMapSourceJoinInstruction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            left_operand=left_operand,
+            on_clause=on_clause,
+            right_operand=right_operand,
+            type=type,
+            left_join_key_properties=left_join_key_properties,
+            right_join_key_properties=right_join_key_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             left_operand: str,
+             on_clause: str,
+             right_operand: str,
+             type: str,
+             left_join_key_properties: Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties'] = None,
+             right_join_key_properties: Optional['outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("left_operand", left_operand)
+        _setter("on_clause", on_clause)
+        _setter("right_operand", right_operand)
+        _setter("type", type)
         if left_join_key_properties is not None:
-            pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
+            _setter("left_join_key_properties", left_join_key_properties)
         if right_join_key_properties is not None:
-            pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
+            _setter("right_join_key_properties", right_join_key_properties)
 
     @property
     @pulumi.getter(name="leftOperand")
@@ -2435,8 +2985,17 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties(dict):
         """
         :param bool unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
+        DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_key=unique_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_key: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if unique_key is not None:
-            pulumi.set(__self__, "unique_key", unique_key)
+            _setter("unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
@@ -2471,8 +3030,17 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
         """
         :param bool unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
+        DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_key=unique_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_key: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if unique_key is not None:
-            pulumi.set(__self__, "unique_key", unique_key)
+            _setter("unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
@@ -2494,12 +3062,25 @@ class DataSetOutputColumn(dict):
         :param str name: Display name for the dataset.
         :param str type: Data type of the column.
         """
+        DataSetOutputColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2535,8 +3116,19 @@ class DataSetPermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        DataSetPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -2591,13 +3183,28 @@ class DataSetPhysicalTableMap(dict):
         :param 'DataSetPhysicalTableMapRelationalTableArgs' relational_table: A physical table type for relational data sources. See relational_table.
         :param 'DataSetPhysicalTableMapS3SourceArgs' s3_source: A physical table type for as S3 data source. See s3_source.
         """
-        pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
+        DataSetPhysicalTableMap._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            physical_table_map_id=physical_table_map_id,
+            custom_sql=custom_sql,
+            relational_table=relational_table,
+            s3_source=s3_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             physical_table_map_id: str,
+             custom_sql: Optional['outputs.DataSetPhysicalTableMapCustomSql'] = None,
+             relational_table: Optional['outputs.DataSetPhysicalTableMapRelationalTable'] = None,
+             s3_source: Optional['outputs.DataSetPhysicalTableMapS3Source'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("physical_table_map_id", physical_table_map_id)
         if custom_sql is not None:
-            pulumi.set(__self__, "custom_sql", custom_sql)
+            _setter("custom_sql", custom_sql)
         if relational_table is not None:
-            pulumi.set(__self__, "relational_table", relational_table)
+            _setter("relational_table", relational_table)
         if s3_source is not None:
-            pulumi.set(__self__, "s3_source", s3_source)
+            _setter("s3_source", s3_source)
 
     @property
     @pulumi.getter(name="physicalTableMapId")
@@ -2664,11 +3271,26 @@ class DataSetPhysicalTableMapCustomSql(dict):
         :param str sql_query: SQL query.
         :param Sequence['DataSetPhysicalTableMapCustomSqlColumnArgs'] columns: Column schema from the SQL query result set. See columns.
         """
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_query", sql_query)
+        DataSetPhysicalTableMapCustomSql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_arn=data_source_arn,
+            name=name,
+            sql_query=sql_query,
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_arn: str,
+             name: str,
+             sql_query: str,
+             columns: Optional[Sequence['outputs.DataSetPhysicalTableMapCustomSqlColumn']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_arn", data_source_arn)
+        _setter("name", name)
+        _setter("sql_query", sql_query)
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter(name="dataSourceArn")
@@ -2712,8 +3334,19 @@ class DataSetPhysicalTableMapCustomSqlColumn(dict):
         :param str name: Name of this column in the underlying data source.
         :param str type: Data type of the column.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DataSetPhysicalTableMapCustomSqlColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2766,13 +3399,30 @@ class DataSetPhysicalTableMapRelationalTable(dict):
         :param str catalog: Catalog associated with the table.
         :param str schema: Schema name. This name applies to certain relational database engines.
         """
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "name", name)
+        DataSetPhysicalTableMapRelationalTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_arn=data_source_arn,
+            input_columns=input_columns,
+            name=name,
+            catalog=catalog,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_arn: str,
+             input_columns: Sequence['outputs.DataSetPhysicalTableMapRelationalTableInputColumn'],
+             name: str,
+             catalog: Optional[str] = None,
+             schema: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_arn", data_source_arn)
+        _setter("input_columns", input_columns)
+        _setter("name", name)
         if catalog is not None:
-            pulumi.set(__self__, "catalog", catalog)
+            _setter("catalog", catalog)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="dataSourceArn")
@@ -2824,8 +3474,19 @@ class DataSetPhysicalTableMapRelationalTableInputColumn(dict):
         :param str name: Name of this column in the underlying data source.
         :param str type: Data type of the column.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DataSetPhysicalTableMapRelationalTableInputColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2876,9 +3537,22 @@ class DataSetPhysicalTableMapS3Source(dict):
         :param Sequence['DataSetPhysicalTableMapS3SourceInputColumnArgs'] input_columns: Column schema of the table. See input_columns.
         :param 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs' upload_settings: Information about the format for the S3 source file or files. See upload_settings.
         """
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "upload_settings", upload_settings)
+        DataSetPhysicalTableMapS3Source._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_arn=data_source_arn,
+            input_columns=input_columns,
+            upload_settings=upload_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_arn: str,
+             input_columns: Sequence['outputs.DataSetPhysicalTableMapS3SourceInputColumn'],
+             upload_settings: 'outputs.DataSetPhysicalTableMapS3SourceUploadSettings',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_arn", data_source_arn)
+        _setter("input_columns", input_columns)
+        _setter("upload_settings", upload_settings)
 
     @property
     @pulumi.getter(name="dataSourceArn")
@@ -2914,8 +3588,19 @@ class DataSetPhysicalTableMapS3SourceInputColumn(dict):
         :param str name: Name of this column in the underlying data source.
         :param str type: Data type of the column.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DataSetPhysicalTableMapS3SourceInputColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2970,16 +3655,33 @@ class DataSetPhysicalTableMapS3SourceUploadSettings(dict):
         :param int start_from_row: A row number to start reading data from.
         :param str text_qualifier: Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
         """
+        DataSetPhysicalTableMapS3SourceUploadSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contains_header=contains_header,
+            delimiter=delimiter,
+            format=format,
+            start_from_row=start_from_row,
+            text_qualifier=text_qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contains_header: Optional[bool] = None,
+             delimiter: Optional[str] = None,
+             format: Optional[str] = None,
+             start_from_row: Optional[int] = None,
+             text_qualifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if contains_header is not None:
-            pulumi.set(__self__, "contains_header", contains_header)
+            _setter("contains_header", contains_header)
         if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
+            _setter("delimiter", delimiter)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if start_from_row is not None:
-            pulumi.set(__self__, "start_from_row", start_from_row)
+            _setter("start_from_row", start_from_row)
         if text_qualifier is not None:
-            pulumi.set(__self__, "text_qualifier", text_qualifier)
+            _setter("text_qualifier", text_qualifier)
 
     @property
     @pulumi.getter(name="containsHeader")
@@ -3046,7 +3748,16 @@ class DataSetRefreshProperties(dict):
         """
         :param 'DataSetRefreshPropertiesRefreshConfigurationArgs' refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
         """
-        pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+        DataSetRefreshProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            refresh_configuration=refresh_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             refresh_configuration: 'outputs.DataSetRefreshPropertiesRefreshConfiguration',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("refresh_configuration", refresh_configuration)
 
     @property
     @pulumi.getter(name="refreshConfiguration")
@@ -3081,7 +3792,16 @@ class DataSetRefreshPropertiesRefreshConfiguration(dict):
         """
         :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs' incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
         """
-        pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+        DataSetRefreshPropertiesRefreshConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incremental_refresh=incremental_refresh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incremental_refresh: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("incremental_refresh", incremental_refresh)
 
     @property
     @pulumi.getter(name="incrementalRefresh")
@@ -3116,7 +3836,16 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
         """
         :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs' lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
         """
-        pulumi.set(__self__, "lookback_window", lookback_window)
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lookback_window=lookback_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lookback_window: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lookback_window", lookback_window)
 
     @property
     @pulumi.getter(name="lookbackWindow")
@@ -3157,9 +3886,22 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
         :param int size: The lookback window column size.
         :param str size_unit: The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "size_unit", size_unit)
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            size=size,
+            size_unit=size_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             size: int,
+             size_unit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("size", size)
+        _setter("size_unit", size_unit)
 
     @property
     @pulumi.getter(name="columnName")
@@ -3220,14 +3962,31 @@ class DataSetRowLevelPermissionDataSet(dict):
         :param str namespace: Namespace associated with the dataset that contains permissions for RLS.
         :param str status: Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "permission_policy", permission_policy)
+        DataSetRowLevelPermissionDataSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            permission_policy=permission_policy,
+            format_version=format_version,
+            namespace=namespace,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             permission_policy: str,
+             format_version: Optional[str] = None,
+             namespace: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("permission_policy", permission_policy)
         if format_version is not None:
-            pulumi.set(__self__, "format_version", format_version)
+            _setter("format_version", format_version)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -3296,9 +4055,20 @@ class DataSetRowLevelPermissionTagConfiguration(dict):
         :param Sequence['DataSetRowLevelPermissionTagConfigurationTagRuleArgs'] tag_rules: A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
         :param str status: The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         """
-        pulumi.set(__self__, "tag_rules", tag_rules)
+        DataSetRowLevelPermissionTagConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag_rules=tag_rules,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag_rules: Sequence['outputs.DataSetRowLevelPermissionTagConfigurationTagRule'],
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tag_rules", tag_rules)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="tagRules")
@@ -3353,12 +4123,27 @@ class DataSetRowLevelPermissionTagConfigurationTagRule(dict):
         :param str match_all_value: A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
         :param str tag_multi_value_delimiter: A string that you want to use to delimit the values when you pass the values at run time.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tag_key", tag_key)
+        DataSetRowLevelPermissionTagConfigurationTagRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            tag_key=tag_key,
+            match_all_value=match_all_value,
+            tag_multi_value_delimiter=tag_multi_value_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             tag_key: str,
+             match_all_value: Optional[str] = None,
+             tag_multi_value_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("tag_key", tag_key)
         if match_all_value is not None:
-            pulumi.set(__self__, "match_all_value", match_all_value)
+            _setter("match_all_value", match_all_value)
         if tag_multi_value_delimiter is not None:
-            pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+            _setter("tag_multi_value_delimiter", tag_multi_value_delimiter)
 
     @property
     @pulumi.getter(name="columnName")
@@ -3422,10 +4207,21 @@ class DataSourceCredentials(dict):
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
         :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
         """
+        DataSourceCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_source_arn=copy_source_arn,
+            credential_pair=credential_pair,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_source_arn: Optional[str] = None,
+             credential_pair: Optional['outputs.DataSourceCredentialsCredentialPair'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if copy_source_arn is not None:
-            pulumi.set(__self__, "copy_source_arn", copy_source_arn)
+            _setter("copy_source_arn", copy_source_arn)
         if credential_pair is not None:
-            pulumi.set(__self__, "credential_pair", credential_pair)
+            _setter("credential_pair", credential_pair)
 
     @property
     @pulumi.getter(name="copySourceArn")
@@ -3454,8 +4250,19 @@ class DataSourceCredentialsCredentialPair(dict):
         :param str password: Password, maximum length of 1024 characters.
         :param str username: User name, maximum length of 64 characters.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        DataSourceCredentialsCredentialPair._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3546,46 +4353,93 @@ class DataSourceParameters(dict):
         :param 'DataSourceParametersTeradataArgs' teradata: Parameters for connecting to Teradata.
         :param 'DataSourceParametersTwitterArgs' twitter: Parameters for connecting to Twitter.
         """
+        DataSourceParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_elasticsearch=amazon_elasticsearch,
+            athena=athena,
+            aurora=aurora,
+            aurora_postgresql=aurora_postgresql,
+            aws_iot_analytics=aws_iot_analytics,
+            jira=jira,
+            maria_db=maria_db,
+            mysql=mysql,
+            oracle=oracle,
+            postgresql=postgresql,
+            presto=presto,
+            rds=rds,
+            redshift=redshift,
+            s3=s3,
+            service_now=service_now,
+            snowflake=snowflake,
+            spark=spark,
+            sql_server=sql_server,
+            teradata=teradata,
+            twitter=twitter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_elasticsearch: Optional['outputs.DataSourceParametersAmazonElasticsearch'] = None,
+             athena: Optional['outputs.DataSourceParametersAthena'] = None,
+             aurora: Optional['outputs.DataSourceParametersAurora'] = None,
+             aurora_postgresql: Optional['outputs.DataSourceParametersAuroraPostgresql'] = None,
+             aws_iot_analytics: Optional['outputs.DataSourceParametersAwsIotAnalytics'] = None,
+             jira: Optional['outputs.DataSourceParametersJira'] = None,
+             maria_db: Optional['outputs.DataSourceParametersMariaDb'] = None,
+             mysql: Optional['outputs.DataSourceParametersMysql'] = None,
+             oracle: Optional['outputs.DataSourceParametersOracle'] = None,
+             postgresql: Optional['outputs.DataSourceParametersPostgresql'] = None,
+             presto: Optional['outputs.DataSourceParametersPresto'] = None,
+             rds: Optional['outputs.DataSourceParametersRds'] = None,
+             redshift: Optional['outputs.DataSourceParametersRedshift'] = None,
+             s3: Optional['outputs.DataSourceParametersS3'] = None,
+             service_now: Optional['outputs.DataSourceParametersServiceNow'] = None,
+             snowflake: Optional['outputs.DataSourceParametersSnowflake'] = None,
+             spark: Optional['outputs.DataSourceParametersSpark'] = None,
+             sql_server: Optional['outputs.DataSourceParametersSqlServer'] = None,
+             teradata: Optional['outputs.DataSourceParametersTeradata'] = None,
+             twitter: Optional['outputs.DataSourceParametersTwitter'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_elasticsearch is not None:
-            pulumi.set(__self__, "amazon_elasticsearch", amazon_elasticsearch)
+            _setter("amazon_elasticsearch", amazon_elasticsearch)
         if athena is not None:
-            pulumi.set(__self__, "athena", athena)
+            _setter("athena", athena)
         if aurora is not None:
-            pulumi.set(__self__, "aurora", aurora)
+            _setter("aurora", aurora)
         if aurora_postgresql is not None:
-            pulumi.set(__self__, "aurora_postgresql", aurora_postgresql)
+            _setter("aurora_postgresql", aurora_postgresql)
         if aws_iot_analytics is not None:
-            pulumi.set(__self__, "aws_iot_analytics", aws_iot_analytics)
+            _setter("aws_iot_analytics", aws_iot_analytics)
         if jira is not None:
-            pulumi.set(__self__, "jira", jira)
+            _setter("jira", jira)
         if maria_db is not None:
-            pulumi.set(__self__, "maria_db", maria_db)
+            _setter("maria_db", maria_db)
         if mysql is not None:
-            pulumi.set(__self__, "mysql", mysql)
+            _setter("mysql", mysql)
         if oracle is not None:
-            pulumi.set(__self__, "oracle", oracle)
+            _setter("oracle", oracle)
         if postgresql is not None:
-            pulumi.set(__self__, "postgresql", postgresql)
+            _setter("postgresql", postgresql)
         if presto is not None:
-            pulumi.set(__self__, "presto", presto)
+            _setter("presto", presto)
         if rds is not None:
-            pulumi.set(__self__, "rds", rds)
+            _setter("rds", rds)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if snowflake is not None:
-            pulumi.set(__self__, "snowflake", snowflake)
+            _setter("snowflake", snowflake)
         if spark is not None:
-            pulumi.set(__self__, "spark", spark)
+            _setter("spark", spark)
         if sql_server is not None:
-            pulumi.set(__self__, "sql_server", sql_server)
+            _setter("sql_server", sql_server)
         if teradata is not None:
-            pulumi.set(__self__, "teradata", teradata)
+            _setter("teradata", teradata)
         if twitter is not None:
-            pulumi.set(__self__, "twitter", twitter)
+            _setter("twitter", twitter)
 
     @property
     @pulumi.getter(name="amazonElasticsearch")
@@ -3755,7 +4609,16 @@ class DataSourceParametersAmazonElasticsearch(dict):
         """
         :param str domain: The OpenSearch domain.
         """
-        pulumi.set(__self__, "domain", domain)
+        DataSourceParametersAmazonElasticsearch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
 
     @property
     @pulumi.getter
@@ -3790,8 +4653,17 @@ class DataSourceParametersAthena(dict):
         """
         :param str work_group: The work-group to which to connect.
         """
+        DataSourceParametersAthena._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            work_group=work_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             work_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if work_group is not None:
-            pulumi.set(__self__, "work_group", work_group)
+            _setter("work_group", work_group)
 
     @property
     @pulumi.getter(name="workGroup")
@@ -3813,9 +4685,22 @@ class DataSourceParametersAurora(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersAurora._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -3853,9 +4738,22 @@ class DataSourceParametersAuroraPostgresql(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersAuroraPostgresql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -3906,7 +4804,16 @@ class DataSourceParametersAwsIotAnalytics(dict):
         """
         :param str data_set_name: The name of the data set to which to connect.
         """
-        pulumi.set(__self__, "data_set_name", data_set_name)
+        DataSourceParametersAwsIotAnalytics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_name=data_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="dataSetName")
@@ -3941,7 +4848,16 @@ class DataSourceParametersJira(dict):
         """
         :param str site_base_url: The base URL of the Jira instance's site to which to connect.
         """
-        pulumi.set(__self__, "site_base_url", site_base_url)
+        DataSourceParametersJira._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            site_base_url=site_base_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             site_base_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
@@ -3963,9 +4879,22 @@ class DataSourceParametersMariaDb(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersMariaDb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4003,9 +4932,22 @@ class DataSourceParametersMysql(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersMysql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4043,9 +4985,22 @@ class DataSourceParametersOracle(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersOracle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4083,9 +5038,22 @@ class DataSourceParametersPostgresql(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersPostgresql._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4123,9 +5091,22 @@ class DataSourceParametersPresto(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "catalog", catalog)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersPresto._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog", catalog)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4178,8 +5159,19 @@ class DataSourceParametersRds(dict):
         :param str database: The database to which to connect.
         :param str instance_id: The instance ID to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "instance_id", instance_id)
+        DataSourceParametersRds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            instance_id=instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             instance_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("instance_id", instance_id)
 
     @property
     @pulumi.getter
@@ -4228,13 +5220,28 @@ class DataSourceParametersRedshift(dict):
         :param str host: The host to which to connect.
         :param int port: The port to which to connect.
         """
-        pulumi.set(__self__, "database", database)
+        DataSourceParametersRedshift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            cluster_id=cluster_id,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             cluster_id: Optional[str] = None,
+             host: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4293,7 +5300,16 @@ class DataSourceParametersS3(dict):
         """
         :param 'DataSourceParametersS3ManifestFileLocationArgs' manifest_file_location: An object containing the S3 location of the S3 manifest file.
         """
-        pulumi.set(__self__, "manifest_file_location", manifest_file_location)
+        DataSourceParametersS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            manifest_file_location=manifest_file_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             manifest_file_location: 'outputs.DataSourceParametersS3ManifestFileLocation',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("manifest_file_location", manifest_file_location)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
@@ -4313,8 +5329,19 @@ class DataSourceParametersS3ManifestFileLocation(dict):
         :param str bucket: The name of the bucket that contains the manifest file.
         :param str key: The key of the manifest file within the bucket.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
+        DataSourceParametersS3ManifestFileLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: str,
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -4357,7 +5384,16 @@ class DataSourceParametersServiceNow(dict):
         """
         :param str site_base_url: The base URL of the Jira instance's site to which to connect.
         """
-        pulumi.set(__self__, "site_base_url", site_base_url)
+        DataSourceParametersServiceNow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            site_base_url=site_base_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             site_base_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
@@ -4379,9 +5415,22 @@ class DataSourceParametersSnowflake(dict):
         :param str host: The host to which to connect.
         :param str warehouse: The warehouse to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "warehouse", warehouse)
+        DataSourceParametersSnowflake._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            warehouse=warehouse,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             warehouse: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("warehouse", warehouse)
 
     @property
     @pulumi.getter
@@ -4417,8 +5466,19 @@ class DataSourceParametersSpark(dict):
         :param str host: The host to which to connect.
         :param int port: The warehouse to which to connect.
         """
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersSpark._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4448,9 +5508,22 @@ class DataSourceParametersSqlServer(dict):
         :param str host: The host to which to connect.
         :param int port: The warehouse to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersSqlServer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4488,9 +5561,22 @@ class DataSourceParametersTeradata(dict):
         :param str host: The host to which to connect.
         :param int port: The warehouse to which to connect.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
+        DataSourceParametersTeradata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            host=host,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: str,
+             host: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database", database)
+        _setter("host", host)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4543,8 +5629,19 @@ class DataSourceParametersTwitter(dict):
         :param int max_rows: The maximum number of rows to query.
         :param str query: The Twitter query to retrieve the data.
         """
-        pulumi.set(__self__, "max_rows", max_rows)
-        pulumi.set(__self__, "query", query)
+        DataSourceParametersTwitter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_rows=max_rows,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_rows: int,
+             query: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_rows", max_rows)
+        _setter("query", query)
 
     @property
     @pulumi.getter(name="maxRows")
@@ -4572,8 +5669,19 @@ class DataSourcePermission(dict):
         :param Sequence[str] actions: Set of IAM actions to grant or revoke permissions on. Max of 16 items.
         :param str principal: The Amazon Resource Name (ARN) of the principal.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        DataSourcePermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -4616,7 +5724,16 @@ class DataSourceSslProperties(dict):
         """
         :param bool disable_ssl: A Boolean option to control whether SSL should be disabled.
         """
-        pulumi.set(__self__, "disable_ssl", disable_ssl)
+        DataSourceSslProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_ssl=disable_ssl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_ssl: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disable_ssl", disable_ssl)
 
     @property
     @pulumi.getter(name="disableSsl")
@@ -4651,7 +5768,16 @@ class DataSourceVpcConnectionProperties(dict):
         """
         :param str vpc_connection_arn: The Amazon Resource Name (ARN) for the VPC connection.
         """
-        pulumi.set(__self__, "vpc_connection_arn", vpc_connection_arn)
+        DataSourceVpcConnectionProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_connection_arn=vpc_connection_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_connection_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_connection_arn", vpc_connection_arn)
 
     @property
     @pulumi.getter(name="vpcConnectionArn")
@@ -4671,8 +5797,19 @@ class FolderPermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        FolderPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -4699,10 +5836,21 @@ class IamPolicyAssignmentIdentities(dict):
         """
         :param Sequence[str] users: Array of Quicksight user names to assign the policy to.
         """
+        IamPolicyAssignmentIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[Sequence[str]] = None,
+             users: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter
@@ -4723,10 +5871,21 @@ class NamespaceTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
+        NamespaceTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
 
     @property
     @pulumi.getter
@@ -4771,11 +5930,24 @@ class RefreshScheduleSchedule(dict):
         :param 'RefreshScheduleScheduleScheduleFrequencyArgs' schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         :param str start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         """
-        pulumi.set(__self__, "refresh_type", refresh_type)
+        RefreshScheduleSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            refresh_type=refresh_type,
+            schedule_frequency=schedule_frequency,
+            start_after_date_time=start_after_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             refresh_type: str,
+             schedule_frequency: Optional['outputs.RefreshScheduleScheduleScheduleFrequency'] = None,
+             start_after_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("refresh_type", refresh_type)
         if schedule_frequency is not None:
-            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+            _setter("schedule_frequency", schedule_frequency)
         if start_after_date_time is not None:
-            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+            _setter("start_after_date_time", start_after_date_time)
 
     @property
     @pulumi.getter(name="refreshType")
@@ -4834,13 +6006,28 @@ class RefreshScheduleScheduleScheduleFrequency(dict):
         :param str time_of_the_day: The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         :param str timezone: The timezone that you want the refresh schedule to use.
         """
-        pulumi.set(__self__, "interval", interval)
+        RefreshScheduleScheduleScheduleFrequency._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            refresh_on_day=refresh_on_day,
+            time_of_the_day=time_of_the_day,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: str,
+             refresh_on_day: Optional['outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay'] = None,
+             time_of_the_day: Optional[str] = None,
+             timezone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interval", interval)
         if refresh_on_day is not None:
-            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+            _setter("refresh_on_day", refresh_on_day)
         if time_of_the_day is not None:
-            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+            _setter("time_of_the_day", time_of_the_day)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -4903,10 +6090,21 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay(dict):
         :param str day_of_month: The day of the month that you want to schedule refresh on.
         :param str day_of_week: The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
         """
+        RefreshScheduleScheduleScheduleFrequencyRefreshOnDay._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_month=day_of_month,
+            day_of_week=day_of_week,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_month: Optional[str] = None,
+             day_of_week: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
 
     @property
     @pulumi.getter(name="dayOfMonth")
@@ -4934,8 +6132,19 @@ class TemplatePermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        TemplatePermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -4982,10 +6191,21 @@ class TemplateSourceEntity(dict):
         :param 'TemplateSourceEntitySourceAnalysisArgs' source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
         :param 'TemplateSourceEntitySourceTemplateArgs' source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
         """
+        TemplateSourceEntity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_analysis=source_analysis,
+            source_template=source_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_analysis: Optional['outputs.TemplateSourceEntitySourceAnalysis'] = None,
+             source_template: Optional['outputs.TemplateSourceEntitySourceTemplate'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if source_analysis is not None:
-            pulumi.set(__self__, "source_analysis", source_analysis)
+            _setter("source_analysis", source_analysis)
         if source_template is not None:
-            pulumi.set(__self__, "source_template", source_template)
+            _setter("source_template", source_template)
 
     @property
     @pulumi.getter(name="sourceAnalysis")
@@ -5030,8 +6250,19 @@ class TemplateSourceEntitySourceAnalysis(dict):
         :param str arn: The Amazon Resource Name (ARN) of the resource.
         :param Sequence['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs'] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "data_set_references", data_set_references)
+        TemplateSourceEntitySourceAnalysis._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_set_references=data_set_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             data_set_references: Sequence['outputs.TemplateSourceEntitySourceAnalysisDataSetReference'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("data_set_references", data_set_references)
 
     @property
     @pulumi.getter
@@ -5078,8 +6309,19 @@ class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
         :param str data_set_arn: Dataset Amazon Resource Name (ARN).
         :param str data_set_placeholder: Dataset placeholder.
         """
-        pulumi.set(__self__, "data_set_arn", data_set_arn)
-        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+        TemplateSourceEntitySourceAnalysisDataSetReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_arn=data_set_arn,
+            data_set_placeholder=data_set_placeholder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_arn: str,
+             data_set_placeholder: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_set_arn", data_set_arn)
+        _setter("data_set_placeholder", data_set_placeholder)
 
     @property
     @pulumi.getter(name="dataSetArn")
@@ -5105,7 +6347,16 @@ class TemplateSourceEntitySourceTemplate(dict):
         """
         :param str arn: The Amazon Resource Name (ARN) of the resource.
         """
-        pulumi.set(__self__, "arn", arn)
+        TemplateSourceEntitySourceTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -5148,14 +6399,29 @@ class ThemeConfiguration(dict):
         :param 'ThemeConfigurationTypographyArgs' typography: Determines the typography options. See typography.
         :param 'ThemeConfigurationUiColorPaletteArgs' ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
+        ThemeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_color_palette=data_color_palette,
+            sheet=sheet,
+            typography=typography,
+            ui_color_palette=ui_color_palette,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_color_palette: Optional['outputs.ThemeConfigurationDataColorPalette'] = None,
+             sheet: Optional['outputs.ThemeConfigurationSheet'] = None,
+             typography: Optional['outputs.ThemeConfigurationTypography'] = None,
+             ui_color_palette: Optional['outputs.ThemeConfigurationUiColorPalette'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_color_palette is not None:
-            pulumi.set(__self__, "data_color_palette", data_color_palette)
+            _setter("data_color_palette", data_color_palette)
         if sheet is not None:
-            pulumi.set(__self__, "sheet", sheet)
+            _setter("sheet", sheet)
         if typography is not None:
-            pulumi.set(__self__, "typography", typography)
+            _setter("typography", typography)
         if ui_color_palette is not None:
-            pulumi.set(__self__, "ui_color_palette", ui_color_palette)
+            _setter("ui_color_palette", ui_color_palette)
 
     @property
     @pulumi.getter(name="dataColorPalette")
@@ -5220,12 +6486,25 @@ class ThemeConfigurationDataColorPalette(dict):
         :param str empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         :param Sequence[str] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
+        ThemeConfigurationDataColorPalette._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            colors=colors,
+            empty_fill_color=empty_fill_color,
+            min_max_gradients=min_max_gradients,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             colors: Optional[Sequence[str]] = None,
+             empty_fill_color: Optional[str] = None,
+             min_max_gradients: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if colors is not None:
-            pulumi.set(__self__, "colors", colors)
+            _setter("colors", colors)
         if empty_fill_color is not None:
-            pulumi.set(__self__, "empty_fill_color", empty_fill_color)
+            _setter("empty_fill_color", empty_fill_color)
         if min_max_gradients is not None:
-            pulumi.set(__self__, "min_max_gradients", min_max_gradients)
+            _setter("min_max_gradients", min_max_gradients)
 
     @property
     @pulumi.getter
@@ -5278,10 +6557,21 @@ class ThemeConfigurationSheet(dict):
         :param 'ThemeConfigurationSheetTileArgs' tile: The display options for tiles. See tile.
         :param 'ThemeConfigurationSheetTileLayoutArgs' tile_layout: The layout options for tiles. See tile_layout.
         """
+        ThemeConfigurationSheet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tile=tile,
+            tile_layout=tile_layout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tile: Optional['outputs.ThemeConfigurationSheetTile'] = None,
+             tile_layout: Optional['outputs.ThemeConfigurationSheetTileLayout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tile is not None:
-            pulumi.set(__self__, "tile", tile)
+            _setter("tile", tile)
         if tile_layout is not None:
-            pulumi.set(__self__, "tile_layout", tile_layout)
+            _setter("tile_layout", tile_layout)
 
     @property
     @pulumi.getter
@@ -5307,8 +6597,17 @@ class ThemeConfigurationSheetTile(dict):
         """
         :param 'ThemeConfigurationSheetTileBorderArgs' border: The border around a tile. See border.
         """
+        ThemeConfigurationSheetTile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            border=border,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             border: Optional['outputs.ThemeConfigurationSheetTileBorder'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if border is not None:
-            pulumi.set(__self__, "border", border)
+            _setter("border", border)
 
     @property
     @pulumi.getter
@@ -5326,8 +6625,17 @@ class ThemeConfigurationSheetTileBorder(dict):
         """
         :param bool show: The option to enable display of borders for visuals.
         """
+        ThemeConfigurationSheetTileBorder._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if show is not None:
-            pulumi.set(__self__, "show", show)
+            _setter("show", show)
 
     @property
     @pulumi.getter
@@ -5347,10 +6655,21 @@ class ThemeConfigurationSheetTileLayout(dict):
         :param 'ThemeConfigurationSheetTileLayoutGutterArgs' gutter: The gutter settings that apply between tiles. See gutter.
         :param 'ThemeConfigurationSheetTileLayoutMarginArgs' margin: The margin settings that apply around the outside edge of sheets. See margin.
         """
+        ThemeConfigurationSheetTileLayout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gutter=gutter,
+            margin=margin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gutter: Optional['outputs.ThemeConfigurationSheetTileLayoutGutter'] = None,
+             margin: Optional['outputs.ThemeConfigurationSheetTileLayoutMargin'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gutter is not None:
-            pulumi.set(__self__, "gutter", gutter)
+            _setter("gutter", gutter)
         if margin is not None:
-            pulumi.set(__self__, "margin", margin)
+            _setter("margin", margin)
 
     @property
     @pulumi.getter
@@ -5376,8 +6695,17 @@ class ThemeConfigurationSheetTileLayoutGutter(dict):
         """
         :param bool show: This Boolean value controls whether to display a gutter space between sheet tiles.
         """
+        ThemeConfigurationSheetTileLayoutGutter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if show is not None:
-            pulumi.set(__self__, "show", show)
+            _setter("show", show)
 
     @property
     @pulumi.getter
@@ -5395,8 +6723,17 @@ class ThemeConfigurationSheetTileLayoutMargin(dict):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
+        ThemeConfigurationSheetTileLayoutMargin._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if show is not None:
-            pulumi.set(__self__, "show", show)
+            _setter("show", show)
 
     @property
     @pulumi.getter
@@ -5431,8 +6768,17 @@ class ThemeConfigurationTypography(dict):
         """
         :param Sequence['ThemeConfigurationTypographyFontFamilyArgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
         """
+        ThemeConfigurationTypography._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_families=font_families,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_families: Optional[Sequence['outputs.ThemeConfigurationTypographyFontFamily']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if font_families is not None:
-            pulumi.set(__self__, "font_families", font_families)
+            _setter("font_families", font_families)
 
     @property
     @pulumi.getter(name="fontFamilies")
@@ -5467,8 +6813,17 @@ class ThemeConfigurationTypographyFontFamily(dict):
         """
         :param str font_family: Font family name.
         """
+        ThemeConfigurationTypographyFontFamily._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_family=font_family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_family: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if font_family is not None:
-            pulumi.set(__self__, "font_family", font_family)
+            _setter("font_family", font_family)
 
     @property
     @pulumi.getter(name="fontFamily")
@@ -5551,38 +6906,77 @@ class ThemeConfigurationUiColorPalette(dict):
         :param str warning: Color (hexadecimal) that applies to warning and informational messages.
         :param str warning_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
         """
+        ThemeConfigurationUiColorPalette._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accent=accent,
+            accent_foreground=accent_foreground,
+            danger=danger,
+            danger_foreground=danger_foreground,
+            dimension=dimension,
+            dimension_foreground=dimension_foreground,
+            measure=measure,
+            measure_foreground=measure_foreground,
+            primary_background=primary_background,
+            primary_foreground=primary_foreground,
+            secondary_background=secondary_background,
+            secondary_foreground=secondary_foreground,
+            success=success,
+            success_foreground=success_foreground,
+            warning=warning,
+            warning_foreground=warning_foreground,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accent: Optional[str] = None,
+             accent_foreground: Optional[str] = None,
+             danger: Optional[str] = None,
+             danger_foreground: Optional[str] = None,
+             dimension: Optional[str] = None,
+             dimension_foreground: Optional[str] = None,
+             measure: Optional[str] = None,
+             measure_foreground: Optional[str] = None,
+             primary_background: Optional[str] = None,
+             primary_foreground: Optional[str] = None,
+             secondary_background: Optional[str] = None,
+             secondary_foreground: Optional[str] = None,
+             success: Optional[str] = None,
+             success_foreground: Optional[str] = None,
+             warning: Optional[str] = None,
+             warning_foreground: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accent is not None:
-            pulumi.set(__self__, "accent", accent)
+            _setter("accent", accent)
         if accent_foreground is not None:
-            pulumi.set(__self__, "accent_foreground", accent_foreground)
+            _setter("accent_foreground", accent_foreground)
         if danger is not None:
-            pulumi.set(__self__, "danger", danger)
+            _setter("danger", danger)
         if danger_foreground is not None:
-            pulumi.set(__self__, "danger_foreground", danger_foreground)
+            _setter("danger_foreground", danger_foreground)
         if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+            _setter("dimension", dimension)
         if dimension_foreground is not None:
-            pulumi.set(__self__, "dimension_foreground", dimension_foreground)
+            _setter("dimension_foreground", dimension_foreground)
         if measure is not None:
-            pulumi.set(__self__, "measure", measure)
+            _setter("measure", measure)
         if measure_foreground is not None:
-            pulumi.set(__self__, "measure_foreground", measure_foreground)
+            _setter("measure_foreground", measure_foreground)
         if primary_background is not None:
-            pulumi.set(__self__, "primary_background", primary_background)
+            _setter("primary_background", primary_background)
         if primary_foreground is not None:
-            pulumi.set(__self__, "primary_foreground", primary_foreground)
+            _setter("primary_foreground", primary_foreground)
         if secondary_background is not None:
-            pulumi.set(__self__, "secondary_background", secondary_background)
+            _setter("secondary_background", secondary_background)
         if secondary_foreground is not None:
-            pulumi.set(__self__, "secondary_foreground", secondary_foreground)
+            _setter("secondary_foreground", secondary_foreground)
         if success is not None:
-            pulumi.set(__self__, "success", success)
+            _setter("success", success)
         if success_foreground is not None:
-            pulumi.set(__self__, "success_foreground", success_foreground)
+            _setter("success_foreground", success_foreground)
         if warning is not None:
-            pulumi.set(__self__, "warning", warning)
+            _setter("warning", warning)
         if warning_foreground is not None:
-            pulumi.set(__self__, "warning_foreground", warning_foreground)
+            _setter("warning_foreground", warning_foreground)
 
     @property
     @pulumi.getter
@@ -5722,8 +7116,19 @@ class ThemePermission(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        ThemePermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -5748,12 +7153,25 @@ class VpcConnectionTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
+        VpcConnectionTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             update: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter
@@ -5775,7 +7193,16 @@ class VpcConnectionTimeouts(dict):
 class GetDataSetColumnGroupResult(dict):
     def __init__(__self__, *,
                  geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']):
-        pulumi.set(__self__, "geo_spatial_column_groups", geo_spatial_column_groups)
+        GetDataSetColumnGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_spatial_column_groups=geo_spatial_column_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("geo_spatial_column_groups", geo_spatial_column_groups)
 
     @property
     @pulumi.getter(name="geoSpatialColumnGroups")
@@ -5789,9 +7216,22 @@ class GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
                  columns: Sequence[str],
                  country_code: str,
                  name: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "country_code", country_code)
-        pulumi.set(__self__, "name", name)
+        GetDataSetColumnGroupGeoSpatialColumnGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            country_code=country_code,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence[str],
+             country_code: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("country_code", country_code)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -5814,8 +7254,19 @@ class GetDataSetColumnLevelPermissionRuleResult(dict):
     def __init__(__self__, *,
                  column_names: Sequence[str],
                  principals: Sequence[str]):
-        pulumi.set(__self__, "column_names", column_names)
-        pulumi.set(__self__, "principals", principals)
+        GetDataSetColumnLevelPermissionRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_names=column_names,
+            principals=principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_names: Sequence[str],
+             principals: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_names", column_names)
+        _setter("principals", principals)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -5833,8 +7284,19 @@ class GetDataSetDataSetUsageConfigurationResult(dict):
     def __init__(__self__, *,
                  disable_use_as_direct_query_source: bool,
                  disable_use_as_imported_source: bool):
-        pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
-        pulumi.set(__self__, "disable_use_as_imported_source", disable_use_as_imported_source)
+        GetDataSetDataSetUsageConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_use_as_direct_query_source=disable_use_as_direct_query_source,
+            disable_use_as_imported_source=disable_use_as_imported_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_use_as_direct_query_source: bool,
+             disable_use_as_imported_source: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disable_use_as_direct_query_source", disable_use_as_direct_query_source)
+        _setter("disable_use_as_imported_source", disable_use_as_imported_source)
 
     @property
     @pulumi.getter(name="disableUseAsDirectQuerySource")
@@ -5853,9 +7315,22 @@ class GetDataSetFieldFolderResult(dict):
                  columns: Sequence[str],
                  description: str,
                  field_folders_id: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "field_folders_id", field_folders_id)
+        GetDataSetFieldFolderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            description=description,
+            field_folders_id=field_folders_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence[str],
+             description: str,
+             field_folders_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("description", description)
+        _setter("field_folders_id", field_folders_id)
 
     @property
     @pulumi.getter
@@ -5880,10 +7355,25 @@ class GetDataSetLogicalTableMapResult(dict):
                  data_transforms: Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult'],
                  logical_table_map_id: str,
                  sources: Sequence['outputs.GetDataSetLogicalTableMapSourceResult']):
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "data_transforms", data_transforms)
-        pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
-        pulumi.set(__self__, "sources", sources)
+        GetDataSetLogicalTableMapResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            data_transforms=data_transforms,
+            logical_table_map_id=logical_table_map_id,
+            sources=sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: str,
+             data_transforms: Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult'],
+             logical_table_map_id: str,
+             sources: Sequence['outputs.GetDataSetLogicalTableMapSourceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alias", alias)
+        _setter("data_transforms", data_transforms)
+        _setter("logical_table_map_id", logical_table_map_id)
+        _setter("sources", sources)
 
     @property
     @pulumi.getter
@@ -5916,13 +7406,34 @@ class GetDataSetLogicalTableMapDataTransformResult(dict):
                  rename_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult'],
                  tag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult'],
                  untag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult']):
-        pulumi.set(__self__, "cast_column_type_operations", cast_column_type_operations)
-        pulumi.set(__self__, "create_columns_operations", create_columns_operations)
-        pulumi.set(__self__, "filter_operations", filter_operations)
-        pulumi.set(__self__, "project_operations", project_operations)
-        pulumi.set(__self__, "rename_column_operations", rename_column_operations)
-        pulumi.set(__self__, "tag_column_operations", tag_column_operations)
-        pulumi.set(__self__, "untag_column_operations", untag_column_operations)
+        GetDataSetLogicalTableMapDataTransformResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cast_column_type_operations=cast_column_type_operations,
+            create_columns_operations=create_columns_operations,
+            filter_operations=filter_operations,
+            project_operations=project_operations,
+            rename_column_operations=rename_column_operations,
+            tag_column_operations=tag_column_operations,
+            untag_column_operations=untag_column_operations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cast_column_type_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult'],
+             create_columns_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult'],
+             filter_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformFilterOperationResult'],
+             project_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformProjectOperationResult'],
+             rename_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult'],
+             tag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationResult'],
+             untag_column_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cast_column_type_operations", cast_column_type_operations)
+        _setter("create_columns_operations", create_columns_operations)
+        _setter("filter_operations", filter_operations)
+        _setter("project_operations", project_operations)
+        _setter("rename_column_operations", rename_column_operations)
+        _setter("tag_column_operations", tag_column_operations)
+        _setter("untag_column_operations", untag_column_operations)
 
     @property
     @pulumi.getter(name="castColumnTypeOperations")
@@ -5966,9 +7477,22 @@ class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
                  column_name: str,
                  format: str,
                  new_column_type: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "new_column_type", new_column_type)
+        GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            format=format,
+            new_column_type=new_column_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             format: str,
+             new_column_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("format", format)
+        _setter("new_column_type", new_column_type)
 
     @property
     @pulumi.getter(name="columnName")
@@ -5990,7 +7514,16 @@ class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
 class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']):
-        pulumi.set(__self__, "columns", columns)
+        GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -6004,9 +7537,22 @@ class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(d
                  column_id: str,
                  column_name: str,
                  expression: str):
-        pulumi.set(__self__, "column_id", column_id)
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "expression", expression)
+        GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_id=column_id,
+            column_name=column_name,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_id: str,
+             column_name: str,
+             expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_id", column_id)
+        _setter("column_name", column_name)
+        _setter("expression", expression)
 
     @property
     @pulumi.getter(name="columnId")
@@ -6028,7 +7574,16 @@ class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(d
 class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
     def __init__(__self__, *,
                  condition_expression: str):
-        pulumi.set(__self__, "condition_expression", condition_expression)
+        GetDataSetLogicalTableMapDataTransformFilterOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition_expression=condition_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition_expression: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("condition_expression", condition_expression)
 
     @property
     @pulumi.getter(name="conditionExpression")
@@ -6040,7 +7595,16 @@ class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
 class GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
     def __init__(__self__, *,
                  projected_columns: Sequence[str]):
-        pulumi.set(__self__, "projected_columns", projected_columns)
+        GetDataSetLogicalTableMapDataTransformProjectOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            projected_columns=projected_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             projected_columns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("projected_columns", projected_columns)
 
     @property
     @pulumi.getter(name="projectedColumns")
@@ -6053,8 +7617,19 @@ class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  new_column_name: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_name", new_column_name)
+        GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            new_column_name=new_column_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             new_column_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("new_column_name", new_column_name)
 
     @property
     @pulumi.getter(name="columnName")
@@ -6072,8 +7647,19 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  tags: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tags", tags)
+        GetDataSetLogicalTableMapDataTransformTagColumnOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             tags: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("tags", tags)
 
     @property
     @pulumi.getter(name="columnName")
@@ -6091,8 +7677,19 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
     def __init__(__self__, *,
                  column_descriptions: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult'],
                  column_geographic_role: str):
-        pulumi.set(__self__, "column_descriptions", column_descriptions)
-        pulumi.set(__self__, "column_geographic_role", column_geographic_role)
+        GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_descriptions=column_descriptions,
+            column_geographic_role=column_geographic_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_descriptions: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult'],
+             column_geographic_role: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_descriptions", column_descriptions)
+        _setter("column_geographic_role", column_geographic_role)
 
     @property
     @pulumi.getter(name="columnDescriptions")
@@ -6109,7 +7706,16 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
 class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(dict):
     def __init__(__self__, *,
                  text: str):
-        pulumi.set(__self__, "text", text)
+        GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text", text)
 
     @property
     @pulumi.getter
@@ -6122,8 +7728,19 @@ class GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  tag_names: Sequence[str]):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tag_names", tag_names)
+        GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            tag_names=tag_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             tag_names: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("tag_names", tag_names)
 
     @property
     @pulumi.getter(name="columnName")
@@ -6142,9 +7759,22 @@ class GetDataSetLogicalTableMapSourceResult(dict):
                  data_set_arn: str,
                  join_instructions: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult'],
                  physical_table_id: str):
-        pulumi.set(__self__, "data_set_arn", data_set_arn)
-        pulumi.set(__self__, "join_instructions", join_instructions)
-        pulumi.set(__self__, "physical_table_id", physical_table_id)
+        GetDataSetLogicalTableMapSourceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_arn=data_set_arn,
+            join_instructions=join_instructions,
+            physical_table_id=physical_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_arn: str,
+             join_instructions: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult'],
+             physical_table_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_set_arn", data_set_arn)
+        _setter("join_instructions", join_instructions)
+        _setter("physical_table_id", physical_table_id)
 
     @property
     @pulumi.getter(name="dataSetArn")
@@ -6171,12 +7801,31 @@ class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
                  right_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult'],
                  right_operand: str,
                  type: str):
-        pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
-        pulumi.set(__self__, "left_operand", left_operand)
-        pulumi.set(__self__, "on_clause", on_clause)
-        pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
-        pulumi.set(__self__, "right_operand", right_operand)
-        pulumi.set(__self__, "type", type)
+        GetDataSetLogicalTableMapSourceJoinInstructionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            left_join_key_properties=left_join_key_properties,
+            left_operand=left_operand,
+            on_clause=on_clause,
+            right_join_key_properties=right_join_key_properties,
+            right_operand=right_operand,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             left_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult'],
+             left_operand: str,
+             on_clause: str,
+             right_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult'],
+             right_operand: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("left_join_key_properties", left_join_key_properties)
+        _setter("left_operand", left_operand)
+        _setter("on_clause", on_clause)
+        _setter("right_join_key_properties", right_join_key_properties)
+        _setter("right_operand", right_operand)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="leftJoinKeyProperties")
@@ -6213,7 +7862,16 @@ class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
 class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
                  unique_key: bool):
-        pulumi.set(__self__, "unique_key", unique_key)
+        GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_key=unique_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_key: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
@@ -6225,7 +7883,16 @@ class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(di
 class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
                  unique_key: bool):
-        pulumi.set(__self__, "unique_key", unique_key)
+        GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unique_key=unique_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unique_key: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unique_key", unique_key)
 
     @property
     @pulumi.getter(name="uniqueKey")
@@ -6238,8 +7905,19 @@ class GetDataSetPermissionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        GetDataSetPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -6259,10 +7937,25 @@ class GetDataSetPhysicalTableMapResult(dict):
                  physical_table_map_id: str,
                  relational_tables: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult'],
                  s3_sources: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult']):
-        pulumi.set(__self__, "custom_sqls", custom_sqls)
-        pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
-        pulumi.set(__self__, "relational_tables", relational_tables)
-        pulumi.set(__self__, "s3_sources", s3_sources)
+        GetDataSetPhysicalTableMapResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_sqls=custom_sqls,
+            physical_table_map_id=physical_table_map_id,
+            relational_tables=relational_tables,
+            s3_sources=s3_sources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_sqls: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult'],
+             physical_table_map_id: str,
+             relational_tables: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableResult'],
+             s3_sources: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_sqls", custom_sqls)
+        _setter("physical_table_map_id", physical_table_map_id)
+        _setter("relational_tables", relational_tables)
+        _setter("s3_sources", s3_sources)
 
     @property
     @pulumi.getter(name="customSqls")
@@ -6292,10 +7985,25 @@ class GetDataSetPhysicalTableMapCustomSqlResult(dict):
                  data_source_arn: str,
                  name: str,
                  sql_query: str):
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_query", sql_query)
+        GetDataSetPhysicalTableMapCustomSqlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            data_source_arn=data_source_arn,
+            name=name,
+            sql_query=sql_query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult'],
+             data_source_arn: str,
+             name: str,
+             sql_query: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("columns", columns)
+        _setter("data_source_arn", data_source_arn)
+        _setter("name", name)
+        _setter("sql_query", sql_query)
 
     @property
     @pulumi.getter
@@ -6323,8 +8031,19 @@ class GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GetDataSetPhysicalTableMapCustomSqlColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -6345,11 +8064,28 @@ class GetDataSetPhysicalTableMapRelationalTableResult(dict):
                  input_columns: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult'],
                  name: str,
                  schema: str):
-        pulumi.set(__self__, "catalog", catalog)
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        GetDataSetPhysicalTableMapRelationalTableResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog=catalog,
+            data_source_arn=data_source_arn,
+            input_columns=input_columns,
+            name=name,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog: str,
+             data_source_arn: str,
+             input_columns: Sequence['outputs.GetDataSetPhysicalTableMapRelationalTableInputColumnResult'],
+             name: str,
+             schema: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("catalog", catalog)
+        _setter("data_source_arn", data_source_arn)
+        _setter("input_columns", input_columns)
+        _setter("name", name)
+        _setter("schema", schema)
 
     @property
     @pulumi.getter
@@ -6382,8 +8118,19 @@ class GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GetDataSetPhysicalTableMapRelationalTableInputColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -6402,9 +8149,22 @@ class GetDataSetPhysicalTableMapS3SourceResult(dict):
                  data_source_arn: str,
                  input_columns: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult'],
                  upload_settings: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult']):
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "upload_settings", upload_settings)
+        GetDataSetPhysicalTableMapS3SourceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_arn=data_source_arn,
+            input_columns=input_columns,
+            upload_settings=upload_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_arn: str,
+             input_columns: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult'],
+             upload_settings: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceUploadSettingResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_source_arn", data_source_arn)
+        _setter("input_columns", input_columns)
+        _setter("upload_settings", upload_settings)
 
     @property
     @pulumi.getter(name="dataSourceArn")
@@ -6427,8 +8187,19 @@ class GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GetDataSetPhysicalTableMapS3SourceInputColumnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -6449,11 +8220,28 @@ class GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
                  format: str,
                  start_from_row: int,
                  text_qualifier: str):
-        pulumi.set(__self__, "contains_header", contains_header)
-        pulumi.set(__self__, "delimiter", delimiter)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "start_from_row", start_from_row)
-        pulumi.set(__self__, "text_qualifier", text_qualifier)
+        GetDataSetPhysicalTableMapS3SourceUploadSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contains_header=contains_header,
+            delimiter=delimiter,
+            format=format,
+            start_from_row=start_from_row,
+            text_qualifier=text_qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contains_header: bool,
+             delimiter: str,
+             format: str,
+             start_from_row: int,
+             text_qualifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contains_header", contains_header)
+        _setter("delimiter", delimiter)
+        _setter("format", format)
+        _setter("start_from_row", start_from_row)
+        _setter("text_qualifier", text_qualifier)
 
     @property
     @pulumi.getter(name="containsHeader")
@@ -6489,11 +8277,28 @@ class GetDataSetRowLevelPermissionDataSetResult(dict):
                  namespace: str,
                  permission_policy: str,
                  status: str):
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "format_version", format_version)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "permission_policy", permission_policy)
-        pulumi.set(__self__, "status", status)
+        GetDataSetRowLevelPermissionDataSetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            format_version=format_version,
+            namespace=namespace,
+            permission_policy=permission_policy,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             format_version: str,
+             namespace: str,
+             permission_policy: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("format_version", format_version)
+        _setter("namespace", namespace)
+        _setter("permission_policy", permission_policy)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -6526,8 +8331,19 @@ class GetDataSetRowLevelPermissionTagConfigurationResult(dict):
     def __init__(__self__, *,
                  status: str,
                  tag_rules: Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']):
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "tag_rules", tag_rules)
+        GetDataSetRowLevelPermissionTagConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            tag_rules=tag_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             tag_rules: Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status", status)
+        _setter("tag_rules", tag_rules)
 
     @property
     @pulumi.getter
@@ -6547,10 +8363,25 @@ class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
                  match_all_value: str,
                  tag_key: str,
                  tag_multi_value_delimiter: str):
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "match_all_value", match_all_value)
-        pulumi.set(__self__, "tag_key", tag_key)
-        pulumi.set(__self__, "tag_multi_value_delimiter", tag_multi_value_delimiter)
+        GetDataSetRowLevelPermissionTagConfigurationTagRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            match_all_value=match_all_value,
+            tag_key=tag_key,
+            tag_multi_value_delimiter=tag_multi_value_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: str,
+             match_all_value: str,
+             tag_key: str,
+             tag_multi_value_delimiter: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("column_name", column_name)
+        _setter("match_all_value", match_all_value)
+        _setter("tag_key", tag_key)
+        _setter("tag_multi_value_delimiter", tag_multi_value_delimiter)
 
     @property
     @pulumi.getter(name="columnName")
@@ -6586,10 +8417,25 @@ class GetThemeConfigurationResult(dict):
         :param Sequence['GetThemeConfigurationTypographyArgs'] typographies: Determines the typography options. See typography.
         :param Sequence['GetThemeConfigurationUiColorPaletteArgs'] ui_color_palettes: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
-        pulumi.set(__self__, "data_color_palettes", data_color_palettes)
-        pulumi.set(__self__, "sheets", sheets)
-        pulumi.set(__self__, "typographies", typographies)
-        pulumi.set(__self__, "ui_color_palettes", ui_color_palettes)
+        GetThemeConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_color_palettes=data_color_palettes,
+            sheets=sheets,
+            typographies=typographies,
+            ui_color_palettes=ui_color_palettes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_color_palettes: Sequence['outputs.GetThemeConfigurationDataColorPaletteResult'],
+             sheets: Sequence['outputs.GetThemeConfigurationSheetResult'],
+             typographies: Sequence['outputs.GetThemeConfigurationTypographyResult'],
+             ui_color_palettes: Sequence['outputs.GetThemeConfigurationUiColorPaletteResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_color_palettes", data_color_palettes)
+        _setter("sheets", sheets)
+        _setter("typographies", typographies)
+        _setter("ui_color_palettes", ui_color_palettes)
 
     @property
     @pulumi.getter(name="dataColorPalettes")
@@ -6635,9 +8481,22 @@ class GetThemeConfigurationDataColorPaletteResult(dict):
         :param str empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         :param Sequence[str] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
-        pulumi.set(__self__, "colors", colors)
-        pulumi.set(__self__, "empty_fill_color", empty_fill_color)
-        pulumi.set(__self__, "min_max_gradients", min_max_gradients)
+        GetThemeConfigurationDataColorPaletteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            colors=colors,
+            empty_fill_color=empty_fill_color,
+            min_max_gradients=min_max_gradients,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             colors: Sequence[str],
+             empty_fill_color: str,
+             min_max_gradients: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("colors", colors)
+        _setter("empty_fill_color", empty_fill_color)
+        _setter("min_max_gradients", min_max_gradients)
 
     @property
     @pulumi.getter
@@ -6673,8 +8532,19 @@ class GetThemeConfigurationSheetResult(dict):
         :param Sequence['GetThemeConfigurationSheetTileLayoutArgs'] tile_layouts: The layout options for tiles. See tile_layout.
         :param Sequence['GetThemeConfigurationSheetTileArgs'] tiles: The display options for tiles. See tile.
         """
-        pulumi.set(__self__, "tile_layouts", tile_layouts)
-        pulumi.set(__self__, "tiles", tiles)
+        GetThemeConfigurationSheetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tile_layouts=tile_layouts,
+            tiles=tiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tile_layouts: Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult'],
+             tiles: Sequence['outputs.GetThemeConfigurationSheetTileResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tile_layouts", tile_layouts)
+        _setter("tiles", tiles)
 
     @property
     @pulumi.getter(name="tileLayouts")
@@ -6700,7 +8570,16 @@ class GetThemeConfigurationSheetTileResult(dict):
         """
         :param Sequence['GetThemeConfigurationSheetTileBorderArgs'] borders: The border around a tile. See border.
         """
-        pulumi.set(__self__, "borders", borders)
+        GetThemeConfigurationSheetTileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            borders=borders,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             borders: Sequence['outputs.GetThemeConfigurationSheetTileBorderResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("borders", borders)
 
     @property
     @pulumi.getter
@@ -6718,7 +8597,16 @@ class GetThemeConfigurationSheetTileBorderResult(dict):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        GetThemeConfigurationSheetTileBorderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("show", show)
 
     @property
     @pulumi.getter
@@ -6738,8 +8626,19 @@ class GetThemeConfigurationSheetTileLayoutResult(dict):
         :param Sequence['GetThemeConfigurationSheetTileLayoutGutterArgs'] gutters: The gutter settings that apply between tiles. See gutter.
         :param Sequence['GetThemeConfigurationSheetTileLayoutMarginArgs'] margins: The margin settings that apply around the outside edge of sheets. See margin.
         """
-        pulumi.set(__self__, "gutters", gutters)
-        pulumi.set(__self__, "margins", margins)
+        GetThemeConfigurationSheetTileLayoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gutters=gutters,
+            margins=margins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gutters: Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult'],
+             margins: Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gutters", gutters)
+        _setter("margins", margins)
 
     @property
     @pulumi.getter
@@ -6765,7 +8664,16 @@ class GetThemeConfigurationSheetTileLayoutGutterResult(dict):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        GetThemeConfigurationSheetTileLayoutGutterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("show", show)
 
     @property
     @pulumi.getter
@@ -6783,7 +8691,16 @@ class GetThemeConfigurationSheetTileLayoutMarginResult(dict):
         """
         :param bool show: This Boolean value controls whether to display sheet margins.
         """
-        pulumi.set(__self__, "show", show)
+        GetThemeConfigurationSheetTileLayoutMarginResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            show=show,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             show: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("show", show)
 
     @property
     @pulumi.getter
@@ -6801,7 +8718,16 @@ class GetThemeConfigurationTypographyResult(dict):
         """
         :param Sequence['GetThemeConfigurationTypographyFontFamilyArgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
         """
-        pulumi.set(__self__, "font_families", font_families)
+        GetThemeConfigurationTypographyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_families=font_families,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_families: Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("font_families", font_families)
 
     @property
     @pulumi.getter(name="fontFamilies")
@@ -6819,7 +8745,16 @@ class GetThemeConfigurationTypographyFontFamilyResult(dict):
         """
         :param str font_family: Font family name.
         """
-        pulumi.set(__self__, "font_family", font_family)
+        GetThemeConfigurationTypographyFontFamilyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_family=font_family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_family: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("font_family", font_family)
 
     @property
     @pulumi.getter(name="fontFamily")
@@ -6867,22 +8802,61 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
         :param str warning: Color (hexadecimal) that applies to warning and informational messages.
         :param str warning_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
         """
-        pulumi.set(__self__, "accent", accent)
-        pulumi.set(__self__, "accent_foreground", accent_foreground)
-        pulumi.set(__self__, "danger", danger)
-        pulumi.set(__self__, "danger_foreground", danger_foreground)
-        pulumi.set(__self__, "dimension", dimension)
-        pulumi.set(__self__, "dimension_foreground", dimension_foreground)
-        pulumi.set(__self__, "measure", measure)
-        pulumi.set(__self__, "measure_foreground", measure_foreground)
-        pulumi.set(__self__, "primary_background", primary_background)
-        pulumi.set(__self__, "primary_foreground", primary_foreground)
-        pulumi.set(__self__, "secondary_background", secondary_background)
-        pulumi.set(__self__, "secondary_foreground", secondary_foreground)
-        pulumi.set(__self__, "success", success)
-        pulumi.set(__self__, "success_foreground", success_foreground)
-        pulumi.set(__self__, "warning", warning)
-        pulumi.set(__self__, "warning_foreground", warning_foreground)
+        GetThemeConfigurationUiColorPaletteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accent=accent,
+            accent_foreground=accent_foreground,
+            danger=danger,
+            danger_foreground=danger_foreground,
+            dimension=dimension,
+            dimension_foreground=dimension_foreground,
+            measure=measure,
+            measure_foreground=measure_foreground,
+            primary_background=primary_background,
+            primary_foreground=primary_foreground,
+            secondary_background=secondary_background,
+            secondary_foreground=secondary_foreground,
+            success=success,
+            success_foreground=success_foreground,
+            warning=warning,
+            warning_foreground=warning_foreground,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accent: str,
+             accent_foreground: str,
+             danger: str,
+             danger_foreground: str,
+             dimension: str,
+             dimension_foreground: str,
+             measure: str,
+             measure_foreground: str,
+             primary_background: str,
+             primary_foreground: str,
+             secondary_background: str,
+             secondary_foreground: str,
+             success: str,
+             success_foreground: str,
+             warning: str,
+             warning_foreground: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("accent", accent)
+        _setter("accent_foreground", accent_foreground)
+        _setter("danger", danger)
+        _setter("danger_foreground", danger_foreground)
+        _setter("dimension", dimension)
+        _setter("dimension_foreground", dimension_foreground)
+        _setter("measure", measure)
+        _setter("measure_foreground", measure_foreground)
+        _setter("primary_background", primary_background)
+        _setter("primary_foreground", primary_foreground)
+        _setter("secondary_background", secondary_background)
+        _setter("secondary_foreground", secondary_foreground)
+        _setter("success", success)
+        _setter("success_foreground", success_foreground)
+        _setter("warning", warning)
+        _setter("warning_foreground", warning_foreground)
 
     @property
     @pulumi.getter
@@ -7022,8 +8996,19 @@ class GetThemePermissionResult(dict):
         :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
         :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
+        GetThemePermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter

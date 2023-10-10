@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,8 +33,19 @@ class DirectoryConfigServiceAccountCredentialsArgs:
         :param pulumi.Input[str] account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
         :param pulumi.Input[str] account_password: Password for the account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "account_password", account_password)
+        DirectoryConfigServiceAccountCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            account_password=account_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             account_password: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("account_password", account_password)
 
     @property
     @pulumi.getter(name="accountName")
@@ -74,13 +85,28 @@ class FleetComputeCapacityArgs:
         :param pulumi.Input[int] in_use: Number of instances in use for streaming.
         :param pulumi.Input[int] running: Total number of simultaneous streaming instances that are running.
         """
-        pulumi.set(__self__, "desired_instances", desired_instances)
+        FleetComputeCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_instances=desired_instances,
+            available=available,
+            in_use=in_use,
+            running=running,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_instances: pulumi.Input[int],
+             available: Optional[pulumi.Input[int]] = None,
+             in_use: Optional[pulumi.Input[int]] = None,
+             running: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("desired_instances", desired_instances)
         if available is not None:
-            pulumi.set(__self__, "available", available)
+            _setter("available", available)
         if in_use is not None:
-            pulumi.set(__self__, "in_use", in_use)
+            _setter("in_use", in_use)
         if running is not None:
-            pulumi.set(__self__, "running", running)
+            _setter("running", running)
 
     @property
     @pulumi.getter(name="desiredInstances")
@@ -140,10 +166,21 @@ class FleetDomainJoinInfoArgs:
         :param pulumi.Input[str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
         """
+        FleetDomainJoinInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[pulumi.Input[str]] = None,
+             organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -179,10 +216,21 @@ class FleetVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Identifiers of the security groups for the fleet or image builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
         """
+        FleetVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -218,9 +266,20 @@ class ImageBuilderAccessEndpointArgs:
         :param pulumi.Input[str] endpoint_type: Type of interface endpoint.
         :param pulumi.Input[str] vpce_id: Identifier (ID) of the VPC in which the interface endpoint is used.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        ImageBuilderAccessEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             vpce_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
         if vpce_id is not None:
-            pulumi.set(__self__, "vpce_id", vpce_id)
+            _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -256,10 +315,21 @@ class ImageBuilderDomainJoinInfoArgs:
         :param pulumi.Input[str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
         """
+        ImageBuilderDomainJoinInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[pulumi.Input[str]] = None,
+             organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -295,10 +365,21 @@ class ImageBuilderVpcConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Identifiers of the security groups for the image builder or image builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
         """
+        ImageBuilderVpcConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -335,9 +416,20 @@ class StackAccessEndpointArgs:
                See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         :param pulumi.Input[str] vpce_id: ID of the VPC in which the interface endpoint is used.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        StackAccessEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: pulumi.Input[str],
+             vpce_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_type", endpoint_type)
         if vpce_id is not None:
-            pulumi.set(__self__, "vpce_id", vpce_id)
+            _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -376,9 +468,20 @@ class StackApplicationSettingsArgs:
                Required when `enabled` is `true`.
                Can be up to 100 characters.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        StackApplicationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            settings_group=settings_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             settings_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if settings_group is not None:
-            pulumi.set(__self__, "settings_group", settings_group)
+            _setter("settings_group", settings_group)
 
     @property
     @pulumi.getter
@@ -419,11 +522,24 @@ class StackStorageConnectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: Names of the domains for the account.
         :param pulumi.Input[str] resource_identifier: ARN of the storage connector.
         """
-        pulumi.set(__self__, "connector_type", connector_type)
+        StackStorageConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            domains=domains,
+            resource_identifier=resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: pulumi.Input[str],
+             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_type", connector_type)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -471,8 +587,17 @@ class StackStreamingExperienceSettingsArgs:
         :param pulumi.Input[str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
                Valid values are `TCP` and `UDP`.
         """
+        StackStreamingExperienceSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_protocol=preferred_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if preferred_protocol is not None:
-            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+            _setter("preferred_protocol", preferred_protocol)
 
     @property
     @pulumi.getter(name="preferredProtocol")
@@ -499,8 +624,19 @@ class StackUserSettingArgs:
         :param pulumi.Input[str] permission: Whether the action is enabled or disabled.
                Valid values are `ENABLED` or `DISABLED`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "permission", permission)
+        StackUserSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             permission: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("permission", permission)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,10 +27,23 @@ class ClusterParameterGroupParameterArgs:
         :param pulumi.Input[str] value: The value of the neptune parameter.
         :param pulumi.Input[str] apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ClusterParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            apply_method=apply_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             apply_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
 
     @property
     @pulumi.getter
@@ -78,10 +91,21 @@ class ClusterServerlessV2ScalingConfigurationArgs:
         :param pulumi.Input[float] max_capacity: The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         :param pulumi.Input[float] min_capacity: The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         """
+        ClusterServerlessV2ScalingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -117,10 +141,21 @@ class GlobalClusterGlobalClusterMemberArgs:
         :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
         :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster.
         """
+        GlobalClusterGlobalClusterMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_arn=db_cluster_arn,
+            is_writer=is_writer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_arn: Optional[pulumi.Input[str]] = None,
+             is_writer: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if db_cluster_arn is not None:
-            pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+            _setter("db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
-            pulumi.set(__self__, "is_writer", is_writer)
+            _setter("is_writer", is_writer)
 
     @property
     @pulumi.getter(name="dbClusterArn")
@@ -158,10 +193,23 @@ class ParameterGroupParameterArgs:
         :param pulumi.Input[str] value: The value of the Neptune parameter.
         :param pulumi.Input[str] apply_method: The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            apply_method=apply_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             apply_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
 
     @property
     @pulumi.getter

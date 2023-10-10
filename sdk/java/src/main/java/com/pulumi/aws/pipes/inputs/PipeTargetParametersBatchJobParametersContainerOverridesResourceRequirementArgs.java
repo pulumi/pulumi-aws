@@ -14,14 +14,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
     public static final PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs Empty = new PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs();
 
     /**
-     * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     public Output<String> type() {
@@ -29,14 +29,14 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
     }
 
     /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public Output<String> value() {
@@ -69,7 +69,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
         }
 
         /**
-         * @param type The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
         }
 
         /**
-         * @param type The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesResou
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
          * 
          * @return builder
          * 

@@ -3,12 +3,19 @@
 
 package com.pulumi.aws.guardduty.outputs;
 
+import com.pulumi.aws.guardduty.outputs.GetDetectorFeature;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetDetectorResult {
+    /**
+     * @return Current configuration of the detector features.
+     * 
+     */
+    private List<GetDetectorFeature> features;
     /**
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
@@ -27,6 +34,13 @@ public final class GetDetectorResult {
     private String status;
 
     private GetDetectorResult() {}
+    /**
+     * @return Current configuration of the detector features.
+     * 
+     */
+    public List<GetDetectorFeature> features() {
+        return this.features;
+    }
     /**
      * @return The frequency of notifications sent about subsequent finding occurrences.
      * 
@@ -61,6 +75,7 @@ public final class GetDetectorResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetDetectorFeature> features;
         private String findingPublishingFrequency;
         private String id;
         private String serviceRoleArn;
@@ -68,12 +83,21 @@ public final class GetDetectorResult {
         public Builder() {}
         public Builder(GetDetectorResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.features = defaults.features;
     	      this.findingPublishingFrequency = defaults.findingPublishingFrequency;
     	      this.id = defaults.id;
     	      this.serviceRoleArn = defaults.serviceRoleArn;
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
+        public Builder features(List<GetDetectorFeature> features) {
+            this.features = Objects.requireNonNull(features);
+            return this;
+        }
+        public Builder features(GetDetectorFeature... features) {
+            return features(List.of(features));
+        }
         @CustomType.Setter
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             this.findingPublishingFrequency = Objects.requireNonNull(findingPublishingFrequency);
@@ -96,6 +120,7 @@ public final class GetDetectorResult {
         }
         public GetDetectorResult build() {
             final var o = new GetDetectorResult();
+            o.features = features;
             o.findingPublishingFrequency = findingPublishingFrequency;
             o.id = id;
             o.serviceRoleArn = serviceRoleArn;

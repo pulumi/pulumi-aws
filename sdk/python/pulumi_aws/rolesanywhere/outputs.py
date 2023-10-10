@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -43,8 +43,19 @@ class TrustAnchorSource(dict):
         :param 'TrustAnchorSourceSourceDataArgs' source_data: The data denoting the source of trust, documented below
         :param str source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
         """
-        pulumi.set(__self__, "source_data", source_data)
-        pulumi.set(__self__, "source_type", source_type)
+        TrustAnchorSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_data=source_data,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_data: 'outputs.TrustAnchorSourceSourceData',
+             source_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_data", source_data)
+        _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="sourceData")
@@ -90,10 +101,21 @@ class TrustAnchorSourceSourceData(dict):
         """
         :param str acm_pca_arn: The ARN of an ACM Private Certificate Authority.
         """
+        TrustAnchorSourceSourceData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm_pca_arn=acm_pca_arn,
+            x509_certificate_data=x509_certificate_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm_pca_arn: Optional[str] = None,
+             x509_certificate_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm_pca_arn is not None:
-            pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
+            _setter("acm_pca_arn", acm_pca_arn)
         if x509_certificate_data is not None:
-            pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
+            _setter("x509_certificate_data", x509_certificate_data)
 
     @property
     @pulumi.getter(name="acmPcaArn")

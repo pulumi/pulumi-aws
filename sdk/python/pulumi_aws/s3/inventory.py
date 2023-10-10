@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,41 @@ class InventoryArgs:
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "included_object_versions", included_object_versions)
-        pulumi.set(__self__, "schedule", schedule)
+        InventoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            destination=destination,
+            included_object_versions=included_object_versions,
+            schedule=schedule,
+            enabled=enabled,
+            filter=filter,
+            name=name,
+            optional_fields=optional_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             destination: pulumi.Input['InventoryDestinationArgs'],
+             included_object_versions: pulumi.Input[str],
+             schedule: pulumi.Input['InventoryScheduleArgs'],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filter: Optional[pulumi.Input['InventoryFilterArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("destination", destination)
+        _setter("included_object_versions", included_object_versions)
+        _setter("schedule", schedule)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional_fields is not None:
-            pulumi.set(__self__, "optional_fields", optional_fields)
+            _setter("optional_fields", optional_fields)
 
     @property
     @pulumi.getter
@@ -167,22 +190,45 @@ class _InventoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
         """
+        _InventoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            destination=destination,
+            enabled=enabled,
+            filter=filter,
+            included_object_versions=included_object_versions,
+            name=name,
+            optional_fields=optional_fields,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input['InventoryDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filter: Optional[pulumi.Input['InventoryFilterArgs']] = None,
+             included_object_versions: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             schedule: Optional[pulumi.Input['InventoryScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if included_object_versions is not None:
-            pulumi.set(__self__, "included_object_versions", included_object_versions)
+            _setter("included_object_versions", included_object_versions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optional_fields is not None:
-            pulumi.set(__self__, "optional_fields", optional_fields)
+            _setter("optional_fields", optional_fields)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -440,6 +486,10 @@ class Inventory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InventoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -465,16 +515,31 @@ class Inventory(pulumi.CustomResource):
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
+            if destination is not None and not isinstance(destination, InventoryDestinationArgs):
+                destination = destination or {}
+                def _setter(key, value):
+                    destination[key] = value
+                InventoryDestinationArgs._configure(_setter, **destination)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["enabled"] = enabled
+            if filter is not None and not isinstance(filter, InventoryFilterArgs):
+                filter = filter or {}
+                def _setter(key, value):
+                    filter[key] = value
+                InventoryFilterArgs._configure(_setter, **filter)
             __props__.__dict__["filter"] = filter
             if included_object_versions is None and not opts.urn:
                 raise TypeError("Missing required property 'included_object_versions'")
             __props__.__dict__["included_object_versions"] = included_object_versions
             __props__.__dict__["name"] = name
             __props__.__dict__["optional_fields"] = optional_fields
+            if schedule is not None and not isinstance(schedule, InventoryScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                InventoryScheduleArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule

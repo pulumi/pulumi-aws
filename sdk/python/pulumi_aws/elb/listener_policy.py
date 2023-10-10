@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ListenerPolicyArgs', 'ListenerPolicy']
@@ -25,12 +25,27 @@ class ListenerPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
-        pulumi.set(__self__, "load_balancer_port", load_balancer_port)
+        ListenerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            load_balancer_port=load_balancer_port,
+            policy_names=policy_names,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: pulumi.Input[str],
+             load_balancer_port: pulumi.Input[int],
+             policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("load_balancer_name", load_balancer_name)
+        _setter("load_balancer_port", load_balancer_port)
         if policy_names is not None:
-            pulumi.set(__self__, "policy_names", policy_names)
+            _setter("policy_names", policy_names)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -95,14 +110,29 @@ class _ListenerPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an update.
         """
+        _ListenerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            load_balancer_port=load_balancer_port,
+            policy_names=policy_names,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             load_balancer_port: Optional[pulumi.Input[int]] = None,
+             policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if load_balancer_port is not None:
-            pulumi.set(__self__, "load_balancer_port", load_balancer_port)
+            _setter("load_balancer_port", load_balancer_port)
         if policy_names is not None:
-            pulumi.set(__self__, "policy_names", policy_names)
+            _setter("policy_names", policy_names)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -340,6 +370,10 @@ class ListenerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

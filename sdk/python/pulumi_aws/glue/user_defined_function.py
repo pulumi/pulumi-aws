@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class UserDefinedFunctionArgs:
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
-        pulumi.set(__self__, "class_name", class_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "owner_name", owner_name)
-        pulumi.set(__self__, "owner_type", owner_type)
+        UserDefinedFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            class_name=class_name,
+            database_name=database_name,
+            owner_name=owner_name,
+            owner_type=owner_type,
+            catalog_id=catalog_id,
+            name=name,
+            resource_uris=resource_uris,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             class_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             owner_name: pulumi.Input[str],
+             owner_type: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("class_name", class_name)
+        _setter("database_name", database_name)
+        _setter("owner_name", owner_name)
+        _setter("owner_type", owner_type)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_uris is not None:
-            pulumi.set(__self__, "resource_uris", resource_uris)
+            _setter("resource_uris", resource_uris)
 
     @property
     @pulumi.getter(name="className")
@@ -153,24 +174,49 @@ class _UserDefinedFunctionState:
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
+        _UserDefinedFunctionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_id=catalog_id,
+            class_name=class_name,
+            create_time=create_time,
+            database_name=database_name,
+            name=name,
+            owner_name=owner_name,
+            owner_type=owner_type,
+            resource_uris=resource_uris,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             class_name: Optional[pulumi.Input[str]] = None,
+             create_time: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_name: Optional[pulumi.Input[str]] = None,
+             owner_type: Optional[pulumi.Input[str]] = None,
+             resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if class_name is not None:
-            pulumi.set(__self__, "class_name", class_name)
+            _setter("class_name", class_name)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_name is not None:
-            pulumi.set(__self__, "owner_name", owner_name)
+            _setter("owner_name", owner_name)
         if owner_type is not None:
-            pulumi.set(__self__, "owner_type", owner_type)
+            _setter("owner_type", owner_type)
         if resource_uris is not None:
-            pulumi.set(__self__, "resource_uris", resource_uris)
+            _setter("resource_uris", resource_uris)
 
     @property
     @pulumi.getter
@@ -380,6 +426,10 @@ class UserDefinedFunction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserDefinedFunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

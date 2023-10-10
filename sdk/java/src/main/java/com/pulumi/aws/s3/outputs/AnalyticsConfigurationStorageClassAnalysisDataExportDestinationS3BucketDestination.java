@@ -27,7 +27,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
      */
     private @Nullable String format;
     /**
-     * @return Object prefix for filtering.
+     * @return Prefix to append to exported analytics data.
      * 
      */
     private @Nullable String prefix;
@@ -55,7 +55,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
         return Optional.ofNullable(this.format);
     }
     /**
-     * @return Object prefix for filtering.
+     * @return Prefix to append to exported analytics data.
      * 
      */
     public Optional<String> prefix() {

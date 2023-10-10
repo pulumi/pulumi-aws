@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Provides a resource to manage a GuardDuty detector.
+// Provides a resource to manage an Amazon GuardDuty detector.
 //
 // > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
 //
@@ -77,7 +77,7 @@ type Detector struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the GuardDuty detector
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	Datasources DetectorDatasourcesOutput `pulumi:"datasources"`
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
@@ -129,7 +129,7 @@ type detectorState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the GuardDuty detector
 	Arn *string `pulumi:"arn"`
-	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	Datasources *DetectorDatasources `pulumi:"datasources"`
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable *bool `pulumi:"enable"`
@@ -148,7 +148,7 @@ type DetectorState struct {
 	AccountId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the GuardDuty detector
 	Arn pulumi.StringPtrInput
-	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	Datasources DetectorDatasourcesPtrInput
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable pulumi.BoolPtrInput
@@ -167,7 +167,7 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	Datasources *DetectorDatasources `pulumi:"datasources"`
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable *bool `pulumi:"enable"`
@@ -179,7 +179,7 @@ type detectorArgs struct {
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+	// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 	Datasources DetectorDatasourcesPtrInput
 	// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
 	Enable pulumi.BoolPtrInput
@@ -310,7 +310,7 @@ func (o DetectorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
 func (o DetectorOutput) Datasources() DetectorDatasourcesOutput {
 	return o.ApplyT(func(v *Detector) DetectorDatasourcesOutput { return v.Datasources }).(DetectorDatasourcesOutput)
 }

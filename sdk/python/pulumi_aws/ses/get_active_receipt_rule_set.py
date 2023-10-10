@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetActiveReceiptRuleSetResult',
     'AwaitableGetActiveReceiptRuleSetResult',
     'get_active_receipt_rule_set',
+    'get_active_receipt_rule_set_output',
 ]
 
 @pulumi.output_type
@@ -88,3 +89,20 @@ def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> 
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'))
+
+
+@_utilities.lift_output_func(get_active_receipt_rule_set)
+def get_active_receipt_rule_set_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveReceiptRuleSetResult]:
+    """
+    Retrieve the active SES receipt rule set
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.ses.get_active_receipt_rule_set()
+    ```
+    """
+    ...

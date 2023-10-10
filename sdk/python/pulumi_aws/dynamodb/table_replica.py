@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TableReplicaInitArgs', 'TableReplica']
@@ -29,15 +29,32 @@ class TableReplicaInitArgs:
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "global_table_arn", global_table_arn)
+        TableReplicaInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_table_arn=global_table_arn,
+            kms_key_arn=kms_key_arn,
+            point_in_time_recovery=point_in_time_recovery,
+            table_class_override=table_class_override,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_table_arn: pulumi.Input[str],
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
+             table_class_override: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("global_table_arn", global_table_arn)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if table_class_override is not None:
-            pulumi.set(__self__, "table_class_override", table_class_override)
+            _setter("table_class_override", table_class_override)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="globalTableArn")
@@ -124,23 +141,44 @@ class _TableReplicaState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TableReplicaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            global_table_arn=global_table_arn,
+            kms_key_arn=kms_key_arn,
+            point_in_time_recovery=point_in_time_recovery,
+            table_class_override=table_class_override,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             global_table_arn: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
+             table_class_override: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if global_table_arn is not None:
-            pulumi.set(__self__, "global_table_arn", global_table_arn)
+            _setter("global_table_arn", global_table_arn)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
-            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+            _setter("point_in_time_recovery", point_in_time_recovery)
         if table_class_override is not None:
-            pulumi.set(__self__, "table_class_override", table_class_override)
+            _setter("table_class_override", table_class_override)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -363,6 +401,10 @@ class TableReplica(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableReplicaInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

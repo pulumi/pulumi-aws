@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class FunctionUrlArgs:
         :param pulumi.Input[str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
         :param pulumi.Input[str] qualifier: The alias name or `"$LATEST"`.
         """
-        pulumi.set(__self__, "authorization_type", authorization_type)
-        pulumi.set(__self__, "function_name", function_name)
+        FunctionUrlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_type=authorization_type,
+            function_name=function_name,
+            cors=cors,
+            invoke_mode=invoke_mode,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_type: pulumi.Input[str],
+             function_name: pulumi.Input[str],
+             cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
+             invoke_mode: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_type", authorization_type)
+        _setter("function_name", function_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if invoke_mode is not None:
-            pulumi.set(__self__, "invoke_mode", invoke_mode)
+            _setter("invoke_mode", invoke_mode)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -121,22 +138,45 @@ class _FunctionUrlState:
         :param pulumi.Input[str] qualifier: The alias name or `"$LATEST"`.
         :param pulumi.Input[str] url_id: A generated ID for the endpoint.
         """
+        _FunctionUrlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_type=authorization_type,
+            cors=cors,
+            function_arn=function_arn,
+            function_name=function_name,
+            function_url=function_url,
+            invoke_mode=invoke_mode,
+            qualifier=qualifier,
+            url_id=url_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
+             function_arn: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             function_url: Optional[pulumi.Input[str]] = None,
+             invoke_mode: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             url_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+            _setter("function_arn", function_arn)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if function_url is not None:
-            pulumi.set(__self__, "function_url", function_url)
+            _setter("function_url", function_url)
         if invoke_mode is not None:
-            pulumi.set(__self__, "invoke_mode", invoke_mode)
+            _setter("invoke_mode", invoke_mode)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
         if url_id is not None:
-            pulumi.set(__self__, "url_id", url_id)
+            _setter("url_id", url_id)
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -354,6 +394,10 @@ class FunctionUrl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionUrlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -376,6 +420,11 @@ class FunctionUrl(pulumi.CustomResource):
             if authorization_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_type'")
             __props__.__dict__["authorization_type"] = authorization_type
+            if cors is not None and not isinstance(cors, FunctionUrlCorsArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                FunctionUrlCorsArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")

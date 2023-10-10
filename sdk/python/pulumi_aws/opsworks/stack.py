@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -67,47 +67,98 @@ class StackArgs:
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
-        pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_role_arn", service_role_arn)
+        StackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_instance_profile_arn=default_instance_profile_arn,
+            region=region,
+            service_role_arn=service_role_arn,
+            agent_version=agent_version,
+            berkshelf_version=berkshelf_version,
+            color=color,
+            configuration_manager_name=configuration_manager_name,
+            configuration_manager_version=configuration_manager_version,
+            custom_cookbooks_sources=custom_cookbooks_sources,
+            custom_json=custom_json,
+            default_availability_zone=default_availability_zone,
+            default_os=default_os,
+            default_root_device_type=default_root_device_type,
+            default_ssh_key_name=default_ssh_key_name,
+            default_subnet_id=default_subnet_id,
+            hostname_theme=hostname_theme,
+            manage_berkshelf=manage_berkshelf,
+            name=name,
+            tags=tags,
+            use_custom_cookbooks=use_custom_cookbooks,
+            use_opsworks_security_groups=use_opsworks_security_groups,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_instance_profile_arn: pulumi.Input[str],
+             region: pulumi.Input[str],
+             service_role_arn: pulumi.Input[str],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             berkshelf_version: Optional[pulumi.Input[str]] = None,
+             color: Optional[pulumi.Input[str]] = None,
+             configuration_manager_name: Optional[pulumi.Input[str]] = None,
+             configuration_manager_version: Optional[pulumi.Input[str]] = None,
+             custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]] = None,
+             custom_json: Optional[pulumi.Input[str]] = None,
+             default_availability_zone: Optional[pulumi.Input[str]] = None,
+             default_os: Optional[pulumi.Input[str]] = None,
+             default_root_device_type: Optional[pulumi.Input[str]] = None,
+             default_ssh_key_name: Optional[pulumi.Input[str]] = None,
+             default_subnet_id: Optional[pulumi.Input[str]] = None,
+             hostname_theme: Optional[pulumi.Input[str]] = None,
+             manage_berkshelf: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
+             use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_instance_profile_arn", default_instance_profile_arn)
+        _setter("region", region)
+        _setter("service_role_arn", service_role_arn)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if berkshelf_version is not None:
-            pulumi.set(__self__, "berkshelf_version", berkshelf_version)
+            _setter("berkshelf_version", berkshelf_version)
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if configuration_manager_name is not None:
-            pulumi.set(__self__, "configuration_manager_name", configuration_manager_name)
+            _setter("configuration_manager_name", configuration_manager_name)
         if configuration_manager_version is not None:
-            pulumi.set(__self__, "configuration_manager_version", configuration_manager_version)
+            _setter("configuration_manager_version", configuration_manager_version)
         if custom_cookbooks_sources is not None:
-            pulumi.set(__self__, "custom_cookbooks_sources", custom_cookbooks_sources)
+            _setter("custom_cookbooks_sources", custom_cookbooks_sources)
         if custom_json is not None:
-            pulumi.set(__self__, "custom_json", custom_json)
+            _setter("custom_json", custom_json)
         if default_availability_zone is not None:
-            pulumi.set(__self__, "default_availability_zone", default_availability_zone)
+            _setter("default_availability_zone", default_availability_zone)
         if default_os is not None:
-            pulumi.set(__self__, "default_os", default_os)
+            _setter("default_os", default_os)
         if default_root_device_type is not None:
-            pulumi.set(__self__, "default_root_device_type", default_root_device_type)
+            _setter("default_root_device_type", default_root_device_type)
         if default_ssh_key_name is not None:
-            pulumi.set(__self__, "default_ssh_key_name", default_ssh_key_name)
+            _setter("default_ssh_key_name", default_ssh_key_name)
         if default_subnet_id is not None:
-            pulumi.set(__self__, "default_subnet_id", default_subnet_id)
+            _setter("default_subnet_id", default_subnet_id)
         if hostname_theme is not None:
-            pulumi.set(__self__, "hostname_theme", hostname_theme)
+            _setter("hostname_theme", hostname_theme)
         if manage_berkshelf is not None:
-            pulumi.set(__self__, "manage_berkshelf", manage_berkshelf)
+            _setter("manage_berkshelf", manage_berkshelf)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_custom_cookbooks is not None:
-            pulumi.set(__self__, "use_custom_cookbooks", use_custom_cookbooks)
+            _setter("use_custom_cookbooks", use_custom_cookbooks)
         if use_opsworks_security_groups is not None:
-            pulumi.set(__self__, "use_opsworks_security_groups", use_opsworks_security_groups)
+            _setter("use_opsworks_security_groups", use_opsworks_security_groups)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="defaultInstanceProfileArn")
@@ -436,59 +487,116 @@ class _StackState:
         :param pulumi.Input[str] vpc_id: ID of the VPC that this stack belongs to.
                Defaults to the region's default VPC.
         """
+        _StackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            arn=arn,
+            berkshelf_version=berkshelf_version,
+            color=color,
+            configuration_manager_name=configuration_manager_name,
+            configuration_manager_version=configuration_manager_version,
+            custom_cookbooks_sources=custom_cookbooks_sources,
+            custom_json=custom_json,
+            default_availability_zone=default_availability_zone,
+            default_instance_profile_arn=default_instance_profile_arn,
+            default_os=default_os,
+            default_root_device_type=default_root_device_type,
+            default_ssh_key_name=default_ssh_key_name,
+            default_subnet_id=default_subnet_id,
+            hostname_theme=hostname_theme,
+            manage_berkshelf=manage_berkshelf,
+            name=name,
+            region=region,
+            service_role_arn=service_role_arn,
+            stack_endpoint=stack_endpoint,
+            tags=tags,
+            tags_all=tags_all,
+            use_custom_cookbooks=use_custom_cookbooks,
+            use_opsworks_security_groups=use_opsworks_security_groups,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             berkshelf_version: Optional[pulumi.Input[str]] = None,
+             color: Optional[pulumi.Input[str]] = None,
+             configuration_manager_name: Optional[pulumi.Input[str]] = None,
+             configuration_manager_version: Optional[pulumi.Input[str]] = None,
+             custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]] = None,
+             custom_json: Optional[pulumi.Input[str]] = None,
+             default_availability_zone: Optional[pulumi.Input[str]] = None,
+             default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             default_os: Optional[pulumi.Input[str]] = None,
+             default_root_device_type: Optional[pulumi.Input[str]] = None,
+             default_ssh_key_name: Optional[pulumi.Input[str]] = None,
+             default_subnet_id: Optional[pulumi.Input[str]] = None,
+             hostname_theme: Optional[pulumi.Input[str]] = None,
+             manage_berkshelf: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             stack_endpoint: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
+             use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if berkshelf_version is not None:
-            pulumi.set(__self__, "berkshelf_version", berkshelf_version)
+            _setter("berkshelf_version", berkshelf_version)
         if color is not None:
-            pulumi.set(__self__, "color", color)
+            _setter("color", color)
         if configuration_manager_name is not None:
-            pulumi.set(__self__, "configuration_manager_name", configuration_manager_name)
+            _setter("configuration_manager_name", configuration_manager_name)
         if configuration_manager_version is not None:
-            pulumi.set(__self__, "configuration_manager_version", configuration_manager_version)
+            _setter("configuration_manager_version", configuration_manager_version)
         if custom_cookbooks_sources is not None:
-            pulumi.set(__self__, "custom_cookbooks_sources", custom_cookbooks_sources)
+            _setter("custom_cookbooks_sources", custom_cookbooks_sources)
         if custom_json is not None:
-            pulumi.set(__self__, "custom_json", custom_json)
+            _setter("custom_json", custom_json)
         if default_availability_zone is not None:
-            pulumi.set(__self__, "default_availability_zone", default_availability_zone)
+            _setter("default_availability_zone", default_availability_zone)
         if default_instance_profile_arn is not None:
-            pulumi.set(__self__, "default_instance_profile_arn", default_instance_profile_arn)
+            _setter("default_instance_profile_arn", default_instance_profile_arn)
         if default_os is not None:
-            pulumi.set(__self__, "default_os", default_os)
+            _setter("default_os", default_os)
         if default_root_device_type is not None:
-            pulumi.set(__self__, "default_root_device_type", default_root_device_type)
+            _setter("default_root_device_type", default_root_device_type)
         if default_ssh_key_name is not None:
-            pulumi.set(__self__, "default_ssh_key_name", default_ssh_key_name)
+            _setter("default_ssh_key_name", default_ssh_key_name)
         if default_subnet_id is not None:
-            pulumi.set(__self__, "default_subnet_id", default_subnet_id)
+            _setter("default_subnet_id", default_subnet_id)
         if hostname_theme is not None:
-            pulumi.set(__self__, "hostname_theme", hostname_theme)
+            _setter("hostname_theme", hostname_theme)
         if manage_berkshelf is not None:
-            pulumi.set(__self__, "manage_berkshelf", manage_berkshelf)
+            _setter("manage_berkshelf", manage_berkshelf)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
         if stack_endpoint is not None:
-            pulumi.set(__self__, "stack_endpoint", stack_endpoint)
+            _setter("stack_endpoint", stack_endpoint)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if use_custom_cookbooks is not None:
-            pulumi.set(__self__, "use_custom_cookbooks", use_custom_cookbooks)
+            _setter("use_custom_cookbooks", use_custom_cookbooks)
         if use_opsworks_security_groups is not None:
-            pulumi.set(__self__, "use_opsworks_security_groups", use_opsworks_security_groups)
+            _setter("use_opsworks_security_groups", use_opsworks_security_groups)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -929,6 +1037,10 @@ class Stack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

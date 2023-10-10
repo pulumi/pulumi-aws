@@ -346,14 +346,14 @@ public class Channel extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Settings for the VPC outputs.
+     * Settings for the VPC outputs. See VPC for more details.
      * 
      */
     @Export(name="vpc", refs={ChannelVpc.class}, tree="[0]")
     private Output</* @Nullable */ ChannelVpc> vpc;
 
     /**
-     * @return Settings for the VPC outputs.
+     * @return Settings for the VPC outputs. See VPC for more details.
      * 
      */
     public Output<Optional<ChannelVpc>> vpc() {

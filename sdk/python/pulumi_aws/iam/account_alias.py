@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountAliasArgs', 'AccountAlias']
@@ -19,7 +19,16 @@ class AccountAliasArgs:
         The set of arguments for constructing a AccountAlias resource.
         :param pulumi.Input[str] account_alias: The account alias
         """
-        pulumi.set(__self__, "account_alias", account_alias)
+        AccountAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_alias=account_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_alias: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_alias", account_alias)
 
     @property
     @pulumi.getter(name="accountAlias")
@@ -42,8 +51,17 @@ class _AccountAliasState:
         Input properties used for looking up and filtering AccountAlias resources.
         :param pulumi.Input[str] account_alias: The account alias
         """
+        _AccountAliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_alias=account_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_alias: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_alias is not None:
-            pulumi.set(__self__, "account_alias", account_alias)
+            _setter("account_alias", account_alias)
 
     @property
     @pulumi.getter(name="accountAlias")
@@ -129,6 +147,10 @@ class AccountAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,32 @@ class FunctionEventInvokeConfigArgs:
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
-        pulumi.set(__self__, "function_name", function_name)
+        FunctionEventInvokeConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            destination_config=destination_config,
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: pulumi.Input[str],
+             destination_config: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']] = None,
+             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_name", function_name)
         if destination_config is not None:
-            pulumi.set(__self__, "destination_config", destination_config)
+            _setter("destination_config", destination_config)
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="functionName")
@@ -122,16 +139,33 @@ class _FunctionEventInvokeConfigState:
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
+        _FunctionEventInvokeConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_config=destination_config,
+            function_name=function_name,
+            maximum_event_age_in_seconds=maximum_event_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_config: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_config is not None:
-            pulumi.set(__self__, "destination_config", destination_config)
+            _setter("destination_config", destination_config)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if maximum_event_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
+            _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="destinationConfig")
@@ -435,6 +469,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionEventInvokeConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -454,6 +492,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionEventInvokeConfigArgs.__new__(FunctionEventInvokeConfigArgs)
 
+            if destination_config is not None and not isinstance(destination_config, FunctionEventInvokeConfigDestinationConfigArgs):
+                destination_config = destination_config or {}
+                def _setter(key, value):
+                    destination_config[key] = value
+                FunctionEventInvokeConfigDestinationConfigArgs._configure(_setter, **destination_config)
             __props__.__dict__["destination_config"] = destination_config
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")

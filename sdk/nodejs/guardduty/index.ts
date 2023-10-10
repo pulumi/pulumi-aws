@@ -10,6 +10,11 @@ export type Detector = import("./detector").Detector;
 export const Detector: typeof import("./detector").Detector = null as any;
 utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
 
+export { DetectorFeatureArgs, DetectorFeatureState } from "./detectorFeature";
+export type DetectorFeature = import("./detectorFeature").DetectorFeature;
+export const DetectorFeature: typeof import("./detectorFeature").DetectorFeature = null as any;
+utilities.lazyLoad(exports, ["DetectorFeature"], () => require("./detectorFeature"));
+
 export { FilterArgs, FilterState } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
@@ -67,6 +72,8 @@ const _module = {
         switch (type) {
             case "aws:guardduty/detector:Detector":
                 return new Detector(name, <any>undefined, { urn })
+            case "aws:guardduty/detectorFeature:DetectorFeature":
+                return new DetectorFeature(name, <any>undefined, { urn })
             case "aws:guardduty/filter:Filter":
                 return new Filter(name, <any>undefined, { urn })
             case "aws:guardduty/iPSet:IPSet":
@@ -89,6 +96,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "guardduty/detector", _module)
+pulumi.runtime.registerResourceModule("aws", "guardduty/detectorFeature", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/filter", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/iPSet", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/inviteAccepter", _module)

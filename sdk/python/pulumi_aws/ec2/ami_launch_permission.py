@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AmiLaunchPermissionArgs', 'AmiLaunchPermission']
@@ -27,15 +27,32 @@ class AmiLaunchPermissionArgs:
         :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
         :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
-        pulumi.set(__self__, "image_id", image_id)
+        AmiLaunchPermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_id=image_id,
+            account_id=account_id,
+            group=group,
+            organization_arn=organization_arn,
+            organizational_unit_arn=organizational_unit_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_id: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             organization_arn: Optional[pulumi.Input[str]] = None,
+             organizational_unit_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image_id", image_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if organization_arn is not None:
-            pulumi.set(__self__, "organization_arn", organization_arn)
+            _setter("organization_arn", organization_arn)
         if organizational_unit_arn is not None:
-            pulumi.set(__self__, "organizational_unit_arn", organizational_unit_arn)
+            _setter("organizational_unit_arn", organizational_unit_arn)
 
     @property
     @pulumi.getter(name="imageId")
@@ -114,16 +131,33 @@ class _AmiLaunchPermissionState:
         :param pulumi.Input[str] organization_arn: ARN of an organization for the launch permission.
         :param pulumi.Input[str] organizational_unit_arn: ARN of an organizational unit for the launch permission.
         """
+        _AmiLaunchPermissionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            group=group,
+            image_id=image_id,
+            organization_arn=organization_arn,
+            organizational_unit_arn=organizational_unit_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             organization_arn: Optional[pulumi.Input[str]] = None,
+             organizational_unit_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if organization_arn is not None:
-            pulumi.set(__self__, "organization_arn", organization_arn)
+            _setter("organization_arn", organization_arn)
         if organizational_unit_arn is not None:
-            pulumi.set(__self__, "organizational_unit_arn", organizational_unit_arn)
+            _setter("organizational_unit_arn", organizational_unit_arn)
 
     @property
     @pulumi.getter(name="accountId")
@@ -309,6 +343,10 @@ class AmiLaunchPermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AmiLaunchPermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

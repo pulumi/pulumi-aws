@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,10 +29,21 @@ class RepositoryAssociationKmsKeyDetailsArgs:
         :param pulumi.Input[str] encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         :param pulumi.Input[str] kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
         """
+        RepositoryAssociationKmsKeyDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_option=encryption_option,
+            kms_key_id=kms_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_option: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_option is not None:
-            pulumi.set(__self__, "encryption_option", encryption_option)
+            _setter("encryption_option", encryption_option)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="encryptionOption")
@@ -66,14 +77,29 @@ class RepositoryAssociationRepositoryArgs:
                  codecommit: Optional[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgs']] = None,
                  github_enterprise_server: Optional[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']] = None,
                  s3_bucket: Optional[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgs']] = None):
+        RepositoryAssociationRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitbucket=bitbucket,
+            codecommit=codecommit,
+            github_enterprise_server=github_enterprise_server,
+            s3_bucket=s3_bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitbucket: Optional[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgs']] = None,
+             codecommit: Optional[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgs']] = None,
+             github_enterprise_server: Optional[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']] = None,
+             s3_bucket: Optional[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bitbucket is not None:
-            pulumi.set(__self__, "bitbucket", bitbucket)
+            _setter("bitbucket", bitbucket)
         if codecommit is not None:
-            pulumi.set(__self__, "codecommit", codecommit)
+            _setter("codecommit", codecommit)
         if github_enterprise_server is not None:
-            pulumi.set(__self__, "github_enterprise_server", github_enterprise_server)
+            _setter("github_enterprise_server", github_enterprise_server)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
 
     @property
     @pulumi.getter
@@ -123,9 +149,22 @@ class RepositoryAssociationRepositoryBitbucketArgs:
         :param pulumi.Input[str] name: The name of the third party source repository.
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         """
-        pulumi.set(__self__, "connection_arn", connection_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "owner", owner)
+        RepositoryAssociationRepositoryBitbucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_arn=connection_arn,
+            name=name,
+            owner=owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_arn: pulumi.Input[str],
+             name: pulumi.Input[str],
+             owner: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_arn", connection_arn)
+        _setter("name", name)
+        _setter("owner", owner)
 
     @property
     @pulumi.getter(name="connectionArn")
@@ -171,7 +210,16 @@ class RepositoryAssociationRepositoryCodecommitArgs:
         """
         :param pulumi.Input[str] name: The name of the AWS CodeCommit repository.
         """
-        pulumi.set(__self__, "name", name)
+        RepositoryAssociationRepositoryCodecommitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -197,9 +245,22 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
         :param pulumi.Input[str] name: The name of the third party source repository.
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         """
-        pulumi.set(__self__, "connection_arn", connection_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "owner", owner)
+        RepositoryAssociationRepositoryGithubEnterpriseServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_arn=connection_arn,
+            name=name,
+            owner=owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_arn: pulumi.Input[str],
+             name: pulumi.Input[str],
+             owner: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_arn", connection_arn)
+        _setter("name", name)
+        _setter("owner", owner)
 
     @property
     @pulumi.getter(name="connectionArn")
@@ -247,8 +308,19 @@ class RepositoryAssociationRepositoryS3BucketArgs:
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         :param pulumi.Input[str] name: The name of the third party source repository.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "name", name)
+        RepositoryAssociationRepositoryS3BucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -283,10 +355,21 @@ class RepositoryAssociationS3RepositoryDetailArgs:
         """
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         """
+        RepositoryAssociationS3RepositoryDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            code_artifacts=code_artifacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             code_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if code_artifacts is not None:
-            pulumi.set(__self__, "code_artifacts", code_artifacts)
+            _setter("code_artifacts", code_artifacts)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -315,10 +398,21 @@ class RepositoryAssociationS3RepositoryDetailCodeArtifactArgs:
     def __init__(__self__, *,
                  build_artifacts_object_key: Optional[pulumi.Input[str]] = None,
                  source_code_artifacts_object_key: Optional[pulumi.Input[str]] = None):
+        RepositoryAssociationS3RepositoryDetailCodeArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_artifacts_object_key=build_artifacts_object_key,
+            source_code_artifacts_object_key=source_code_artifacts_object_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_artifacts_object_key: Optional[pulumi.Input[str]] = None,
+             source_code_artifacts_object_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if build_artifacts_object_key is not None:
-            pulumi.set(__self__, "build_artifacts_object_key", build_artifacts_object_key)
+            _setter("build_artifacts_object_key", build_artifacts_object_key)
         if source_code_artifacts_object_key is not None:
-            pulumi.set(__self__, "source_code_artifacts_object_key", source_code_artifacts_object_key)
+            _setter("source_code_artifacts_object_key", source_code_artifacts_object_key)
 
     @property
     @pulumi.getter(name="buildArtifactsObjectKey")

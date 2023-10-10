@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -46,33 +46,68 @@ class OpenZfsVolumeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
-        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+        OpenZfsVolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_volume_id=parent_volume_id,
+            copy_tags_to_snapshots=copy_tags_to_snapshots,
+            data_compression_type=data_compression_type,
+            delete_volume_options=delete_volume_options,
+            name=name,
+            nfs_exports=nfs_exports,
+            origin_snapshot=origin_snapshot,
+            read_only=read_only,
+            record_size_kib=record_size_kib,
+            storage_capacity_quota_gib=storage_capacity_quota_gib,
+            storage_capacity_reservation_gib=storage_capacity_reservation_gib,
+            tags=tags,
+            user_and_group_quotas=user_and_group_quotas,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_volume_id: pulumi.Input[str],
+             copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
+             data_compression_type: Optional[pulumi.Input[str]] = None,
+             delete_volume_options: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nfs_exports: Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']] = None,
+             origin_snapshot: Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             record_size_kib: Optional[pulumi.Input[int]] = None,
+             storage_capacity_quota_gib: Optional[pulumi.Input[int]] = None,
+             storage_capacity_reservation_gib: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+            _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
-            pulumi.set(__self__, "data_compression_type", data_compression_type)
+            _setter("data_compression_type", data_compression_type)
         if delete_volume_options is not None:
-            pulumi.set(__self__, "delete_volume_options", delete_volume_options)
+            _setter("delete_volume_options", delete_volume_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nfs_exports is not None:
-            pulumi.set(__self__, "nfs_exports", nfs_exports)
+            _setter("nfs_exports", nfs_exports)
         if origin_snapshot is not None:
-            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
+            _setter("origin_snapshot", origin_snapshot)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if record_size_kib is not None:
-            pulumi.set(__self__, "record_size_kib", record_size_kib)
+            _setter("record_size_kib", record_size_kib)
         if storage_capacity_quota_gib is not None:
-            pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+            _setter("storage_capacity_quota_gib", storage_capacity_quota_gib)
         if storage_capacity_reservation_gib is not None:
-            pulumi.set(__self__, "storage_capacity_reservation_gib", storage_capacity_reservation_gib)
+            _setter("storage_capacity_reservation_gib", storage_capacity_reservation_gib)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_and_group_quotas is not None:
-            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+            _setter("user_and_group_quotas", user_and_group_quotas)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="parentVolumeId")
@@ -277,41 +312,80 @@ class _OpenZfsVolumeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
+        _OpenZfsVolumeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            copy_tags_to_snapshots=copy_tags_to_snapshots,
+            data_compression_type=data_compression_type,
+            delete_volume_options=delete_volume_options,
+            name=name,
+            nfs_exports=nfs_exports,
+            origin_snapshot=origin_snapshot,
+            parent_volume_id=parent_volume_id,
+            read_only=read_only,
+            record_size_kib=record_size_kib,
+            storage_capacity_quota_gib=storage_capacity_quota_gib,
+            storage_capacity_reservation_gib=storage_capacity_reservation_gib,
+            tags=tags,
+            tags_all=tags_all,
+            user_and_group_quotas=user_and_group_quotas,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
+             data_compression_type: Optional[pulumi.Input[str]] = None,
+             delete_volume_options: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nfs_exports: Optional[pulumi.Input['OpenZfsVolumeNfsExportsArgs']] = None,
+             origin_snapshot: Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']] = None,
+             parent_volume_id: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             record_size_kib: Optional[pulumi.Input[int]] = None,
+             storage_capacity_quota_gib: Optional[pulumi.Input[int]] = None,
+             storage_capacity_reservation_gib: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if copy_tags_to_snapshots is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+            _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
-            pulumi.set(__self__, "data_compression_type", data_compression_type)
+            _setter("data_compression_type", data_compression_type)
         if delete_volume_options is not None:
-            pulumi.set(__self__, "delete_volume_options", delete_volume_options)
+            _setter("delete_volume_options", delete_volume_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nfs_exports is not None:
-            pulumi.set(__self__, "nfs_exports", nfs_exports)
+            _setter("nfs_exports", nfs_exports)
         if origin_snapshot is not None:
-            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
+            _setter("origin_snapshot", origin_snapshot)
         if parent_volume_id is not None:
-            pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+            _setter("parent_volume_id", parent_volume_id)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if record_size_kib is not None:
-            pulumi.set(__self__, "record_size_kib", record_size_kib)
+            _setter("record_size_kib", record_size_kib)
         if storage_capacity_quota_gib is not None:
-            pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
+            _setter("storage_capacity_quota_gib", storage_capacity_quota_gib)
         if storage_capacity_reservation_gib is not None:
-            pulumi.set(__self__, "storage_capacity_reservation_gib", storage_capacity_reservation_gib)
+            _setter("storage_capacity_reservation_gib", storage_capacity_reservation_gib)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_and_group_quotas is not None:
-            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+            _setter("user_and_group_quotas", user_and_group_quotas)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -600,6 +674,10 @@ class OpenZfsVolume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OpenZfsVolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -632,7 +710,17 @@ class OpenZfsVolume(pulumi.CustomResource):
             __props__.__dict__["data_compression_type"] = data_compression_type
             __props__.__dict__["delete_volume_options"] = delete_volume_options
             __props__.__dict__["name"] = name
+            if nfs_exports is not None and not isinstance(nfs_exports, OpenZfsVolumeNfsExportsArgs):
+                nfs_exports = nfs_exports or {}
+                def _setter(key, value):
+                    nfs_exports[key] = value
+                OpenZfsVolumeNfsExportsArgs._configure(_setter, **nfs_exports)
             __props__.__dict__["nfs_exports"] = nfs_exports
+            if origin_snapshot is not None and not isinstance(origin_snapshot, OpenZfsVolumeOriginSnapshotArgs):
+                origin_snapshot = origin_snapshot or {}
+                def _setter(key, value):
+                    origin_snapshot[key] = value
+                OpenZfsVolumeOriginSnapshotArgs._configure(_setter, **origin_snapshot)
             __props__.__dict__["origin_snapshot"] = origin_snapshot
             if parent_volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_volume_id'")

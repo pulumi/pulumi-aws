@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TapePoolArgs', 'TapePool']
@@ -27,14 +27,31 @@ class TapePoolArgs:
         :param pulumi.Input[str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "storage_class", storage_class)
+        TapePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pool_name=pool_name,
+            storage_class=storage_class,
+            retention_lock_time_in_days=retention_lock_time_in_days,
+            retention_lock_type=retention_lock_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pool_name: pulumi.Input[str],
+             storage_class: pulumi.Input[str],
+             retention_lock_time_in_days: Optional[pulumi.Input[int]] = None,
+             retention_lock_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("pool_name", pool_name)
+        _setter("storage_class", storage_class)
         if retention_lock_time_in_days is not None:
-            pulumi.set(__self__, "retention_lock_time_in_days", retention_lock_time_in_days)
+            _setter("retention_lock_time_in_days", retention_lock_time_in_days)
         if retention_lock_type is not None:
-            pulumi.set(__self__, "retention_lock_type", retention_lock_type)
+            _setter("retention_lock_type", retention_lock_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="poolName")
@@ -117,23 +134,44 @@ class _TapePoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TapePoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            pool_name=pool_name,
+            retention_lock_time_in_days=retention_lock_time_in_days,
+            retention_lock_type=retention_lock_type,
+            storage_class=storage_class,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             retention_lock_time_in_days: Optional[pulumi.Input[int]] = None,
+             retention_lock_type: Optional[pulumi.Input[str]] = None,
+             storage_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if retention_lock_time_in_days is not None:
-            pulumi.set(__self__, "retention_lock_time_in_days", retention_lock_time_in_days)
+            _setter("retention_lock_time_in_days", retention_lock_time_in_days)
         if retention_lock_type is not None:
-            pulumi.set(__self__, "retention_lock_type", retention_lock_type)
+            _setter("retention_lock_type", retention_lock_type)
         if storage_class is not None:
-            pulumi.set(__self__, "storage_class", storage_class)
+            _setter("storage_class", storage_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -302,6 +340,10 @@ class TapePool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TapePoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

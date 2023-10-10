@@ -20,6 +20,8 @@ type DetectorDatasources struct {
 	Kubernetes *DetectorDatasourcesKubernetes `pulumi:"kubernetes"`
 	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+	//
+	// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 	MalwareProtection *DetectorDatasourcesMalwareProtection `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
@@ -43,6 +45,8 @@ type DetectorDatasourcesArgs struct {
 	Kubernetes DetectorDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
 	// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 	// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+	//
+	// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 	MalwareProtection DetectorDatasourcesMalwareProtectionPtrInput `pulumi:"malwareProtection"`
 	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
 	// See S3 Logs below for more details.
@@ -152,6 +156,8 @@ func (o DetectorDatasourcesOutput) Kubernetes() DetectorDatasourcesKubernetesPtr
 
 // Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 // See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+//
+// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 func (o DetectorDatasourcesOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesMalwareProtection { return v.MalwareProtection }).(DetectorDatasourcesMalwareProtectionPtrOutput)
 }
@@ -205,6 +211,8 @@ func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetes
 
 // Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
 // See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+//
+// The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
 func (o DetectorDatasourcesPtrOutput) MalwareProtection() DetectorDatasourcesMalwareProtectionPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesMalwareProtection {
 		if v == nil {
@@ -1215,6 +1223,136 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 		}
 		return &v.Enable
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DetectorFeatureAdditionalConfiguration struct {
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+	Name string `pulumi:"name"`
+	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// DetectorFeatureAdditionalConfigurationInput is an input type that accepts DetectorFeatureAdditionalConfigurationArgs and DetectorFeatureAdditionalConfigurationOutput values.
+// You can construct a concrete instance of `DetectorFeatureAdditionalConfigurationInput` via:
+//
+//	DetectorFeatureAdditionalConfigurationArgs{...}
+type DetectorFeatureAdditionalConfigurationInput interface {
+	pulumi.Input
+
+	ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput
+	ToDetectorFeatureAdditionalConfigurationOutputWithContext(context.Context) DetectorFeatureAdditionalConfigurationOutput
+}
+
+type DetectorFeatureAdditionalConfigurationArgs struct {
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DetectorFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i DetectorFeatureAdditionalConfigurationArgs) ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput {
+	return i.ToDetectorFeatureAdditionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i DetectorFeatureAdditionalConfigurationArgs) ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureAdditionalConfigurationOutput)
+}
+
+func (i DetectorFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[DetectorFeatureAdditionalConfiguration]{
+		OutputState: i.ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DetectorFeatureAdditionalConfigurationArrayInput is an input type that accepts DetectorFeatureAdditionalConfigurationArray and DetectorFeatureAdditionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `DetectorFeatureAdditionalConfigurationArrayInput` via:
+//
+//	DetectorFeatureAdditionalConfigurationArray{ DetectorFeatureAdditionalConfigurationArgs{...} }
+type DetectorFeatureAdditionalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput
+	ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) DetectorFeatureAdditionalConfigurationArrayOutput
+}
+
+type DetectorFeatureAdditionalConfigurationArray []DetectorFeatureAdditionalConfigurationInput
+
+func (DetectorFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i DetectorFeatureAdditionalConfigurationArray) ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput {
+	return i.ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DetectorFeatureAdditionalConfigurationArray) ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureAdditionalConfigurationArrayOutput)
+}
+
+func (i DetectorFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]DetectorFeatureAdditionalConfiguration]{
+		OutputState: i.ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DetectorFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DetectorFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditionalConfigurationOutput() DetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o DetectorFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[DetectorFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+func (o DetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DetectorFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DetectorFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToDetectorFeatureAdditionalConfigurationArrayOutput() DetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) DetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o DetectorFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]DetectorFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DetectorFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) DetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorFeatureAdditionalConfiguration {
+		return vs[0].([]DetectorFeatureAdditionalConfiguration)[vs[1].(int)]
+	}).(DetectorFeatureAdditionalConfigurationOutput)
 }
 
 type FilterFindingCriteria struct {
@@ -2748,6 +2886,277 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetDetectorFeatureType struct {
+	// Additional feature configuration.
+	AdditionalConfigurations []GetDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
+	// The name of the detector feature.
+	Name string `pulumi:"name"`
+	// Current status of the detector.
+	Status string `pulumi:"status"`
+}
+
+// GetDetectorFeatureTypeInput is an input type that accepts GetDetectorFeatureTypeArgs and GetDetectorFeatureTypeOutput values.
+// You can construct a concrete instance of `GetDetectorFeatureTypeInput` via:
+//
+//	GetDetectorFeatureTypeArgs{...}
+type GetDetectorFeatureTypeInput interface {
+	pulumi.Input
+
+	ToGetDetectorFeatureTypeOutput() GetDetectorFeatureTypeOutput
+	ToGetDetectorFeatureTypeOutputWithContext(context.Context) GetDetectorFeatureTypeOutput
+}
+
+type GetDetectorFeatureTypeArgs struct {
+	// Additional feature configuration.
+	AdditionalConfigurations GetDetectorFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfigurations"`
+	// The name of the detector feature.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Current status of the detector.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDetectorFeatureTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDetectorFeatureType)(nil)).Elem()
+}
+
+func (i GetDetectorFeatureTypeArgs) ToGetDetectorFeatureTypeOutput() GetDetectorFeatureTypeOutput {
+	return i.ToGetDetectorFeatureTypeOutputWithContext(context.Background())
+}
+
+func (i GetDetectorFeatureTypeArgs) ToGetDetectorFeatureTypeOutputWithContext(ctx context.Context) GetDetectorFeatureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDetectorFeatureTypeOutput)
+}
+
+func (i GetDetectorFeatureTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetDetectorFeatureType] {
+	return pulumix.Output[GetDetectorFeatureType]{
+		OutputState: i.ToGetDetectorFeatureTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDetectorFeatureTypeArrayInput is an input type that accepts GetDetectorFeatureTypeArray and GetDetectorFeatureTypeArrayOutput values.
+// You can construct a concrete instance of `GetDetectorFeatureTypeArrayInput` via:
+//
+//	GetDetectorFeatureTypeArray{ GetDetectorFeatureTypeArgs{...} }
+type GetDetectorFeatureTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetDetectorFeatureTypeArrayOutput() GetDetectorFeatureTypeArrayOutput
+	ToGetDetectorFeatureTypeArrayOutputWithContext(context.Context) GetDetectorFeatureTypeArrayOutput
+}
+
+type GetDetectorFeatureTypeArray []GetDetectorFeatureTypeInput
+
+func (GetDetectorFeatureTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDetectorFeatureType)(nil)).Elem()
+}
+
+func (i GetDetectorFeatureTypeArray) ToGetDetectorFeatureTypeArrayOutput() GetDetectorFeatureTypeArrayOutput {
+	return i.ToGetDetectorFeatureTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDetectorFeatureTypeArray) ToGetDetectorFeatureTypeArrayOutputWithContext(ctx context.Context) GetDetectorFeatureTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDetectorFeatureTypeArrayOutput)
+}
+
+func (i GetDetectorFeatureTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDetectorFeatureType] {
+	return pulumix.Output[[]GetDetectorFeatureType]{
+		OutputState: i.ToGetDetectorFeatureTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDetectorFeatureTypeOutput struct{ *pulumi.OutputState }
+
+func (GetDetectorFeatureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDetectorFeatureType)(nil)).Elem()
+}
+
+func (o GetDetectorFeatureTypeOutput) ToGetDetectorFeatureTypeOutput() GetDetectorFeatureTypeOutput {
+	return o
+}
+
+func (o GetDetectorFeatureTypeOutput) ToGetDetectorFeatureTypeOutputWithContext(ctx context.Context) GetDetectorFeatureTypeOutput {
+	return o
+}
+
+func (o GetDetectorFeatureTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetDetectorFeatureType] {
+	return pulumix.Output[GetDetectorFeatureType]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Additional feature configuration.
+func (o GetDetectorFeatureTypeOutput) AdditionalConfigurations() GetDetectorFeatureAdditionalConfigurationArrayOutput {
+	return o.ApplyT(func(v GetDetectorFeatureType) []GetDetectorFeatureAdditionalConfiguration {
+		return v.AdditionalConfigurations
+	}).(GetDetectorFeatureAdditionalConfigurationArrayOutput)
+}
+
+// The name of the detector feature.
+func (o GetDetectorFeatureTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDetectorFeatureType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current status of the detector.
+func (o GetDetectorFeatureTypeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDetectorFeatureType) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDetectorFeatureTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDetectorFeatureTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDetectorFeatureType)(nil)).Elem()
+}
+
+func (o GetDetectorFeatureTypeArrayOutput) ToGetDetectorFeatureTypeArrayOutput() GetDetectorFeatureTypeArrayOutput {
+	return o
+}
+
+func (o GetDetectorFeatureTypeArrayOutput) ToGetDetectorFeatureTypeArrayOutputWithContext(ctx context.Context) GetDetectorFeatureTypeArrayOutput {
+	return o
+}
+
+func (o GetDetectorFeatureTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDetectorFeatureType] {
+	return pulumix.Output[[]GetDetectorFeatureType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDetectorFeatureTypeArrayOutput) Index(i pulumi.IntInput) GetDetectorFeatureTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDetectorFeatureType {
+		return vs[0].([]GetDetectorFeatureType)[vs[1].(int)]
+	}).(GetDetectorFeatureTypeOutput)
+}
+
+type GetDetectorFeatureAdditionalConfiguration struct {
+	// The name of the detector feature.
+	Name string `pulumi:"name"`
+	// Current status of the detector.
+	Status string `pulumi:"status"`
+}
+
+// GetDetectorFeatureAdditionalConfigurationInput is an input type that accepts GetDetectorFeatureAdditionalConfigurationArgs and GetDetectorFeatureAdditionalConfigurationOutput values.
+// You can construct a concrete instance of `GetDetectorFeatureAdditionalConfigurationInput` via:
+//
+//	GetDetectorFeatureAdditionalConfigurationArgs{...}
+type GetDetectorFeatureAdditionalConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDetectorFeatureAdditionalConfigurationOutput() GetDetectorFeatureAdditionalConfigurationOutput
+	ToGetDetectorFeatureAdditionalConfigurationOutputWithContext(context.Context) GetDetectorFeatureAdditionalConfigurationOutput
+}
+
+type GetDetectorFeatureAdditionalConfigurationArgs struct {
+	// The name of the detector feature.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Current status of the detector.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetDetectorFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArgs) ToGetDetectorFeatureAdditionalConfigurationOutput() GetDetectorFeatureAdditionalConfigurationOutput {
+	return i.ToGetDetectorFeatureAdditionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArgs) ToGetDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) GetDetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDetectorFeatureAdditionalConfigurationOutput)
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[GetDetectorFeatureAdditionalConfiguration]{
+		OutputState: i.ToGetDetectorFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDetectorFeatureAdditionalConfigurationArrayInput is an input type that accepts GetDetectorFeatureAdditionalConfigurationArray and GetDetectorFeatureAdditionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDetectorFeatureAdditionalConfigurationArrayInput` via:
+//
+//	GetDetectorFeatureAdditionalConfigurationArray{ GetDetectorFeatureAdditionalConfigurationArgs{...} }
+type GetDetectorFeatureAdditionalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDetectorFeatureAdditionalConfigurationArrayOutput() GetDetectorFeatureAdditionalConfigurationArrayOutput
+	ToGetDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) GetDetectorFeatureAdditionalConfigurationArrayOutput
+}
+
+type GetDetectorFeatureAdditionalConfigurationArray []GetDetectorFeatureAdditionalConfigurationInput
+
+func (GetDetectorFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArray) ToGetDetectorFeatureAdditionalConfigurationArrayOutput() GetDetectorFeatureAdditionalConfigurationArrayOutput {
+	return i.ToGetDetectorFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArray) ToGetDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) GetDetectorFeatureAdditionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDetectorFeatureAdditionalConfigurationArrayOutput)
+}
+
+func (i GetDetectorFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]GetDetectorFeatureAdditionalConfiguration]{
+		OutputState: i.ToGetDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDetectorFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDetectorFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationOutput) ToGetDetectorFeatureAdditionalConfigurationOutput() GetDetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationOutput) ToGetDetectorFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) GetDetectorFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[GetDetectorFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the detector feature.
+func (o GetDetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current status of the detector.
+func (o GetDetectorFeatureAdditionalConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDetectorFeatureAdditionalConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetDetectorFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDetectorFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDetectorFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationArrayOutput) ToGetDetectorFeatureAdditionalConfigurationArrayOutput() GetDetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationArrayOutput) ToGetDetectorFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) GetDetectorFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDetectorFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]GetDetectorFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDetectorFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) GetDetectorFeatureAdditionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDetectorFeatureAdditionalConfiguration {
+		return vs[0].([]GetDetectorFeatureAdditionalConfiguration)[vs[1].(int)]
+	}).(GetDetectorFeatureAdditionalConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesInput)(nil)).Elem(), DetectorDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesPtrInput)(nil)).Elem(), DetectorDatasourcesArgs{})
@@ -2763,6 +3172,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput)(nil)).Elem(), DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsPtrInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureAdditionalConfigurationInput)(nil)).Elem(), DetectorFeatureAdditionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), DetectorFeatureAdditionalConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaPtrInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionInput)(nil)).Elem(), FilterFindingCriteriaCriterionArgs{})
@@ -2781,6 +3192,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureTypeInput)(nil)).Elem(), GetDetectorFeatureTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureTypeArrayInput)(nil)).Elem(), GetDetectorFeatureTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureAdditionalConfigurationInput)(nil)).Elem(), GetDetectorFeatureAdditionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), GetDetectorFeatureAdditionalConfigurationArray{})
 	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesOutput{})
@@ -2795,6 +3210,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsPtrOutput{})
+	pulumi.RegisterOutputType(DetectorFeatureAdditionalConfigurationOutput{})
+	pulumi.RegisterOutputType(DetectorFeatureAdditionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionOutput{})
@@ -2813,4 +3230,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsPtrOutput{})
+	pulumi.RegisterOutputType(GetDetectorFeatureTypeOutput{})
+	pulumi.RegisterOutputType(GetDetectorFeatureTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetDetectorFeatureAdditionalConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDetectorFeatureAdditionalConfigurationArrayOutput{})
 }

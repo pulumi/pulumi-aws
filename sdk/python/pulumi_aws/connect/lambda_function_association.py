@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LambdaFunctionAssociationArgs', 'LambdaFunctionAssociation']
@@ -21,8 +21,19 @@ class LambdaFunctionAssociationArgs:
         :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
-        pulumi.set(__self__, "function_arn", function_arn)
-        pulumi.set(__self__, "instance_id", instance_id)
+        LambdaFunctionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            instance_id=instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: pulumi.Input[str],
+             instance_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_arn", function_arn)
+        _setter("instance_id", instance_id)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -59,10 +70,21 @@ class _LambdaFunctionAssociationState:
         :param pulumi.Input[str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
+        _LambdaFunctionAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+            instance_id=instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if function_arn is not None:
-            pulumi.set(__self__, "function_arn", function_arn)
+            _setter("function_arn", function_arn)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -164,6 +186,10 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LambdaFunctionAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         public Input<string> Stat { get; set; } = null!;
 
         /// <summary>
-        /// Unit of the metric.
+        /// Unit of the metrics to return.
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }

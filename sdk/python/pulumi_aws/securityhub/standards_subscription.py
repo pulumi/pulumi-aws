@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StandardsSubscriptionArgs', 'StandardsSubscription']
@@ -29,7 +29,16 @@ class StandardsSubscriptionArgs:
                | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
                | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
-        pulumi.set(__self__, "standards_arn", standards_arn)
+        StandardsSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standards_arn=standards_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standards_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("standards_arn", standards_arn)
 
     @property
     @pulumi.getter(name="standardsArn")
@@ -72,8 +81,17 @@ class _StandardsSubscriptionState:
                | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
                | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
+        _StandardsSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            standards_arn=standards_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             standards_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if standards_arn is not None:
-            pulumi.set(__self__, "standards_arn", standards_arn)
+            _setter("standards_arn", standards_arn)
 
     @property
     @pulumi.getter(name="standardsArn")
@@ -201,6 +219,10 @@ class StandardsSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StandardsSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
