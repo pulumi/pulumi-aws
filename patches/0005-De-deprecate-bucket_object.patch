@@ -1,4 +1,4 @@
-From 71a8342cba8664c26f9baa77352d49429b13b0a0 Mon Sep 17 00:00:00 2001
+From 89602096417c9a0505c72cd1ef90175abf6bf8cc Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:06:11 +0000
 Subject: [PATCH 05/30] De-deprecate bucket_object
@@ -41,5 +41,5 @@ index 1a6fadf590..f596e3a8b4 100644
  }
  
 -- 
-2.40.0
+2.42.0
 

@@ -1,4 +1,4 @@
-From 0b9199f9da82cdc105721dc0eac34ed8622d0a8e Mon Sep 17 00:00:00 2001
+From 7874aad711f03d0f606ed2060bc9b94a12f6a692 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 22/30] Change default descriptions to "Managed by Pulumi"
@@ -1128,5 +1128,5 @@ index e17fa7c445..fb9e5b7304 100644
  
  	_, err = conn.DisassociateVPCFromHostedZoneWithContext(ctx, input)
 -- 
-2.40.0
+2.42.0
 

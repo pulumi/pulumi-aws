@@ -1,4 +1,4 @@
-From 55f7f811198fcc5f71c2e3005eb2365a2ea04b2a Mon Sep 17 00:00:00 2001
+From 04afd34dfcef89a2cb6c3426d6f4255dcc383551 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 25 Sep 2023 15:22:30 -0400
 Subject: [PATCH 30/30] Restore S3ConnURICleaningDisabled
@@ -39,5 +39,5 @@ index 1b833cb6ec..a173638519 100644
  // To have effect it must be called before the AWS SDK v1 Session is created.
  func (client *AWSClient) SetHTTPClient(httpClient *http.Client) {
 -- 
-2.40.0
+2.42.0
 
