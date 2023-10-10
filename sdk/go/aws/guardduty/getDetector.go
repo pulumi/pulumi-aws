@@ -55,6 +55,8 @@ type LookupDetectorArgs struct {
 
 // A collection of values returned by getDetector.
 type LookupDetectorResult struct {
+	// Current configuration of the detector features.
+	Features []GetDetectorFeatureType `pulumi:"features"`
 	// The frequency of notifications sent about subsequent finding occurrences.
 	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
 	Id                         string `pulumi:"id"`
@@ -106,6 +108,11 @@ func (o LookupDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	return pulumix.Output[LookupDetectorResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+// Current configuration of the detector features.
+func (o LookupDetectorResultOutput) Features() GetDetectorFeatureTypeArrayOutput {
+	return o.ApplyT(func(v LookupDetectorResult) []GetDetectorFeatureType { return v.Features }).(GetDetectorFeatureTypeArrayOutput)
 }
 
 // The frequency of notifications sent about subsequent finding occurrences.

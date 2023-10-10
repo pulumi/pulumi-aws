@@ -28,14 +28,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     public static final ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs Empty = new ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs();
 
     /**
-     * Arib Destination Settings.
+     * ARIB Destination Settings.
      * 
      */
     @Import(name="aribDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs> aribDestinationSettings;
 
     /**
-     * @return Arib Destination Settings.
+     * @return ARIB Destination Settings.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs>> aribDestinationSettings() {
@@ -259,7 +259,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param aribDestinationSettings Arib Destination Settings.
+         * @param aribDestinationSettings ARIB Destination Settings.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param aribDestinationSettings Arib Destination Settings.
+         * @param aribDestinationSettings ARIB Destination Settings.
          * 
          * @return builder
          * 

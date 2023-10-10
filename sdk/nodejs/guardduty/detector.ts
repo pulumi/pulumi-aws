@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage a GuardDuty detector.
+ * Provides a resource to manage an Amazon GuardDuty detector.
  *
  * > **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
  *
@@ -86,7 +86,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
     public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
     /**
@@ -158,7 +158,7 @@ export interface DetectorState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**
@@ -186,7 +186,7 @@ export interface DetectorState {
  */
 export interface DetectorArgs {
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      */
     datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
     /**

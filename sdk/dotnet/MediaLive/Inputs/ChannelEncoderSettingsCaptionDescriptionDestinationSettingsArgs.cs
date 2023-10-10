@@ -13,7 +13,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Arib Destination Settings.
+        /// ARIB Destination Settings.
         /// </summary>
         [Input("aribDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs>? AribDestinationSettings { get; set; }

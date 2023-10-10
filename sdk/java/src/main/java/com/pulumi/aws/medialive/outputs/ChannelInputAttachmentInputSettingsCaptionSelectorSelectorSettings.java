@@ -23,7 +23,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings ancillarySourceSettings;
     /**
-     * @return Arib Source Settings.
+     * @return ARIB Source Settings.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings aribSourceSettings;
@@ -62,7 +62,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         return Optional.ofNullable(this.ancillarySourceSettings);
     }
     /**
-     * @return Arib Source Settings.
+     * @return ARIB Source Settings.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings> aribSourceSettings() {

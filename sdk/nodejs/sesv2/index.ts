@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountVdmAttributesArgs, AccountVdmAttributesState } from "./accountVdmAttributes";
+export type AccountVdmAttributes = import("./accountVdmAttributes").AccountVdmAttributes;
+export const AccountVdmAttributes: typeof import("./accountVdmAttributes").AccountVdmAttributes = null as any;
+utilities.lazyLoad(exports, ["AccountVdmAttributes"], () => require("./accountVdmAttributes"));
+
 export { ConfigurationSetArgs, ConfigurationSetState } from "./configurationSet";
 export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
@@ -70,6 +75,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:sesv2/accountVdmAttributes:AccountVdmAttributes":
+                return new AccountVdmAttributes(name, <any>undefined, { urn })
             case "aws:sesv2/configurationSet:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
             case "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination":
@@ -91,6 +98,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "sesv2/accountVdmAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSetEventDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/contactList", _module)

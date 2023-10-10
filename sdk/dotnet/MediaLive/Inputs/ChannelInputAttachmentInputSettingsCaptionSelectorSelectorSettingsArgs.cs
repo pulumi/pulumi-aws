@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs>? AncillarySourceSettings { get; set; }
 
         /// <summary>
-        /// Arib Source Settings.
+        /// ARIB Source Settings.
         /// </summary>
         [Input("aribSourceSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs>? AribSourceSettings { get; set; }

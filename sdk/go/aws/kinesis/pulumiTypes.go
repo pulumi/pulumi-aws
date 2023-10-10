@@ -12771,6 +12771,391 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) RoleArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type FirehoseDeliveryStreamMskSourceConfiguration struct {
+	// The authentication configuration of the Amazon MSK cluster. More details are given below.
+	AuthenticationConfiguration FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// The ARN of the Amazon MSK cluster.
+	MskClusterArn string `pulumi:"mskClusterArn"`
+	// The topic name within the Amazon MSK cluster.
+	TopicName string `pulumi:"topicName"`
+}
+
+// FirehoseDeliveryStreamMskSourceConfigurationInput is an input type that accepts FirehoseDeliveryStreamMskSourceConfigurationArgs and FirehoseDeliveryStreamMskSourceConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamMskSourceConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamMskSourceConfigurationArgs{...}
+type FirehoseDeliveryStreamMskSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamMskSourceConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationOutput
+	ToFirehoseDeliveryStreamMskSourceConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamMskSourceConfigurationOutput
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationArgs struct {
+	// The authentication configuration of the Amazon MSK cluster. More details are given below.
+	AuthenticationConfiguration FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput `pulumi:"authenticationConfiguration"`
+	// The ARN of the Amazon MSK cluster.
+	MskClusterArn pulumi.StringInput `pulumi:"mskClusterArn"`
+	// The topic name within the Amazon MSK cluster.
+	TopicName pulumi.StringInput `pulumi:"topicName"`
+}
+
+func (FirehoseDeliveryStreamMskSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamMskSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationOutput).ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamMskSourceConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamMskSourceConfigurationArgs, FirehoseDeliveryStreamMskSourceConfigurationPtr and FirehoseDeliveryStreamMskSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamMskSourceConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamMskSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamMskSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput
+	ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamMskSourceConfigurationPtrType FirehoseDeliveryStreamMskSourceConfigurationArgs
+
+func FirehoseDeliveryStreamMskSourceConfigurationPtr(v *FirehoseDeliveryStreamMskSourceConfigurationArgs) FirehoseDeliveryStreamMskSourceConfigurationPtrInput {
+	return (*firehoseDeliveryStreamMskSourceConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamMskSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationPtrType) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationPtrType) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamMskSourceConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamMskSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamMskSourceConfiguration) *FirehoseDeliveryStreamMskSourceConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamMskSourceConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The authentication configuration of the Amazon MSK cluster. More details are given below.
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) AuthenticationConfiguration() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+		return v.AuthenticationConfiguration
+	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput)
+}
+
+// The ARN of the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) MskClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) string { return v.MskClusterArn }).(pulumi.StringOutput)
+}
+
+// The topic name within the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationOutput) TopicName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfiguration) string { return v.TopicName }).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamMskSourceConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ToFirehoseDeliveryStreamMskSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamMskSourceConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamMskSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) Elem() FirehoseDeliveryStreamMskSourceConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) FirehoseDeliveryStreamMskSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamMskSourceConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamMskSourceConfigurationOutput)
+}
+
+// The authentication configuration of the Amazon MSK cluster. More details are given below.
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) AuthenticationConfiguration() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationConfiguration
+	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+// The ARN of the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) MskClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MskClusterArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The topic name within the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationPtrOutput) TopicName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration struct {
+	// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+	Connectivity string `pulumi:"connectivity"`
+	// The ARN of the role used to access the Amazon MSK cluster.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput is an input type that accepts FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs and FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs{...}
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput
+	ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs struct {
+	// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+	Connectivity pulumi.StringInput `pulumi:"connectivity"`
+	// The ARN of the role used to access the Amazon MSK cluster.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput).ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs, FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtr and FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput
+	ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs
+
+func FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtr(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrInput {
+	return (*firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) Connectivity() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) string {
+		return v.Connectivity
+	}).(pulumi.StringOutput)
+}
+
+// The ARN of the role used to access the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) ToFirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) Elem() FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput)
+}
+
+// The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) Connectivity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Connectivity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role used to access the Amazon MSK cluster.
+func (o FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirehoseDeliveryStreamOpensearchConfiguration struct {
 	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
 	BufferingInterval *int `pulumi:"bufferingInterval"`
@@ -12782,9 +13167,9 @@ type FirehoseDeliveryStreamOpensearchConfiguration struct {
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
 	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn *string `pulumi:"domainArn"`
-	// The Opensearch index name.
+	// The OpenSearch index name.
 	IndexName string `pulumi:"indexName"`
-	// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod *string `pulumi:"indexRotationPeriod"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
@@ -12824,9 +13209,9 @@ type FirehoseDeliveryStreamOpensearchConfigurationArgs struct {
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
 	// The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
 	DomainArn pulumi.StringPtrInput `pulumi:"domainArn"`
-	// The Opensearch index name.
+	// The OpenSearch index name.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+	// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 	IndexRotationPeriod pulumi.StringPtrInput `pulumi:"indexRotationPeriod"`
 	// The data processing configuration.  More details are given below.
 	ProcessingConfiguration FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
@@ -12966,12 +13351,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) DomainArn() pulumi.
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.DomainArn }).(pulumi.StringPtrOutput)
 }
 
-// The Opensearch index name.
+// The OpenSearch index name.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfiguration) *string { return v.IndexRotationPeriod }).(pulumi.StringPtrOutput)
 }
@@ -13097,7 +13482,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) DomainArn() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Opensearch index name.
+// The OpenSearch index name.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -13107,7 +13492,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfiguration) *string {
 		if v == nil {
@@ -14585,6 +14970,1788 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) SubnetI
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfiguration struct {
+	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+	CollectionEndpoint string `pulumi:"collectionEndpoint"`
+	// The Serverless offering for Amazon OpenSearch Service index name.
+	IndexName string `pulumi:"indexName"`
+	// The data processing configuration.  More details are given below.
+	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	RetryDuration *int `pulumi:"retryDuration"`
+	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	RoleArn string `pulumi:"roleArn"`
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	S3BackupMode *string `pulumi:"s3BackupMode"`
+	// The S3 Configuration. See s3Configuration for more details.
+	S3Configuration FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration `pulumi:"s3Configuration"`
+	// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+	VpcConfig *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig `pulumi:"vpcConfig"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs struct {
+	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+	CollectionEndpoint pulumi.StringInput `pulumi:"collectionEndpoint"`
+	// The Serverless offering for Amazon OpenSearch Service index name.
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// The data processing configuration.  More details are given below.
+	ProcessingConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
+	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
+	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
+	// The S3 Configuration. See s3Configuration for more details.
+	S3Configuration FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+	// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+	VpcConfig FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) CollectionEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.CollectionEndpoint }).(pulumi.StringOutput)
+}
+
+// The Serverless offering for Amazon OpenSearch Service index name.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+// The data processing configuration.  More details are given below.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput)
+}
+
+// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+}
+
+// The S3 Configuration. See s3Configuration for more details.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) S3Configuration() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput)
+}
+
+// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) VpcConfig() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
+		return v.VpcConfig
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) FirehoseDeliveryStreamOpensearchserverlessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Serverless offering for Amazon OpenSearch Service index name.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data processing configuration.  More details are given below.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput)
+}
+
+// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 Configuration. See s3Configuration for more details.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput)
+}
+
+// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) VpcConfig() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration struct {
+	// Enables or disables data processing.
+	Enabled *bool `pulumi:"enabled"`
+	// Array of data processors. More details are given below
+	Processors []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs struct {
+	// Enables or disables data processing.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Array of data processors. More details are given below
+	Processors FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Array of data processors. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
+		return v.Processors
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Array of data processors. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
+		if v == nil {
+			return nil
+		}
+		return v.Processors
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor struct {
+	// Array of processor parameters. More details are given below
+	Parameters []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	Type string `pulumi:"type"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs struct {
+	// Array of processor parameters. More details are given below
+	Parameters FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs{...} }
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorInput
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Array of processor parameters. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
+		return v.Parameters
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
+		return vs[0].([]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterInput
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterName
+	}).(pulumi.StringOutput)
+}
+
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterValue
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
+		return vs[0].([]FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration struct {
+	// The ARN of the S3 bucket
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix *string `pulumi:"prefix"`
+	// The ARN of the role that provides access to the source Kinesis stream.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs struct {
+	// The ARN of the S3 bucket
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	CloudwatchLoggingOptions FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The ARN of the role that provides access to the source Kinesis stream.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) string {
+		return v.BucketArn
+	}).(pulumi.StringOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that provides access to the source Kinesis stream.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) string {
+		return v.RoleArn
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput)
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. More details are given below
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that provides access to the source Kinesis stream.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig struct {
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	RoleArn string `pulumi:"roleArn"`
+	// A list of security group IDs to associate with Kinesis Firehose.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs to associate with Kinesis Firehose.
+	SubnetIds []string `pulumi:"subnetIds"`
+	VpcId     *string  `pulumi:"vpcId"`
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs and FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput` via:
+//
+//	FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs{...}
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs struct {
+	// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A list of security group IDs to associate with Kinesis Firehose.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs to associate with Kinesis Firehose.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput)
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput).ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput is an input type that accepts FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs, FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtr and FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput` via:
+//
+//	        FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput
+	ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput
+}
+
+type firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs
+
+func FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtr(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput {
+	return (*firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput)
+}
+
+func (i *firehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o.ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
+		return &v
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A list of security group IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) Elem() FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig
+		return ret
+	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput)
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of security group IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs to associate with Kinesis Firehose.
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -18831,6 +20998,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs{})
@@ -18847,6 +21018,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationVpcConfigInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrInput)(nil)).Elem(), FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs{})
@@ -19010,6 +21197,10 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput{})
@@ -19026,6 +21217,22 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput{})

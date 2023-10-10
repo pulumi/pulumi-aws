@@ -265,7 +265,7 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
                  events: Optional[Sequence[str]] = None):
         """
         :param bool enabled: Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-        :param Sequence[str] events: The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+        :param Sequence[str] events: The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
                
                _Only one `auto_rollback_configuration` is allowed_.
         """
@@ -286,7 +286,7 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
         """
-        The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+        The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 
         _Only one `auto_rollback_configuration` is allowed_.
         """

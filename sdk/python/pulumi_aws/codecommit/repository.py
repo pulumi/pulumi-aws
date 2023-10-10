@@ -266,7 +266,9 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Codecommit repository using repository name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:
+
+        Using `TODO import`, import CodeCommit repository using repository name. For example:
 
         ```sh
          $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
@@ -301,7 +303,9 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Codecommit repository using repository name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:
+
+        Using `TODO import`, import CodeCommit repository using repository name. For example:
 
         ```sh
          $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo

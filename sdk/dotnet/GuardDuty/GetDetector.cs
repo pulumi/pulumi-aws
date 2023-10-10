@@ -96,6 +96,10 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class GetDetectorResult
     {
         /// <summary>
+        /// Current configuration of the detector features.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDetectorFeatureResult> Features;
+        /// <summary>
         /// The frequency of notifications sent about subsequent finding occurrences.
         /// </summary>
         public readonly string FindingPublishingFrequency;
@@ -111,6 +115,8 @@ namespace Pulumi.Aws.GuardDuty
 
         [OutputConstructor]
         private GetDetectorResult(
+            ImmutableArray<Outputs.GetDetectorFeatureResult> features,
+
             string findingPublishingFrequency,
 
             string id,
@@ -119,6 +125,7 @@ namespace Pulumi.Aws.GuardDuty
 
             string status)
         {
+            Features = features;
             FindingPublishingFrequency = findingPublishingFrequency;
             Id = id;
             ServiceRoleArn = serviceRoleArn;

@@ -14038,7 +14038,7 @@ export namespace codedeploy {
          */
         enabled?: boolean;
         /**
-         * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+         * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
          *
          * _Only one `autoRollbackConfiguration` is allowed_.
          */
@@ -25322,7 +25322,7 @@ export namespace ec2 {
         /**
          * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          */
-        dnsRecordIpType?: string;
+        dnsRecordIpType: string;
         /**
          * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
          */
@@ -32095,6 +32095,8 @@ export namespace guardduty {
         /**
          * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
          * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         *
+         * The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
          */
         malwareProtection: outputs.guardduty.DetectorDatasourcesMalwareProtection;
         /**
@@ -32151,6 +32153,17 @@ export namespace guardduty {
         enable: boolean;
     }
 
+    export interface DetectorFeatureAdditionalConfiguration {
+        /**
+         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         */
+        name: string;
+        /**
+         * The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         */
+        status: string;
+    }
+
     export interface FilterFindingCriteria {
         criterions: outputs.guardduty.FilterFindingCriteriaCriterion[];
     }
@@ -32184,6 +32197,32 @@ export namespace guardduty {
          * List of string values to be evaluated.
          */
         notEquals?: string[];
+    }
+
+    export interface GetDetectorFeature {
+        /**
+         * Additional feature configuration.
+         */
+        additionalConfigurations: outputs.guardduty.GetDetectorFeatureAdditionalConfiguration[];
+        /**
+         * The name of the detector feature.
+         */
+        name: string;
+        /**
+         * Current status of the detector.
+         */
+        status: string;
+    }
+
+    export interface GetDetectorFeatureAdditionalConfiguration {
+        /**
+         * The name of the detector feature.
+         */
+        name: string;
+        /**
+         * Current status of the detector.
+         */
+        status: string;
     }
 
     export interface OrganizationConfigurationDatasources {
@@ -36903,6 +36942,32 @@ export namespace kinesis {
         roleArn: string;
     }
 
+    export interface FirehoseDeliveryStreamMskSourceConfiguration {
+        /**
+         * The authentication configuration of the Amazon MSK cluster. More details are given below.
+         */
+        authenticationConfiguration: outputs.kinesis.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration;
+        /**
+         * The ARN of the Amazon MSK cluster.
+         */
+        mskClusterArn: string;
+        /**
+         * The topic name within the Amazon MSK cluster.
+         */
+        topicName: string;
+    }
+
+    export interface FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+        /**
+         * The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+         */
+        connectivity: string;
+        /**
+         * The ARN of the role used to access the Amazon MSK cluster.
+         */
+        roleArn: string;
+    }
+
     export interface FirehoseDeliveryStreamOpensearchConfiguration {
         /**
          * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
@@ -36925,11 +36990,11 @@ export namespace kinesis {
          */
         domainArn?: string;
         /**
-         * The Opensearch index name.
+         * The OpenSearch index name.
          */
         indexName: string;
         /**
-         * The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          */
         indexRotationPeriod?: string;
         /**
@@ -37069,6 +37134,175 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
+        /**
+         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         */
+        roleArn: string;
+        /**
+         * A list of security group IDs to associate with Kinesis Firehose.
+         */
+        securityGroupIds: string[];
+        /**
+         * A list of subnet IDs to associate with Kinesis Firehose.
+         */
+        subnetIds: string[];
+        vpcId: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfiguration {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         */
+        bufferingSize?: number;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         */
+        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions;
+        /**
+         * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+         */
+        collectionEndpoint: string;
+        /**
+         * The Serverless offering for Amazon OpenSearch Service index name.
+         */
+        indexName: string;
+        /**
+         * The data processing configuration.  More details are given below.
+         */
+        processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration;
+        /**
+         * After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         */
+        retryDuration?: number;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+         */
+        roleArn: string;
+        /**
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         */
+        s3BackupMode?: string;
+        /**
+         * The S3 Configuration. See s3Configuration for more details.
+         */
+        s3Configuration: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration;
+        /**
+         * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+         */
+        vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: string;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: boolean;
+        /**
+         * Array of data processors. More details are given below
+         */
+        processors?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor[];
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
+        /**
+         * Array of processor parameters. More details are given below
+         */
+        parameters?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter[];
+        /**
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        type: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        parameterName: string;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         *
+         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         */
+        parameterValue: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         */
+        bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         */
+        bufferingSize?: number;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         */
+        cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
+        compressionFormat?: string;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: string;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
+        prefix?: string;
+        /**
+         * The ARN of the role that provides access to the source Kinesis stream.
+         */
+        roleArn: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: string;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: string;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
         /**
          * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
          */
@@ -41234,7 +41468,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
         /**
-         * Arib Destination Settings.
+         * ARIB Destination Settings.
          */
         aribDestinationSettings?: outputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings;
         /**
@@ -42052,7 +42286,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings {
         /**
-         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
          */
         m2tsSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings;
         /**
@@ -42289,7 +42523,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings {
         /**
-         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
          */
         m2tsSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings;
     }
@@ -43055,7 +43289,7 @@ export namespace medialive {
          */
         ancillarySourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings;
         /**
-         * Arib Source Settings.
+         * ARIB Source Settings.
          */
         aribSourceSettings?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings;
         /**
@@ -43223,8 +43457,18 @@ export namespace medialive {
 
     export interface ChannelVpc {
         availabilityZones: string[];
+        networkInterfaceIds: string[];
+        /**
+         * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+         */
         publicAddressAllocationIds: string[];
+        /**
+         * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+         */
         securityGroupIds: string[];
+        /**
+         * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+         */
         subnetIds: string[];
     }
 
@@ -58392,6 +58636,20 @@ export namespace ses {
 }
 
 export namespace sesv2 {
+    export interface AccountVdmAttributesDashboardAttributes {
+        /**
+         * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         */
+        engagementMetrics?: string;
+    }
+
+    export interface AccountVdmAttributesGuardianAttributes {
+        /**
+         * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         */
+        optimizedSharedDelivery?: string;
+    }
+
     export interface ConfigurationSetDeliveryOptions {
         /**
          * The name of the dedicated IP pool to associate with the configuration set.

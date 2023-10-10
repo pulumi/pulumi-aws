@@ -5499,6 +5499,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "guardduty/detectorFeature",
+  "fqn": "pulumi_aws.guardduty",
+  "classes": {
+   "aws:guardduty/detectorFeature:DetectorFeature": "DetectorFeature"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "guardduty/filter",
   "fqn": "pulumi_aws.guardduty",
   "classes": {
@@ -9467,6 +9475,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicequotas/template",
+  "fqn": "pulumi_aws.servicequotas",
+  "classes": {
+   "aws:servicequotas/template:Template": "Template"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ses/activeReceiptRuleSet",
   "fqn": "pulumi_aws.ses",
   "classes": {
@@ -9575,6 +9591,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ses",
   "classes": {
    "aws:ses/template:Template": "Template"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/accountVdmAttributes",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/accountVdmAttributes:AccountVdmAttributes": "AccountVdmAttributes"
   }
  },
  {
@@ -10263,6 +10287,14 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedaccess/instanceTrustProviderAttachment",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment": "InstanceTrustProviderAttachment"
   }
  },
  {
