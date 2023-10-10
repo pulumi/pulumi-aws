@@ -11,6 +11,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountVdmAttributesDashboardAttributes',
+    'AccountVdmAttributesGuardianAttributes',
     'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationEventDestinationCloudWatchDestination',
@@ -38,6 +40,78 @@ __all__ = [
     'GetDedicatedIpPoolDedicatedIpResult',
     'GetEmailIdentityDkimSigningAttributeResult',
 ]
+
+@pulumi.output_type
+class AccountVdmAttributesDashboardAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "engagementMetrics":
+            suggest = "engagement_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountVdmAttributesDashboardAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountVdmAttributesDashboardAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountVdmAttributesDashboardAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[str] = None):
+        """
+        :param str engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[str]:
+        """
+        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+
+@pulumi.output_type
+class AccountVdmAttributesGuardianAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optimizedSharedDelivery":
+            suggest = "optimized_shared_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountVdmAttributesGuardianAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountVdmAttributesGuardianAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountVdmAttributesGuardianAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[str] = None):
+        """
+        :param str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[str]:
+        """
+        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
 
 @pulumi.output_type
 class ConfigurationSetDeliveryOptions(dict):

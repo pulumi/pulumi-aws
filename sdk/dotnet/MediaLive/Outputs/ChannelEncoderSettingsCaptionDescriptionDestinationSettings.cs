@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
     public sealed class ChannelEncoderSettingsCaptionDescriptionDestinationSettings
     {
         /// <summary>
-        /// Arib Destination Settings.
+        /// ARIB Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings? AribDestinationSettings;
         /// <summary>

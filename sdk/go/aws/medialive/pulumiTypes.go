@@ -5384,7 +5384,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionArrayOutput) Index(i pulumi.IntI
 }
 
 type ChannelEncoderSettingsCaptionDescriptionDestinationSettings struct {
-	// Arib Destination Settings.
+	// ARIB Destination Settings.
 	AribDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings `pulumi:"burnInDestinationSettings"`
@@ -5424,7 +5424,7 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput interface 
 }
 
 type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs struct {
-	// Arib Destination Settings.
+	// ARIB Destination Settings.
 	AribDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput `pulumi:"burnInDestinationSettings"`
@@ -5547,7 +5547,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToOut
 	}
 }
 
-// Arib Destination Settings.
+// ARIB Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
 		return v.AribDestinationSettings
@@ -5668,7 +5668,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) El
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput)
 }
 
-// Arib Destination Settings.
+// ARIB Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
 		if v == nil {
@@ -16784,7 +16784,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings `pulumi:"m2tsSettings"`
 	// Raw Settings. This can be set as an empty block.
 	RawSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings `pulumi:"rawSettings"`
@@ -16802,7 +16802,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsC
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrInput `pulumi:"m2tsSettings"`
 	// Raw Settings. This can be set as an empty block.
 	RawSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsPtrInput `pulumi:"rawSettings"`
@@ -16903,7 +16903,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
 		return v.M2tsSettings
@@ -16947,7 +16947,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettin
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsOutput)
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsPtrOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
 		if v == nil {
@@ -21828,7 +21828,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsPt
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings `pulumi:"m2tsSettings"`
 }
 
@@ -21844,7 +21844,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsConta
 }
 
 type ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs struct {
-	// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+	// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 	M2tsSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrInput `pulumi:"m2tsSettings"`
 }
 
@@ -21943,7 +21943,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
 		return v.M2tsSettings
@@ -21980,7 +21980,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCo
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsOutput)
 }
 
-// M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+// M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsPtrOutput) M2tsSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
 		if v == nil {
@@ -31248,7 +31248,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput) Index(i p
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings struct {
 	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings `pulumi:"ancillarySourceSettings"`
-	// Arib Source Settings.
+	// ARIB Source Settings.
 	AribSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings `pulumi:"aribSourceSettings"`
 	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 	DvbSubSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings `pulumi:"dvbSubSourceSettings"`
@@ -31276,7 +31276,7 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput int
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs struct {
 	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrInput `pulumi:"ancillarySourceSettings"`
-	// Arib Source Settings.
+	// ARIB Source Settings.
 	AribSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput `pulumi:"aribSourceSettings"`
 	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
 	DvbSubSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput `pulumi:"dvbSubSourceSettings"`
@@ -31392,7 +31392,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-// Arib Source Settings.
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		return v.AribSourceSettings
@@ -31474,7 +31474,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-// Arib Source Settings.
+// ARIB Source Settings.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		if v == nil {
@@ -33969,10 +33969,14 @@ func (o ChannelMaintenancePtrOutput) MaintenanceStartTime() pulumi.StringPtrOutp
 }
 
 type ChannelVpc struct {
-	AvailabilityZones          []string `pulumi:"availabilityZones"`
+	AvailabilityZones   []string `pulumi:"availabilityZones"`
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 	PublicAddressAllocationIds []string `pulumi:"publicAddressAllocationIds"`
-	SecurityGroupIds           []string `pulumi:"securityGroupIds"`
-	SubnetIds                  []string `pulumi:"subnetIds"`
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 // ChannelVpcInput is an input type that accepts ChannelVpcArgs and ChannelVpcOutput values.
@@ -33987,10 +33991,14 @@ type ChannelVpcInput interface {
 }
 
 type ChannelVpcArgs struct {
-	AvailabilityZones          pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	AvailabilityZones   pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	NetworkInterfaceIds pulumi.StringArrayInput `pulumi:"networkInterfaceIds"`
+	// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 	PublicAddressAllocationIds pulumi.StringArrayInput `pulumi:"publicAddressAllocationIds"`
-	SecurityGroupIds           pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds                  pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
 func (ChannelVpcArgs) ElementType() reflect.Type {
@@ -34092,14 +34100,21 @@ func (o ChannelVpcOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+func (o ChannelVpcOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ChannelVpc) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 func (o ChannelVpcOutput) PublicAddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.PublicAddressAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
 func (o ChannelVpcOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
 func (o ChannelVpcOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ChannelVpc) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -34143,6 +34158,16 @@ func (o ChannelVpcPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o ChannelVpcPtrOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ChannelVpc) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
 func (o ChannelVpcPtrOutput) PublicAddressAllocationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {
@@ -34152,6 +34177,7 @@ func (o ChannelVpcPtrOutput) PublicAddressAllocationIds() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
 func (o ChannelVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {
@@ -34161,6 +34187,7 @@ func (o ChannelVpcPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
 func (o ChannelVpcPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelVpc) []string {
 		if v == nil {

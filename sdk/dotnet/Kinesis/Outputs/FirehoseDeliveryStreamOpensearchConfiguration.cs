@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? DomainArn;
         /// <summary>
-        /// The Opensearch index name.
+        /// The OpenSearch index name.
         /// </summary>
         public readonly string IndexName;
         /// <summary>
-        /// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        /// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         /// </summary>
         public readonly string? IndexRotationPeriod;
         /// <summary>

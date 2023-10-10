@@ -971,7 +971,7 @@ func (o DeploymentGroupAlarmConfigurationPtrOutput) IgnorePollAlarmFailure() pul
 type DeploymentGroupAutoRollbackConfiguration struct {
 	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 	Enabled *bool `pulumi:"enabled"`
-	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 	//
 	// _Only one `autoRollbackConfiguration` is allowed_.
 	Events []string `pulumi:"events"`
@@ -991,7 +991,7 @@ type DeploymentGroupAutoRollbackConfigurationInput interface {
 type DeploymentGroupAutoRollbackConfigurationArgs struct {
 	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 	//
 	// _Only one `autoRollbackConfiguration` is allowed_.
 	Events pulumi.StringArrayInput `pulumi:"events"`
@@ -1097,7 +1097,7 @@ func (o DeploymentGroupAutoRollbackConfigurationOutput) Enabled() pulumi.BoolPtr
 	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 //
 // _Only one `autoRollbackConfiguration` is allowed_.
 func (o DeploymentGroupAutoRollbackConfigurationOutput) Events() pulumi.StringArrayOutput {
@@ -1144,7 +1144,7 @@ func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 //
 // _Only one `autoRollbackConfiguration` is allowed_.
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Events() pulumi.StringArrayOutput {

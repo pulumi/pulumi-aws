@@ -96,14 +96,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The Opensearch index name.
+     * The OpenSearch index name.
      * 
      */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
     /**
-     * @return The Opensearch index name.
+     * @return The OpenSearch index name.
      * 
      */
     public Output<String> indexName() {
@@ -111,14 +111,14 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
     }
 
     /**
-     * The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     @Import(name="indexRotationPeriod")
     private @Nullable Output<String> indexRotationPeriod;
 
     /**
-     * @return The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     public Optional<Output<String>> indexRotationPeriod() {
@@ -373,7 +373,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexName The Opensearch index name.
+         * @param indexName The OpenSearch index name.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexName The Opensearch index name.
+         * @param indexName The OpenSearch index name.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexRotationPeriod The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * @param indexRotationPeriod The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationArgs extends com
         }
 
         /**
-         * @param indexRotationPeriod The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * @param indexRotationPeriod The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          * 
          * @return builder
          * 

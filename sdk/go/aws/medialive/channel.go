@@ -164,7 +164,7 @@ type Channel struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Settings for the VPC outputs.
+	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrOutput `pulumi:"vpc"`
 }
 
@@ -249,7 +249,7 @@ type channelState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Settings for the VPC outputs.
+	// Settings for the VPC outputs. See VPC for more details.
 	Vpc *ChannelVpc `pulumi:"vpc"`
 }
 
@@ -286,7 +286,7 @@ type ChannelState struct {
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Settings for the VPC outputs.
+	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrInput
 }
 
@@ -321,7 +321,7 @@ type channelArgs struct {
 	StartChannel *bool `pulumi:"startChannel"`
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Settings for the VPC outputs.
+	// Settings for the VPC outputs. See VPC for more details.
 	Vpc *ChannelVpc `pulumi:"vpc"`
 }
 
@@ -353,7 +353,7 @@ type ChannelArgs struct {
 	StartChannel pulumi.BoolPtrInput
 	// A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Settings for the VPC outputs.
+	// Settings for the VPC outputs. See VPC for more details.
 	Vpc ChannelVpcPtrInput
 }
 
@@ -545,7 +545,7 @@ func (o ChannelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Settings for the VPC outputs.
+// Settings for the VPC outputs. See VPC for more details.
 func (o ChannelOutput) Vpc() ChannelVpcPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelVpcPtrOutput { return v.Vpc }).(ChannelVpcPtrOutput)
 }

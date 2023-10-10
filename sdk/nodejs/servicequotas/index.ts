@@ -20,6 +20,11 @@ export type ServiceQuota = import("./serviceQuota").ServiceQuota;
 export const ServiceQuota: typeof import("./serviceQuota").ServiceQuota = null as any;
 utilities.lazyLoad(exports, ["ServiceQuota"], () => require("./serviceQuota"));
 
+export { TemplateArgs, TemplateState } from "./template";
+export type Template = import("./template").Template;
+export const Template: typeof import("./template").Template = null as any;
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,9 +32,12 @@ const _module = {
         switch (type) {
             case "aws:servicequotas/serviceQuota:ServiceQuota":
                 return new ServiceQuota(name, <any>undefined, { urn })
+            case "aws:servicequotas/template:Template":
+                return new Template(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "servicequotas/serviceQuota", _module)
+pulumi.runtime.registerResourceModule("aws", "servicequotas/template", _module)

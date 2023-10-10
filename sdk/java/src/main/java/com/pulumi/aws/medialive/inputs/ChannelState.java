@@ -259,14 +259,14 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings for the VPC outputs.
+     * Settings for the VPC outputs. See VPC for more details.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<ChannelVpcArgs> vpc;
 
     /**
-     * @return Settings for the VPC outputs.
+     * @return Settings for the VPC outputs. See VPC for more details.
      * 
      */
     public Optional<Output<ChannelVpcArgs>> vpc() {
@@ -656,7 +656,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for the VPC outputs.
+         * @param vpc Settings for the VPC outputs. See VPC for more details.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class ChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Settings for the VPC outputs.
+         * @param vpc Settings for the VPC outputs. See VPC for more details.
          * 
          * @return builder
          * 

@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? DomainArn { get; set; }
 
         /// <summary>
-        /// The Opensearch index name.
+        /// The OpenSearch index name.
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+        /// The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
         /// </summary>
         [Input("indexRotationPeriod")]
         public Input<string>? IndexRotationPeriod { get; set; }

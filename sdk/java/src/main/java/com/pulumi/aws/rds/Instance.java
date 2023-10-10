@@ -131,9 +131,9 @@ import javax.annotation.Nullable;
  *             .licenseModel(&#34;bring-your-own-license&#34;)
  *             .storageType(&#34;gp3&#34;)
  *             .preferredInstanceClasses(            
- *                 &#34;db.r5.24xlarge&#34;,
- *                 &#34;db.r5.16xlarge&#34;,
- *                 &#34;db.r5.12xlarge&#34;)
+ *                 &#34;db.r5.xlarge&#34;,
+ *                 &#34;db.r5.2xlarge&#34;,
+ *                 &#34;db.r5.4xlarge&#34;)
  *             .build());
  * 
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
@@ -206,12 +206,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var custom-sqlserver = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
  *             .engine(&#34;custom-sqlserver-se&#34;)
- *             .engineVersion(&#34;115.00.4249.2.cev1&#34;)
+ *             .engineVersion(&#34;15.00.4249.2.v1&#34;)
  *             .storageType(&#34;gp3&#34;)
  *             .preferredInstanceClasses(            
- *                 &#34;db.r5.24xlarge&#34;,
- *                 &#34;db.r5.16xlarge&#34;,
- *                 &#34;db.r5.12xlarge&#34;)
+ *                 &#34;db.r5.xlarge&#34;,
+ *                 &#34;db.r5.2xlarge&#34;,
+ *                 &#34;db.r5.4xlarge&#34;)
  *             .build());
  * 
  *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
@@ -231,6 +231,7 @@ import javax.annotation.Nullable;
  *             .kmsKeyId(byId.applyValue(getKeyResult -&gt; getKeyResult.arn()))
  *             .multiAz(false)
  *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .storageEncrypted(true)
  *             .username(&#34;test&#34;)
  *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());

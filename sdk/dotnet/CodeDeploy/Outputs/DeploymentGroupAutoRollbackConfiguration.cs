@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+        /// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
         /// 
         /// _Only one `auto_rollback_configuration` is allowed_.
         /// </summary>

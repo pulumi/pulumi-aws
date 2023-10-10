@@ -17,6 +17,7 @@ __all__ = [
     'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs',
     'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs',
     'DetectorDatasourcesS3LogsArgs',
+    'DetectorFeatureAdditionalConfigurationArgs',
     'FilterFindingCriteriaArgs',
     'FilterFindingCriteriaCriterionArgs',
     'OrganizationConfigurationDatasourcesArgs',
@@ -39,6 +40,8 @@ class DetectorDatasourcesArgs:
                See Kubernetes and Kubernetes Audit Logs below for more details.
         :param pulumi.Input['DetectorDatasourcesMalwareProtectionArgs'] malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
                See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+               
+               The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         :param pulumi.Input['DetectorDatasourcesS3LogsArgs'] s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
@@ -68,6 +71,8 @@ class DetectorDatasourcesArgs:
         """
         Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+
+        The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         """
         return pulumi.get(self, "malware_protection")
 
@@ -229,6 +234,43 @@ class DetectorDatasourcesS3LogsArgs:
     @enable.setter
     def enable(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enable", value)
+
+
+@pulumi.input_type
+class DetectorFeatureAdditionalConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        :param pulumi.Input[str] status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

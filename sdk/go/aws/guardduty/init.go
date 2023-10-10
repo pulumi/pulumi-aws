@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:guardduty/detector:Detector":
 		r = &Detector{}
+	case "aws:guardduty/detectorFeature:DetectorFeature":
+		r = &DetectorFeature{}
 	case "aws:guardduty/filter:Filter":
 		r = &Filter{}
 	case "aws:guardduty/iPSet:IPSet":
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"guardduty/detector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"guardduty/detectorFeature",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

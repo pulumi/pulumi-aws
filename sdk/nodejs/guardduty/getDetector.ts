@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,6 +42,10 @@ export interface GetDetectorArgs {
  * A collection of values returned by getDetector.
  */
 export interface GetDetectorResult {
+    /**
+     * Current configuration of the detector features.
+     */
+    readonly features: outputs.guardduty.GetDetectorFeature[];
     /**
      * The frequency of notifications sent about subsequent finding occurrences.
      */

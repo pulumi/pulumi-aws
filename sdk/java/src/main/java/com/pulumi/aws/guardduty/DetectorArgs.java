@@ -19,14 +19,14 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
     public static final DetectorArgs Empty = new DetectorArgs();
 
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
     @Import(name="datasources")
     private @Nullable Output<DetectorDatasourcesArgs> datasources;
 
     /**
-     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
     public Optional<Output<DetectorDatasourcesArgs>> datasources() {
@@ -106,7 +106,7 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DetectorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+         * @param datasources Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
          * 
          * @return builder
          * 

@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to manage a GuardDuty detector.
+ * Provides a resource to manage an Amazon GuardDuty detector.
  * 
  * &gt; **NOTE:** Deleting this resource is equivalent to &#34;disabling&#34; GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead &#34;suspend&#34; monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
  * 
@@ -118,14 +118,14 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
     @Export(name="datasources", refs={DetectorDatasources.class}, tree="[0]")
     private Output<DetectorDatasources> datasources;
 
     /**
-     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
     public Output<DetectorDatasources> datasources() {

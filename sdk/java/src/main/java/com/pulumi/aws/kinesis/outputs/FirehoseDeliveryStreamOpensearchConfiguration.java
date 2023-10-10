@@ -42,12 +42,12 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable String domainArn;
     /**
-     * @return The Opensearch index name.
+     * @return The OpenSearch index name.
      * 
      */
     private String indexName;
     /**
-     * @return The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     private @Nullable String indexRotationPeriod;
@@ -124,14 +124,14 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.domainArn);
     }
     /**
-     * @return The Opensearch index name.
+     * @return The OpenSearch index name.
      * 
      */
     public String indexName() {
         return this.indexName;
     }
     /**
-     * @return The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     public Optional<String> indexRotationPeriod() {

@@ -23,8 +23,10 @@ class FirehoseDeliveryStreamArgs:
                  extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
                  http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
                  kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
+                 msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
+                 opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
                  redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
                  server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
                  splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
@@ -32,21 +34,21 @@ class FirehoseDeliveryStreamArgs:
                  version_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FirehoseDeliveryStream resource.
-        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
                is redshift). More details are given below.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options if opensearch is the destination. More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options if redshift is the destination.
-               Using `redshift_configuration` requires the user to also specify a
-               `s3_configuration` block. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. More details are given below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
@@ -63,10 +65,14 @@ class FirehoseDeliveryStreamArgs:
             pulumi.set(__self__, "http_endpoint_configuration", http_endpoint_configuration)
         if kinesis_source_configuration is not None:
             pulumi.set(__self__, "kinesis_source_configuration", kinesis_source_configuration)
+        if msk_source_configuration is not None:
+            pulumi.set(__self__, "msk_source_configuration", msk_source_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if opensearch_configuration is not None:
             pulumi.set(__self__, "opensearch_configuration", opensearch_configuration)
+        if opensearchserverless_configuration is not None:
+            pulumi.set(__self__, "opensearchserverless_configuration", opensearchserverless_configuration)
         if redshift_configuration is not None:
             pulumi.set(__self__, "redshift_configuration", redshift_configuration)
         if server_side_encryption is not None:
@@ -82,7 +88,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
         is redshift). More details are given below.
         """
         return pulumi.get(self, "destination")
@@ -116,7 +122,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
         """
-        Configuration options if elasticsearch is the destination. More details are given below.
+        Configuration options when `destination` is `elasticsearch`. More details are given below.
         """
         return pulumi.get(self, "elasticsearch_configuration")
 
@@ -140,7 +146,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
         """
-        Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
         """
         return pulumi.get(self, "http_endpoint_configuration")
 
@@ -152,13 +158,25 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
-        Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
     def kinesis_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
         pulumi.set(self, "kinesis_source_configuration", value)
+
+    @property
+    @pulumi.getter(name="mskSourceConfiguration")
+    def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
+        """
+        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+        """
+        return pulumi.get(self, "msk_source_configuration")
+
+    @msk_source_configuration.setter
+    def msk_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
+        pulumi.set(self, "msk_source_configuration", value)
 
     @property
     @pulumi.getter
@@ -176,7 +194,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
         """
-        Configuration options if opensearch is the destination. More details are given below.
+        Configuration options when `destination` is `opensearch`. More details are given below.
         """
         return pulumi.get(self, "opensearch_configuration")
 
@@ -185,12 +203,22 @@ class FirehoseDeliveryStreamArgs:
         pulumi.set(self, "opensearch_configuration", value)
 
     @property
+    @pulumi.getter(name="opensearchserverlessConfiguration")
+    def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
+        """
+        Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        """
+        return pulumi.get(self, "opensearchserverless_configuration")
+
+    @opensearchserverless_configuration.setter
+    def opensearchserverless_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
+        pulumi.set(self, "opensearchserverless_configuration", value)
+
+    @property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
         """
-        Configuration options if redshift is the destination.
-        Using `redshift_configuration` requires the user to also specify a
-        `s3_configuration` block. More details are given below.
+        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         """
         return pulumi.get(self, "redshift_configuration")
 
@@ -215,7 +243,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
-        Configuration options if splunk is the destination. More details are given below.
+        Configuration options when `destination` is `splunk`. More details are given below.
         """
         return pulumi.get(self, "splunk_configuration")
 
@@ -258,8 +286,10 @@ class _FirehoseDeliveryStreamState:
                  extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
                  http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
                  kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
+                 msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  opensearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']] = None,
+                 opensearchserverless_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] = None,
                  redshift_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']] = None,
                  server_side_encryption: Optional[pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs']] = None,
                  splunk_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']] = None,
@@ -269,20 +299,20 @@ class _FirehoseDeliveryStreamState:
         """
         Input properties used for looking up and filtering FirehoseDeliveryStream resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
                is redshift). More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options if opensearch is the destination. More details are given below.
-        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options if redshift is the destination.
-               Using `redshift_configuration` requires the user to also specify a
-               `s3_configuration` block. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. More details are given below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -301,10 +331,14 @@ class _FirehoseDeliveryStreamState:
             pulumi.set(__self__, "http_endpoint_configuration", http_endpoint_configuration)
         if kinesis_source_configuration is not None:
             pulumi.set(__self__, "kinesis_source_configuration", kinesis_source_configuration)
+        if msk_source_configuration is not None:
+            pulumi.set(__self__, "msk_source_configuration", msk_source_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if opensearch_configuration is not None:
             pulumi.set(__self__, "opensearch_configuration", opensearch_configuration)
+        if opensearchserverless_configuration is not None:
+            pulumi.set(__self__, "opensearchserverless_configuration", opensearchserverless_configuration)
         if redshift_configuration is not None:
             pulumi.set(__self__, "redshift_configuration", redshift_configuration)
         if server_side_encryption is not None:
@@ -337,7 +371,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
         is redshift). More details are given below.
         """
         return pulumi.get(self, "destination")
@@ -359,7 +393,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']]:
         """
-        Configuration options if elasticsearch is the destination. More details are given below.
+        Configuration options when `destination` is `elasticsearch`. More details are given below.
         """
         return pulumi.get(self, "elasticsearch_configuration")
 
@@ -383,7 +417,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]:
         """
-        Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
         """
         return pulumi.get(self, "http_endpoint_configuration")
 
@@ -395,13 +429,25 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]:
         """
-        Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
         """
         return pulumi.get(self, "kinesis_source_configuration")
 
     @kinesis_source_configuration.setter
     def kinesis_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]):
         pulumi.set(self, "kinesis_source_configuration", value)
+
+    @property
+    @pulumi.getter(name="mskSourceConfiguration")
+    def msk_source_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
+        """
+        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+        """
+        return pulumi.get(self, "msk_source_configuration")
+
+    @msk_source_configuration.setter
+    def msk_source_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']]):
+        pulumi.set(self, "msk_source_configuration", value)
 
     @property
     @pulumi.getter
@@ -419,7 +465,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs']]:
         """
-        Configuration options if opensearch is the destination. More details are given below.
+        Configuration options when `destination` is `opensearch`. More details are given below.
         """
         return pulumi.get(self, "opensearch_configuration")
 
@@ -428,12 +474,22 @@ class _FirehoseDeliveryStreamState:
         pulumi.set(self, "opensearch_configuration", value)
 
     @property
+    @pulumi.getter(name="opensearchserverlessConfiguration")
+    def opensearchserverless_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]:
+        """
+        Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        """
+        return pulumi.get(self, "opensearchserverless_configuration")
+
+    @opensearchserverless_configuration.setter
+    def opensearchserverless_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]):
+        pulumi.set(self, "opensearchserverless_configuration", value)
+
+    @property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs']]:
         """
-        Configuration options if redshift is the destination.
-        Using `redshift_configuration` requires the user to also specify a
-        `s3_configuration` block. More details are given below.
+        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         """
         return pulumi.get(self, "redshift_configuration")
 
@@ -458,7 +514,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
-        Configuration options if splunk is the destination. More details are given below.
+        Configuration options when `destination` is `splunk`. More details are given below.
         """
         return pulumi.get(self, "splunk_configuration")
 
@@ -518,8 +574,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  extended_s3_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]] = None,
                  http_endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]] = None,
                  kinesis_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]] = None,
+                 msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamMskSourceConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  opensearch_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']]] = None,
+                 opensearchserverless_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]] = None,
                  redshift_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']]] = None,
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']]] = None,
                  splunk_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']]] = None,
@@ -814,7 +872,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
-        ### Opensearch Destination
+        ### OpenSearch Destination
 
         ```python
         import pulumi
@@ -846,7 +904,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Opensearch Destination With VPC
+        ### OpenSearch Destination With VPC
 
         ```python
         import pulumi
@@ -924,6 +982,38 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
+        ### OpenSearch Serverless Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_collection = aws.opensearch.ServerlessCollection("testCollection")
+        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+            destination="opensearchserverless",
+            opensearchserverless_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs(
+                collection_endpoint=test_collection.collection_endpoint,
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                index_name="test",
+                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs(
+                    role_arn=aws_iam_role["firehose_role"]["arn"],
+                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
+                    buffering_size=10,
+                    buffering_interval=400,
+                    compression_format="GZIP",
+                ),
+                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs(
+                    enabled=True,
+                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs(
+                        type="Lambda",
+                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs(
+                            parameter_name="LambdaArn",
+                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
+                        )],
+                    )],
+                ),
+            ))
+        ```
         ### Splunk Destination
 
         ```python
@@ -998,20 +1088,20 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
                is redshift). More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamMskSourceConfigurationArgs']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']] opensearch_configuration: Configuration options if opensearch is the destination. More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options if redshift is the destination.
-               Using `redshift_configuration` requires the user to also specify a
-               `s3_configuration` block. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']] opensearch_configuration: Configuration options when `destination` is `opensearch`. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options when `destination` is `splunk`. More details are given below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
@@ -1309,7 +1399,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
-        ### Opensearch Destination
+        ### OpenSearch Destination
 
         ```python
         import pulumi
@@ -1341,7 +1431,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### Opensearch Destination With VPC
+        ### OpenSearch Destination With VPC
 
         ```python
         import pulumi
@@ -1418,6 +1508,38 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
+        ```
+        ### OpenSearch Serverless Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_collection = aws.opensearch.ServerlessCollection("testCollection")
+        test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+            destination="opensearchserverless",
+            opensearchserverless_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs(
+                collection_endpoint=test_collection.collection_endpoint,
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                index_name="test",
+                s3_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs(
+                    role_arn=aws_iam_role["firehose_role"]["arn"],
+                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
+                    buffering_size=10,
+                    buffering_interval=400,
+                    compression_format="GZIP",
+                ),
+                processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs(
+                    enabled=True,
+                    processors=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs(
+                        type="Lambda",
+                        parameters=[aws.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs(
+                            parameter_name="LambdaArn",
+                            parameter_value=f"{aws_lambda_function['lambda_processor']['arn']}:$LATEST",
+                        )],
+                    )],
+                ),
+            ))
         ```
         ### Splunk Destination
 
@@ -1512,8 +1634,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  extended_s3_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]] = None,
                  http_endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]] = None,
                  kinesis_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]] = None,
+                 msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamMskSourceConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  opensearch_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']]] = None,
+                 opensearchserverless_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]] = None,
                  redshift_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']]] = None,
                  server_side_encryption: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']]] = None,
                  splunk_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']]] = None,
@@ -1537,8 +1661,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__.__dict__["extended_s3_configuration"] = extended_s3_configuration
             __props__.__dict__["http_endpoint_configuration"] = http_endpoint_configuration
             __props__.__dict__["kinesis_source_configuration"] = kinesis_source_configuration
+            __props__.__dict__["msk_source_configuration"] = msk_source_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["opensearch_configuration"] = opensearch_configuration
+            __props__.__dict__["opensearchserverless_configuration"] = opensearchserverless_configuration
             __props__.__dict__["redshift_configuration"] = redshift_configuration
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["splunk_configuration"] = splunk_configuration
@@ -1564,8 +1690,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             extended_s3_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']]] = None,
             http_endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]] = None,
             kinesis_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']]] = None,
+            msk_source_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamMskSourceConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             opensearch_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']]] = None,
+            opensearchserverless_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']]] = None,
             redshift_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']]] = None,
             server_side_encryption: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']]] = None,
             splunk_configuration: Optional[pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']]] = None,
@@ -1580,20 +1708,20 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the Stream
-        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        :param pulumi.Input[str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
                is redshift). More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] elasticsearch_configuration: Configuration options if elasticsearch is the destination. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] extended_s3_configuration: Enhanced configuration options for the s3 destination. More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamMskSourceConfigurationArgs']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']] opensearch_configuration: Configuration options if opensearch is the destination. More details are given below.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options if redshift is the destination.
-               Using `redshift_configuration` requires the user to also specify a
-               `s3_configuration` block. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchConfigurationArgs']] opensearch_configuration: Configuration options when `destination` is `opensearch`. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamRedshiftConfigurationArgs']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options when `destination` is `splunk`. More details are given below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -1609,8 +1737,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__.__dict__["extended_s3_configuration"] = extended_s3_configuration
         __props__.__dict__["http_endpoint_configuration"] = http_endpoint_configuration
         __props__.__dict__["kinesis_source_configuration"] = kinesis_source_configuration
+        __props__.__dict__["msk_source_configuration"] = msk_source_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["opensearch_configuration"] = opensearch_configuration
+        __props__.__dict__["opensearchserverless_configuration"] = opensearchserverless_configuration
         __props__.__dict__["redshift_configuration"] = redshift_configuration
         __props__.__dict__["server_side_encryption"] = server_side_encryption
         __props__.__dict__["splunk_configuration"] = splunk_configuration
@@ -1631,7 +1761,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
         is redshift). More details are given below.
         """
         return pulumi.get(self, "destination")
@@ -1645,7 +1775,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="elasticsearchConfiguration")
     def elasticsearch_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamElasticsearchConfiguration']]:
         """
-        Configuration options if elasticsearch is the destination. More details are given below.
+        Configuration options when `destination` is `elasticsearch`. More details are given below.
         """
         return pulumi.get(self, "elasticsearch_configuration")
 
@@ -1661,7 +1791,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="httpEndpointConfiguration")
     def http_endpoint_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamHttpEndpointConfiguration']]:
         """
-        Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+        Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
         """
         return pulumi.get(self, "http_endpoint_configuration")
 
@@ -1669,9 +1799,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="kinesisSourceConfiguration")
     def kinesis_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']]:
         """
-        Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+        The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
         """
         return pulumi.get(self, "kinesis_source_configuration")
+
+    @property
+    @pulumi.getter(name="mskSourceConfiguration")
+    def msk_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamMskSourceConfiguration']]:
+        """
+        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+        """
+        return pulumi.get(self, "msk_source_configuration")
 
     @property
     @pulumi.getter
@@ -1685,17 +1823,23 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="opensearchConfiguration")
     def opensearch_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamOpensearchConfiguration']]:
         """
-        Configuration options if opensearch is the destination. More details are given below.
+        Configuration options when `destination` is `opensearch`. More details are given below.
         """
         return pulumi.get(self, "opensearch_configuration")
+
+    @property
+    @pulumi.getter(name="opensearchserverlessConfiguration")
+    def opensearchserverless_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration']]:
+        """
+        Configuration options when `destination` is `opensearchserverless`. More details are given below.
+        """
+        return pulumi.get(self, "opensearchserverless_configuration")
 
     @property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamRedshiftConfiguration']]:
         """
-        Configuration options if redshift is the destination.
-        Using `redshift_configuration` requires the user to also specify a
-        `s3_configuration` block. More details are given below.
+        Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
         """
         return pulumi.get(self, "redshift_configuration")
 
@@ -1712,7 +1856,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="splunkConfiguration")
     def splunk_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamSplunkConfiguration']]:
         """
-        Configuration options if splunk is the destination. More details are given below.
+        Configuration options when `destination` is `splunk`. More details are given below.
         """
         return pulumi.get(self, "splunk_configuration")
 

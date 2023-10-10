@@ -18,6 +18,7 @@ __all__ = [
     'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings',
     'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes',
     'DetectorDatasourcesS3Logs',
+    'DetectorFeatureAdditionalConfiguration',
     'FilterFindingCriteria',
     'FilterFindingCriteriaCriterion',
     'OrganizationConfigurationDatasources',
@@ -27,6 +28,8 @@ __all__ = [
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings',
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes',
     'OrganizationConfigurationDatasourcesS3Logs',
+    'GetDetectorFeatureResult',
+    'GetDetectorFeatureAdditionalConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -59,6 +62,8 @@ class DetectorDatasources(dict):
                See Kubernetes and Kubernetes Audit Logs below for more details.
         :param 'DetectorDatasourcesMalwareProtectionArgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
                See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+               
+               The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
@@ -84,6 +89,8 @@ class DetectorDatasources(dict):
         """
         Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+
+        The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
         """
         return pulumi.get(self, "malware_protection")
 
@@ -264,6 +271,35 @@ class DetectorDatasourcesS3Logs(dict):
         Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         """
         return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DetectorFeatureAdditionalConfiguration(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        :param str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        :param str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -656,5 +692,74 @@ class OrganizationConfigurationDatasourcesS3Logs(dict):
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
+
+
+@pulumi.output_type
+class GetDetectorFeatureResult(dict):
+    def __init__(__self__, *,
+                 additional_configurations: Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult'],
+                 name: str,
+                 status: str):
+        """
+        :param Sequence['GetDetectorFeatureAdditionalConfigurationArgs'] additional_configurations: Additional feature configuration.
+        :param str name: The name of the detector feature.
+        :param str status: Current status of the detector.
+        """
+        pulumi.set(__self__, "additional_configurations", additional_configurations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="additionalConfigurations")
+    def additional_configurations(self) -> Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult']:
+        """
+        Additional feature configuration.
+        """
+        return pulumi.get(self, "additional_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the detector feature.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Current status of the detector.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetDetectorFeatureAdditionalConfigurationResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 status: str):
+        """
+        :param str name: The name of the detector feature.
+        :param str status: Current status of the detector.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the detector feature.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Current status of the detector.
+        """
+        return pulumi.get(self, "status")
 
 

@@ -45,7 +45,7 @@ class ChannelArgs:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs.
+        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
         """
         pulumi.set(__self__, "channel_class", channel_class)
         pulumi.set(__self__, "destinations", destinations)
@@ -219,7 +219,7 @@ class ChannelArgs:
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['ChannelVpcArgs']]:
         """
-        Settings for the VPC outputs.
+        Settings for the VPC outputs. See VPC for more details.
         """
         return pulumi.get(self, "vpc")
 
@@ -265,7 +265,7 @@ class _ChannelState:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs.
+        :param pulumi.Input['ChannelVpcArgs'] vpc: Settings for the VPC outputs. See VPC for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -489,7 +489,7 @@ class _ChannelState:
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['ChannelVpcArgs']]:
         """
-        Settings for the VPC outputs.
+        Settings for the VPC outputs. See VPC for more details.
         """
         return pulumi.get(self, "vpc")
 
@@ -615,7 +615,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs.
+        :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs. See VPC for more details.
         """
         ...
     @overload
@@ -819,7 +819,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs.
+        :param pulumi.Input[pulumi.InputType['ChannelVpcArgs']] vpc: Settings for the VPC outputs. See VPC for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -969,7 +969,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def vpc(self) -> pulumi.Output[Optional['outputs.ChannelVpc']]:
         """
-        Settings for the VPC outputs.
+        Settings for the VPC outputs. See VPC for more details.
         """
         return pulumi.get(self, "vpc")
 

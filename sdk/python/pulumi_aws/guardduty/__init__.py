@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .detector import *
+from .detector_feature import *
 from .filter import *
 from .get_detector import *
 from .get_finding_ids import *

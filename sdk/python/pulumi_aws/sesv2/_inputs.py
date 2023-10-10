@@ -10,6 +10,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountVdmAttributesDashboardAttributesArgs',
+    'AccountVdmAttributesGuardianAttributesArgs',
     'ConfigurationSetDeliveryOptionsArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs',
@@ -27,6 +29,52 @@ __all__ = [
     'ContactListTopicArgs',
     'EmailIdentityDkimSigningAttributesArgs',
 ]
+
+@pulumi.input_type
+class AccountVdmAttributesDashboardAttributesArgs:
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+    @engagement_metrics.setter
+    def engagement_metrics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engagement_metrics", value)
+
+
+@pulumi.input_type
+class AccountVdmAttributesGuardianAttributesArgs:
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+    @optimized_shared_delivery.setter
+    def optimized_shared_delivery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optimized_shared_delivery", value)
+
 
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:

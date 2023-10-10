@@ -19,7 +19,7 @@ public final class DeploymentGroupAutoRollbackConfiguration {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
      * 
      * _Only one `auto_rollback_configuration` is allowed_.
      * 
@@ -35,7 +35,7 @@ public final class DeploymentGroupAutoRollbackConfiguration {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+     * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
      * 
      * _Only one `auto_rollback_configuration` is allowed_.
      * 

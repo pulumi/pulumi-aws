@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GuardDuty
 {
     /// <summary>
-    /// Provides a resource to manage a GuardDuty detector.
+    /// Provides a resource to manage an Amazon GuardDuty detector.
     /// 
     /// &gt; **NOTE:** Deleting this resource is equivalent to "disabling" GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead "suspend" monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
     /// 
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         /// </summary>
         [Output("datasources")]
         public Output<Outputs.DetectorDatasources> Datasources { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.DetectorDatasourcesArgs>? Datasources { get; set; }
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         /// </summary>
         [Input("datasources")]
         public Input<Inputs.DetectorDatasourcesGetArgs>? Datasources { get; set; }

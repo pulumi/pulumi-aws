@@ -10,7 +10,9 @@ import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigu
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamKinesisSourceConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamMskSourceConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamServerSideEncryption;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfiguration;
@@ -496,7 +498,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Opensearch Destination
+ * ### OpenSearch Destination
  * ```java
  * package generated_program;
  * 
@@ -553,7 +555,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Opensearch Destination With VPC
+ * ### OpenSearch Destination With VPC
  * ```java
  * package generated_program;
  * 
@@ -666,6 +668,63 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(firehose_opensearch)
  *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### OpenSearch Serverless Destination
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.ServerlessCollection;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testCollection = new ServerlessCollection(&#34;testCollection&#34;);
+ * 
+ *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .destination(&#34;opensearchserverless&#34;)
+ *             .opensearchserverlessConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.builder()
+ *                 .collectionEndpoint(testCollection.collectionEndpoint())
+ *                 .roleArn(aws_iam_role.firehose_role().arn())
+ *                 .indexName(&#34;test&#34;)
+ *                 .s3Configuration(FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs.builder()
+ *                     .roleArn(aws_iam_role.firehose_role().arn())
+ *                     .bucketArn(aws_s3_bucket.bucket().arn())
+ *                     .bufferingSize(10)
+ *                     .bufferingInterval(400)
+ *                     .compressionFormat(&#34;GZIP&#34;)
+ *                     .build())
+ *                 .processingConfiguration(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs.builder()
+ *                     .enabled(&#34;true&#34;)
+ *                     .processors(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs.builder()
+ *                         .type(&#34;Lambda&#34;)
+ *                         .parameters(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs.builder()
+ *                             .parameterName(&#34;LambdaArn&#34;)
+ *                             .parameterValue(String.format(&#34;%s:$LATEST&#34;, aws_lambda_function.lambda_processor().arn()))
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -803,7 +862,7 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      * 
      */
@@ -811,7 +870,7 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch` and `opensearchserverless`.
      * is redshift). More details are given below.
      * 
      */
@@ -825,14 +884,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.destinationId;
     }
     /**
-     * Configuration options if elasticsearch is the destination. More details are given below.
+     * Configuration options when `destination` is `elasticsearch`. More details are given below.
      * 
      */
     @Export(name="elasticsearchConfiguration", refs={FirehoseDeliveryStreamElasticsearchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamElasticsearchConfiguration> elasticsearchConfiguration;
 
     /**
-     * @return Configuration options if elasticsearch is the destination. More details are given below.
+     * @return Configuration options when `destination` is `elasticsearch`. More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamElasticsearchConfiguration>> elasticsearchConfiguration() {
@@ -853,32 +912,46 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.extendedS3Configuration);
     }
     /**
-     * Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+     * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
      * 
      */
     @Export(name="httpEndpointConfiguration", refs={FirehoseDeliveryStreamHttpEndpointConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamHttpEndpointConfiguration> httpEndpointConfiguration;
 
     /**
-     * @return Configuration options if http_endpoint is the destination. requires the user to also specify a `s3_configuration` block.  More details are given below.
+     * @return Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamHttpEndpointConfiguration>> httpEndpointConfiguration() {
         return Codegen.optional(this.httpEndpointConfiguration);
     }
     /**
-     * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
      * 
      */
     @Export(name="kinesisSourceConfiguration", refs={FirehoseDeliveryStreamKinesisSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamKinesisSourceConfiguration> kinesisSourceConfiguration;
 
     /**
-     * @return Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
+     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamKinesisSourceConfiguration>> kinesisSourceConfiguration() {
         return Codegen.optional(this.kinesisSourceConfiguration);
+    }
+    /**
+     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * 
+     */
+    @Export(name="mskSourceConfiguration", refs={FirehoseDeliveryStreamMskSourceConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirehoseDeliveryStreamMskSourceConfiguration> mskSourceConfiguration;
+
+    /**
+     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. More details are given below.
+     * 
+     */
+    public Output<Optional<FirehoseDeliveryStreamMskSourceConfiguration>> mskSourceConfiguration() {
+        return Codegen.optional(this.mskSourceConfiguration);
     }
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
@@ -895,32 +968,42 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * Configuration options if opensearch is the destination. More details are given below.
+     * Configuration options when `destination` is `opensearch`. More details are given below.
      * 
      */
     @Export(name="opensearchConfiguration", refs={FirehoseDeliveryStreamOpensearchConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamOpensearchConfiguration> opensearchConfiguration;
 
     /**
-     * @return Configuration options if opensearch is the destination. More details are given below.
+     * @return Configuration options when `destination` is `opensearch`. More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamOpensearchConfiguration>> opensearchConfiguration() {
         return Codegen.optional(this.opensearchConfiguration);
     }
     /**
-     * Configuration options if redshift is the destination.
-     * Using `redshift_configuration` requires the user to also specify a
-     * `s3_configuration` block. More details are given below.
+     * Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * 
+     */
+    @Export(name="opensearchserverlessConfiguration", refs={FirehoseDeliveryStreamOpensearchserverlessConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirehoseDeliveryStreamOpensearchserverlessConfiguration> opensearchserverlessConfiguration;
+
+    /**
+     * @return Configuration options when `destination` is `opensearchserverless`. More details are given below.
+     * 
+     */
+    public Output<Optional<FirehoseDeliveryStreamOpensearchserverlessConfiguration>> opensearchserverlessConfiguration() {
+        return Codegen.optional(this.opensearchserverlessConfiguration);
+    }
+    /**
+     * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
      * 
      */
     @Export(name="redshiftConfiguration", refs={FirehoseDeliveryStreamRedshiftConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamRedshiftConfiguration> redshiftConfiguration;
 
     /**
-     * @return Configuration options if redshift is the destination.
-     * Using `redshift_configuration` requires the user to also specify a
-     * `s3_configuration` block. More details are given below.
+     * @return Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamRedshiftConfiguration>> redshiftConfiguration() {
@@ -943,14 +1026,14 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.serverSideEncryption);
     }
     /**
-     * Configuration options if splunk is the destination. More details are given below.
+     * Configuration options when `destination` is `splunk`. More details are given below.
      * 
      */
     @Export(name="splunkConfiguration", refs={FirehoseDeliveryStreamSplunkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamSplunkConfiguration> splunkConfiguration;
 
     /**
-     * @return Configuration options if splunk is the destination. More details are given below.
+     * @return Configuration options when `destination` is `splunk`. More details are given below.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamSplunkConfiguration>> splunkConfiguration() {

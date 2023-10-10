@@ -12219,7 +12219,7 @@ export namespace codedeploy {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+         * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
          *
          * _Only one `autoRollbackConfiguration` is allowed_.
          */
@@ -27509,6 +27509,8 @@ export namespace guardduty {
         /**
          * Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
          * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+         *
+         * The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
          */
         malwareProtection?: pulumi.Input<inputs.guardduty.DetectorDatasourcesMalwareProtection>;
         /**
@@ -27563,6 +27565,17 @@ export namespace guardduty {
          * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
          */
         enable: pulumi.Input<boolean>;
+    }
+
+    export interface DetectorFeatureAdditionalConfiguration {
+        /**
+         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+         */
+        status: pulumi.Input<string>;
     }
 
     export interface FilterFindingCriteria {
@@ -31657,6 +31670,32 @@ export namespace kinesis {
         roleArn: pulumi.Input<string>;
     }
 
+    export interface FirehoseDeliveryStreamMskSourceConfiguration {
+        /**
+         * The authentication configuration of the Amazon MSK cluster. More details are given below.
+         */
+        authenticationConfiguration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration>;
+        /**
+         * The ARN of the Amazon MSK cluster.
+         */
+        mskClusterArn: pulumi.Input<string>;
+        /**
+         * The topic name within the Amazon MSK cluster.
+         */
+        topicName: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
+        /**
+         * The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+         */
+        connectivity: pulumi.Input<string>;
+        /**
+         * The ARN of the role used to access the Amazon MSK cluster.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
     export interface FirehoseDeliveryStreamOpensearchConfiguration {
         /**
          * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
@@ -31679,11 +31718,11 @@ export namespace kinesis {
          */
         domainArn?: pulumi.Input<string>;
         /**
-         * The Opensearch index name.
+         * The OpenSearch index name.
          */
         indexName: pulumi.Input<string>;
         /**
-         * The Opensearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          */
         indexRotationPeriod?: pulumi.Input<string>;
         /**
@@ -31823,6 +31862,175 @@ export namespace kinesis {
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
+        /**
+         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * A list of security group IDs to associate with Kinesis Firehose.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of subnet IDs to associate with Kinesis Firehose.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfiguration {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+         */
+        collectionEndpoint: pulumi.Input<string>;
+        /**
+         * The Serverless offering for Amazon OpenSearch Service index name.
+         */
+        indexName: pulumi.Input<string>;
+        /**
+         * The data processing configuration.  More details are given below.
+         */
+        processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration>;
+        /**
+         * After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
+         */
+        retryDuration?: pulumi.Input<number>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         */
+        s3BackupMode?: pulumi.Input<string>;
+        /**
+         * The S3 Configuration. See s3Configuration for more details.
+         */
+        s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration>;
+        /**
+         * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. More details are given below
+         */
+        vpcConfig?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Array of data processors. More details are given below
+         */
+        processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor>[]>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
+        /**
+         * Array of processor parameters. More details are given below
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter>[]>;
+        /**
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         */
+        parameterName: pulumi.Input<string>;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         *
+         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         */
+        parameterValue: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. More details are given below
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
+        compressionFormat?: pulumi.Input<string>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The ARN of the role that provides access to the source Kinesis stream.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
         /**
          * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
          */
@@ -35832,7 +36040,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
         /**
-         * Arib Destination Settings.
+         * ARIB Destination Settings.
          */
         aribDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings>;
         /**
@@ -36650,7 +36858,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings {
         /**
-         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
          */
         m2tsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings>;
         /**
@@ -36887,7 +37095,7 @@ export namespace medialive {
 
     export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings {
         /**
-         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
          */
         m2tsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings>;
     }
@@ -37653,7 +37861,7 @@ export namespace medialive {
          */
         ancillarySourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings>;
         /**
-         * Arib Source Settings.
+         * ARIB Source Settings.
          */
         aribSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings>;
         /**
@@ -37821,8 +38029,18 @@ export namespace medialive {
 
     export interface ChannelVpc {
         availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
+         */
         publicAddressAllocationIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -51865,6 +52083,20 @@ export namespace ses {
 }
 
 export namespace sesv2 {
+    export interface AccountVdmAttributesDashboardAttributes {
+        /**
+         * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         */
+        engagementMetrics?: pulumi.Input<string>;
+    }
+
+    export interface AccountVdmAttributesGuardianAttributes {
+        /**
+         * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         */
+        optimizedSharedDelivery?: pulumi.Input<string>;
+    }
+
     export interface ConfigurationSetDeliveryOptions {
         /**
          * The name of the dedicated IP pool to associate with the configuration set.
