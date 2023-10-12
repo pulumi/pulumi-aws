@@ -64,7 +64,7 @@ jobs:
       with:
         pulumi-version: v3.77.1
     - name: Setup DotNet
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNETVERSION }}
     - name: Setup Node
