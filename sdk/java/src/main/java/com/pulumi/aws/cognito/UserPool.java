@@ -143,11 +143,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For exampleterraform import {
+ * Using `pulumi import`, import Cognito User Pools using the `id`. For example:
  * 
- *  to = aws_cognito_user_pool.pool
- * 
- *  id = &#34;us-west-2_abc123&#34; } Using `TODO import`, import Cognito User Pools using the `id`. For exampleconsole % TODO import aws_cognito_user_pool.pool us-west-2_abc123
+ * ```sh
+ *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+ * ```
  * 
  */
 @ResourceType(type="aws:cognito/userPool:UserPool")

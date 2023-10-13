@@ -246,11 +246,11 @@ class Template(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Service Quotas Template using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import Service Quotas Template using the `id`. For example:
 
-         to = aws_servicequotas_template.example
-
-         id = "us-east-1,L-2ACBD22F,lambda" } Using `TODO import`, import Service Quotas Template using the `id`. For exampleconsole % TODO import aws_servicequotas_template.example us-east-1,L-2ACBD22F,lambda
+        ```sh
+         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,11 +286,11 @@ class Template(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Service Quotas Template using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import Service Quotas Template using the `id`. For example:
 
-         to = aws_servicequotas_template.example
-
-         id = "us-east-1,L-2ACBD22F,lambda" } Using `TODO import`, import Service Quotas Template using the `id`. For exampleconsole % TODO import aws_servicequotas_template.example us-east-1,L-2ACBD22F,lambda
+        ```sh
+         $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

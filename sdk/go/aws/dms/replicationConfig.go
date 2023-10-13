@@ -57,11 +57,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import replication configs using the `arn`. For exampleterraform import {
+// Using `pulumi import`, import a replication config using the `arn`. For example:
 //
-//	to = aws_dms_replication_config.example
+// ```sh
 //
-//	id = "arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI" } Using `TODO import`, import a replication config using the `arn`. For exampleconsole % TODO import aws_dms_replication_config.example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
+//	$ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
+//
+// ```
 type ReplicationConfig struct {
 	pulumi.CustomResourceState
 

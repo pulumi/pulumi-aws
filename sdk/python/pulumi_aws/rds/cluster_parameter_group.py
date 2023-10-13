@@ -303,11 +303,11 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
+        Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
 
-         to = aws_rds_cluster_parameter_group.cluster_pg
-
-         id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
+        ```sh
+         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,11 +353,11 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
+        Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
 
-         to = aws_rds_cluster_parameter_group.cluster_pg
-
-         id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
+        ```sh
+         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.

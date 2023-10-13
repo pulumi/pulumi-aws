@@ -282,11 +282,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
+ * Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
  * 
- *  to = aws_dlm_lifecycle_policy.example
- * 
- *  id = &#34;policy-abcdef12345678901&#34; } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
+ * ```sh
+ *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+ * ```
  * 
  */
 @ResourceType(type="aws:dlm/lifecyclePolicy:LifecyclePolicy")

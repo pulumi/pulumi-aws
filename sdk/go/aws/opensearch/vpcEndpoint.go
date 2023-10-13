@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import OpenSearch VPC endpoint connections using the `id`. For exampleterraform import {
+// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 //
-//	to = aws_opensearch_vpc_endpoint_connection.example
+// ```sh
 //
-//	id = "endpoint-id" } Using `TODO import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % TODO import aws_opensearch_vpc_endpoint_connection.example endpoint-id
+//	$ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+//
+// ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

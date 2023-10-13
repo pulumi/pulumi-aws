@@ -186,11 +186,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For exampleterraform import {
+ * Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
  * 
- *  to = aws_rds_custom_db_engine_version.example
- * 
- *  id = &#34;custom-oracle-ee-cdb:19.cdb_cev1&#34; } Using `TODO import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For exampleconsole % TODO import aws_rds_custom_db_engine_version.example custom-oracle-ee-cdb:19.cdb_cev1
+ * ```sh
+ *  $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/customDbEngineVersion:CustomDbEngineVersion")

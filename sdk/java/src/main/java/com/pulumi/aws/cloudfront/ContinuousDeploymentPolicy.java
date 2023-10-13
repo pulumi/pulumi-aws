@@ -168,11 +168,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For exampleterraform import {
+ * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
  * 
- *  to = aws_cloudfront_continuous_deployment_policy.example
- * 
- *  id = &#34;abcd-1234&#34; } Using `TODO import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % TODO import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+ * ```sh
+ *  $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy")

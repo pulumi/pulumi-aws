@@ -90,11 +90,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
+// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
 //
-//	to = aws_dlm_lifecycle_policy.example
+// ```sh
 //
-//	id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
+//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+//
+// ```
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

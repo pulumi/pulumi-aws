@@ -42,11 +42,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Security Hub members using their account ID. For exampleterraform import {
+    /// Using `pulumi import`, import Security Hub members using their account ID. For example:
     /// 
-    ///  to = aws_securityhub_member.example
-    /// 
-    ///  id = "123456789012" } Using `TODO import`, import Security Hub members using their account ID. For exampleconsole % TODO import aws_securityhub_member.example 123456789012
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/member:Member example 123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/member:Member")]
     public partial class Member : global::Pulumi.CustomResource

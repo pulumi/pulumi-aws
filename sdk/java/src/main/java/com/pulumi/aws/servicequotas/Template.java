@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Service Quotas Template using the `example_id_arg`. For exampleterraform import {
+ * Using `pulumi import`, import Service Quotas Template using the `id`. For example:
  * 
- *  to = aws_servicequotas_template.example
- * 
- *  id = &#34;us-east-1,L-2ACBD22F,lambda&#34; } Using `TODO import`, import Service Quotas Template using the `id`. For exampleconsole % TODO import aws_servicequotas_template.example us-east-1,L-2ACBD22F,lambda
+ * ```sh
+ *  $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+ * ```
  * 
  */
 @ResourceType(type="aws:servicequotas/template:Template")

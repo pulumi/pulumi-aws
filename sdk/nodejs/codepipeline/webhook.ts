@@ -88,11 +88,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
+ * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
  *
- *  to = aws_codepipeline_webhook.example
- *
- *  id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```sh
+ *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

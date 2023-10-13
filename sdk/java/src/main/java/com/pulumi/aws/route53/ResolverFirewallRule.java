@@ -70,15 +70,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import
+ * Using `pulumi import`, import
  * 
- * Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For exampleterraform import {
+ * Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For example:
  * 
- *  to = aws_route53_resolver_firewall_rule.example
- * 
- *  id = &#34;rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef&#34; } Using `TODO import`, import
- * 
- * Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by &#39;:&#39;. For exampleconsole % TODO import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+ * ```sh
+ *  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/resolverFirewallRule:ResolverFirewallRule")

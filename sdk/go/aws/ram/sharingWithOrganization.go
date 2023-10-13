@@ -42,11 +42,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For exampleterraform import {
+// Using `pulumi import`, import the resource using the current AWS account ID. For example:
 //
-//	to = aws_ram_sharing_with_organization.example
+// ```sh
 //
-//	id = "123456789012" } Using `TODO import`, import the resource using the current AWS account ID. For exampleconsole % TODO import aws_ram_sharing_with_organization.example 123456789012
+//	$ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+//
+// ```
 type SharingWithOrganization struct {
 	pulumi.CustomResourceState
 }

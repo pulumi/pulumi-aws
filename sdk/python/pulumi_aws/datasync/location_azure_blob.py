@@ -368,11 +368,11 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For exampleterraform import {
+        Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
 
-         to = aws_datasync_location_azure_blob.example
-
-         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `TODO import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For exampleconsole % TODO import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```sh
+         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -413,11 +413,11 @@ class LocationAzureBlob(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For exampleterraform import {
+        Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
 
-         to = aws_datasync_location_azure_blob.example
-
-         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `TODO import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For exampleconsole % TODO import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```sh
+         $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.

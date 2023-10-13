@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import EKS job templates using the `id`. For exampleterraform import {
+ * Using `pulumi import`, import EKS job templates using the `id`. For example:
  * 
- *  to = aws_emrcontainers_job_template.example
- * 
- *  id = &#34;a1b2c3d4e5f6g7h8i9j10k11l&#34; } Using `TODO import`, import EKS job templates using the `id`. For exampleconsole % TODO import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
+ * ```sh
+ *  $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+ * ```
  * 
  */
 @ResourceType(type="aws:emrcontainers/jobTemplate:JobTemplate")

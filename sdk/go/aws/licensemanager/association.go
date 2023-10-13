@@ -77,11 +77,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import license configurations using `resource_arn,license_configuration_arn`. For exampleterraform import {
+// Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
 //
-//	to = aws_licensemanager_association.example
+// ```sh
 //
-//	id = "arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using `resource_arn,license_configuration_arn`. For exampleconsole % TODO import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+//	$ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+//
+// ```
 type Association struct {
 	pulumi.CustomResourceState
 

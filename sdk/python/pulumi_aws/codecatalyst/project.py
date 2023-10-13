@@ -172,11 +172,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
 
-         to = aws_codecatalyst_project.example
-
-         id = "project-id-12345678" } Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_project.example project-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,11 +210,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
 
-         to = aws_codecatalyst_project.example
-
-         id = "project-id-12345678" } Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_project.example project-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

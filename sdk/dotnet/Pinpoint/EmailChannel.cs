@@ -98,11 +98,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For exampleterraform import {
+    /// Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
     /// 
-    ///  to = aws_pinpoint_email_channel.email
-    /// 
-    ///  id = "application-id" } Using `TODO import`, import Pinpoint Email Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_email_channel.email application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/emailChannel:EmailChannel")]
     public partial class EmailChannel : global::Pulumi.CustomResource

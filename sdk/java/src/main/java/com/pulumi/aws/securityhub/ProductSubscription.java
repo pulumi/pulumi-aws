@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Security Hub product subscriptions using `product_arn,arn`. For exampleterraform import {
+ * Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
  * 
- *  to = aws_securityhub_product_subscription.example
- * 
- *  id = &#34;arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement&#34; } Using `TODO import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % TODO import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+ * ```sh
+ *  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+ * ```
  * 
  */
 @ResourceType(type="aws:securityhub/productSubscription:ProductSubscription")

@@ -34,11 +34,11 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For exampleterraform import {
+    /// Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
     /// 
-    ///  to = aws_codecatalyst_source_repository.example
-    /// 
-    ///  id = "source_repository-id-12345678" } Using `TODO import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_source_repository.example source_repository-id-12345678
+    /// ```sh
+    ///  $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]
     public partial class SourceRepository : global::Pulumi.CustomResource

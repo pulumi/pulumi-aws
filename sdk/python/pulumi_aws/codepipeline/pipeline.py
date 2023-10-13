@@ -356,11 +356,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
+        Using `pulumi import`, import CodePipelines using the name. For example:
 
-         to = aws_codepipeline.foo
-
-         id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
+        ```sh
+         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -497,11 +497,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
+        Using `pulumi import`, import CodePipelines using the name. For example:
 
-         to = aws_codepipeline.foo
-
-         id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
+        ```sh
+         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

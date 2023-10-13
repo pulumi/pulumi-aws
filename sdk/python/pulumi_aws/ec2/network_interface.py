@@ -829,11 +829,11 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
+        Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
-         to = aws_network_interface.test
-
-         id = "eni-e5aa89a3" } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
+        ```sh
+         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -902,11 +902,11 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
+        Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
-         to = aws_network_interface.test
-
-         id = "eni-e5aa89a3" } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
+        ```sh
+         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

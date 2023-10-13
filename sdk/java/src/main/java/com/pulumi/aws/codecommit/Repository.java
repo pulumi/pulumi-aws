@@ -52,9 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import CodeCommit repository using repository name. For example:
- * 
- * Using `TODO import`, import CodeCommit repository using repository name. For example:
+ * Using `pulumi import`, import CodeCommit repository using repository name. For example:
  * 
  * ```sh
  *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo

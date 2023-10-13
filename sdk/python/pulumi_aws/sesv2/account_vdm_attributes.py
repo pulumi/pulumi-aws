@@ -163,11 +163,11 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleterraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
 
-         to = aws_sesv2_account_vdm_attributes.example
-
-         id = "ses-account-vdm-attributes" } Using `TODO import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleconsole % TODO import aws_sesv2_account_vdm_attributes.example ses-account-vdm-attributes
+        ```sh
+         $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,11 +205,11 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleterraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
 
-         to = aws_sesv2_account_vdm_attributes.example
-
-         id = "ses-account-vdm-attributes" } Using `TODO import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleconsole % TODO import aws_sesv2_account_vdm_attributes.example ses-account-vdm-attributes
+        ```sh
+         $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountVdmAttributesArgs args: The arguments to use to populate this resource's properties.

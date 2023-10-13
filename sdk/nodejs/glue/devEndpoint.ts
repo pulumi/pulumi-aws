@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For exampleterraform import {
+ * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
  *
- *  to = aws_glue_dev_endpoint.example
- *
- *  id = "foo" } Using `TODO import`, import a Glue Development Endpoint using the `name`. For exampleconsole % TODO import aws_glue_dev_endpoint.example foo
+ * ```sh
+ *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+ * ```
  */
 export class DevEndpoint extends pulumi.CustomResource {
     /**

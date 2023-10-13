@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For exampleterraform import {
+    /// Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
     /// 
-    ///  to = aws_pinpoint_sms_channel.sms
-    /// 
-    ///  id = "application-id" } Using `TODO import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % TODO import aws_pinpoint_sms_channel.sms application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/smsChannel:SmsChannel")]
     public partial class SmsChannel : global::Pulumi.CustomResource

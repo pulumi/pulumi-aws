@@ -56,11 +56,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For exampleterraform import {
+// Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 //
-//	to = aws_cloud9_environment_membership.test
+// ```sh
 //
-//	id = "environment-id#user-arn" } Using `TODO import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % TODO import aws_cloud9_environment_membership.test environment-id#user-arn
+//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+//
+// ```
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
 

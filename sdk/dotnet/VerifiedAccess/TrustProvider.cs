@@ -34,13 +34,13 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For exampleterraform import {
+    /// Using `pulumi import`, import Transfer Workflows using the
     /// 
-    ///  to = aws_verifiedaccess_trust_provider.example
+    /// `id`. For example:
     /// 
-    ///  id = "vatp-8012925589" } Using `TODO import`, import Transfer Workflows using the
-    /// 
-    /// `id`. For exampleconsole % TODO import aws_verifiedaccess_trust_provider.example vatp-8012925589
+    /// ```sh
+    ///  $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
+    /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/trustProvider:TrustProvider")]
     public partial class TrustProvider : global::Pulumi.CustomResource

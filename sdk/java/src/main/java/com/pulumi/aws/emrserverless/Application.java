@@ -137,11 +137,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
+ * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
  * 
- *  to = aws_emrserverless_application.example
- * 
- *  id = &#34;id&#34; } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
+ * ```sh
+ *  $ pulumi import aws:emrserverless/application:Application example id
+ * ```
  * 
  */
 @ResourceType(type="aws:emrserverless/application:Application")

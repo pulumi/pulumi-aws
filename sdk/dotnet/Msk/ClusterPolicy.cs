@@ -67,11 +67,11 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Managed Streaming for Kafka Cluster Policy using the `cluster_arn. For exampleterraform import {
+    /// Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
     /// 
-    ///  to = aws_msk_cluster_policy.example
-    /// 
-    ///  id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `TODO import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For exampleconsole % TODO import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// ```sh
+    ///  $ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// ```
     /// </summary>
     [AwsResourceType("aws:msk/clusterPolicy:ClusterPolicy")]
     public partial class ClusterPolicy : global::Pulumi.CustomResource

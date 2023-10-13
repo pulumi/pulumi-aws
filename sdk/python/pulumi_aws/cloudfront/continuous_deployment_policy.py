@@ -242,11 +242,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For exampleterraform import {
+        Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
-         to = aws_cloudfront_continuous_deployment_policy.example
-
-         id = "abcd-1234" } Using `TODO import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % TODO import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+        ```sh
+         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,11 +337,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For exampleterraform import {
+        Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
-         to = aws_cloudfront_continuous_deployment_policy.example
-
-         id = "abcd-1234" } Using `TODO import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % TODO import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+        ```sh
+         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContinuousDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.

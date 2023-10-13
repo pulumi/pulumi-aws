@@ -333,11 +333,11 @@ class ConfiguredTable(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_configured_table` using the `id`. For exampleterraform import {
+        Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
 
-         to = aws_cleanrooms_configured_table.table
-
-         id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `TODO import`, import `aws_cleanrooms_configured_table` using the `id`. For exampleconsole % TODO import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
+        ```sh
+         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -385,11 +385,11 @@ class ConfiguredTable(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_configured_table` using the `id`. For exampleterraform import {
+        Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
 
-         to = aws_cleanrooms_configured_table.table
-
-         id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `TODO import`, import `aws_cleanrooms_configured_table` using the `id`. For exampleconsole % TODO import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
+        ```sh
+         $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfiguredTableArgs args: The arguments to use to populate this resource's properties.
