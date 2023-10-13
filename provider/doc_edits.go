@@ -51,7 +51,8 @@ func fixupImports() tfbridge.DocsEdit {
 }
 
 func applyReplacementsDotJSON() tfbridge.DocsEdit {
-	fileBytes, err := os.ReadFile("./provider/replacements.json")
+	filePath := "./provider/replacements.json"
+	fileBytes, err := os.ReadFile(filePath)
 	if err != nil {
 		panic(err)
 	}
@@ -77,17 +78,26 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 
 	PostTfgenHook = append(PostTfgenHook, func() {
 		fmt.Printf("Applied %d replacements", applied)
+	}, func() {
+		reps, err := json.MarshalIndent(replacements, "", "  ")
+		if err != nil {
+			panic(err)
+		}
+		err = os.WriteFile(filePath, reps, 0600)
+		if err != nil {
+			panic(err)
+		}
 	})
 
 	return tfbridge.DocsEdit{
 		Path: "*",
 		Edit: func(path string, content []byte) ([]byte, error) {
-			replacements, ok := replacements[path]
+			replacementPath, ok := replacements[path]
 			if !ok {
 				return content, nil
 			}
 			applied++
-			for _, r := range replacements {
+			for _, r := range replacementPath {
 				old, new := []byte(r.Old), []byte(r.New)
 				content = bytes.ReplaceAll(content, old, new)
 			}
