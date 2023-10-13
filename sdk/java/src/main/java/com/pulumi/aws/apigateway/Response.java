@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleterraform import {
+ * Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
  * 
- *  to = aws_api_gateway_gateway_response.example
- * 
- *  id = &#34;12345abcde/UNAUTHORIZED&#34; } Using `TODO import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % TODO import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
+ * ```sh
+ *  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+ * ```
  * 
  */
 @ResourceType(type="aws:apigateway/response:Response")

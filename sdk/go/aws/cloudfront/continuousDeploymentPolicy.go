@@ -149,11 +149,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For exampleterraform import {
+// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 //
-//	to = aws_cloudfront_continuous_deployment_policy.example
+// ```sh
 //
-//	id = "abcd-1234" } Using `TODO import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % TODO import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+//	$ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+//
+// ```
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState
 

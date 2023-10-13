@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
+ * Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
  * 
- *  to = aws_rds_cluster_parameter_group.cluster_pg
- * 
- *  id = &#34;production-pg-1&#34; } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
+ * ```sh
+ *  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/clusterParameterGroup:ClusterParameterGroup")

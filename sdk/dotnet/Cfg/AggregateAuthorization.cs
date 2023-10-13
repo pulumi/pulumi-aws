@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
+    /// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
     /// 
-    ///  to = aws_config_aggregate_authorization.example
-    /// 
-    ///  id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
+    /// ```sh
+    ///  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/aggregateAuthorization:AggregateAuthorization")]
     public partial class AggregateAuthorization : global::Pulumi.CustomResource

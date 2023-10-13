@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Security Hub members using their account ID. For exampleterraform import {
+ * Using `pulumi import`, import Security Hub members using their account ID. For example:
  * 
- *  to = aws_securityhub_member.example
- * 
- *  id = &#34;123456789012&#34; } Using `TODO import`, import Security Hub members using their account ID. For exampleconsole % TODO import aws_securityhub_member.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:securityhub/member:Member example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:securityhub/member:Member")

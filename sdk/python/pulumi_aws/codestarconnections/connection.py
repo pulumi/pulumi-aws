@@ -264,11 +264,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For exampleterraform import {
+        Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
-         to = aws_codestarconnections_connection.test-connection
-
-         id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `TODO import`, import CodeStar connections using the ARN. For exampleconsole % TODO import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```sh
+         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,11 +328,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For exampleterraform import {
+        Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
-         to = aws_codestarconnections_connection.test-connection
-
-         id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `TODO import`, import CodeStar connections using the ARN. For exampleconsole % TODO import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```sh
+         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For exampleterraform import {
+ * Using `pulumi import`, import the resource using the current AWS account ID. For example:
  * 
- *  to = aws_ram_sharing_with_organization.example
- * 
- *  id = &#34;123456789012&#34; } Using `TODO import`, import the resource using the current AWS account ID. For exampleconsole % TODO import aws_ram_sharing_with_organization.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:ram/sharingWithOrganization:SharingWithOrganization")

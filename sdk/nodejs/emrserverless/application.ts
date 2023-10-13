@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
+ * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
  *
- *  to = aws_emrserverless_application.example
- *
- *  id = "id" } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
+ * ```sh
+ *  $ pulumi import aws:emrserverless/application:Application example id
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

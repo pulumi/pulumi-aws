@@ -35,11 +35,11 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For exampleterraform import {
+    /// Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
     /// 
-    ///  to = aws_codecatalyst_project.example
-    /// 
-    ///  id = "project-id-12345678" } Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_project.example project-id-12345678
+    /// ```sh
+    ///  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codecatalyst/project:Project")]
     public partial class Project : global::Pulumi.CustomResource

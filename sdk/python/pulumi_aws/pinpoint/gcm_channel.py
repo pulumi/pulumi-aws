@@ -148,11 +148,11 @@ class GcmChannel(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
+        Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
 
-         to = aws_pinpoint_gcm_channel.gcm
-
-         id = "application-id" } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
+        ```sh
+         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,11 +184,11 @@ class GcmChannel(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For exampleterraform import {
+        Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
 
-         to = aws_pinpoint_gcm_channel.gcm
-
-         id = "application-id" } Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_gcm_channel.gcm application-id
+        ```sh
+         $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param GcmChannelArgs args: The arguments to use to populate this resource's properties.

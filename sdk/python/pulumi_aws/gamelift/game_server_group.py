@@ -554,11 +554,11 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For exampleterraform import {
+        Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 
-         to = aws_gamelift_game_server_group.example
-
-         id = "example" } Using `TODO import`, import GameLift Game Server Group using the `name`. For exampleconsole % TODO import aws_gamelift_game_server_group.example example
+        ```sh
+         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -683,11 +683,11 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For exampleterraform import {
+        Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 
-         to = aws_gamelift_game_server_group.example
-
-         id = "example" } Using `TODO import`, import GameLift Game Server Group using the `name`. For exampleconsole % TODO import aws_gamelift_game_server_group.example example
+        ```sh
+         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.

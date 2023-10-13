@@ -49,11 +49,11 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import `aws_cleanrooms_configured_table` using the `id`. For exampleterraform import {
+    /// Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
     /// 
-    ///  to = aws_cleanrooms_configured_table.table
-    /// 
-    ///  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `TODO import`, import `aws_cleanrooms_configured_table` using the `id`. For exampleconsole % TODO import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    ///  $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
     public partial class ConfiguredTable : global::Pulumi.CustomResource

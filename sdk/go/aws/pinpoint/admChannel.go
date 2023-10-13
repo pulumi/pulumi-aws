@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For exampleterraform import {
+// Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
 //
-//	to = aws_pinpoint_adm_channel.channel
+// ```sh
 //
-//	id = "application-id" } Using `TODO import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_adm_channel.channel application-id
+//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
+//
+// ```
 type AdmChannel struct {
 	pulumi.CustomResourceState
 

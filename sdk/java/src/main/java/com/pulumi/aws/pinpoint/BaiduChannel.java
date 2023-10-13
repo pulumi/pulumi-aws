@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For exampleterraform import {
+ * Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
  * 
- *  to = aws_pinpoint_baidu_channel.channel
- * 
- *  id = &#34;application-id&#34; } Using `TODO import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_baidu_channel.channel application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+ * ```
  * 
  */
 @ResourceType(type="aws:pinpoint/baiduChannel:BaiduChannel")

@@ -53,11 +53,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleterraform import {
+// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
 //
-//	to = aws_route53_resolver_firewall_config.example
+// ```sh
 //
-//	id = "rdsc-be1866ecc1683e95" } Using `TODO import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleconsole % TODO import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95
+//	$ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+//
+// ```
 type ResolverFirewallConfig struct {
 	pulumi.CustomResourceState
 

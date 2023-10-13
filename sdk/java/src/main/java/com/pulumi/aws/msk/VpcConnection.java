@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import MSK configurations using the configuration ARN. For exampleterraform import {
+ * Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
  * 
- *  to = aws_msk_vpc_connection.example
- * 
- *  id = &#34;arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2&#34; } Using `TODO import`, import MSK configurations using the configuration ARN. For exampleconsole % TODO import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+ * ```sh
+ *  $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+ * ```
  * 
  */
 @ResourceType(type="aws:msk/vpcConnection:VpcConnection")

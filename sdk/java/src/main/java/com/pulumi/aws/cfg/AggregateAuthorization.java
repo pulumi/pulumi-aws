@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
+ * Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
  * 
- *  to = aws_config_aggregate_authorization.example
- * 
- *  id = &#34;123456789012:us-east-1&#34; } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
+ * ```sh
+ *  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+ * ```
  * 
  */
 @ResourceType(type="aws:cfg/aggregateAuthorization:AggregateAuthorization")

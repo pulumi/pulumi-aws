@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * In TODO v1.5.0 and later, use an `import` block to import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleterraform import {
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For example:
  *
- *  to = aws_sesv2_account_vdm_attributes.example
- *
- *  id = "ses-account-vdm-attributes" } Using `TODO import`, import SESv2 (Simple Email V2) Account VDM Attributes using the word `ses-account-vdm-attributes`. For exampleconsole % TODO import aws_sesv2_account_vdm_attributes.example ses-account-vdm-attributes
+ * ```sh
+ *  $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
+ * ```
  */
 export class AccountVdmAttributes extends pulumi.CustomResource {
     /**

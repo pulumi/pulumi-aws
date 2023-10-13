@@ -107,11 +107,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub finding aggregator using the `arn`. For exampleterraform import {
+    /// Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
     /// 
-    ///  to = aws_securityhub_finding_aggregator.example
-    /// 
-    ///  id = "arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456" } Using `TODO import`, import an existing Security Hub finding aggregator using the `arn`. For exampleconsole % TODO import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/findingAggregator:FindingAggregator")]
     public partial class FindingAggregator : global::Pulumi.CustomResource

@@ -29,15 +29,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import
+    /// Using `pulumi import`, import
     /// 
-    /// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleterraform import {
+    /// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
     /// 
-    ///  to = aws_route53_resolver_firewall_rule_group.example
-    /// 
-    ///  id = "rslvr-frg-0123456789abcdef" } Using `TODO import`, import
-    /// 
-    /// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup")]
     public partial class ResolverFirewallRuleGroup : global::Pulumi.CustomResource

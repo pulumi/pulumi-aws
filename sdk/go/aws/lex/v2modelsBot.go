@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import Lex V2 Models Bot using the `example_id_arg`. For exampleterraform import {
+// Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
 //
-//	to = aws_lexv2models_bot.example
+// ```sh
 //
-//	id = "bot-id-12345678" } Using `TODO import`, import Lex V2 Models Bot using the `example_id_arg`. For exampleconsole % TODO import aws_lexv2models_bot.example bot-id-12345678
+//	$ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+//
+// ```
 type V2modelsBot struct {
 	pulumi.CustomResourceState
 

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For exampleterraform import {
+ * Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
  * 
- *  to = aws_codecatalyst_source_repository.example
- * 
- *  id = &#34;source_repository-id-12345678&#34; } Using `TODO import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_source_repository.example source_repository-id-12345678
+ * ```sh
+ *  $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:codecatalyst/sourceRepository:SourceRepository")

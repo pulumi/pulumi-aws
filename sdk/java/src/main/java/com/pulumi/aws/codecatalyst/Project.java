@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For exampleterraform import {
+ * Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
  * 
- *  to = aws_codecatalyst_project.example
- * 
- *  id = &#34;project-id-12345678&#34; } Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_project.example project-id-12345678
+ * ```sh
+ *  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:codecatalyst/project:Project")

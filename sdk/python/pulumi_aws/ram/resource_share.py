@@ -221,11 +221,11 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import resource shares using the `arn` of the resource share. For exampleterraform import {
+        Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
 
-         to = aws_ram_resource_share.example
-
-         id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12" } Using `TODO import`, import resource shares using the `arn` of the resource share. For exampleconsole % TODO import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        ```sh
+         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,11 +258,11 @@ class ResourceShare(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import resource shares using the `arn` of the resource share. For exampleterraform import {
+        Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
 
-         to = aws_ram_resource_share.example
-
-         id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12" } Using `TODO import`, import resource shares using the `arn` of the resource share. For exampleconsole % TODO import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        ```sh
+         $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceShareArgs args: The arguments to use to populate this resource's properties.

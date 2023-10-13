@@ -184,15 +184,13 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import
+        Using `pulumi import`, import
 
-        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
 
-         to = aws_route53_resolver_firewall_domain_list.example
-
-         id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
-
-        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,15 +218,13 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import
+        Using `pulumi import`, import
 
-        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
+        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
 
-         to = aws_route53_resolver_firewall_domain_list.example
-
-         id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
-
-        Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallDomainListArgs args: The arguments to use to populate this resource's properties.

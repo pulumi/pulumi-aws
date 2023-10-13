@@ -180,11 +180,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For exampleterraform import {
+// Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 //
-//	to = aws_gamelift_game_server_group.example
+// ```sh
 //
-//	id = "example" } Using `TODO import`, import GameLift Game Server Group using the `name`. For exampleconsole % TODO import aws_gamelift_game_server_group.example example
+//	$ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+//
+// ```
 type GameServerGroup struct {
 	pulumi.CustomResourceState
 

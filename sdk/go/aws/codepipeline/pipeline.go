@@ -222,11 +222,13 @@ import (
 //
 // ## Import
 //
-// In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
+// Using `pulumi import`, import CodePipelines using the name. For example:
 //
-//	to = aws_codepipeline.foo
+// ```sh
 //
-//	id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
+//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+//
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

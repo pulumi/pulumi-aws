@@ -121,11 +121,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
+        Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
-         to = aws_securityhub_organization_configuration.example
-
-         id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_organization_configuration.example 123456789012
+        ```sh
+         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +161,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
+        Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
-         to = aws_securityhub_organization_configuration.example
-
-         id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_organization_configuration.example 123456789012
+        ```sh
+         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

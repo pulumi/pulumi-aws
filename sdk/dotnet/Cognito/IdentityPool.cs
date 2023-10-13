@@ -68,11 +68,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool using its ID. For exampleterraform import {
+    /// Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
     /// 
-    ///  to = aws_cognito_identity_pool.mypool
-    /// 
-    ///  id = "us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3" } Using `TODO import`, import Cognito Identity Pool using its ID. For exampleconsole % TODO import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+    /// ```sh
+    ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPool:IdentityPool")]
     public partial class IdentityPool : global::Pulumi.CustomResource

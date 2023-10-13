@@ -397,11 +397,11 @@ class V2modelsBot(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Lex V2 Models Bot using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
 
-         to = aws_lexv2models_bot.example
-
-         id = "bot-id-12345678" } Using `TODO import`, import Lex V2 Models Bot using the `example_id_arg`. For exampleconsole % TODO import aws_lexv2models_bot.example bot-id-12345678
+        ```sh
+         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -441,11 +441,11 @@ class V2modelsBot(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import Lex V2 Models Bot using the `example_id_arg`. For exampleterraform import {
+        Using `pulumi import`, import Lex V2 Models Bot using the `example_id_arg`. For example:
 
-         to = aws_lexv2models_bot.example
-
-         id = "bot-id-12345678" } Using `TODO import`, import Lex V2 Models Bot using the `example_id_arg`. For exampleconsole % TODO import aws_lexv2models_bot.example bot-id-12345678
+        ```sh
+         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param V2modelsBotArgs args: The arguments to use to populate this resource's properties.

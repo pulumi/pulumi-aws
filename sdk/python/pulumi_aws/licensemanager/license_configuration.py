@@ -352,11 +352,11 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
+        Using `pulumi import`, import license configurations using the `id`. For example:
 
-         to = aws_licensemanager_license_configuration.example
-
-         id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        ```sh
+         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -409,11 +409,11 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
+        Using `pulumi import`, import license configurations using the `id`. For example:
 
-         to = aws_licensemanager_license_configuration.example
-
-         id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        ```sh
+         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param LicenseConfigurationArgs args: The arguments to use to populate this resource's properties.
