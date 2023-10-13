@@ -15,9 +15,9 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
 func main() {
@@ -27,6 +27,12 @@ func main() {
 		replaceWafV2TypesWithRecursive(spec)
 		removeUnusedQuicksightTypes(spec)
 	}
+
+	defer func() {
+		for _, f := range aws.PostTfgenHook {
+			f()
+		}
+	}()
 
 	pftfgen.MainWithMuxer("aws", *info)
 }
