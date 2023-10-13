@@ -32,7 +32,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 func fixupImports() tfbridge.DocsEdit {
 	const tfOrTODO = `([tT]erraform|TODO)`
 
-	var inlineImportRegexp = regexp.MustCompile("% " + tfOrTODO + " import")
+	var inlineImportRegexp = regexp.MustCompile("% " + tfOrTODO + " import.*")
 	var quotedImportRegexp = regexp.MustCompile("`" + tfOrTODO + " import`")
 
 	// (?s) makes the '.' match newlines (in addition to everything else).
@@ -43,7 +43,12 @@ func fixupImports() tfbridge.DocsEdit {
 		Path: "*",
 		Edit: func(path string, content []byte) ([]byte, error) {
 			content = blockImportRegexp.ReplaceAllLiteral(content, nil)
-			content = inlineImportRegexp.ReplaceAllLiteral(content, []byte("% pulumi import"))
+			content = inlineImportRegexp.ReplaceAllFunc(content, func(match []byte) []byte {
+				match = bytes.ReplaceAll(match, []byte("terraform"), []byte("pulumi"))
+				match = bytes.ReplaceAll(match, []byte("Terraform"), []byte("pulumi"))
+				match = bytes.ReplaceAll(match, []byte("TODO"), []byte("pulumi"))
+				return match
+			})
 			content = quotedImportRegexp.ReplaceAllLiteral(content, []byte("`pulumi import`"))
 			return content, nil
 		},

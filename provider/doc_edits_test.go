@@ -55,6 +55,10 @@ foo: bar
 foo: bar
 ` + "```\n",
 		},
+		{
+			`% terraform import has-terraform-name`,
+			`% pulumi import has-pulumi-name`,
+		},
 	}
 
 	for _, tt := range tests {
