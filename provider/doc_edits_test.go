@@ -61,7 +61,7 @@ foo: bar
 		tt := tt
 		t.Run(tt.text, func(t *testing.T) {
 			t.Parallel()
-			actual, err := fixupImports.Edit("doc.md", []byte(tt.text))
+			actual, err := fixupImports().Edit("doc.md", []byte(tt.text))
 			require.NoError(t, err)
 			assert.Equal(t, tt.expected, string(actual))
 		})
