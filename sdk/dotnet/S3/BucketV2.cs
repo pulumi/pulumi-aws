@@ -189,6 +189,11 @@ namespace Pulumi.Aws.S3
         [Output("objectLockEnabled")]
         public Output<bool> ObjectLockEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+        /// The provider will only perform drift detection if a configuration value is provided.
+        /// Use the resource `aws.s3.BucketPolicy` instead.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -415,6 +420,11 @@ namespace Pulumi.Aws.S3
         [Input("objectLockEnabled")]
         public Input<bool>? ObjectLockEnabled { get; set; }
 
+        /// <summary>
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+        /// The provider will only perform drift detection if a configuration value is provided.
+        /// Use the resource `aws.s3.BucketPolicy` instead.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
@@ -629,6 +639,11 @@ namespace Pulumi.Aws.S3
         [Input("objectLockEnabled")]
         public Input<bool>? ObjectLockEnabled { get; set; }
 
+        /// <summary>
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
+        /// The provider will only perform drift detection if a configuration value is provided.
+        /// Use the resource `aws.s3.BucketPolicy` instead.
+        /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 

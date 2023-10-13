@@ -84,11 +84,15 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	PostTfgenHook = append(PostTfgenHook, func() {
 		fmt.Printf("Applied %d replacements", applied)
 	}, func() {
-		reps, err := json.MarshalIndent(replacements, "", "  ")
+		var b bytes.Buffer
+		m := json.NewEncoder(&b)
+		m.SetEscapeHTML(false)
+		m.SetIndent("", "  ")
+		err := m.Encode(replacements)
 		if err != nil {
 			panic(err)
 		}
-		err = os.WriteFile(filePath, reps, 0600)
+		err = os.WriteFile(filePath, b.Bytes(), 0600)
 		if err != nil {
 			panic(err)
 		}
