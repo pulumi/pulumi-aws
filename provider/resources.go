@@ -648,6 +648,7 @@ func Provider() *tfbridge.ProviderInfo {
 		Version:          version.Version,
 		GitHubOrg:        "hashicorp",
 		UpstreamRepoPath: "./upstream",
+		DocRules:         &tfbridge.DocRuleInfo{EditRules: editRules},
 
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 
@@ -691,10 +692,8 @@ func Provider() *tfbridge.ProviderInfo {
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
 			"aws_acm_certificate_validation": {
-				Tok: awsResource(acmMod, "CertificateValidation"),
-				Docs: &tfbridge.DocInfo{
-					ReplaceExamplesSection: true,
-				},
+				Tok:  awsResource(acmMod, "CertificateValidation"),
+				Docs: &tfbridge.DocInfo{ReplaceExamplesSection: true},
 			},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
