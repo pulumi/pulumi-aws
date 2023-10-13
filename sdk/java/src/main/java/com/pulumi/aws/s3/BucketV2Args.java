@@ -259,10 +259,6 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketPolicy` instead.
-     * 
      * @deprecated
      * Use the aws_s3_bucket_policy resource instead
      * 
@@ -272,10 +268,6 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> policy;
 
     /**
-     * @return Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketPolicy` instead.
-     * 
      * @deprecated
      * Use the aws_s3_bucket_policy resource instead
      * 
@@ -832,10 +824,6 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-         * The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketPolicy` instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -849,10 +837,6 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-         * The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketPolicy` instead.
-         * 
          * @return builder
          * 
          * @deprecated

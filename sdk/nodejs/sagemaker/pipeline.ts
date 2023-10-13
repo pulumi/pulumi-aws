@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * You can use `pulumi import` to import pipelines using `pipeline_name`. For example:
- *
  * Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
  *
  * ```sh

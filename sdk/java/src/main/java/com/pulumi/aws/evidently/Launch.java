@@ -395,8 +395,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import using the `name` of the launch and `name` of the project separated by a `:`:
- * 
  * Import using the `name` of the launch and `arn` of the project separated by a `:`:
  * 
  * __Using `pulumi import` to import__ CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:

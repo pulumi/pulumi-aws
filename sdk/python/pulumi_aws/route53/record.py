@@ -657,8 +657,6 @@ class Record(pulumi.CustomResource):
 
         ## Import
 
-        Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
-
         If the record also contains a set identifier, append it:
 
         __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
@@ -801,8 +799,6 @@ class Record(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
 
         If the record also contains a set identifier, append it:
 

@@ -245,8 +245,6 @@ class AlternativeContact(pulumi.CustomResource):
 
         ## Import
 
-        Import the Alternate Contact for the current account:
-
         Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 
         __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
@@ -294,8 +292,6 @@ class AlternativeContact(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Import the Alternate Contact for the current account:
 
         Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
 

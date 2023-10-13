@@ -53,8 +53,6 @@ import (
 //
 // ## Import
 //
-// Using the patch baseline ID:
-//
 // Using the patch baseline ARN:
 //
 // Using the operating system value:

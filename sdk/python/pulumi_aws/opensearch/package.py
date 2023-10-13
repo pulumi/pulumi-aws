@@ -199,11 +199,11 @@ class Package(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
-         to = aws_opensearch_package.example
-
-         id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
+        ```sh
+         $ pulumi import aws:opensearch/package:Package example package-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,11 +225,11 @@ class Package(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
-         to = aws_opensearch_package.example
-
-         id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
+        ```sh
+         $ pulumi import aws:opensearch/package:Package example package-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

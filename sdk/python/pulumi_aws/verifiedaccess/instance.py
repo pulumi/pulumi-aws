@@ -185,13 +185,13 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer Workflows using the
 
-         to = aws_verifiedaccess_instance.example
+        `id`. For example:
 
-         id = "vai-1234567890abcdef0" } Using `pulumi import`, import Transfer Workflows using the
-
-        `id`. For exampleconsole % pulumi import aws:verifiedaccess/instance:Instance vai-1234567890abcdef0
+        ```sh
+         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,13 +222,13 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer Workflows using the
 
-         to = aws_verifiedaccess_instance.example
+        `id`. For example:
 
-         id = "vai-1234567890abcdef0" } Using `pulumi import`, import Transfer Workflows using the
-
-        `id`. For exampleconsole % pulumi import aws:verifiedaccess/instance:Instance vai-1234567890abcdef0
+        ```sh
+         $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

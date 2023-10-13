@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Kinesis
     /// Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975
+    ///  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/videoStream:VideoStream")]

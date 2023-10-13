@@ -36,13 +36,13 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Transfer Workflows using the
     /// 
-    ///  to = aws_verifiedaccess_instance.example
+    /// `id`. For example:
     /// 
-    ///  id = "vai-1234567890abcdef0" } Using `pulumi import`, import Transfer Workflows using the
-    /// 
-    /// `id`. For exampleconsole % pulumi import aws:verifiedaccess/instance:Instance vai-1234567890abcdef0
+    /// ```sh
+    ///  $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+    /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

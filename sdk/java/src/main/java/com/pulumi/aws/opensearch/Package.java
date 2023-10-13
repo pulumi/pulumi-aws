@@ -22,11 +22,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
  * 
- *  to = aws_opensearch_package.example
- * 
- *  id = &#34;package-id&#34; } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
+ * ```sh
+ *  $ pulumi import aws:opensearch/package:Package example package-id
+ * ```
  * 
  */
 @ResourceType(type="aws:opensearch/package:Package")

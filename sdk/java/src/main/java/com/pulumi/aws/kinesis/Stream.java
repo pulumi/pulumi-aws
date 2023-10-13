@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
+ *  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
  * ```
  * 
  */

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
+ *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {

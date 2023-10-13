@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import launch configurations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
+    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]

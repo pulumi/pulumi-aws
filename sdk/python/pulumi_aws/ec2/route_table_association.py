@@ -157,10 +157,6 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Import
 
-        ~> __NOTE:__ Attempting to associate a route table with a subnet or gateway, where either is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association.
-
-        With EC2 Subnets:
-
         With EC2 Internet Gateways:
 
         __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
@@ -213,10 +209,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         ```
 
         ## Import
-
-        ~> __NOTE:__ Attempting to associate a route table with a subnet or gateway, where either is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association.
-
-        With EC2 Subnets:
 
         With EC2 Internet Gateways:
 

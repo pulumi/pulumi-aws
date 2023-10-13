@@ -167,8 +167,6 @@ class PolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        With an account target:
-
         Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
 
         With an account target:
@@ -225,8 +223,6 @@ class PolicyAttachment(pulumi.CustomResource):
         ```
 
         ## Import
-
-        With an account target:
 
         Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
 

@@ -52,9 +52,6 @@ class BucketV2Args:
                The provider wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -309,11 +306,6 @@ class BucketV2Args:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
         pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
 
@@ -472,9 +464,6 @@ class _BucketV2State:
                The provider wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[str] region: AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
@@ -806,11 +795,6 @@ class _BucketV2State:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
         pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
 
@@ -1089,9 +1073,6 @@ class BucketV2(pulumi.CustomResource):
                The provider wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
@@ -1361,9 +1342,6 @@ class BucketV2(pulumi.CustomResource):
                The provider wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
-               Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[str] region: AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
@@ -1566,11 +1544,6 @@ class BucketV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
-        Use the resource `s3.BucketPolicy` instead.
-        """
         warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
         pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
 

@@ -396,7 +396,7 @@ type Cluster struct {
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrOutput `pulumi:"backtrackWindow"`
@@ -555,7 +555,7 @@ type clusterState struct {
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
-	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -674,7 +674,7 @@ type ClusterState struct {
 	ApplyImmediately pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
-	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 	AvailabilityZones pulumi.StringArrayInput
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -795,7 +795,7 @@ type clusterArgs struct {
 	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
@@ -896,7 +896,7 @@ type ClusterArgs struct {
 	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolPtrInput
-	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 	AvailabilityZones pulumi.StringArrayInput
 	// Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
 	BacktrackWindow pulumi.IntPtrInput
@@ -1120,7 +1120,7 @@ func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
+// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured.
 func (o ClusterOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

@@ -263,7 +263,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
+//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
 //
 // ```
 type LaunchConfiguration struct {

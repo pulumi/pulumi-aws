@@ -405,8 +405,6 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
-
         Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 
         __Using `pulumi import` to import.__ For example:
@@ -473,8 +471,6 @@ class AccessPoint(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 
         Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 

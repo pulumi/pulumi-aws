@@ -81,14 +81,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
     @Import(name="insecureValue")
     private @Nullable Output<String> insecureValue;
 
     /**
-     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+     * @return Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
     public Optional<Output<String>> insecureValue() {
@@ -220,21 +220,9 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-     * 
-     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -376,7 +364,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
          * 
          * @return builder
          * 
@@ -387,7 +375,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+         * @param insecureValue Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
          * 
          * @return builder
          * 
@@ -587,27 +575,11 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
             return type(Either.ofRight(type));
         }
 
-        /**
-         * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-         * 
-         * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-         * 
-         * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

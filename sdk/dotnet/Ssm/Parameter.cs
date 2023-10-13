@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
         [Output("insecureValue")]
         public Output<string> InsecureValue { get; private set; } = null!;
@@ -156,11 +156,6 @@ namespace Pulumi.Aws.Ssm
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -246,7 +241,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
@@ -297,12 +292,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
-
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;
@@ -346,7 +335,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`.
+        /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         /// </summary>
         [Input("insecureValue")]
         public Input<string>? InsecureValue { get; set; }
@@ -414,12 +403,6 @@ namespace Pulumi.Aws.Ssm
 
         [Input("value")]
         private Input<string>? _value;
-
-        /// <summary>
-        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
-        /// 
-        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        /// </summary>
         public Input<string>? Value
         {
             get => _value;

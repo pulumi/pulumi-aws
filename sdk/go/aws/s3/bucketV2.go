@@ -153,10 +153,6 @@ type BucketV2 struct {
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationOutput `pulumi:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolOutput `pulumi:"objectLockEnabled"`
-	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketPolicy` instead.
-	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// AWS region this bucket resides in.
@@ -296,10 +292,6 @@ type bucketV2State struct {
 	ObjectLockConfiguration *BucketV2ObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
-	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketPolicy` instead.
-	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
 	Policy *string `pulumi:"policy"`
 	// AWS region this bucket resides in.
@@ -400,10 +392,6 @@ type BucketV2State struct {
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolPtrInput
-	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketPolicy` instead.
-	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
 	Policy pulumi.StringPtrInput
 	// AWS region this bucket resides in.
@@ -500,10 +488,6 @@ type bucketV2Args struct {
 	ObjectLockConfiguration *BucketV2ObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
-	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketPolicy` instead.
-	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
 	Policy *string `pulumi:"policy"`
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -583,10 +567,6 @@ type BucketV2Args struct {
 	ObjectLockConfiguration BucketV2ObjectLockConfigurationPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolPtrInput
-	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
-	// Use the resource `s3.BucketPolicy` instead.
-	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
 	Policy pulumi.StringPtrInput
 	// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -828,10 +808,6 @@ func (o BucketV2Output) ObjectLockEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.BoolOutput { return v.ObjectLockEnabled }).(pulumi.BoolOutput)
 }
 
-// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-// The provider will only perform drift detection if a configuration value is provided.
-// Use the resource `s3.BucketPolicy` instead.
-//
 // Deprecated: Use the aws_s3_bucket_policy resource instead
 func (o BucketV2Output) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketV2) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)

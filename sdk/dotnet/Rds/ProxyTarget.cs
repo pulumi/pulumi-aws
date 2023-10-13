@@ -82,8 +82,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Instances:
-    /// 
     /// Provisioned Clusters:
     /// 
     /// __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:

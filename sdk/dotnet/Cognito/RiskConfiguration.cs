@@ -39,8 +39,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Import using the user pool ID:
-    /// 
     /// Import using the user pool ID and Client ID separated by a `:`:
     /// 
     /// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:

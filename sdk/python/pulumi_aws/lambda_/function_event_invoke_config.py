@@ -277,8 +277,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         ## Import
 
-        ARN without qualifier (all versions and aliases):
-
         ARN with qualifier:
 
         Name without qualifier (all versions and aliases):
@@ -393,8 +391,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ```
 
         ## Import
-
-        ARN without qualifier (all versions and aliases):
 
         ARN with qualifier:
 

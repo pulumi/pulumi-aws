@@ -214,8 +214,6 @@ class AuthorizationRule(pulumi.CustomResource):
 
         ## Import
 
-        Using the endpoint ID and target network CIDR:
-
         Using the endpoint ID, target network CIDR, and group name:
 
         __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
@@ -262,8 +260,6 @@ class AuthorizationRule(pulumi.CustomResource):
         ```
 
         ## Import
-
-        Using the endpoint ID and target network CIDR:
 
         Using the endpoint ID, target network CIDR, and group name:
 

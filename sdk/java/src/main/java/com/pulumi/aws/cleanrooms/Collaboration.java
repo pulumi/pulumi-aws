@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
  * 
- *  to = aws_cleanrooms_collaboration.collaboration
- * 
- *  id = &#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34; } Using `pulumi import`, import `aws:cleanrooms/collaboration:Collaboration` using the `id`. For exampleconsole % pulumi import aws:cleanrooms/collaboration:Collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```sh
+ *  $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```
  * 
  */
 @ResourceType(type="aws:cleanrooms/collaboration:Collaboration")
