@@ -1451,12 +1451,8 @@
       "new": "% pulumi import aws_api_gateway_deployment.example aabbccddee/1122334"
     },
     {
-      "old": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `terraform plan` or `terraform apply`.",
-      "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment."
-    },
-    {
-      "old": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `terraform taint` command.",
-      "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment."
+      "old": "To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.",
+      "new": ""
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:",
