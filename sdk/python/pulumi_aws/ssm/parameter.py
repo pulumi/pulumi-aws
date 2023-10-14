@@ -42,6 +42,9 @@ class ParameterArgs:
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         pulumi.set(__self__, "type", type)
         if allowed_pattern is not None:
@@ -210,6 +213,11 @@ class ParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -250,6 +258,9 @@ class _ParameterState:
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
                
                The following arguments are optional:
+        :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         if allowed_pattern is not None:
@@ -442,6 +453,11 @@ class _ParameterState:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -544,6 +560,9 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
                
                The following arguments are optional:
+        :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         ...
     @overload
@@ -703,6 +722,9 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
                
                The following arguments are optional:
+        :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -832,6 +854,11 @@ class Parameter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
+        """
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+        """
         return pulumi.get(self, "value")
 
     @property
