@@ -3523,20 +3523,20 @@
       "new": "* `overwrite` - (Optional, **Deprecated**) Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior)."
     },
     {
-      "old": "* `value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the Terraform plan output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.",
-      "new": "* `value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`."
-    },
-    {
       "old": "~> **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by Terraform before.",
       "new": "~> **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before."
     },
     {
-      "old": "* `value` - Value of the parameter. This value is always marked as sensitive in the Terraform plan output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.",
-      "new": "* `value` - Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`."
-    },
-    {
       "old": "~> **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n\n",
       "new": ""
+    },
+    {
+      "old": "* `value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
+      "new": "* `value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n"
+    },
+    {
+      "old": "* `value` - Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
+      "new": "* `value` - Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n"
     }
   ],
   "ssm_parameters_by_path.html.markdown": [
