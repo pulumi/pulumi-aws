@@ -110,9 +110,12 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 
 var PostTfgenHook []func()
 
-type replacementFile map[string][]struct {
-	Old string `json:"old"`
-	New string `json:"new"`
+type replacementFile map[string][]replacement
+
+type replacement struct {
+	Old     string `json:"old"`
+	New     string `json:"new"`
+	wasUsed bool
 }
 
 var elidedText = regexp.MustCompile("[tT]erraform")
@@ -134,10 +137,11 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 		start, end = findLine(content, m[0])
 		line := string(content[start:end])
 
-		r[path] = append(r[path], struct {
-			Old string `json:"old"`
-			New string `json:"new"`
-		}{line, elidedText.ReplaceAllLiteralString(line, "TODO")})
+		r[path] = append(r[path], replacement{
+			Old:     line,
+			New:     elidedText.ReplaceAllLiteralString(line, "TODO"),
+			wasUsed: true,
+		})
 	}
 }
 
