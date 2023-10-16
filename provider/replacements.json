@@ -302,11 +302,11 @@
   "cleanrooms_configured_table.html.markdown": [
     {
       "old": "    Project = \"Terraform\"",
-      "new": "    Project = \"TODO\""
+      "new": "    Project = \"Pulumi\""
     },
     {
       "old": "  description     = \"I made this table with terraform!\"",
-      "new": "  description     = \"I made this table with TODO!\""
+      "new": "  description     = \"I made this table with Pulumi!\""
     }
   ],
   "cloudcontrolapi_resource.html.markdown": [
@@ -414,7 +414,7 @@
   "codecatalyst_project.html.markdown": [
     {
       "old": "  description  = \"My CodeCatalyst Project created using Terraform\"",
-      "new": "  description  = \"My CodeCatalyst Project created using TODO\""
+      "new": "  description  = \"My CodeCatalyst Project created using Pulumi\""
     }
   ],
   "codecommit_trigger.html.markdown": [
@@ -446,11 +446,11 @@
   "cognito_user_pool.html.markdown": [
     {
       "old": "The [standard attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) have the following defaults. Note that attributes which match the default values are not stored in Terraform state when importing.",
-      "new": "The [standard attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) have the following defaults. Note that attributes which match the default values are not stored in TODO state when importing."
+      "new": "The [standard attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) have the following defaults. Note that attributes which match the default values are not stored in Pulumi's state when importing."
     },
     {
       "old": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the Terraform resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes.",
-      "new": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the TODO resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes."
+      "new": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes."
     }
   ],
   "comprehend_document_classifier.html.markdown": [
@@ -524,7 +524,7 @@
   "default_tags.html.markdown": [
     {
       "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
-      "new": "With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
+      "new": "With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
     }
   ],
   "default_vpc.html.markdown": [
@@ -536,7 +536,7 @@
   "dlm_lifecycle_policy.html.markdown": [
     {
       "old": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Terraform is unable to detect this at plan time but it will fail during apply.",
-      "new": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply."
+      "new": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply."
     }
   ],
   "dms_s3_endpoint.html.markdown": [
@@ -600,7 +600,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "dx_connection.html.markdown": [
@@ -862,7 +862,7 @@
     },
     {
       "old": "Since the API does not return the actual values for Kerberos configurations, environments with those Terraform configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Terraform resources to prevent perpetual differences. For example:",
-      "new": "Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:"
+      "new": "Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:"
     },
     {
       "old": "The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Terraform configuration at the bottom of this page.",
@@ -878,31 +878,31 @@
   "fsx_lustre_file_system.html.markdown": [
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_ontap_file_system.html.markdown": [
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_ontap_storage_virtual_machine.html.markdown": [
     {
       "old": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_openzfs_file_system.html.markdown": [
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_windows_file_system.html.markdown": [
     {
       "old": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "glue_resource_policy.html.markdown": [
@@ -1014,7 +1014,7 @@
   "iam_role_policy_attachment.html.markdown": [
     {
       "old": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Terraform will show a permanent difference.",
-      "new": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference."
+      "new": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Pulumi will show a permanent difference."
     }
   ],
   "iam_server_certificate.html.markdown": [
@@ -1034,11 +1034,11 @@
   "iam_session_context.html.markdown": [
     {
       "old": "### Find the Terraform Runner's Source Role",
-      "new": "### Find the TODO Runner's Source Role"
+      "new": "### Find the Runner's Source Role"
     },
     {
       "old": "~> If `arn` is a non-role ARN, Terraform gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Terraform gives an error if the identified IAM role does not exist.",
-      "new": "~> If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist."
+      "new": "~> If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist."
     }
   ],
   "iam_user_group_membership.html.markdown": [
@@ -1070,7 +1070,7 @@
     },
     {
       "old": "Since Terraform has no method to read the PGP or password information during import, use the Terraform resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:",
-      "new": "Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:"
+      "new": "Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:"
     }
   ],
   "iam_user_policy.html.markdown": [
@@ -1340,13 +1340,13 @@
   "licensemanager_license_configuration.html.markdown": [
     {
       "old": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.",
-      "new": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead."
+      "new": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API."
     }
   ],
   "lightsail_bucket.html.markdown": [
     {
       "old": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `terraform destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.",
-      "new": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty."
+      "new": "* `force_delete` - (Optional) - Force Delete non-empty buckets using `pulumi down`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty."
     }
   ],
   "lightsail_container_service_deployment_version.html.markdown": [
@@ -1438,7 +1438,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "network_acl.html.markdown": [
@@ -1528,7 +1528,7 @@
     },
     {
       "old": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "partition.html.markdown": [
@@ -1562,7 +1562,7 @@
   "ram_resource_share_accepter.html.markdown": [
     {
       "old": "This configuration provides an example of using multiple Terraform AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`.",
-      "new": "This configuration provides an example of using multiple TODO AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`."
+      "new": "This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`."
     }
   ],
   "rds_cluster.html.markdown": [
@@ -1614,7 +1614,7 @@
   "rds_cluster_parameter_group.html.markdown": [
     {
       "old": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by Terraform\".",
-      "new": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by TODO\"."
+      "new": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by Pulumi\"."
     }
   ],
   "rds_global_cluster.html.markdown": [
@@ -1628,7 +1628,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "When you upgrade the version of an `aws_rds_global_cluster`, Terraform will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws_rds_cluster` resource is being updated through the `aws_rds_global_cluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws_rds_cluster`.",
@@ -1654,11 +1654,11 @@
   "route53_zone_association.html.markdown": [
     {
       "old": "The VPC is _not_ in the same region where you have configured the Terraform AWS Provider:",
-      "new": "The VPC is _not_ in the same region where you have configured the TODO AWS Provider:"
+      "new": "The VPC is _not_ in the same region where you have configured the AWS Provider:"
     },
     {
       "old": "The VPC is in the same region where you have configured the Terraform AWS Provider:",
-      "new": "The VPC is in the same region where you have configured the TODO AWS Provider:"
+      "new": "The VPC is in the same region where you have configured the AWS Provider:"
     }
   ],
   "route53domains_registered_domain.html.markdown": [
@@ -1816,7 +1816,7 @@
     },
     {
       "old": "Running Terraform operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.",
-      "new": "Running TODO operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence."
+      "new": "Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence."
     },
     {
       "old": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the Terraform AWS Provider, we recommend users either specify `filter` or leave both `filter` and `prefix` unspecified.",
@@ -2068,21 +2068,21 @@
   "securityhub_organization_configuration.html.markdown": [
     {
       "old": "~> **NOTE:** This is an advanced Terraform resource. Terraform will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Terraform configuration.",
-      "new": "~> **NOTE:** This is an advanced TODO resource. TODO will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the TODO configuration."
+      "new": "~> **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program."
     },
     {
       "old": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with Terraform). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation",
-      "new": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation"
+      "new": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation"
     }
   ],
   "securityhub_standards_control.html.markdown": [
     {
       "old": "Terraform does not _create_ this resource, but instead \"adopts\" it",
-      "new": "TODO does not _create_ this resource, but instead \"adopts\" it"
+      "new": "Pulumi does not _create_ this resource, but instead \"adopts\" it"
     },
     {
       "old": "into management. When you _delete_ this resource configuration, Terraform \"abandons\" resource as is and just removes it from the state.",
-      "new": "into management. When you _delete_ this resource configuration, TODO \"abandons\" resource as is and just removes it from the state."
+      "new": "into management. When you _delete_ this resource configuration, Pulumi \"abandons\" resource as is and just removes it from the state."
     }
   ],
   "service_discovery_instance.html.markdown": [
@@ -2130,7 +2130,7 @@
   "ssm_document.html.markdown": [
     {
       "old": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "ssm_parameter.html.markdown": [
@@ -2200,7 +2200,7 @@
   "storagegateway_gateway.html.markdown": [
     {
       "old": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "transfer_access.html.markdown": [
@@ -2262,7 +2262,7 @@
   "vpc_peering_connection_accepter.html.markdown": [
     {
       "old": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "vpc_peering_connections.html.markdown": [
