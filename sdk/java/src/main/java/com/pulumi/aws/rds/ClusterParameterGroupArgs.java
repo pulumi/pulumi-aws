@@ -20,14 +20,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     public static final ClusterParameterGroupArgs Empty = new ClusterParameterGroupArgs();
 
     /**
-     * The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -139,7 +139,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 

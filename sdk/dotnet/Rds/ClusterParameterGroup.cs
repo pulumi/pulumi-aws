@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

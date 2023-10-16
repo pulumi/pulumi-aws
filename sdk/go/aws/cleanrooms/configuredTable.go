@@ -37,13 +37,13 @@ import (
 //					pulumi.String("column3"),
 //				},
 //				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
-//				Description:    pulumi.String("I made this table with TODO!"),
+//				Description:    pulumi.String("I made this table with Pulumi!"),
 //				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
 //					DatabaseName: pulumi.String("example_database"),
 //					TableName:    pulumi.String("example_table"),
 //				},
 //				Tags: pulumi.StringMap{
-//					"Project": pulumi.String("TODO"),
+//					"Project": pulumi.String("Pulumi"),
 //				},
 //			})
 //			if err != nil {

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- *  Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ *  Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
  */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.LicenseManager
     /// <summary>
     /// Provides a License Manager license configuration resource.
     /// 
-    /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.&lt;id&gt;` to recreate the resource instead.
+    /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API.
     /// 
     /// ## Example Usage
     /// 

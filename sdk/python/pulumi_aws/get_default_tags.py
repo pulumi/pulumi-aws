@@ -58,7 +58,7 @@ def get_default_tags(id: Optional[str] = None,
     """
     Use this data source to get the default tags configured on the provider.
 
-    With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
 
     ## Example Usage
     ### Basic Usage
@@ -86,7 +86,7 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to get the default tags configured on the provider.
 
-    With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
+    With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.
 
     ## Example Usage
     ### Basic Usage

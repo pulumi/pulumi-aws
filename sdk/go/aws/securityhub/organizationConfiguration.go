@@ -15,9 +15,9 @@ import (
 
 // Manages the Security Hub Organization Configuration.
 //
-// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
 //
-// > **NOTE:** This is an advanced TODO resource. TODO will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the TODO configuration.
+// > **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
 //
 // ## Example Usage
 //

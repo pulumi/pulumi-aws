@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     projectName: "myproject",
  *     repositories: [{
  *         branchName: "main",
- *         repositoryName: "TODO-provider-aws",
+ *         repositoryName: "pulumi-provider-aws",
  *     }],
  *     spaceName: "myspace",
  * });

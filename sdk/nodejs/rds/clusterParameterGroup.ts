@@ -76,7 +76,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface ClusterParameterGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string>;
     /**
@@ -193,7 +193,7 @@ export interface ClusterParameterGroupState {
  */
 export interface ClusterParameterGroupArgs {
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by TODO".
+     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string>;
     /**

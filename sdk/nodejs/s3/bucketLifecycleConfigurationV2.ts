@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** S3 Buckets only support a single lifecycle configuration. Declaring multiple `aws.s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
  *
  * > **NOTE:** Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
- * Running TODO operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
+ * Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
  * See the Amazon S3 User Guide on [setting lifecycle configuration on a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).
  *
  * ## Example Usage

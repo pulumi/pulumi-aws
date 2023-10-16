@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  * ```sh
  *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
- *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
+ *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
  */
 export class Gateway extends pulumi.CustomResource {
     /**

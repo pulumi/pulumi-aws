@@ -6928,7 +6928,7 @@ public final class IamFunctions {
      *     }
      * }
      * ```
-     * ### Find the TODO Runner&#39;s Source Role
+     * ### Find the Runner&#39;s Source Role
      * 
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * ```java
@@ -7003,7 +7003,7 @@ public final class IamFunctions {
      *     }
      * }
      * ```
-     * ### Find the TODO Runner&#39;s Source Role
+     * ### Find the Runner&#39;s Source Role
      * 
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * ```java
@@ -7078,7 +7078,7 @@ public final class IamFunctions {
      *     }
      * }
      * ```
-     * ### Find the TODO Runner&#39;s Source Role
+     * ### Find the Runner&#39;s Source Role
      * 
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * ```java
@@ -7153,7 +7153,7 @@ public final class IamFunctions {
      *     }
      * }
      * ```
-     * ### Find the TODO Runner&#39;s Source Role
+     * ### Find the Runner&#39;s Source Role
      * 
      * Combined with `aws.getCallerIdentity`, you can get the current user&#39;s source IAM role ARN (`issuer_arn`) if you&#39;re using an assumed role. If you&#39;re not using an assumed role, the caller&#39;s (e.g., an IAM user&#39;s) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
      * ```java

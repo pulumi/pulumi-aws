@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
  * Disable/enable Security Hub standards control in the current region.
  *
  * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
- * TODO does not _create_ this resource, but instead "adopts" it
- * into management. When you _delete_ this resource configuration, TODO "abandons" resource as is and just removes it from the state.
+ * Pulumi does not _create_ this resource, but instead "adopts" it
+ * into management. When you _delete_ this resource configuration, Pulumi "abandons" resource as is and just removes it from the state.
  *
  * ## Example Usage
  *

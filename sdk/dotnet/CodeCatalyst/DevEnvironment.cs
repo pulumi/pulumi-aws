@@ -42,7 +42,7 @@ namespace Pulumi.Aws.CodeCatalyst
     ///             new Aws.CodeCatalyst.Inputs.DevEnvironmentRepositoryArgs
     ///             {
     ///                 BranchName = "main",
-    ///                 RepositoryName = "TODO-provider-aws",
+    ///                 RepositoryName = "pulumi-provider-aws",
     ///             },
     ///         },
     ///         SpaceName = "myspace",

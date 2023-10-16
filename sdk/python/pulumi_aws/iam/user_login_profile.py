@@ -239,7 +239,7 @@ class UserLoginProfile(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
-         Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,7 +281,7 @@ class UserLoginProfile(pulumi.CustomResource):
         ```sh
          $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
-         Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 
         :param str resource_name: The name of the resource.
         :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.

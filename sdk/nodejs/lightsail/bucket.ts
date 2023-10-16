@@ -69,7 +69,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     * Force Delete non-empty buckets using `pulumi down`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface BucketState {
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     * Force Delete non-empty buckets using `pulumi down`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
      */
     forceDelete?: pulumi.Input<boolean>;
     /**
@@ -202,7 +202,7 @@ export interface BucketArgs {
      */
     bundleId: pulumi.Input<string>;
     /**
-     * Force Delete non-empty buckets using `TODO destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
+     * Force Delete non-empty buckets using `pulumi down`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `forceDelete` is set to `true` the bucket will be deleted even when not empty.
      */
     forceDelete?: pulumi.Input<boolean>;
     /**

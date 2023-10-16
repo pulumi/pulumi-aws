@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				Description: pulumi.String("My CodeCatalyst Project created using TODO"),
+//				Description: pulumi.String("My CodeCatalyst Project created using Pulumi"),
 //				DisplayName: pulumi.String("MyProject"),
 //				SpaceName:   pulumi.String("myproject"),
 //			})
