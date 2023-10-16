@@ -486,7 +486,7 @@ func (o SigningJobRevocationRecordArrayOutput) Index(i pulumi.IntInput) SigningJ
 }
 
 type SigningJobSignedObject struct {
-	// A configuration block describing the S3 Source object: See S3 Source below for details.
+	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3s []SigningJobSignedObjectS3 `pulumi:"s3s"`
 }
 
@@ -502,7 +502,7 @@ type SigningJobSignedObjectInput interface {
 }
 
 type SigningJobSignedObjectArgs struct {
-	// A configuration block describing the S3 Source object: See S3 Source below for details.
+	// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 	S3s SigningJobSignedObjectS3ArrayInput `pulumi:"s3s"`
 }
 
@@ -575,7 +575,7 @@ func (o SigningJobSignedObjectOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// A configuration block describing the S3 Source object: See S3 Source below for details.
+// A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobSignedObjectOutput) S3s() SigningJobSignedObjectS3ArrayOutput {
 	return o.ApplyT(func(v SigningJobSignedObject) []SigningJobSignedObjectS3 { return v.S3s }).(SigningJobSignedObjectS3ArrayOutput)
 }

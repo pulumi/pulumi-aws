@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomKeyStoreArgs', 'CustomKeyStore']
@@ -25,10 +25,25 @@ class CustomKeyStoreArgs:
         :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
         :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
-        pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
-        pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
-        pulumi.set(__self__, "key_store_password", key_store_password)
-        pulumi.set(__self__, "trust_anchor_certificate", trust_anchor_certificate)
+        CustomKeyStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
+            custom_key_store_name=custom_key_store_name,
+            key_store_password=key_store_password,
+            trust_anchor_certificate=trust_anchor_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_hsm_cluster_id: pulumi.Input[str],
+             custom_key_store_name: pulumi.Input[str],
+             key_store_password: pulumi.Input[str],
+             trust_anchor_certificate: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloud_hsm_cluster_id", cloud_hsm_cluster_id)
+        _setter("custom_key_store_name", custom_key_store_name)
+        _setter("key_store_password", key_store_password)
+        _setter("trust_anchor_certificate", trust_anchor_certificate)
 
     @property
     @pulumi.getter(name="cloudHsmClusterId")
@@ -93,14 +108,29 @@ class _CustomKeyStoreState:
         :param pulumi.Input[str] key_store_password: Password for `kmsuser` on CloudHSM.
         :param pulumi.Input[str] trust_anchor_certificate: Customer certificate used for signing on CloudHSM.
         """
+        _CustomKeyStoreState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
+            custom_key_store_name=custom_key_store_name,
+            key_store_password=key_store_password,
+            trust_anchor_certificate=trust_anchor_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_hsm_cluster_id: Optional[pulumi.Input[str]] = None,
+             custom_key_store_name: Optional[pulumi.Input[str]] = None,
+             key_store_password: Optional[pulumi.Input[str]] = None,
+             trust_anchor_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_hsm_cluster_id is not None:
-            pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
+            _setter("cloud_hsm_cluster_id", cloud_hsm_cluster_id)
         if custom_key_store_name is not None:
-            pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
+            _setter("custom_key_store_name", custom_key_store_name)
         if key_store_password is not None:
-            pulumi.set(__self__, "key_store_password", key_store_password)
+            _setter("key_store_password", key_store_password)
         if trust_anchor_certificate is not None:
-            pulumi.set(__self__, "trust_anchor_certificate", trust_anchor_certificate)
+            _setter("trust_anchor_certificate", trust_anchor_certificate)
 
     @property
     @pulumi.getter(name="cloudHsmClusterId")
@@ -234,6 +264,10 @@ class CustomKeyStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomKeyStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

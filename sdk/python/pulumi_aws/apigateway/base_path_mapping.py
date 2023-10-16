@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BasePathMappingArgs', 'BasePathMapping']
@@ -25,12 +25,27 @@ class BasePathMappingArgs:
         :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "rest_api", rest_api)
+        BasePathMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            rest_api=rest_api,
+            base_path=base_path,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             rest_api: pulumi.Input[str],
+             base_path: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("rest_api", rest_api)
         if base_path is not None:
-            pulumi.set(__self__, "base_path", base_path)
+            _setter("base_path", base_path)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -95,14 +110,29 @@ class _BasePathMappingState:
         :param pulumi.Input[str] rest_api: ID of the API to connect.
         :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
+        _BasePathMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_path=base_path,
+            domain_name=domain_name,
+            rest_api=rest_api,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_path: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_path is not None:
-            pulumi.set(__self__, "base_path", base_path)
+            _setter("base_path", base_path)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="basePath")
@@ -278,6 +308,10 @@ class BasePathMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BasePathMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class VoiceConnectorStreamingArgs:
         :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         """
-        pulumi.set(__self__, "data_retention", data_retention)
-        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        VoiceConnectorStreamingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention=data_retention,
+            voice_connector_id=voice_connector_id,
+            disabled=disabled,
+            media_insights_configuration=media_insights_configuration,
+            streaming_notification_targets=streaming_notification_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention: pulumi.Input[int],
+             voice_connector_id: pulumi.Input[str],
+             disabled: Optional[pulumi.Input[bool]] = None,
+             media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+             streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_retention", data_retention)
+        _setter("voice_connector_id", voice_connector_id)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if media_insights_configuration is not None:
-            pulumi.set(__self__, "media_insights_configuration", media_insights_configuration)
+            _setter("media_insights_configuration", media_insights_configuration)
         if streaming_notification_targets is not None:
-            pulumi.set(__self__, "streaming_notification_targets", streaming_notification_targets)
+            _setter("streaming_notification_targets", streaming_notification_targets)
 
     @property
     @pulumi.getter(name="dataRetention")
@@ -115,16 +132,33 @@ class _VoiceConnectorStreamingState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
+        _VoiceConnectorStreamingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention=data_retention,
+            disabled=disabled,
+            media_insights_configuration=media_insights_configuration,
+            streaming_notification_targets=streaming_notification_targets,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention: Optional[pulumi.Input[int]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+             streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             voice_connector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_retention is not None:
-            pulumi.set(__self__, "data_retention", data_retention)
+            _setter("data_retention", data_retention)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if media_insights_configuration is not None:
-            pulumi.set(__self__, "media_insights_configuration", media_insights_configuration)
+            _setter("media_insights_configuration", media_insights_configuration)
         if streaming_notification_targets is not None:
-            pulumi.set(__self__, "streaming_notification_targets", streaming_notification_targets)
+            _setter("streaming_notification_targets", streaming_notification_targets)
         if voice_connector_id is not None:
-            pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+            _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter(name="dataRetention")
@@ -360,6 +394,10 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VoiceConnectorStreamingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -383,6 +421,11 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_retention'")
             __props__.__dict__["data_retention"] = data_retention
             __props__.__dict__["disabled"] = disabled
+            if media_insights_configuration is not None and not isinstance(media_insights_configuration, VoiceConnectorStreamingMediaInsightsConfigurationArgs):
+                media_insights_configuration = media_insights_configuration or {}
+                def _setter(key, value):
+                    media_insights_configuration[key] = value
+                VoiceConnectorStreamingMediaInsightsConfigurationArgs._configure(_setter, **media_insights_configuration)
             __props__.__dict__["media_insights_configuration"] = media_insights_configuration
             __props__.__dict__["streaming_notification_targets"] = streaming_notification_targets
             if voice_connector_id is None and not opts.urn:

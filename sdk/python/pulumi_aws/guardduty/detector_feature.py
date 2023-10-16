@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,27 @@ class DetectorFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
-        pulumi.set(__self__, "detector_id", detector_id)
-        pulumi.set(__self__, "status", status)
+        DetectorFeatureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detector_id=detector_id,
+            status=status,
+            additional_configurations=additional_configurations,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detector_id: pulumi.Input[str],
+             status: pulumi.Input[str],
+             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("detector_id", detector_id)
+        _setter("status", status)
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -97,14 +112,29 @@ class _DetectorFeatureState:
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         """
+        _DetectorFeatureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_configurations=additional_configurations,
+            detector_id=detector_id,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_configurations is not None:
-            pulumi.set(__self__, "additional_configurations", additional_configurations)
+            _setter("additional_configurations", additional_configurations)
         if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
+            _setter("detector_id", detector_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="additionalConfigurations")
@@ -230,6 +260,10 @@ class DetectorFeature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DetectorFeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

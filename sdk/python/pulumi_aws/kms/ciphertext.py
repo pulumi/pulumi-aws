@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CiphertextArgs', 'Ciphertext']
@@ -23,10 +23,23 @@ class CiphertextArgs:
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] context: An optional mapping that makes up the encryption context.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "plaintext", plaintext)
+        CiphertextArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            plaintext=plaintext,
+            context=context,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: pulumi.Input[str],
+             plaintext: pulumi.Input[str],
+             context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_id", key_id)
+        _setter("plaintext", plaintext)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
 
     @property
     @pulumi.getter(name="keyId")
@@ -79,14 +92,29 @@ class _CiphertextState:
         :param pulumi.Input[str] key_id: Globally unique key ID for the customer master key.
         :param pulumi.Input[str] plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         """
+        _CiphertextState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ciphertext_blob=ciphertext_blob,
+            context=context,
+            key_id=key_id,
+            plaintext=plaintext,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ciphertext_blob: Optional[pulumi.Input[str]] = None,
+             context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             plaintext: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ciphertext_blob is not None:
-            pulumi.set(__self__, "ciphertext_blob", ciphertext_blob)
+            _setter("ciphertext_blob", ciphertext_blob)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if plaintext is not None:
-            pulumi.set(__self__, "plaintext", plaintext)
+            _setter("plaintext", plaintext)
 
     @property
     @pulumi.getter(name="ciphertextBlob")
@@ -216,6 +244,10 @@ class Ciphertext(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CiphertextArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

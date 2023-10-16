@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,38 +53,79 @@ class GatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "gateway_timezone", gateway_timezone)
+        GatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_name=gateway_name,
+            gateway_timezone=gateway_timezone,
+            activation_key=activation_key,
+            average_download_rate_limit_in_bits_per_sec=average_download_rate_limit_in_bits_per_sec,
+            average_upload_rate_limit_in_bits_per_sec=average_upload_rate_limit_in_bits_per_sec,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            gateway_ip_address=gateway_ip_address,
+            gateway_type=gateway_type,
+            gateway_vpc_endpoint=gateway_vpc_endpoint,
+            maintenance_start_time=maintenance_start_time,
+            medium_changer_type=medium_changer_type,
+            smb_active_directory_settings=smb_active_directory_settings,
+            smb_file_share_visibility=smb_file_share_visibility,
+            smb_guest_password=smb_guest_password,
+            smb_security_strategy=smb_security_strategy,
+            tags=tags,
+            tape_drive_type=tape_drive_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_name: pulumi.Input[str],
+             gateway_timezone: pulumi.Input[str],
+             activation_key: Optional[pulumi.Input[str]] = None,
+             average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+             average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             gateway_ip_address: Optional[pulumi.Input[str]] = None,
+             gateway_type: Optional[pulumi.Input[str]] = None,
+             gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+             maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
+             medium_changer_type: Optional[pulumi.Input[str]] = None,
+             smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
+             smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
+             smb_guest_password: Optional[pulumi.Input[str]] = None,
+             smb_security_strategy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tape_drive_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("gateway_name", gateway_name)
+        _setter("gateway_timezone", gateway_timezone)
         if activation_key is not None:
-            pulumi.set(__self__, "activation_key", activation_key)
+            _setter("activation_key", activation_key)
         if average_download_rate_limit_in_bits_per_sec is not None:
-            pulumi.set(__self__, "average_download_rate_limit_in_bits_per_sec", average_download_rate_limit_in_bits_per_sec)
+            _setter("average_download_rate_limit_in_bits_per_sec", average_download_rate_limit_in_bits_per_sec)
         if average_upload_rate_limit_in_bits_per_sec is not None:
-            pulumi.set(__self__, "average_upload_rate_limit_in_bits_per_sec", average_upload_rate_limit_in_bits_per_sec)
+            _setter("average_upload_rate_limit_in_bits_per_sec", average_upload_rate_limit_in_bits_per_sec)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if gateway_ip_address is not None:
-            pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
+            _setter("gateway_ip_address", gateway_ip_address)
         if gateway_type is not None:
-            pulumi.set(__self__, "gateway_type", gateway_type)
+            _setter("gateway_type", gateway_type)
         if gateway_vpc_endpoint is not None:
-            pulumi.set(__self__, "gateway_vpc_endpoint", gateway_vpc_endpoint)
+            _setter("gateway_vpc_endpoint", gateway_vpc_endpoint)
         if maintenance_start_time is not None:
-            pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
+            _setter("maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
-            pulumi.set(__self__, "medium_changer_type", medium_changer_type)
+            _setter("medium_changer_type", medium_changer_type)
         if smb_active_directory_settings is not None:
-            pulumi.set(__self__, "smb_active_directory_settings", smb_active_directory_settings)
+            _setter("smb_active_directory_settings", smb_active_directory_settings)
         if smb_file_share_visibility is not None:
-            pulumi.set(__self__, "smb_file_share_visibility", smb_file_share_visibility)
+            _setter("smb_file_share_visibility", smb_file_share_visibility)
         if smb_guest_password is not None:
-            pulumi.set(__self__, "smb_guest_password", smb_guest_password)
+            _setter("smb_guest_password", smb_guest_password)
         if smb_security_strategy is not None:
-            pulumi.set(__self__, "smb_security_strategy", smb_security_strategy)
+            _setter("smb_security_strategy", smb_security_strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tape_drive_type is not None:
-            pulumi.set(__self__, "tape_drive_type", tape_drive_type)
+            _setter("tape_drive_type", tape_drive_type)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -345,57 +386,112 @@ class _GatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
+        _GatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_key=activation_key,
+            arn=arn,
+            average_download_rate_limit_in_bits_per_sec=average_download_rate_limit_in_bits_per_sec,
+            average_upload_rate_limit_in_bits_per_sec=average_upload_rate_limit_in_bits_per_sec,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            ec2_instance_id=ec2_instance_id,
+            endpoint_type=endpoint_type,
+            gateway_id=gateway_id,
+            gateway_ip_address=gateway_ip_address,
+            gateway_name=gateway_name,
+            gateway_network_interfaces=gateway_network_interfaces,
+            gateway_timezone=gateway_timezone,
+            gateway_type=gateway_type,
+            gateway_vpc_endpoint=gateway_vpc_endpoint,
+            host_environment=host_environment,
+            maintenance_start_time=maintenance_start_time,
+            medium_changer_type=medium_changer_type,
+            smb_active_directory_settings=smb_active_directory_settings,
+            smb_file_share_visibility=smb_file_share_visibility,
+            smb_guest_password=smb_guest_password,
+            smb_security_strategy=smb_security_strategy,
+            tags=tags,
+            tags_all=tags_all,
+            tape_drive_type=tape_drive_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_key: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             average_download_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+             average_upload_rate_limit_in_bits_per_sec: Optional[pulumi.Input[int]] = None,
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             ec2_instance_id: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             gateway_id: Optional[pulumi.Input[str]] = None,
+             gateway_ip_address: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             gateway_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayNetworkInterfaceArgs']]]] = None,
+             gateway_timezone: Optional[pulumi.Input[str]] = None,
+             gateway_type: Optional[pulumi.Input[str]] = None,
+             gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+             host_environment: Optional[pulumi.Input[str]] = None,
+             maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
+             medium_changer_type: Optional[pulumi.Input[str]] = None,
+             smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
+             smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
+             smb_guest_password: Optional[pulumi.Input[str]] = None,
+             smb_security_strategy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tape_drive_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if activation_key is not None:
-            pulumi.set(__self__, "activation_key", activation_key)
+            _setter("activation_key", activation_key)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if average_download_rate_limit_in_bits_per_sec is not None:
-            pulumi.set(__self__, "average_download_rate_limit_in_bits_per_sec", average_download_rate_limit_in_bits_per_sec)
+            _setter("average_download_rate_limit_in_bits_per_sec", average_download_rate_limit_in_bits_per_sec)
         if average_upload_rate_limit_in_bits_per_sec is not None:
-            pulumi.set(__self__, "average_upload_rate_limit_in_bits_per_sec", average_upload_rate_limit_in_bits_per_sec)
+            _setter("average_upload_rate_limit_in_bits_per_sec", average_upload_rate_limit_in_bits_per_sec)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if ec2_instance_id is not None:
-            pulumi.set(__self__, "ec2_instance_id", ec2_instance_id)
+            _setter("ec2_instance_id", ec2_instance_id)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if gateway_id is not None:
-            pulumi.set(__self__, "gateway_id", gateway_id)
+            _setter("gateway_id", gateway_id)
         if gateway_ip_address is not None:
-            pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
+            _setter("gateway_ip_address", gateway_ip_address)
         if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
+            _setter("gateway_name", gateway_name)
         if gateway_network_interfaces is not None:
-            pulumi.set(__self__, "gateway_network_interfaces", gateway_network_interfaces)
+            _setter("gateway_network_interfaces", gateway_network_interfaces)
         if gateway_timezone is not None:
-            pulumi.set(__self__, "gateway_timezone", gateway_timezone)
+            _setter("gateway_timezone", gateway_timezone)
         if gateway_type is not None:
-            pulumi.set(__self__, "gateway_type", gateway_type)
+            _setter("gateway_type", gateway_type)
         if gateway_vpc_endpoint is not None:
-            pulumi.set(__self__, "gateway_vpc_endpoint", gateway_vpc_endpoint)
+            _setter("gateway_vpc_endpoint", gateway_vpc_endpoint)
         if host_environment is not None:
-            pulumi.set(__self__, "host_environment", host_environment)
+            _setter("host_environment", host_environment)
         if maintenance_start_time is not None:
-            pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
+            _setter("maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
-            pulumi.set(__self__, "medium_changer_type", medium_changer_type)
+            _setter("medium_changer_type", medium_changer_type)
         if smb_active_directory_settings is not None:
-            pulumi.set(__self__, "smb_active_directory_settings", smb_active_directory_settings)
+            _setter("smb_active_directory_settings", smb_active_directory_settings)
         if smb_file_share_visibility is not None:
-            pulumi.set(__self__, "smb_file_share_visibility", smb_file_share_visibility)
+            _setter("smb_file_share_visibility", smb_file_share_visibility)
         if smb_guest_password is not None:
-            pulumi.set(__self__, "smb_guest_password", smb_guest_password)
+            _setter("smb_guest_password", smb_guest_password)
         if smb_security_strategy is not None:
-            pulumi.set(__self__, "smb_security_strategy", smb_security_strategy)
+            _setter("smb_security_strategy", smb_security_strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tape_drive_type is not None:
-            pulumi.set(__self__, "tape_drive_type", tape_drive_type)
+            _setter("tape_drive_type", tape_drive_type)
 
     @property
     @pulumi.getter(name="activationKey")
@@ -946,6 +1042,10 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -990,8 +1090,18 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_timezone"] = gateway_timezone
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["gateway_vpc_endpoint"] = gateway_vpc_endpoint
+            if maintenance_start_time is not None and not isinstance(maintenance_start_time, GatewayMaintenanceStartTimeArgs):
+                maintenance_start_time = maintenance_start_time or {}
+                def _setter(key, value):
+                    maintenance_start_time[key] = value
+                GatewayMaintenanceStartTimeArgs._configure(_setter, **maintenance_start_time)
             __props__.__dict__["maintenance_start_time"] = maintenance_start_time
             __props__.__dict__["medium_changer_type"] = medium_changer_type
+            if smb_active_directory_settings is not None and not isinstance(smb_active_directory_settings, GatewaySmbActiveDirectorySettingsArgs):
+                smb_active_directory_settings = smb_active_directory_settings or {}
+                def _setter(key, value):
+                    smb_active_directory_settings[key] = value
+                GatewaySmbActiveDirectorySettingsArgs._configure(_setter, **smb_active_directory_settings)
             __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
             __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
             __props__.__dict__["smb_guest_password"] = None if smb_guest_password is None else pulumi.Output.secret(smb_guest_password)

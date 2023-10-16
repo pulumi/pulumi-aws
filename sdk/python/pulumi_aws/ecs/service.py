@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -77,62 +77,125 @@ class ServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            capacity_provider_strategies=capacity_provider_strategies,
+            cluster=cluster,
+            deployment_circuit_breaker=deployment_circuit_breaker,
+            deployment_controller=deployment_controller,
+            deployment_maximum_percent=deployment_maximum_percent,
+            deployment_minimum_healthy_percent=deployment_minimum_healthy_percent,
+            desired_count=desired_count,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            force_new_deployment=force_new_deployment,
+            health_check_grace_period_seconds=health_check_grace_period_seconds,
+            iam_role=iam_role,
+            launch_type=launch_type,
+            load_balancers=load_balancers,
+            name=name,
+            network_configuration=network_configuration,
+            ordered_placement_strategies=ordered_placement_strategies,
+            placement_constraints=placement_constraints,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            scheduling_strategy=scheduling_strategy,
+            service_connect_configuration=service_connect_configuration,
+            service_registries=service_registries,
+            tags=tags,
+            task_definition=task_definition,
+            triggers=triggers,
+            wait_for_steady_state=wait_for_steady_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
+             cluster: Optional[pulumi.Input[str]] = None,
+             deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
+             deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
+             deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
+             deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
+             desired_count: Optional[pulumi.Input[int]] = None,
+             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+             enable_execute_command: Optional[pulumi.Input[bool]] = None,
+             force_new_deployment: Optional[pulumi.Input[bool]] = None,
+             health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
+             iam_role: Optional[pulumi.Input[str]] = None,
+             launch_type: Optional[pulumi.Input[str]] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+             ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]] = None,
+             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             propagate_tags: Optional[pulumi.Input[str]] = None,
+             scheduling_strategy: Optional[pulumi.Input[str]] = None,
+             service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
+             service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             task_definition: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if capacity_provider_strategies is not None:
-            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
+            _setter("capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if deployment_circuit_breaker is not None:
-            pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
+            _setter("deployment_circuit_breaker", deployment_circuit_breaker)
         if deployment_controller is not None:
-            pulumi.set(__self__, "deployment_controller", deployment_controller)
+            _setter("deployment_controller", deployment_controller)
         if deployment_maximum_percent is not None:
-            pulumi.set(__self__, "deployment_maximum_percent", deployment_maximum_percent)
+            _setter("deployment_maximum_percent", deployment_maximum_percent)
         if deployment_minimum_healthy_percent is not None:
-            pulumi.set(__self__, "deployment_minimum_healthy_percent", deployment_minimum_healthy_percent)
+            _setter("deployment_minimum_healthy_percent", deployment_minimum_healthy_percent)
         if desired_count is not None:
-            pulumi.set(__self__, "desired_count", desired_count)
+            _setter("desired_count", desired_count)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if force_new_deployment is not None:
-            pulumi.set(__self__, "force_new_deployment", force_new_deployment)
+            _setter("force_new_deployment", force_new_deployment)
         if health_check_grace_period_seconds is not None:
-            pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
+            _setter("health_check_grace_period_seconds", health_check_grace_period_seconds)
         if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
+            _setter("iam_role", iam_role)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if ordered_placement_strategies is not None:
-            pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
+            _setter("ordered_placement_strategies", ordered_placement_strategies)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if scheduling_strategy is not None:
-            pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
+            _setter("scheduling_strategy", scheduling_strategy)
         if service_connect_configuration is not None:
-            pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
+            _setter("service_connect_configuration", service_connect_configuration)
         if service_registries is not None:
-            pulumi.set(__self__, "service_registries", service_registries)
+            _setter("service_registries", service_registries)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_definition is not None:
-            pulumi.set(__self__, "task_definition", task_definition)
+            _setter("task_definition", task_definition)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if wait_for_steady_state is not None:
-            pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
+            _setter("wait_for_steady_state", wait_for_steady_state)
 
     @property
     @pulumi.getter
@@ -539,67 +602,132 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            capacity_provider_strategies=capacity_provider_strategies,
+            cluster=cluster,
+            deployment_circuit_breaker=deployment_circuit_breaker,
+            deployment_controller=deployment_controller,
+            deployment_maximum_percent=deployment_maximum_percent,
+            deployment_minimum_healthy_percent=deployment_minimum_healthy_percent,
+            desired_count=desired_count,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            force_new_deployment=force_new_deployment,
+            health_check_grace_period_seconds=health_check_grace_period_seconds,
+            iam_role=iam_role,
+            launch_type=launch_type,
+            load_balancers=load_balancers,
+            name=name,
+            network_configuration=network_configuration,
+            ordered_placement_strategies=ordered_placement_strategies,
+            placement_constraints=placement_constraints,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            scheduling_strategy=scheduling_strategy,
+            service_connect_configuration=service_connect_configuration,
+            service_registries=service_registries,
+            tags=tags,
+            tags_all=tags_all,
+            task_definition=task_definition,
+            triggers=triggers,
+            wait_for_steady_state=wait_for_steady_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
+             cluster: Optional[pulumi.Input[str]] = None,
+             deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
+             deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
+             deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
+             deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
+             desired_count: Optional[pulumi.Input[int]] = None,
+             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+             enable_execute_command: Optional[pulumi.Input[bool]] = None,
+             force_new_deployment: Optional[pulumi.Input[bool]] = None,
+             health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
+             iam_role: Optional[pulumi.Input[str]] = None,
+             launch_type: Optional[pulumi.Input[str]] = None,
+             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+             ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]] = None,
+             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+             platform_version: Optional[pulumi.Input[str]] = None,
+             propagate_tags: Optional[pulumi.Input[str]] = None,
+             scheduling_strategy: Optional[pulumi.Input[str]] = None,
+             service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
+             service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             task_definition: Optional[pulumi.Input[str]] = None,
+             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if capacity_provider_strategies is not None:
-            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
+            _setter("capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
+            _setter("cluster", cluster)
         if deployment_circuit_breaker is not None:
-            pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
+            _setter("deployment_circuit_breaker", deployment_circuit_breaker)
         if deployment_controller is not None:
-            pulumi.set(__self__, "deployment_controller", deployment_controller)
+            _setter("deployment_controller", deployment_controller)
         if deployment_maximum_percent is not None:
-            pulumi.set(__self__, "deployment_maximum_percent", deployment_maximum_percent)
+            _setter("deployment_maximum_percent", deployment_maximum_percent)
         if deployment_minimum_healthy_percent is not None:
-            pulumi.set(__self__, "deployment_minimum_healthy_percent", deployment_minimum_healthy_percent)
+            _setter("deployment_minimum_healthy_percent", deployment_minimum_healthy_percent)
         if desired_count is not None:
-            pulumi.set(__self__, "desired_count", desired_count)
+            _setter("desired_count", desired_count)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if force_new_deployment is not None:
-            pulumi.set(__self__, "force_new_deployment", force_new_deployment)
+            _setter("force_new_deployment", force_new_deployment)
         if health_check_grace_period_seconds is not None:
-            pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
+            _setter("health_check_grace_period_seconds", health_check_grace_period_seconds)
         if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
+            _setter("iam_role", iam_role)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if load_balancers is not None:
-            pulumi.set(__self__, "load_balancers", load_balancers)
+            _setter("load_balancers", load_balancers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if ordered_placement_strategies is not None:
-            pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
+            _setter("ordered_placement_strategies", ordered_placement_strategies)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if scheduling_strategy is not None:
-            pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
+            _setter("scheduling_strategy", scheduling_strategy)
         if service_connect_configuration is not None:
-            pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
+            _setter("service_connect_configuration", service_connect_configuration)
         if service_registries is not None:
-            pulumi.set(__self__, "service_registries", service_registries)
+            _setter("service_registries", service_registries)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if task_definition is not None:
-            pulumi.set(__self__, "task_definition", task_definition)
+            _setter("task_definition", task_definition)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
         if wait_for_steady_state is not None:
-            pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
+            _setter("wait_for_steady_state", wait_for_steady_state)
 
     @property
     @pulumi.getter
@@ -1218,6 +1346,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1260,10 +1392,25 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            if alarms is not None and not isinstance(alarms, ServiceAlarmsArgs):
+                alarms = alarms or {}
+                def _setter(key, value):
+                    alarms[key] = value
+                ServiceAlarmsArgs._configure(_setter, **alarms)
             __props__.__dict__["alarms"] = alarms
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
             __props__.__dict__["cluster"] = cluster
+            if deployment_circuit_breaker is not None and not isinstance(deployment_circuit_breaker, ServiceDeploymentCircuitBreakerArgs):
+                deployment_circuit_breaker = deployment_circuit_breaker or {}
+                def _setter(key, value):
+                    deployment_circuit_breaker[key] = value
+                ServiceDeploymentCircuitBreakerArgs._configure(_setter, **deployment_circuit_breaker)
             __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
+            if deployment_controller is not None and not isinstance(deployment_controller, ServiceDeploymentControllerArgs):
+                deployment_controller = deployment_controller or {}
+                def _setter(key, value):
+                    deployment_controller[key] = value
+                ServiceDeploymentControllerArgs._configure(_setter, **deployment_controller)
             __props__.__dict__["deployment_controller"] = deployment_controller
             __props__.__dict__["deployment_maximum_percent"] = deployment_maximum_percent
             __props__.__dict__["deployment_minimum_healthy_percent"] = deployment_minimum_healthy_percent
@@ -1276,13 +1423,28 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
             __props__.__dict__["name"] = name
+            if network_configuration is not None and not isinstance(network_configuration, ServiceNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                ServiceNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["ordered_placement_strategies"] = ordered_placement_strategies
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["platform_version"] = platform_version
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
+            if service_connect_configuration is not None and not isinstance(service_connect_configuration, ServiceServiceConnectConfigurationArgs):
+                service_connect_configuration = service_connect_configuration or {}
+                def _setter(key, value):
+                    service_connect_configuration[key] = value
+                ServiceServiceConnectConfigurationArgs._configure(_setter, **service_connect_configuration)
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
+            if service_registries is not None and not isinstance(service_registries, ServiceServiceRegistriesArgs):
+                service_registries = service_registries or {}
+                def _setter(key, value):
+                    service_registries[key] = value
+                ServiceServiceRegistriesArgs._configure(_setter, **service_registries)
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition

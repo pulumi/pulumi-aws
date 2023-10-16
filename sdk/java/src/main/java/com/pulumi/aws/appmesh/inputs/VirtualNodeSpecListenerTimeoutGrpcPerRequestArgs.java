@@ -30,14 +30,14 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
     }
 
     /**
-     * The specified value for the JSON. Must be between 1 and 100 characters in length.
+     * Number of time units. Minimum value of `0`.
      * 
      */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
     /**
-     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
+     * @return Number of time units. Minimum value of `0`.
      * 
      */
     public Output<Integer> value() {
@@ -91,7 +91,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs extends com.
         }
 
         /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 

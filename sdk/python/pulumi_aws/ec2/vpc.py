@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcArgs', 'Vpc']
@@ -43,32 +43,65 @@ class VpcArgs:
         :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        VpcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assign_generated_ipv6_cidr_block=assign_generated_ipv6_cidr_block,
+            cidr_block=cidr_block,
+            enable_dns_hostnames=enable_dns_hostnames,
+            enable_dns_support=enable_dns_support,
+            enable_network_address_usage_metrics=enable_network_address_usage_metrics,
+            instance_tenancy=instance_tenancy,
+            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
+            ipv4_netmask_length=ipv4_netmask_length,
+            ipv6_cidr_block=ipv6_cidr_block,
+            ipv6_cidr_block_network_border_group=ipv6_cidr_block_network_border_group,
+            ipv6_ipam_pool_id=ipv6_ipam_pool_id,
+            ipv6_netmask_length=ipv6_netmask_length,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
+             enable_dns_support: Optional[pulumi.Input[bool]] = None,
+             enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
+             instance_tenancy: Optional[pulumi.Input[str]] = None,
+             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
+             ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_generated_ipv6_cidr_block is not None:
-            pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
+            _setter("assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if enable_dns_hostnames is not None:
-            pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
+            _setter("enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
-            pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+            _setter("enable_dns_support", enable_dns_support)
         if enable_network_address_usage_metrics is not None:
-            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
+            _setter("enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if instance_tenancy is not None:
-            pulumi.set(__self__, "instance_tenancy", instance_tenancy)
+            _setter("instance_tenancy", instance_tenancy)
         if ipv4_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_network_border_group is not None:
-            pulumi.set(__self__, "ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
+            _setter("ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
         if ipv6_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+            _setter("ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
-            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
+            _setter("ipv6_netmask_length", ipv6_netmask_length)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
@@ -278,53 +311,104 @@ class _VpcState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _VpcState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            assign_generated_ipv6_cidr_block=assign_generated_ipv6_cidr_block,
+            cidr_block=cidr_block,
+            default_network_acl_id=default_network_acl_id,
+            default_route_table_id=default_route_table_id,
+            default_security_group_id=default_security_group_id,
+            dhcp_options_id=dhcp_options_id,
+            enable_dns_hostnames=enable_dns_hostnames,
+            enable_dns_support=enable_dns_support,
+            enable_network_address_usage_metrics=enable_network_address_usage_metrics,
+            instance_tenancy=instance_tenancy,
+            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
+            ipv4_netmask_length=ipv4_netmask_length,
+            ipv6_association_id=ipv6_association_id,
+            ipv6_cidr_block=ipv6_cidr_block,
+            ipv6_cidr_block_network_border_group=ipv6_cidr_block_network_border_group,
+            ipv6_ipam_pool_id=ipv6_ipam_pool_id,
+            ipv6_netmask_length=ipv6_netmask_length,
+            main_route_table_id=main_route_table_id,
+            owner_id=owner_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             default_network_acl_id: Optional[pulumi.Input[str]] = None,
+             default_route_table_id: Optional[pulumi.Input[str]] = None,
+             default_security_group_id: Optional[pulumi.Input[str]] = None,
+             dhcp_options_id: Optional[pulumi.Input[str]] = None,
+             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
+             enable_dns_support: Optional[pulumi.Input[bool]] = None,
+             enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
+             instance_tenancy: Optional[pulumi.Input[str]] = None,
+             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+             ipv6_association_id: Optional[pulumi.Input[str]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
+             ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
+             main_route_table_id: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if assign_generated_ipv6_cidr_block is not None:
-            pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
+            _setter("assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if default_network_acl_id is not None:
-            pulumi.set(__self__, "default_network_acl_id", default_network_acl_id)
+            _setter("default_network_acl_id", default_network_acl_id)
         if default_route_table_id is not None:
-            pulumi.set(__self__, "default_route_table_id", default_route_table_id)
+            _setter("default_route_table_id", default_route_table_id)
         if default_security_group_id is not None:
-            pulumi.set(__self__, "default_security_group_id", default_security_group_id)
+            _setter("default_security_group_id", default_security_group_id)
         if dhcp_options_id is not None:
-            pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
+            _setter("dhcp_options_id", dhcp_options_id)
         if enable_dns_hostnames is not None:
-            pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
+            _setter("enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
-            pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+            _setter("enable_dns_support", enable_dns_support)
         if enable_network_address_usage_metrics is not None:
-            pulumi.set(__self__, "enable_network_address_usage_metrics", enable_network_address_usage_metrics)
+            _setter("enable_network_address_usage_metrics", enable_network_address_usage_metrics)
         if instance_tenancy is not None:
-            pulumi.set(__self__, "instance_tenancy", instance_tenancy)
+            _setter("instance_tenancy", instance_tenancy)
         if ipv4_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_association_id is not None:
-            pulumi.set(__self__, "ipv6_association_id", ipv6_association_id)
+            _setter("ipv6_association_id", ipv6_association_id)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_network_border_group is not None:
-            pulumi.set(__self__, "ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
+            _setter("ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
         if ipv6_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+            _setter("ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
-            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
+            _setter("ipv6_netmask_length", ipv6_netmask_length)
         if main_route_table_id is not None:
-            pulumi.set(__self__, "main_route_table_id", main_route_table_id)
+            _setter("main_route_table_id", main_route_table_id)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -762,6 +846,10 @@ class Vpc(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

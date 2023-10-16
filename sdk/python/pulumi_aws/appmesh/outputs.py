@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -453,14 +453,29 @@ class GatewayRouteSpec(dict):
         :param 'GatewayRouteSpecHttpRouteArgs' http_route: Specification of an HTTP gateway route.
         :param int priority: Priority for the gateway route, between `0` and `1000`.
         """
+        GatewayRouteSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc_route=grpc_route,
+            http2_route=http2_route,
+            http_route=http_route,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc_route: Optional['outputs.GatewayRouteSpecGrpcRoute'] = None,
+             http2_route: Optional['outputs.GatewayRouteSpecHttp2Route'] = None,
+             http_route: Optional['outputs.GatewayRouteSpecHttpRoute'] = None,
+             priority: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc_route is not None:
-            pulumi.set(__self__, "grpc_route", grpc_route)
+            _setter("grpc_route", grpc_route)
         if http2_route is not None:
-            pulumi.set(__self__, "http2_route", http2_route)
+            _setter("http2_route", http2_route)
         if http_route is not None:
-            pulumi.set(__self__, "http_route", http_route)
+            _setter("http_route", http_route)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoute")
@@ -504,8 +519,19 @@ class GatewayRouteSpecGrpcRoute(dict):
         :param 'GatewayRouteSpecGrpcRouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecGrpcRouteMatchArgs' match: Criteria for determining a request match.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        GatewayRouteSpecGrpcRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.GatewayRouteSpecGrpcRouteAction',
+             match: 'outputs.GatewayRouteSpecGrpcRouteMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -531,7 +557,16 @@ class GatewayRouteSpecGrpcRouteAction(dict):
         """
         :param 'GatewayRouteSpecGrpcRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         """
-        pulumi.set(__self__, "target", target)
+        GatewayRouteSpecGrpcRouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: 'outputs.GatewayRouteSpecGrpcRouteActionTarget',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target", target)
 
     @property
     @pulumi.getter
@@ -568,9 +603,20 @@ class GatewayRouteSpecGrpcRouteActionTarget(dict):
         :param 'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        pulumi.set(__self__, "virtual_service", virtual_service)
+        GatewayRouteSpecGrpcRouteActionTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service=virtual_service,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service: 'outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService',
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service", virtual_service)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -613,7 +659,16 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GatewayRouteSpecGrpcRouteActionTargetVirtualService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -648,11 +703,22 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
                  port: Optional[int] = None):
         """
         :param str service_name: Fully qualified domain name for the service to match from the request.
-        :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        :param int port: The port number to match from the request.
         """
-        pulumi.set(__self__, "service_name", service_name)
+        GatewayRouteSpecGrpcRouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: str,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("service_name", service_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -666,7 +732,7 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        The port number to match from the request.
         """
         return pulumi.get(self, "port")
 
@@ -680,8 +746,19 @@ class GatewayRouteSpecHttp2Route(dict):
         :param 'GatewayRouteSpecHttp2RouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecHttp2RouteMatchArgs' match: Criteria for determining a request match.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        GatewayRouteSpecHttp2Route._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.GatewayRouteSpecHttp2RouteAction',
+             match: 'outputs.GatewayRouteSpecHttp2RouteMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -709,9 +786,20 @@ class GatewayRouteSpecHttp2RouteAction(dict):
         :param 'GatewayRouteSpecHttp2RouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         :param 'GatewayRouteSpecHttp2RouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
         """
-        pulumi.set(__self__, "target", target)
+        GatewayRouteSpecHttp2RouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            rewrite=rewrite,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: 'outputs.GatewayRouteSpecHttp2RouteActionTarget',
+             rewrite: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewrite'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target", target)
         if rewrite is not None:
-            pulumi.set(__self__, "rewrite", rewrite)
+            _setter("rewrite", rewrite)
 
     @property
     @pulumi.getter
@@ -741,12 +829,25 @@ class GatewayRouteSpecHttp2RouteActionRewrite(dict):
         :param 'GatewayRouteSpecHttp2RouteActionRewritePathArgs' path: Exact path to rewrite.
         :param 'GatewayRouteSpecHttp2RouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
         """
+        GatewayRouteSpecHttp2RouteActionRewrite._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostname=hostname,
+            path=path,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostname: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname'] = None,
+             path: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePath'] = None,
+             prefix: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -797,7 +898,16 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostname(dict):
         """
         :param str default_target_hostname: Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         """
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+        GatewayRouteSpecHttp2RouteActionRewriteHostname._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_target_hostname=default_target_hostname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_target_hostname: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -815,7 +925,16 @@ class GatewayRouteSpecHttp2RouteActionRewritePath(dict):
         """
         :param str exact: The exact path to match on.
         """
-        pulumi.set(__self__, "exact", exact)
+        GatewayRouteSpecHttp2RouteActionRewritePath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -852,10 +971,21 @@ class GatewayRouteSpecHttp2RouteActionRewritePrefix(dict):
         :param str default_prefix: Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         :param str value: Value used to replace the incoming route prefix when rewritten.
         """
+        GatewayRouteSpecHttp2RouteActionRewritePrefix._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_prefix=default_prefix,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_prefix: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_prefix is not None:
-            pulumi.set(__self__, "default_prefix", default_prefix)
+            _setter("default_prefix", default_prefix)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -900,9 +1030,20 @@ class GatewayRouteSpecHttp2RouteActionTarget(dict):
         :param 'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        pulumi.set(__self__, "virtual_service", virtual_service)
+        GatewayRouteSpecHttp2RouteActionTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service=virtual_service,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service: 'outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService',
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service", virtual_service)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -945,7 +1086,16 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GatewayRouteSpecHttp2RouteActionTargetVirtualService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -984,24 +1134,43 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
                  query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameter']] = None):
         """
         :param Sequence['GatewayRouteSpecHttp2RouteMatchHeaderArgs'] headers: Client request headers to match on.
-        :param 'GatewayRouteSpecHttp2RouteMatchHostnameArgs' hostname: Host name to rewrite.
-        :param 'GatewayRouteSpecHttp2RouteMatchPathArgs' path: Exact path to rewrite.
-        :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        :param str prefix: Specified beginning characters to rewrite.
+        :param 'GatewayRouteSpecHttp2RouteMatchHostnameArgs' hostname: Host name to match on.
+        :param 'GatewayRouteSpecHttp2RouteMatchPathArgs' path: Client request path to match on.
+        :param int port: The port number to match from the request.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         """
+        GatewayRouteSpecHttp2RouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            hostname=hostname,
+            path=path,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchHeader']] = None,
+             hostname: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHostname'] = None,
+             path: Optional['outputs.GatewayRouteSpecHttp2RouteMatchPath'] = None,
+             port: Optional[int] = None,
+             prefix: Optional[str] = None,
+             query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -1015,7 +1184,7 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def hostname(self) -> Optional['outputs.GatewayRouteSpecHttp2RouteMatchHostname']:
         """
-        Host name to rewrite.
+        Host name to match on.
         """
         return pulumi.get(self, "hostname")
 
@@ -1023,7 +1192,7 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def path(self) -> Optional['outputs.GatewayRouteSpecHttp2RouteMatchPath']:
         """
-        Exact path to rewrite.
+        Client request path to match on.
         """
         return pulumi.get(self, "path")
 
@@ -1031,7 +1200,7 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        The port number to match from the request.
         """
         return pulumi.get(self, "port")
 
@@ -1039,7 +1208,7 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Specified beginning characters to rewrite.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -1063,11 +1232,24 @@ class GatewayRouteSpecHttp2RouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        pulumi.set(__self__, "name", name)
+        GatewayRouteSpecHttp2RouteMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            invert=invert,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             invert: Optional[bool] = None,
+             match: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if invert is not None:
-            pulumi.set(__self__, "invert", invert)
+            _setter("invert", invert)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -1103,28 +1285,45 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: Value used to replace matched path.
-        :param str prefix: Specified beginning characters to rewrite.
+        :param str exact: Header value sent by the client must match the specified value exactly.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
+        GatewayRouteSpecHttp2RouteMatchHeaderMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            range=range,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             range: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatchRange'] = None,
+             regex: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value used to replace matched path.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -1132,7 +1331,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Specified beginning characters to rewrite.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -1170,8 +1369,19 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GatewayRouteSpecHttp2RouteMatchHeaderMatchRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -1199,10 +1409,21 @@ class GatewayRouteSpecHttp2RouteMatchHostname(dict):
         :param str exact: Exact host name to match on.
         :param str suffix: Specified ending characters of the host name to match on.
         """
+        GatewayRouteSpecHttp2RouteMatchHostname._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -1230,10 +1451,21 @@ class GatewayRouteSpecHttp2RouteMatchPath(dict):
         :param str exact: The exact path to match on.
         :param str regex: The regex used to match the path.
         """
+        GatewayRouteSpecHttp2RouteMatchPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             regex: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -1261,9 +1493,20 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameter(dict):
         :param str name: Name for the query parameter that will be matched on.
         :param 'GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
         """
-        pulumi.set(__self__, "name", name)
+        GatewayRouteSpecHttp2RouteMatchQueryParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             match: Optional['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -1287,16 +1530,25 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
-        :param str exact: Value used to replace matched path.
+        :param str exact: Header value sent by the client must match the specified value exactly.
         """
+        GatewayRouteSpecHttp2RouteMatchQueryParameterMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value used to replace matched path.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -1310,8 +1562,19 @@ class GatewayRouteSpecHttpRoute(dict):
         :param 'GatewayRouteSpecHttpRouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecHttpRouteMatchArgs' match: Criteria for determining a request match.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        GatewayRouteSpecHttpRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.GatewayRouteSpecHttpRouteAction',
+             match: 'outputs.GatewayRouteSpecHttpRouteMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -1339,9 +1602,20 @@ class GatewayRouteSpecHttpRouteAction(dict):
         :param 'GatewayRouteSpecHttpRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         :param 'GatewayRouteSpecHttpRouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
         """
-        pulumi.set(__self__, "target", target)
+        GatewayRouteSpecHttpRouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            rewrite=rewrite,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: 'outputs.GatewayRouteSpecHttpRouteActionTarget',
+             rewrite: Optional['outputs.GatewayRouteSpecHttpRouteActionRewrite'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target", target)
         if rewrite is not None:
-            pulumi.set(__self__, "rewrite", rewrite)
+            _setter("rewrite", rewrite)
 
     @property
     @pulumi.getter
@@ -1371,12 +1645,25 @@ class GatewayRouteSpecHttpRouteActionRewrite(dict):
         :param 'GatewayRouteSpecHttpRouteActionRewritePathArgs' path: Exact path to rewrite.
         :param 'GatewayRouteSpecHttpRouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
         """
+        GatewayRouteSpecHttpRouteActionRewrite._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostname=hostname,
+            path=path,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostname: Optional['outputs.GatewayRouteSpecHttpRouteActionRewriteHostname'] = None,
+             path: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePath'] = None,
+             prefix: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePrefix'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -1427,7 +1714,16 @@ class GatewayRouteSpecHttpRouteActionRewriteHostname(dict):
         """
         :param str default_target_hostname: Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         """
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+        GatewayRouteSpecHttpRouteActionRewriteHostname._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_target_hostname=default_target_hostname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_target_hostname: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -1445,7 +1741,16 @@ class GatewayRouteSpecHttpRouteActionRewritePath(dict):
         """
         :param str exact: The exact path to match on.
         """
-        pulumi.set(__self__, "exact", exact)
+        GatewayRouteSpecHttpRouteActionRewritePath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -1482,10 +1787,21 @@ class GatewayRouteSpecHttpRouteActionRewritePrefix(dict):
         :param str default_prefix: Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         :param str value: Value used to replace the incoming route prefix when rewritten.
         """
+        GatewayRouteSpecHttpRouteActionRewritePrefix._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_prefix=default_prefix,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_prefix: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_prefix is not None:
-            pulumi.set(__self__, "default_prefix", default_prefix)
+            _setter("default_prefix", default_prefix)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -1530,9 +1846,20 @@ class GatewayRouteSpecHttpRouteActionTarget(dict):
         :param 'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        pulumi.set(__self__, "virtual_service", virtual_service)
+        GatewayRouteSpecHttpRouteActionTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service=virtual_service,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service: 'outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService',
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service", virtual_service)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -1575,7 +1902,16 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GatewayRouteSpecHttpRouteActionTargetVirtualService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -1614,24 +1950,43 @@ class GatewayRouteSpecHttpRouteMatch(dict):
                  query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchQueryParameter']] = None):
         """
         :param Sequence['GatewayRouteSpecHttpRouteMatchHeaderArgs'] headers: Client request headers to match on.
-        :param 'GatewayRouteSpecHttpRouteMatchHostnameArgs' hostname: Host name to rewrite.
-        :param 'GatewayRouteSpecHttpRouteMatchPathArgs' path: Exact path to rewrite.
-        :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        :param str prefix: Specified beginning characters to rewrite.
+        :param 'GatewayRouteSpecHttpRouteMatchHostnameArgs' hostname: Host name to match on.
+        :param 'GatewayRouteSpecHttpRouteMatchPathArgs' path: Client request path to match on.
+        :param int port: The port number to match from the request.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['GatewayRouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         """
+        GatewayRouteSpecHttpRouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            hostname=hostname,
+            path=path,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchHeader']] = None,
+             hostname: Optional['outputs.GatewayRouteSpecHttpRouteMatchHostname'] = None,
+             path: Optional['outputs.GatewayRouteSpecHttpRouteMatchPath'] = None,
+             port: Optional[int] = None,
+             prefix: Optional[str] = None,
+             query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchQueryParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -1645,7 +2000,7 @@ class GatewayRouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def hostname(self) -> Optional['outputs.GatewayRouteSpecHttpRouteMatchHostname']:
         """
-        Host name to rewrite.
+        Host name to match on.
         """
         return pulumi.get(self, "hostname")
 
@@ -1653,7 +2008,7 @@ class GatewayRouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def path(self) -> Optional['outputs.GatewayRouteSpecHttpRouteMatchPath']:
         """
-        Exact path to rewrite.
+        Client request path to match on.
         """
         return pulumi.get(self, "path")
 
@@ -1661,7 +2016,7 @@ class GatewayRouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+        The port number to match from the request.
         """
         return pulumi.get(self, "port")
 
@@ -1669,7 +2024,7 @@ class GatewayRouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Specified beginning characters to rewrite.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -1693,11 +2048,24 @@ class GatewayRouteSpecHttpRouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        pulumi.set(__self__, "name", name)
+        GatewayRouteSpecHttpRouteMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            invert=invert,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             invert: Optional[bool] = None,
+             match: Optional['outputs.GatewayRouteSpecHttpRouteMatchHeaderMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if invert is not None:
-            pulumi.set(__self__, "invert", invert)
+            _setter("invert", invert)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -1733,28 +2101,45 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
                  regex: Optional[str] = None,
                  suffix: Optional[str] = None):
         """
-        :param str exact: Value used to replace matched path.
-        :param str prefix: Specified beginning characters to rewrite.
+        :param str exact: Header value sent by the client must match the specified value exactly.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
+        GatewayRouteSpecHttpRouteMatchHeaderMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            range=range,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             range: Optional['outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange'] = None,
+             regex: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value used to replace matched path.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -1762,7 +2147,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Specified beginning characters to rewrite.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -1800,8 +2185,19 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GatewayRouteSpecHttpRouteMatchHeaderMatchRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -1829,10 +2225,21 @@ class GatewayRouteSpecHttpRouteMatchHostname(dict):
         :param str exact: Exact host name to match on.
         :param str suffix: Specified ending characters of the host name to match on.
         """
+        GatewayRouteSpecHttpRouteMatchHostname._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -1860,10 +2267,21 @@ class GatewayRouteSpecHttpRouteMatchPath(dict):
         :param str exact: The exact path to match on.
         :param str regex: The regex used to match the path.
         """
+        GatewayRouteSpecHttpRouteMatchPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             regex: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -1891,9 +2309,20 @@ class GatewayRouteSpecHttpRouteMatchQueryParameter(dict):
         :param str name: Name for the query parameter that will be matched on.
         :param 'GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
         """
-        pulumi.set(__self__, "name", name)
+        GatewayRouteSpecHttpRouteMatchQueryParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             match: Optional['outputs.GatewayRouteSpecHttpRouteMatchQueryParameterMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -1917,16 +2346,25 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
-        :param str exact: Value used to replace matched path.
+        :param str exact: Header value sent by the client must match the specified value exactly.
         """
+        GatewayRouteSpecHttpRouteMatchQueryParameterMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value used to replace matched path.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -1955,8 +2393,17 @@ class MeshSpec(dict):
         """
         :param 'MeshSpecEgressFilterArgs' egress_filter: Egress filter rules for the service mesh.
         """
+        MeshSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            egress_filter=egress_filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if egress_filter is not None:
-            pulumi.set(__self__, "egress_filter", egress_filter)
+            _setter("egress_filter", egress_filter)
 
     @property
     @pulumi.getter(name="egressFilter")
@@ -1975,8 +2422,17 @@ class MeshSpecEgressFilter(dict):
         :param str type: Egress filter type. By default, the type is `DROP_ALL`.
                Valid values are `ALLOW_ALL` and `DROP_ALL`.
         """
+        MeshSpecEgressFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2027,16 +2483,33 @@ class RouteSpec(dict):
                Routes are matched based on the specified value, where `0` is the highest priority.
         :param 'RouteSpecTcpRouteArgs' tcp_route: TCP routing information for the route.
         """
+        RouteSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc_route=grpc_route,
+            http2_route=http2_route,
+            http_route=http_route,
+            priority=priority,
+            tcp_route=tcp_route,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc_route: Optional['outputs.RouteSpecGrpcRoute'] = None,
+             http2_route: Optional['outputs.RouteSpecHttp2Route'] = None,
+             http_route: Optional['outputs.RouteSpecHttpRoute'] = None,
+             priority: Optional[int] = None,
+             tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc_route is not None:
-            pulumi.set(__self__, "grpc_route", grpc_route)
+            _setter("grpc_route", grpc_route)
         if http2_route is not None:
-            pulumi.set(__self__, "http2_route", http2_route)
+            _setter("http2_route", http2_route)
         if http_route is not None:
-            pulumi.set(__self__, "http_route", http_route)
+            _setter("http_route", http_route)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if tcp_route is not None:
-            pulumi.set(__self__, "tcp_route", tcp_route)
+            _setter("tcp_route", tcp_route)
 
     @property
     @pulumi.getter(name="grpcRoute")
@@ -2110,13 +2583,28 @@ class RouteSpecGrpcRoute(dict):
         :param 'RouteSpecGrpcRouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecGrpcRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        pulumi.set(__self__, "action", action)
+        RouteSpecGrpcRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+            retry_policy=retry_policy,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RouteSpecGrpcRouteAction',
+             match: Optional['outputs.RouteSpecGrpcRouteMatch'] = None,
+             retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None,
+             timeout: Optional['outputs.RouteSpecGrpcRouteTimeout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -2176,7 +2664,16 @@ class RouteSpecGrpcRouteAction(dict):
         :param Sequence['RouteSpecGrpcRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        RouteSpecGrpcRouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -2216,10 +2713,23 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        RouteSpecGrpcRouteActionWeightedTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node=virtual_node,
+            weight=weight,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node: str,
+             weight: int,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -2277,20 +2787,36 @@ class RouteSpecGrpcRouteMatch(dict):
         :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: Data to match from the gRPC request.
         :param str method_name: Method name to match from the request. If you specify a name, you must also specify a `service_name`.
         :param int port: The port number to match from the request.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param str service_name: Fully qualified domain name for the service to match from the request.
         """
+        RouteSpecGrpcRouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadatas=metadatas,
+            method_name=method_name,
+            port=port,
+            prefix=prefix,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
+             method_name: Optional[str] = None,
+             port: Optional[int] = None,
+             prefix: Optional[str] = None,
+             service_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if metadatas is not None:
-            pulumi.set(__self__, "metadatas", metadatas)
+            _setter("metadatas", metadatas)
         if method_name is not None:
-            pulumi.set(__self__, "method_name", method_name)
+            _setter("method_name", method_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -2320,8 +2846,7 @@ class RouteSpecGrpcRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -2345,11 +2870,24 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
         :param 'RouteSpecGrpcRouteMatchMetadataMatchArgs' match: Data to match from the request.
         """
-        pulumi.set(__self__, "name", name)
+        RouteSpecGrpcRouteMatchMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            invert=invert,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             invert: Optional[bool] = None,
+             match: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if invert is not None:
-            pulumi.set(__self__, "invert", invert)
+            _setter("invert", invert)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -2386,22 +2924,38 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
                  suffix: Optional[str] = None):
         """
         :param str exact: The exact path to match on.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs' range: Object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
+        :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
-        :param str suffix: Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: Header value sent by the client must end with the specified characters.
         """
+        RouteSpecGrpcRouteMatchMetadataMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            range=range,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             range: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatchRange'] = None,
+             regex: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -2415,8 +2969,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -2424,7 +2977,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def range(self) -> Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatchRange']:
         """
-        Object that specifies the range of numbers that the value sent by the client must be included in.
+        Object that specifies the range of numbers that the header value sent by the client must be included in.
         """
         return pulumi.get(self, "range")
 
@@ -2440,7 +2993,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        Header value sent by the client must end with the specified characters.
         """
         return pulumi.get(self, "suffix")
 
@@ -2454,8 +3007,19 @@ class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        RouteSpecGrpcRouteMatchMetadataMatchRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -2514,20 +3078,33 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
                Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
-               
-               
-               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        RouteSpecGrpcRouteRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_retries=max_retries,
+            per_retry_timeout=per_retry_timeout,
+            grpc_retry_events=grpc_retry_events,
+            http_retry_events=http_retry_events,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_retries: int,
+             per_retry_timeout: 'outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout',
+             grpc_retry_events: Optional[Sequence[str]] = None,
+             http_retry_events: Optional[Sequence[str]] = None,
+             tcp_retry_events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeout", per_retry_timeout)
         if grpc_retry_events is not None:
-            pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
+            _setter("grpc_retry_events", grpc_retry_events)
         if http_retry_events is not None:
-            pulumi.set(__self__, "http_retry_events", http_retry_events)
+            _setter("http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+            _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -2560,7 +3137,6 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
         """
         List of HTTP retry events.
         Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         """
         return pulumi.get(self, "http_retry_events")
 
@@ -2569,9 +3145,6 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
-
-
-        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -2585,8 +3158,19 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecGrpcRouteRetryPolicyPerRetryTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2631,10 +3215,21 @@ class RouteSpecGrpcRouteTimeout(dict):
         :param 'RouteSpecGrpcRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecGrpcRouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
+        RouteSpecGrpcRouteTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.RouteSpecGrpcRouteTimeoutIdle'] = None,
+             per_request: Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -2662,8 +3257,19 @@ class RouteSpecGrpcRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecGrpcRouteTimeoutIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2691,8 +3297,19 @@ class RouteSpecGrpcRouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecGrpcRouteTimeoutPerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2741,12 +3358,27 @@ class RouteSpecHttp2Route(dict):
         :param 'RouteSpecHttp2RouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecHttp2RouteTimeoutArgs' timeout: Types of timeouts.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        RouteSpecHttp2Route._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+            retry_policy=retry_policy,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RouteSpecHttp2RouteAction',
+             match: 'outputs.RouteSpecHttp2RouteMatch',
+             retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None,
+             timeout: Optional['outputs.RouteSpecHttp2RouteTimeout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match", match)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -2806,7 +3438,16 @@ class RouteSpecHttp2RouteAction(dict):
         :param Sequence['RouteSpecHttp2RouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        RouteSpecHttp2RouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -2846,10 +3487,23 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        RouteSpecHttp2RouteActionWeightedTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node=virtual_node,
+            weight=weight,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node: str,
+             weight: int,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -2908,25 +3562,45 @@ class RouteSpecHttp2RouteMatch(dict):
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         :param 'RouteSpecHttp2RouteMatchPathArgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['RouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
+        RouteSpecHttp2RouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            method=method,
+            path=path,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchHeader']] = None,
+             method: Optional[str] = None,
+             path: Optional['outputs.RouteSpecHttp2RouteMatchPath'] = None,
+             port: Optional[int] = None,
+             prefix: Optional[str] = None,
+             query_parameters: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchQueryParameter']] = None,
+             scheme: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -2964,8 +3638,7 @@ class RouteSpecHttp2RouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -2997,11 +3670,24 @@ class RouteSpecHttp2RouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'RouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        pulumi.set(__self__, "name", name)
+        RouteSpecHttp2RouteMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            invert=invert,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             invert: Optional[bool] = None,
+             match: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if invert is not None:
-            pulumi.set(__self__, "invert", invert)
+            _setter("invert", invert)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -3038,22 +3724,38 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
                  suffix: Optional[str] = None):
         """
         :param str exact: The exact path to match on.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
+        :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
-        :param str suffix: Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: Header value sent by the client must end with the specified characters.
         """
+        RouteSpecHttp2RouteMatchHeaderMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            range=range,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             range: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatchRange'] = None,
+             regex: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -3067,8 +3769,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -3076,7 +3777,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def range(self) -> Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatchRange']:
         """
-        Object that specifies the range of numbers that the value sent by the client must be included in.
+        Object that specifies the range of numbers that the header value sent by the client must be included in.
         """
         return pulumi.get(self, "range")
 
@@ -3092,7 +3793,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        Header value sent by the client must end with the specified characters.
         """
         return pulumi.get(self, "suffix")
 
@@ -3106,8 +3807,19 @@ class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        RouteSpecHttp2RouteMatchHeaderMatchRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -3132,19 +3844,30 @@ class RouteSpecHttp2RouteMatchPath(dict):
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
         """
-        :param str exact: Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-        :param str regex: Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        :param str exact: Header value sent by the client must match the specified value exactly.
+        :param str regex: Header value sent by the client must include the specified characters.
         """
+        RouteSpecHttp2RouteMatchPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             regex: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3152,7 +3875,7 @@ class RouteSpecHttp2RouteMatchPath(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        Header value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -3166,9 +3889,20 @@ class RouteSpecHttp2RouteMatchQueryParameter(dict):
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param 'RouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
         """
-        pulumi.set(__self__, "name", name)
+        RouteSpecHttp2RouteMatchQueryParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             match: Optional['outputs.RouteSpecHttp2RouteMatchQueryParameterMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -3194,8 +3928,17 @@ class RouteSpecHttp2RouteMatchQueryParameterMatch(dict):
         """
         :param str exact: The exact path to match on.
         """
+        RouteSpecHttp2RouteMatchQueryParameterMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -3241,18 +3984,29 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
         :param 'RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: Per-retry timeout.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
-               
-               
-               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        RouteSpecHttp2RouteRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_retries=max_retries,
+            per_retry_timeout=per_retry_timeout,
+            http_retry_events=http_retry_events,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_retries: int,
+             per_retry_timeout: 'outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout',
+             http_retry_events: Optional[Sequence[str]] = None,
+             tcp_retry_events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeout", per_retry_timeout)
         if http_retry_events is not None:
-            pulumi.set(__self__, "http_retry_events", http_retry_events)
+            _setter("http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+            _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -3276,7 +4030,6 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
         """
         List of HTTP retry events.
         Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         """
         return pulumi.get(self, "http_retry_events")
 
@@ -3285,9 +4038,6 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
-
-
-        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3301,8 +4051,19 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttp2RouteRetryPolicyPerRetryTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3347,10 +4108,21 @@ class RouteSpecHttp2RouteTimeout(dict):
         :param 'RouteSpecHttp2RouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecHttp2RouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
+        RouteSpecHttp2RouteTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.RouteSpecHttp2RouteTimeoutIdle'] = None,
+             per_request: Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -3378,8 +4150,19 @@ class RouteSpecHttp2RouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttp2RouteTimeoutIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3407,8 +4190,19 @@ class RouteSpecHttp2RouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttp2RouteTimeoutPerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3457,12 +4251,27 @@ class RouteSpecHttpRoute(dict):
         :param 'RouteSpecHttpRouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecHttpRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "match", match)
+        RouteSpecHttpRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+            retry_policy=retry_policy,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RouteSpecHttpRouteAction',
+             match: 'outputs.RouteSpecHttpRouteMatch',
+             retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None,
+             timeout: Optional['outputs.RouteSpecHttpRouteTimeout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("match", match)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -3522,7 +4331,16 @@ class RouteSpecHttpRouteAction(dict):
         :param Sequence['RouteSpecHttpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        RouteSpecHttpRouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -3562,10 +4380,23 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        RouteSpecHttpRouteActionWeightedTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node=virtual_node,
+            weight=weight,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node: str,
+             weight: int,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -3624,25 +4455,45 @@ class RouteSpecHttpRouteMatch(dict):
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         :param 'RouteSpecHttpRouteMatchPathArgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['RouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
+        RouteSpecHttpRouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            method=method,
+            path=path,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.RouteSpecHttpRouteMatchHeader']] = None,
+             method: Optional[str] = None,
+             path: Optional['outputs.RouteSpecHttpRouteMatchPath'] = None,
+             port: Optional[int] = None,
+             prefix: Optional[str] = None,
+             query_parameters: Optional[Sequence['outputs.RouteSpecHttpRouteMatchQueryParameter']] = None,
+             scheme: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -3680,8 +4531,7 @@ class RouteSpecHttpRouteMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -3713,11 +4563,24 @@ class RouteSpecHttpRouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'RouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        pulumi.set(__self__, "name", name)
+        RouteSpecHttpRouteMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            invert=invert,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             invert: Optional[bool] = None,
+             match: Optional['outputs.RouteSpecHttpRouteMatchHeaderMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if invert is not None:
-            pulumi.set(__self__, "invert", invert)
+            _setter("invert", invert)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -3754,22 +4617,38 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
                  suffix: Optional[str] = None):
         """
         :param str exact: The exact path to match on.
-        :param str prefix: Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-               This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the value sent by the client must be included in.
+        :param str prefix: Header value sent by the client must begin with the specified characters.
+        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
-        :param str suffix: Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        :param str suffix: Header value sent by the client must end with the specified characters.
         """
+        RouteSpecHttpRouteMatchHeaderMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            range=range,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             range: Optional['outputs.RouteSpecHttpRouteMatchHeaderMatchRange'] = None,
+             regex: Optional[str] = None,
+             suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -3783,8 +4662,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        Header value sent by the client must begin with the specified characters.
         """
         return pulumi.get(self, "prefix")
 
@@ -3792,7 +4670,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def range(self) -> Optional['outputs.RouteSpecHttpRouteMatchHeaderMatchRange']:
         """
-        Object that specifies the range of numbers that the value sent by the client must be included in.
+        Object that specifies the range of numbers that the header value sent by the client must be included in.
         """
         return pulumi.get(self, "range")
 
@@ -3808,7 +4686,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
     @pulumi.getter
     def suffix(self) -> Optional[str]:
         """
-        Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        Header value sent by the client must end with the specified characters.
         """
         return pulumi.get(self, "suffix")
 
@@ -3822,8 +4700,19 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        RouteSpecHttpRouteMatchHeaderMatchRange._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -3848,19 +4737,30 @@ class RouteSpecHttpRouteMatchPath(dict):
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
         """
-        :param str exact: Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-        :param str regex: Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        :param str exact: Header value sent by the client must match the specified value exactly.
+        :param str regex: Header value sent by the client must include the specified characters.
         """
+        RouteSpecHttpRouteMatchPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             regex: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if regex is not None:
-            pulumi.set(__self__, "regex", regex)
+            _setter("regex", regex)
 
     @property
     @pulumi.getter
     def exact(self) -> Optional[str]:
         """
-        Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        Header value sent by the client must match the specified value exactly.
         """
         return pulumi.get(self, "exact")
 
@@ -3868,7 +4768,7 @@ class RouteSpecHttpRouteMatchPath(dict):
     @pulumi.getter
     def regex(self) -> Optional[str]:
         """
-        Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        Header value sent by the client must include the specified characters.
         """
         return pulumi.get(self, "regex")
 
@@ -3882,9 +4782,20 @@ class RouteSpecHttpRouteMatchQueryParameter(dict):
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param 'RouteSpecHttpRouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
         """
-        pulumi.set(__self__, "name", name)
+        RouteSpecHttpRouteMatchQueryParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             match: Optional['outputs.RouteSpecHttpRouteMatchQueryParameterMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
 
     @property
     @pulumi.getter
@@ -3910,8 +4821,17 @@ class RouteSpecHttpRouteMatchQueryParameterMatch(dict):
         """
         :param str exact: The exact path to match on.
         """
+        RouteSpecHttpRouteMatchQueryParameterMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -3957,18 +4877,29 @@ class RouteSpecHttpRouteRetryPolicy(dict):
         :param 'RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: Per-retry timeout.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-               Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
-               
-               
-               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
+        RouteSpecHttpRouteRetryPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_retries=max_retries,
+            per_retry_timeout=per_retry_timeout,
+            http_retry_events=http_retry_events,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_retries: int,
+             per_retry_timeout: 'outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout',
+             http_retry_events: Optional[Sequence[str]] = None,
+             tcp_retry_events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeout", per_retry_timeout)
         if http_retry_events is not None:
-            pulumi.set(__self__, "http_retry_events", http_retry_events)
+            _setter("http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+            _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -3992,7 +4923,6 @@ class RouteSpecHttpRouteRetryPolicy(dict):
         """
         List of HTTP retry events.
         Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         """
         return pulumi.get(self, "http_retry_events")
 
@@ -4001,9 +4931,6 @@ class RouteSpecHttpRouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
-
-
-        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -4017,8 +4944,19 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttpRouteRetryPolicyPerRetryTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4063,10 +5001,21 @@ class RouteSpecHttpRouteTimeout(dict):
         :param 'RouteSpecHttpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecHttpRouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
+        RouteSpecHttpRouteTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.RouteSpecHttpRouteTimeoutIdle'] = None,
+             per_request: Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -4094,8 +5043,19 @@ class RouteSpecHttpRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttpRouteTimeoutIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4123,8 +5083,19 @@ class RouteSpecHttpRouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecHttpRouteTimeoutPerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4154,11 +5125,24 @@ class RouteSpecTcpRoute(dict):
         :param 'RouteSpecTcpRouteMatchArgs' match: Criteria for determining an gRPC request match.
         :param 'RouteSpecTcpRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        pulumi.set(__self__, "action", action)
+        RouteSpecTcpRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            match=match,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RouteSpecTcpRouteAction',
+             match: Optional['outputs.RouteSpecTcpRouteMatch'] = None,
+             timeout: Optional['outputs.RouteSpecTcpRouteTimeout'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
         if match is not None:
-            pulumi.set(__self__, "match", match)
+            _setter("match", match)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -4210,7 +5194,16 @@ class RouteSpecTcpRouteAction(dict):
         :param Sequence['RouteSpecTcpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        RouteSpecTcpRouteAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -4250,10 +5243,23 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        RouteSpecTcpRouteActionWeightedTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node=virtual_node,
+            weight=weight,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node: str,
+             weight: int,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -4287,8 +5293,17 @@ class RouteSpecTcpRouteMatch(dict):
         """
         :param int port: The port number to match from the request.
         """
+        RouteSpecTcpRouteMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -4306,8 +5321,17 @@ class RouteSpecTcpRouteTimeout(dict):
         """
         :param 'RouteSpecTcpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
+        RouteSpecTcpRouteTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.RouteSpecTcpRouteTimeoutIdle'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
 
     @property
     @pulumi.getter
@@ -4327,8 +5351,19 @@ class RouteSpecTcpRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        RouteSpecTcpRouteTimeoutIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4375,11 +5410,24 @@ class VirtualGatewaySpec(dict):
         :param 'VirtualGatewaySpecBackendDefaultsArgs' backend_defaults: Defaults for backends.
         :param 'VirtualGatewaySpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual gateway.
         """
-        pulumi.set(__self__, "listeners", listeners)
+        VirtualGatewaySpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+            backend_defaults=backend_defaults,
+            logging=logging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: Sequence['outputs.VirtualGatewaySpecListener'],
+             backend_defaults: Optional['outputs.VirtualGatewaySpecBackendDefaults'] = None,
+             logging: Optional['outputs.VirtualGatewaySpecLogging'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("listeners", listeners)
         if backend_defaults is not None:
-            pulumi.set(__self__, "backend_defaults", backend_defaults)
+            _setter("backend_defaults", backend_defaults)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
 
     @property
     @pulumi.getter
@@ -4430,8 +5478,17 @@ class VirtualGatewaySpecBackendDefaults(dict):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual gateway backends.
         """
+        VirtualGatewaySpecBackendDefaults._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_policy=client_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_policy: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_policy is not None:
-            pulumi.set(__self__, "client_policy", client_policy)
+            _setter("client_policy", client_policy)
 
     @property
     @pulumi.getter(name="clientPolicy")
@@ -4449,8 +5506,17 @@ class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
+        VirtualGatewaySpecBackendDefaultsClientPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -4474,13 +5540,28 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        pulumi.set(__self__, "validation", validation)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation=validation,
+            certificate=certificate,
+            enforce=enforce,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
+             certificate: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate'] = None,
+             enforce: Optional[bool] = None,
+             ports: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("validation", validation)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if enforce is not None:
-            pulumi.set(__self__, "enforce", enforce)
+            _setter("enforce", enforce)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -4524,10 +5605,21 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
+             sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -4574,8 +5666,19 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -4618,7 +5721,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -4655,9 +5767,20 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
-        pulumi.set(__self__, "trust", trust)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trust=trust,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
+             subject_alternative_names: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trust", trust)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -4683,7 +5806,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        pulumi.set(__self__, "match", match)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -4701,7 +5833,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        pulumi.set(__self__, "exacts", exacts)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -4723,12 +5864,25 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm=acm,
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
+             file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
+             sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm is not None:
-            pulumi.set(__self__, "acm", acm)
+            _setter("acm", acm)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -4779,7 +5933,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -4814,7 +5977,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -4849,7 +6021,16 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -4894,13 +6075,28 @@ class VirtualGatewaySpecListener(dict):
         :param 'VirtualGatewaySpecListenerHealthCheckArgs' health_check: Health check information for the listener.
         :param 'VirtualGatewaySpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
         """
-        pulumi.set(__self__, "port_mapping", port_mapping)
+        VirtualGatewaySpecListener._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_mapping=port_mapping,
+            connection_pool=connection_pool,
+            health_check=health_check,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_mapping: 'outputs.VirtualGatewaySpecListenerPortMapping',
+             connection_pool: Optional['outputs.VirtualGatewaySpecListenerConnectionPool'] = None,
+             health_check: Optional['outputs.VirtualGatewaySpecListenerHealthCheck'] = None,
+             tls: Optional['outputs.VirtualGatewaySpecListenerTls'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port_mapping", port_mapping)
         if connection_pool is not None:
-            pulumi.set(__self__, "connection_pool", connection_pool)
+            _setter("connection_pool", connection_pool)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -4946,12 +6142,25 @@ class VirtualGatewaySpecListenerConnectionPool(dict):
         :param 'VirtualGatewaySpecListenerConnectionPoolHttpArgs' http: Connection pool information for HTTP listeners.
         :param 'VirtualGatewaySpecListenerConnectionPoolHttp2Args' http2: Connection pool information for HTTP2 listeners.
         """
+        VirtualGatewaySpecListenerConnectionPool._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc=grpc,
+            http=http,
+            http2=http2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolGrpc'] = None,
+             http: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp'] = None,
+             http2: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp2'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc is not None:
-            pulumi.set(__self__, "grpc", grpc)
+            _setter("grpc", grpc)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if http2 is not None:
-            pulumi.set(__self__, "http2", http2)
+            _setter("http2", http2)
 
     @property
     @pulumi.getter
@@ -5002,7 +6211,16 @@ class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        pulumi.set(__self__, "max_requests", max_requests)
+        VirtualGatewaySpecListenerConnectionPoolGrpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -5037,7 +6255,16 @@ class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        pulumi.set(__self__, "max_requests", max_requests)
+        VirtualGatewaySpecListenerConnectionPoolHttp2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -5078,9 +6305,20 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
                
                The `http2` connection pool object supports the following:
         """
-        pulumi.set(__self__, "max_connections", max_connections)
+        VirtualGatewaySpecListenerConnectionPoolHttp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+            max_pending_requests=max_pending_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             max_pending_requests: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
         if max_pending_requests is not None:
-            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+            _setter("max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -5143,15 +6381,36 @@ class VirtualGatewaySpecListenerHealthCheck(dict):
         :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        VirtualGatewaySpecListenerHealthCheck._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval_millis=interval_millis,
+            protocol=protocol,
+            timeout_millis=timeout_millis,
+            unhealthy_threshold=unhealthy_threshold,
+            path=path,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: int,
+             interval_millis: int,
+             protocol: str,
+             timeout_millis: int,
+             unhealthy_threshold: int,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval_millis", interval_millis)
+        _setter("protocol", protocol)
+        _setter("timeout_millis", timeout_millis)
+        _setter("unhealthy_threshold", unhealthy_threshold)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -5219,8 +6478,19 @@ class VirtualGatewaySpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        VirtualGatewaySpecListenerPortMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -5250,10 +6520,23 @@ class VirtualGatewaySpecListenerTls(dict):
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         :param 'VirtualGatewaySpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "mode", mode)
+        VirtualGatewaySpecListenerTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            mode=mode,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: 'outputs.VirtualGatewaySpecListenerTlsCertificate',
+             mode: str,
+             validation: Optional['outputs.VirtualGatewaySpecListenerTlsValidation'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate", certificate)
+        _setter("mode", mode)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -5291,12 +6574,25 @@ class VirtualGatewaySpecListenerTlsCertificate(dict):
         :param 'VirtualGatewaySpecListenerTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualGatewaySpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualGatewaySpecListenerTlsCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm=acm,
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm'] = None,
+             file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None,
+             sds: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm is not None:
-            pulumi.set(__self__, "acm", acm)
+            _setter("acm", acm)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -5347,7 +6643,16 @@ class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
         """
         :param str certificate_arn: ARN for the certificate.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        VirtualGatewaySpecListenerTlsCertificateAcm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -5386,8 +6691,19 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        VirtualGatewaySpecListenerTlsCertificateFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -5430,7 +6746,16 @@ class VirtualGatewaySpecListenerTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualGatewaySpecListenerTlsCertificateSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -5467,9 +6792,20 @@ class VirtualGatewaySpecListenerTlsValidation(dict):
         :param 'VirtualGatewaySpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
-        pulumi.set(__self__, "trust", trust)
+        VirtualGatewaySpecListenerTlsValidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trust=trust,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trust: 'outputs.VirtualGatewaySpecListenerTlsValidationTrust',
+             subject_alternative_names: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trust", trust)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -5495,7 +6831,16 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        pulumi.set(__self__, "match", match)
+        VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -5513,7 +6858,16 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        pulumi.set(__self__, "exacts", exacts)
+        VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -5533,10 +6887,21 @@ class VirtualGatewaySpecListenerTlsValidationTrust(dict):
         :param 'VirtualGatewaySpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualGatewaySpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualGatewaySpecListenerTlsValidationTrust._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustFile'] = None,
+             sds: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -5579,7 +6944,16 @@ class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        VirtualGatewaySpecListenerTlsValidationTrustFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -5614,7 +6988,16 @@ class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualGatewaySpecListenerTlsValidationTrustSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -5649,8 +7032,17 @@ class VirtualGatewaySpecLogging(dict):
         """
         :param 'VirtualGatewaySpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual gateway.
         """
+        VirtualGatewaySpecLogging._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_log=access_log,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_log: Optional['outputs.VirtualGatewaySpecLoggingAccessLog'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_log is not None:
-            pulumi.set(__self__, "access_log", access_log)
+            _setter("access_log", access_log)
 
     @property
     @pulumi.getter(name="accessLog")
@@ -5668,8 +7060,17 @@ class VirtualGatewaySpecLoggingAccessLog(dict):
         """
         :param 'VirtualGatewaySpecLoggingAccessLogFileArgs' file: File object to send virtual gateway access logs to.
         """
+        VirtualGatewaySpecLoggingAccessLog._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFile'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
 
     @property
     @pulumi.getter
@@ -5689,9 +7090,20 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         :param 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
-        pulumi.set(__self__, "path", path)
+        VirtualGatewaySpecLoggingAccessLogFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             format: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFileFormat'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -5719,10 +7131,21 @@ class VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
         :param Sequence['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
+        VirtualGatewaySpecLoggingAccessLogFileFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jsons=jsons,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jsons: Optional[Sequence['outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson']] = None,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if jsons is not None:
-            pulumi.set(__self__, "jsons", jsons)
+            _setter("jsons", jsons)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter
@@ -5750,8 +7173,19 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
         :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
         :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        VirtualGatewaySpecLoggingAccessLogFileFormatJson._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -5804,16 +7238,33 @@ class VirtualNodeSpec(dict):
         :param 'VirtualNodeSpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryArgs' service_discovery: Service discovery information for the virtual node.
         """
+        VirtualNodeSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_defaults=backend_defaults,
+            backends=backends,
+            listeners=listeners,
+            logging=logging,
+            service_discovery=service_discovery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_defaults: Optional['outputs.VirtualNodeSpecBackendDefaults'] = None,
+             backends: Optional[Sequence['outputs.VirtualNodeSpecBackend']] = None,
+             listeners: Optional[Sequence['outputs.VirtualNodeSpecListener']] = None,
+             logging: Optional['outputs.VirtualNodeSpecLogging'] = None,
+             service_discovery: Optional['outputs.VirtualNodeSpecServiceDiscovery'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_defaults is not None:
-            pulumi.set(__self__, "backend_defaults", backend_defaults)
+            _setter("backend_defaults", backend_defaults)
         if backends is not None:
-            pulumi.set(__self__, "backends", backends)
+            _setter("backends", backends)
         if listeners is not None:
-            pulumi.set(__self__, "listeners", listeners)
+            _setter("listeners", listeners)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if service_discovery is not None:
-            pulumi.set(__self__, "service_discovery", service_discovery)
+            _setter("service_discovery", service_discovery)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -5880,7 +7331,16 @@ class VirtualNodeSpecBackend(dict):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceArgs' virtual_service: Virtual service to use as a backend for a virtual node.
         """
-        pulumi.set(__self__, "virtual_service", virtual_service)
+        VirtualNodeSpecBackend._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service=virtual_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service: 'outputs.VirtualNodeSpecBackendVirtualService',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service", virtual_service)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -5915,8 +7375,17 @@ class VirtualNodeSpecBackendDefaults(dict):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual service backends. See above for details.
         """
+        VirtualNodeSpecBackendDefaults._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_policy=client_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_policy: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_policy is not None:
-            pulumi.set(__self__, "client_policy", client_policy)
+            _setter("client_policy", client_policy)
 
     @property
     @pulumi.getter(name="clientPolicy")
@@ -5934,8 +7403,17 @@ class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
+        VirtualNodeSpecBackendDefaultsClientPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -5959,13 +7437,28 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        pulumi.set(__self__, "validation", validation)
+        VirtualNodeSpecBackendDefaultsClientPolicyTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation=validation,
+            certificate=certificate,
+            enforce=enforce,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
+             certificate: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate'] = None,
+             enforce: Optional[bool] = None,
+             ports: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("validation", validation)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if enforce is not None:
-            pulumi.set(__self__, "enforce", enforce)
+            _setter("enforce", enforce)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -6009,10 +7502,21 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -6059,8 +7563,19 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6103,7 +7618,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6140,9 +7664,20 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        pulumi.set(__self__, "trust", trust)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trust=trust,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
+             subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trust", trust)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -6168,7 +7703,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        pulumi.set(__self__, "match", match)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -6186,7 +7730,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        pulumi.set(__self__, "exacts", exacts)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -6208,12 +7761,25 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm=acm,
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
+             file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm is not None:
-            pulumi.set(__self__, "acm", acm)
+            _setter("acm", acm)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -6264,7 +7830,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -6299,7 +7874,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6334,7 +7918,16 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6373,9 +7966,20 @@ class VirtualNodeSpecBackendVirtualService(dict):
         :param str virtual_service_name: Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArgs' client_policy: Client policy for the backend.
         """
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        VirtualNodeSpecBackendVirtualService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+            client_policy=client_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
         if client_policy is not None:
-            pulumi.set(__self__, "client_policy", client_policy)
+            _setter("client_policy", client_policy)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -6401,8 +8005,17 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
+        VirtualNodeSpecBackendVirtualServiceClientPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -6426,13 +8039,28 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        pulumi.set(__self__, "validation", validation)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation=validation,
+            certificate=certificate,
+            enforce=enforce,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
+             certificate: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate'] = None,
+             enforce: Optional[bool] = None,
+             ports: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("validation", validation)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if enforce is not None:
-            pulumi.set(__self__, "enforce", enforce)
+            _setter("enforce", enforce)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -6476,10 +8104,21 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -6526,8 +8165,19 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6570,7 +8220,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6607,9 +8266,20 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        pulumi.set(__self__, "trust", trust)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trust=trust,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
+             subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trust", trust)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -6635,7 +8305,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        pulumi.set(__self__, "match", match)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -6653,7 +8332,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        pulumi.set(__self__, "exacts", exacts)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -6675,12 +8363,25 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm=acm,
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
+             file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm is not None:
-            pulumi.set(__self__, "acm", acm)
+            _setter("acm", acm)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -6731,7 +8432,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -6766,7 +8476,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6801,7 +8520,16 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6852,17 +8580,36 @@ class VirtualNodeSpecListener(dict):
         :param 'VirtualNodeSpecListenerTimeoutArgs' timeout: Timeouts for different protocols.
         :param 'VirtualNodeSpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
         """
-        pulumi.set(__self__, "port_mapping", port_mapping)
+        VirtualNodeSpecListener._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_mapping=port_mapping,
+            connection_pool=connection_pool,
+            health_check=health_check,
+            outlier_detection=outlier_detection,
+            timeout=timeout,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_mapping: 'outputs.VirtualNodeSpecListenerPortMapping',
+             connection_pool: Optional['outputs.VirtualNodeSpecListenerConnectionPool'] = None,
+             health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None,
+             outlier_detection: Optional['outputs.VirtualNodeSpecListenerOutlierDetection'] = None,
+             timeout: Optional['outputs.VirtualNodeSpecListenerTimeout'] = None,
+             tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port_mapping", port_mapping)
         if connection_pool is not None:
-            pulumi.set(__self__, "connection_pool", connection_pool)
+            _setter("connection_pool", connection_pool)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if outlier_detection is not None:
-            pulumi.set(__self__, "outlier_detection", outlier_detection)
+            _setter("outlier_detection", outlier_detection)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -6926,14 +8673,29 @@ class VirtualNodeSpecListenerConnectionPool(dict):
         :param Sequence['VirtualNodeSpecListenerConnectionPoolHttpArgs'] https: Connection pool information for HTTP listeners.
         :param Sequence['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcps: Connection pool information for TCP listeners.
         """
+        VirtualNodeSpecListenerConnectionPool._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc=grpc,
+            http2s=http2s,
+            https=https,
+            tcps=tcps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc: Optional['outputs.VirtualNodeSpecListenerConnectionPoolGrpc'] = None,
+             http2s: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp2']] = None,
+             https: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp']] = None,
+             tcps: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolTcp']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc is not None:
-            pulumi.set(__self__, "grpc", grpc)
+            _setter("grpc", grpc)
         if http2s is not None:
-            pulumi.set(__self__, "http2s", http2s)
+            _setter("http2s", http2s)
         if https is not None:
-            pulumi.set(__self__, "https", https)
+            _setter("https", https)
         if tcps is not None:
-            pulumi.set(__self__, "tcps", tcps)
+            _setter("tcps", tcps)
 
     @property
     @pulumi.getter
@@ -6992,7 +8754,16 @@ class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        pulumi.set(__self__, "max_requests", max_requests)
+        VirtualNodeSpecListenerConnectionPoolGrpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -7027,7 +8798,16 @@ class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        pulumi.set(__self__, "max_requests", max_requests)
+        VirtualNodeSpecListenerConnectionPoolHttp2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -7068,9 +8848,20 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
                
                The `http2` connection pool object supports the following:
         """
-        pulumi.set(__self__, "max_connections", max_connections)
+        VirtualNodeSpecListenerConnectionPoolHttp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+            max_pending_requests=max_pending_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             max_pending_requests: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
         if max_pending_requests is not None:
-            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+            _setter("max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -7115,7 +8906,16 @@ class VirtualNodeSpecListenerConnectionPoolTcp(dict):
         """
         :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         """
-        pulumi.set(__self__, "max_connections", max_connections)
+        VirtualNodeSpecListenerConnectionPoolTcp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -7168,15 +8968,36 @@ class VirtualNodeSpecListenerHealthCheck(dict):
         :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        VirtualNodeSpecListenerHealthCheck._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval_millis=interval_millis,
+            protocol=protocol,
+            timeout_millis=timeout_millis,
+            unhealthy_threshold=unhealthy_threshold,
+            path=path,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: int,
+             interval_millis: int,
+             protocol: str,
+             timeout_millis: int,
+             unhealthy_threshold: int,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval_millis", interval_millis)
+        _setter("protocol", protocol)
+        _setter("timeout_millis", timeout_millis)
+        _setter("unhealthy_threshold", unhealthy_threshold)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -7270,10 +9091,25 @@ class VirtualNodeSpecListenerOutlierDetection(dict):
                Minimum value of `0`. Maximum value of `100`.
         :param int max_server_errors: Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
         """
-        pulumi.set(__self__, "base_ejection_duration", base_ejection_duration)
-        pulumi.set(__self__, "interval", interval)
-        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
-        pulumi.set(__self__, "max_server_errors", max_server_errors)
+        VirtualNodeSpecListenerOutlierDetection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_ejection_duration=base_ejection_duration,
+            interval=interval,
+            max_ejection_percent=max_ejection_percent,
+            max_server_errors=max_server_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_ejection_duration: 'outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration',
+             interval: 'outputs.VirtualNodeSpecListenerOutlierDetectionInterval',
+             max_ejection_percent: int,
+             max_server_errors: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_ejection_duration", base_ejection_duration)
+        _setter("interval", interval)
+        _setter("max_ejection_percent", max_ejection_percent)
+        _setter("max_server_errors", max_server_errors)
 
     @property
     @pulumi.getter(name="baseEjectionDuration")
@@ -7318,8 +9154,19 @@ class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7345,10 +9192,21 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerOutlierDetectionInterval._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7362,7 +9220,7 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        Number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
 
@@ -7376,8 +9234,19 @@ class VirtualNodeSpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        VirtualNodeSpecListenerPortMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -7409,14 +9278,29 @@ class VirtualNodeSpecListenerTimeout(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttp2Args' http2: Timeouts for HTTP2 listeners.
         :param 'VirtualNodeSpecListenerTimeoutTcpArgs' tcp: Timeouts for TCP listeners.
         """
+        VirtualNodeSpecListenerTimeout._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc=grpc,
+            http=http,
+            http2=http2,
+            tcp=tcp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpc'] = None,
+             http: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp'] = None,
+             http2: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2'] = None,
+             tcp: Optional['outputs.VirtualNodeSpecListenerTimeoutTcp'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc is not None:
-            pulumi.set(__self__, "grpc", grpc)
+            _setter("grpc", grpc)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if http2 is not None:
-            pulumi.set(__self__, "http2", http2)
+            _setter("http2", http2)
         if tcp is not None:
-            pulumi.set(__self__, "tcp", tcp)
+            _setter("tcp", tcp)
 
     @property
     @pulumi.getter
@@ -7477,10 +9361,21 @@ class VirtualNodeSpecListenerTimeoutGrpc(dict):
         :param 'VirtualNodeSpecListenerTimeoutGrpcIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs' per_request: Per request timeout.
         """
+        VirtualNodeSpecListenerTimeoutGrpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle'] = None,
+             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -7508,8 +9403,19 @@ class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutGrpcIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7535,10 +9441,21 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutGrpcPerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7552,7 +9469,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        Number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
 
@@ -7583,10 +9500,21 @@ class VirtualNodeSpecListenerTimeoutHttp2(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttp2IdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs' per_request: Per request timeout.
         """
+        VirtualNodeSpecListenerTimeoutHttp2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle'] = None,
+             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -7614,8 +9542,19 @@ class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutHttp2Idle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7641,10 +9580,21 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutHttp2PerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7658,7 +9608,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        Number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
 
@@ -7689,10 +9639,21 @@ class VirtualNodeSpecListenerTimeoutHttp(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutHttpPerRequestArgs' per_request: Per request timeout.
         """
+        VirtualNodeSpecListenerTimeoutHttp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+            per_request=per_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle'] = None,
+             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
         if per_request is not None:
-            pulumi.set(__self__, "per_request", per_request)
+            _setter("per_request", per_request)
 
     @property
     @pulumi.getter
@@ -7720,8 +9681,19 @@ class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutHttpIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7747,10 +9719,21 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
                  value: int):
         """
         :param str unit: Unit of time. Valid values: `ms`, `s`.
-        :param int value: The specified value for the JSON. Must be between 1 and 100 characters in length.
+        :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutHttpPerRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7764,7 +9747,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
     @pulumi.getter
     def value(self) -> int:
         """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
+        Number of time units. Minimum value of `0`.
         """
         return pulumi.get(self, "value")
 
@@ -7776,8 +9759,17 @@ class VirtualNodeSpecListenerTimeoutTcp(dict):
         """
         :param 'VirtualNodeSpecListenerTimeoutTcpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
+        VirtualNodeSpecListenerTimeoutTcp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle=idle,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutTcpIdle'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if idle is not None:
-            pulumi.set(__self__, "idle", idle)
+            _setter("idle", idle)
 
     @property
     @pulumi.getter
@@ -7797,8 +9789,19 @@ class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecListenerTimeoutTcpIdle._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -7828,10 +9831,23 @@ class VirtualNodeSpecListenerTls(dict):
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         :param 'VirtualNodeSpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "mode", mode)
+        VirtualNodeSpecListenerTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            mode=mode,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: 'outputs.VirtualNodeSpecListenerTlsCertificate',
+             mode: str,
+             validation: Optional['outputs.VirtualNodeSpecListenerTlsValidation'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate", certificate)
+        _setter("mode", mode)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -7869,12 +9885,25 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
         :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecListenerTlsCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acm=acm,
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
+             file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecListenerTlsCertificateSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acm is not None:
-            pulumi.set(__self__, "acm", acm)
+            _setter("acm", acm)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -7925,7 +9954,16 @@ class VirtualNodeSpecListenerTlsCertificateAcm(dict):
         """
         :param str certificate_arn: ARN for the certificate.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        VirtualNodeSpecListenerTlsCertificateAcm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -7964,8 +10002,19 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        VirtualNodeSpecListenerTlsCertificateFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -8008,7 +10057,16 @@ class VirtualNodeSpecListenerTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecListenerTlsCertificateSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -8045,9 +10103,20 @@ class VirtualNodeSpecListenerTlsValidation(dict):
         :param 'VirtualNodeSpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        pulumi.set(__self__, "trust", trust)
+        VirtualNodeSpecListenerTlsValidation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trust=trust,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trust: 'outputs.VirtualNodeSpecListenerTlsValidationTrust',
+             subject_alternative_names: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trust", trust)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -8073,7 +10142,16 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        pulumi.set(__self__, "match", match)
+        VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
 
     @property
     @pulumi.getter
@@ -8091,7 +10169,16 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        pulumi.set(__self__, "exacts", exacts)
+        VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -8111,10 +10198,21 @@ class VirtualNodeSpecListenerTlsValidationTrust(dict):
         :param 'VirtualNodeSpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
+        VirtualNodeSpecListenerTlsValidationTrust._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustFile'] = None,
+             sds: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustSds'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if sds is not None:
-            pulumi.set(__self__, "sds", sds)
+            _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -8157,7 +10255,16 @@ class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        VirtualNodeSpecListenerTlsValidationTrustFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -8192,7 +10299,16 @@ class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        VirtualNodeSpecListenerTlsValidationTrustSds._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -8227,8 +10343,17 @@ class VirtualNodeSpecLogging(dict):
         """
         :param 'VirtualNodeSpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual node.
         """
+        VirtualNodeSpecLogging._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_log=access_log,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_log: Optional['outputs.VirtualNodeSpecLoggingAccessLog'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_log is not None:
-            pulumi.set(__self__, "access_log", access_log)
+            _setter("access_log", access_log)
 
     @property
     @pulumi.getter(name="accessLog")
@@ -8246,8 +10371,17 @@ class VirtualNodeSpecLoggingAccessLog(dict):
         """
         :param 'VirtualNodeSpecLoggingAccessLogFileArgs' file: File object to send virtual node access logs to.
         """
+        VirtualNodeSpecLoggingAccessLog._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: Optional['outputs.VirtualNodeSpecLoggingAccessLogFile'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
 
     @property
     @pulumi.getter
@@ -8267,9 +10401,20 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         :param 'VirtualNodeSpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
-        pulumi.set(__self__, "path", path)
+        VirtualNodeSpecLoggingAccessLogFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: str,
+             format: Optional['outputs.VirtualNodeSpecLoggingAccessLogFileFormat'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("path", path)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -8297,10 +10442,21 @@ class VirtualNodeSpecLoggingAccessLogFileFormat(dict):
         :param Sequence['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
+        VirtualNodeSpecLoggingAccessLogFileFormat._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jsons=jsons,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jsons: Optional[Sequence['outputs.VirtualNodeSpecLoggingAccessLogFileFormatJson']] = None,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if jsons is not None:
-            pulumi.set(__self__, "jsons", jsons)
+            _setter("jsons", jsons)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter
@@ -8328,8 +10484,19 @@ class VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
         :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
         :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        VirtualNodeSpecLoggingAccessLogFileFormatJson._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -8374,10 +10541,21 @@ class VirtualNodeSpecServiceDiscovery(dict):
         :param 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs' aws_cloud_map: Any AWS Cloud Map information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryDnsArgs' dns: DNS service name for the virtual node.
         """
+        VirtualNodeSpecServiceDiscovery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_cloud_map=aws_cloud_map,
+            dns=dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_cloud_map: Optional['outputs.VirtualNodeSpecServiceDiscoveryAwsCloudMap'] = None,
+             dns: Optional['outputs.VirtualNodeSpecServiceDiscoveryDns'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_cloud_map is not None:
-            pulumi.set(__self__, "aws_cloud_map", aws_cloud_map)
+            _setter("aws_cloud_map", aws_cloud_map)
         if dns is not None:
-            pulumi.set(__self__, "dns", dns)
+            _setter("dns", dns)
 
     @property
     @pulumi.getter(name="awsCloudMap")
@@ -8427,10 +10605,23 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
         :param str service_name: Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         :param Mapping[str, str] attributes: String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "service_name", service_name)
+        VirtualNodeSpecServiceDiscoveryAwsCloudMap._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            service_name=service_name,
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: str,
+             service_name: str,
+             attributes: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_name", namespace_name)
+        _setter("service_name", service_name)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -8488,11 +10679,24 @@ class VirtualNodeSpecServiceDiscoveryDns(dict):
         :param str ip_preference: The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
         :param str response_type: The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
         """
-        pulumi.set(__self__, "hostname", hostname)
+        VirtualNodeSpecServiceDiscoveryDns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostname=hostname,
+            ip_preference=ip_preference,
+            response_type=response_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostname: str,
+             ip_preference: Optional[str] = None,
+             response_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostname", hostname)
         if ip_preference is not None:
-            pulumi.set(__self__, "ip_preference", ip_preference)
+            _setter("ip_preference", ip_preference)
         if response_type is not None:
-            pulumi.set(__self__, "response_type", response_type)
+            _setter("response_type", response_type)
 
     @property
     @pulumi.getter
@@ -8527,8 +10731,17 @@ class VirtualRouterSpec(dict):
         :param Sequence['VirtualRouterSpecListenerArgs'] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
                Currently only one listener is supported per virtual router.
         """
+        VirtualRouterSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: Optional[Sequence['outputs.VirtualRouterSpecListener']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if listeners is not None:
-            pulumi.set(__self__, "listeners", listeners)
+            _setter("listeners", listeners)
 
     @property
     @pulumi.getter
@@ -8564,7 +10777,16 @@ class VirtualRouterSpecListener(dict):
         """
         :param 'VirtualRouterSpecListenerPortMappingArgs' port_mapping: Port mapping information for the listener.
         """
-        pulumi.set(__self__, "port_mapping", port_mapping)
+        VirtualRouterSpecListener._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_mapping=port_mapping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_mapping: 'outputs.VirtualRouterSpecListenerPortMapping',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port_mapping", port_mapping)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -8584,8 +10806,19 @@ class VirtualRouterSpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        VirtualRouterSpecListenerPortMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -8611,8 +10844,17 @@ class VirtualServiceSpec(dict):
         """
         :param 'VirtualServiceSpecProviderArgs' provider: App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
         """
+        VirtualServiceSpec._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: Optional['outputs.VirtualServiceSpecProvider'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -8651,10 +10893,21 @@ class VirtualServiceSpecProvider(dict):
         :param 'VirtualServiceSpecProviderVirtualNodeArgs' virtual_node: Virtual node associated with a virtual service.
         :param 'VirtualServiceSpecProviderVirtualRouterArgs' virtual_router: Virtual router associated with a virtual service.
         """
+        VirtualServiceSpecProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node=virtual_node,
+            virtual_router=virtual_router,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node: Optional['outputs.VirtualServiceSpecProviderVirtualNode'] = None,
+             virtual_router: Optional['outputs.VirtualServiceSpecProviderVirtualRouter'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if virtual_node is not None:
-            pulumi.set(__self__, "virtual_node", virtual_node)
+            _setter("virtual_node", virtual_node)
         if virtual_router is not None:
-            pulumi.set(__self__, "virtual_router", virtual_router)
+            _setter("virtual_router", virtual_router)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -8697,7 +10950,16 @@ class VirtualServiceSpecProviderVirtualNode(dict):
         """
         :param str virtual_node_name: Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
+        VirtualServiceSpecProviderVirtualNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node_name=virtual_node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node_name", virtual_node_name)
 
     @property
     @pulumi.getter(name="virtualNodeName")
@@ -8732,7 +10994,16 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
         """
         :param str virtual_router_name: Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+        VirtualServiceSpecProviderVirtualRouter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_router_name=virtual_router_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_router_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="virtualRouterName")
@@ -8750,10 +11021,25 @@ class GetGatewayRouteSpecResult(dict):
                  http2_routes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult'],
                  http_routes: Sequence['outputs.GetGatewayRouteSpecHttpRouteResult'],
                  priority: int):
-        pulumi.set(__self__, "grpc_routes", grpc_routes)
-        pulumi.set(__self__, "http2_routes", http2_routes)
-        pulumi.set(__self__, "http_routes", http_routes)
-        pulumi.set(__self__, "priority", priority)
+        GetGatewayRouteSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc_routes=grpc_routes,
+            http2_routes=http2_routes,
+            http_routes=http_routes,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc_routes: Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult'],
+             http2_routes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult'],
+             http_routes: Sequence['outputs.GetGatewayRouteSpecHttpRouteResult'],
+             priority: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpc_routes", grpc_routes)
+        _setter("http2_routes", http2_routes)
+        _setter("http_routes", http_routes)
+        _setter("priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoutes")
@@ -8781,8 +11067,19 @@ class GetGatewayRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+        GetGatewayRouteSpecGrpcRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult'],
+             matches: Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -8799,7 +11096,16 @@ class GetGatewayRouteSpecGrpcRouteResult(dict):
 class GetGatewayRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  targets: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']):
-        pulumi.set(__self__, "targets", targets)
+        GetGatewayRouteSpecGrpcRouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             targets: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("targets", targets)
 
     @property
     @pulumi.getter
@@ -8812,8 +11118,19 @@ class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+        GetGatewayRouteSpecGrpcRouteActionTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_services=virtual_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_services: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -8830,7 +11147,16 @@ class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
 class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -8843,8 +11169,19 @@ class GetGatewayRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int,
                  service_name: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "service_name", service_name)
+        GetGatewayRouteSpecGrpcRouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -8862,8 +11199,19 @@ class GetGatewayRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+        GetGatewayRouteSpecHttp2RouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult'],
+             matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -8881,8 +11229,19 @@ class GetGatewayRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']):
-        pulumi.set(__self__, "rewrites", rewrites)
-        pulumi.set(__self__, "targets", targets)
+        GetGatewayRouteSpecHttp2RouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rewrites=rewrites,
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rewrites: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult'],
+             targets: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rewrites", rewrites)
+        _setter("targets", targets)
 
     @property
     @pulumi.getter
@@ -8901,9 +11260,22 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult'],
                  prefixes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']):
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "prefixes", prefixes)
+        GetGatewayRouteSpecHttp2RouteActionRewriteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostnames=hostnames,
+            paths=paths,
+            prefixes=prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult'],
+             paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult'],
+             prefixes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostnames", hostnames)
+        _setter("paths", paths)
+        _setter("prefixes", prefixes)
 
     @property
     @pulumi.getter
@@ -8925,7 +11297,16 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+        GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_target_hostname=default_target_hostname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_target_hostname: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -8937,7 +11318,16 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetGatewayRouteSpecHttp2RouteActionRewritePathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -8950,8 +11340,19 @@ class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
-        pulumi.set(__self__, "default_prefix", default_prefix)
-        pulumi.set(__self__, "value", value)
+        GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_prefix=default_prefix,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_prefix: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_prefix", default_prefix)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -8969,8 +11370,19 @@ class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+        GetGatewayRouteSpecHttp2RouteActionTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_services=virtual_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_services: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -8987,7 +11399,16 @@ class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -9004,12 +11425,31 @@ class GetGatewayRouteSpecHttp2RouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  query_parameters: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
+        GetGatewayRouteSpecHttp2RouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            hostnames=hostnames,
+            paths=paths,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult'],
+             hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult'],
+             paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult'],
+             port: int,
+             prefix: str,
+             query_parameters: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("hostnames", hostnames)
+        _setter("paths", paths)
+        _setter("port", port)
+        _setter("prefix", prefix)
+        _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -9051,9 +11491,22 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetGatewayRouteSpecHttp2RouteMatchHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invert=invert,
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invert: bool,
+             matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("invert", invert)
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9082,11 +11535,28 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+        GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            ranges=ranges,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             prefix: str,
+             ranges: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
+             regex: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("prefix", prefix)
+        _setter("ranges", ranges)
+        _setter("regex", regex)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -9119,8 +11589,19 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -9138,8 +11619,19 @@ class GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "suffix", suffix)
+        GetGatewayRouteSpecHttp2RouteMatchHostnameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -9157,8 +11649,19 @@ class GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+        GetGatewayRouteSpecHttp2RouteMatchPathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             regex: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -9179,8 +11682,19 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9200,7 +11714,16 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 class GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -9213,8 +11736,19 @@ class GetGatewayRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
+        GetGatewayRouteSpecHttpRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult'],
+             matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -9232,8 +11766,19 @@ class GetGatewayRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']):
-        pulumi.set(__self__, "rewrites", rewrites)
-        pulumi.set(__self__, "targets", targets)
+        GetGatewayRouteSpecHttpRouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rewrites=rewrites,
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rewrites: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult'],
+             targets: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rewrites", rewrites)
+        _setter("targets", targets)
 
     @property
     @pulumi.getter
@@ -9252,9 +11797,22 @@ class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult'],
                  prefixes: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']):
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "prefixes", prefixes)
+        GetGatewayRouteSpecHttpRouteActionRewriteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostnames=hostnames,
+            paths=paths,
+            prefixes=prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult'],
+             paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult'],
+             prefixes: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostnames", hostnames)
+        _setter("paths", paths)
+        _setter("prefixes", prefixes)
 
     @property
     @pulumi.getter
@@ -9276,7 +11834,16 @@ class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
 class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
-        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
+        GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_target_hostname=default_target_hostname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_target_hostname: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -9288,7 +11855,16 @@ class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
 class GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetGatewayRouteSpecHttpRouteActionRewritePathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -9301,8 +11877,19 @@ class GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
-        pulumi.set(__self__, "default_prefix", default_prefix)
-        pulumi.set(__self__, "value", value)
+        GetGatewayRouteSpecHttpRouteActionRewritePrefixResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_prefix=default_prefix,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_prefix: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_prefix", default_prefix)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -9320,8 +11907,19 @@ class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_services", virtual_services)
+        GetGatewayRouteSpecHttpRouteActionTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_services=virtual_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_services: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -9338,7 +11936,16 @@ class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
 class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -9355,12 +11962,31 @@ class GetGatewayRouteSpecHttpRouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  query_parameters: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "hostnames", hostnames)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
+        GetGatewayRouteSpecHttpRouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            hostnames=hostnames,
+            paths=paths,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult'],
+             hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult'],
+             paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult'],
+             port: int,
+             prefix: str,
+             query_parameters: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("hostnames", hostnames)
+        _setter("paths", paths)
+        _setter("port", port)
+        _setter("prefix", prefix)
+        _setter("query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -9402,9 +12028,22 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetGatewayRouteSpecHttpRouteMatchHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invert=invert,
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invert: bool,
+             matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("invert", invert)
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9433,11 +12072,28 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+        GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            ranges=ranges,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             prefix: str,
+             ranges: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
+             regex: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("prefix", prefix)
+        _setter("ranges", ranges)
+        _setter("regex", regex)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -9470,8 +12126,19 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -9489,8 +12156,19 @@ class GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "suffix", suffix)
+        GetGatewayRouteSpecHttpRouteMatchHostnameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -9508,8 +12186,19 @@ class GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+        GetGatewayRouteSpecHttpRouteMatchPathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             regex: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -9530,8 +12219,19 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetGatewayRouteSpecHttpRouteMatchQueryParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9551,7 +12251,16 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
 class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -9563,7 +12272,16 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
 class GetMeshSpecResult(dict):
     def __init__(__self__, *,
                  egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
-        pulumi.set(__self__, "egress_filters", egress_filters)
+        GetMeshSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            egress_filters=egress_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("egress_filters", egress_filters)
 
     @property
     @pulumi.getter(name="egressFilters")
@@ -9575,7 +12293,16 @@ class GetMeshSpecResult(dict):
 class GetMeshSpecEgressFilterResult(dict):
     def __init__(__self__, *,
                  type: str):
-        pulumi.set(__self__, "type", type)
+        GetMeshSpecEgressFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -9591,11 +12318,28 @@ class GetRouteSpecResult(dict):
                  http_routes: Sequence['outputs.GetRouteSpecHttpRouteResult'],
                  priority: int,
                  tcp_routes: Sequence['outputs.GetRouteSpecTcpRouteResult']):
-        pulumi.set(__self__, "grpc_routes", grpc_routes)
-        pulumi.set(__self__, "http2_routes", http2_routes)
-        pulumi.set(__self__, "http_routes", http_routes)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "tcp_routes", tcp_routes)
+        GetRouteSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc_routes=grpc_routes,
+            http2_routes=http2_routes,
+            http_routes=http_routes,
+            priority=priority,
+            tcp_routes=tcp_routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc_routes: Sequence['outputs.GetRouteSpecGrpcRouteResult'],
+             http2_routes: Sequence['outputs.GetRouteSpecHttp2RouteResult'],
+             http_routes: Sequence['outputs.GetRouteSpecHttpRouteResult'],
+             priority: int,
+             tcp_routes: Sequence['outputs.GetRouteSpecTcpRouteResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpc_routes", grpc_routes)
+        _setter("http2_routes", http2_routes)
+        _setter("http_routes", http_routes)
+        _setter("priority", priority)
+        _setter("tcp_routes", tcp_routes)
 
     @property
     @pulumi.getter(name="grpcRoutes")
@@ -9630,10 +12374,25 @@ class GetRouteSpecGrpcRouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+        GetRouteSpecGrpcRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+            retry_policies=retry_policies,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetRouteSpecGrpcRouteActionResult'],
+             matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
+             retry_policies: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult'],
+             timeouts: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
+        _setter("retry_policies", retry_policies)
+        _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -9660,7 +12419,16 @@ class GetRouteSpecGrpcRouteResult(dict):
 class GetRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        GetRouteSpecGrpcRouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -9674,9 +12442,22 @@ class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        GetRouteSpecGrpcRouteActionWeightedTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_node=virtual_node,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_node: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -9702,11 +12483,28 @@ class GetRouteSpecGrpcRouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  service_name: str):
-        pulumi.set(__self__, "metadatas", metadatas)
-        pulumi.set(__self__, "method_name", method_name)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "service_name", service_name)
+        GetRouteSpecGrpcRouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metadatas=metadatas,
+            method_name=method_name,
+            port=port,
+            prefix=prefix,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metadatas: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult'],
+             method_name: str,
+             port: int,
+             prefix: str,
+             service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("metadatas", metadatas)
+        _setter("method_name", method_name)
+        _setter("port", port)
+        _setter("prefix", prefix)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -9743,9 +12541,22 @@ class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetRouteSpecGrpcRouteMatchMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invert=invert,
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invert: bool,
+             matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("invert", invert)
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9774,11 +12585,28 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+        GetRouteSpecGrpcRouteMatchMetadataMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            ranges=ranges,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             prefix: str,
+             ranges: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult'],
+             regex: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("prefix", prefix)
+        _setter("ranges", ranges)
+        _setter("regex", regex)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -9811,8 +12639,19 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -9833,11 +12672,28 @@ class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+        GetRouteSpecGrpcRouteRetryPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpc_retry_events=grpc_retry_events,
+            http_retry_events=http_retry_events,
+            max_retries=max_retries,
+            per_retry_timeouts=per_retry_timeouts,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpc_retry_events: Sequence[str],
+             http_retry_events: Sequence[str],
+             max_retries: int,
+             per_retry_timeouts: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult'],
+             tcp_retry_events: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpc_retry_events", grpc_retry_events)
+        _setter("http_retry_events", http_retry_events)
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeouts", per_retry_timeouts)
+        _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="grpcRetryEvents")
@@ -9870,8 +12726,19 @@ class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -9889,8 +12756,19 @@ class GetRouteSpecGrpcRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetRouteSpecGrpcRouteTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
+             per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -9908,8 +12786,19 @@ class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecGrpcRouteTimeoutIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -9927,8 +12816,19 @@ class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecGrpcRouteTimeoutPerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -9948,10 +12848,25 @@ class GetRouteSpecHttp2RouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+        GetRouteSpecHttp2RouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+            retry_policies=retry_policies,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetRouteSpecHttp2RouteActionResult'],
+             matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
+             retry_policies: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult'],
+             timeouts: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
+        _setter("retry_policies", retry_policies)
+        _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -9978,7 +12893,16 @@ class GetRouteSpecHttp2RouteResult(dict):
 class GetRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        GetRouteSpecHttp2RouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -9992,9 +12916,22 @@ class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        GetRouteSpecHttp2RouteActionWeightedTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_node=virtual_node,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_node: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -10022,13 +12959,34 @@ class GetRouteSpecHttp2RouteMatchResult(dict):
                  prefix: str,
                  query_parameters: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult'],
                  scheme: str):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
-        pulumi.set(__self__, "scheme", scheme)
+        GetRouteSpecHttp2RouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            method=method,
+            paths=paths,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult'],
+             method: str,
+             paths: Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult'],
+             port: int,
+             prefix: str,
+             query_parameters: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult'],
+             scheme: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("method", method)
+        _setter("paths", paths)
+        _setter("port", port)
+        _setter("prefix", prefix)
+        _setter("query_parameters", query_parameters)
+        _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -10075,9 +13033,22 @@ class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetRouteSpecHttp2RouteMatchHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invert=invert,
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invert: bool,
+             matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("invert", invert)
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10106,11 +13077,28 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+        GetRouteSpecHttp2RouteMatchHeaderMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            ranges=ranges,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             prefix: str,
+             ranges: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
+             regex: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("prefix", prefix)
+        _setter("ranges", ranges)
+        _setter("regex", regex)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -10143,8 +13131,19 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -10162,8 +13161,19 @@ class GetRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+        GetRouteSpecHttp2RouteMatchPathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             regex: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -10184,8 +13194,19 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetRouteSpecHttp2RouteMatchQueryParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10205,7 +13226,16 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 class GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetRouteSpecHttp2RouteMatchQueryParameterMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -10220,10 +13250,25 @@ class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+        GetRouteSpecHttp2RouteRetryPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_retry_events=http_retry_events,
+            max_retries=max_retries,
+            per_retry_timeouts=per_retry_timeouts,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_retry_events: Sequence[str],
+             max_retries: int,
+             per_retry_timeouts: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult'],
+             tcp_retry_events: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http_retry_events", http_retry_events)
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeouts", per_retry_timeouts)
+        _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
@@ -10251,8 +13296,19 @@ class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10270,8 +13326,19 @@ class GetRouteSpecHttp2RouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetRouteSpecHttp2RouteTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
+             per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -10289,8 +13356,19 @@ class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttp2RouteTimeoutIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10308,8 +13386,19 @@ class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttp2RouteTimeoutPerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10329,10 +13418,25 @@ class GetRouteSpecHttpRouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "retry_policies", retry_policies)
-        pulumi.set(__self__, "timeouts", timeouts)
+        GetRouteSpecHttpRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+            retry_policies=retry_policies,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetRouteSpecHttpRouteActionResult'],
+             matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
+             retry_policies: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult'],
+             timeouts: Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
+        _setter("retry_policies", retry_policies)
+        _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -10359,7 +13463,16 @@ class GetRouteSpecHttpRouteResult(dict):
 class GetRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        GetRouteSpecHttpRouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -10373,9 +13486,22 @@ class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        GetRouteSpecHttpRouteActionWeightedTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_node=virtual_node,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_node: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -10403,13 +13529,34 @@ class GetRouteSpecHttpRouteMatchResult(dict):
                  prefix: str,
                  query_parameters: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult'],
                  scheme: str):
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "paths", paths)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "query_parameters", query_parameters)
-        pulumi.set(__self__, "scheme", scheme)
+        GetRouteSpecHttpRouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            method=method,
+            paths=paths,
+            port=port,
+            prefix=prefix,
+            query_parameters=query_parameters,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult'],
+             method: str,
+             paths: Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult'],
+             port: int,
+             prefix: str,
+             query_parameters: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult'],
+             scheme: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("method", method)
+        _setter("paths", paths)
+        _setter("port", port)
+        _setter("prefix", prefix)
+        _setter("query_parameters", query_parameters)
+        _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -10456,9 +13603,22 @@ class GetRouteSpecHttpRouteMatchHeaderResult(dict):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "invert", invert)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetRouteSpecHttpRouteMatchHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invert=invert,
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invert: bool,
+             matches: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("invert", invert)
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10487,11 +13647,28 @@ class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "prefix", prefix)
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "regex", regex)
-        pulumi.set(__self__, "suffix", suffix)
+        GetRouteSpecHttpRouteMatchHeaderMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+            ranges=ranges,
+            regex=regex,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             prefix: str,
+             ranges: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
+             regex: str,
+             suffix: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("prefix", prefix)
+        _setter("ranges", ranges)
+        _setter("regex", regex)
+        _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -10524,8 +13701,19 @@ class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        GetRouteSpecHttpRouteMatchHeaderMatchRangeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: int,
+             start: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end", end)
+        _setter("start", start)
 
     @property
     @pulumi.getter
@@ -10543,8 +13731,19 @@ class GetRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        pulumi.set(__self__, "exact", exact)
-        pulumi.set(__self__, "regex", regex)
+        GetRouteSpecHttpRouteMatchPathResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            regex=regex,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             regex: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
+        _setter("regex", regex)
 
     @property
     @pulumi.getter
@@ -10565,8 +13764,19 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the route.
         """
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "name", name)
+        GetRouteSpecHttpRouteMatchQueryParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10586,7 +13796,16 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
 class GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        pulumi.set(__self__, "exact", exact)
+        GetRouteSpecHttpRouteMatchQueryParameterMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exact", exact)
 
     @property
     @pulumi.getter
@@ -10601,10 +13820,25 @@ class GetRouteSpecHttpRouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        pulumi.set(__self__, "http_retry_events", http_retry_events)
-        pulumi.set(__self__, "max_retries", max_retries)
-        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
-        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
+        GetRouteSpecHttpRouteRetryPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_retry_events=http_retry_events,
+            max_retries=max_retries,
+            per_retry_timeouts=per_retry_timeouts,
+            tcp_retry_events=tcp_retry_events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_retry_events: Sequence[str],
+             max_retries: int,
+             per_retry_timeouts: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult'],
+             tcp_retry_events: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("http_retry_events", http_retry_events)
+        _setter("max_retries", max_retries)
+        _setter("per_retry_timeouts", per_retry_timeouts)
+        _setter("tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
@@ -10632,8 +13866,19 @@ class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10651,8 +13896,19 @@ class GetRouteSpecHttpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetRouteSpecHttpRouteTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
+             per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -10670,8 +13926,19 @@ class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttpRouteTimeoutIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10689,8 +13956,19 @@ class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecHttpRouteTimeoutPerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10709,9 +13987,22 @@ class GetRouteSpecTcpRouteResult(dict):
                  actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
                  timeouts: Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "matches", matches)
-        pulumi.set(__self__, "timeouts", timeouts)
+        GetRouteSpecTcpRouteResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            matches=matches,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
+             matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
+             timeouts: Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("matches", matches)
+        _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -10733,7 +14024,16 @@ class GetRouteSpecTcpRouteResult(dict):
 class GetRouteSpecTcpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']):
-        pulumi.set(__self__, "weighted_targets", weighted_targets)
+        GetRouteSpecTcpRouteActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weighted_targets=weighted_targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -10747,9 +14047,22 @@ class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "virtual_node", virtual_node)
-        pulumi.set(__self__, "weight", weight)
+        GetRouteSpecTcpRouteActionWeightedTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            virtual_node=virtual_node,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             virtual_node: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("virtual_node", virtual_node)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -10771,7 +14084,16 @@ class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
 class GetRouteSpecTcpRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int):
-        pulumi.set(__self__, "port", port)
+        GetRouteSpecTcpRouteMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -10783,7 +14105,16 @@ class GetRouteSpecTcpRouteMatchResult(dict):
 class GetRouteSpecTcpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']):
-        pulumi.set(__self__, "idles", idles)
+        GetRouteSpecTcpRouteTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
 
     @property
     @pulumi.getter
@@ -10796,8 +14127,19 @@ class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetRouteSpecTcpRouteTimeoutIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10816,9 +14158,22 @@ class GetVirtualGatewaySpecResult(dict):
                  backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
                  listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
                  loggings: Sequence['outputs.GetVirtualGatewaySpecLoggingResult']):
-        pulumi.set(__self__, "backend_defaults", backend_defaults)
-        pulumi.set(__self__, "listeners", listeners)
-        pulumi.set(__self__, "loggings", loggings)
+        GetVirtualGatewaySpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_defaults=backend_defaults,
+            listeners=listeners,
+            loggings=loggings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
+             listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
+             loggings: Sequence['outputs.GetVirtualGatewaySpecLoggingResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_defaults", backend_defaults)
+        _setter("listeners", listeners)
+        _setter("loggings", loggings)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -10840,7 +14195,16 @@ class GetVirtualGatewaySpecResult(dict):
 class GetVirtualGatewaySpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']):
-        pulumi.set(__self__, "client_policies", client_policies)
+        GetVirtualGatewaySpecBackendDefaultResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_policies=client_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -10852,7 +14216,16 @@ class GetVirtualGatewaySpecBackendDefaultResult(dict):
 class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -10867,10 +14240,25 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            enforce=enforce,
+            ports=ports,
+            validations=validations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult'],
+             enforce: bool,
+             ports: Sequence[int],
+             validations: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("enforce", enforce)
+        _setter("ports", ports)
+        _setter("validations", validations)
 
     @property
     @pulumi.getter
@@ -10898,8 +14286,19 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
+             sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -10917,8 +14316,19 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dic
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -10935,7 +14345,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dic
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -10948,8 +14367,19 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_alternative_names=subject_alternative_names,
+            trusts=trusts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
+             trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -10966,7 +14396,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -10978,7 +14417,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternat
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -10992,9 +14440,22 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dic
                  acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acms=acms,
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
+             files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
+             sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acms", acms)
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11016,7 +14477,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dic
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -11028,7 +14498,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11040,7 +14519,16 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11055,10 +14543,25 @@ class GetVirtualGatewaySpecListenerResult(dict):
                  health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
                  port_mappings: Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult'],
                  tls: Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']):
-        pulumi.set(__self__, "connection_pools", connection_pools)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "port_mappings", port_mappings)
-        pulumi.set(__self__, "tls", tls)
+        GetVirtualGatewaySpecListenerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_pools=connection_pools,
+            health_checks=health_checks,
+            port_mappings=port_mappings,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_pools: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult'],
+             health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
+             port_mappings: Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult'],
+             tls: Sequence['outputs.GetVirtualGatewaySpecListenerTlResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_pools", connection_pools)
+        _setter("health_checks", health_checks)
+        _setter("port_mappings", port_mappings)
+        _setter("tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
@@ -11087,9 +14590,22 @@ class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
                  grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
                  http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
                  https: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
+        GetVirtualGatewaySpecListenerConnectionPoolResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpcs=grpcs,
+            http2s=http2s,
+            https=https,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
+             http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
+             https: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpcs", grpcs)
+        _setter("http2s", http2s)
+        _setter("https", https)
 
     @property
     @pulumi.getter
@@ -11111,7 +14627,16 @@ class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
 class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+        GetVirtualGatewaySpecListenerConnectionPoolGrpcResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -11123,7 +14648,16 @@ class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
 class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+        GetVirtualGatewaySpecListenerConnectionPoolHttp2Result._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -11136,8 +14670,19 @@ class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
-        pulumi.set(__self__, "max_connections", max_connections)
-        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+        GetVirtualGatewaySpecListenerConnectionPoolHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+            max_pending_requests=max_pending_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             max_pending_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
+        _setter("max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -11160,13 +14705,34 @@ class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
                  protocol: str,
                  timeout_millis: int,
                  unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        GetVirtualGatewaySpecListenerHealthCheckResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval_millis=interval_millis,
+            path=path,
+            port=port,
+            protocol=protocol,
+            timeout_millis=timeout_millis,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: int,
+             interval_millis: int,
+             path: str,
+             port: int,
+             protocol: str,
+             timeout_millis: int,
+             unhealthy_threshold: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval_millis", interval_millis)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("timeout_millis", timeout_millis)
+        _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -11209,8 +14775,19 @@ class GetVirtualGatewaySpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        GetVirtualGatewaySpecListenerPortMappingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -11229,9 +14806,22 @@ class GetVirtualGatewaySpecListenerTlResult(dict):
                  certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
                  mode: str,
                  validations: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "validations", validations)
+        GetVirtualGatewaySpecListenerTlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            mode=mode,
+            validations=validations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
+             mode: str,
+             validations: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("mode", mode)
+        _setter("validations", validations)
 
     @property
     @pulumi.getter
@@ -11255,9 +14845,22 @@ class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
                  acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualGatewaySpecListenerTlCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acms=acms,
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
+             files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
+             sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acms", acms)
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11279,7 +14882,16 @@ class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
 class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        GetVirtualGatewaySpecListenerTlCertificateAcmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -11292,8 +14904,19 @@ class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        GetVirtualGatewaySpecListenerTlCertificateFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11310,7 +14933,16 @@ class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
 class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualGatewaySpecListenerTlCertificateSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11323,8 +14955,19 @@ class GetVirtualGatewaySpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+        GetVirtualGatewaySpecListenerTlValidationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_alternative_names=subject_alternative_names,
+            trusts=trusts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
+             trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -11341,7 +14984,16 @@ class GetVirtualGatewaySpecListenerTlValidationResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+        GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -11353,7 +15005,16 @@ class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+        GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -11366,8 +15027,19 @@ class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualGatewaySpecListenerTlValidationTrustResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
+             sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11384,7 +15056,16 @@ class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        GetVirtualGatewaySpecListenerTlValidationTrustFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11396,7 +15077,16 @@ class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualGatewaySpecListenerTlValidationTrustSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11408,7 +15098,16 @@ class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
 class GetVirtualGatewaySpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']):
-        pulumi.set(__self__, "access_logs", access_logs)
+        GetVirtualGatewaySpecLoggingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -11420,7 +15119,16 @@ class GetVirtualGatewaySpecLoggingResult(dict):
 class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']):
-        pulumi.set(__self__, "files", files)
+        GetVirtualGatewaySpecLoggingAccessLogResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
 
     @property
     @pulumi.getter
@@ -11433,8 +15141,19 @@ class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
                  path: str):
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "path", path)
+        GetVirtualGatewaySpecLoggingAccessLogFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            formats=formats,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("formats", formats)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -11452,8 +15171,19 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
-        pulumi.set(__self__, "jsons", jsons)
-        pulumi.set(__self__, "text", text)
+        GetVirtualGatewaySpecLoggingAccessLogFileFormatResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jsons=jsons,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
+             text: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("jsons", jsons)
+        _setter("text", text)
 
     @property
     @pulumi.getter
@@ -11471,8 +15201,19 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -11493,11 +15234,28 @@ class GetVirtualNodeSpecResult(dict):
                  listeners: Sequence['outputs.GetVirtualNodeSpecListenerResult'],
                  loggings: Sequence['outputs.GetVirtualNodeSpecLoggingResult'],
                  service_discoveries: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']):
-        pulumi.set(__self__, "backend_defaults", backend_defaults)
-        pulumi.set(__self__, "backends", backends)
-        pulumi.set(__self__, "listeners", listeners)
-        pulumi.set(__self__, "loggings", loggings)
-        pulumi.set(__self__, "service_discoveries", service_discoveries)
+        GetVirtualNodeSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_defaults=backend_defaults,
+            backends=backends,
+            listeners=listeners,
+            loggings=loggings,
+            service_discoveries=service_discoveries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_defaults: Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult'],
+             backends: Sequence['outputs.GetVirtualNodeSpecBackendResult'],
+             listeners: Sequence['outputs.GetVirtualNodeSpecListenerResult'],
+             loggings: Sequence['outputs.GetVirtualNodeSpecLoggingResult'],
+             service_discoveries: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_defaults", backend_defaults)
+        _setter("backends", backends)
+        _setter("listeners", listeners)
+        _setter("loggings", loggings)
+        _setter("service_discoveries", service_discoveries)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -11529,7 +15287,16 @@ class GetVirtualNodeSpecResult(dict):
 class GetVirtualNodeSpecBackendResult(dict):
     def __init__(__self__, *,
                  virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']):
-        pulumi.set(__self__, "virtual_services", virtual_services)
+        GetVirtualNodeSpecBackendResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_services=virtual_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_services", virtual_services)
 
     @property
     @pulumi.getter(name="virtualServices")
@@ -11541,7 +15308,16 @@ class GetVirtualNodeSpecBackendResult(dict):
 class GetVirtualNodeSpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']):
-        pulumi.set(__self__, "client_policies", client_policies)
+        GetVirtualNodeSpecBackendDefaultResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_policies=client_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -11553,7 +15329,16 @@ class GetVirtualNodeSpecBackendDefaultResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+        GetVirtualNodeSpecBackendDefaultClientPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -11568,10 +15353,25 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            enforce=enforce,
+            ports=ports,
+            validations=validations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult'],
+             enforce: bool,
+             ports: Sequence[int],
+             validations: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("enforce", enforce)
+        _setter("ports", ports)
+        _setter("validations", validations)
 
     @property
     @pulumi.getter
@@ -11599,8 +15399,19 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11618,8 +15429,19 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11636,7 +15458,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11649,8 +15480,19 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_alternative_names=subject_alternative_names,
+            trusts=trusts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
+             trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -11667,7 +15509,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -11679,7 +15530,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternative
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -11693,9 +15553,22 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acms=acms,
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
+             files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acms", acms)
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11717,7 +15590,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -11729,7 +15611,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dic
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11741,7 +15632,16 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(di
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11754,8 +15654,19 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
                  virtual_service_name: str):
-        pulumi.set(__self__, "client_policies", client_policies)
-        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
+        GetVirtualNodeSpecBackendVirtualServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_policies=client_policies,
+            virtual_service_name=virtual_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
+             virtual_service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_policies", client_policies)
+        _setter("virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -11772,7 +15683,16 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']):
-        pulumi.set(__self__, "tls", tls)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -11787,10 +15707,25 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "enforce", enforce)
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "validations", validations)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            enforce=enforce,
+            ports=ports,
+            validations=validations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult'],
+             enforce: bool,
+             ports: Sequence[int],
+             validations: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("enforce", enforce)
+        _setter("ports", ports)
+        _setter("validations", validations)
 
     @property
     @pulumi.getter
@@ -11818,8 +15753,19 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dic
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11837,8 +15783,19 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11855,7 +15812,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11868,8 +15834,19 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_alternative_names=subject_alternative_names,
+            trusts=trusts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
+             trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -11886,7 +15863,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -11898,7 +15884,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlte
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -11912,9 +15907,22 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acms=acms,
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
+             files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acms", acms)
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -11936,7 +15944,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arns=certificate_authority_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -11948,7 +15965,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmRes
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11960,7 +15986,16 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileRe
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11977,12 +16012,31 @@ class GetVirtualNodeSpecListenerResult(dict):
                  port_mappings: Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult'],
                  timeouts: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult'],
                  tls: Sequence['outputs.GetVirtualNodeSpecListenerTlResult']):
-        pulumi.set(__self__, "connection_pools", connection_pools)
-        pulumi.set(__self__, "health_checks", health_checks)
-        pulumi.set(__self__, "outlier_detections", outlier_detections)
-        pulumi.set(__self__, "port_mappings", port_mappings)
-        pulumi.set(__self__, "timeouts", timeouts)
-        pulumi.set(__self__, "tls", tls)
+        GetVirtualNodeSpecListenerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_pools=connection_pools,
+            health_checks=health_checks,
+            outlier_detections=outlier_detections,
+            port_mappings=port_mappings,
+            timeouts=timeouts,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_pools: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult'],
+             health_checks: Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult'],
+             outlier_detections: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult'],
+             port_mappings: Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult'],
+             timeouts: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult'],
+             tls: Sequence['outputs.GetVirtualNodeSpecListenerTlResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_pools", connection_pools)
+        _setter("health_checks", health_checks)
+        _setter("outlier_detections", outlier_detections)
+        _setter("port_mappings", port_mappings)
+        _setter("timeouts", timeouts)
+        _setter("tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
@@ -12022,10 +16076,25 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "tcps", tcps)
+        GetVirtualNodeSpecListenerConnectionPoolResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpcs=grpcs,
+            http2s=http2s,
+            https=https,
+            tcps=tcps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpcs: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult'],
+             http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
+             https: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult'],
+             tcps: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpcs", grpcs)
+        _setter("http2s", http2s)
+        _setter("https", https)
+        _setter("tcps", tcps)
 
     @property
     @pulumi.getter
@@ -12052,7 +16121,16 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+        GetVirtualNodeSpecListenerConnectionPoolGrpcResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -12064,7 +16142,16 @@ class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        pulumi.set(__self__, "max_requests", max_requests)
+        GetVirtualNodeSpecListenerConnectionPoolHttp2Result._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_requests=max_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -12077,8 +16164,19 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
-        pulumi.set(__self__, "max_connections", max_connections)
-        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
+        GetVirtualNodeSpecListenerConnectionPoolHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+            max_pending_requests=max_pending_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             max_pending_requests: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
+        _setter("max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -12095,7 +16193,16 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
     def __init__(__self__, *,
                  max_connections: int):
-        pulumi.set(__self__, "max_connections", max_connections)
+        GetVirtualNodeSpecListenerConnectionPoolTcpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_connections=max_connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_connections: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_connections", max_connections)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -12113,13 +16220,34 @@ class GetVirtualNodeSpecListenerHealthCheckResult(dict):
                  protocol: str,
                  timeout_millis: int,
                  unhealthy_threshold: int):
-        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
-        pulumi.set(__self__, "interval_millis", interval_millis)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "timeout_millis", timeout_millis)
-        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+        GetVirtualNodeSpecListenerHealthCheckResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval_millis=interval_millis,
+            path=path,
+            port=port,
+            protocol=protocol,
+            timeout_millis=timeout_millis,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: int,
+             interval_millis: int,
+             path: str,
+             port: int,
+             protocol: str,
+             timeout_millis: int,
+             unhealthy_threshold: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("healthy_threshold", healthy_threshold)
+        _setter("interval_millis", interval_millis)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("timeout_millis", timeout_millis)
+        _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -12164,10 +16292,25 @@ class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
                  intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
                  max_ejection_percent: int,
                  max_server_errors: int):
-        pulumi.set(__self__, "base_ejection_durations", base_ejection_durations)
-        pulumi.set(__self__, "intervals", intervals)
-        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
-        pulumi.set(__self__, "max_server_errors", max_server_errors)
+        GetVirtualNodeSpecListenerOutlierDetectionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_ejection_durations=base_ejection_durations,
+            intervals=intervals,
+            max_ejection_percent=max_ejection_percent,
+            max_server_errors=max_server_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_ejection_durations: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult'],
+             intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
+             max_ejection_percent: int,
+             max_server_errors: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("base_ejection_durations", base_ejection_durations)
+        _setter("intervals", intervals)
+        _setter("max_ejection_percent", max_ejection_percent)
+        _setter("max_server_errors", max_server_errors)
 
     @property
     @pulumi.getter(name="baseEjectionDurations")
@@ -12195,8 +16338,19 @@ class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict)
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12214,8 +16368,19 @@ class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerOutlierDetectionIntervalResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12233,8 +16398,19 @@ class GetVirtualNodeSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        GetVirtualNodeSpecListenerPortMappingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -12254,10 +16430,25 @@ class GetVirtualNodeSpecListenerTimeoutResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']):
-        pulumi.set(__self__, "grpcs", grpcs)
-        pulumi.set(__self__, "http2s", http2s)
-        pulumi.set(__self__, "https", https)
-        pulumi.set(__self__, "tcps", tcps)
+        GetVirtualNodeSpecListenerTimeoutResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grpcs=grpcs,
+            http2s=http2s,
+            https=https,
+            tcps=tcps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grpcs: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult'],
+             http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
+             https: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult'],
+             tcps: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("grpcs", grpcs)
+        _setter("http2s", http2s)
+        _setter("https", https)
+        _setter("tcps", tcps)
 
     @property
     @pulumi.getter
@@ -12285,8 +16476,19 @@ class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetVirtualNodeSpecListenerTimeoutGrpcResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
+             per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -12304,8 +16506,19 @@ class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutGrpcIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12323,8 +16536,19 @@ class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12342,8 +16566,19 @@ class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetVirtualNodeSpecListenerTimeoutHttp2Result._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
+             per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -12361,8 +16596,19 @@ class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutHttp2IdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12380,8 +16626,19 @@ class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12399,8 +16656,19 @@ class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']):
-        pulumi.set(__self__, "idles", idles)
-        pulumi.set(__self__, "per_requests", per_requests)
+        GetVirtualNodeSpecListenerTimeoutHttpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+            per_requests=per_requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
+             per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
+        _setter("per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -12418,8 +16686,19 @@ class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutHttpIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12437,8 +16716,19 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12455,7 +16745,16 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
 class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']):
-        pulumi.set(__self__, "idles", idles)
+        GetVirtualNodeSpecListenerTimeoutTcpResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idles=idles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("idles", idles)
 
     @property
     @pulumi.getter
@@ -12468,8 +16767,19 @@ class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecListenerTimeoutTcpIdleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: str,
+             value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12488,9 +16798,22 @@ class GetVirtualNodeSpecListenerTlResult(dict):
                  certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
                  mode: str,
                  validations: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']):
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "validations", validations)
+        GetVirtualNodeSpecListenerTlResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            mode=mode,
+            validations=validations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
+             mode: str,
+             validations: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("mode", mode)
+        _setter("validations", validations)
 
     @property
     @pulumi.getter
@@ -12514,9 +16837,22 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']):
-        pulumi.set(__self__, "acms", acms)
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecListenerTlCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acms=acms,
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
+             files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("acms", acms)
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -12538,7 +16874,16 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        GetVirtualNodeSpecListenerTlCertificateAcmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -12551,8 +16896,19 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
-        pulumi.set(__self__, "private_key", private_key)
+        GetVirtualNodeSpecListenerTlCertificateFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+            private_key=private_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             private_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
+        _setter("private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -12569,7 +16925,16 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecListenerTlCertificateSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -12582,8 +16947,19 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']):
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "trusts", trusts)
+        GetVirtualNodeSpecListenerTlValidationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject_alternative_names=subject_alternative_names,
+            trusts=trusts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
+             trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -12600,7 +16976,16 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        pulumi.set(__self__, "matches", matches)
+        GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            matches=matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("matches", matches)
 
     @property
     @pulumi.getter
@@ -12612,7 +16997,16 @@ class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        pulumi.set(__self__, "exacts", exacts)
+        GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exacts=exacts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exacts: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exacts", exacts)
 
     @property
     @pulumi.getter
@@ -12625,8 +17019,19 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']):
-        pulumi.set(__self__, "files", files)
-        pulumi.set(__self__, "sds", sds)
+        GetVirtualNodeSpecListenerTlValidationTrustResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+            sds=sds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
+             sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
+        _setter("sds", sds)
 
     @property
     @pulumi.getter
@@ -12643,7 +17048,16 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        GetVirtualNodeSpecListenerTlValidationTrustFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_chain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -12655,7 +17069,16 @@ class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        pulumi.set(__self__, "secret_name", secret_name)
+        GetVirtualNodeSpecListenerTlValidationTrustSdResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -12667,7 +17090,16 @@ class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
 class GetVirtualNodeSpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']):
-        pulumi.set(__self__, "access_logs", access_logs)
+        GetVirtualNodeSpecLoggingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -12679,7 +17111,16 @@ class GetVirtualNodeSpecLoggingResult(dict):
 class GetVirtualNodeSpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']):
-        pulumi.set(__self__, "files", files)
+        GetVirtualNodeSpecLoggingAccessLogResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            files=files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("files", files)
 
     @property
     @pulumi.getter
@@ -12692,8 +17133,19 @@ class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
                  path: str):
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "path", path)
+        GetVirtualNodeSpecLoggingAccessLogFileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            formats=formats,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
+             path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("formats", formats)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -12711,8 +17163,19 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
-        pulumi.set(__self__, "jsons", jsons)
-        pulumi.set(__self__, "text", text)
+        GetVirtualNodeSpecLoggingAccessLogFileFormatResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jsons=jsons,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
+             text: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("jsons", jsons)
+        _setter("text", text)
 
     @property
     @pulumi.getter
@@ -12730,8 +17193,19 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12749,8 +17223,19 @@ class GetVirtualNodeSpecServiceDiscoveryResult(dict):
     def __init__(__self__, *,
                  aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
                  dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']):
-        pulumi.set(__self__, "aws_cloud_maps", aws_cloud_maps)
-        pulumi.set(__self__, "dns", dns)
+        GetVirtualNodeSpecServiceDiscoveryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_cloud_maps=aws_cloud_maps,
+            dns=dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
+             dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aws_cloud_maps", aws_cloud_maps)
+        _setter("dns", dns)
 
     @property
     @pulumi.getter(name="awsCloudMaps")
@@ -12769,9 +17254,22 @@ class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
                  attributes: Mapping[str, str],
                  namespace_name: str,
                  service_name: str):
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            namespace_name=namespace_name,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Mapping[str, str],
+             namespace_name: str,
+             service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attributes", attributes)
+        _setter("namespace_name", namespace_name)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter
@@ -12795,9 +17293,22 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
                  hostname: str,
                  ip_preference: str,
                  response_type: str):
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "ip_preference", ip_preference)
-        pulumi.set(__self__, "response_type", response_type)
+        GetVirtualNodeSpecServiceDiscoveryDnResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostname=hostname,
+            ip_preference=ip_preference,
+            response_type=response_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostname: str,
+             ip_preference: str,
+             response_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostname", hostname)
+        _setter("ip_preference", ip_preference)
+        _setter("response_type", response_type)
 
     @property
     @pulumi.getter
@@ -12819,7 +17330,16 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
 class GetVirtualRouterSpecResult(dict):
     def __init__(__self__, *,
                  listeners: Sequence['outputs.GetVirtualRouterSpecListenerResult']):
-        pulumi.set(__self__, "listeners", listeners)
+        GetVirtualRouterSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: Sequence['outputs.GetVirtualRouterSpecListenerResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("listeners", listeners)
 
     @property
     @pulumi.getter
@@ -12831,7 +17351,16 @@ class GetVirtualRouterSpecResult(dict):
 class GetVirtualRouterSpecListenerResult(dict):
     def __init__(__self__, *,
                  port_mappings: Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']):
-        pulumi.set(__self__, "port_mappings", port_mappings)
+        GetVirtualRouterSpecListenerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_mappings=port_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_mappings: Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port_mappings", port_mappings)
 
     @property
     @pulumi.getter(name="portMappings")
@@ -12844,8 +17373,19 @@ class GetVirtualRouterSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        GetVirtualRouterSpecListenerPortMappingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -12862,7 +17402,16 @@ class GetVirtualRouterSpecListenerPortMappingResult(dict):
 class GetVirtualServiceSpecResult(dict):
     def __init__(__self__, *,
                  providers: Sequence['outputs.GetVirtualServiceSpecProviderResult']):
-        pulumi.set(__self__, "providers", providers)
+        GetVirtualServiceSpecResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            providers=providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             providers: Sequence['outputs.GetVirtualServiceSpecProviderResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("providers", providers)
 
     @property
     @pulumi.getter
@@ -12875,8 +17424,19 @@ class GetVirtualServiceSpecProviderResult(dict):
     def __init__(__self__, *,
                  virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
                  virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']):
-        pulumi.set(__self__, "virtual_nodes", virtual_nodes)
-        pulumi.set(__self__, "virtual_routers", virtual_routers)
+        GetVirtualServiceSpecProviderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_nodes=virtual_nodes,
+            virtual_routers=virtual_routers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
+             virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_nodes", virtual_nodes)
+        _setter("virtual_routers", virtual_routers)
 
     @property
     @pulumi.getter(name="virtualNodes")
@@ -12893,7 +17453,16 @@ class GetVirtualServiceSpecProviderResult(dict):
 class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
     def __init__(__self__, *,
                  virtual_node_name: str):
-        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
+        GetVirtualServiceSpecProviderVirtualNodeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_node_name=virtual_node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_node_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_node_name", virtual_node_name)
 
     @property
     @pulumi.getter(name="virtualNodeName")
@@ -12905,7 +17474,16 @@ class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
 class GetVirtualServiceSpecProviderVirtualRouterResult(dict):
     def __init__(__self__, *,
                  virtual_router_name: str):
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+        GetVirtualServiceSpecProviderVirtualRouterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_router_name=virtual_router_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_router_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="virtualRouterName")

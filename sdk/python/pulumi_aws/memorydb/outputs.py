@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -36,10 +36,21 @@ class ClusterClusterEndpoint(dict):
         :param str address: DNS hostname of the node.
         :param int port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
+        ClusterClusterEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -88,14 +99,29 @@ class ClusterShard(dict):
         :param int num_nodes: Number of individual nodes in this shard.
         :param str slots: Keyspace for this shard. Example: `0-16383`.
         """
+        ClusterShard._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            nodes=nodes,
+            num_nodes=num_nodes,
+            slots=slots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             nodes: Optional[Sequence['outputs.ClusterShardNode']] = None,
+             num_nodes: Optional[int] = None,
+             slots: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nodes is not None:
-            pulumi.set(__self__, "nodes", nodes)
+            _setter("nodes", nodes)
         if num_nodes is not None:
-            pulumi.set(__self__, "num_nodes", num_nodes)
+            _setter("num_nodes", num_nodes)
         if slots is not None:
-            pulumi.set(__self__, "slots", slots)
+            _setter("slots", slots)
 
     @property
     @pulumi.getter
@@ -161,14 +187,29 @@ class ClusterShardNode(dict):
         :param str create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
         :param str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
+        ClusterShardNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            create_time=create_time,
+            endpoints=endpoints,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[str] = None,
+             create_time: Optional[str] = None,
+             endpoints: Optional[Sequence['outputs.ClusterShardNodeEndpoint']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -209,10 +250,21 @@ class ClusterShardNodeEndpoint(dict):
         :param str address: DNS hostname of the node.
         :param int port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         """
+        ClusterShardNodeEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -240,8 +292,19 @@ class ParameterGroupParameter(dict):
         :param str name: The name of the parameter.
         :param str value: The value of the parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ParameterGroupParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -326,32 +389,65 @@ class SnapshotClusterConfiguration(dict):
         :param str topic_arn: ARN of the SNS topic to which cluster notifications are sent.
         :param str vpc_id: The VPC in which the cluster exists.
         """
+        SnapshotClusterConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            engine_version=engine_version,
+            maintenance_window=maintenance_window,
+            name=name,
+            node_type=node_type,
+            num_shards=num_shards,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            topic_arn=topic_arn,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             engine_version: Optional[str] = None,
+             maintenance_window: Optional[str] = None,
+             name: Optional[str] = None,
+             node_type: Optional[str] = None,
+             num_shards: Optional[int] = None,
+             parameter_group_name: Optional[str] = None,
+             port: Optional[int] = None,
+             snapshot_retention_limit: Optional[int] = None,
+             snapshot_window: Optional[str] = None,
+             subnet_group_name: Optional[str] = None,
+             topic_arn: Optional[str] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if num_shards is not None:
-            pulumi.set(__self__, "num_shards", num_shards)
+            _setter("num_shards", num_shards)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if topic_arn is not None:
-            pulumi.set(__self__, "topic_arn", topic_arn)
+            _setter("topic_arn", topic_arn)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -486,10 +582,23 @@ class UserAuthenticationMode(dict):
         :param str type: Indicates whether the user requires a password to authenticate. Must be set to `password`.
         :param int password_count: The number of passwords belonging to the user.
         """
-        pulumi.set(__self__, "passwords", passwords)
-        pulumi.set(__self__, "type", type)
+        UserAuthenticationMode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            passwords=passwords,
+            type=type,
+            password_count=password_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             passwords: Sequence[str],
+             type: str,
+             password_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("passwords", passwords)
+        _setter("type", type)
         if password_count is not None:
-            pulumi.set(__self__, "password_count", password_count)
+            _setter("password_count", password_count)
 
     @property
     @pulumi.getter
@@ -525,8 +634,19 @@ class GetClusterClusterEndpointResult(dict):
         :param str address: DNS hostname of the node.
         :param int port: Port number that this node is listening on.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "port", port)
+        GetClusterClusterEndpointResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address", address)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -558,10 +678,25 @@ class GetClusterShardResult(dict):
         :param int num_nodes: Number of individual nodes in this shard.
         :param str slots: Keyspace for this shard. Example: `0-16383`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "num_nodes", num_nodes)
-        pulumi.set(__self__, "slots", slots)
+        GetClusterShardResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            nodes=nodes,
+            num_nodes=num_nodes,
+            slots=slots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             nodes: Sequence['outputs.GetClusterShardNodeResult'],
+             num_nodes: int,
+             slots: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("nodes", nodes)
+        _setter("num_nodes", num_nodes)
+        _setter("slots", slots)
 
     @property
     @pulumi.getter
@@ -608,10 +743,25 @@ class GetClusterShardNodeResult(dict):
         :param str create_time: The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
         :param str name: Name of the cluster.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "create_time", create_time)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "name", name)
+        GetClusterShardNodeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            create_time=create_time,
+            endpoints=endpoints,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: str,
+             create_time: str,
+             endpoints: Sequence['outputs.GetClusterShardNodeEndpointResult'],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("availability_zone", availability_zone)
+        _setter("create_time", create_time)
+        _setter("endpoints", endpoints)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -652,8 +802,19 @@ class GetClusterShardNodeEndpointResult(dict):
         :param str address: DNS hostname of the node.
         :param int port: Port number that this node is listening on.
         """
-        pulumi.set(__self__, "address", address)
-        pulumi.set(__self__, "port", port)
+        GetClusterShardNodeEndpointResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: str,
+             port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address", address)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -681,8 +842,19 @@ class GetParameterGroupParameterResult(dict):
         :param str name: Name of the parameter group.
         :param str value: Value of the parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetParameterGroupParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -732,19 +904,52 @@ class GetSnapshotClusterConfigurationResult(dict):
         :param str topic_arn: ARN of the SNS topic to which cluster notifications are sent.
         :param str vpc_id: The VPC in which the cluster exists.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "engine_version", engine_version)
-        pulumi.set(__self__, "maintenance_window", maintenance_window)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "node_type", node_type)
-        pulumi.set(__self__, "num_shards", num_shards)
-        pulumi.set(__self__, "parameter_group_name", parameter_group_name)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
-        pulumi.set(__self__, "snapshot_window", snapshot_window)
-        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
-        pulumi.set(__self__, "topic_arn", topic_arn)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        GetSnapshotClusterConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            engine_version=engine_version,
+            maintenance_window=maintenance_window,
+            name=name,
+            node_type=node_type,
+            num_shards=num_shards,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            subnet_group_name=subnet_group_name,
+            topic_arn=topic_arn,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: str,
+             engine_version: str,
+             maintenance_window: str,
+             name: str,
+             node_type: str,
+             num_shards: int,
+             parameter_group_name: str,
+             port: int,
+             snapshot_retention_limit: int,
+             snapshot_window: str,
+             subnet_group_name: str,
+             topic_arn: str,
+             vpc_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("engine_version", engine_version)
+        _setter("maintenance_window", maintenance_window)
+        _setter("name", name)
+        _setter("node_type", node_type)
+        _setter("num_shards", num_shards)
+        _setter("parameter_group_name", parameter_group_name)
+        _setter("port", port)
+        _setter("snapshot_retention_limit", snapshot_retention_limit)
+        _setter("snapshot_window", snapshot_window)
+        _setter("subnet_group_name", subnet_group_name)
+        _setter("topic_arn", topic_arn)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -860,8 +1065,19 @@ class GetUserAuthenticationModeResult(dict):
         :param int password_count: The number of passwords belonging to the user.
         :param str type: Whether the user requires a password to authenticate.
         """
-        pulumi.set(__self__, "password_count", password_count)
-        pulumi.set(__self__, "type", type)
+        GetUserAuthenticationModeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password_count=password_count,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password_count: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password_count", password_count)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="passwordCount")

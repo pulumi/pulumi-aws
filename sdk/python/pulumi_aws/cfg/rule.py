@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,40 @@ class RuleArgs:
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "source", source)
+        RuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            description=description,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            scope=scope,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input['RuleSourceArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -158,29 +179,56 @@ class _RuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            input_parameters=input_parameters,
+            maximum_execution_frequency=maximum_execution_frequency,
+            name=name,
+            rule_id=rule_id,
+            scope=scope,
+            source=source,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             input_parameters: Optional[pulumi.Input[str]] = None,
+             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
+             source: Optional[pulumi.Input['RuleSourceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_parameters is not None:
-            pulumi.set(__self__, "input_parameters", input_parameters)
+            _setter("input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+            _setter("maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -545,6 +593,10 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -570,7 +622,17 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
             __props__.__dict__["name"] = name
+            if scope is not None and not isinstance(scope, RuleScopeArgs):
+                scope = scope or {}
+                def _setter(key, value):
+                    scope[key] = value
+                RuleScopeArgs._configure(_setter, **scope)
             __props__.__dict__["scope"] = scope
+            if source is not None and not isinstance(source, RuleSourceArgs):
+                source = source or {}
+                def _setter(key, value):
+                    source[key] = value
+                RuleSourceArgs._configure(_setter, **source)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

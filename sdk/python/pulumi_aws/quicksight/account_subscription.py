@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountSubscriptionArgs', 'AccountSubscription']
@@ -49,32 +49,69 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "authentication_method", authentication_method)
-        pulumi.set(__self__, "edition", edition)
-        pulumi.set(__self__, "notification_email", notification_email)
+        AccountSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            authentication_method=authentication_method,
+            edition=edition,
+            notification_email=notification_email,
+            active_directory_name=active_directory_name,
+            admin_groups=admin_groups,
+            author_groups=author_groups,
+            aws_account_id=aws_account_id,
+            contact_number=contact_number,
+            directory_id=directory_id,
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            reader_groups=reader_groups,
+            realm=realm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             authentication_method: pulumi.Input[str],
+             edition: pulumi.Input[str],
+             notification_email: pulumi.Input[str],
+             active_directory_name: Optional[pulumi.Input[str]] = None,
+             admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             contact_number: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             email_address: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("authentication_method", authentication_method)
+        _setter("edition", edition)
+        _setter("notification_email", notification_email)
         if active_directory_name is not None:
-            pulumi.set(__self__, "active_directory_name", active_directory_name)
+            _setter("active_directory_name", active_directory_name)
         if admin_groups is not None:
-            pulumi.set(__self__, "admin_groups", admin_groups)
+            _setter("admin_groups", admin_groups)
         if author_groups is not None:
-            pulumi.set(__self__, "author_groups", author_groups)
+            _setter("author_groups", author_groups)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if contact_number is not None:
-            pulumi.set(__self__, "contact_number", contact_number)
+            _setter("contact_number", contact_number)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if reader_groups is not None:
-            pulumi.set(__self__, "reader_groups", reader_groups)
+            _setter("reader_groups", reader_groups)
         if realm is not None:
-            pulumi.set(__self__, "realm", realm)
+            _setter("realm", realm)
 
     @property
     @pulumi.getter(name="accountName")
@@ -299,38 +336,77 @@ class _AccountSubscriptionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
+        _AccountSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            account_subscription_status=account_subscription_status,
+            active_directory_name=active_directory_name,
+            admin_groups=admin_groups,
+            authentication_method=authentication_method,
+            author_groups=author_groups,
+            aws_account_id=aws_account_id,
+            contact_number=contact_number,
+            directory_id=directory_id,
+            edition=edition,
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            notification_email=notification_email,
+            reader_groups=reader_groups,
+            realm=realm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             account_subscription_status: Optional[pulumi.Input[str]] = None,
+             active_directory_name: Optional[pulumi.Input[str]] = None,
+             admin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_method: Optional[pulumi.Input[str]] = None,
+             author_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             contact_number: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             email_address: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             notification_email: Optional[pulumi.Input[str]] = None,
+             reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if account_subscription_status is not None:
-            pulumi.set(__self__, "account_subscription_status", account_subscription_status)
+            _setter("account_subscription_status", account_subscription_status)
         if active_directory_name is not None:
-            pulumi.set(__self__, "active_directory_name", active_directory_name)
+            _setter("active_directory_name", active_directory_name)
         if admin_groups is not None:
-            pulumi.set(__self__, "admin_groups", admin_groups)
+            _setter("admin_groups", admin_groups)
         if authentication_method is not None:
-            pulumi.set(__self__, "authentication_method", authentication_method)
+            _setter("authentication_method", authentication_method)
         if author_groups is not None:
-            pulumi.set(__self__, "author_groups", author_groups)
+            _setter("author_groups", author_groups)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if contact_number is not None:
-            pulumi.set(__self__, "contact_number", contact_number)
+            _setter("contact_number", contact_number)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if notification_email is not None:
-            pulumi.set(__self__, "notification_email", notification_email)
+            _setter("notification_email", notification_email)
         if reader_groups is not None:
-            pulumi.set(__self__, "reader_groups", reader_groups)
+            _setter("reader_groups", reader_groups)
         if realm is not None:
-            pulumi.set(__self__, "realm", realm)
+            _setter("realm", realm)
 
     @property
     @pulumi.getter(name="accountName")
@@ -624,6 +700,10 @@ class AccountSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

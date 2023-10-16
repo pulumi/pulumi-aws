@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -45,8 +45,17 @@ class FileSystemAssociationCacheAttributes(dict):
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
                to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
         """
+        FileSystemAssociationCacheAttributes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_stale_timeout_in_seconds=cache_stale_timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_stale_timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_stale_timeout_in_seconds is not None:
-            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+            _setter("cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
 
     @property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")
@@ -83,8 +92,17 @@ class GatewayGatewayNetworkInterface(dict):
         """
         :param str ipv4_address: The Internet Protocol version 4 (IPv4) address of the interface.
         """
+        GatewayGatewayNetworkInterface._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -131,13 +149,28 @@ class GatewayMaintenanceStartTime(dict):
         :param str day_of_week: The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
         :param int minute_of_hour: The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
         """
-        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        GatewayMaintenanceStartTime._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hour_of_day=hour_of_day,
+            day_of_month=day_of_month,
+            day_of_week=day_of_week,
+            minute_of_hour=minute_of_hour,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hour_of_day: int,
+             day_of_month: Optional[str] = None,
+             day_of_week: Optional[str] = None,
+             minute_of_hour: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hour_of_day", hour_of_day)
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if minute_of_hour is not None:
-            pulumi.set(__self__, "minute_of_hour", minute_of_hour)
+            _setter("minute_of_hour", minute_of_hour)
 
     @property
     @pulumi.getter(name="hourOfDay")
@@ -217,17 +250,38 @@ class GatewaySmbActiveDirectorySettings(dict):
                computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
         :param int timeout_in_seconds: Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        GatewaySmbActiveDirectorySettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            password=password,
+            username=username,
+            active_directory_status=active_directory_status,
+            domain_controllers=domain_controllers,
+            organizational_unit=organizational_unit,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             password: str,
+             username: str,
+             active_directory_status: Optional[str] = None,
+             domain_controllers: Optional[Sequence[str]] = None,
+             organizational_unit: Optional[str] = None,
+             timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("password", password)
+        _setter("username", username)
         if active_directory_status is not None:
-            pulumi.set(__self__, "active_directory_status", active_directory_status)
+            _setter("active_directory_status", active_directory_status)
         if domain_controllers is not None:
-            pulumi.set(__self__, "domain_controllers", domain_controllers)
+            _setter("domain_controllers", domain_controllers)
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="domainName")
@@ -311,8 +365,17 @@ class NfsFileShareCacheAttributes(dict):
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
                to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
         """
+        NfsFileShareCacheAttributes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_stale_timeout_in_seconds=cache_stale_timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_stale_timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_stale_timeout_in_seconds is not None:
-            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+            _setter("cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
 
     @property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")
@@ -361,14 +424,29 @@ class NfsFileShareNfsFileShareDefaults(dict):
         :param str group_id: The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         :param str owner_id: The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
         """
+        NfsFileShareNfsFileShareDefaults._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_mode=directory_mode,
+            file_mode=file_mode,
+            group_id=group_id,
+            owner_id=owner_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_mode: Optional[str] = None,
+             file_mode: Optional[str] = None,
+             group_id: Optional[str] = None,
+             owner_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_mode is not None:
-            pulumi.set(__self__, "directory_mode", directory_mode)
+            _setter("directory_mode", directory_mode)
         if file_mode is not None:
-            pulumi.set(__self__, "file_mode", file_mode)
+            _setter("file_mode", file_mode)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
 
     @property
     @pulumi.getter(name="directoryMode")
@@ -429,8 +507,17 @@ class SmbFileShareCacheAttributes(dict):
                TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
                to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
         """
+        SmbFileShareCacheAttributes._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_stale_timeout_in_seconds=cache_stale_timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_stale_timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache_stale_timeout_in_seconds is not None:
-            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+            _setter("cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
 
     @property
     @pulumi.getter(name="cacheStaleTimeoutInSeconds")

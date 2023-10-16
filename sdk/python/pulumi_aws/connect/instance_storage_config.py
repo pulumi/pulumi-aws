@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,22 @@ class InstanceStorageConfigArgs:
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         :param pulumi.Input['InstanceStorageConfigStorageConfigArgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "storage_config", storage_config)
+        InstanceStorageConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            resource_type=resource_type,
+            storage_config=storage_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: pulumi.Input[str],
+             resource_type: pulumi.Input[str],
+             storage_config: pulumi.Input['InstanceStorageConfigStorageConfigArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_id", instance_id)
+        _setter("resource_type", resource_type)
+        _setter("storage_config", storage_config)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -80,14 +93,29 @@ class _InstanceStorageConfigState:
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         :param pulumi.Input['InstanceStorageConfigStorageConfigArgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
+        _InstanceStorageConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            association_id=association_id,
+            instance_id=instance_id,
+            resource_type=resource_type,
+            storage_config=storage_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             association_id: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             storage_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if storage_config is not None:
-            pulumi.set(__self__, "storage_config", storage_config)
+            _setter("storage_config", storage_config)
 
     @property
     @pulumi.getter(name="associationId")
@@ -379,6 +407,10 @@ class InstanceStorageConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceStorageConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -402,6 +434,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
+            if storage_config is not None and not isinstance(storage_config, InstanceStorageConfigStorageConfigArgs):
+                storage_config = storage_config or {}
+                def _setter(key, value):
+                    storage_config[key] = value
+                InstanceStorageConfigStorageConfigArgs._configure(_setter, **storage_config)
             if storage_config is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_config'")
             __props__.__dict__["storage_config"] = storage_config

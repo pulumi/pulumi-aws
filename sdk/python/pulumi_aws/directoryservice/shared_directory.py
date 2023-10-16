@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,27 @@ class SharedDirectoryArgs:
         :param pulumi.Input[str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "target", target)
+        SharedDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            target=target,
+            method=method,
+            notes=notes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: pulumi.Input[str],
+             target: pulumi.Input['SharedDirectoryTargetArgs'],
+             method: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("directory_id", directory_id)
+        _setter("target", target)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -105,16 +120,33 @@ class _SharedDirectoryState:
                
                The following arguments are optional:
         """
+        _SharedDirectoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            method=method,
+            notes=notes,
+            shared_directory_id=shared_directory_id,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             shared_directory_id: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input['SharedDirectoryTargetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if shared_directory_id is not None:
-            pulumi.set(__self__, "shared_directory_id", shared_directory_id)
+            _setter("shared_directory_id", shared_directory_id)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -282,6 +314,10 @@ class SharedDirectory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedDirectoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -305,6 +341,11 @@ class SharedDirectory(pulumi.CustomResource):
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["method"] = method
             __props__.__dict__["notes"] = None if notes is None else pulumi.Output.secret(notes)
+            if target is not None and not isinstance(target, SharedDirectoryTargetArgs):
+                target = target or {}
+                def _setter(key, value):
+                    target[key] = value
+                SharedDirectoryTargetArgs._configure(_setter, **target)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

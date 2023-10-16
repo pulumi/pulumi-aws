@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,22 +35,45 @@ class EventDataStoreArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
+        EventDataStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_event_selectors=advanced_event_selectors,
+            kms_key_id=kms_key_id,
+            multi_region_enabled=multi_region_enabled,
+            name=name,
+            organization_enabled=organization_enabled,
+            retention_period=retention_period,
+            tags=tags,
+            termination_protection_enabled=termination_protection_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             multi_region_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             termination_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if advanced_event_selectors is not None:
-            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+            _setter("advanced_event_selectors", advanced_event_selectors)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
-            pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
+            _setter("multi_region_enabled", multi_region_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization_enabled is not None:
-            pulumi.set(__self__, "organization_enabled", organization_enabled)
+            _setter("organization_enabled", organization_enabled)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if termination_protection_enabled is not None:
-            pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
+            _setter("termination_protection_enabled", termination_protection_enabled)
 
     @property
     @pulumi.getter(name="advancedEventSelectors")
@@ -175,29 +198,56 @@ class _EventDataStoreState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] termination_protection_enabled: Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         """
+        _EventDataStoreState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_event_selectors=advanced_event_selectors,
+            arn=arn,
+            kms_key_id=kms_key_id,
+            multi_region_enabled=multi_region_enabled,
+            name=name,
+            organization_enabled=organization_enabled,
+            retention_period=retention_period,
+            tags=tags,
+            tags_all=tags_all,
+            termination_protection_enabled=termination_protection_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             multi_region_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             termination_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if advanced_event_selectors is not None:
-            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+            _setter("advanced_event_selectors", advanced_event_selectors)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
-            pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
+            _setter("multi_region_enabled", multi_region_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization_enabled is not None:
-            pulumi.set(__self__, "organization_enabled", organization_enabled)
+            _setter("organization_enabled", organization_enabled)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if termination_protection_enabled is not None:
-            pulumi.set(__self__, "termination_protection_enabled", termination_protection_enabled)
+            _setter("termination_protection_enabled", termination_protection_enabled)
 
     @property
     @pulumi.getter(name="advancedEventSelectors")
@@ -488,6 +538,10 @@ class EventDataStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventDataStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

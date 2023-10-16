@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,18 +31,37 @@ class AppArgs:
         :param pulumi.Input['AppQuietTimeArgs'] quiet_time: The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            campaign_hook=campaign_hook,
+            limits=limits,
+            name=name,
+            name_prefix=name_prefix,
+            quiet_time=quiet_time,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             campaign_hook: Optional[pulumi.Input['AppCampaignHookArgs']] = None,
+             limits: Optional[pulumi.Input['AppLimitsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             quiet_time: Optional[pulumi.Input['AppQuietTimeArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if campaign_hook is not None:
-            pulumi.set(__self__, "campaign_hook", campaign_hook)
+            _setter("campaign_hook", campaign_hook)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if quiet_time is not None:
-            pulumi.set(__self__, "quiet_time", quiet_time)
+            _setter("quiet_time", quiet_time)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="campaignHook")
@@ -141,27 +160,52 @@ class _AppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _AppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            arn=arn,
+            campaign_hook=campaign_hook,
+            limits=limits,
+            name=name,
+            name_prefix=name_prefix,
+            quiet_time=quiet_time,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             campaign_hook: Optional[pulumi.Input['AppCampaignHookArgs']] = None,
+             limits: Optional[pulumi.Input['AppLimitsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             quiet_time: Optional[pulumi.Input['AppQuietTimeArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if campaign_hook is not None:
-            pulumi.set(__self__, "campaign_hook", campaign_hook)
+            _setter("campaign_hook", campaign_hook)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if quiet_time is not None:
-            pulumi.set(__self__, "quiet_time", quiet_time)
+            _setter("quiet_time", quiet_time)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -366,6 +410,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -386,10 +434,25 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppArgs.__new__(AppArgs)
 
+            if campaign_hook is not None and not isinstance(campaign_hook, AppCampaignHookArgs):
+                campaign_hook = campaign_hook or {}
+                def _setter(key, value):
+                    campaign_hook[key] = value
+                AppCampaignHookArgs._configure(_setter, **campaign_hook)
             __props__.__dict__["campaign_hook"] = campaign_hook
+            if limits is not None and not isinstance(limits, AppLimitsArgs):
+                limits = limits or {}
+                def _setter(key, value):
+                    limits[key] = value
+                AppLimitsArgs._configure(_setter, **limits)
             __props__.__dict__["limits"] = limits
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
+            if quiet_time is not None and not isinstance(quiet_time, AppQuietTimeArgs):
+                quiet_time = quiet_time or {}
+                def _setter(key, value):
+                    quiet_time[key] = value
+                AppQuietTimeArgs._configure(_setter, **quiet_time)
             __props__.__dict__["quiet_time"] = quiet_time
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_id"] = None

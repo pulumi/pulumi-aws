@@ -19,14 +19,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// Object that specifies the range of numbers that the value sent by the client must be included in.
+        /// Object that specifies the range of numbers that the header value sent by the client must be included in.
         /// </summary>
         [Input("range")]
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchRangeGetArgs>? Range { get; set; }
@@ -38,7 +37,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Regex { get; set; }
 
         /// <summary>
-        /// Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+        /// Header value sent by the client must end with the specified characters.
         /// </summary>
         [Input("suffix")]
         public Input<string>? Suffix { get; set; }

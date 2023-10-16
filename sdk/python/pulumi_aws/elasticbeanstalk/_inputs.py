@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,13 +29,28 @@ class ApplicationAppversionLifecycleArgs:
         :param pulumi.Input[int] max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         :param pulumi.Input[int] max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
-        pulumi.set(__self__, "service_role", service_role)
+        ApplicationAppversionLifecycleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_role=service_role,
+            delete_source_from_s3=delete_source_from_s3,
+            max_age_in_days=max_age_in_days,
+            max_count=max_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_role: pulumi.Input[str],
+             delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
+             max_age_in_days: Optional[pulumi.Input[int]] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("service_role", service_role)
         if delete_source_from_s3 is not None:
-            pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
+            _setter("delete_source_from_s3", delete_source_from_s3)
         if max_age_in_days is not None:
-            pulumi.set(__self__, "max_age_in_days", max_age_in_days)
+            _setter("max_age_in_days", max_age_in_days)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -96,11 +111,26 @@ class ConfigurationTemplateSettingArgs:
         """
         :param pulumi.Input[str] name: A unique name for this Template.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "value", value)
+        ConfigurationTemplateSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+            value=value,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             namespace: pulumi.Input[str],
+             value: pulumi.Input[str],
+             resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("value", value)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -153,11 +183,26 @@ class EnvironmentAllSettingArgs:
         :param pulumi.Input[str] name: A unique name for this Environment. This name is used
                in the application URL
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "value", value)
+        EnvironmentAllSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+            value=value,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             namespace: pulumi.Input[str],
+             value: pulumi.Input[str],
+             resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("value", value)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -211,11 +256,26 @@ class EnvironmentSettingArgs:
         :param pulumi.Input[str] name: A unique name for this Environment. This name is used
                in the application URL
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "value", value)
+        EnvironmentSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+            value=value,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             namespace: pulumi.Input[str],
+             value: pulumi.Input[str],
+             resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("namespace", namespace)
+        _setter("value", value)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
 
     @property
     @pulumi.getter

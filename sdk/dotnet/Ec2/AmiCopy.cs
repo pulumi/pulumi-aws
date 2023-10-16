@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EnaSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnaSupport { get; set; }
 
         /// <summary>
-        /// Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        /// Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }

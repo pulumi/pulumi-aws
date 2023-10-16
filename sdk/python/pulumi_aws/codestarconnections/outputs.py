@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -49,11 +49,26 @@ class HostVpcConfiguration(dict):
         :param str vpc_id: The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
         :param str tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        HostVpcConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            tls_certificate=tls_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Sequence[str],
+             subnet_ids: Sequence[str],
+             vpc_id: str,
+             tls_certificate: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if tls_certificate is not None:
-            pulumi.set(__self__, "tls_certificate", tls_certificate)
+            _setter("tls_certificate", tls_certificate)
 
     @property
     @pulumi.getter(name="securityGroupIds")

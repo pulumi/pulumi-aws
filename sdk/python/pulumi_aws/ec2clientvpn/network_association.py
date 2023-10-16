@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkAssociationArgs', 'NetworkAssociation']
@@ -21,8 +21,19 @@ class NetworkAssociationArgs:
         :param pulumi.Input[str] client_vpn_endpoint_id: The ID of the Client VPN endpoint.
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         """
-        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NetworkAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_vpn_endpoint_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -63,14 +74,29 @@ class _NetworkAssociationState:
         :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the Client VPN endpoint.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the target subnet is located.
         """
+        _NetworkAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            association_id=association_id,
+            client_vpn_endpoint_id=client_vpn_endpoint_id,
+            subnet_id=subnet_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             association_id: Optional[pulumi.Input[str]] = None,
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if client_vpn_endpoint_id is not None:
-            pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+            _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="associationId")
@@ -196,6 +222,10 @@ class NetworkAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

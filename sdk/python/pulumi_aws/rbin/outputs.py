@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -41,7 +41,16 @@ class RuleLockConfiguration(dict):
         """
         :param 'RuleLockConfigurationUnlockDelayArgs' unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
         """
-        pulumi.set(__self__, "unlock_delay", unlock_delay)
+        RuleLockConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unlock_delay=unlock_delay,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unlock_delay: 'outputs.RuleLockConfigurationUnlockDelay',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unlock_delay", unlock_delay)
 
     @property
     @pulumi.getter(name="unlockDelay")
@@ -80,8 +89,19 @@ class RuleLockConfigurationUnlockDelay(dict):
         :param str unlock_delay_unit: The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         :param int unlock_delay_value: The unlock delay period, measured in the unit specified for UnlockDelayUnit.
         """
-        pulumi.set(__self__, "unlock_delay_unit", unlock_delay_unit)
-        pulumi.set(__self__, "unlock_delay_value", unlock_delay_value)
+        RuleLockConfigurationUnlockDelay._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unlock_delay_unit=unlock_delay_unit,
+            unlock_delay_value=unlock_delay_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unlock_delay_unit: str,
+             unlock_delay_value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("unlock_delay_unit", unlock_delay_unit)
+        _setter("unlock_delay_value", unlock_delay_value)
 
     @property
     @pulumi.getter(name="unlockDelayUnit")
@@ -130,9 +150,20 @@ class RuleResourceTag(dict):
                The following argument is optional:
         :param str resource_tag_value: The tag value.
         """
-        pulumi.set(__self__, "resource_tag_key", resource_tag_key)
+        RuleResourceTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_tag_key=resource_tag_key,
+            resource_tag_value=resource_tag_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_tag_key: str,
+             resource_tag_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_tag_key", resource_tag_key)
         if resource_tag_value is not None:
-            pulumi.set(__self__, "resource_tag_value", resource_tag_value)
+            _setter("resource_tag_value", resource_tag_value)
 
     @property
     @pulumi.getter(name="resourceTagKey")
@@ -181,8 +212,19 @@ class RuleRetentionPeriod(dict):
         :param str retention_period_unit: The unit of time in which the retention period is measured. Currently, only DAYS is supported.
         :param int retention_period_value: The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
         """
-        pulumi.set(__self__, "retention_period_unit", retention_period_unit)
-        pulumi.set(__self__, "retention_period_value", retention_period_value)
+        RuleRetentionPeriod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_period_unit=retention_period_unit,
+            retention_period_value=retention_period_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_period_unit: str,
+             retention_period_value: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("retention_period_unit", retention_period_unit)
+        _setter("retention_period_value", retention_period_value)
 
     @property
     @pulumi.getter(name="retentionPeriodUnit")

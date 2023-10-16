@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,42 +59,89 @@ class NfsFileShareArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
-        pulumi.set(__self__, "client_lists", client_lists)
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
-        pulumi.set(__self__, "location_arn", location_arn)
-        pulumi.set(__self__, "role_arn", role_arn)
+        NfsFileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_lists=client_lists,
+            gateway_arn=gateway_arn,
+            location_arn=location_arn,
+            role_arn=role_arn,
+            audit_destination_arn=audit_destination_arn,
+            bucket_region=bucket_region,
+            cache_attributes=cache_attributes,
+            default_storage_class=default_storage_class,
+            file_share_name=file_share_name,
+            guess_mime_type_enabled=guess_mime_type_enabled,
+            kms_encrypted=kms_encrypted,
+            kms_key_arn=kms_key_arn,
+            nfs_file_share_defaults=nfs_file_share_defaults,
+            notification_policy=notification_policy,
+            object_acl=object_acl,
+            read_only=read_only,
+            requester_pays=requester_pays,
+            squash=squash,
+            tags=tags,
+            vpc_endpoint_dns_name=vpc_endpoint_dns_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             gateway_arn: pulumi.Input[str],
+             location_arn: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             bucket_region: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
+             default_storage_class: Optional[pulumi.Input[str]] = None,
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             nfs_file_share_defaults: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']] = None,
+             notification_policy: Optional[pulumi.Input[str]] = None,
+             object_acl: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             requester_pays: Optional[pulumi.Input[bool]] = None,
+             squash: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_lists", client_lists)
+        _setter("gateway_arn", gateway_arn)
+        _setter("location_arn", location_arn)
+        _setter("role_arn", role_arn)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if bucket_region is not None:
-            pulumi.set(__self__, "bucket_region", bucket_region)
+            _setter("bucket_region", bucket_region)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if default_storage_class is not None:
-            pulumi.set(__self__, "default_storage_class", default_storage_class)
+            _setter("default_storage_class", default_storage_class)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if guess_mime_type_enabled is not None:
-            pulumi.set(__self__, "guess_mime_type_enabled", guess_mime_type_enabled)
+            _setter("guess_mime_type_enabled", guess_mime_type_enabled)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if nfs_file_share_defaults is not None:
-            pulumi.set(__self__, "nfs_file_share_defaults", nfs_file_share_defaults)
+            _setter("nfs_file_share_defaults", nfs_file_share_defaults)
         if notification_policy is not None:
-            pulumi.set(__self__, "notification_policy", notification_policy)
+            _setter("notification_policy", notification_policy)
         if object_acl is not None:
-            pulumi.set(__self__, "object_acl", object_acl)
+            _setter("object_acl", object_acl)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if requester_pays is not None:
-            pulumi.set(__self__, "requester_pays", requester_pays)
+            _setter("requester_pays", requester_pays)
         if squash is not None:
-            pulumi.set(__self__, "squash", squash)
+            _setter("squash", squash)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_endpoint_dns_name is not None:
-            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+            _setter("vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="clientLists")
@@ -391,57 +438,112 @@ class _NfsFileShareState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
+        _NfsFileShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            audit_destination_arn=audit_destination_arn,
+            bucket_region=bucket_region,
+            cache_attributes=cache_attributes,
+            client_lists=client_lists,
+            default_storage_class=default_storage_class,
+            file_share_name=file_share_name,
+            fileshare_id=fileshare_id,
+            gateway_arn=gateway_arn,
+            guess_mime_type_enabled=guess_mime_type_enabled,
+            kms_encrypted=kms_encrypted,
+            kms_key_arn=kms_key_arn,
+            location_arn=location_arn,
+            nfs_file_share_defaults=nfs_file_share_defaults,
+            notification_policy=notification_policy,
+            object_acl=object_acl,
+            path=path,
+            read_only=read_only,
+            requester_pays=requester_pays,
+            role_arn=role_arn,
+            squash=squash,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_endpoint_dns_name=vpc_endpoint_dns_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+             bucket_region: Optional[pulumi.Input[str]] = None,
+             cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
+             client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_storage_class: Optional[pulumi.Input[str]] = None,
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             fileshare_id: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             guess_mime_type_enabled: Optional[pulumi.Input[bool]] = None,
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             location_arn: Optional[pulumi.Input[str]] = None,
+             nfs_file_share_defaults: Optional[pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs']] = None,
+             notification_policy: Optional[pulumi.Input[str]] = None,
+             object_acl: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             requester_pays: Optional[pulumi.Input[bool]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             squash: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if audit_destination_arn is not None:
-            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+            _setter("audit_destination_arn", audit_destination_arn)
         if bucket_region is not None:
-            pulumi.set(__self__, "bucket_region", bucket_region)
+            _setter("bucket_region", bucket_region)
         if cache_attributes is not None:
-            pulumi.set(__self__, "cache_attributes", cache_attributes)
+            _setter("cache_attributes", cache_attributes)
         if client_lists is not None:
-            pulumi.set(__self__, "client_lists", client_lists)
+            _setter("client_lists", client_lists)
         if default_storage_class is not None:
-            pulumi.set(__self__, "default_storage_class", default_storage_class)
+            _setter("default_storage_class", default_storage_class)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if fileshare_id is not None:
-            pulumi.set(__self__, "fileshare_id", fileshare_id)
+            _setter("fileshare_id", fileshare_id)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
         if guess_mime_type_enabled is not None:
-            pulumi.set(__self__, "guess_mime_type_enabled", guess_mime_type_enabled)
+            _setter("guess_mime_type_enabled", guess_mime_type_enabled)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if location_arn is not None:
-            pulumi.set(__self__, "location_arn", location_arn)
+            _setter("location_arn", location_arn)
         if nfs_file_share_defaults is not None:
-            pulumi.set(__self__, "nfs_file_share_defaults", nfs_file_share_defaults)
+            _setter("nfs_file_share_defaults", nfs_file_share_defaults)
         if notification_policy is not None:
-            pulumi.set(__self__, "notification_policy", notification_policy)
+            _setter("notification_policy", notification_policy)
         if object_acl is not None:
-            pulumi.set(__self__, "object_acl", object_acl)
+            _setter("object_acl", object_acl)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if requester_pays is not None:
-            pulumi.set(__self__, "requester_pays", requester_pays)
+            _setter("requester_pays", requester_pays)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if squash is not None:
-            pulumi.set(__self__, "squash", squash)
+            _setter("squash", squash)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_endpoint_dns_name is not None:
-            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
+            _setter("vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter
@@ -848,6 +950,10 @@ class NfsFileShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NfsFileShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -884,6 +990,11 @@ class NfsFileShare(pulumi.CustomResource):
 
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
             __props__.__dict__["bucket_region"] = bucket_region
+            if cache_attributes is not None and not isinstance(cache_attributes, NfsFileShareCacheAttributesArgs):
+                cache_attributes = cache_attributes or {}
+                def _setter(key, value):
+                    cache_attributes[key] = value
+                NfsFileShareCacheAttributesArgs._configure(_setter, **cache_attributes)
             __props__.__dict__["cache_attributes"] = cache_attributes
             if client_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_lists'")
@@ -899,6 +1010,11 @@ class NfsFileShare(pulumi.CustomResource):
             if location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'location_arn'")
             __props__.__dict__["location_arn"] = location_arn
+            if nfs_file_share_defaults is not None and not isinstance(nfs_file_share_defaults, NfsFileShareNfsFileShareDefaultsArgs):
+                nfs_file_share_defaults = nfs_file_share_defaults or {}
+                def _setter(key, value):
+                    nfs_file_share_defaults[key] = value
+                NfsFileShareNfsFileShareDefaultsArgs._configure(_setter, **nfs_file_share_defaults)
             __props__.__dict__["nfs_file_share_defaults"] = nfs_file_share_defaults
             __props__.__dict__["notification_policy"] = notification_policy
             __props__.__dict__["object_acl"] = object_acl

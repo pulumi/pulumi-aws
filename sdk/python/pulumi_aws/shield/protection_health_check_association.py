@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectionHealthCheckAssociationArgs', 'ProtectionHealthCheckAssociation']
@@ -21,8 +21,19 @@ class ProtectionHealthCheckAssociationArgs:
         :param pulumi.Input[str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[str] shield_protection_id: The ID of the protected resource.
         """
-        pulumi.set(__self__, "health_check_arn", health_check_arn)
-        pulumi.set(__self__, "shield_protection_id", shield_protection_id)
+        ProtectionHealthCheckAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_arn=health_check_arn,
+            shield_protection_id=shield_protection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_arn: pulumi.Input[str],
+             shield_protection_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("health_check_arn", health_check_arn)
+        _setter("shield_protection_id", shield_protection_id)
 
     @property
     @pulumi.getter(name="healthCheckArn")
@@ -59,10 +70,21 @@ class _ProtectionHealthCheckAssociationState:
         :param pulumi.Input[str] health_check_arn: The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         :param pulumi.Input[str] shield_protection_id: The ID of the protected resource.
         """
+        _ProtectionHealthCheckAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_check_arn=health_check_arn,
+            shield_protection_id=shield_protection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_check_arn: Optional[pulumi.Input[str]] = None,
+             shield_protection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if health_check_arn is not None:
-            pulumi.set(__self__, "health_check_arn", health_check_arn)
+            _setter("health_check_arn", health_check_arn)
         if shield_protection_id is not None:
-            pulumi.set(__self__, "shield_protection_id", shield_protection_id)
+            _setter("shield_protection_id", shield_protection_id)
 
     @property
     @pulumi.getter(name="healthCheckArn")
@@ -208,6 +230,10 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectionHealthCheckAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

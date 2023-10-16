@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpnConnectionRouteInitArgs', 'VpnConnectionRoute']
@@ -21,8 +21,19 @@ class VpnConnectionRouteInitArgs:
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
-        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
-        pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+        VpnConnectionRouteInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            vpn_connection_id=vpn_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: pulumi.Input[str],
+             vpn_connection_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_cidr_block", destination_cidr_block)
+        _setter("vpn_connection_id", vpn_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -59,10 +70,21 @@ class _VpnConnectionRouteState:
         :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
         :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
+        _VpnConnectionRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_cidr_block=destination_cidr_block,
+            vpn_connection_id=vpn_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             vpn_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_cidr_block is not None:
-            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+            _setter("destination_cidr_block", destination_cidr_block)
         if vpn_connection_id is not None:
-            pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
+            _setter("vpn_connection_id", vpn_connection_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -168,6 +190,10 @@ class VpnConnectionRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnConnectionRouteInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

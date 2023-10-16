@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ListenerCertificateArgs', 'ListenerCertificate']
@@ -21,8 +21,19 @@ class ListenerCertificateArgs:
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "listener_arn", listener_arn)
+        ListenerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            listener_arn=listener_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: pulumi.Input[str],
+             listener_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
+        _setter("listener_arn", listener_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -59,10 +70,21 @@ class _ListenerCertificateState:
         :param pulumi.Input[str] certificate_arn: The ARN of the certificate to attach to the listener.
         :param pulumi.Input[str] listener_arn: The ARN of the listener to which to attach the certificate.
         """
+        _ListenerCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            listener_arn=listener_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if listener_arn is not None:
-            pulumi.set(__self__, "listener_arn", listener_arn)
+            _setter("listener_arn", listener_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -182,6 +204,10 @@ class ListenerCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

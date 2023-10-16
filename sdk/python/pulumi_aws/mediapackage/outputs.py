@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -39,8 +39,17 @@ class ChannelHlsIngest(dict):
         """
         :param Sequence['ChannelHlsIngestIngestEndpointArgs'] ingest_endpoints: A list of the ingest endpoints
         """
+        ChannelHlsIngest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingest_endpoints=ingest_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingest_endpoints: Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ingest_endpoints is not None:
-            pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
+            _setter("ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
@@ -62,12 +71,25 @@ class ChannelHlsIngestIngestEndpoint(dict):
         :param str url: The URL
         :param str username: The username
         """
+        ChannelHlsIngestIngestEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter

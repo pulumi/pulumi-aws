@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
@@ -23,9 +23,22 @@ class GroupMembershipArgs:
         :param pulumi.Input[str] identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
         :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
         """
-        pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "identity_store_id", identity_store_id)
-        pulumi.set(__self__, "member_id", member_id)
+        GroupMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            identity_store_id=identity_store_id,
+            member_id=member_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: pulumi.Input[str],
+             identity_store_id: pulumi.Input[str],
+             member_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_id", group_id)
+        _setter("identity_store_id", identity_store_id)
+        _setter("member_id", member_id)
 
     @property
     @pulumi.getter(name="groupId")
@@ -78,14 +91,29 @@ class _GroupMembershipState:
         :param pulumi.Input[str] member_id: The identifier for a user in the Identity Store.
         :param pulumi.Input[str] membership_id: The identifier of the newly created group membership in the Identity Store.
         """
+        _GroupMembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            identity_store_id=identity_store_id,
+            member_id=member_id,
+            membership_id=membership_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             identity_store_id: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input[str]] = None,
+             membership_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if identity_store_id is not None:
-            pulumi.set(__self__, "identity_store_id", identity_store_id)
+            _setter("identity_store_id", identity_store_id)
         if member_id is not None:
-            pulumi.set(__self__, "member_id", member_id)
+            _setter("member_id", member_id)
         if membership_id is not None:
-            pulumi.set(__self__, "membership_id", membership_id)
+            _setter("membership_id", membership_id)
 
     @property
     @pulumi.getter(name="groupId")
@@ -189,6 +217,10 @@ class GroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

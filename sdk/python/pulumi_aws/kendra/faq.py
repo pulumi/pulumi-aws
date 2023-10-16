@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,42 @@ class FaqArgs:
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "index_id", index_id)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "s3_path", s3_path)
+        FaqArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_id=index_id,
+            role_arn=role_arn,
+            s3_path=s3_path,
+            description=description,
+            file_format=file_format,
+            language_code=language_code,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_id: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             s3_path: pulumi.Input['FaqS3PathArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             file_format: Optional[pulumi.Input[str]] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("index_id", index_id)
+        _setter("role_arn", role_arn)
+        _setter("s3_path", s3_path)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
+            _setter("file_format", file_format)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="indexId")
@@ -188,39 +211,76 @@ class _FaqState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The date and time that the FAQ was last updated.
         """
+        _FaqState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_at=created_at,
+            description=description,
+            error_message=error_message,
+            faq_id=faq_id,
+            file_format=file_format,
+            index_id=index_id,
+            language_code=language_code,
+            name=name,
+            role_arn=role_arn,
+            s3_path=s3_path,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             error_message: Optional[pulumi.Input[str]] = None,
+             faq_id: Optional[pulumi.Input[str]] = None,
+             file_format: Optional[pulumi.Input[str]] = None,
+             index_id: Optional[pulumi.Input[str]] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_path: Optional[pulumi.Input['FaqS3PathArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if faq_id is not None:
-            pulumi.set(__self__, "faq_id", faq_id)
+            _setter("faq_id", faq_id)
         if file_format is not None:
-            pulumi.set(__self__, "file_format", file_format)
+            _setter("file_format", file_format)
         if index_id is not None:
-            pulumi.set(__self__, "index_id", index_id)
+            _setter("index_id", index_id)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if s3_path is not None:
-            pulumi.set(__self__, "s3_path", s3_path)
+            _setter("s3_path", s3_path)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter
@@ -571,6 +631,10 @@ class Faq(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FaqArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -603,6 +667,11 @@ class Faq(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            if s3_path is not None and not isinstance(s3_path, FaqS3PathArgs):
+                s3_path = s3_path or {}
+                def _setter(key, value):
+                    s3_path[key] = value
+                FaqS3PathArgs._configure(_setter, **s3_path)
             if s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 's3_path'")
             __props__.__dict__["s3_path"] = s3_path

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class PolicyArgs:
         :param pulumi.Input['PolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
-        pulumi.set(__self__, "service_namespace", service_namespace)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scalable_dimension=scalable_dimension,
+            service_namespace=service_namespace,
+            name=name,
+            policy_type=policy_type,
+            step_scaling_policy_configuration=step_scaling_policy_configuration,
+            target_tracking_scaling_policy_configuration=target_tracking_scaling_policy_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: pulumi.Input[str],
+             scalable_dimension: pulumi.Input[str],
+             service_namespace: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']] = None,
+             target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
+        _setter("scalable_dimension", scalable_dimension)
+        _setter("service_namespace", service_namespace)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if step_scaling_policy_configuration is not None:
-            pulumi.set(__self__, "step_scaling_policy_configuration", step_scaling_policy_configuration)
+            _setter("step_scaling_policy_configuration", step_scaling_policy_configuration)
         if target_tracking_scaling_policy_configuration is not None:
-            pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+            _setter("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -154,24 +175,49 @@ class _PolicyState:
         :param pulumi.Input['PolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_arns=alarm_arns,
+            arn=arn,
+            name=name,
+            policy_type=policy_type,
+            resource_id=resource_id,
+            scalable_dimension=scalable_dimension,
+            service_namespace=service_namespace,
+            step_scaling_policy_configuration=step_scaling_policy_configuration,
+            target_tracking_scaling_policy_configuration=target_tracking_scaling_policy_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             scalable_dimension: Optional[pulumi.Input[str]] = None,
+             service_namespace: Optional[pulumi.Input[str]] = None,
+             step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']] = None,
+             target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alarm_arns is not None:
-            pulumi.set(__self__, "alarm_arns", alarm_arns)
+            _setter("alarm_arns", alarm_arns)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scalable_dimension is not None:
-            pulumi.set(__self__, "scalable_dimension", scalable_dimension)
+            _setter("scalable_dimension", scalable_dimension)
         if service_namespace is not None:
-            pulumi.set(__self__, "service_namespace", service_namespace)
+            _setter("service_namespace", service_namespace)
         if step_scaling_policy_configuration is not None:
-            pulumi.set(__self__, "step_scaling_policy_configuration", step_scaling_policy_configuration)
+            _setter("step_scaling_policy_configuration", step_scaling_policy_configuration)
         if target_tracking_scaling_policy_configuration is not None:
-            pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
+            _setter("target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
 
     @property
     @pulumi.getter(name="alarmArns")
@@ -709,6 +755,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -741,7 +791,17 @@ class Policy(pulumi.CustomResource):
             if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
+            if step_scaling_policy_configuration is not None and not isinstance(step_scaling_policy_configuration, PolicyStepScalingPolicyConfigurationArgs):
+                step_scaling_policy_configuration = step_scaling_policy_configuration or {}
+                def _setter(key, value):
+                    step_scaling_policy_configuration[key] = value
+                PolicyStepScalingPolicyConfigurationArgs._configure(_setter, **step_scaling_policy_configuration)
             __props__.__dict__["step_scaling_policy_configuration"] = step_scaling_policy_configuration
+            if target_tracking_scaling_policy_configuration is not None and not isinstance(target_tracking_scaling_policy_configuration, PolicyTargetTrackingScalingPolicyConfigurationArgs):
+                target_tracking_scaling_policy_configuration = target_tracking_scaling_policy_configuration or {}
+                def _setter(key, value):
+                    target_tracking_scaling_policy_configuration[key] = value
+                PolicyTargetTrackingScalingPolicyConfigurationArgs._configure(_setter, **target_tracking_scaling_policy_configuration)
             __props__.__dict__["target_tracking_scaling_policy_configuration"] = target_tracking_scaling_policy_configuration
             __props__.__dict__["alarm_arns"] = None
             __props__.__dict__["arn"] = None

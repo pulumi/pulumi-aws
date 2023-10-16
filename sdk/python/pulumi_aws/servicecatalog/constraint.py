@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConstraintArgs', 'Constraint']
@@ -31,14 +31,33 @@ class ConstraintArgs:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] description: Description of the constraint.
         """
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "type", type)
+        ConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            type=type,
+            accept_language=accept_language,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: pulumi.Input[str],
+             portfolio_id: pulumi.Input[str],
+             product_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameters", parameters)
+        _setter("portfolio_id", portfolio_id)
+        _setter("product_id", product_id)
+        _setter("type", type)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -138,22 +157,45 @@ class _ConstraintState:
                
                The following arguments are optional:
         """
+        _ConstraintState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            description=description,
+            owner=owner,
+            parameters=parameters,
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if portfolio_id is not None:
-            pulumi.set(__self__, "portfolio_id", portfolio_id)
+            _setter("portfolio_id", portfolio_id)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -352,6 +394,10 @@ class Constraint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConstraintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

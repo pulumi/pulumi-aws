@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateAuthorityCertificateArgs', 'CertificateAuthorityCertificate']
@@ -23,10 +23,23 @@ class CertificateAuthorityCertificateArgs:
         :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        CertificateAuthorityCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: pulumi.Input[str],
+             certificate_authority_arn: pulumi.Input[str],
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate", certificate)
+        _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter
@@ -77,12 +90,25 @@ class _CertificateAuthorityCertificateState:
         :param pulumi.Input[str] certificate_authority_arn: ARN of the Certificate Authority.
         :param pulumi.Input[str] certificate_chain: PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         """
+        _CertificateAuthorityCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_chain=certificate_chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_authority_arn is not None:
-            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+            _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter
@@ -298,6 +324,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateAuthorityCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

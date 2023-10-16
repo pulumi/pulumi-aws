@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceAttachmentInitArgs', 'NetworkInterfaceAttachment']
@@ -23,9 +23,22 @@ class NetworkInterfaceAttachmentInitArgs:
         :param pulumi.Input[str] instance_id: Instance ID to attach.
         :param pulumi.Input[str] network_interface_id: ENI ID to attach.
         """
-        pulumi.set(__self__, "device_index", device_index)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        NetworkInterfaceAttachmentInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_index=device_index,
+            instance_id=instance_id,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_index: pulumi.Input[int],
+             instance_id: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("device_index", device_index)
+        _setter("instance_id", instance_id)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -80,16 +93,33 @@ class _NetworkInterfaceAttachmentState:
         :param pulumi.Input[str] network_interface_id: ENI ID to attach.
         :param pulumi.Input[str] status: The status of the Network Interface Attachment.
         """
+        _NetworkInterfaceAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attachment_id=attachment_id,
+            device_index=device_index,
+            instance_id=instance_id,
+            network_interface_id=network_interface_id,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attachment_id: Optional[pulumi.Input[str]] = None,
+             device_index: Optional[pulumi.Input[int]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_id is not None:
-            pulumi.set(__self__, "attachment_id", attachment_id)
+            _setter("attachment_id", attachment_id)
         if device_index is not None:
-            pulumi.set(__self__, "device_index", device_index)
+            _setter("device_index", device_index)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="attachmentId")
@@ -229,6 +259,10 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceAttachmentInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

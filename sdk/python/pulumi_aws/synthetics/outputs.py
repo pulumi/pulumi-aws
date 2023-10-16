@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -43,8 +43,17 @@ class CanaryArtifactConfig(dict):
         """
         :param 'CanaryArtifactConfigS3EncryptionArgs' s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
+        CanaryArtifactConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_encryption=s3_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_encryption: Optional['outputs.CanaryArtifactConfigS3Encryption'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_encryption is not None:
-            pulumi.set(__self__, "s3_encryption", s3_encryption)
+            _setter("s3_encryption", s3_encryption)
 
     @property
     @pulumi.getter(name="s3Encryption")
@@ -83,10 +92,21 @@ class CanaryArtifactConfigS3Encryption(dict):
         :param str encryption_mode: The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         :param str kms_key_arn: The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         """
+        CanaryArtifactConfigS3Encryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_mode=encryption_mode,
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_mode: Optional[str] = None,
+             kms_key_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="encryptionMode")
@@ -141,14 +161,29 @@ class CanaryRunConfig(dict):
         :param int memory_in_mb: Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
         :param int timeout_in_seconds: Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
         """
+        CanaryRunConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_tracing=active_tracing,
+            environment_variables=environment_variables,
+            memory_in_mb=memory_in_mb,
+            timeout_in_seconds=timeout_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_tracing: Optional[bool] = None,
+             environment_variables: Optional[Mapping[str, str]] = None,
+             memory_in_mb: Optional[int] = None,
+             timeout_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_tracing is not None:
-            pulumi.set(__self__, "active_tracing", active_tracing)
+            _setter("active_tracing", active_tracing)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if memory_in_mb is not None:
-            pulumi.set(__self__, "memory_in_mb", memory_in_mb)
+            _setter("memory_in_mb", memory_in_mb)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
 
     @property
     @pulumi.getter(name="activeTracing")
@@ -209,9 +244,20 @@ class CanarySchedule(dict):
         :param str expression: Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
         :param int duration_in_seconds: Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
         """
-        pulumi.set(__self__, "expression", expression)
+        CanarySchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            duration_in_seconds=duration_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: str,
+             duration_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("expression", expression)
         if duration_in_seconds is not None:
-            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+            _setter("duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter
@@ -264,14 +310,29 @@ class CanaryTimeline(dict):
         :param str last_started: Date and time that the canary's most recent run started.
         :param str last_stopped: Date and time that the canary's most recent run ended.
         """
+        CanaryTimeline._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            last_modified=last_modified,
+            last_started=last_started,
+            last_stopped=last_stopped,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             last_modified: Optional[str] = None,
+             last_started: Optional[str] = None,
+             last_stopped: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if last_started is not None:
-            pulumi.set(__self__, "last_started", last_started)
+            _setter("last_started", last_started)
         if last_stopped is not None:
-            pulumi.set(__self__, "last_stopped", last_stopped)
+            _setter("last_stopped", last_stopped)
 
     @property
     @pulumi.getter
@@ -338,12 +399,25 @@ class CanaryVpcConfig(dict):
         :param Sequence[str] subnet_ids: IDs of the subnets where this canary is to run.
         :param str vpc_id: ID of the VPC where this canary is to run.
         """
+        CanaryVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")

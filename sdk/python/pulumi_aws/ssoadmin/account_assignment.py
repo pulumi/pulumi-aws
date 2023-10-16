@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountAssignmentArgs', 'AccountAssignment']
@@ -29,13 +29,32 @@ class AccountAssignmentArgs:
         :param pulumi.Input[str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "target_id", target_id)
+        AccountAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            permission_set_arn=permission_set_arn,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            target_id=target_id,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             permission_set_arn: pulumi.Input[str],
+             principal_id: pulumi.Input[str],
+             principal_type: pulumi.Input[str],
+             target_id: pulumi.Input[str],
+             target_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_arn", instance_arn)
+        _setter("permission_set_arn", permission_set_arn)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("target_id", target_id)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -128,18 +147,37 @@ class _AccountAssignmentState:
         :param pulumi.Input[str] target_id: An AWS account identifier, typically a 10-12 digit string.
         :param pulumi.Input[str] target_type: The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
         """
+        _AccountAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            permission_set_arn=permission_set_arn,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            target_id=target_id,
+            target_type=target_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             permission_set_arn: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
+            _setter("instance_arn", instance_arn)
         if permission_set_arn is not None:
-            pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+            _setter("permission_set_arn", permission_set_arn)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
+            _setter("target_id", target_id)
         if target_type is not None:
-            pulumi.set(__self__, "target_type", target_type)
+            _setter("target_type", target_type)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -273,6 +311,10 @@ class AccountAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

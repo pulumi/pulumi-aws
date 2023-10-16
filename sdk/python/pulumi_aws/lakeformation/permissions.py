@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,26 +47,55 @@ class PermissionsArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
+        PermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            catalog_id=catalog_id,
+            catalog_resource=catalog_resource,
+            data_location=data_location,
+            database=database,
+            lf_tag=lf_tag,
+            lf_tag_policy=lf_tag_policy,
+            permissions_with_grant_options=permissions_with_grant_options,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             principal: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             catalog_resource: Optional[pulumi.Input[bool]] = None,
+             data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
+             database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+             lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+             lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
+             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("permissions", permissions)
+        _setter("principal", principal)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if catalog_resource is not None:
-            pulumi.set(__self__, "catalog_resource", catalog_resource)
+            _setter("catalog_resource", catalog_resource)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tag is not None:
-            pulumi.set(__self__, "lf_tag", lf_tag)
+            _setter("lf_tag", lf_tag)
         if lf_tag_policy is not None:
-            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
+            _setter("lf_tag_policy", lf_tag_policy)
         if permissions_with_grant_options is not None:
-            pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
+            _setter("permissions_with_grant_options", permissions_with_grant_options)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter
@@ -241,28 +270,57 @@ class _PermissionsState:
                
                The following arguments are optional:
         """
+        _PermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            catalog_resource=catalog_resource,
+            data_location=data_location,
+            database=database,
+            lf_tag=lf_tag,
+            lf_tag_policy=lf_tag_policy,
+            permissions=permissions,
+            permissions_with_grant_options=permissions_with_grant_options,
+            principal=principal,
+            table=table,
+            table_with_columns=table_with_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             catalog_resource: Optional[pulumi.Input[bool]] = None,
+             data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
+             database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+             lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+             lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
+             table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if catalog_resource is not None:
-            pulumi.set(__self__, "catalog_resource", catalog_resource)
+            _setter("catalog_resource", catalog_resource)
         if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
+            _setter("data_location", data_location)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if lf_tag is not None:
-            pulumi.set(__self__, "lf_tag", lf_tag)
+            _setter("lf_tag", lf_tag)
         if lf_tag_policy is not None:
-            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
+            _setter("lf_tag_policy", lf_tag_policy)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if permissions_with_grant_options is not None:
-            pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
+            _setter("permissions_with_grant_options", permissions_with_grant_options)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if table_with_columns is not None:
-            pulumi.set(__self__, "table_with_columns", table_with_columns)
+            _setter("table_with_columns", table_with_columns)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -742,6 +800,10 @@ class Permissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -769,9 +831,29 @@ class Permissions(pulumi.CustomResource):
 
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["catalog_resource"] = catalog_resource
+            if data_location is not None and not isinstance(data_location, PermissionsDataLocationArgs):
+                data_location = data_location or {}
+                def _setter(key, value):
+                    data_location[key] = value
+                PermissionsDataLocationArgs._configure(_setter, **data_location)
             __props__.__dict__["data_location"] = data_location
+            if database is not None and not isinstance(database, PermissionsDatabaseArgs):
+                database = database or {}
+                def _setter(key, value):
+                    database[key] = value
+                PermissionsDatabaseArgs._configure(_setter, **database)
             __props__.__dict__["database"] = database
+            if lf_tag is not None and not isinstance(lf_tag, PermissionsLfTagArgs):
+                lf_tag = lf_tag or {}
+                def _setter(key, value):
+                    lf_tag[key] = value
+                PermissionsLfTagArgs._configure(_setter, **lf_tag)
             __props__.__dict__["lf_tag"] = lf_tag
+            if lf_tag_policy is not None and not isinstance(lf_tag_policy, PermissionsLfTagPolicyArgs):
+                lf_tag_policy = lf_tag_policy or {}
+                def _setter(key, value):
+                    lf_tag_policy[key] = value
+                PermissionsLfTagPolicyArgs._configure(_setter, **lf_tag_policy)
             __props__.__dict__["lf_tag_policy"] = lf_tag_policy
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
@@ -780,7 +862,17 @@ class Permissions(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            if table is not None and not isinstance(table, PermissionsTableArgs):
+                table = table or {}
+                def _setter(key, value):
+                    table[key] = value
+                PermissionsTableArgs._configure(_setter, **table)
             __props__.__dict__["table"] = table
+            if table_with_columns is not None and not isinstance(table_with_columns, PermissionsTableWithColumnsArgs):
+                table_with_columns = table_with_columns or {}
+                def _setter(key, value):
+                    table_with_columns[key] = value
+                PermissionsTableWithColumnsArgs._configure(_setter, **table_with_columns)
             __props__.__dict__["table_with_columns"] = table_with_columns
         super(Permissions, __self__).__init__(
             'aws:lakeformation/permissions:Permissions',

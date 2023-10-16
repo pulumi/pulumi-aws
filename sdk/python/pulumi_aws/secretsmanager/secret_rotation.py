@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,22 @@ class SecretRotationArgs:
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
-        pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
-        pulumi.set(__self__, "rotation_rules", rotation_rules)
-        pulumi.set(__self__, "secret_id", secret_id)
+        SecretRotationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rotation_lambda_arn=rotation_lambda_arn,
+            rotation_rules=rotation_rules,
+            secret_id=secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rotation_lambda_arn: pulumi.Input[str],
+             rotation_rules: pulumi.Input['SecretRotationRotationRulesArgs'],
+             secret_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rotation_lambda_arn", rotation_lambda_arn)
+        _setter("rotation_rules", rotation_rules)
+        _setter("secret_id", secret_id)
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
@@ -80,14 +93,29 @@ class _SecretRotationState:
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
+        _SecretRotationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rotation_enabled=rotation_enabled,
+            rotation_lambda_arn=rotation_lambda_arn,
+            rotation_rules=rotation_rules,
+            secret_id=secret_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
+             rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
+             secret_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rotation_enabled is not None:
-            pulumi.set(__self__, "rotation_enabled", rotation_enabled)
+            _setter("rotation_enabled", rotation_enabled)
         if rotation_lambda_arn is not None:
-            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
+            _setter("rotation_lambda_arn", rotation_lambda_arn)
         if rotation_rules is not None:
-            pulumi.set(__self__, "rotation_rules", rotation_rules)
+            _setter("rotation_rules", rotation_rules)
         if secret_id is not None:
-            pulumi.set(__self__, "secret_id", secret_id)
+            _setter("secret_id", secret_id)
 
     @property
     @pulumi.getter(name="rotationEnabled")
@@ -235,6 +263,10 @@ class SecretRotation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretRotationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -255,6 +287,11 @@ class SecretRotation(pulumi.CustomResource):
             if rotation_lambda_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_lambda_arn'")
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
+            if rotation_rules is not None and not isinstance(rotation_rules, SecretRotationRotationRulesArgs):
+                rotation_rules = rotation_rules or {}
+                def _setter(key, value):
+                    rotation_rules[key] = value
+                SecretRotationRotationRulesArgs._configure(_setter, **rotation_rules)
             if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
             __props__.__dict__["rotation_rules"] = rotation_rules

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class AliasArgs:
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
-        pulumi.set(__self__, "function_name", function_name)
-        pulumi.set(__self__, "function_version", function_version)
+        AliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_name=function_name,
+            function_version=function_version,
+            description=description,
+            name=name,
+            routing_config=routing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_name: pulumi.Input[str],
+             function_version: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_name", function_name)
+        _setter("function_version", function_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_config is not None:
-            pulumi.set(__self__, "routing_config", routing_config)
+            _setter("routing_config", routing_config)
 
     @property
     @pulumi.getter(name="functionName")
@@ -119,20 +136,41 @@ class _AliasState:
         :param pulumi.Input[str] name: Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
         :param pulumi.Input['AliasRoutingConfigArgs'] routing_config: The Lambda alias' route configuration settings. Fields documented below
         """
+        _AliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            function_name=function_name,
+            function_version=function_version,
+            invoke_arn=invoke_arn,
+            name=name,
+            routing_config=routing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             function_version: Optional[pulumi.Input[str]] = None,
+             invoke_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing_config: Optional[pulumi.Input['AliasRoutingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if function_version is not None:
-            pulumi.set(__self__, "function_version", function_version)
+            _setter("function_version", function_version)
         if invoke_arn is not None:
-            pulumi.set(__self__, "invoke_arn", invoke_arn)
+            _setter("invoke_arn", invoke_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_config is not None:
-            pulumi.set(__self__, "routing_config", routing_config)
+            _setter("routing_config", routing_config)
 
     @property
     @pulumi.getter
@@ -316,6 +354,10 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -343,6 +385,11 @@ class Alias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
             __props__.__dict__["name"] = name
+            if routing_config is not None and not isinstance(routing_config, AliasRoutingConfigArgs):
+                routing_config = routing_config or {}
+                def _setter(key, value):
+                    routing_config[key] = value
+                AliasRoutingConfigArgs._configure(_setter, **routing_config)
             __props__.__dict__["routing_config"] = routing_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["invoke_arn"] = None

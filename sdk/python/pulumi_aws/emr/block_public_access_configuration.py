@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,20 @@ class BlockPublicAccessConfigurationArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
-        pulumi.set(__self__, "block_public_security_group_rules", block_public_security_group_rules)
+        BlockPublicAccessConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_public_security_group_rules=block_public_security_group_rules,
+            permitted_public_security_group_rule_ranges=permitted_public_security_group_rule_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_public_security_group_rules: pulumi.Input[bool],
+             permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("block_public_security_group_rules", block_public_security_group_rules)
         if permitted_public_security_group_rule_ranges is not None:
-            pulumi.set(__self__, "permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
+            _setter("permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
 
     @property
     @pulumi.getter(name="blockPublicSecurityGroupRules")
@@ -68,10 +79,21 @@ class _BlockPublicAccessConfigurationState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
+        _BlockPublicAccessConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_public_security_group_rules=block_public_security_group_rules,
+            permitted_public_security_group_rule_ranges=permitted_public_security_group_rule_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_public_security_group_rules: Optional[pulumi.Input[bool]] = None,
+             permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if block_public_security_group_rules is not None:
-            pulumi.set(__self__, "block_public_security_group_rules", block_public_security_group_rules)
+            _setter("block_public_security_group_rules", block_public_security_group_rules)
         if permitted_public_security_group_rule_ranges is not None:
-            pulumi.set(__self__, "permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
+            _setter("permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
 
     @property
     @pulumi.getter(name="blockPublicSecurityGroupRules")
@@ -269,6 +291,10 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlockPublicAccessConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

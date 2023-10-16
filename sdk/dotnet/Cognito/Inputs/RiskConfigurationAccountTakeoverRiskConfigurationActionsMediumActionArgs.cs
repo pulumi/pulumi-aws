@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Cognito.Inputs
         [Input("eventAction", required: true)]
         public Input<string> EventAction { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to send a notification.
+        /// </summary>
         [Input("notify", required: true)]
         public Input<bool> Notify { get; set; } = null!;
 

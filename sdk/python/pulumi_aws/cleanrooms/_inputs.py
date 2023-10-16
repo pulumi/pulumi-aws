@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,10 +22,25 @@ class CollaborationDataEncryptionMetadataArgs:
                  allow_duplicates: pulumi.Input[bool],
                  allow_joins_on_columns_with_different_names: pulumi.Input[bool],
                  preserve_nulls: pulumi.Input[bool]):
-        pulumi.set(__self__, "allow_clear_text", allow_clear_text)
-        pulumi.set(__self__, "allow_duplicates", allow_duplicates)
-        pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
-        pulumi.set(__self__, "preserve_nulls", preserve_nulls)
+        CollaborationDataEncryptionMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_clear_text=allow_clear_text,
+            allow_duplicates=allow_duplicates,
+            allow_joins_on_columns_with_different_names=allow_joins_on_columns_with_different_names,
+            preserve_nulls=preserve_nulls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_clear_text: pulumi.Input[bool],
+             allow_duplicates: pulumi.Input[bool],
+             allow_joins_on_columns_with_different_names: pulumi.Input[bool],
+             preserve_nulls: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_clear_text", allow_clear_text)
+        _setter("allow_duplicates", allow_duplicates)
+        _setter("allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
+        _setter("preserve_nulls", preserve_nulls)
 
     @property
     @pulumi.getter(name="allowClearText")
@@ -71,11 +86,26 @@ class CollaborationMemberArgs:
                  display_name: pulumi.Input[str],
                  member_abilities: pulumi.Input[Sequence[pulumi.Input[str]]],
                  status: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "member_abilities", member_abilities)
+        CollaborationMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            display_name=display_name,
+            member_abilities=member_abilities,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             member_abilities: pulumi.Input[Sequence[pulumi.Input[str]]],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_id", account_id)
+        _setter("display_name", display_name)
+        _setter("member_abilities", member_abilities)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="accountId")
@@ -119,8 +149,19 @@ class ConfiguredTableTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "table_name", table_name)
+        ConfiguredTableTableReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")

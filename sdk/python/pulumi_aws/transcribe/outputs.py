@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -47,10 +47,23 @@ class LanguageModelInputDataConfig(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
-        pulumi.set(__self__, "s3_uri", s3_uri)
+        LanguageModelInputDataConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_access_role_arn=data_access_role_arn,
+            s3_uri=s3_uri,
+            tuning_data_s3_uri=tuning_data_s3_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_access_role_arn: str,
+             s3_uri: str,
+             tuning_data_s3_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_access_role_arn", data_access_role_arn)
+        _setter("s3_uri", s3_uri)
         if tuning_data_s3_uri is not None:
-            pulumi.set(__self__, "tuning_data_s3_uri", tuning_data_s3_uri)
+            _setter("tuning_data_s3_uri", tuning_data_s3_uri)
 
     @property
     @pulumi.getter(name="dataAccessRoleArn")

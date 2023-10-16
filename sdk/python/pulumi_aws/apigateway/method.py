@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MethodArgs', 'Method']
@@ -42,24 +42,53 @@ class MethodArgs:
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[str] request_validator_id: ID of a `apigateway.RequestValidator`
         """
-        pulumi.set(__self__, "authorization", authorization)
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "rest_api", rest_api)
+        MethodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            http_method=http_method,
+            resource_id=resource_id,
+            rest_api=rest_api,
+            api_key_required=api_key_required,
+            authorization_scopes=authorization_scopes,
+            authorizer_id=authorizer_id,
+            operation_name=operation_name,
+            request_models=request_models,
+            request_parameters=request_parameters,
+            request_validator_id=request_validator_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: pulumi.Input[str],
+             http_method: pulumi.Input[str],
+             resource_id: pulumi.Input[str],
+             rest_api: pulumi.Input[str],
+             api_key_required: Optional[pulumi.Input[bool]] = None,
+             authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorizer_id: Optional[pulumi.Input[str]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             request_validator_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization", authorization)
+        _setter("http_method", http_method)
+        _setter("resource_id", resource_id)
+        _setter("rest_api", rest_api)
         if api_key_required is not None:
-            pulumi.set(__self__, "api_key_required", api_key_required)
+            _setter("api_key_required", api_key_required)
         if authorization_scopes is not None:
-            pulumi.set(__self__, "authorization_scopes", authorization_scopes)
+            _setter("authorization_scopes", authorization_scopes)
         if authorizer_id is not None:
-            pulumi.set(__self__, "authorizer_id", authorizer_id)
+            _setter("authorizer_id", authorizer_id)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if request_models is not None:
-            pulumi.set(__self__, "request_models", request_models)
+            _setter("request_models", request_models)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_validator_id is not None:
-            pulumi.set(__self__, "request_validator_id", request_validator_id)
+            _setter("request_validator_id", request_validator_id)
 
     @property
     @pulumi.getter
@@ -228,28 +257,57 @@ class _MethodState:
         :param pulumi.Input[str] resource_id: API resource ID
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         """
+        _MethodState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key_required=api_key_required,
+            authorization=authorization,
+            authorization_scopes=authorization_scopes,
+            authorizer_id=authorizer_id,
+            http_method=http_method,
+            operation_name=operation_name,
+            request_models=request_models,
+            request_parameters=request_parameters,
+            request_validator_id=request_validator_id,
+            resource_id=resource_id,
+            rest_api=rest_api,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key_required: Optional[pulumi.Input[bool]] = None,
+             authorization: Optional[pulumi.Input[str]] = None,
+             authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorizer_id: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             request_validator_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key_required is not None:
-            pulumi.set(__self__, "api_key_required", api_key_required)
+            _setter("api_key_required", api_key_required)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if authorization_scopes is not None:
-            pulumi.set(__self__, "authorization_scopes", authorization_scopes)
+            _setter("authorization_scopes", authorization_scopes)
         if authorizer_id is not None:
-            pulumi.set(__self__, "authorizer_id", authorizer_id)
+            _setter("authorizer_id", authorizer_id)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if request_models is not None:
-            pulumi.set(__self__, "request_models", request_models)
+            _setter("request_models", request_models)
         if request_parameters is not None:
-            pulumi.set(__self__, "request_parameters", request_parameters)
+            _setter("request_parameters", request_parameters)
         if request_validator_id is not None:
-            pulumi.set(__self__, "request_validator_id", request_validator_id)
+            _setter("request_validator_id", request_validator_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
 
     @property
     @pulumi.getter(name="apiKeyRequired")
@@ -551,6 +609,10 @@ class Method(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MethodArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

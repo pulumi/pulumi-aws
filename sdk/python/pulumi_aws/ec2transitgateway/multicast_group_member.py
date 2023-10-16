@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MulticastGroupMemberArgs', 'MulticastGroupMember']
@@ -23,9 +23,22 @@ class MulticastGroupMemberArgs:
         :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
-        pulumi.set(__self__, "group_ip_address", group_ip_address)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
+        MulticastGroupMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ip_address=group_ip_address,
+            network_interface_id=network_interface_id,
+            transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ip_address: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             transit_gateway_multicast_domain_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_ip_address", group_ip_address)
+        _setter("network_interface_id", network_interface_id)
+        _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
@@ -76,12 +89,25 @@ class _MulticastGroupMemberState:
         :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
         :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
+        _MulticastGroupMemberState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ip_address=group_ip_address,
+            network_interface_id=network_interface_id,
+            transit_gateway_multicast_domain_id=transit_gateway_multicast_domain_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ip_address: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_ip_address is not None:
-            pulumi.set(__self__, "group_ip_address", group_ip_address)
+            _setter("group_ip_address", group_ip_address)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if transit_gateway_multicast_domain_id is not None:
-            pulumi.set(__self__, "transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
+            _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)
 
     @property
     @pulumi.getter(name="groupIpAddress")
@@ -183,6 +209,10 @@ class MulticastGroupMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MulticastGroupMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

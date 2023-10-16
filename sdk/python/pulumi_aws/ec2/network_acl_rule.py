@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkAclRuleArgs', 'NetworkAclRule']
@@ -45,24 +45,53 @@ class NetworkAclRuleArgs:
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[int] to_port: The to port to match.
         """
-        pulumi.set(__self__, "network_acl_id", network_acl_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "rule_action", rule_action)
-        pulumi.set(__self__, "rule_number", rule_number)
+        NetworkAclRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_acl_id=network_acl_id,
+            protocol=protocol,
+            rule_action=rule_action,
+            rule_number=rule_number,
+            cidr_block=cidr_block,
+            egress=egress,
+            from_port=from_port,
+            icmp_code=icmp_code,
+            icmp_type=icmp_type,
+            ipv6_cidr_block=ipv6_cidr_block,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_acl_id: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             rule_action: pulumi.Input[str],
+             rule_number: pulumi.Input[int],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[bool]] = None,
+             from_port: Optional[pulumi.Input[int]] = None,
+             icmp_code: Optional[pulumi.Input[int]] = None,
+             icmp_type: Optional[pulumi.Input[int]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_acl_id", network_acl_id)
+        _setter("protocol", protocol)
+        _setter("rule_action", rule_action)
+        _setter("rule_number", rule_number)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if icmp_code is not None:
-            pulumi.set(__self__, "icmp_code", icmp_code)
+            _setter("icmp_code", icmp_code)
         if icmp_type is not None:
-            pulumi.set(__self__, "icmp_type", icmp_type)
+            _setter("icmp_type", icmp_type)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="networkAclId")
@@ -237,28 +266,57 @@ class _NetworkAclRuleState:
         :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         :param pulumi.Input[int] to_port: The to port to match.
         """
+        _NetworkAclRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_block=cidr_block,
+            egress=egress,
+            from_port=from_port,
+            icmp_code=icmp_code,
+            icmp_type=icmp_type,
+            ipv6_cidr_block=ipv6_cidr_block,
+            network_acl_id=network_acl_id,
+            protocol=protocol,
+            rule_action=rule_action,
+            rule_number=rule_number,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[bool]] = None,
+             from_port: Optional[pulumi.Input[int]] = None,
+             icmp_code: Optional[pulumi.Input[int]] = None,
+             icmp_type: Optional[pulumi.Input[int]] = None,
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             network_acl_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             rule_action: Optional[pulumi.Input[str]] = None,
+             rule_number: Optional[pulumi.Input[int]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if icmp_code is not None:
-            pulumi.set(__self__, "icmp_code", icmp_code)
+            _setter("icmp_code", icmp_code)
         if icmp_type is not None:
-            pulumi.set(__self__, "icmp_type", icmp_type)
+            _setter("icmp_type", icmp_type)
         if ipv6_cidr_block is not None:
-            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+            _setter("ipv6_cidr_block", ipv6_cidr_block)
         if network_acl_id is not None:
-            pulumi.set(__self__, "network_acl_id", network_acl_id)
+            _setter("network_acl_id", network_acl_id)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if rule_action is not None:
-            pulumi.set(__self__, "rule_action", rule_action)
+            _setter("rule_action", rule_action)
         if rule_number is not None:
-            pulumi.set(__self__, "rule_number", rule_number)
+            _setter("rule_number", rule_number)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -552,6 +610,10 @@ class NetworkAclRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAclRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

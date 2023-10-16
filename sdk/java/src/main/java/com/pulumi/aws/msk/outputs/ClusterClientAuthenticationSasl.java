@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterClientAuthenticationSasl {
     /**
-     * @return Enables SASL/IAM authentication for VPC connectivity.
+     * @return Enables IAM client authentication. Defaults to `false`.
      * 
      */
     private @Nullable Boolean iam;
     /**
-     * @return Enables SASL/SCRAM authentication for VPC connectivity.
+     * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
      * 
      */
     private @Nullable Boolean scram;
 
     private ClusterClientAuthenticationSasl() {}
     /**
-     * @return Enables SASL/IAM authentication for VPC connectivity.
+     * @return Enables IAM client authentication. Defaults to `false`.
      * 
      */
     public Optional<Boolean> iam() {
         return Optional.ofNullable(this.iam);
     }
     /**
-     * @return Enables SASL/SCRAM authentication for VPC connectivity.
+     * @return Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
      * 
      */
     public Optional<Boolean> scram() {

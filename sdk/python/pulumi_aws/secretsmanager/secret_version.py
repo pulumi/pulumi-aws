@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecretVersionArgs', 'SecretVersion']
@@ -27,13 +27,28 @@ class SecretVersionArgs:
                
                > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         """
-        pulumi.set(__self__, "secret_id", secret_id)
+        SecretVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_id=secret_id,
+            secret_binary=secret_binary,
+            secret_string=secret_string,
+            version_stages=version_stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_id: pulumi.Input[str],
+             secret_binary: Optional[pulumi.Input[str]] = None,
+             secret_string: Optional[pulumi.Input[str]] = None,
+             version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_id", secret_id)
         if secret_binary is not None:
-            pulumi.set(__self__, "secret_binary", secret_binary)
+            _setter("secret_binary", secret_binary)
         if secret_string is not None:
-            pulumi.set(__self__, "secret_string", secret_string)
+            _setter("secret_string", secret_string)
         if version_stages is not None:
-            pulumi.set(__self__, "version_stages", version_stages)
+            _setter("version_stages", version_stages)
 
     @property
     @pulumi.getter(name="secretId")
@@ -106,18 +121,37 @@ class _SecretVersionState:
                
                > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         """
+        _SecretVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            secret_binary=secret_binary,
+            secret_id=secret_id,
+            secret_string=secret_string,
+            version_id=version_id,
+            version_stages=version_stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             secret_binary: Optional[pulumi.Input[str]] = None,
+             secret_id: Optional[pulumi.Input[str]] = None,
+             secret_string: Optional[pulumi.Input[str]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             version_stages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if secret_binary is not None:
-            pulumi.set(__self__, "secret_binary", secret_binary)
+            _setter("secret_binary", secret_binary)
         if secret_id is not None:
-            pulumi.set(__self__, "secret_id", secret_id)
+            _setter("secret_id", secret_id)
         if secret_string is not None:
-            pulumi.set(__self__, "secret_string", secret_string)
+            _setter("secret_string", secret_string)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
         if version_stages is not None:
-            pulumi.set(__self__, "version_stages", version_stages)
+            _setter("version_stages", version_stages)
 
     @property
     @pulumi.getter
@@ -279,6 +313,10 @@ class SecretVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

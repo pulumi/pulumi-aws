@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RadiusSettingsArgs', 'RadiusSettings']
@@ -35,16 +35,41 @@ class RadiusSettingsArgs:
         :param pulumi.Input[str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[bool] use_same_username: Not currently used.
         """
-        pulumi.set(__self__, "authentication_protocol", authentication_protocol)
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "display_label", display_label)
-        pulumi.set(__self__, "radius_port", radius_port)
-        pulumi.set(__self__, "radius_retries", radius_retries)
-        pulumi.set(__self__, "radius_servers", radius_servers)
-        pulumi.set(__self__, "radius_timeout", radius_timeout)
-        pulumi.set(__self__, "shared_secret", shared_secret)
+        RadiusSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_protocol=authentication_protocol,
+            directory_id=directory_id,
+            display_label=display_label,
+            radius_port=radius_port,
+            radius_retries=radius_retries,
+            radius_servers=radius_servers,
+            radius_timeout=radius_timeout,
+            shared_secret=shared_secret,
+            use_same_username=use_same_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_protocol: pulumi.Input[str],
+             directory_id: pulumi.Input[str],
+             display_label: pulumi.Input[str],
+             radius_port: pulumi.Input[int],
+             radius_retries: pulumi.Input[int],
+             radius_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             radius_timeout: pulumi.Input[int],
+             shared_secret: pulumi.Input[str],
+             use_same_username: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_protocol", authentication_protocol)
+        _setter("directory_id", directory_id)
+        _setter("display_label", display_label)
+        _setter("radius_port", radius_port)
+        _setter("radius_retries", radius_retries)
+        _setter("radius_servers", radius_servers)
+        _setter("radius_timeout", radius_timeout)
+        _setter("shared_secret", shared_secret)
         if use_same_username is not None:
-            pulumi.set(__self__, "use_same_username", use_same_username)
+            _setter("use_same_username", use_same_username)
 
     @property
     @pulumi.getter(name="authenticationProtocol")
@@ -179,24 +204,49 @@ class _RadiusSettingsState:
         :param pulumi.Input[str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[bool] use_same_username: Not currently used.
         """
+        _RadiusSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_protocol=authentication_protocol,
+            directory_id=directory_id,
+            display_label=display_label,
+            radius_port=radius_port,
+            radius_retries=radius_retries,
+            radius_servers=radius_servers,
+            radius_timeout=radius_timeout,
+            shared_secret=shared_secret,
+            use_same_username=use_same_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_protocol: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             display_label: Optional[pulumi.Input[str]] = None,
+             radius_port: Optional[pulumi.Input[int]] = None,
+             radius_retries: Optional[pulumi.Input[int]] = None,
+             radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             radius_timeout: Optional[pulumi.Input[int]] = None,
+             shared_secret: Optional[pulumi.Input[str]] = None,
+             use_same_username: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_protocol is not None:
-            pulumi.set(__self__, "authentication_protocol", authentication_protocol)
+            _setter("authentication_protocol", authentication_protocol)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if display_label is not None:
-            pulumi.set(__self__, "display_label", display_label)
+            _setter("display_label", display_label)
         if radius_port is not None:
-            pulumi.set(__self__, "radius_port", radius_port)
+            _setter("radius_port", radius_port)
         if radius_retries is not None:
-            pulumi.set(__self__, "radius_retries", radius_retries)
+            _setter("radius_retries", radius_retries)
         if radius_servers is not None:
-            pulumi.set(__self__, "radius_servers", radius_servers)
+            _setter("radius_servers", radius_servers)
         if radius_timeout is not None:
-            pulumi.set(__self__, "radius_timeout", radius_timeout)
+            _setter("radius_timeout", radius_timeout)
         if shared_secret is not None:
-            pulumi.set(__self__, "shared_secret", shared_secret)
+            _setter("shared_secret", shared_secret)
         if use_same_username is not None:
-            pulumi.set(__self__, "use_same_username", use_same_username)
+            _setter("use_same_username", use_same_username)
 
     @property
     @pulumi.getter(name="authenticationProtocol")
@@ -406,6 +456,10 @@ class RadiusSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RadiusSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

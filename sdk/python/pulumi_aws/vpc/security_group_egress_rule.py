@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityGroupEgressRuleArgs', 'SecurityGroupEgressRule']
@@ -37,24 +37,51 @@ class SecurityGroupEgressRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         """
-        pulumi.set(__self__, "ip_protocol", ip_protocol)
-        pulumi.set(__self__, "security_group_id", security_group_id)
+        SecurityGroupEgressRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_protocol=ip_protocol,
+            security_group_id=security_group_id,
+            cidr_ipv4=cidr_ipv4,
+            cidr_ipv6=cidr_ipv6,
+            description=description,
+            from_port=from_port,
+            prefix_list_id=prefix_list_id,
+            referenced_security_group_id=referenced_security_group_id,
+            tags=tags,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_protocol: pulumi.Input[str],
+             security_group_id: pulumi.Input[str],
+             cidr_ipv4: Optional[pulumi.Input[str]] = None,
+             cidr_ipv6: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             from_port: Optional[pulumi.Input[int]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             referenced_security_group_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_protocol", ip_protocol)
+        _setter("security_group_id", security_group_id)
         if cidr_ipv4 is not None:
-            pulumi.set(__self__, "cidr_ipv4", cidr_ipv4)
+            _setter("cidr_ipv4", cidr_ipv4)
         if cidr_ipv6 is not None:
-            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+            _setter("cidr_ipv6", cidr_ipv6)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if prefix_list_id is not None:
-            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+            _setter("prefix_list_id", prefix_list_id)
         if referenced_security_group_id is not None:
-            pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
+            _setter("referenced_security_group_id", referenced_security_group_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="ipProtocol")
@@ -209,35 +236,68 @@ class _SecurityGroupEgressRuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         """
+        _SecurityGroupEgressRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cidr_ipv4=cidr_ipv4,
+            cidr_ipv6=cidr_ipv6,
+            description=description,
+            from_port=from_port,
+            ip_protocol=ip_protocol,
+            prefix_list_id=prefix_list_id,
+            referenced_security_group_id=referenced_security_group_id,
+            security_group_id=security_group_id,
+            security_group_rule_id=security_group_rule_id,
+            tags=tags,
+            tags_all=tags_all,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cidr_ipv4: Optional[pulumi.Input[str]] = None,
+             cidr_ipv6: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             from_port: Optional[pulumi.Input[int]] = None,
+             ip_protocol: Optional[pulumi.Input[str]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             referenced_security_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             security_group_rule_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cidr_ipv4 is not None:
-            pulumi.set(__self__, "cidr_ipv4", cidr_ipv4)
+            _setter("cidr_ipv4", cidr_ipv4)
         if cidr_ipv6 is not None:
-            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+            _setter("cidr_ipv6", cidr_ipv6)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if from_port is not None:
-            pulumi.set(__self__, "from_port", from_port)
+            _setter("from_port", from_port)
         if ip_protocol is not None:
-            pulumi.set(__self__, "ip_protocol", ip_protocol)
+            _setter("ip_protocol", ip_protocol)
         if prefix_list_id is not None:
-            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+            _setter("prefix_list_id", prefix_list_id)
         if referenced_security_group_id is not None:
-            pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
+            _setter("referenced_security_group_id", referenced_security_group_id)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if security_group_rule_id is not None:
-            pulumi.set(__self__, "security_group_rule_id", security_group_rule_id)
+            _setter("security_group_rule_id", security_group_rule_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter
@@ -508,6 +568,10 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupEgressRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

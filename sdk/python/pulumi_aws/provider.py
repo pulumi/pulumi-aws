@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
@@ -84,74 +84,141 @@ class ProviderArgs:
         :param pulumi.Input[bool] use_dualstack_endpoint: Resolve an endpoint with DualStack capability
         :param pulumi.Input[bool] use_fips_endpoint: Resolve an endpoint with FIPS capability
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            allowed_account_ids=allowed_account_ids,
+            assume_role=assume_role,
+            assume_role_with_web_identity=assume_role_with_web_identity,
+            custom_ca_bundle=custom_ca_bundle,
+            default_tags=default_tags,
+            ec2_metadata_service_endpoint=ec2_metadata_service_endpoint,
+            ec2_metadata_service_endpoint_mode=ec2_metadata_service_endpoint_mode,
+            endpoints=endpoints,
+            forbidden_account_ids=forbidden_account_ids,
+            http_proxy=http_proxy,
+            ignore_tags=ignore_tags,
+            insecure=insecure,
+            max_retries=max_retries,
+            profile=profile,
+            region=region,
+            retry_mode=retry_mode,
+            s3_us_east1_regional_endpoint=s3_us_east1_regional_endpoint,
+            s3_use_path_style=s3_use_path_style,
+            secret_key=secret_key,
+            shared_config_files=shared_config_files,
+            shared_credentials_files=shared_credentials_files,
+            skip_credentials_validation=skip_credentials_validation,
+            skip_metadata_api_check=skip_metadata_api_check,
+            skip_region_validation=skip_region_validation,
+            skip_requesting_account_id=skip_requesting_account_id,
+            sts_region=sts_region,
+            token=token,
+            use_dualstack_endpoint=use_dualstack_endpoint,
+            use_fips_endpoint=use_fips_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
+             assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']] = None,
+             custom_ca_bundle: Optional[pulumi.Input[str]] = None,
+             default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
+             ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
+             ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
+             forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             http_proxy: Optional[pulumi.Input[str]] = None,
+             ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
+             insecure: Optional[pulumi.Input[bool]] = None,
+             max_retries: Optional[pulumi.Input[int]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             retry_mode: Optional[pulumi.Input[str]] = None,
+             s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
+             s3_use_path_style: Optional[pulumi.Input[bool]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
+             skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
+             skip_region_validation: Optional[pulumi.Input[bool]] = None,
+             skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
+             sts_region: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             use_dualstack_endpoint: Optional[pulumi.Input[bool]] = None,
+             use_fips_endpoint: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if allowed_account_ids is not None:
-            pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
+            _setter("allowed_account_ids", allowed_account_ids)
         if assume_role is not None:
-            pulumi.set(__self__, "assume_role", assume_role)
+            _setter("assume_role", assume_role)
         if assume_role_with_web_identity is not None:
-            pulumi.set(__self__, "assume_role_with_web_identity", assume_role_with_web_identity)
+            _setter("assume_role_with_web_identity", assume_role_with_web_identity)
         if custom_ca_bundle is not None:
-            pulumi.set(__self__, "custom_ca_bundle", custom_ca_bundle)
+            _setter("custom_ca_bundle", custom_ca_bundle)
         if default_tags is not None:
-            pulumi.set(__self__, "default_tags", default_tags)
+            _setter("default_tags", default_tags)
         if ec2_metadata_service_endpoint is not None:
-            pulumi.set(__self__, "ec2_metadata_service_endpoint", ec2_metadata_service_endpoint)
+            _setter("ec2_metadata_service_endpoint", ec2_metadata_service_endpoint)
         if ec2_metadata_service_endpoint_mode is not None:
-            pulumi.set(__self__, "ec2_metadata_service_endpoint_mode", ec2_metadata_service_endpoint_mode)
+            _setter("ec2_metadata_service_endpoint_mode", ec2_metadata_service_endpoint_mode)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if forbidden_account_ids is not None:
-            pulumi.set(__self__, "forbidden_account_ids", forbidden_account_ids)
+            _setter("forbidden_account_ids", forbidden_account_ids)
         if http_proxy is not None:
-            pulumi.set(__self__, "http_proxy", http_proxy)
+            _setter("http_proxy", http_proxy)
         if ignore_tags is not None:
-            pulumi.set(__self__, "ignore_tags", ignore_tags)
+            _setter("ignore_tags", ignore_tags)
         if insecure is not None:
-            pulumi.set(__self__, "insecure", insecure)
+            _setter("insecure", insecure)
         if max_retries is not None:
-            pulumi.set(__self__, "max_retries", max_retries)
+            _setter("max_retries", max_retries)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if region is None:
             region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if retry_mode is not None:
-            pulumi.set(__self__, "retry_mode", retry_mode)
+            _setter("retry_mode", retry_mode)
         if s3_us_east1_regional_endpoint is not None:
-            pulumi.set(__self__, "s3_us_east1_regional_endpoint", s3_us_east1_regional_endpoint)
+            _setter("s3_us_east1_regional_endpoint", s3_us_east1_regional_endpoint)
         if s3_use_path_style is not None:
-            pulumi.set(__self__, "s3_use_path_style", s3_use_path_style)
+            _setter("s3_use_path_style", s3_use_path_style)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if shared_config_files is not None:
-            pulumi.set(__self__, "shared_config_files", shared_config_files)
+            _setter("shared_config_files", shared_config_files)
         if shared_credentials_files is not None:
-            pulumi.set(__self__, "shared_credentials_files", shared_credentials_files)
+            _setter("shared_credentials_files", shared_credentials_files)
         if skip_credentials_validation is None:
             skip_credentials_validation = False
         if skip_credentials_validation is not None:
-            pulumi.set(__self__, "skip_credentials_validation", skip_credentials_validation)
+            _setter("skip_credentials_validation", skip_credentials_validation)
         if skip_metadata_api_check is None:
             skip_metadata_api_check = True
         if skip_metadata_api_check is not None:
-            pulumi.set(__self__, "skip_metadata_api_check", skip_metadata_api_check)
+            _setter("skip_metadata_api_check", skip_metadata_api_check)
         if skip_region_validation is None:
             skip_region_validation = True
         if skip_region_validation is not None:
-            pulumi.set(__self__, "skip_region_validation", skip_region_validation)
+            _setter("skip_region_validation", skip_region_validation)
         if skip_requesting_account_id is not None:
-            pulumi.set(__self__, "skip_requesting_account_id", skip_requesting_account_id)
+            _setter("skip_requesting_account_id", skip_requesting_account_id)
         if sts_region is not None:
-            pulumi.set(__self__, "sts_region", sts_region)
+            _setter("sts_region", sts_region)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if use_dualstack_endpoint is not None:
-            pulumi.set(__self__, "use_dualstack_endpoint", use_dualstack_endpoint)
+            _setter("use_dualstack_endpoint", use_dualstack_endpoint)
         if use_fips_endpoint is not None:
-            pulumi.set(__self__, "use_fips_endpoint", use_fips_endpoint)
+            _setter("use_fips_endpoint", use_fips_endpoint)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -613,6 +680,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -659,15 +730,35 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["access_key"] = access_key
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
+            if assume_role is not None and not isinstance(assume_role, ProviderAssumeRoleArgs):
+                assume_role = assume_role or {}
+                def _setter(key, value):
+                    assume_role[key] = value
+                ProviderAssumeRoleArgs._configure(_setter, **assume_role)
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
+            if assume_role_with_web_identity is not None and not isinstance(assume_role_with_web_identity, ProviderAssumeRoleWithWebIdentityArgs):
+                assume_role_with_web_identity = assume_role_with_web_identity or {}
+                def _setter(key, value):
+                    assume_role_with_web_identity[key] = value
+                ProviderAssumeRoleWithWebIdentityArgs._configure(_setter, **assume_role_with_web_identity)
             __props__.__dict__["assume_role_with_web_identity"] = pulumi.Output.from_input(assume_role_with_web_identity).apply(pulumi.runtime.to_json) if assume_role_with_web_identity is not None else None
             __props__.__dict__["custom_ca_bundle"] = custom_ca_bundle
+            if default_tags is not None and not isinstance(default_tags, ProviderDefaultTagsArgs):
+                default_tags = default_tags or {}
+                def _setter(key, value):
+                    default_tags[key] = value
+                ProviderDefaultTagsArgs._configure(_setter, **default_tags)
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["ec2_metadata_service_endpoint"] = ec2_metadata_service_endpoint
             __props__.__dict__["ec2_metadata_service_endpoint_mode"] = ec2_metadata_service_endpoint_mode
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
             __props__.__dict__["http_proxy"] = http_proxy
+            if ignore_tags is not None and not isinstance(ignore_tags, ProviderIgnoreTagsArgs):
+                ignore_tags = ignore_tags or {}
+                def _setter(key, value):
+                    ignore_tags[key] = value
+                ProviderIgnoreTagsArgs._configure(_setter, **ignore_tags)
             __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None

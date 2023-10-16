@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
     /**
-     * @return Value used to replace matched path.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     private @Nullable String exact;
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
@@ -40,14 +40,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
 
     private GatewayRouteSpecHttpRouteMatchHeaderMatch() {}
     /**
-     * @return Value used to replace matched path.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {

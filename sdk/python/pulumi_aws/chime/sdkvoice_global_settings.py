@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,16 @@ class SdkvoiceGlobalSettingsArgs:
         The set of arguments for constructing a SdkvoiceGlobalSettings resource.
         :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
-        pulumi.set(__self__, "voice_connector", voice_connector)
+        SdkvoiceGlobalSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            voice_connector=voice_connector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             voice_connector: pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("voice_connector", voice_connector)
 
     @property
     @pulumi.getter(name="voiceConnector")
@@ -44,8 +53,17 @@ class _SdkvoiceGlobalSettingsState:
         Input properties used for looking up and filtering SdkvoiceGlobalSettings resources.
         :param pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs'] voice_connector: The Voice Connector settings. See voice_connector.
         """
+        _SdkvoiceGlobalSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            voice_connector=voice_connector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             voice_connector: Optional[pulumi.Input['SdkvoiceGlobalSettingsVoiceConnectorArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if voice_connector is not None:
-            pulumi.set(__self__, "voice_connector", voice_connector)
+            _setter("voice_connector", voice_connector)
 
     @property
     @pulumi.getter(name="voiceConnector")
@@ -133,6 +151,10 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SdkvoiceGlobalSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -148,6 +170,11 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SdkvoiceGlobalSettingsArgs.__new__(SdkvoiceGlobalSettingsArgs)
 
+            if voice_connector is not None and not isinstance(voice_connector, SdkvoiceGlobalSettingsVoiceConnectorArgs):
+                voice_connector = voice_connector or {}
+                def _setter(key, value):
+                    voice_connector[key] = value
+                SdkvoiceGlobalSettingsVoiceConnectorArgs._configure(_setter, **voice_connector)
             if voice_connector is None and not opts.urn:
                 raise TypeError("Missing required property 'voice_connector'")
             __props__.__dict__["voice_connector"] = voice_connector

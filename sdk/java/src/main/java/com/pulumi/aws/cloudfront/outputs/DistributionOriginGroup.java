@@ -23,7 +23,7 @@ public final class DistributionOriginGroup {
      */
     private List<DistributionOriginGroupMember> members;
     /**
-     * @return Unique identifier for the origin.
+     * @return Unique identifier of the member origin.
      * 
      */
     private String originId;
@@ -44,7 +44,7 @@ public final class DistributionOriginGroup {
         return this.members;
     }
     /**
-     * @return Unique identifier for the origin.
+     * @return Unique identifier of the member origin.
      * 
      */
     public String originId() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MedicalVocabularyArgs', 'MedicalVocabulary']
@@ -27,11 +27,26 @@ class MedicalVocabularyArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "language_code", language_code)
-        pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
-        pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+        MedicalVocabularyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            vocabulary_file_uri=vocabulary_file_uri,
+            vocabulary_name=vocabulary_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: pulumi.Input[str],
+             vocabulary_file_uri: pulumi.Input[str],
+             vocabulary_name: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("language_code", language_code)
+        _setter("vocabulary_file_uri", vocabulary_file_uri)
+        _setter("vocabulary_name", vocabulary_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -105,23 +120,44 @@ class _MedicalVocabularyState:
                
                The following arguments are optional:
         """
+        _MedicalVocabularyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            download_uri=download_uri,
+            language_code=language_code,
+            tags=tags,
+            tags_all=tags_all,
+            vocabulary_file_uri=vocabulary_file_uri,
+            vocabulary_name=vocabulary_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             download_uri: Optional[pulumi.Input[str]] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vocabulary_file_uri: Optional[pulumi.Input[str]] = None,
+             vocabulary_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if download_uri is not None:
-            pulumi.set(__self__, "download_uri", download_uri)
+            _setter("download_uri", download_uri)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vocabulary_file_uri is not None:
-            pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
+            _setter("vocabulary_file_uri", vocabulary_file_uri)
         if vocabulary_name is not None:
-            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+            _setter("vocabulary_name", vocabulary_name)
 
     @property
     @pulumi.getter
@@ -313,6 +349,10 @@ class MedicalVocabulary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MedicalVocabularyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

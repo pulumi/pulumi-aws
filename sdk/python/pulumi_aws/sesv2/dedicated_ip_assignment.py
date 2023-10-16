@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DedicatedIpAssignmentArgs', 'DedicatedIpAssignment']
@@ -21,8 +21,19 @@ class DedicatedIpAssignmentArgs:
         :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[str] ip: Dedicated IP address.
         """
-        pulumi.set(__self__, "destination_pool_name", destination_pool_name)
-        pulumi.set(__self__, "ip", ip)
+        DedicatedIpAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_pool_name=destination_pool_name,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_pool_name: pulumi.Input[str],
+             ip: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_pool_name", destination_pool_name)
+        _setter("ip", ip)
 
     @property
     @pulumi.getter(name="destinationPoolName")
@@ -59,10 +70,21 @@ class _DedicatedIpAssignmentState:
         :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
         :param pulumi.Input[str] ip: Dedicated IP address.
         """
+        _DedicatedIpAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_pool_name=destination_pool_name,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_pool_name: Optional[pulumi.Input[str]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_pool_name is not None:
-            pulumi.set(__self__, "destination_pool_name", destination_pool_name)
+            _setter("destination_pool_name", destination_pool_name)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter(name="destinationPoolName")
@@ -168,6 +190,10 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedIpAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

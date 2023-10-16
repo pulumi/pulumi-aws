@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,31 +49,64 @@ class DomainNameArgs:
                
                When referencing an AWS-managed certificate, the following arguments are supported:
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        DomainNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            certificate_arn=certificate_arn,
+            certificate_body=certificate_body,
+            certificate_chain=certificate_chain,
+            certificate_name=certificate_name,
+            certificate_private_key=certificate_private_key,
+            endpoint_configuration=endpoint_configuration,
+            mutual_tls_authentication=mutual_tls_authentication,
+            ownership_verification_certificate_arn=ownership_verification_certificate_arn,
+            regional_certificate_arn=regional_certificate_arn,
+            regional_certificate_name=regional_certificate_name,
+            security_policy=security_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             certificate_private_key: Optional[pulumi.Input[str]] = None,
+             endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
+             mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+             ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+             regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+             regional_certificate_name: Optional[pulumi.Input[str]] = None,
+             security_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if certificate_private_key is not None:
-            pulumi.set(__self__, "certificate_private_key", certificate_private_key)
+            _setter("certificate_private_key", certificate_private_key)
         if endpoint_configuration is not None:
-            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+            _setter("endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
-            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+            _setter("mutual_tls_authentication", mutual_tls_authentication)
         if ownership_verification_certificate_arn is not None:
-            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+            _setter("ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if regional_certificate_arn is not None:
-            pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
+            _setter("regional_certificate_arn", regional_certificate_arn)
         if regional_certificate_name is not None:
-            pulumi.set(__self__, "regional_certificate_name", regional_certificate_name)
+            _setter("regional_certificate_name", regional_certificate_name)
         if security_policy is not None:
-            pulumi.set(__self__, "security_policy", security_policy)
+            _setter("security_policy", security_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -286,49 +319,96 @@ class _DomainNameState:
                When referencing an AWS-managed certificate, the following arguments are supported:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DomainNameState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            certificate_arn=certificate_arn,
+            certificate_body=certificate_body,
+            certificate_chain=certificate_chain,
+            certificate_name=certificate_name,
+            certificate_private_key=certificate_private_key,
+            certificate_upload_date=certificate_upload_date,
+            cloudfront_domain_name=cloudfront_domain_name,
+            cloudfront_zone_id=cloudfront_zone_id,
+            domain_name=domain_name,
+            endpoint_configuration=endpoint_configuration,
+            mutual_tls_authentication=mutual_tls_authentication,
+            ownership_verification_certificate_arn=ownership_verification_certificate_arn,
+            regional_certificate_arn=regional_certificate_arn,
+            regional_certificate_name=regional_certificate_name,
+            regional_domain_name=regional_domain_name,
+            regional_zone_id=regional_zone_id,
+            security_policy=security_policy,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             certificate_private_key: Optional[pulumi.Input[str]] = None,
+             certificate_upload_date: Optional[pulumi.Input[str]] = None,
+             cloudfront_domain_name: Optional[pulumi.Input[str]] = None,
+             cloudfront_zone_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
+             mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+             ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+             regional_certificate_arn: Optional[pulumi.Input[str]] = None,
+             regional_certificate_name: Optional[pulumi.Input[str]] = None,
+             regional_domain_name: Optional[pulumi.Input[str]] = None,
+             regional_zone_id: Optional[pulumi.Input[str]] = None,
+             security_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if certificate_private_key is not None:
-            pulumi.set(__self__, "certificate_private_key", certificate_private_key)
+            _setter("certificate_private_key", certificate_private_key)
         if certificate_upload_date is not None:
-            pulumi.set(__self__, "certificate_upload_date", certificate_upload_date)
+            _setter("certificate_upload_date", certificate_upload_date)
         if cloudfront_domain_name is not None:
-            pulumi.set(__self__, "cloudfront_domain_name", cloudfront_domain_name)
+            _setter("cloudfront_domain_name", cloudfront_domain_name)
         if cloudfront_zone_id is not None:
-            pulumi.set(__self__, "cloudfront_zone_id", cloudfront_zone_id)
+            _setter("cloudfront_zone_id", cloudfront_zone_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if endpoint_configuration is not None:
-            pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+            _setter("endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
-            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+            _setter("mutual_tls_authentication", mutual_tls_authentication)
         if ownership_verification_certificate_arn is not None:
-            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+            _setter("ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if regional_certificate_arn is not None:
-            pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
+            _setter("regional_certificate_arn", regional_certificate_arn)
         if regional_certificate_name is not None:
-            pulumi.set(__self__, "regional_certificate_name", regional_certificate_name)
+            _setter("regional_certificate_name", regional_certificate_name)
         if regional_domain_name is not None:
-            pulumi.set(__self__, "regional_domain_name", regional_domain_name)
+            _setter("regional_domain_name", regional_domain_name)
         if regional_zone_id is not None:
-            pulumi.set(__self__, "regional_zone_id", regional_zone_id)
+            _setter("regional_zone_id", regional_zone_id)
         if security_policy is not None:
-            pulumi.set(__self__, "security_policy", security_policy)
+            _setter("security_policy", security_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -799,6 +879,10 @@ class DomainName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -834,7 +918,17 @@ class DomainName(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            if endpoint_configuration is not None and not isinstance(endpoint_configuration, DomainNameEndpointConfigurationArgs):
+                endpoint_configuration = endpoint_configuration or {}
+                def _setter(key, value):
+                    endpoint_configuration[key] = value
+                DomainNameEndpointConfigurationArgs._configure(_setter, **endpoint_configuration)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
+            if mutual_tls_authentication is not None and not isinstance(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs):
+                mutual_tls_authentication = mutual_tls_authentication or {}
+                def _setter(key, value):
+                    mutual_tls_authentication[key] = value
+                DomainNameMutualTlsAuthenticationArgs._configure(_setter, **mutual_tls_authentication)
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn

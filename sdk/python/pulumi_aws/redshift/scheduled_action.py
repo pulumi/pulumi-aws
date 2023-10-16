@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] name: The scheduled action name.
         :param pulumi.Input[str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         """
-        pulumi.set(__self__, "iam_role", iam_role)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "target_action", target_action)
+        ScheduledActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_role=iam_role,
+            schedule=schedule,
+            target_action=target_action,
+            description=description,
+            enable=enable,
+            end_time=end_time,
+            name=name,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_role: pulumi.Input[str],
+             schedule: pulumi.Input[str],
+             target_action: pulumi.Input['ScheduledActionTargetActionArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iam_role", iam_role)
+        _setter("schedule", schedule)
+        _setter("target_action", target_action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="iamRole")
@@ -168,22 +191,45 @@ class _ScheduledActionState:
         :param pulumi.Input[str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
         """
+        _ScheduledActionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            enable=enable,
+            end_time=end_time,
+            iam_role=iam_role,
+            name=name,
+            schedule=schedule,
+            start_time=start_time,
+            target_action=target_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             enable: Optional[pulumi.Input[bool]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             iam_role: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             target_action: Optional[pulumi.Input['ScheduledActionTargetActionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
+            _setter("iam_role", iam_role)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if target_action is not None:
-            pulumi.set(__self__, "target_action", target_action)
+            _setter("target_action", target_action)
 
     @property
     @pulumi.getter
@@ -455,6 +501,10 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -488,6 +538,11 @@ class ScheduledAction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_time"] = start_time
+            if target_action is not None and not isinstance(target_action, ScheduledActionTargetActionArgs):
+                target_action = target_action or {}
+                def _setter(key, value):
+                    target_action[key] = value
+                ScheduledActionTargetActionArgs._configure(_setter, **target_action)
             if target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'target_action'")
             __props__.__dict__["target_action"] = target_action

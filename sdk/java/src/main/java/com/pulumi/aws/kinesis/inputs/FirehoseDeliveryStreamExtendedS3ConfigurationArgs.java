@@ -53,7 +53,6 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
     @Import(name="bufferingSize")
@@ -61,7 +60,6 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
 
     /**
      * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
     public Optional<Output<Integer>> bufferingSize() {
@@ -191,14 +189,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The ARN of the role that provides access to the source Kinesis stream.
+     * The ARN of the role used to access the Amazon MSK cluster.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role that provides access to the source Kinesis stream.
+     * @return The ARN of the role used to access the Amazon MSK cluster.
      * 
      */
     public Output<String> roleArn() {
@@ -221,14 +219,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -316,7 +314,6 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
 
         /**
          * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
@@ -328,7 +325,6 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
 
         /**
          * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
@@ -508,7 +504,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param roleArn The ARN of the role that provides access to the source Kinesis stream.
+         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
          * 
          * @return builder
          * 
@@ -519,7 +515,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param roleArn The ARN of the role that provides access to the source Kinesis stream.
+         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
          * 
          * @return builder
          * 
@@ -550,7 +546,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 
@@ -561,7 +557,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          * 
          * @return builder
          * 

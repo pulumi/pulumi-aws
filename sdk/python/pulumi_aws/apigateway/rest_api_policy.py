@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RestApiPolicyArgs', 'RestApiPolicy']
@@ -21,8 +21,19 @@ class RestApiPolicyArgs:
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        RestApiPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            rest_api_id=rest_api_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: pulumi.Input[str],
+             rest_api_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy", policy)
+        _setter("rest_api_id", rest_api_id)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _RestApiPolicyState:
         :param pulumi.Input[str] policy: JSON formatted policy document that controls access to the API Gateway.
         :param pulumi.Input[str] rest_api_id: ID of the REST API.
         """
+        _RestApiPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            rest_api_id=rest_api_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if rest_api_id is not None:
-            pulumi.set(__self__, "rest_api_id", rest_api_id)
+            _setter("rest_api_id", rest_api_id)
 
     @property
     @pulumi.getter
@@ -198,6 +220,10 @@ class RestApiPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RestApiPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AttachmentArgs', 'Attachment']
@@ -23,11 +23,24 @@ class AttachmentArgs:
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
-        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        AttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            elb=elb,
+            lb_target_group_arn=lb_target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: pulumi.Input[str],
+             elb: Optional[pulumi.Input[str]] = None,
+             lb_target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if lb_target_group_arn is not None:
-            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
+            _setter("lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -78,12 +91,25 @@ class _AttachmentState:
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
+        _AttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling_group_name=autoscaling_group_name,
+            elb=elb,
+            lb_target_group_arn=lb_target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
+             elb: Optional[pulumi.Input[str]] = None,
+             lb_target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if autoscaling_group_name is not None:
-            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+            _setter("autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
-            pulumi.set(__self__, "elb", elb)
+            _setter("elb", elb)
         if lb_target_group_arn is not None:
-            pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
+            _setter("lb_target_group_arn", lb_target_group_arn)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -207,6 +233,10 @@ class Attachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

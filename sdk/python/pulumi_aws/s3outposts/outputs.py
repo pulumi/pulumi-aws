@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,8 +37,17 @@ class EndpointNetworkInterface(dict):
         """
         :param str network_interface_id: Identifier of the Elastic Network Interface (ENI).
         """
+        EndpointNetworkInterface._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")

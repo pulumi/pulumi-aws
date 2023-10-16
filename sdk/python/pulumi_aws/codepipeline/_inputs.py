@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,16 +41,37 @@ class CustomActionTypeConfigurationPropertyArgs:
         :param pulumi.Input[bool] queryable: Indicates that the property will be used in conjunction with PollForJobs.
         :param pulumi.Input[str] type: The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "secret", secret)
+        CustomActionTypeConfigurationPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            name=name,
+            required=required,
+            secret=secret,
+            description=description,
+            queryable=queryable,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             required: pulumi.Input[bool],
+             secret: pulumi.Input[bool],
+             description: Optional[pulumi.Input[str]] = None,
+             queryable: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("name", name)
+        _setter("required", required)
+        _setter("secret", secret)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if queryable is not None:
-            pulumi.set(__self__, "queryable", queryable)
+            _setter("queryable", queryable)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -146,8 +167,19 @@ class CustomActionTypeInputArtifactDetailsArgs:
         :param pulumi.Input[int] maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
         :param pulumi.Input[int] minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        CustomActionTypeInputArtifactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_count=maximum_count,
+            minimum_count=minimum_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_count: pulumi.Input[int],
+             minimum_count: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_count", maximum_count)
+        _setter("minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
@@ -183,8 +215,19 @@ class CustomActionTypeOutputArtifactDetailsArgs:
         :param pulumi.Input[int] maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
         :param pulumi.Input[int] minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
         """
-        pulumi.set(__self__, "maximum_count", maximum_count)
-        pulumi.set(__self__, "minimum_count", minimum_count)
+        CustomActionTypeOutputArtifactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_count=maximum_count,
+            minimum_count=minimum_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_count: pulumi.Input[int],
+             minimum_count: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_count", maximum_count)
+        _setter("minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
@@ -224,14 +267,29 @@ class CustomActionTypeSettingsArgs:
         :param pulumi.Input[str] revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
         :param pulumi.Input[str] third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         """
+        CustomActionTypeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_url_template=entity_url_template,
+            execution_url_template=execution_url_template,
+            revision_url_template=revision_url_template,
+            third_party_configuration_url=third_party_configuration_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_url_template: Optional[pulumi.Input[str]] = None,
+             execution_url_template: Optional[pulumi.Input[str]] = None,
+             revision_url_template: Optional[pulumi.Input[str]] = None,
+             third_party_configuration_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_url_template is not None:
-            pulumi.set(__self__, "entity_url_template", entity_url_template)
+            _setter("entity_url_template", entity_url_template)
         if execution_url_template is not None:
-            pulumi.set(__self__, "execution_url_template", execution_url_template)
+            _setter("execution_url_template", execution_url_template)
         if revision_url_template is not None:
-            pulumi.set(__self__, "revision_url_template", revision_url_template)
+            _setter("revision_url_template", revision_url_template)
         if third_party_configuration_url is not None:
-            pulumi.set(__self__, "third_party_configuration_url", third_party_configuration_url)
+            _setter("third_party_configuration_url", third_party_configuration_url)
 
     @property
     @pulumi.getter(name="entityUrlTemplate")
@@ -295,12 +353,27 @@ class PipelineArtifactStoreArgs:
         :param pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs'] encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         :param pulumi.Input[str] region: The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "type", type)
+        PipelineArtifactStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            type=type,
+            encryption_key=encryption_key,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input[str],
+             type: pulumi.Input[str],
+             encryption_key: Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs']] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("type", type)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -360,8 +433,19 @@ class PipelineArtifactStoreEncryptionKeyArgs:
         :param pulumi.Input[str] id: The KMS key ARN or ID
         :param pulumi.Input[str] type: The type of key; currently only `KMS` is supported
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        PipelineArtifactStoreEncryptionKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -397,8 +481,19 @@ class PipelineStageArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param pulumi.Input[str] name: The name of the stage.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "name", name)
+        PipelineStageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -456,25 +551,56 @@ class PipelineStageActionArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         :param pulumi.Input[int] run_order: The order in which actions are run.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "version", version)
+        PipelineStageActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            name=name,
+            owner=owner,
+            provider=provider,
+            version=version,
+            configuration=configuration,
+            input_artifacts=input_artifacts,
+            namespace=namespace,
+            output_artifacts=output_artifacts,
+            region=region,
+            role_arn=role_arn,
+            run_order=run_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             name: pulumi.Input[str],
+             owner: pulumi.Input[str],
+             provider: pulumi.Input[str],
+             version: pulumi.Input[str],
+             configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             output_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             run_order: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("name", name)
+        _setter("owner", owner)
+        _setter("provider", provider)
+        _setter("version", version)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if input_artifacts is not None:
-            pulumi.set(__self__, "input_artifacts", input_artifacts)
+            _setter("input_artifacts", input_artifacts)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if output_artifacts is not None:
-            pulumi.set(__self__, "output_artifacts", output_artifacts)
+            _setter("output_artifacts", output_artifacts)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if run_order is not None:
-            pulumi.set(__self__, "run_order", run_order)
+            _setter("run_order", run_order)
 
     @property
     @pulumi.getter
@@ -632,10 +758,21 @@ class WebhookAuthenticationConfigurationArgs:
         :param pulumi.Input[str] allowed_ip_range: A valid CIDR block for `IP` filtering. Required for `IP`.
         :param pulumi.Input[str] secret_token: The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
         """
+        WebhookAuthenticationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ip_range=allowed_ip_range,
+            secret_token=secret_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ip_range: Optional[pulumi.Input[str]] = None,
+             secret_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_ip_range is not None:
-            pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
+            _setter("allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
-            pulumi.set(__self__, "secret_token", secret_token)
+            _setter("secret_token", secret_token)
 
     @property
     @pulumi.getter(name="allowedIpRange")
@@ -671,8 +808,19 @@ class WebhookFilterArgs:
         :param pulumi.Input[str] json_path: The [JSON path](https://github.com/json-path/JsonPath) to filter on.
         :param pulumi.Input[str] match_equals: The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
-        pulumi.set(__self__, "json_path", json_path)
-        pulumi.set(__self__, "match_equals", match_equals)
+        WebhookFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            json_path=json_path,
+            match_equals=match_equals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             json_path: pulumi.Input[str],
+             match_equals: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("json_path", json_path)
+        _setter("match_equals", match_equals)
 
     @property
     @pulumi.getter(name="jsonPath")

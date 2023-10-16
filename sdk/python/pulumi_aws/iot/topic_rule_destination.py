@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,20 @@ class TopicRuleDestinationArgs:
         :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
         """
-        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+        TopicRuleDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_configuration=vpc_configuration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_configuration: pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_configuration", vpc_configuration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="vpcConfiguration")
@@ -64,12 +75,25 @@ class _TopicRuleDestinationState:
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
         :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
+        _TopicRuleDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            enabled=enabled,
+            vpc_configuration=vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             vpc_configuration: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if vpc_configuration is not None:
-            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+            _setter("vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter
@@ -155,6 +179,10 @@ class TopicRuleDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicRuleDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,6 +200,11 @@ class TopicRuleDestination(pulumi.CustomResource):
             __props__ = TopicRuleDestinationArgs.__new__(TopicRuleDestinationArgs)
 
             __props__.__dict__["enabled"] = enabled
+            if vpc_configuration is not None and not isinstance(vpc_configuration, TopicRuleDestinationVpcConfigurationArgs):
+                vpc_configuration = vpc_configuration or {}
+                def _setter(key, value):
+                    vpc_configuration[key] = value
+                TopicRuleDestinationVpcConfigurationArgs._configure(_setter, **vpc_configuration)
             if vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_configuration'")
             __props__.__dict__["vpc_configuration"] = vpc_configuration

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProvisioningArtifactArgs', 'ProvisioningArtifact']
@@ -39,25 +39,52 @@ class ProvisioningArtifactArgs:
                The following arguments are optional:
         :param pulumi.Input[str] type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
-        pulumi.set(__self__, "product_id", product_id)
+        ProvisioningArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product_id=product_id,
+            accept_language=accept_language,
+            active=active,
+            description=description,
+            disable_template_validation=disable_template_validation,
+            guidance=guidance,
+            name=name,
+            template_physical_id=template_physical_id,
+            template_url=template_url,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product_id: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_template_validation: Optional[pulumi.Input[bool]] = None,
+             guidance: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             template_physical_id: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("product_id", product_id)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_template_validation is not None:
-            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+            _setter("disable_template_validation", disable_template_validation)
         if guidance is not None:
-            pulumi.set(__self__, "guidance", guidance)
+            _setter("guidance", guidance)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if template_physical_id is not None:
-            pulumi.set(__self__, "template_physical_id", template_physical_id)
+            _setter("template_physical_id", template_physical_id)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="productId")
@@ -214,30 +241,61 @@ class _ProvisioningArtifactState:
                The following arguments are optional:
         :param pulumi.Input[str] type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
+        _ProvisioningArtifactState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            active=active,
+            created_time=created_time,
+            description=description,
+            disable_template_validation=disable_template_validation,
+            guidance=guidance,
+            name=name,
+            product_id=product_id,
+            provisioning_artifact_id=provisioning_artifact_id,
+            template_physical_id=template_physical_id,
+            template_url=template_url,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             active: Optional[pulumi.Input[bool]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disable_template_validation: Optional[pulumi.Input[bool]] = None,
+             guidance: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+             template_physical_id: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disable_template_validation is not None:
-            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+            _setter("disable_template_validation", disable_template_validation)
         if guidance is not None:
-            pulumi.set(__self__, "guidance", guidance)
+            _setter("guidance", guidance)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if provisioning_artifact_id is not None:
-            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
+            _setter("provisioning_artifact_id", provisioning_artifact_id)
         if template_physical_id is not None:
-            pulumi.set(__self__, "template_physical_id", template_physical_id)
+            _setter("template_physical_id", template_physical_id)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -493,6 +551,10 @@ class ProvisioningArtifact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProvisioningArtifactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

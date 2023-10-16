@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,31 @@ class CloudFormationTypeArgs:
         :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
-        pulumi.set(__self__, "schema_handler_package", schema_handler_package)
-        pulumi.set(__self__, "type_name", type_name)
+        CloudFormationTypeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_handler_package=schema_handler_package,
+            type_name=type_name,
+            execution_role_arn=execution_role_arn,
+            logging_config=logging_config,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_handler_package: pulumi.Input[str],
+             type_name: pulumi.Input[str],
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schema_handler_package", schema_handler_package)
+        _setter("type_name", type_name)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if logging_config is not None:
-            pulumi.set(__self__, "logging_config", logging_config)
+            _setter("logging_config", logging_config)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="schemaHandlerPackage")
@@ -139,40 +156,81 @@ class _CloudFormationTypeState:
         :param pulumi.Input[str] version_id: (Optional) Identifier of the CloudFormation Type version.
         :param pulumi.Input[str] visibility: Scope of the CloudFormation Type.
         """
+        _CloudFormationTypeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_version_id=default_version_id,
+            deprecated_status=deprecated_status,
+            description=description,
+            documentation_url=documentation_url,
+            execution_role_arn=execution_role_arn,
+            is_default_version=is_default_version,
+            logging_config=logging_config,
+            provisioning_type=provisioning_type,
+            schema=schema,
+            schema_handler_package=schema_handler_package,
+            source_url=source_url,
+            type=type,
+            type_arn=type_arn,
+            type_name=type_name,
+            version_id=version_id,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_version_id: Optional[pulumi.Input[str]] = None,
+             deprecated_status: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             documentation_url: Optional[pulumi.Input[str]] = None,
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             is_default_version: Optional[pulumi.Input[bool]] = None,
+             logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
+             provisioning_type: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             schema_handler_package: Optional[pulumi.Input[str]] = None,
+             source_url: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_arn: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             version_id: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_version_id is not None:
-            pulumi.set(__self__, "default_version_id", default_version_id)
+            _setter("default_version_id", default_version_id)
         if deprecated_status is not None:
-            pulumi.set(__self__, "deprecated_status", deprecated_status)
+            _setter("deprecated_status", deprecated_status)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_url is not None:
-            pulumi.set(__self__, "documentation_url", documentation_url)
+            _setter("documentation_url", documentation_url)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if is_default_version is not None:
-            pulumi.set(__self__, "is_default_version", is_default_version)
+            _setter("is_default_version", is_default_version)
         if logging_config is not None:
-            pulumi.set(__self__, "logging_config", logging_config)
+            _setter("logging_config", logging_config)
         if provisioning_type is not None:
-            pulumi.set(__self__, "provisioning_type", provisioning_type)
+            _setter("provisioning_type", provisioning_type)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if schema_handler_package is not None:
-            pulumi.set(__self__, "schema_handler_package", schema_handler_package)
+            _setter("schema_handler_package", schema_handler_package)
         if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
+            _setter("source_url", source_url)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_arn is not None:
-            pulumi.set(__self__, "type_arn", type_arn)
+            _setter("type_arn", type_arn)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -468,6 +526,10 @@ class CloudFormationType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CloudFormationTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -488,6 +550,11 @@ class CloudFormationType(pulumi.CustomResource):
             __props__ = CloudFormationTypeArgs.__new__(CloudFormationTypeArgs)
 
             __props__.__dict__["execution_role_arn"] = execution_role_arn
+            if logging_config is not None and not isinstance(logging_config, CloudFormationTypeLoggingConfigArgs):
+                logging_config = logging_config or {}
+                def _setter(key, value):
+                    logging_config[key] = value
+                CloudFormationTypeLoggingConfigArgs._configure(_setter, **logging_config)
             __props__.__dict__["logging_config"] = logging_config
             if schema_handler_package is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_handler_package'")

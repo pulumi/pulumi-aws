@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TagArgs', 'Tag']
@@ -23,9 +23,22 @@ class TagArgs:
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
         :param pulumi.Input[str] value: Tag value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "value", value)
+        TagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            resource_arn=resource_arn,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             resource_arn: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("resource_arn", resource_arn)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -76,12 +89,25 @@ class _TagState:
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
         :param pulumi.Input[str] value: Tag value.
         """
+        _TagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            resource_arn=resource_arn,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -215,6 +241,10 @@ class Tag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

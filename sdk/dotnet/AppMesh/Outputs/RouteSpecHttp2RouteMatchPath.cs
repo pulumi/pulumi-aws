@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatchPath
     {
         /// <summary>
-        /// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
-        /// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        /// Header value sent by the client must include the specified characters.
         /// </summary>
         public readonly string? Regex;
 

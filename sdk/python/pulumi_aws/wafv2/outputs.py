@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -808,7 +808,16 @@ class RegexPatternSetRegularExpression(dict):
         """
         :param str regex_string: The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
+        RegexPatternSetRegularExpression._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
 
     @property
     @pulumi.getter(name="regexString")
@@ -847,9 +856,22 @@ class RuleGroupCustomResponseBody(dict):
         :param str content_type: The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
         :param str key: A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "key", key)
+        RuleGroupCustomResponseBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_type=content_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             content_type: str,
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("content_type", content_type)
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -916,15 +938,36 @@ class RuleGroupRule(dict):
         :param 'RuleGroupRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
         :param Sequence['RuleGroupRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "statement", statement)
-        pulumi.set(__self__, "visibility_config", visibility_config)
+        RuleGroupRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            priority=priority,
+            statement=statement,
+            visibility_config=visibility_config,
+            captcha_config=captcha_config,
+            rule_labels=rule_labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.RuleGroupRuleAction',
+             name: str,
+             priority: int,
+             statement: 'outputs.RuleGroupRuleStatement',
+             visibility_config: 'outputs.RuleGroupRuleVisibilityConfig',
+             captcha_config: Optional['outputs.RuleGroupRuleCaptchaConfig'] = None,
+             rule_labels: Optional[Sequence['outputs.RuleGroupRuleRuleLabel']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("name", name)
+        _setter("priority", priority)
+        _setter("statement", statement)
+        _setter("visibility_config", visibility_config)
         if captcha_config is not None:
-            pulumi.set(__self__, "captcha_config", captcha_config)
+            _setter("captcha_config", captcha_config)
         if rule_labels is not None:
-            pulumi.set(__self__, "rule_labels", rule_labels)
+            _setter("rule_labels", rule_labels)
 
     @property
     @pulumi.getter
@@ -998,16 +1041,33 @@ class RuleGroupRuleAction(dict):
         :param 'RuleGroupRuleActionChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
         :param 'RuleGroupRuleActionCountArgs' count: Instructs AWS WAF to count the web request and allow it. See Count below for details.
         """
+        RuleGroupRuleAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            block=block,
+            captcha=captcha,
+            challenge=challenge,
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional['outputs.RuleGroupRuleActionAllow'] = None,
+             block: Optional['outputs.RuleGroupRuleActionBlock'] = None,
+             captcha: Optional['outputs.RuleGroupRuleActionCaptcha'] = None,
+             challenge: Optional['outputs.RuleGroupRuleActionChallenge'] = None,
+             count: Optional['outputs.RuleGroupRuleActionCount'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
         if captcha is not None:
-            pulumi.set(__self__, "captcha", captcha)
+            _setter("captcha", captcha)
         if challenge is not None:
-            pulumi.set(__self__, "challenge", challenge)
+            _setter("challenge", challenge)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
@@ -1074,8 +1134,17 @@ class RuleGroupRuleActionAllow(dict):
         """
         :param 'RuleGroupRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
+        RuleGroupRuleActionAllow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.RuleGroupRuleActionAllowCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1110,7 +1179,16 @@ class RuleGroupRuleActionAllowCustomRequestHandling(dict):
         """
         :param Sequence['RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        RuleGroupRuleActionAllowCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -1130,8 +1208,19 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
         :param str name: A friendly name of the rule group.
         :param str value: The value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1174,8 +1263,17 @@ class RuleGroupRuleActionBlock(dict):
         """
         :param 'RuleGroupRuleActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See Custom Response below for details.
         """
+        RuleGroupRuleActionBlock._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_response=custom_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_response: Optional['outputs.RuleGroupRuleActionBlockCustomResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
+            _setter("custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -1218,11 +1316,24 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         :param Sequence['RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
         """
-        pulumi.set(__self__, "response_code", response_code)
+        RuleGroupRuleActionBlockCustomResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_code=response_code,
+            custom_response_body_key=custom_response_body_key,
+            response_headers=response_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_code: int,
+             custom_response_body_key: Optional[str] = None,
+             response_headers: Optional[Sequence['outputs.RuleGroupRuleActionBlockCustomResponseResponseHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_code", response_code)
         if custom_response_body_key is not None:
-            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+            _setter("custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            pulumi.set(__self__, "response_headers", response_headers)
+            _setter("response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -1258,8 +1369,19 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
         :param str name: A friendly name of the rule group.
         :param str value: The value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleActionBlockCustomResponseResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1302,8 +1424,17 @@ class RuleGroupRuleActionCaptcha(dict):
         """
         :param 'RuleGroupRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
+        RuleGroupRuleActionCaptcha._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.RuleGroupRuleActionCaptchaCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1338,7 +1469,16 @@ class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
         """
         :param Sequence['RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        RuleGroupRuleActionCaptchaCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -1358,8 +1498,19 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
         :param str name: A friendly name of the rule group.
         :param str value: The value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1402,8 +1553,17 @@ class RuleGroupRuleActionChallenge(dict):
         """
         :param 'RuleGroupRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
+        RuleGroupRuleActionChallenge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.RuleGroupRuleActionChallengeCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1438,7 +1598,16 @@ class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
         """
         :param Sequence['RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        RuleGroupRuleActionChallengeCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -1458,8 +1627,19 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
         :param str name: A friendly name of the rule group.
         :param str value: The value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1502,8 +1682,17 @@ class RuleGroupRuleActionCount(dict):
         """
         :param 'RuleGroupRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
+        RuleGroupRuleActionCount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.RuleGroupRuleActionCountCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1538,7 +1727,16 @@ class RuleGroupRuleActionCountCustomRequestHandling(dict):
         """
         :param Sequence['RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        RuleGroupRuleActionCountCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -1558,8 +1756,19 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
         :param str name: A friendly name of the rule group.
         :param str value: The value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleActionCountCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1602,8 +1811,17 @@ class RuleGroupRuleCaptchaConfig(dict):
         """
         :param 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
         """
+        RuleGroupRuleCaptchaConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time_property=immunity_time_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time_property: Optional['outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+            _setter("immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -1638,8 +1856,17 @@ class RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
         """
         :param int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
+        RuleGroupRuleCaptchaConfigImmunityTimeProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time=immunity_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time is not None:
-            pulumi.set(__self__, "immunity_time", immunity_time)
+            _setter("immunity_time", immunity_time)
 
     @property
     @pulumi.getter(name="immunityTime")
@@ -1657,7 +1884,16 @@ class RuleGroupRuleRuleLabel(dict):
         """
         :param str name: The label string.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleRuleLabel._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1740,32 +1976,65 @@ class RuleGroupRuleStatement(dict):
         :param 'RuleGroupRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
+        RuleGroupRuleStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_statement=and_statement,
+            byte_match_statement=byte_match_statement,
+            geo_match_statement=geo_match_statement,
+            ip_set_reference_statement=ip_set_reference_statement,
+            label_match_statement=label_match_statement,
+            not_statement=not_statement,
+            or_statement=or_statement,
+            rate_based_statement=rate_based_statement,
+            regex_match_statement=regex_match_statement,
+            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
+            size_constraint_statement=size_constraint_statement,
+            sqli_match_statement=sqli_match_statement,
+            xss_match_statement=xss_match_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_statement: Optional['outputs.RuleGroupRuleStatementAndStatement'] = None,
+             byte_match_statement: Optional['outputs.RuleGroupRuleStatementByteMatchStatement'] = None,
+             geo_match_statement: Optional['outputs.RuleGroupRuleStatementGeoMatchStatement'] = None,
+             ip_set_reference_statement: Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatement'] = None,
+             label_match_statement: Optional['outputs.RuleGroupRuleStatementLabelMatchStatement'] = None,
+             not_statement: Optional['outputs.RuleGroupRuleStatementNotStatement'] = None,
+             or_statement: Optional['outputs.RuleGroupRuleStatementOrStatement'] = None,
+             rate_based_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatement'] = None,
+             regex_match_statement: Optional['outputs.RuleGroupRuleStatementRegexMatchStatement'] = None,
+             regex_pattern_set_reference_statement: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatement'] = None,
+             size_constraint_statement: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatement'] = None,
+             sqli_match_statement: Optional['outputs.RuleGroupRuleStatementSqliMatchStatement'] = None,
+             xss_match_statement: Optional['outputs.RuleGroupRuleStatementXssMatchStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            pulumi.set(__self__, "and_statement", and_statement)
+            _setter("and_statement", and_statement)
         if byte_match_statement is not None:
-            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
+            _setter("byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
+            _setter("geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
+            _setter("ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            pulumi.set(__self__, "label_match_statement", label_match_statement)
+            _setter("label_match_statement", label_match_statement)
         if not_statement is not None:
-            pulumi.set(__self__, "not_statement", not_statement)
+            _setter("not_statement", not_statement)
         if or_statement is not None:
-            pulumi.set(__self__, "or_statement", or_statement)
+            _setter("or_statement", or_statement)
         if rate_based_statement is not None:
-            pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+            _setter("rate_based_statement", rate_based_statement)
         if regex_match_statement is not None:
-            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
+            _setter("regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
-            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
+            _setter("size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
+            _setter("sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
+            _setter("xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -1879,7 +2148,16 @@ class RuleGroupRuleStatementAndStatement(dict):
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementAndStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -1928,11 +2206,26 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "search_string", search_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementByteMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            positional_constraint=positional_constraint,
+            search_string=search_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             positional_constraint: str,
+             search_string: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementByteMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("positional_constraint", positional_constraint)
+        _setter("search_string", search_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="positionalConstraint")
@@ -2021,26 +2314,53 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementByteMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -2127,6 +2447,11 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -2151,16 +2476,25 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody(dict):
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -2197,9 +2531,22 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -2254,12 +2601,25 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
         """
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -2283,6 +2643,11 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
 @pulumi.output_type
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2318,9 +2683,22 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -2377,12 +2755,25 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -2412,6 +2803,11 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
 @pulumi.output_type
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2451,12 +2847,27 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -2516,10 +2927,21 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
         """
         :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -2539,17 +2961,32 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2560,7 +2997,16 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2578,7 +3024,16 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2593,6 +3048,11 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
 class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -2604,8 +3064,19 @@ class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementByteMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2652,9 +3123,20 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
         :param Sequence[str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         :param 'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
-        pulumi.set(__self__, "country_codes", country_codes)
+        RuleGroupRuleStatementGeoMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_codes=country_codes,
+            forwarded_ip_config=forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_codes: Sequence[str],
+             forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -2701,8 +3183,19 @@ class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig(dict):
         :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: The name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -2747,9 +3240,20 @@ class RuleGroupRuleStatementIpSetReferenceStatement(dict):
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
-        pulumi.set(__self__, "arn", arn)
+        RuleGroupRuleStatementIpSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -2798,9 +3302,22 @@ class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
         :param str header_name: The name of the HTTP header to use for the IP address.
         :param str position: The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
+        RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             position: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -2836,8 +3353,19 @@ class RuleGroupRuleStatementLabelMatchStatement(dict):
         :param str key: The string to match against.
         :param str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "scope", scope)
+        RuleGroupRuleStatementLabelMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -2863,7 +3391,16 @@ class RuleGroupRuleStatementNotStatement(dict):
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementNotStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -2881,7 +3418,16 @@ class RuleGroupRuleStatementOrStatement(dict):
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementOrStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -2930,15 +3476,32 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
-        pulumi.set(__self__, "limit", limit)
+        RuleGroupRuleStatementRateBasedStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            limit=limit,
+            aggregate_key_type=aggregate_key_type,
+            custom_keys=custom_keys,
+            forwarded_ip_config=forwarded_ip_config,
+            scope_down_statement=scope_down_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             limit: int,
+             aggregate_key_type: Optional[str] = None,
+             custom_keys: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKey']] = None,
+             forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig'] = None,
+             scope_down_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("limit", limit)
         if aggregate_key_type is not None:
-            pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+            _setter("aggregate_key_type", aggregate_key_type)
         if custom_keys is not None:
-            pulumi.set(__self__, "custom_keys", custom_keys)
+            _setter("custom_keys", custom_keys)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
-            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
+            _setter("scope_down_statement", scope_down_statement)
 
     @property
     @pulumi.getter
@@ -3031,24 +3594,49 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementCustomKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie=cookie,
+            forwarded_ip=forwarded_ip,
+            header=header,
+            http_method=http_method,
+            ip=ip,
+            label_namespace=label_namespace,
+            query_argument=query_argument,
+            query_string=query_string,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie'] = None,
+             forwarded_ip: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp'] = None,
+             header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader'] = None,
+             http_method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod'] = None,
+             ip: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp'] = None,
+             label_namespace: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace'] = None,
+             query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie is not None:
-            pulumi.set(__self__, "cookie", cookie)
+            _setter("cookie", cookie)
         if forwarded_ip is not None:
-            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+            _setter("forwarded_ip", forwarded_ip)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if label_namespace is not None:
-            pulumi.set(__self__, "label_namespace", label_namespace)
+            _setter("label_namespace", label_namespace)
         if query_argument is not None:
-            pulumi.set(__self__, "query_argument", query_argument)
+            _setter("query_argument", query_argument)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter
@@ -3150,19 +3738,20 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyCookie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -3179,16 +3768,6 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         At least one required.
         See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3202,8 +3781,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3225,6 +3815,11 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -3255,19 +3850,20 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -3284,16 +3880,6 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         At least one required.
         See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3307,8 +3893,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3331,11 +3928,21 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
 class RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -3346,7 +3953,16 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
         """
         :param str namespace: The namespace to use for aggregation
         """
-        pulumi.set(__self__, "namespace", namespace)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -3384,19 +4000,20 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -3413,16 +4030,6 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         At least one required.
         See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3436,8 +4043,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransfor
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3481,34 +4099,23 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation']:
         """
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
         At least one required.
         See Text Transformation below for details.
         """
@@ -3524,8 +4131,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransforma
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3569,34 +4187,23 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
-               At least one required.
-               See Text Transformation below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation']:
         """
         Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
-        At least one required.
-        See Text Transformation below for details.
         At least one required.
         See Text Transformation below for details.
         """
@@ -3612,8 +4219,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3660,8 +4278,19 @@ class RuleGroupRuleStatementRateBasedStatementForwardedIpConfig(dict):
         :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: The name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        RuleGroupRuleStatementRateBasedStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -3748,30 +4377,61 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_statement=and_statement,
+            byte_match_statement=byte_match_statement,
+            geo_match_statement=geo_match_statement,
+            ip_set_reference_statement=ip_set_reference_statement,
+            label_match_statement=label_match_statement,
+            not_statement=not_statement,
+            or_statement=or_statement,
+            regex_match_statement=regex_match_statement,
+            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
+            size_constraint_statement=size_constraint_statement,
+            sqli_match_statement=sqli_match_statement,
+            xss_match_statement=xss_match_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement'] = None,
+             byte_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement'] = None,
+             geo_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement'] = None,
+             ip_set_reference_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement'] = None,
+             label_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement'] = None,
+             not_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement'] = None,
+             or_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement'] = None,
+             regex_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement'] = None,
+             regex_pattern_set_reference_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement'] = None,
+             size_constraint_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement'] = None,
+             sqli_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
+             xss_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            pulumi.set(__self__, "and_statement", and_statement)
+            _setter("and_statement", and_statement)
         if byte_match_statement is not None:
-            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
+            _setter("byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
+            _setter("geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
+            _setter("ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            pulumi.set(__self__, "label_match_statement", label_match_statement)
+            _setter("label_match_statement", label_match_statement)
         if not_statement is not None:
-            pulumi.set(__self__, "not_statement", not_statement)
+            _setter("not_statement", not_statement)
         if or_statement is not None:
-            pulumi.set(__self__, "or_statement", or_statement)
+            _setter("or_statement", or_statement)
         if regex_match_statement is not None:
-            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
+            _setter("regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
-            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
+            _setter("size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
+            _setter("sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
+            _setter("xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -3877,7 +4537,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dic
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -3926,11 +4595,26 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "search_string", search_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            positional_constraint=positional_constraint,
+            search_string=search_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             positional_constraint: str,
+             search_string: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("positional_constraint", positional_constraint)
+        _setter("search_string", search_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="positionalConstraint")
@@ -4019,26 +4703,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -4125,6 +4836,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -4149,16 +4865,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -4195,9 +4920,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -4252,12 +4990,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -4281,6 +5032,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -4316,9 +5072,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -4375,12 +5144,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -4410,6 +5192,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -4449,12 +5236,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -4514,10 +5316,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -4537,17 +5350,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -4558,7 +5386,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4576,7 +5413,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4591,6 +5437,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -4602,8 +5453,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4650,9 +5512,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
         :param Sequence[str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
-        pulumi.set(__self__, "country_codes", country_codes)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_codes=country_codes,
+            forwarded_ip_config=forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_codes: Sequence[str],
+             forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -4699,8 +5572,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
         :param str fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: The name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -4745,9 +5629,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
-        pulumi.set(__self__, "arn", arn)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -4796,9 +5691,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
         :param str header_name: The name of the HTTP header to use for the IP address.
         :param str position: The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             position: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -4834,8 +5742,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatem
         :param str key: The string to match against.
         :param str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "scope", scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -4861,7 +5780,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dic
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -4879,7 +5807,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict
         """
         :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.RuleGroupRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -4924,10 +5861,23 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="regexString")
@@ -5008,26 +5958,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -5114,6 +6091,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -5138,16 +6120,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -5184,9 +6175,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -5241,12 +6245,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -5270,6 +6287,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -5305,9 +6327,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -5364,12 +6399,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -5399,6 +6447,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -5438,12 +6491,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -5503,10 +6571,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -5526,17 +6605,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -5547,7 +6641,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -5565,7 +6668,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -5580,6 +6692,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -5591,8 +6708,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -5643,10 +6771,23 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter
@@ -5727,26 +6868,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -5833,6 +7001,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -5857,16 +7030,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -5903,9 +7085,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -5960,12 +7155,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -5989,6 +7197,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6024,9 +7237,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -6083,12 +7309,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -6118,6 +7357,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6157,12 +7401,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -6222,10 +7481,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -6245,17 +7515,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6266,7 +7551,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -6284,7 +7578,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -6299,6 +7602,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -6310,8 +7618,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -6366,11 +7685,26 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            size=size,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             size: int,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("size", size)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -6459,26 +7793,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -6565,6 +7926,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -6589,16 +7955,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -6635,9 +8010,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -6692,12 +8080,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -6721,6 +8122,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6756,9 +8162,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -6815,12 +8234,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -6850,6 +8282,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6889,12 +8326,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -6954,10 +8406,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -6977,17 +8440,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6998,7 +8476,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -7016,7 +8503,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -7031,6 +8527,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -7042,8 +8543,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -7092,9 +8604,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -7167,26 +8690,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -7273,6 +8823,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -7297,16 +8852,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -7343,9 +8907,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -7400,12 +8977,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -7429,6 +9019,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -7464,9 +9059,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -7523,12 +9131,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -7558,6 +9179,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -7597,12 +9223,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -7662,10 +9303,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -7685,17 +9337,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -7706,7 +9373,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -7724,7 +9400,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -7739,6 +9424,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -7750,8 +9440,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -7800,9 +9501,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -7875,26 +9587,53 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -7981,6 +9720,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -8005,16 +9749,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -8051,9 +9804,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -8108,12 +9874,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -8137,6 +9916,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -8172,9 +9956,22 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -8231,12 +10028,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -8266,6 +10076,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -8305,12 +10120,27 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -8370,10 +10200,21 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         """
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -8393,17 +10234,32 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -8414,7 +10270,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -8432,7 +10297,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -8447,6 +10321,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -8458,8 +10337,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -8512,10 +10402,23 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRegexMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="regexString")
@@ -8596,26 +10499,53 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -8702,6 +10632,11 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -8726,16 +10661,25 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody(dict):
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -8772,9 +10716,22 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -8829,12 +10786,25 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
         """
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -8858,6 +10828,11 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
 @pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -8893,9 +10868,22 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -8952,12 +10940,25 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -8987,6 +10988,11 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
 @pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -9026,12 +11032,27 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -9091,10 +11112,21 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
         """
         :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -9114,17 +11146,32 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -9135,7 +11182,16 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9153,7 +11209,16 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9168,6 +11233,11 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
 class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -9179,8 +11249,19 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRegexMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -9231,10 +11312,23 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter
@@ -9315,26 +11409,53 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -9421,6 +11542,11 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -9445,16 +11571,25 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(di
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -9491,9 +11626,22 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -9548,12 +11696,25 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
         """
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -9577,6 +11738,11 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
 @pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -9612,9 +11778,22 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -9671,12 +11850,25 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -9706,6 +11898,11 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
 @pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -9745,12 +11942,27 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -9810,10 +12022,21 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
         """
         :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -9833,17 +12056,32 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -9854,7 +12092,16 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9872,7 +12119,16 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -9887,6 +12143,11 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
 class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -9898,8 +12159,19 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -9954,11 +12226,26 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementSizeConstraintStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            size=size,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             size: int,
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("size", size)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -10047,26 +12334,53 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -10153,6 +12467,11 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -10177,16 +12496,25 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -10223,9 +12551,22 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -10280,12 +12621,25 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
         """
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -10309,6 +12663,11 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
 @pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -10344,9 +12703,22 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -10403,12 +12775,25 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -10438,6 +12823,11 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
 @pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -10477,12 +12867,27 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -10542,10 +12947,21 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
         """
         :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -10565,17 +12981,32 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -10586,7 +13017,16 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10604,7 +13044,16 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10619,6 +13068,11 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
 class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -10630,8 +13084,19 @@ class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementSizeConstraintStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -10680,9 +13145,20 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementSqliMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -10755,26 +13231,53 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -10861,6 +13364,11 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -10885,16 +13393,25 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody(dict):
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -10931,9 +13448,22 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -10988,12 +13518,25 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
         """
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -11017,6 +13560,11 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
 @pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -11052,9 +13600,22 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -11111,12 +13672,25 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -11146,6 +13720,11 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
 @pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -11185,12 +13764,27 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -11250,10 +13844,21 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
         """
         :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -11273,17 +13878,32 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -11294,7 +13914,16 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -11312,7 +13941,16 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -11327,6 +13965,11 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
 class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -11338,8 +13981,19 @@ class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementSqliMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -11388,9 +14042,20 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
                See Text Transformation below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        RuleGroupRuleStatementXssMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.RuleGroupRuleStatementXssMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -11463,26 +14128,53 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        RuleGroupRuleStatementXssMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -11569,6 +14261,11 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -11593,16 +14290,25 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchBody(dict):
     def __init__(__self__, *,
                  oversize_handling: Optional[str] = None):
         """
-        :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
     def oversize_handling(self) -> Optional[str]:
         """
-        Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+        What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         return pulumi.get(self, "oversize_handling")
 
@@ -11639,9 +14345,22 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -11696,12 +14415,25 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
         """
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -11725,6 +14457,11 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
 @pulumi.output_type
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -11760,9 +14497,22 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -11819,12 +14569,25 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -11854,6 +14617,11 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
 @pulumi.output_type
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -11893,12 +14661,27 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -11958,10 +14741,21 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
         """
         :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -11981,17 +14775,32 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -12002,7 +14811,16 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -12020,7 +14838,16 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
         """
         :param str name: The name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -12035,6 +14862,11 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
 class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -12046,8 +14878,19 @@ class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
         :param int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        RuleGroupRuleStatementXssMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -12098,9 +14941,22 @@ class RuleGroupRuleVisibilityConfig(dict):
         :param str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         :param bool sampled_requests_enabled: A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
-        pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
+        RuleGroupRuleVisibilityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_metrics_enabled=cloudwatch_metrics_enabled,
+            metric_name=metric_name,
+            sampled_requests_enabled=sampled_requests_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_metrics_enabled: bool,
+             metric_name: str,
+             sampled_requests_enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
+        _setter("metric_name", metric_name)
+        _setter("sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudwatchMetricsEnabled")
@@ -12159,9 +15015,22 @@ class RuleGroupVisibilityConfig(dict):
         :param str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         :param bool sampled_requests_enabled: A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
-        pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
+        RuleGroupVisibilityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_metrics_enabled=cloudwatch_metrics_enabled,
+            metric_name=metric_name,
+            sampled_requests_enabled=sampled_requests_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_metrics_enabled: bool,
+             metric_name: str,
+             sampled_requests_enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
+        _setter("metric_name", metric_name)
+        _setter("sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudwatchMetricsEnabled")
@@ -12212,8 +15081,17 @@ class WebAclAssociationConfig(dict):
         """
         :param Sequence['WebAclAssociationConfigRequestBodyArgs'] request_bodies: Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
         """
+        WebAclAssociationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_bodies=request_bodies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_bodies: Optional[Sequence['outputs.WebAclAssociationConfigRequestBody']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if request_bodies is not None:
-            pulumi.set(__self__, "request_bodies", request_bodies)
+            _setter("request_bodies", request_bodies)
 
     @property
     @pulumi.getter(name="requestBodies")
@@ -12231,8 +15109,17 @@ class WebAclAssociationConfigRequestBody(dict):
         """
         :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
         """
+        WebAclAssociationConfigRequestBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudfronts=cloudfronts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloudfronts is not None:
-            pulumi.set(__self__, "cloudfronts", cloudfronts)
+            _setter("cloudfronts", cloudfronts)
 
     @property
     @pulumi.getter
@@ -12267,7 +15154,16 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
         """
         :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
-        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+        WebAclAssociationConfigRequestBodyCloudfront._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_size_inspection_limit=default_size_inspection_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_size_inspection_limit: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_size_inspection_limit", default_size_inspection_limit)
 
     @property
     @pulumi.getter(name="defaultSizeInspectionLimit")
@@ -12302,8 +15198,17 @@ class WebAclCaptchaConfig(dict):
         """
         :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
+        WebAclCaptchaConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time_property=immunity_time_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time_property: Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+            _setter("immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -12338,8 +15243,17 @@ class WebAclCaptchaConfigImmunityTimeProperty(dict):
         """
         :param int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
+        WebAclCaptchaConfigImmunityTimeProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time=immunity_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time is not None:
-            pulumi.set(__self__, "immunity_time", immunity_time)
+            _setter("immunity_time", immunity_time)
 
     @property
     @pulumi.getter(name="immunityTime")
@@ -12378,9 +15292,22 @@ class WebAclCustomResponseBody(dict):
         :param str content_type: Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
         :param str key: Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "key", key)
+        WebAclCustomResponseBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            content_type=content_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             content_type: str,
+             key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("content_type", content_type)
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -12416,10 +15343,21 @@ class WebAclDefaultAction(dict):
         :param 'WebAclDefaultActionAllowArgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
         :param 'WebAclDefaultActionBlockArgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
         """
+        WebAclDefaultAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            block=block,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional['outputs.WebAclDefaultActionAllow'] = None,
+             block: Optional['outputs.WebAclDefaultActionBlock'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
 
     @property
     @pulumi.getter
@@ -12462,8 +15400,17 @@ class WebAclDefaultActionAllow(dict):
         """
         :param 'WebAclDefaultActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclDefaultActionAllow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclDefaultActionAllowCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -12498,7 +15445,16 @@ class WebAclDefaultActionAllowCustomRequestHandling(dict):
         """
         :param Sequence['WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclDefaultActionAllowCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -12518,8 +15474,19 @@ class WebAclDefaultActionAllowCustomRequestHandlingInsertHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclDefaultActionAllowCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12562,8 +15529,17 @@ class WebAclDefaultActionBlock(dict):
         """
         :param 'WebAclDefaultActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
+        WebAclDefaultActionBlock._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_response=custom_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_response: Optional['outputs.WebAclDefaultActionBlockCustomResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
+            _setter("custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -12606,11 +15582,24 @@ class WebAclDefaultActionBlockCustomResponse(dict):
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         :param Sequence['WebAclDefaultActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
-        pulumi.set(__self__, "response_code", response_code)
+        WebAclDefaultActionBlockCustomResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_code=response_code,
+            custom_response_body_key=custom_response_body_key,
+            response_headers=response_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_code: int,
+             custom_response_body_key: Optional[str] = None,
+             response_headers: Optional[Sequence['outputs.WebAclDefaultActionBlockCustomResponseResponseHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_code", response_code)
         if custom_response_body_key is not None:
-            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+            _setter("custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            pulumi.set(__self__, "response_headers", response_headers)
+            _setter("response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -12646,8 +15635,19 @@ class WebAclDefaultActionBlockCustomResponseResponseHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclDefaultActionBlockCustomResponseResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -12692,8 +15692,19 @@ class WebAclLoggingConfigurationLoggingFilter(dict):
         :param str default_behavior: Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
         :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterArgs'] filters: Filter(s) that you want to apply to the logs. See Filter below for more details.
         """
-        pulumi.set(__self__, "default_behavior", default_behavior)
-        pulumi.set(__self__, "filters", filters)
+        WebAclLoggingConfigurationLoggingFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_behavior=default_behavior,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_behavior: str,
+             filters: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilter'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_behavior", default_behavior)
+        _setter("filters", filters)
 
     @property
     @pulumi.getter(name="defaultBehavior")
@@ -12723,9 +15734,22 @@ class WebAclLoggingConfigurationLoggingFilterFilter(dict):
         :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterConditionArgs'] conditions: Match condition(s) for the filter. See Condition below for more details.
         :param str requirement: Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         """
-        pulumi.set(__self__, "behavior", behavior)
-        pulumi.set(__self__, "conditions", conditions)
-        pulumi.set(__self__, "requirement", requirement)
+        WebAclLoggingConfigurationLoggingFilterFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior=behavior,
+            conditions=conditions,
+            requirement=requirement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior: str,
+             conditions: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition'],
+             requirement: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("behavior", behavior)
+        _setter("conditions", conditions)
+        _setter("requirement", requirement)
 
     @property
     @pulumi.getter
@@ -12780,10 +15804,21 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
         :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs' action_condition: Configuration for a single action condition. See Action Condition below for more details.
         :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs' label_name_condition: Condition for a single label name. See Label Name Condition below for more details.
         """
+        WebAclLoggingConfigurationLoggingFilterFilterCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_condition=action_condition,
+            label_name_condition=label_name_condition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition'] = None,
+             label_name_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_condition is not None:
-            pulumi.set(__self__, "action_condition", action_condition)
+            _setter("action_condition", action_condition)
         if label_name_condition is not None:
-            pulumi.set(__self__, "label_name_condition", label_name_condition)
+            _setter("label_name_condition", label_name_condition)
 
     @property
     @pulumi.getter(name="actionCondition")
@@ -12809,7 +15844,16 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
         """
         :param str action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
         """
-        pulumi.set(__self__, "action", action)
+        WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
 
     @property
     @pulumi.getter
@@ -12844,7 +15888,16 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
         """
         :param str label_name: Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
-        pulumi.set(__self__, "label_name", label_name)
+        WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label_name=label_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("label_name", label_name)
 
     @property
     @pulumi.getter(name="labelName")
@@ -12889,14 +15942,29 @@ class WebAclLoggingConfigurationRedactedField(dict):
         :param 'WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs' single_header: "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         :param 'WebAclLoggingConfigurationRedactedFieldUriPathArgs' uri_path: Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         """
+        WebAclLoggingConfigurationRedactedField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: Optional['outputs.WebAclLoggingConfigurationRedactedFieldMethod'] = None,
+             query_string: Optional['outputs.WebAclLoggingConfigurationRedactedFieldQueryString'] = None,
+             single_header: Optional['outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader'] = None,
+             uri_path: Optional['outputs.WebAclLoggingConfigurationRedactedFieldUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter
@@ -12935,11 +16003,21 @@ class WebAclLoggingConfigurationRedactedField(dict):
 class WebAclLoggingConfigurationRedactedFieldMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclLoggingConfigurationRedactedFieldQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -12950,7 +16028,16 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
         """
         :param str name: Name of the query header to redact. This setting must be provided in lowercase characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclLoggingConfigurationRedactedFieldSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -12964,6 +16051,11 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
 @pulumi.output_type
 class WebAclLoggingConfigurationRedactedFieldUriPath(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -13011,18 +16103,41 @@ class WebAclRule(dict):
         :param 'WebAclRuleOverrideActionArgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         :param Sequence['WebAclRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "statement", statement)
-        pulumi.set(__self__, "visibility_config", visibility_config)
+        WebAclRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            priority=priority,
+            statement=statement,
+            visibility_config=visibility_config,
+            action=action,
+            captcha_config=captcha_config,
+            override_action=override_action,
+            rule_labels=rule_labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             priority: int,
+             statement: 'outputs.WebAclRuleStatement',
+             visibility_config: 'outputs.WebAclRuleVisibilityConfig',
+             action: Optional['outputs.WebAclRuleAction'] = None,
+             captcha_config: Optional['outputs.WebAclRuleCaptchaConfig'] = None,
+             override_action: Optional['outputs.WebAclRuleOverrideAction'] = None,
+             rule_labels: Optional[Sequence['outputs.WebAclRuleRuleLabel']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("priority", priority)
+        _setter("statement", statement)
+        _setter("visibility_config", visibility_config)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if captcha_config is not None:
-            pulumi.set(__self__, "captcha_config", captcha_config)
+            _setter("captcha_config", captcha_config)
         if override_action is not None:
-            pulumi.set(__self__, "override_action", override_action)
+            _setter("override_action", override_action)
         if rule_labels is not None:
-            pulumi.set(__self__, "rule_labels", rule_labels)
+            _setter("rule_labels", rule_labels)
 
     @property
     @pulumi.getter
@@ -13104,16 +16219,33 @@ class WebAclRuleAction(dict):
         :param 'WebAclRuleActionChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         :param 'WebAclRuleActionCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
+        WebAclRuleAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            block=block,
+            captcha=captcha,
+            challenge=challenge,
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional['outputs.WebAclRuleActionAllow'] = None,
+             block: Optional['outputs.WebAclRuleActionBlock'] = None,
+             captcha: Optional['outputs.WebAclRuleActionCaptcha'] = None,
+             challenge: Optional['outputs.WebAclRuleActionChallenge'] = None,
+             count: Optional['outputs.WebAclRuleActionCount'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
         if captcha is not None:
-            pulumi.set(__self__, "captcha", captcha)
+            _setter("captcha", captcha)
         if challenge is not None:
-            pulumi.set(__self__, "challenge", challenge)
+            _setter("challenge", challenge)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
@@ -13180,8 +16312,17 @@ class WebAclRuleActionAllow(dict):
         """
         :param 'WebAclRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleActionAllow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleActionAllowCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -13216,7 +16357,16 @@ class WebAclRuleActionAllowCustomRequestHandling(dict):
         """
         :param Sequence['WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleActionAllowCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -13236,8 +16386,19 @@ class WebAclRuleActionAllowCustomRequestHandlingInsertHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleActionAllowCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -13280,8 +16441,17 @@ class WebAclRuleActionBlock(dict):
         """
         :param 'WebAclRuleActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
+        WebAclRuleActionBlock._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_response=custom_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_response: Optional['outputs.WebAclRuleActionBlockCustomResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
+            _setter("custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -13324,11 +16494,24 @@ class WebAclRuleActionBlockCustomResponse(dict):
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         :param Sequence['WebAclRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
-        pulumi.set(__self__, "response_code", response_code)
+        WebAclRuleActionBlockCustomResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_code=response_code,
+            custom_response_body_key=custom_response_body_key,
+            response_headers=response_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_code: int,
+             custom_response_body_key: Optional[str] = None,
+             response_headers: Optional[Sequence['outputs.WebAclRuleActionBlockCustomResponseResponseHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_code", response_code)
         if custom_response_body_key is not None:
-            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+            _setter("custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            pulumi.set(__self__, "response_headers", response_headers)
+            _setter("response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -13364,8 +16547,19 @@ class WebAclRuleActionBlockCustomResponseResponseHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleActionBlockCustomResponseResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -13408,8 +16602,17 @@ class WebAclRuleActionCaptcha(dict):
         """
         :param 'WebAclRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleActionCaptcha._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleActionCaptchaCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -13444,7 +16647,16 @@ class WebAclRuleActionCaptchaCustomRequestHandling(dict):
         """
         :param Sequence['WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleActionCaptchaCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -13464,8 +16676,19 @@ class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -13508,8 +16731,17 @@ class WebAclRuleActionChallenge(dict):
         """
         :param 'WebAclRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleActionChallenge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleActionChallengeCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -13544,7 +16776,16 @@ class WebAclRuleActionChallengeCustomRequestHandling(dict):
         """
         :param Sequence['WebAclRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleActionChallengeCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleActionChallengeCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -13564,8 +16805,19 @@ class WebAclRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleActionChallengeCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -13608,8 +16860,17 @@ class WebAclRuleActionCount(dict):
         """
         :param 'WebAclRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleActionCount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleActionCountCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -13644,7 +16905,16 @@ class WebAclRuleActionCountCustomRequestHandling(dict):
         """
         :param Sequence['WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleActionCountCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleActionCountCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -13664,8 +16934,19 @@ class WebAclRuleActionCountCustomRequestHandlingInsertHeader(dict):
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleActionCountCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -13708,8 +16989,17 @@ class WebAclRuleCaptchaConfig(dict):
         """
         :param 'WebAclRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
+        WebAclRuleCaptchaConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time_property=immunity_time_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time_property: Optional['outputs.WebAclRuleCaptchaConfigImmunityTimeProperty'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+            _setter("immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -13744,8 +17034,17 @@ class WebAclRuleCaptchaConfigImmunityTimeProperty(dict):
         """
         :param int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
+        WebAclRuleCaptchaConfigImmunityTimeProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            immunity_time=immunity_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             immunity_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time is not None:
-            pulumi.set(__self__, "immunity_time", immunity_time)
+            _setter("immunity_time", immunity_time)
 
     @property
     @pulumi.getter(name="immunityTime")
@@ -13765,10 +17064,21 @@ class WebAclRuleOverrideAction(dict):
         :param 'WebAclRuleOverrideActionCountArgs' count: Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
         :param 'WebAclRuleOverrideActionNoneArgs' none: Don't override the rule action setting. Configured as an empty block `{}`.
         """
+        WebAclRuleOverrideAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            none=none,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional['outputs.WebAclRuleOverrideActionCount'] = None,
+             none: Optional['outputs.WebAclRuleOverrideActionNone'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if none is not None:
-            pulumi.set(__self__, "none", none)
+            _setter("none", none)
 
     @property
     @pulumi.getter
@@ -13791,11 +17101,21 @@ class WebAclRuleOverrideAction(dict):
 class WebAclRuleOverrideActionCount(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleOverrideActionNone(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -13806,7 +17126,16 @@ class WebAclRuleRuleLabel(dict):
         """
         :param str name: Label string.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleRuleLabel._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -13897,36 +17226,73 @@ class WebAclRuleStatement(dict):
         :param 'WebAclRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
+        WebAclRuleStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_statement=and_statement,
+            byte_match_statement=byte_match_statement,
+            geo_match_statement=geo_match_statement,
+            ip_set_reference_statement=ip_set_reference_statement,
+            label_match_statement=label_match_statement,
+            managed_rule_group_statement=managed_rule_group_statement,
+            not_statement=not_statement,
+            or_statement=or_statement,
+            rate_based_statement=rate_based_statement,
+            regex_match_statement=regex_match_statement,
+            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
+            rule_group_reference_statement=rule_group_reference_statement,
+            size_constraint_statement=size_constraint_statement,
+            sqli_match_statement=sqli_match_statement,
+            xss_match_statement=xss_match_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_statement: Optional['outputs.WebAclRuleStatementAndStatement'] = None,
+             byte_match_statement: Optional['outputs.WebAclRuleStatementByteMatchStatement'] = None,
+             geo_match_statement: Optional['outputs.WebAclRuleStatementGeoMatchStatement'] = None,
+             ip_set_reference_statement: Optional['outputs.WebAclRuleStatementIpSetReferenceStatement'] = None,
+             label_match_statement: Optional['outputs.WebAclRuleStatementLabelMatchStatement'] = None,
+             managed_rule_group_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatement'] = None,
+             not_statement: Optional['outputs.WebAclRuleStatementNotStatement'] = None,
+             or_statement: Optional['outputs.WebAclRuleStatementOrStatement'] = None,
+             rate_based_statement: Optional['outputs.WebAclRuleStatementRateBasedStatement'] = None,
+             regex_match_statement: Optional['outputs.WebAclRuleStatementRegexMatchStatement'] = None,
+             regex_pattern_set_reference_statement: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatement'] = None,
+             rule_group_reference_statement: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatement'] = None,
+             size_constraint_statement: Optional['outputs.WebAclRuleStatementSizeConstraintStatement'] = None,
+             sqli_match_statement: Optional['outputs.WebAclRuleStatementSqliMatchStatement'] = None,
+             xss_match_statement: Optional['outputs.WebAclRuleStatementXssMatchStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            pulumi.set(__self__, "and_statement", and_statement)
+            _setter("and_statement", and_statement)
         if byte_match_statement is not None:
-            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
+            _setter("byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
+            _setter("geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
+            _setter("ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            pulumi.set(__self__, "label_match_statement", label_match_statement)
+            _setter("label_match_statement", label_match_statement)
         if managed_rule_group_statement is not None:
-            pulumi.set(__self__, "managed_rule_group_statement", managed_rule_group_statement)
+            _setter("managed_rule_group_statement", managed_rule_group_statement)
         if not_statement is not None:
-            pulumi.set(__self__, "not_statement", not_statement)
+            _setter("not_statement", not_statement)
         if or_statement is not None:
-            pulumi.set(__self__, "or_statement", or_statement)
+            _setter("or_statement", or_statement)
         if rate_based_statement is not None:
-            pulumi.set(__self__, "rate_based_statement", rate_based_statement)
+            _setter("rate_based_statement", rate_based_statement)
         if regex_match_statement is not None:
-            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
+            _setter("regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if rule_group_reference_statement is not None:
-            pulumi.set(__self__, "rule_group_reference_statement", rule_group_reference_statement)
+            _setter("rule_group_reference_statement", rule_group_reference_statement)
         if size_constraint_statement is not None:
-            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
+            _setter("size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
+            _setter("sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
+            _setter("xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -14056,7 +17422,16 @@ class WebAclRuleStatementAndStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementAndStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -14103,11 +17478,26 @@ class WebAclRuleStatementByteMatchStatement(dict):
         :param Sequence['WebAclRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "search_string", search_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementByteMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            positional_constraint=positional_constraint,
+            search_string=search_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             positional_constraint: str,
+             search_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementByteMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("positional_constraint", positional_constraint)
+        _setter("search_string", search_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="positionalConstraint")
@@ -14194,26 +17584,53 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementByteMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -14300,6 +17717,11 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
 class WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -14326,8 +17748,17 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchBody(dict):
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementByteMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -14370,9 +17801,22 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementByteMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -14427,12 +17871,25 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
         """
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -14456,6 +17913,11 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
 @pulumi.output_type
 class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -14491,9 +17953,22 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementByteMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -14550,12 +18025,25 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -14585,6 +18073,11 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
 @pulumi.output_type
 class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -14624,12 +18117,27 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -14689,10 +18197,21 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
         """
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -14712,17 +18231,32 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
 class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -14733,7 +18267,16 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -14751,7 +18294,16 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict)
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -14766,6 +18318,11 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict)
 class WebAclRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -14777,8 +18334,19 @@ class WebAclRuleStatementByteMatchStatementTextTransformation(dict):
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementByteMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -14825,9 +18393,20 @@ class WebAclRuleStatementGeoMatchStatement(dict):
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         :param 'WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
-        pulumi.set(__self__, "country_codes", country_codes)
+        WebAclRuleStatementGeoMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_codes=country_codes,
+            forwarded_ip_config=forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_codes: Sequence[str],
+             forwarded_ip_config: Optional['outputs.WebAclRuleStatementGeoMatchStatementForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -14874,8 +18453,19 @@ class WebAclRuleStatementGeoMatchStatementForwardedIpConfig(dict):
         :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: Name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        WebAclRuleStatementGeoMatchStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -14920,9 +18510,20 @@ class WebAclRuleStatementIpSetReferenceStatement(dict):
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param 'WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
-        pulumi.set(__self__, "arn", arn)
+        WebAclRuleStatementIpSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -14971,9 +18572,22 @@ class WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
         :param str header_name: Name of the HTTP header to use for the IP address.
         :param str position: Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
+        WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             position: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -15009,8 +18623,19 @@ class WebAclRuleStatementLabelMatchStatement(dict):
         :param str key: String to match against.
         :param str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "scope", scope)
+        WebAclRuleStatementLabelMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -15069,16 +18694,35 @@ class WebAclRuleStatementManagedRuleGroupStatement(dict):
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs' scope_down_statement: Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
         :param str version: Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vendor_name", vendor_name)
+        WebAclRuleStatementManagedRuleGroupStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            vendor_name=vendor_name,
+            managed_rule_group_configs=managed_rule_group_configs,
+            rule_action_overrides=rule_action_overrides,
+            scope_down_statement=scope_down_statement,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             vendor_name: str,
+             managed_rule_group_configs: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig']] = None,
+             rule_action_overrides: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride']] = None,
+             scope_down_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement'] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("vendor_name", vendor_name)
         if managed_rule_group_configs is not None:
-            pulumi.set(__self__, "managed_rule_group_configs", managed_rule_group_configs)
+            _setter("managed_rule_group_configs", managed_rule_group_configs)
         if rule_action_overrides is not None:
-            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
+            _setter("rule_action_overrides", rule_action_overrides)
         if scope_down_statement is not None:
-            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
+            _setter("scope_down_statement", scope_down_statement)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -15173,18 +18817,37 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_managed_rules_atp_rule_set=aws_managed_rules_atp_rule_set,
+            aws_managed_rules_bot_control_rule_set=aws_managed_rules_bot_control_rule_set,
+            login_path=login_path,
+            password_field=password_field,
+            payload_type=payload_type,
+            username_field=username_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_managed_rules_atp_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet'] = None,
+             aws_managed_rules_bot_control_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet'] = None,
+             login_path: Optional[str] = None,
+             password_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField'] = None,
+             payload_type: Optional[str] = None,
+             username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_managed_rules_atp_rule_set is not None:
-            pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
+            _setter("aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
-            pulumi.set(__self__, "aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
+            _setter("aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
         if login_path is not None:
-            pulumi.set(__self__, "login_path", login_path)
+            _setter("login_path", login_path)
         if password_field is not None:
-            pulumi.set(__self__, "password_field", password_field)
+            _setter("password_field", password_field)
         if payload_type is not None:
-            pulumi.set(__self__, "payload_type", payload_type)
+            _setter("payload_type", payload_type)
         if username_field is not None:
-            pulumi.set(__self__, "username_field", username_field)
+            _setter("username_field", username_field)
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
@@ -15271,13 +18934,28 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
         """
-        pulumi.set(__self__, "login_path", login_path)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_path=login_path,
+            enable_regex_in_path=enable_regex_in_path,
+            request_inspection=request_inspection,
+            response_inspection=response_inspection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_path: str,
+             enable_regex_in_path: Optional[bool] = None,
+             request_inspection: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection'] = None,
+             response_inspection: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login_path", login_path)
         if enable_regex_in_path is not None:
-            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
+            _setter("enable_regex_in_path", enable_regex_in_path)
         if request_inspection is not None:
-            pulumi.set(__self__, "request_inspection", request_inspection)
+            _setter("request_inspection", request_inspection)
         if response_inspection is not None:
-            pulumi.set(__self__, "response_inspection", response_inspection)
+            _setter("response_inspection", response_inspection)
 
     @property
     @pulumi.getter(name="loginPath")
@@ -15344,9 +19022,22 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
-        pulumi.set(__self__, "password_field", password_field)
-        pulumi.set(__self__, "payload_type", payload_type)
-        pulumi.set(__self__, "username_field", username_field)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password_field=password_field,
+            payload_type=payload_type,
+            username_field=username_field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password_field: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField',
+             payload_type: str,
+             username_field: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password_field", password_field)
+        _setter("payload_type", payload_type)
+        _setter("username_field", username_field)
 
     @property
     @pulumi.getter(name="passwordField")
@@ -15380,7 +19071,16 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         """
         :param str identifier: The name of the password field.
         """
-        pulumi.set(__self__, "identifier", identifier)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
 
     @property
     @pulumi.getter
@@ -15398,7 +19098,16 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         """
         :param str identifier: The name of the username field.
         """
-        pulumi.set(__self__, "identifier", identifier)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
 
     @property
     @pulumi.getter
@@ -15441,14 +19150,29 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs' json: Configures inspection of the response JSON. See `json` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_contains=body_contains,
+            header=header,
+            json=json,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_contains: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains'] = None,
+             header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader'] = None,
+             json: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson'] = None,
+             status_code: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_contains is not None:
-            pulumi.set(__self__, "body_contains", body_contains)
+            _setter("body_contains", body_contains)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if json is not None:
-            pulumi.set(__self__, "json", json)
+            _setter("json", json)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="bodyContains")
@@ -15511,8 +19235,19 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param Sequence[str] failure_strings: Strings in the body of the response that indicate a failed login attempt.
         :param Sequence[str] success_strings: Strings in the body of the response that indicate a successful login attempt.
         """
-        pulumi.set(__self__, "failure_strings", failure_strings)
-        pulumi.set(__self__, "success_strings", success_strings)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_strings=failure_strings,
+            success_strings=success_strings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_strings: Sequence[str],
+             success_strings: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_strings", failure_strings)
+        _setter("success_strings", success_strings)
 
     @property
     @pulumi.getter(name="failureStrings")
@@ -15561,9 +19296,22 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param str name: The name of the header to use.
         :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
-        pulumi.set(__self__, "failure_values", failure_values)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "success_values", success_values)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_values=failure_values,
+            name=name,
+            success_values=success_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_values: Sequence[str],
+             name: str,
+             success_values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_values", failure_values)
+        _setter("name", name)
+        _setter("success_values", success_values)
 
     @property
     @pulumi.getter(name="failureValues")
@@ -15620,9 +19368,22 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param str identifier: The identifier for the value to match against in the JSON.
         :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
-        pulumi.set(__self__, "failure_values", failure_values)
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "success_values", success_values)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_values=failure_values,
+            identifier=identifier,
+            success_values=success_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_values: Sequence[str],
+             identifier: str,
+             success_values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_values", failure_values)
+        _setter("identifier", identifier)
+        _setter("success_values", success_values)
 
     @property
     @pulumi.getter(name="failureValues")
@@ -15677,8 +19438,19 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         :param Sequence[int] failure_codes: Status codes in the response that indicate a failed login attempt.
         :param Sequence[int] success_codes: Status codes in the response that indicate a successful login attempt.
         """
-        pulumi.set(__self__, "failure_codes", failure_codes)
-        pulumi.set(__self__, "success_codes", success_codes)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_codes=failure_codes,
+            success_codes=success_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_codes: Sequence[int],
+             success_codes: Sequence[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("failure_codes", failure_codes)
+        _setter("success_codes", success_codes)
 
     @property
     @pulumi.getter(name="failureCodes")
@@ -15721,7 +19493,16 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         """
         :param str inspection_level: The inspection level to use for the Bot Control rule group.
         """
-        pulumi.set(__self__, "inspection_level", inspection_level)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inspection_level=inspection_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inspection_level: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inspection_level", inspection_level)
 
     @property
     @pulumi.getter(name="inspectionLevel")
@@ -15739,7 +19520,16 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPassword
         """
         :param str identifier: The name of the password field.
         """
-        pulumi.set(__self__, "identifier", identifier)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
 
     @property
     @pulumi.getter
@@ -15757,7 +19547,16 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsername
         """
         :param str identifier: The name of the username field.
         """
-        pulumi.set(__self__, "identifier", identifier)
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identifier", identifier)
 
     @property
     @pulumi.getter
@@ -15794,8 +19593,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
-        pulumi.set(__self__, "action_to_use", action_to_use)
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_to_use=action_to_use,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_to_use: 'outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse',
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_to_use", action_to_use)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="actionToUse")
@@ -15823,28 +19633,45 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
                  challenge: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            block=block,
+            captcha=captcha,
+            challenge=challenge,
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow'] = None,
+             block: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock'] = None,
+             captcha: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha'] = None,
+             challenge: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge'] = None,
+             count: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
         if captcha is not None:
-            pulumi.set(__self__, "captcha", captcha)
+            _setter("captcha", captcha)
         if challenge is not None:
-            pulumi.set(__self__, "challenge", challenge)
+            _setter("challenge", challenge)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow']:
         """
-        Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        Instructs AWS WAF to allow the web request. See `allow` below for details.
         """
         return pulumi.get(self, "allow")
 
@@ -15852,7 +19679,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
     @pulumi.getter
     def block(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock']:
         """
-        Specifies that AWS WAF should block requests by default. See `block` below for details.
+        Instructs AWS WAF to block the web request. See `block` below for details.
         """
         return pulumi.get(self, "block")
 
@@ -15905,8 +19732,17 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -15941,7 +19777,16 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
         """
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -15961,8 +19806,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -16005,8 +19861,17 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_response=custom_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_response: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
+            _setter("custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -16049,11 +19914,24 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
-        pulumi.set(__self__, "response_code", response_code)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_code=response_code,
+            custom_response_body_key=custom_response_body_key,
+            response_headers=response_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_code: int,
+             custom_response_body_key: Optional[str] = None,
+             response_headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_code", response_code)
         if custom_response_body_key is not None:
-            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+            _setter("custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            pulumi.set(__self__, "response_headers", response_headers)
+            _setter("response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -16089,8 +19967,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -16133,8 +20022,17 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -16169,7 +20067,16 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -16189,8 +20096,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -16233,8 +20151,17 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -16269,7 +20196,16 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -16289,8 +20225,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -16333,8 +20280,17 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -16369,7 +20325,16 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         """
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -16389,8 +20354,19 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -16477,30 +20453,61 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_statement=and_statement,
+            byte_match_statement=byte_match_statement,
+            geo_match_statement=geo_match_statement,
+            ip_set_reference_statement=ip_set_reference_statement,
+            label_match_statement=label_match_statement,
+            not_statement=not_statement,
+            or_statement=or_statement,
+            regex_match_statement=regex_match_statement,
+            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
+            size_constraint_statement=size_constraint_statement,
+            sqli_match_statement=sqli_match_statement,
+            xss_match_statement=xss_match_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement'] = None,
+             byte_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement'] = None,
+             geo_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement'] = None,
+             ip_set_reference_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement'] = None,
+             label_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement'] = None,
+             not_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement'] = None,
+             or_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement'] = None,
+             regex_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement'] = None,
+             regex_pattern_set_reference_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement'] = None,
+             size_constraint_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement'] = None,
+             sqli_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement'] = None,
+             xss_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            pulumi.set(__self__, "and_statement", and_statement)
+            _setter("and_statement", and_statement)
         if byte_match_statement is not None:
-            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
+            _setter("byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
+            _setter("geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
+            _setter("ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            pulumi.set(__self__, "label_match_statement", label_match_statement)
+            _setter("label_match_statement", label_match_statement)
         if not_statement is not None:
-            pulumi.set(__self__, "not_statement", not_statement)
+            _setter("not_statement", not_statement)
         if or_statement is not None:
-            pulumi.set(__self__, "or_statement", or_statement)
+            _setter("or_statement", or_statement)
         if regex_match_statement is not None:
-            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
+            _setter("regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
-            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
+            _setter("size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
+            _setter("sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
+            _setter("xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -16606,7 +20613,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -16653,11 +20669,26 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "search_string", search_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            positional_constraint=positional_constraint,
+            search_string=search_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             positional_constraint: str,
+             search_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("positional_constraint", positional_constraint)
+        _setter("search_string", search_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="positionalConstraint")
@@ -16744,26 +20775,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -16850,6 +20908,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -16876,8 +20939,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -16920,9 +20992,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -16977,12 +21062,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -17006,6 +21104,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -17041,9 +21144,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -17100,12 +21216,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -17135,6 +21264,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -17174,12 +21308,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -17239,10 +21388,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -17262,17 +21422,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -17283,7 +21458,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -17301,7 +21485,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -17316,6 +21509,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -17327,8 +21525,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -17375,9 +21584,20 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
-        pulumi.set(__self__, "country_codes", country_codes)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_codes=country_codes,
+            forwarded_ip_config=forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_codes: Sequence[str],
+             forwarded_ip_config: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -17424,8 +21644,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
         :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: Name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -17470,9 +21701,20 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferen
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
-        pulumi.set(__self__, "arn", arn)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -17521,9 +21763,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferen
         :param str header_name: Name of the HTTP header to use for the IP address.
         :param str position: Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             position: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -17559,8 +21814,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchSt
         :param str key: String to match against.
         :param str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "scope", scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -17586,7 +21852,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -17604,7 +21879,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement(
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -17647,10 +21931,23 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="regexString")
@@ -17729,26 +22026,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -17835,6 +22159,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -17861,8 +22190,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -17905,9 +22243,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -17962,12 +22313,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -17991,6 +22355,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18026,9 +22395,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -18085,12 +22467,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -18120,6 +22515,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18159,12 +22559,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -18224,10 +22639,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -18247,17 +22673,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18268,7 +22709,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -18286,7 +22736,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -18301,6 +22760,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -18312,8 +22776,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -18362,10 +22837,23 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter
@@ -18444,26 +22932,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -18550,6 +23065,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -18576,8 +23096,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -18620,9 +23149,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -18677,12 +23219,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -18706,6 +23261,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18741,9 +23301,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -18800,12 +23373,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -18835,6 +23421,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18874,12 +23465,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -18939,10 +23545,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -18962,17 +23579,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -18983,7 +23615,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -19001,7 +23642,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -19016,6 +23666,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -19027,8 +23682,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -19081,11 +23747,26 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            size=size,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             size: int,
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("size", size)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -19172,26 +23853,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -19278,6 +23986,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -19304,8 +24017,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -19348,9 +24070,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -19405,12 +24140,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -19434,6 +24182,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -19469,9 +24222,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -19528,12 +24294,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -19563,6 +24342,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -19602,12 +24386,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -19667,10 +24466,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -19690,17 +24500,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -19711,7 +24536,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -19729,7 +24563,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -19744,6 +24587,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -19755,8 +24603,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -19803,9 +24662,20 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -19876,26 +24746,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -19982,6 +24879,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -20008,8 +24910,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -20052,9 +24963,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -20109,12 +25033,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -20138,6 +25075,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -20173,9 +25115,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -20232,12 +25187,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -20267,6 +25235,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -20306,12 +25279,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -20371,10 +25359,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -20394,17 +25393,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -20415,7 +25429,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -20433,7 +25456,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -20448,6 +25480,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -20459,8 +25496,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -20507,9 +25555,20 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -20580,26 +25639,53 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -20686,6 +25772,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -20712,8 +25803,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -20756,9 +25856,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -20813,12 +25926,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -20842,6 +25968,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -20877,9 +26008,22 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -20936,12 +26080,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -20971,6 +26128,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -21010,12 +26172,27 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -21075,10 +26252,21 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -21098,17 +26286,32 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -21119,7 +26322,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -21137,7 +26349,16 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -21152,6 +26373,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -21163,8 +26389,19 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21190,7 +26427,16 @@ class WebAclRuleStatementNotStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementNotStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -21208,7 +26454,16 @@ class WebAclRuleStatementOrStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementOrStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -21257,15 +26512,32 @@ class WebAclRuleStatementRateBasedStatement(dict):
         :param 'WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
-        pulumi.set(__self__, "limit", limit)
+        WebAclRuleStatementRateBasedStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            limit=limit,
+            aggregate_key_type=aggregate_key_type,
+            custom_keys=custom_keys,
+            forwarded_ip_config=forwarded_ip_config,
+            scope_down_statement=scope_down_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             limit: int,
+             aggregate_key_type: Optional[str] = None,
+             custom_keys: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKey']] = None,
+             forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig'] = None,
+             scope_down_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("limit", limit)
         if aggregate_key_type is not None:
-            pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+            _setter("aggregate_key_type", aggregate_key_type)
         if custom_keys is not None:
-            pulumi.set(__self__, "custom_keys", custom_keys)
+            _setter("custom_keys", custom_keys)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
-            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
+            _setter("scope_down_statement", scope_down_statement)
 
     @property
     @pulumi.getter
@@ -21358,24 +26630,49 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         :param 'WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
+        WebAclRuleStatementRateBasedStatementCustomKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cookie=cookie,
+            forwarded_ip=forwarded_ip,
+            header=header,
+            http_method=http_method,
+            ip=ip,
+            label_namespace=label_namespace,
+            query_argument=query_argument,
+            query_string=query_string,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cookie: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookie'] = None,
+             forwarded_ip: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp'] = None,
+             header: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeader'] = None,
+             http_method: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod'] = None,
+             ip: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyIp'] = None,
+             label_namespace: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace'] = None,
+             query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie is not None:
-            pulumi.set(__self__, "cookie", cookie)
+            _setter("cookie", cookie)
         if forwarded_ip is not None:
-            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+            _setter("forwarded_ip", forwarded_ip)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if label_namespace is not None:
-            pulumi.set(__self__, "label_namespace", label_namespace)
+            _setter("label_namespace", label_namespace)
         if query_argument is not None:
-            pulumi.set(__self__, "query_argument", query_argument)
+            _setter("query_argument", query_argument)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter
@@ -21476,8 +26773,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookie(dict):
         :param str name: The name of the cookie to use.
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementCustomKeyCookie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -21505,8 +26813,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dic
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21528,6 +26847,11 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dic
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -21557,8 +26881,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeader(dict):
         :param str name: The name of the header to use.
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementCustomKeyHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -21586,8 +26921,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dic
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21610,11 +26956,21 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dic
 class WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -21625,7 +26981,16 @@ class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
         """
         :param str namespace: The namespace to use for aggregation
         """
-        pulumi.set(__self__, "namespace", namespace)
+        WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -21662,8 +27027,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
         :param str name: The name of the query argument to use.
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -21691,8 +27067,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformat
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21735,7 +27122,16 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryString(dict):
         """
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementCustomKeyQueryString._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -21755,8 +27151,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformatio
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21799,7 +27206,16 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPath(dict):
         """
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementCustomKeyUriPath._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -21819,8 +27235,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(di
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -21867,8 +27294,19 @@ class WebAclRuleStatementRateBasedStatementForwardedIpConfig(dict):
         :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: Name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        WebAclRuleStatementRateBasedStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -21955,30 +27393,61 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_statement=and_statement,
+            byte_match_statement=byte_match_statement,
+            geo_match_statement=geo_match_statement,
+            ip_set_reference_statement=ip_set_reference_statement,
+            label_match_statement=label_match_statement,
+            not_statement=not_statement,
+            or_statement=or_statement,
+            regex_match_statement=regex_match_statement,
+            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
+            size_constraint_statement=size_constraint_statement,
+            sqli_match_statement=sqli_match_statement,
+            xss_match_statement=xss_match_statement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement'] = None,
+             byte_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement'] = None,
+             geo_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement'] = None,
+             ip_set_reference_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement'] = None,
+             label_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement'] = None,
+             not_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement'] = None,
+             or_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement'] = None,
+             regex_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement'] = None,
+             regex_pattern_set_reference_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement'] = None,
+             size_constraint_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement'] = None,
+             sqli_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
+             xss_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            pulumi.set(__self__, "and_statement", and_statement)
+            _setter("and_statement", and_statement)
         if byte_match_statement is not None:
-            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
+            _setter("byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
+            _setter("geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
+            _setter("ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            pulumi.set(__self__, "label_match_statement", label_match_statement)
+            _setter("label_match_statement", label_match_statement)
         if not_statement is not None:
-            pulumi.set(__self__, "not_statement", not_statement)
+            _setter("not_statement", not_statement)
         if or_statement is not None:
-            pulumi.set(__self__, "or_statement", or_statement)
+            _setter("or_statement", or_statement)
         if regex_match_statement is not None:
-            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
+            _setter("regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
-            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
+            _setter("size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
+            _setter("sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
+            _setter("xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -22084,7 +27553,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -22131,11 +27609,26 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "search_string", search_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            positional_constraint=positional_constraint,
+            search_string=search_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             positional_constraint: str,
+             search_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("positional_constraint", positional_constraint)
+        _setter("search_string", search_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="positionalConstraint")
@@ -22222,26 +27715,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -22328,6 +27848,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -22354,8 +27879,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -22398,9 +27932,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -22455,12 +28002,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -22484,6 +28044,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -22519,9 +28084,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -22578,12 +28156,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -22613,6 +28204,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -22652,12 +28248,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -22717,10 +28328,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -22740,17 +28362,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -22761,7 +28398,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -22779,7 +28425,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -22794,6 +28449,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -22805,8 +28465,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementT
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -22853,9 +28524,20 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(d
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
-        pulumi.set(__self__, "country_codes", country_codes)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_codes=country_codes,
+            forwarded_ip_config=forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_codes: Sequence[str],
+             forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
-            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
+            _setter("forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -22902,8 +28584,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementFo
         :param str fallback_behavior: Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         :param str header_name: Name of the HTTP header to use for the IP address.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -22948,9 +28641,20 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceState
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
-        pulumi.set(__self__, "arn", arn)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -22999,9 +28703,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceState
         :param str header_name: Name of the HTTP header to use for the IP address.
         :param str position: Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         """
-        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
-        pulumi.set(__self__, "header_name", header_name)
-        pulumi.set(__self__, "position", position)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_behavior=fallback_behavior,
+            header_name=header_name,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_behavior: str,
+             header_name: str,
+             position: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fallback_behavior", fallback_behavior)
+        _setter("header_name", header_name)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -23037,8 +28754,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement
         :param str key: String to match against.
         :param str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "scope", scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             scope: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key", key)
+        _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -23064,7 +28792,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -23082,7 +28819,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
         """
         :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
         """
-        pulumi.set(__self__, "statements", statements)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            statements=statements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             statements: Sequence['outputs.WebAclRuleStatement'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("statements", statements)
 
     @property
     @pulumi.getter
@@ -23125,10 +28871,23 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="regexString")
@@ -23207,26 +28966,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -23313,6 +29099,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -23339,8 +29130,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -23383,9 +29183,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -23440,12 +29253,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -23469,6 +29295,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -23504,9 +29335,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -23563,12 +29407,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -23598,6 +29455,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -23637,12 +29499,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -23702,10 +29579,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -23725,17 +29613,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -23746,7 +29649,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -23764,7 +29676,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -23779,6 +29700,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -23790,8 +29716,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -23840,10 +29777,23 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter
@@ -23922,26 +29872,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -24028,6 +30005,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -24054,8 +30036,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -24098,9 +30089,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -24155,12 +30159,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -24184,6 +30201,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -24219,9 +30241,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -24278,12 +30313,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -24313,6 +30361,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -24352,12 +30405,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -24417,10 +30485,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -24440,17 +30519,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -24461,7 +30555,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -24479,7 +30582,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -24494,6 +30606,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -24505,8 +30622,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -24559,11 +30687,26 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            size=size,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             size: int,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("size", size)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -24650,26 +30793,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -24756,6 +30926,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -24782,8 +30957,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -24826,9 +31010,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -24883,12 +31080,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -24912,6 +31122,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -24947,9 +31162,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -25006,12 +31234,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -25041,6 +31282,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -25080,12 +31326,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -25145,10 +31406,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -25168,17 +31440,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -25189,7 +31476,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -25207,7 +31503,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -25222,6 +31527,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -25233,8 +31543,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -25281,9 +31602,20 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -25354,26 +31686,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -25460,6 +31819,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -25486,8 +31850,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -25530,9 +31903,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -25587,12 +31973,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -25616,6 +32015,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -25651,9 +32055,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -25710,12 +32127,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -25745,6 +32175,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -25784,12 +32219,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -25849,10 +32299,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -25872,17 +32333,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -25893,7 +32369,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -25911,7 +32396,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -25926,6 +32420,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -25937,8 +32436,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementT
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -25985,9 +32495,20 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(d
         :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -26058,26 +32579,53 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -26164,6 +32712,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -26190,8 +32743,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -26234,9 +32796,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -26291,12 +32866,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -26320,6 +32908,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -26355,9 +32948,22 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -26414,12 +33020,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -26449,6 +33068,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -26488,12 +33112,27 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -26553,10 +33192,21 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         """
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -26576,17 +33226,32 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -26597,7 +33262,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -26615,7 +33289,16 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -26630,6 +33313,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -26641,8 +33329,19 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTe
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -26693,10 +33392,23 @@ class WebAclRuleStatementRegexMatchStatement(dict):
         :param Sequence['WebAclRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRegexMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRegexMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="regexString")
@@ -26775,26 +33487,53 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRegexMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -26881,6 +33620,11 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
 class WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -26907,8 +33651,17 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchBody(dict):
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRegexMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -26951,9 +33704,22 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRegexMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -27008,12 +33774,25 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
         """
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -27037,6 +33816,11 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
 @pulumi.output_type
 class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -27072,9 +33856,22 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRegexMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -27131,12 +33928,25 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict)
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -27166,6 +33976,11 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict)
 @pulumi.output_type
 class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -27205,12 +34020,27 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -27270,10 +34100,21 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
         """
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -27293,17 +34134,32 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
 class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -27314,7 +34170,16 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -27332,7 +34197,16 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -27347,6 +34221,11 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict
 class WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -27358,8 +34237,19 @@ class WebAclRuleStatementRegexMatchStatementTextTransformation(dict):
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRegexMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -27408,10 +34298,23 @@ class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
         :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementRegexPatternSetReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             text_transformations: Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter
@@ -27490,26 +34393,53 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -27596,6 +34526,11 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -27622,8 +34557,17 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict)
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -27666,9 +34610,22 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(di
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -27723,12 +34680,25 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
         """
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -27752,6 +34722,11 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
 @pulumi.output_type
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -27787,9 +34762,22 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dic
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -27846,12 +34834,25 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatc
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -27881,6 +34882,11 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatc
 @pulumi.output_type
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -27920,12 +34926,27 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(d
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -27985,10 +35006,21 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
         """
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -28008,17 +35040,32 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -28029,7 +35076,16 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHead
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -28047,7 +35103,16 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuer
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -28062,6 +35127,11 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuer
 class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -28073,8 +35143,19 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation(dic
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -28119,9 +35200,20 @@ class WebAclRuleStatementRuleGroupReferenceStatement(dict):
         :param str arn: The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         """
-        pulumi.set(__self__, "arn", arn)
+        WebAclRuleStatementRuleGroupReferenceStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            rule_action_overrides=rule_action_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             rule_action_overrides: Optional[Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("arn", arn)
         if rule_action_overrides is not None:
-            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
+            _setter("rule_action_overrides", rule_action_overrides)
 
     @property
     @pulumi.getter
@@ -28166,8 +35258,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
-        pulumi.set(__self__, "action_to_use", action_to_use)
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_to_use=action_to_use,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_to_use: 'outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse',
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_to_use", action_to_use)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="actionToUse")
@@ -28195,28 +35298,45 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  challenge: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            block=block,
+            captcha=captcha,
+            challenge=challenge,
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow'] = None,
+             block: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock'] = None,
+             captcha: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha'] = None,
+             challenge: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge'] = None,
+             count: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
         if block is not None:
-            pulumi.set(__self__, "block", block)
+            _setter("block", block)
         if captcha is not None:
-            pulumi.set(__self__, "captcha", captcha)
+            _setter("captcha", captcha)
         if challenge is not None:
-            pulumi.set(__self__, "challenge", challenge)
+            _setter("challenge", challenge)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow']:
         """
-        Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        Instructs AWS WAF to allow the web request. See `allow` below for details.
         """
         return pulumi.get(self, "allow")
 
@@ -28224,7 +35344,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @pulumi.getter
     def block(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock']:
         """
-        Specifies that AWS WAF should block requests by default. See `block` below for details.
+        Instructs AWS WAF to block the web request. See `block` below for details.
         """
         return pulumi.get(self, "block")
 
@@ -28277,8 +35397,17 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -28313,7 +35442,16 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -28333,8 +35471,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -28377,8 +35526,17 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_response=custom_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_response: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            pulumi.set(__self__, "custom_response", custom_response)
+            _setter("custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -28421,11 +35579,24 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
-        pulumi.set(__self__, "response_code", response_code)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            response_code=response_code,
+            custom_response_body_key=custom_response_body_key,
+            response_headers=response_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             response_code: int,
+             custom_response_body_key: Optional[str] = None,
+             response_headers: Optional[Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("response_code", response_code)
         if custom_response_body_key is not None:
-            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+            _setter("custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            pulumi.set(__self__, "response_headers", response_headers)
+            _setter("response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -28461,8 +35632,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -28505,8 +35687,17 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -28541,7 +35732,16 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -28561,8 +35761,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -28605,8 +35816,17 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -28641,7 +35861,16 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -28661,8 +35890,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -28705,8 +35945,17 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_request_handling=custom_request_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+            _setter("custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -28741,7 +35990,16 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
-        pulumi.set(__self__, "insert_headers", insert_headers)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insert_headers=insert_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -28761,8 +36019,19 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         :param str name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param str value: Value of the custom header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -28815,11 +36084,26 @@ class WebAclRuleStatementSizeConstraintStatement(dict):
         :param Sequence['WebAclRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementSizeConstraintStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            size=size,
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: str,
+             size: int,
+             text_transformations: Sequence['outputs.WebAclRuleStatementSizeConstraintStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("comparison_operator", comparison_operator)
+        _setter("size", size)
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -28906,26 +36190,53 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementSizeConstraintStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -29012,6 +36323,11 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -29038,8 +36354,17 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -29082,9 +36407,22 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -29139,12 +36477,25 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
         """
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -29168,6 +36519,11 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
 @pulumi.output_type
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -29203,9 +36559,22 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -29262,12 +36631,25 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(d
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -29297,6 +36679,11 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(d
 @pulumi.output_type
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -29336,12 +36723,27 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -29401,10 +36803,21 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
         """
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -29424,17 +36837,32 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -29445,7 +36873,16 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -29463,7 +36900,16 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -29478,6 +36924,11 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(
 class WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -29489,8 +36940,19 @@ class WebAclRuleStatementSizeConstraintStatementTextTransformation(dict):
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementSizeConstraintStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -29537,9 +36999,20 @@ class WebAclRuleStatementSqliMatchStatement(dict):
         :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementSqliMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementSqliMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -29610,26 +37083,53 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementSqliMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -29716,6 +37216,11 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
 class WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -29742,8 +37247,17 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchBody(dict):
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementSqliMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -29786,9 +37300,22 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementSqliMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -29843,12 +37370,25 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
         """
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -29872,6 +37412,11 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
 @pulumi.output_type
 class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -29907,9 +37452,22 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementSqliMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -29966,12 +37524,25 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -30001,6 +37572,11 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
 @pulumi.output_type
 class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -30040,12 +37616,27 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -30105,10 +37696,21 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
         """
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -30128,17 +37730,32 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
 class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -30149,7 +37766,16 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -30167,7 +37793,16 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict)
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -30182,6 +37817,11 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict)
 class WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -30193,8 +37833,19 @@ class WebAclRuleStatementSqliMatchStatementTextTransformation(dict):
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementSqliMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -30241,9 +37892,20 @@ class WebAclRuleStatementXssMatchStatement(dict):
         :param Sequence['WebAclRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
-        pulumi.set(__self__, "text_transformations", text_transformations)
+        WebAclRuleStatementXssMatchStatement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            text_transformations=text_transformations,
+            field_to_match=field_to_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             text_transformations: Sequence['outputs.WebAclRuleStatementXssMatchStatementTextTransformation'],
+             field_to_match: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("text_transformations", text_transformations)
         if field_to_match is not None:
-            pulumi.set(__self__, "field_to_match", field_to_match)
+            _setter("field_to_match", field_to_match)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -30314,26 +37976,53 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
+        WebAclRuleStatementXssMatchStatementFieldToMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_query_arguments=all_query_arguments,
+            body=body,
+            cookies=cookies,
+            headers=headers,
+            json_body=json_body,
+            method=method,
+            query_string=query_string,
+            single_header=single_header,
+            single_query_argument=single_query_argument,
+            uri_path=uri_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_query_arguments: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments'] = None,
+             body: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchBody'] = None,
+             cookies: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookies'] = None,
+             headers: Optional[Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeader']] = None,
+             json_body: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody'] = None,
+             method: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchMethod'] = None,
+             query_string: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchQueryString'] = None,
+             single_header: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader'] = None,
+             single_query_argument: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
+             uri_path: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriPath'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
+            _setter("all_query_arguments", all_query_arguments)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if cookies is not None:
-            pulumi.set(__self__, "cookies", cookies)
+            _setter("cookies", cookies)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if json_body is not None:
-            pulumi.set(__self__, "json_body", json_body)
+            _setter("json_body", json_body)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if single_header is not None:
-            pulumi.set(__self__, "single_header", single_header)
+            _setter("single_header", single_header)
         if single_query_argument is not None:
-            pulumi.set(__self__, "single_query_argument", single_query_argument)
+            _setter("single_query_argument", single_query_argument)
         if uri_path is not None:
-            pulumi.set(__self__, "uri_path", uri_path)
+            _setter("uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -30420,6 +38109,11 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
 class WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -30446,8 +38140,17 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchBody(dict):
         """
         :param str oversize_handling: What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
+        WebAclRuleStatementXssMatchStatementFieldToMatchBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -30490,9 +38193,22 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookies(dict):
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_patterns", match_patterns)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementXssMatchStatementFieldToMatchCookies._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_patterns=match_patterns,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_patterns: Sequence['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern'],
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_patterns", match_patterns)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPatterns")
@@ -30547,12 +38263,25 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
         """
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_cookies=excluded_cookies,
+            included_cookies=included_cookies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll'] = None,
+             excluded_cookies: Optional[Sequence[str]] = None,
+             included_cookies: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_cookies is not None:
-            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
+            _setter("excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            pulumi.set(__self__, "included_cookies", included_cookies)
+            _setter("included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -30576,6 +38305,11 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
 @pulumi.output_type
 class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -30611,9 +38345,22 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeader(dict):
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
-        pulumi.set(__self__, "oversize_handling", oversize_handling)
+        WebAclRuleStatementXssMatchStatementFieldToMatchHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern',
+             match_scope: str,
+             oversize_handling: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
+        _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -30670,12 +38417,25 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
+        WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            excluded_headers=excluded_headers,
+            included_headers=included_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll'] = None,
+             excluded_headers: Optional[Sequence[str]] = None,
+             included_headers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if excluded_headers is not None:
-            pulumi.set(__self__, "excluded_headers", excluded_headers)
+            _setter("excluded_headers", excluded_headers)
         if included_headers is not None:
-            pulumi.set(__self__, "included_headers", included_headers)
+            _setter("included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -30705,6 +38465,11 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
 @pulumi.output_type
 class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -30744,12 +38509,27 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
-        pulumi.set(__self__, "match_pattern", match_pattern)
-        pulumi.set(__self__, "match_scope", match_scope)
+        WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_pattern=match_pattern,
+            match_scope=match_scope,
+            invalid_fallback_behavior=invalid_fallback_behavior,
+            oversize_handling=oversize_handling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_pattern: 'outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern',
+             match_scope: str,
+             invalid_fallback_behavior: Optional[str] = None,
+             oversize_handling: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match_pattern", match_pattern)
+        _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
+            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            pulumi.set(__self__, "oversize_handling", oversize_handling)
+            _setter("oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -30809,10 +38589,21 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
         """
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
         """
+        WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all=all,
+            included_paths=included_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
+             included_paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            pulumi.set(__self__, "all", all)
+            _setter("all", all)
         if included_paths is not None:
-            pulumi.set(__self__, "included_paths", included_paths)
+            _setter("included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -30832,17 +38623,32 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
 class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class WebAclRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -30853,7 +38659,16 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -30871,7 +38686,16 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
         """
         :param str name: Name of the query header to inspect. This setting must be provided as lower case characters.
         """
-        pulumi.set(__self__, "name", name)
+        WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -30886,6 +38710,11 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
 class WebAclRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -30897,8 +38726,19 @@ class WebAclRuleStatementXssMatchStatementTextTransformation(dict):
         :param int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         :param str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "type", type)
+        WebAclRuleStatementXssMatchStatementTextTransformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("priority", priority)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -30949,9 +38789,22 @@ class WebAclRuleVisibilityConfig(dict):
         :param str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         :param bool sampled_requests_enabled: Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
-        pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
+        WebAclRuleVisibilityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_metrics_enabled=cloudwatch_metrics_enabled,
+            metric_name=metric_name,
+            sampled_requests_enabled=sampled_requests_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_metrics_enabled: bool,
+             metric_name: str,
+             sampled_requests_enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
+        _setter("metric_name", metric_name)
+        _setter("sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudwatchMetricsEnabled")
@@ -31010,9 +38863,22 @@ class WebAclVisibilityConfig(dict):
         :param str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         :param bool sampled_requests_enabled: Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
-        pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
+        WebAclVisibilityConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_metrics_enabled=cloudwatch_metrics_enabled,
+            metric_name=metric_name,
+            sampled_requests_enabled=sampled_requests_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_metrics_enabled: bool,
+             metric_name: str,
+             sampled_requests_enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
+        _setter("metric_name", metric_name)
+        _setter("sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudwatchMetricsEnabled")
@@ -31046,7 +38912,16 @@ class GetRegexPatternSetRegularExpressionResult(dict):
         """
         :param str regex_string: (Required) String representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
         """
-        pulumi.set(__self__, "regex_string", regex_string)
+        GetRegexPatternSetRegularExpressionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regex_string=regex_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regex_string: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("regex_string", regex_string)
 
     @property
     @pulumi.getter(name="regexString")

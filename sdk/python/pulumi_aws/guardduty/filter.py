@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class FilterArgs:
         :param pulumi.Input[str] name: The name of your filter.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "detector_id", detector_id)
-        pulumi.set(__self__, "finding_criteria", finding_criteria)
-        pulumi.set(__self__, "rank", rank)
+        FilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            detector_id=detector_id,
+            finding_criteria=finding_criteria,
+            rank=rank,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             detector_id: pulumi.Input[str],
+             finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
+             rank: pulumi.Input[int],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("detector_id", detector_id)
+        _setter("finding_criteria", finding_criteria)
+        _setter("rank", rank)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -153,27 +174,52 @@ class _FilterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _FilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            arn=arn,
+            description=description,
+            detector_id=detector_id,
+            finding_criteria=finding_criteria,
+            name=name,
+            rank=rank,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             finding_criteria: Optional[pulumi.Input['FilterFindingCriteriaArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rank: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detector_id is not None:
-            pulumi.set(__self__, "detector_id", detector_id)
+            _setter("detector_id", detector_id)
         if finding_criteria is not None:
-            pulumi.set(__self__, "finding_criteria", finding_criteria)
+            _setter("finding_criteria", finding_criteria)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rank is not None:
-            pulumi.set(__self__, "rank", rank)
+            _setter("rank", rank)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -420,6 +466,10 @@ class Filter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -448,6 +498,11 @@ class Filter(pulumi.CustomResource):
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
+            if finding_criteria is not None and not isinstance(finding_criteria, FilterFindingCriteriaArgs):
+                finding_criteria = finding_criteria or {}
+                def _setter(key, value):
+                    finding_criteria[key] = value
+                FilterFindingCriteriaArgs._configure(_setter, **finding_criteria)
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StoredIscsiVolumeArgs', 'StoredIscsiVolume']
@@ -35,19 +35,44 @@ class StoredIscsiVolumeArgs:
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "gateway_arn", gateway_arn)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "preserve_existing_data", preserve_existing_data)
-        pulumi.set(__self__, "target_name", target_name)
+        StoredIscsiVolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            gateway_arn=gateway_arn,
+            network_interface_id=network_interface_id,
+            preserve_existing_data=preserve_existing_data,
+            target_name=target_name,
+            kms_encrypted=kms_encrypted,
+            kms_key=kms_key,
+            snapshot_id=snapshot_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: pulumi.Input[str],
+             gateway_arn: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             preserve_existing_data: pulumi.Input[bool],
+             target_name: pulumi.Input[str],
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key: Optional[pulumi.Input[str]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_id", disk_id)
+        _setter("gateway_arn", gateway_arn)
+        _setter("network_interface_id", network_interface_id)
+        _setter("preserve_existing_data", preserve_existing_data)
+        _setter("target_name", target_name)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="diskId")
@@ -204,49 +229,96 @@ class _StoredIscsiVolumeState:
         :param pulumi.Input[str] volume_status: indicates the state of the storage volume.
         :param pulumi.Input[str] volume_type: indicates the type of the volume.
         """
+        _StoredIscsiVolumeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            chap_enabled=chap_enabled,
+            disk_id=disk_id,
+            gateway_arn=gateway_arn,
+            kms_encrypted=kms_encrypted,
+            kms_key=kms_key,
+            lun_number=lun_number,
+            network_interface_id=network_interface_id,
+            network_interface_port=network_interface_port,
+            preserve_existing_data=preserve_existing_data,
+            snapshot_id=snapshot_id,
+            tags=tags,
+            tags_all=tags_all,
+            target_arn=target_arn,
+            target_name=target_name,
+            volume_attachment_status=volume_attachment_status,
+            volume_id=volume_id,
+            volume_size_in_bytes=volume_size_in_bytes,
+            volume_status=volume_status,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             chap_enabled: Optional[pulumi.Input[bool]] = None,
+             disk_id: Optional[pulumi.Input[str]] = None,
+             gateway_arn: Optional[pulumi.Input[str]] = None,
+             kms_encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key: Optional[pulumi.Input[str]] = None,
+             lun_number: Optional[pulumi.Input[int]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             network_interface_port: Optional[pulumi.Input[int]] = None,
+             preserve_existing_data: Optional[pulumi.Input[bool]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             volume_attachment_status: Optional[pulumi.Input[str]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             volume_size_in_bytes: Optional[pulumi.Input[int]] = None,
+             volume_status: Optional[pulumi.Input[str]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if chap_enabled is not None:
-            pulumi.set(__self__, "chap_enabled", chap_enabled)
+            _setter("chap_enabled", chap_enabled)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if gateway_arn is not None:
-            pulumi.set(__self__, "gateway_arn", gateway_arn)
+            _setter("gateway_arn", gateway_arn)
         if kms_encrypted is not None:
-            pulumi.set(__self__, "kms_encrypted", kms_encrypted)
+            _setter("kms_encrypted", kms_encrypted)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
         if lun_number is not None:
-            pulumi.set(__self__, "lun_number", lun_number)
+            _setter("lun_number", lun_number)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if network_interface_port is not None:
-            pulumi.set(__self__, "network_interface_port", network_interface_port)
+            _setter("network_interface_port", network_interface_port)
         if preserve_existing_data is not None:
-            pulumi.set(__self__, "preserve_existing_data", preserve_existing_data)
+            _setter("preserve_existing_data", preserve_existing_data)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_arn is not None:
-            pulumi.set(__self__, "target_arn", target_arn)
+            _setter("target_arn", target_arn)
         if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
+            _setter("target_name", target_name)
         if volume_attachment_status is not None:
-            pulumi.set(__self__, "volume_attachment_status", volume_attachment_status)
+            _setter("volume_attachment_status", volume_attachment_status)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
         if volume_size_in_bytes is not None:
-            pulumi.set(__self__, "volume_size_in_bytes", volume_size_in_bytes)
+            _setter("volume_size_in_bytes", volume_size_in_bytes)
         if volume_status is not None:
-            pulumi.set(__self__, "volume_status", volume_status)
+            _setter("volume_status", volume_status)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -619,6 +691,10 @@ class StoredIscsiVolume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StoredIscsiVolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

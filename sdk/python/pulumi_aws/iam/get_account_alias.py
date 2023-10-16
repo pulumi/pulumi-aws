@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetAccountAliasResult',
     'AwaitableGetAccountAliasResult',
     'get_account_alias',
+    'get_account_alias_output',
 ]
 
 @pulumi.output_type
@@ -77,3 +78,22 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetAccountAliasResult(
         account_alias=pulumi.get(__ret__, 'account_alias'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_account_alias)
+def get_account_alias_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAliasResult]:
+    """
+    The IAM Account Alias data source allows access to the account alias
+    for the effective account in which this provider is working.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.iam.get_account_alias()
+    pulumi.export("accountId", current.account_alias)
+    ```
+    """
+    ...

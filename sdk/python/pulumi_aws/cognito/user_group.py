@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserGroupArgs', 'UserGroup']
@@ -27,15 +27,32 @@ class UserGroupArgs:
         :param pulumi.Input[int] precedence: The precedence of the user group.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         """
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        UserGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_id=user_pool_id,
+            description=description,
+            name=name,
+            precedence=precedence,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             precedence: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("user_pool_id", user_pool_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if precedence is not None:
-            pulumi.set(__self__, "precedence", precedence)
+            _setter("precedence", precedence)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -114,16 +131,33 @@ class _UserGroupState:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
+        _UserGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            precedence=precedence,
+            role_arn=role_arn,
+            user_pool_id=user_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             precedence: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if precedence is not None:
-            pulumi.set(__self__, "precedence", precedence)
+            _setter("precedence", precedence)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter
@@ -313,6 +347,10 @@ class UserGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

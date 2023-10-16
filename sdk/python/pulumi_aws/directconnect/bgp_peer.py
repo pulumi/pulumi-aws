@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BgpPeerArgs', 'BgpPeer']
@@ -31,15 +31,34 @@ class BgpPeerArgs:
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        BgpPeerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            bgp_asn=bgp_asn,
+            virtual_interface_id=virtual_interface_id,
+            amazon_address=amazon_address,
+            bgp_auth_key=bgp_auth_key,
+            customer_address=customer_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input[str],
+             bgp_asn: pulumi.Input[int],
+             virtual_interface_id: pulumi.Input[str],
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_family", address_family)
+        _setter("bgp_asn", bgp_asn)
+        _setter("virtual_interface_id", virtual_interface_id)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -142,24 +161,49 @@ class _BgpPeerState:
                Required for IPv4 BGP peers on public virtual interfaces.
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
+        _BgpPeerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            amazon_address=amazon_address,
+            aws_device=aws_device,
+            bgp_asn=bgp_asn,
+            bgp_auth_key=bgp_auth_key,
+            bgp_peer_id=bgp_peer_id,
+            bgp_status=bgp_status,
+            customer_address=customer_address,
+            virtual_interface_id=virtual_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[str]] = None,
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bgp_asn: Optional[pulumi.Input[int]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             bgp_peer_id: Optional[pulumi.Input[str]] = None,
+             bgp_status: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_family is not None:
-            pulumi.set(__self__, "address_family", address_family)
+            _setter("address_family", address_family)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bgp_asn is not None:
-            pulumi.set(__self__, "bgp_asn", bgp_asn)
+            _setter("bgp_asn", bgp_asn)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if bgp_peer_id is not None:
-            pulumi.set(__self__, "bgp_peer_id", bgp_peer_id)
+            _setter("bgp_peer_id", bgp_peer_id)
         if bgp_status is not None:
-            pulumi.set(__self__, "bgp_status", bgp_status)
+            _setter("bgp_status", bgp_status)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if virtual_interface_id is not None:
-            pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+            _setter("virtual_interface_id", virtual_interface_id)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -341,6 +385,10 @@ class BgpPeer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BgpPeerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

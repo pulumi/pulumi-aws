@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrackerArgs', 'Tracker']
@@ -29,15 +29,32 @@ class TrackerArgs:
         :param pulumi.Input[str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "tracker_name", tracker_name)
+        TrackerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tracker_name=tracker_name,
+            description=description,
+            kms_key_id=kms_key_id,
+            position_filtering=position_filtering,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tracker_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             position_filtering: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("tracker_name", tracker_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if position_filtering is not None:
-            pulumi.set(__self__, "position_filtering", position_filtering)
+            _setter("position_filtering", position_filtering)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="trackerName")
@@ -128,27 +145,52 @@ class _TrackerState:
                The following arguments are optional:
         :param pulumi.Input[str] update_time: The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
+        _TrackerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_time=create_time,
+            description=description,
+            kms_key_id=kms_key_id,
+            position_filtering=position_filtering,
+            tags=tags,
+            tags_all=tags_all,
+            tracker_arn=tracker_arn,
+            tracker_name=tracker_name,
+            update_time=update_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             position_filtering: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tracker_arn: Optional[pulumi.Input[str]] = None,
+             tracker_name: Optional[pulumi.Input[str]] = None,
+             update_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if position_filtering is not None:
-            pulumi.set(__self__, "position_filtering", position_filtering)
+            _setter("position_filtering", position_filtering)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tracker_arn is not None:
-            pulumi.set(__self__, "tracker_arn", tracker_arn)
+            _setter("tracker_arn", tracker_arn)
         if tracker_name is not None:
-            pulumi.set(__self__, "tracker_name", tracker_name)
+            _setter("tracker_name", tracker_name)
         if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+            _setter("update_time", update_time)
 
     @property
     @pulumi.getter(name="createTime")
@@ -341,6 +383,10 @@ class Tracker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrackerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

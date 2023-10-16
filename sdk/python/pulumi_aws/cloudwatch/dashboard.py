@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DashboardArgs', 'Dashboard']
@@ -21,8 +21,19 @@ class DashboardArgs:
         :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
-        pulumi.set(__self__, "dashboard_body", dashboard_body)
-        pulumi.set(__self__, "dashboard_name", dashboard_name)
+        DashboardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_body=dashboard_body,
+            dashboard_name=dashboard_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_body: pulumi.Input[str],
+             dashboard_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dashboard_body", dashboard_body)
+        _setter("dashboard_name", dashboard_name)
 
     @property
     @pulumi.getter(name="dashboardBody")
@@ -61,12 +72,25 @@ class _DashboardState:
         :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
+        _DashboardState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dashboard_arn=dashboard_arn,
+            dashboard_body=dashboard_body,
+            dashboard_name=dashboard_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dashboard_arn: Optional[pulumi.Input[str]] = None,
+             dashboard_body: Optional[pulumi.Input[str]] = None,
+             dashboard_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dashboard_arn is not None:
-            pulumi.set(__self__, "dashboard_arn", dashboard_arn)
+            _setter("dashboard_arn", dashboard_arn)
         if dashboard_body is not None:
-            pulumi.set(__self__, "dashboard_body", dashboard_body)
+            _setter("dashboard_body", dashboard_body)
         if dashboard_name is not None:
-            pulumi.set(__self__, "dashboard_name", dashboard_name)
+            _setter("dashboard_name", dashboard_name)
 
     @property
     @pulumi.getter(name="dashboardArn")
@@ -244,6 +268,10 @@ class Dashboard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DashboardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

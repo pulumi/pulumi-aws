@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,22 @@ class DocumentationPartArgs:
         :param pulumi.Input[str] properties: Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \\"description\\": \\"The API does ...\\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: ID of the associated Rest API
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
+        DocumentationPartArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            properties=properties,
+            rest_api_id=rest_api_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: pulumi.Input['DocumentationPartLocationArgs'],
+             properties: pulumi.Input[str],
+             rest_api_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
+        _setter("properties", properties)
+        _setter("rest_api_id", rest_api_id)
 
     @property
     @pulumi.getter
@@ -78,12 +91,25 @@ class _DocumentationPartState:
         :param pulumi.Input[str] properties: Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \\"description\\": \\"The API does ...\\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         :param pulumi.Input[str] rest_api_id: ID of the associated Rest API
         """
+        _DocumentationPartState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            properties=properties,
+            rest_api_id=rest_api_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input['DocumentationPartLocationArgs']] = None,
+             properties: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if rest_api_id is not None:
-            pulumi.set(__self__, "rest_api_id", rest_api_id)
+            _setter("rest_api_id", rest_api_id)
 
     @property
     @pulumi.getter
@@ -209,6 +235,10 @@ class DocumentationPart(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DocumentationPartArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,6 +256,11 @@ class DocumentationPart(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DocumentationPartArgs.__new__(DocumentationPartArgs)
 
+            if location is not None and not isinstance(location, DocumentationPartLocationArgs):
+                location = location or {}
+                def _setter(key, value):
+                    location[key] = value
+                DocumentationPartLocationArgs._configure(_setter, **location)
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location

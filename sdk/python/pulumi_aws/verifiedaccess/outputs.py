@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,16 +53,33 @@ class InstanceVerifiedAccessTrustProvider(dict):
         :param str user_trust_provider_type: The type of user-based trust provider.
         :param str verified_access_trust_provider_id: The ID of the trust provider.
         """
+        InstanceVerifiedAccessTrustProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            device_trust_provider_type=device_trust_provider_type,
+            trust_provider_type=trust_provider_type,
+            user_trust_provider_type=user_trust_provider_type,
+            verified_access_trust_provider_id=verified_access_trust_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             device_trust_provider_type: Optional[str] = None,
+             trust_provider_type: Optional[str] = None,
+             user_trust_provider_type: Optional[str] = None,
+             verified_access_trust_provider_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if device_trust_provider_type is not None:
-            pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+            _setter("device_trust_provider_type", device_trust_provider_type)
         if trust_provider_type is not None:
-            pulumi.set(__self__, "trust_provider_type", trust_provider_type)
+            _setter("trust_provider_type", trust_provider_type)
         if user_trust_provider_type is not None:
-            pulumi.set(__self__, "user_trust_provider_type", user_trust_provider_type)
+            _setter("user_trust_provider_type", user_trust_provider_type)
         if verified_access_trust_provider_id is not None:
-            pulumi.set(__self__, "verified_access_trust_provider_id", verified_access_trust_provider_id)
+            _setter("verified_access_trust_provider_id", verified_access_trust_provider_id)
 
     @property
     @pulumi.getter
@@ -126,8 +143,17 @@ class TrustProviderDeviceOptions(dict):
 
     def __init__(__self__, *,
                  tenant_id: Optional[str] = None):
+        TrustProviderDeviceOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -170,19 +196,40 @@ class TrustProviderOidcOptions(dict):
                  scope: Optional[str] = None,
                  token_endpoint: Optional[str] = None,
                  user_info_endpoint: Optional[str] = None):
-        pulumi.set(__self__, "client_secret", client_secret)
+        TrustProviderOidcOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_secret=client_secret,
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            issuer=issuer,
+            scope=scope,
+            token_endpoint=token_endpoint,
+            user_info_endpoint=user_info_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_secret: str,
+             authorization_endpoint: Optional[str] = None,
+             client_id: Optional[str] = None,
+             issuer: Optional[str] = None,
+             scope: Optional[str] = None,
+             token_endpoint: Optional[str] = None,
+             user_info_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_secret", client_secret)
         if authorization_endpoint is not None:
-            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+            _setter("authorization_endpoint", authorization_endpoint)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if token_endpoint is not None:
-            pulumi.set(__self__, "token_endpoint", token_endpoint)
+            _setter("token_endpoint", token_endpoint)
         if user_info_endpoint is not None:
-            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+            _setter("user_info_endpoint", user_info_endpoint)
 
     @property
     @pulumi.getter(name="clientSecret")

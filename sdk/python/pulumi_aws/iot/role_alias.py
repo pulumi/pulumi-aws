@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleAliasArgs', 'RoleAlias']
@@ -23,10 +23,23 @@ class RoleAliasArgs:
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         """
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "role_arn", role_arn)
+        RoleAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            role_arn=role_arn,
+            credential_duration=credential_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             credential_duration: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alias", alias)
+        _setter("role_arn", role_arn)
         if credential_duration is not None:
-            pulumi.set(__self__, "credential_duration", credential_duration)
+            _setter("credential_duration", credential_duration)
 
     @property
     @pulumi.getter
@@ -79,14 +92,29 @@ class _RoleAliasState:
         :param pulumi.Input[int] credential_duration: The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         :param pulumi.Input[str] role_arn: The identity of the role to which the alias refers.
         """
+        _RoleAliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            arn=arn,
+            credential_duration=credential_duration,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             credential_duration: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if credential_duration is not None:
-            pulumi.set(__self__, "credential_duration", credential_duration)
+            _setter("credential_duration", credential_duration)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter
@@ -190,6 +218,10 @@ class RoleAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

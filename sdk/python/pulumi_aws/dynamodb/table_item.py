@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TableItemArgs', 'TableItem']
@@ -25,11 +25,26 @@ class TableItemArgs:
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
-        pulumi.set(__self__, "hash_key", hash_key)
-        pulumi.set(__self__, "item", item)
-        pulumi.set(__self__, "table_name", table_name)
+        TableItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key=hash_key,
+            item=item,
+            table_name=table_name,
+            range_key=range_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key: pulumi.Input[str],
+             item: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             range_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hash_key", hash_key)
+        _setter("item", item)
+        _setter("table_name", table_name)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -94,14 +109,29 @@ class _TableItemState:
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
+        _TableItemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key=hash_key,
+            item=item,
+            range_key=range_key,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key: Optional[pulumi.Input[str]] = None,
+             item: Optional[pulumi.Input[str]] = None,
+             range_key: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hash_key is not None:
-            pulumi.set(__self__, "hash_key", hash_key)
+            _setter("hash_key", hash_key)
         if item is not None:
-            pulumi.set(__self__, "item", item)
+            _setter("item", item)
         if range_key is not None:
-            pulumi.set(__self__, "range_key", range_key)
+            _setter("range_key", range_key)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -259,6 +289,10 @@ class TableItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TableItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AgreementArgs', 'Agreement']
@@ -31,15 +31,36 @@ class AgreementArgs:
         :param pulumi.Input[str] description: The Optional description of the transdfer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "access_role", access_role)
-        pulumi.set(__self__, "base_directory", base_directory)
-        pulumi.set(__self__, "local_profile_id", local_profile_id)
-        pulumi.set(__self__, "partner_profile_id", partner_profile_id)
-        pulumi.set(__self__, "server_id", server_id)
+        AgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_role=access_role,
+            base_directory=base_directory,
+            local_profile_id=local_profile_id,
+            partner_profile_id=partner_profile_id,
+            server_id=server_id,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_role: pulumi.Input[str],
+             base_directory: pulumi.Input[str],
+             local_profile_id: pulumi.Input[str],
+             partner_profile_id: pulumi.Input[str],
+             server_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_role", access_role)
+        _setter("base_directory", base_directory)
+        _setter("local_profile_id", local_profile_id)
+        _setter("partner_profile_id", partner_profile_id)
+        _setter("server_id", server_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -152,31 +173,60 @@ class _AgreementState:
         :param pulumi.Input[str] server_id: The unique server identifier for the server instance. This is the specific server the agreement uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        _AgreementState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_role=access_role,
+            agreement_id=agreement_id,
+            arn=arn,
+            base_directory=base_directory,
+            description=description,
+            local_profile_id=local_profile_id,
+            partner_profile_id=partner_profile_id,
+            server_id=server_id,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_role: Optional[pulumi.Input[str]] = None,
+             agreement_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             base_directory: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             local_profile_id: Optional[pulumi.Input[str]] = None,
+             partner_profile_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_role is not None:
-            pulumi.set(__self__, "access_role", access_role)
+            _setter("access_role", access_role)
         if agreement_id is not None:
-            pulumi.set(__self__, "agreement_id", agreement_id)
+            _setter("agreement_id", agreement_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if base_directory is not None:
-            pulumi.set(__self__, "base_directory", base_directory)
+            _setter("base_directory", base_directory)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if local_profile_id is not None:
-            pulumi.set(__self__, "local_profile_id", local_profile_id)
+            _setter("local_profile_id", local_profile_id)
         if partner_profile_id is not None:
-            pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+            _setter("partner_profile_id", partner_profile_id)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -401,6 +451,10 @@ class Agreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

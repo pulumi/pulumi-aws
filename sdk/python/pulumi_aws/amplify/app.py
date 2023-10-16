@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,42 +55,85 @@ class AppArgs:
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            auto_branch_creation_config=auto_branch_creation_config,
+            auto_branch_creation_patterns=auto_branch_creation_patterns,
+            basic_auth_credentials=basic_auth_credentials,
+            build_spec=build_spec,
+            custom_rules=custom_rules,
+            description=description,
+            enable_auto_branch_creation=enable_auto_branch_creation,
+            enable_basic_auth=enable_basic_auth,
+            enable_branch_auto_build=enable_branch_auto_build,
+            enable_branch_auto_deletion=enable_branch_auto_deletion,
+            environment_variables=environment_variables,
+            iam_service_role_arn=iam_service_role_arn,
+            name=name,
+            oauth_token=oauth_token,
+            platform=platform,
+            repository=repository,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             auto_branch_creation_config: Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']] = None,
+             auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
+             build_spec: Optional[pulumi.Input[str]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
+             enable_basic_auth: Optional[pulumi.Input[bool]] = None,
+             enable_branch_auto_build: Optional[pulumi.Input[bool]] = None,
+             enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             iam_service_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oauth_token: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if auto_branch_creation_config is not None:
-            pulumi.set(__self__, "auto_branch_creation_config", auto_branch_creation_config)
+            _setter("auto_branch_creation_config", auto_branch_creation_config)
         if auto_branch_creation_patterns is not None:
-            pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
+            _setter("auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+            _setter("basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
-            pulumi.set(__self__, "build_spec", build_spec)
+            _setter("build_spec", build_spec)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_auto_branch_creation is not None:
-            pulumi.set(__self__, "enable_auto_branch_creation", enable_auto_branch_creation)
+            _setter("enable_auto_branch_creation", enable_auto_branch_creation)
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
         if enable_branch_auto_build is not None:
-            pulumi.set(__self__, "enable_branch_auto_build", enable_branch_auto_build)
+            _setter("enable_branch_auto_build", enable_branch_auto_build)
         if enable_branch_auto_deletion is not None:
-            pulumi.set(__self__, "enable_branch_auto_deletion", enable_branch_auto_deletion)
+            _setter("enable_branch_auto_deletion", enable_branch_auto_deletion)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if iam_service_role_arn is not None:
-            pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
+            _setter("iam_service_role_arn", iam_service_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oauth_token is not None:
-            pulumi.set(__self__, "oauth_token", oauth_token)
+            _setter("oauth_token", oauth_token)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -359,53 +402,104 @@ class _AppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _AppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            arn=arn,
+            auto_branch_creation_config=auto_branch_creation_config,
+            auto_branch_creation_patterns=auto_branch_creation_patterns,
+            basic_auth_credentials=basic_auth_credentials,
+            build_spec=build_spec,
+            custom_rules=custom_rules,
+            default_domain=default_domain,
+            description=description,
+            enable_auto_branch_creation=enable_auto_branch_creation,
+            enable_basic_auth=enable_basic_auth,
+            enable_branch_auto_build=enable_branch_auto_build,
+            enable_branch_auto_deletion=enable_branch_auto_deletion,
+            environment_variables=environment_variables,
+            iam_service_role_arn=iam_service_role_arn,
+            name=name,
+            oauth_token=oauth_token,
+            platform=platform,
+            production_branches=production_branches,
+            repository=repository,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_branch_creation_config: Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']] = None,
+             auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
+             build_spec: Optional[pulumi.Input[str]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
+             default_domain: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
+             enable_basic_auth: Optional[pulumi.Input[bool]] = None,
+             enable_branch_auto_build: Optional[pulumi.Input[bool]] = None,
+             enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             iam_service_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oauth_token: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             production_branches: Optional[pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_branch_creation_config is not None:
-            pulumi.set(__self__, "auto_branch_creation_config", auto_branch_creation_config)
+            _setter("auto_branch_creation_config", auto_branch_creation_config)
         if auto_branch_creation_patterns is not None:
-            pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
+            _setter("auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+            _setter("basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
-            pulumi.set(__self__, "build_spec", build_spec)
+            _setter("build_spec", build_spec)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if default_domain is not None:
-            pulumi.set(__self__, "default_domain", default_domain)
+            _setter("default_domain", default_domain)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_auto_branch_creation is not None:
-            pulumi.set(__self__, "enable_auto_branch_creation", enable_auto_branch_creation)
+            _setter("enable_auto_branch_creation", enable_auto_branch_creation)
         if enable_basic_auth is not None:
-            pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
+            _setter("enable_basic_auth", enable_basic_auth)
         if enable_branch_auto_build is not None:
-            pulumi.set(__self__, "enable_branch_auto_build", enable_branch_auto_build)
+            _setter("enable_branch_auto_build", enable_branch_auto_build)
         if enable_branch_auto_deletion is not None:
-            pulumi.set(__self__, "enable_branch_auto_deletion", enable_branch_auto_deletion)
+            _setter("enable_branch_auto_deletion", enable_branch_auto_deletion)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if iam_service_role_arn is not None:
-            pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
+            _setter("iam_service_role_arn", iam_service_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oauth_token is not None:
-            pulumi.set(__self__, "oauth_token", oauth_token)
+            _setter("oauth_token", oauth_token)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if production_branches is not None:
-            pulumi.set(__self__, "production_branches", production_branches)
+            _setter("production_branches", production_branches)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -954,6 +1048,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -987,6 +1085,11 @@ class App(pulumi.CustomResource):
             __props__ = AppArgs.__new__(AppArgs)
 
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
+            if auto_branch_creation_config is not None and not isinstance(auto_branch_creation_config, AppAutoBranchCreationConfigArgs):
+                auto_branch_creation_config = auto_branch_creation_config or {}
+                def _setter(key, value):
+                    auto_branch_creation_config[key] = value
+                AppAutoBranchCreationConfigArgs._configure(_setter, **auto_branch_creation_config)
             __props__.__dict__["auto_branch_creation_config"] = auto_branch_creation_config
             __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
             __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)

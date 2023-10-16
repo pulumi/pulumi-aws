@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PartnerArgs', 'Partner']
@@ -25,10 +25,25 @@ class PartnerArgs:
         :param pulumi.Input[str] database_name: The name of the database that receives data from the partner.
         :param pulumi.Input[str] partner_name: The name of the partner that is authorized to send data.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partner_name", partner_name)
+        PartnerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            cluster_identifier=cluster_identifier,
+            database_name=database_name,
+            partner_name=partner_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             cluster_identifier: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             partner_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_id", account_id)
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("database_name", database_name)
+        _setter("partner_name", partner_name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -97,18 +112,37 @@ class _PartnerState:
         :param pulumi.Input[str] status: (Optional) The partner integration status.
         :param pulumi.Input[str] status_message: (Optional) The status message provided by the partner.
         """
+        _PartnerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            cluster_identifier=cluster_identifier,
+            database_name=database_name,
+            partner_name=partner_name,
+            status=status,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             partner_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if partner_name is not None:
-            pulumi.set(__self__, "partner_name", partner_name)
+            _setter("partner_name", partner_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
+            _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="accountId")
@@ -264,6 +298,10 @@ class Partner(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

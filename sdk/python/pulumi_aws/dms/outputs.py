@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -63,12 +63,27 @@ class EndpointElasticsearchSettings(dict):
         :param int error_retry_duration: Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
         :param int full_load_error_percentage: Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
         """
-        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        EndpointElasticsearchSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_uri=endpoint_uri,
+            service_access_role_arn=service_access_role_arn,
+            error_retry_duration=error_retry_duration,
+            full_load_error_percentage=full_load_error_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_uri: str,
+             service_access_role_arn: str,
+             error_retry_duration: Optional[int] = None,
+             full_load_error_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_uri", endpoint_uri)
+        _setter("service_access_role_arn", service_access_role_arn)
         if error_retry_duration is not None:
-            pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+            _setter("error_retry_duration", error_retry_duration)
         if full_load_error_percentage is not None:
-            pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+            _setter("full_load_error_percentage", full_load_error_percentage)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -191,41 +206,84 @@ class EndpointKafkaSettings(dict):
         :param str ssl_client_key_password: Password for the client private key used to securely connect to a Kafka target endpoint.
         :param str topic: Kafka topic for migration. Default is `kafka-default-topic`.
         """
-        pulumi.set(__self__, "broker", broker)
+        EndpointKafkaSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            broker=broker,
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            message_max_bytes=message_max_bytes,
+            no_hex_prefix=no_hex_prefix,
+            partition_include_schema_table=partition_include_schema_table,
+            sasl_password=sasl_password,
+            sasl_username=sasl_username,
+            security_protocol=security_protocol,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_client_certificate_arn=ssl_client_certificate_arn,
+            ssl_client_key_arn=ssl_client_key_arn,
+            ssl_client_key_password=ssl_client_key_password,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             broker: str,
+             include_control_details: Optional[bool] = None,
+             include_null_and_empty: Optional[bool] = None,
+             include_partition_value: Optional[bool] = None,
+             include_table_alter_operations: Optional[bool] = None,
+             include_transaction_details: Optional[bool] = None,
+             message_format: Optional[str] = None,
+             message_max_bytes: Optional[int] = None,
+             no_hex_prefix: Optional[bool] = None,
+             partition_include_schema_table: Optional[bool] = None,
+             sasl_password: Optional[str] = None,
+             sasl_username: Optional[str] = None,
+             security_protocol: Optional[str] = None,
+             ssl_ca_certificate_arn: Optional[str] = None,
+             ssl_client_certificate_arn: Optional[str] = None,
+             ssl_client_key_arn: Optional[str] = None,
+             ssl_client_key_password: Optional[str] = None,
+             topic: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("broker", broker)
         if include_control_details is not None:
-            pulumi.set(__self__, "include_control_details", include_control_details)
+            _setter("include_control_details", include_control_details)
         if include_null_and_empty is not None:
-            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+            _setter("include_null_and_empty", include_null_and_empty)
         if include_partition_value is not None:
-            pulumi.set(__self__, "include_partition_value", include_partition_value)
+            _setter("include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
-            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+            _setter("include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
-            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+            _setter("include_transaction_details", include_transaction_details)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
         if message_max_bytes is not None:
-            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
+            _setter("message_max_bytes", message_max_bytes)
         if no_hex_prefix is not None:
-            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+            _setter("no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
-            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+            _setter("partition_include_schema_table", partition_include_schema_table)
         if sasl_password is not None:
-            pulumi.set(__self__, "sasl_password", sasl_password)
+            _setter("sasl_password", sasl_password)
         if sasl_username is not None:
-            pulumi.set(__self__, "sasl_username", sasl_username)
+            _setter("sasl_username", sasl_username)
         if security_protocol is not None:
-            pulumi.set(__self__, "security_protocol", security_protocol)
+            _setter("security_protocol", security_protocol)
         if ssl_ca_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+            _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
         if ssl_client_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+            _setter("ssl_client_certificate_arn", ssl_client_certificate_arn)
         if ssl_client_key_arn is not None:
-            pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+            _setter("ssl_client_key_arn", ssl_client_key_arn)
         if ssl_client_key_password is not None:
-            pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
+            _setter("ssl_client_key_password", ssl_client_key_password)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter
@@ -428,24 +486,49 @@ class EndpointKinesisSettings(dict):
         :param str service_access_role_arn: ARN of the IAM Role with permissions to write to the Kinesis data stream.
         :param str stream_arn: ARN of the Kinesis data stream.
         """
+        EndpointKinesisSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            partition_include_schema_table=partition_include_schema_table,
+            service_access_role_arn=service_access_role_arn,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_control_details: Optional[bool] = None,
+             include_null_and_empty: Optional[bool] = None,
+             include_partition_value: Optional[bool] = None,
+             include_table_alter_operations: Optional[bool] = None,
+             include_transaction_details: Optional[bool] = None,
+             message_format: Optional[str] = None,
+             partition_include_schema_table: Optional[bool] = None,
+             service_access_role_arn: Optional[str] = None,
+             stream_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if include_control_details is not None:
-            pulumi.set(__self__, "include_control_details", include_control_details)
+            _setter("include_control_details", include_control_details)
         if include_null_and_empty is not None:
-            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+            _setter("include_null_and_empty", include_null_and_empty)
         if include_partition_value is not None:
-            pulumi.set(__self__, "include_partition_value", include_partition_value)
+            _setter("include_partition_value", include_partition_value)
         if include_table_alter_operations is not None:
-            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+            _setter("include_table_alter_operations", include_table_alter_operations)
         if include_transaction_details is not None:
-            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+            _setter("include_transaction_details", include_transaction_details)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
         if partition_include_schema_table is not None:
-            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+            _setter("partition_include_schema_table", partition_include_schema_table)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
-            pulumi.set(__self__, "stream_arn", stream_arn)
+            _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -564,18 +647,37 @@ class EndpointMongodbSettings(dict):
         :param str extract_doc_id: Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
         :param str nesting_level: Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         """
+        EndpointMongodbSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mechanism=auth_mechanism,
+            auth_source=auth_source,
+            auth_type=auth_type,
+            docs_to_investigate=docs_to_investigate,
+            extract_doc_id=extract_doc_id,
+            nesting_level=nesting_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mechanism: Optional[str] = None,
+             auth_source: Optional[str] = None,
+             auth_type: Optional[str] = None,
+             docs_to_investigate: Optional[str] = None,
+             extract_doc_id: Optional[str] = None,
+             nesting_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_mechanism is not None:
-            pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+            _setter("auth_mechanism", auth_mechanism)
         if auth_source is not None:
-            pulumi.set(__self__, "auth_source", auth_source)
+            _setter("auth_source", auth_source)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if docs_to_investigate is not None:
-            pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+            _setter("docs_to_investigate", docs_to_investigate)
         if extract_doc_id is not None:
-            pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+            _setter("extract_doc_id", extract_doc_id)
         if nesting_level is not None:
-            pulumi.set(__self__, "nesting_level", nesting_level)
+            _setter("nesting_level", nesting_level)
 
     @property
     @pulumi.getter(name="authMechanism")
@@ -672,17 +774,38 @@ class EndpointRedisSettings(dict):
         :param str ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         :param str ssl_security_protocol: The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
+        EndpointRedisSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            port=port,
+            server_name=server_name,
+            auth_password=auth_password,
+            auth_user_name=auth_user_name,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_security_protocol=ssl_security_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: str,
+             port: int,
+             server_name: str,
+             auth_password: Optional[str] = None,
+             auth_user_name: Optional[str] = None,
+             ssl_ca_certificate_arn: Optional[str] = None,
+             ssl_security_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_type", auth_type)
+        _setter("port", port)
+        _setter("server_name", server_name)
         if auth_password is not None:
-            pulumi.set(__self__, "auth_password", auth_password)
+            _setter("auth_password", auth_password)
         if auth_user_name is not None:
-            pulumi.set(__self__, "auth_user_name", auth_user_name)
+            _setter("auth_user_name", auth_user_name)
         if ssl_ca_certificate_arn is not None:
-            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+            _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
         if ssl_security_protocol is not None:
-            pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+            _setter("ssl_security_protocol", ssl_security_protocol)
 
     @property
     @pulumi.getter(name="authType")
@@ -781,16 +904,33 @@ class EndpointRedshiftSettings(dict):
         :param str server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
         :param str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
+        EndpointRedshiftSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            encryption_mode=encryption_mode,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_folder: Optional[str] = None,
+             bucket_name: Optional[str] = None,
+             encryption_mode: Optional[str] = None,
+             server_side_encryption_kms_key_id: Optional[str] = None,
+             service_access_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="bucketFolder")
@@ -999,80 +1139,161 @@ class EndpointS3Settings(dict):
         :param bool use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
         :param bool use_task_start_time_for_full_load_timestamp: When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
+        EndpointS3Settings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_column_name=add_column_name,
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            canned_acl_for_objects=canned_acl_for_objects,
+            cdc_inserts_and_updates=cdc_inserts_and_updates,
+            cdc_inserts_only=cdc_inserts_only,
+            cdc_max_batch_interval=cdc_max_batch_interval,
+            cdc_min_file_size=cdc_min_file_size,
+            cdc_path=cdc_path,
+            compression_type=compression_type,
+            csv_delimiter=csv_delimiter,
+            csv_no_sup_value=csv_no_sup_value,
+            csv_null_value=csv_null_value,
+            csv_row_delimiter=csv_row_delimiter,
+            data_format=data_format,
+            data_page_size=data_page_size,
+            date_partition_delimiter=date_partition_delimiter,
+            date_partition_enabled=date_partition_enabled,
+            date_partition_sequence=date_partition_sequence,
+            dict_page_size_limit=dict_page_size_limit,
+            enable_statistics=enable_statistics,
+            encoding_type=encoding_type,
+            encryption_mode=encryption_mode,
+            external_table_definition=external_table_definition,
+            ignore_header_rows=ignore_header_rows,
+            include_op_for_full_load=include_op_for_full_load,
+            max_file_size=max_file_size,
+            parquet_timestamp_in_millisecond=parquet_timestamp_in_millisecond,
+            parquet_version=parquet_version,
+            preserve_transactions=preserve_transactions,
+            rfc4180=rfc4180,
+            row_group_length=row_group_length,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+            timestamp_column_name=timestamp_column_name,
+            use_csv_no_sup_value=use_csv_no_sup_value,
+            use_task_start_time_for_full_load_timestamp=use_task_start_time_for_full_load_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_column_name: Optional[bool] = None,
+             bucket_folder: Optional[str] = None,
+             bucket_name: Optional[str] = None,
+             canned_acl_for_objects: Optional[str] = None,
+             cdc_inserts_and_updates: Optional[bool] = None,
+             cdc_inserts_only: Optional[bool] = None,
+             cdc_max_batch_interval: Optional[int] = None,
+             cdc_min_file_size: Optional[int] = None,
+             cdc_path: Optional[str] = None,
+             compression_type: Optional[str] = None,
+             csv_delimiter: Optional[str] = None,
+             csv_no_sup_value: Optional[str] = None,
+             csv_null_value: Optional[str] = None,
+             csv_row_delimiter: Optional[str] = None,
+             data_format: Optional[str] = None,
+             data_page_size: Optional[int] = None,
+             date_partition_delimiter: Optional[str] = None,
+             date_partition_enabled: Optional[bool] = None,
+             date_partition_sequence: Optional[str] = None,
+             dict_page_size_limit: Optional[int] = None,
+             enable_statistics: Optional[bool] = None,
+             encoding_type: Optional[str] = None,
+             encryption_mode: Optional[str] = None,
+             external_table_definition: Optional[str] = None,
+             ignore_header_rows: Optional[int] = None,
+             include_op_for_full_load: Optional[bool] = None,
+             max_file_size: Optional[int] = None,
+             parquet_timestamp_in_millisecond: Optional[bool] = None,
+             parquet_version: Optional[str] = None,
+             preserve_transactions: Optional[bool] = None,
+             rfc4180: Optional[bool] = None,
+             row_group_length: Optional[int] = None,
+             server_side_encryption_kms_key_id: Optional[str] = None,
+             service_access_role_arn: Optional[str] = None,
+             timestamp_column_name: Optional[str] = None,
+             use_csv_no_sup_value: Optional[bool] = None,
+             use_task_start_time_for_full_load_timestamp: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_column_name is not None:
-            pulumi.set(__self__, "add_column_name", add_column_name)
+            _setter("add_column_name", add_column_name)
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if canned_acl_for_objects is not None:
-            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+            _setter("canned_acl_for_objects", canned_acl_for_objects)
         if cdc_inserts_and_updates is not None:
-            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+            _setter("cdc_inserts_and_updates", cdc_inserts_and_updates)
         if cdc_inserts_only is not None:
-            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+            _setter("cdc_inserts_only", cdc_inserts_only)
         if cdc_max_batch_interval is not None:
-            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+            _setter("cdc_max_batch_interval", cdc_max_batch_interval)
         if cdc_min_file_size is not None:
-            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+            _setter("cdc_min_file_size", cdc_min_file_size)
         if cdc_path is not None:
-            pulumi.set(__self__, "cdc_path", cdc_path)
+            _setter("cdc_path", cdc_path)
         if compression_type is not None:
-            pulumi.set(__self__, "compression_type", compression_type)
+            _setter("compression_type", compression_type)
         if csv_delimiter is not None:
-            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+            _setter("csv_delimiter", csv_delimiter)
         if csv_no_sup_value is not None:
-            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+            _setter("csv_no_sup_value", csv_no_sup_value)
         if csv_null_value is not None:
-            pulumi.set(__self__, "csv_null_value", csv_null_value)
+            _setter("csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
-            pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+            _setter("csv_row_delimiter", csv_row_delimiter)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if data_page_size is not None:
-            pulumi.set(__self__, "data_page_size", data_page_size)
+            _setter("data_page_size", data_page_size)
         if date_partition_delimiter is not None:
-            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+            _setter("date_partition_delimiter", date_partition_delimiter)
         if date_partition_enabled is not None:
-            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+            _setter("date_partition_enabled", date_partition_enabled)
         if date_partition_sequence is not None:
-            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+            _setter("date_partition_sequence", date_partition_sequence)
         if dict_page_size_limit is not None:
-            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+            _setter("dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
-            pulumi.set(__self__, "enable_statistics", enable_statistics)
+            _setter("enable_statistics", enable_statistics)
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if external_table_definition is not None:
-            pulumi.set(__self__, "external_table_definition", external_table_definition)
+            _setter("external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
-            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+            _setter("ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
-            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+            _setter("include_op_for_full_load", include_op_for_full_load)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parquet_timestamp_in_millisecond is not None:
-            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+            _setter("parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
         if parquet_version is not None:
-            pulumi.set(__self__, "parquet_version", parquet_version)
+            _setter("parquet_version", parquet_version)
         if preserve_transactions is not None:
-            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+            _setter("preserve_transactions", preserve_transactions)
         if rfc4180 is not None:
-            pulumi.set(__self__, "rfc4180", rfc4180)
+            _setter("rfc4180", rfc4180)
         if row_group_length is not None:
-            pulumi.set(__self__, "row_group_length", row_group_length)
+            _setter("row_group_length", row_group_length)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if timestamp_column_name is not None:
-            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+            _setter("timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
-            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+            _setter("use_csv_no_sup_value", use_csv_no_sup_value)
         if use_task_start_time_for_full_load_timestamp is not None:
-            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+            _setter("use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="addColumnName")
@@ -1432,23 +1653,48 @@ class ReplicationConfigComputeConfig(dict):
                - Constraints: Minimum 30-minute window.
         :param Sequence[str] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
-        pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+        ReplicationConfigComputeConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replication_subnet_group_id=replication_subnet_group_id,
+            availability_zone=availability_zone,
+            dns_name_servers=dns_name_servers,
+            kms_key_id=kms_key_id,
+            max_capacity_units=max_capacity_units,
+            min_capacity_units=min_capacity_units,
+            multi_az=multi_az,
+            preferred_maintenance_window=preferred_maintenance_window,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replication_subnet_group_id: str,
+             availability_zone: Optional[str] = None,
+             dns_name_servers: Optional[str] = None,
+             kms_key_id: Optional[str] = None,
+             max_capacity_units: Optional[int] = None,
+             min_capacity_units: Optional[int] = None,
+             multi_az: Optional[bool] = None,
+             preferred_maintenance_window: Optional[str] = None,
+             vpc_security_group_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("replication_subnet_group_id", replication_subnet_group_id)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if dns_name_servers is not None:
-            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
+            _setter("dns_name_servers", dns_name_servers)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if max_capacity_units is not None:
-            pulumi.set(__self__, "max_capacity_units", max_capacity_units)
+            _setter("max_capacity_units", max_capacity_units)
         if min_capacity_units is not None:
-            pulumi.set(__self__, "min_capacity_units", min_capacity_units)
+            _setter("min_capacity_units", min_capacity_units)
         if multi_az is not None:
-            pulumi.set(__self__, "multi_az", multi_az)
+            _setter("multi_az", multi_az)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="replicationSubnetGroupId")
@@ -1535,10 +1781,25 @@ class GetEndpointElasticsearchSettingResult(dict):
                  error_retry_duration: int,
                  full_load_error_percentage: int,
                  service_access_role_arn: str):
-        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        pulumi.set(__self__, "error_retry_duration", error_retry_duration)
-        pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        GetEndpointElasticsearchSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_uri=endpoint_uri,
+            error_retry_duration=error_retry_duration,
+            full_load_error_percentage=full_load_error_percentage,
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_uri: str,
+             error_retry_duration: int,
+             full_load_error_percentage: int,
+             service_access_role_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_uri", endpoint_uri)
+        _setter("error_retry_duration", error_retry_duration)
+        _setter("full_load_error_percentage", full_load_error_percentage)
+        _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -1582,24 +1843,67 @@ class GetEndpointKafkaSettingResult(dict):
                  ssl_client_key_arn: str,
                  ssl_client_key_password: str,
                  topic: str):
-        pulumi.set(__self__, "broker", broker)
-        pulumi.set(__self__, "include_control_details", include_control_details)
-        pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
-        pulumi.set(__self__, "include_partition_value", include_partition_value)
-        pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
-        pulumi.set(__self__, "include_transaction_details", include_transaction_details)
-        pulumi.set(__self__, "message_format", message_format)
-        pulumi.set(__self__, "message_max_bytes", message_max_bytes)
-        pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
-        pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
-        pulumi.set(__self__, "sasl_password", sasl_password)
-        pulumi.set(__self__, "sasl_username", sasl_username)
-        pulumi.set(__self__, "security_protocol", security_protocol)
-        pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
-        pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
-        pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
-        pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
-        pulumi.set(__self__, "topic", topic)
+        GetEndpointKafkaSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            broker=broker,
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            message_max_bytes=message_max_bytes,
+            no_hex_prefix=no_hex_prefix,
+            partition_include_schema_table=partition_include_schema_table,
+            sasl_password=sasl_password,
+            sasl_username=sasl_username,
+            security_protocol=security_protocol,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_client_certificate_arn=ssl_client_certificate_arn,
+            ssl_client_key_arn=ssl_client_key_arn,
+            ssl_client_key_password=ssl_client_key_password,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             broker: str,
+             include_control_details: bool,
+             include_null_and_empty: bool,
+             include_partition_value: bool,
+             include_table_alter_operations: bool,
+             include_transaction_details: bool,
+             message_format: str,
+             message_max_bytes: int,
+             no_hex_prefix: bool,
+             partition_include_schema_table: bool,
+             sasl_password: str,
+             sasl_username: str,
+             security_protocol: str,
+             ssl_ca_certificate_arn: str,
+             ssl_client_certificate_arn: str,
+             ssl_client_key_arn: str,
+             ssl_client_key_password: str,
+             topic: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("broker", broker)
+        _setter("include_control_details", include_control_details)
+        _setter("include_null_and_empty", include_null_and_empty)
+        _setter("include_partition_value", include_partition_value)
+        _setter("include_table_alter_operations", include_table_alter_operations)
+        _setter("include_transaction_details", include_transaction_details)
+        _setter("message_format", message_format)
+        _setter("message_max_bytes", message_max_bytes)
+        _setter("no_hex_prefix", no_hex_prefix)
+        _setter("partition_include_schema_table", partition_include_schema_table)
+        _setter("sasl_password", sasl_password)
+        _setter("sasl_username", sasl_username)
+        _setter("security_protocol", security_protocol)
+        _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        _setter("ssl_client_certificate_arn", ssl_client_certificate_arn)
+        _setter("ssl_client_key_arn", ssl_client_key_arn)
+        _setter("ssl_client_key_password", ssl_client_key_password)
+        _setter("topic", topic)
 
     @property
     @pulumi.getter
@@ -1704,15 +2008,40 @@ class GetEndpointKinesisSettingResult(dict):
                  partition_include_schema_table: bool,
                  service_access_role_arn: str,
                  stream_arn: str):
-        pulumi.set(__self__, "include_control_details", include_control_details)
-        pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
-        pulumi.set(__self__, "include_partition_value", include_partition_value)
-        pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
-        pulumi.set(__self__, "include_transaction_details", include_transaction_details)
-        pulumi.set(__self__, "message_format", message_format)
-        pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
-        pulumi.set(__self__, "stream_arn", stream_arn)
+        GetEndpointKinesisSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_control_details=include_control_details,
+            include_null_and_empty=include_null_and_empty,
+            include_partition_value=include_partition_value,
+            include_table_alter_operations=include_table_alter_operations,
+            include_transaction_details=include_transaction_details,
+            message_format=message_format,
+            partition_include_schema_table=partition_include_schema_table,
+            service_access_role_arn=service_access_role_arn,
+            stream_arn=stream_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_control_details: bool,
+             include_null_and_empty: bool,
+             include_partition_value: bool,
+             include_table_alter_operations: bool,
+             include_transaction_details: bool,
+             message_format: str,
+             partition_include_schema_table: bool,
+             service_access_role_arn: str,
+             stream_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("include_control_details", include_control_details)
+        _setter("include_null_and_empty", include_null_and_empty)
+        _setter("include_partition_value", include_partition_value)
+        _setter("include_table_alter_operations", include_table_alter_operations)
+        _setter("include_transaction_details", include_transaction_details)
+        _setter("message_format", message_format)
+        _setter("partition_include_schema_table", partition_include_schema_table)
+        _setter("service_access_role_arn", service_access_role_arn)
+        _setter("stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="includeControlDetails")
@@ -1769,12 +2098,31 @@ class GetEndpointMongodbSettingResult(dict):
                  docs_to_investigate: str,
                  extract_doc_id: str,
                  nesting_level: str):
-        pulumi.set(__self__, "auth_mechanism", auth_mechanism)
-        pulumi.set(__self__, "auth_source", auth_source)
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
-        pulumi.set(__self__, "extract_doc_id", extract_doc_id)
-        pulumi.set(__self__, "nesting_level", nesting_level)
+        GetEndpointMongodbSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mechanism=auth_mechanism,
+            auth_source=auth_source,
+            auth_type=auth_type,
+            docs_to_investigate=docs_to_investigate,
+            extract_doc_id=extract_doc_id,
+            nesting_level=nesting_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mechanism: str,
+             auth_source: str,
+             auth_type: str,
+             docs_to_investigate: str,
+             extract_doc_id: str,
+             nesting_level: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_mechanism", auth_mechanism)
+        _setter("auth_source", auth_source)
+        _setter("auth_type", auth_type)
+        _setter("docs_to_investigate", docs_to_investigate)
+        _setter("extract_doc_id", extract_doc_id)
+        _setter("nesting_level", nesting_level)
 
     @property
     @pulumi.getter(name="authMechanism")
@@ -1817,13 +2165,34 @@ class GetEndpointRedisSettingResult(dict):
                  server_name: str,
                  ssl_ca_certificate_arn: str,
                  ssl_security_protocol: str):
-        pulumi.set(__self__, "auth_password", auth_password)
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "auth_user_name", auth_user_name)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
-        pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+        GetEndpointRedisSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_password=auth_password,
+            auth_type=auth_type,
+            auth_user_name=auth_user_name,
+            port=port,
+            server_name=server_name,
+            ssl_ca_certificate_arn=ssl_ca_certificate_arn,
+            ssl_security_protocol=ssl_security_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_password: str,
+             auth_type: str,
+             auth_user_name: str,
+             port: int,
+             server_name: str,
+             ssl_ca_certificate_arn: str,
+             ssl_security_protocol: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_password", auth_password)
+        _setter("auth_type", auth_type)
+        _setter("auth_user_name", auth_user_name)
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        _setter("ssl_security_protocol", ssl_security_protocol)
 
     @property
     @pulumi.getter(name="authPassword")
@@ -1869,11 +2238,28 @@ class GetEndpointRedshiftSettingResult(dict):
                  encryption_mode: str,
                  server_side_encryption_kms_key_id: str,
                  service_access_role_arn: str):
-        pulumi.set(__self__, "bucket_folder", bucket_folder)
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "encryption_mode", encryption_mode)
-        pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        GetEndpointRedshiftSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            encryption_mode=encryption_mode,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_folder: str,
+             bucket_name: str,
+             encryption_mode: str,
+             server_side_encryption_kms_key_id: str,
+             service_access_role_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_folder", bucket_folder)
+        _setter("bucket_name", bucket_name)
+        _setter("encryption_mode", encryption_mode)
+        _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        _setter("service_access_role_arn", service_access_role_arn)
 
     @property
     @pulumi.getter(name="bucketFolder")
@@ -1942,44 +2328,127 @@ class GetEndpointS3SettingResult(dict):
                  timestamp_column_name: str,
                  use_csv_no_sup_value: bool,
                  use_task_start_time_for_full_load_timestamp: bool):
-        pulumi.set(__self__, "add_column_name", add_column_name)
-        pulumi.set(__self__, "bucket_folder", bucket_folder)
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
-        pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
-        pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
-        pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
-        pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
-        pulumi.set(__self__, "cdc_path", cdc_path)
-        pulumi.set(__self__, "compression_type", compression_type)
-        pulumi.set(__self__, "csv_delimiter", csv_delimiter)
-        pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
-        pulumi.set(__self__, "csv_null_value", csv_null_value)
-        pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "data_page_size", data_page_size)
-        pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
-        pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
-        pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
-        pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
-        pulumi.set(__self__, "enable_statistics", enable_statistics)
-        pulumi.set(__self__, "encoding_type", encoding_type)
-        pulumi.set(__self__, "encryption_mode", encryption_mode)
-        pulumi.set(__self__, "external_table_definition", external_table_definition)
-        pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
-        pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
-        pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
-        pulumi.set(__self__, "max_file_size", max_file_size)
-        pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
-        pulumi.set(__self__, "parquet_version", parquet_version)
-        pulumi.set(__self__, "preserve_transactions", preserve_transactions)
-        pulumi.set(__self__, "rfc4180", rfc4180)
-        pulumi.set(__self__, "row_group_length", row_group_length)
-        pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
-        pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
-        pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
-        pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+        GetEndpointS3SettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_column_name=add_column_name,
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            canned_acl_for_objects=canned_acl_for_objects,
+            cdc_inserts_and_updates=cdc_inserts_and_updates,
+            cdc_inserts_only=cdc_inserts_only,
+            cdc_max_batch_interval=cdc_max_batch_interval,
+            cdc_min_file_size=cdc_min_file_size,
+            cdc_path=cdc_path,
+            compression_type=compression_type,
+            csv_delimiter=csv_delimiter,
+            csv_no_sup_value=csv_no_sup_value,
+            csv_null_value=csv_null_value,
+            csv_row_delimiter=csv_row_delimiter,
+            data_format=data_format,
+            data_page_size=data_page_size,
+            date_partition_delimiter=date_partition_delimiter,
+            date_partition_enabled=date_partition_enabled,
+            date_partition_sequence=date_partition_sequence,
+            dict_page_size_limit=dict_page_size_limit,
+            enable_statistics=enable_statistics,
+            encoding_type=encoding_type,
+            encryption_mode=encryption_mode,
+            external_table_definition=external_table_definition,
+            ignore_header_rows=ignore_header_rows,
+            ignore_headers_row=ignore_headers_row,
+            include_op_for_full_load=include_op_for_full_load,
+            max_file_size=max_file_size,
+            parquet_timestamp_in_millisecond=parquet_timestamp_in_millisecond,
+            parquet_version=parquet_version,
+            preserve_transactions=preserve_transactions,
+            rfc4180=rfc4180,
+            row_group_length=row_group_length,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+            timestamp_column_name=timestamp_column_name,
+            use_csv_no_sup_value=use_csv_no_sup_value,
+            use_task_start_time_for_full_load_timestamp=use_task_start_time_for_full_load_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_column_name: bool,
+             bucket_folder: str,
+             bucket_name: str,
+             canned_acl_for_objects: str,
+             cdc_inserts_and_updates: bool,
+             cdc_inserts_only: bool,
+             cdc_max_batch_interval: int,
+             cdc_min_file_size: int,
+             cdc_path: str,
+             compression_type: str,
+             csv_delimiter: str,
+             csv_no_sup_value: str,
+             csv_null_value: str,
+             csv_row_delimiter: str,
+             data_format: str,
+             data_page_size: int,
+             date_partition_delimiter: str,
+             date_partition_enabled: bool,
+             date_partition_sequence: str,
+             dict_page_size_limit: int,
+             enable_statistics: bool,
+             encoding_type: str,
+             encryption_mode: str,
+             external_table_definition: str,
+             ignore_header_rows: int,
+             ignore_headers_row: int,
+             include_op_for_full_load: bool,
+             max_file_size: int,
+             parquet_timestamp_in_millisecond: bool,
+             parquet_version: str,
+             preserve_transactions: bool,
+             rfc4180: bool,
+             row_group_length: int,
+             server_side_encryption_kms_key_id: str,
+             service_access_role_arn: str,
+             timestamp_column_name: str,
+             use_csv_no_sup_value: bool,
+             use_task_start_time_for_full_load_timestamp: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("add_column_name", add_column_name)
+        _setter("bucket_folder", bucket_folder)
+        _setter("bucket_name", bucket_name)
+        _setter("canned_acl_for_objects", canned_acl_for_objects)
+        _setter("cdc_inserts_and_updates", cdc_inserts_and_updates)
+        _setter("cdc_inserts_only", cdc_inserts_only)
+        _setter("cdc_max_batch_interval", cdc_max_batch_interval)
+        _setter("cdc_min_file_size", cdc_min_file_size)
+        _setter("cdc_path", cdc_path)
+        _setter("compression_type", compression_type)
+        _setter("csv_delimiter", csv_delimiter)
+        _setter("csv_no_sup_value", csv_no_sup_value)
+        _setter("csv_null_value", csv_null_value)
+        _setter("csv_row_delimiter", csv_row_delimiter)
+        _setter("data_format", data_format)
+        _setter("data_page_size", data_page_size)
+        _setter("date_partition_delimiter", date_partition_delimiter)
+        _setter("date_partition_enabled", date_partition_enabled)
+        _setter("date_partition_sequence", date_partition_sequence)
+        _setter("dict_page_size_limit", dict_page_size_limit)
+        _setter("enable_statistics", enable_statistics)
+        _setter("encoding_type", encoding_type)
+        _setter("encryption_mode", encryption_mode)
+        _setter("external_table_definition", external_table_definition)
+        _setter("ignore_header_rows", ignore_header_rows)
+        _setter("ignore_headers_row", ignore_headers_row)
+        _setter("include_op_for_full_load", include_op_for_full_load)
+        _setter("max_file_size", max_file_size)
+        _setter("parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+        _setter("parquet_version", parquet_version)
+        _setter("preserve_transactions", preserve_transactions)
+        _setter("rfc4180", rfc4180)
+        _setter("row_group_length", row_group_length)
+        _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        _setter("service_access_role_arn", service_access_role_arn)
+        _setter("timestamp_column_name", timestamp_column_name)
+        _setter("use_csv_no_sup_value", use_csv_no_sup_value)
+        _setter("use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="addColumnName")

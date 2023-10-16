@@ -1336,7 +1336,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotMaxPrice() 
 }
 
 type GroupMixedInstancesPolicyLaunchTemplate struct {
-	// Nested argument defines the Launch Template. Defined below.
+	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
 	// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
 	Overrides []GroupMixedInstancesPolicyLaunchTemplateOverride `pulumi:"overrides"`
@@ -1354,7 +1354,7 @@ type GroupMixedInstancesPolicyLaunchTemplateInput interface {
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateArgs struct {
-	// Nested argument defines the Launch Template. Defined below.
+	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationInput `pulumi:"launchTemplateSpecification"`
 	// List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
 	Overrides GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput `pulumi:"overrides"`
@@ -1455,7 +1455,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToOutput(ctx context.Cont
 	}
 }
 
-// Nested argument defines the Launch Template. Defined below.
+// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplate) GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
@@ -1499,7 +1499,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Elem() GroupMixedInsta
 	}).(GroupMixedInstancesPolicyLaunchTemplateOutput)
 }
 
-// Nested argument defines the Launch Template. Defined below.
+// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplate) *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		if v == nil {
@@ -1727,7 +1727,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverride struct {
 	InstanceRequirements *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements `pulumi:"instanceRequirements"`
 	// Override the instance type in the Launch Template.
 	InstanceType *string `pulumi:"instanceType"`
-	// Nested argument defines the Launch Template. Defined below.
+	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
 	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
 	WeightedCapacity *string `pulumi:"weightedCapacity"`
@@ -1749,7 +1749,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
 	InstanceRequirements GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// Override the instance type in the Launch Template.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// Nested argument defines the Launch Template. Defined below.
+	// Override the instance launch template specification in the Launch Template.
 	LaunchTemplateSpecification GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput `pulumi:"launchTemplateSpecification"`
 	// Number of capacity units, which gives the instance type a proportional weight to other instance types.
 	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
@@ -1836,7 +1836,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pu
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// Nested argument defines the Launch Template. Defined below.
+// Override the instance launch template specification in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) LaunchTemplateSpecification() GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
 		return v.LaunchTemplateSpecification
@@ -2912,7 +2912,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -2930,7 +2930,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccelera
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -3031,7 +3031,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
 		return v.Max
@@ -3075,7 +3075,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -3096,7 +3096,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -3114,7 +3114,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccelera
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -3215,7 +3215,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Max
@@ -3259,7 +3259,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -3280,7 +3280,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -3298,7 +3298,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaseline
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -3399,7 +3399,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Max
@@ -3443,7 +3443,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -3464,7 +3464,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -3482,7 +3482,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGi
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -3583,7 +3583,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Max
@@ -3627,7 +3627,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -3648,7 +3648,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -3666,7 +3666,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMi
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -3767,7 +3767,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
 		return v.Max
@@ -3811,7 +3811,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -3832,7 +3832,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -3850,7 +3850,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkB
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -3951,7 +3951,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Max
@@ -3995,7 +3995,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -4016,7 +4016,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -4034,7 +4034,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkI
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -4135,7 +4135,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		return v.Max
@@ -4179,7 +4179,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -4200,7 +4200,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *float64 `pulumi:"max"`
 	// Minimum.
 	Min *float64 `pulumi:"min"`
@@ -4218,7 +4218,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLoc
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
@@ -4319,7 +4319,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
@@ -4363,7 +4363,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -4384,7 +4384,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max *int `pulumi:"max"`
 	// Minimum.
 	Min *int `pulumi:"min"`
@@ -4402,7 +4402,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCoun
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs struct {
-	// Maximum. Set to `0` to exclude instance types with accelerators.
+	// Maximum.
 	Max pulumi.IntPtrInput `pulumi:"max"`
 	// Minimum.
 	Min pulumi.IntPtrInput `pulumi:"min"`
@@ -4503,7 +4503,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 	}
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
 		return v.Max
@@ -4547,7 +4547,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput)
 }
 
-// Maximum. Set to `0` to exclude instance types with accelerators.
+// Maximum.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
 		if v == nil {

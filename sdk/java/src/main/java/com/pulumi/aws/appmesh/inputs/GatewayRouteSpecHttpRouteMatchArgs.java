@@ -37,14 +37,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Host name to rewrite.
+     * Host name to match on.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname;
 
     /**
-     * @return Host name to rewrite.
+     * @return Host name to match on.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHostnameArgs>> hostname() {
@@ -52,14 +52,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Exact path to rewrite.
+     * Client request path to match on.
      * 
      */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchPathArgs> path;
 
     /**
-     * @return Exact path to rewrite.
+     * @return Client request path to match on.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchPathArgs>> path() {
@@ -67,14 +67,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * The port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return The port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -82,14 +82,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specified beginning characters to rewrite.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -172,7 +172,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname Host name to rewrite.
+         * @param hostname Host name to match on.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname Host name to rewrite.
+         * @param hostname Host name to match on.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Exact path to rewrite.
+         * @param path Client request path to match on.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Exact path to rewrite.
+         * @param path Client request path to match on.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * @param port The port number to match from the request.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * @param port The port number to match from the request.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 

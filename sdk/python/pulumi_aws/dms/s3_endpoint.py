@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['S3EndpointArgs', 'S3Endpoint']
@@ -113,96 +113,197 @@ class S3EndpointArgs:
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         :param pulumi.Input[bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "endpoint_id", endpoint_id)
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        S3EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            endpoint_id=endpoint_id,
+            endpoint_type=endpoint_type,
+            service_access_role_arn=service_access_role_arn,
+            add_column_name=add_column_name,
+            add_trailing_padding_character=add_trailing_padding_character,
+            bucket_folder=bucket_folder,
+            canned_acl_for_objects=canned_acl_for_objects,
+            cdc_inserts_and_updates=cdc_inserts_and_updates,
+            cdc_inserts_only=cdc_inserts_only,
+            cdc_max_batch_interval=cdc_max_batch_interval,
+            cdc_min_file_size=cdc_min_file_size,
+            cdc_path=cdc_path,
+            certificate_arn=certificate_arn,
+            compression_type=compression_type,
+            csv_delimiter=csv_delimiter,
+            csv_no_sup_value=csv_no_sup_value,
+            csv_null_value=csv_null_value,
+            csv_row_delimiter=csv_row_delimiter,
+            data_format=data_format,
+            data_page_size=data_page_size,
+            date_partition_delimiter=date_partition_delimiter,
+            date_partition_enabled=date_partition_enabled,
+            date_partition_sequence=date_partition_sequence,
+            date_partition_timezone=date_partition_timezone,
+            detach_target_on_lob_lookup_failure_parquet=detach_target_on_lob_lookup_failure_parquet,
+            dict_page_size_limit=dict_page_size_limit,
+            enable_statistics=enable_statistics,
+            encoding_type=encoding_type,
+            encryption_mode=encryption_mode,
+            expected_bucket_owner=expected_bucket_owner,
+            external_table_definition=external_table_definition,
+            ignore_header_rows=ignore_header_rows,
+            include_op_for_full_load=include_op_for_full_load,
+            kms_key_arn=kms_key_arn,
+            max_file_size=max_file_size,
+            parquet_timestamp_in_millisecond=parquet_timestamp_in_millisecond,
+            parquet_version=parquet_version,
+            preserve_transactions=preserve_transactions,
+            rfc4180=rfc4180,
+            row_group_length=row_group_length,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            ssl_mode=ssl_mode,
+            tags=tags,
+            timestamp_column_name=timestamp_column_name,
+            use_csv_no_sup_value=use_csv_no_sup_value,
+            use_task_start_time_for_full_load_timestamp=use_task_start_time_for_full_load_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             endpoint_id: pulumi.Input[str],
+             endpoint_type: pulumi.Input[str],
+             service_access_role_arn: pulumi.Input[str],
+             add_column_name: Optional[pulumi.Input[bool]] = None,
+             add_trailing_padding_character: Optional[pulumi.Input[bool]] = None,
+             bucket_folder: Optional[pulumi.Input[str]] = None,
+             canned_acl_for_objects: Optional[pulumi.Input[str]] = None,
+             cdc_inserts_and_updates: Optional[pulumi.Input[bool]] = None,
+             cdc_inserts_only: Optional[pulumi.Input[bool]] = None,
+             cdc_max_batch_interval: Optional[pulumi.Input[int]] = None,
+             cdc_min_file_size: Optional[pulumi.Input[int]] = None,
+             cdc_path: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             compression_type: Optional[pulumi.Input[str]] = None,
+             csv_delimiter: Optional[pulumi.Input[str]] = None,
+             csv_no_sup_value: Optional[pulumi.Input[str]] = None,
+             csv_null_value: Optional[pulumi.Input[str]] = None,
+             csv_row_delimiter: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             data_page_size: Optional[pulumi.Input[int]] = None,
+             date_partition_delimiter: Optional[pulumi.Input[str]] = None,
+             date_partition_enabled: Optional[pulumi.Input[bool]] = None,
+             date_partition_sequence: Optional[pulumi.Input[str]] = None,
+             date_partition_timezone: Optional[pulumi.Input[str]] = None,
+             detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
+             dict_page_size_limit: Optional[pulumi.Input[int]] = None,
+             enable_statistics: Optional[pulumi.Input[bool]] = None,
+             encoding_type: Optional[pulumi.Input[str]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             external_table_definition: Optional[pulumi.Input[str]] = None,
+             ignore_header_rows: Optional[pulumi.Input[int]] = None,
+             include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             parquet_timestamp_in_millisecond: Optional[pulumi.Input[bool]] = None,
+             parquet_version: Optional[pulumi.Input[str]] = None,
+             preserve_transactions: Optional[pulumi.Input[bool]] = None,
+             rfc4180: Optional[pulumi.Input[bool]] = None,
+             row_group_length: Optional[pulumi.Input[int]] = None,
+             server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+             ssl_mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timestamp_column_name: Optional[pulumi.Input[str]] = None,
+             use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
+             use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("endpoint_id", endpoint_id)
+        _setter("endpoint_type", endpoint_type)
+        _setter("service_access_role_arn", service_access_role_arn)
         if add_column_name is not None:
-            pulumi.set(__self__, "add_column_name", add_column_name)
+            _setter("add_column_name", add_column_name)
         if add_trailing_padding_character is not None:
-            pulumi.set(__self__, "add_trailing_padding_character", add_trailing_padding_character)
+            _setter("add_trailing_padding_character", add_trailing_padding_character)
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if canned_acl_for_objects is not None:
-            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+            _setter("canned_acl_for_objects", canned_acl_for_objects)
         if cdc_inserts_and_updates is not None:
-            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+            _setter("cdc_inserts_and_updates", cdc_inserts_and_updates)
         if cdc_inserts_only is not None:
-            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+            _setter("cdc_inserts_only", cdc_inserts_only)
         if cdc_max_batch_interval is not None:
-            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+            _setter("cdc_max_batch_interval", cdc_max_batch_interval)
         if cdc_min_file_size is not None:
-            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+            _setter("cdc_min_file_size", cdc_min_file_size)
         if cdc_path is not None:
-            pulumi.set(__self__, "cdc_path", cdc_path)
+            _setter("cdc_path", cdc_path)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if compression_type is not None:
-            pulumi.set(__self__, "compression_type", compression_type)
+            _setter("compression_type", compression_type)
         if csv_delimiter is not None:
-            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+            _setter("csv_delimiter", csv_delimiter)
         if csv_no_sup_value is not None:
-            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+            _setter("csv_no_sup_value", csv_no_sup_value)
         if csv_null_value is not None:
-            pulumi.set(__self__, "csv_null_value", csv_null_value)
+            _setter("csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
-            pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+            _setter("csv_row_delimiter", csv_row_delimiter)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if data_page_size is not None:
-            pulumi.set(__self__, "data_page_size", data_page_size)
+            _setter("data_page_size", data_page_size)
         if date_partition_delimiter is not None:
-            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+            _setter("date_partition_delimiter", date_partition_delimiter)
         if date_partition_enabled is not None:
-            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+            _setter("date_partition_enabled", date_partition_enabled)
         if date_partition_sequence is not None:
-            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+            _setter("date_partition_sequence", date_partition_sequence)
         if date_partition_timezone is not None:
-            pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+            _setter("date_partition_timezone", date_partition_timezone)
         if detach_target_on_lob_lookup_failure_parquet is not None:
-            pulumi.set(__self__, "detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
+            _setter("detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
         if dict_page_size_limit is not None:
-            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+            _setter("dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
-            pulumi.set(__self__, "enable_statistics", enable_statistics)
+            _setter("enable_statistics", enable_statistics)
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if external_table_definition is not None:
-            pulumi.set(__self__, "external_table_definition", external_table_definition)
+            _setter("external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
-            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+            _setter("ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
-            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+            _setter("include_op_for_full_load", include_op_for_full_load)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parquet_timestamp_in_millisecond is not None:
-            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+            _setter("parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
         if parquet_version is not None:
-            pulumi.set(__self__, "parquet_version", parquet_version)
+            _setter("parquet_version", parquet_version)
         if preserve_transactions is not None:
-            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+            _setter("preserve_transactions", preserve_transactions)
         if rfc4180 is not None:
-            pulumi.set(__self__, "rfc4180", rfc4180)
+            _setter("rfc4180", rfc4180)
         if row_group_length is not None:
-            pulumi.set(__self__, "row_group_length", row_group_length)
+            _setter("row_group_length", row_group_length)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+            _setter("ssl_mode", ssl_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timestamp_column_name is not None:
-            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+            _setter("timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
-            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+            _setter("use_csv_no_sup_value", use_csv_no_sup_value)
         if use_task_start_time_for_full_load_timestamp is not None:
-            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+            _setter("use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -883,113 +984,224 @@ class _S3EndpointState:
         :param pulumi.Input[bool] use_csv_no_sup_value: Whether to use `csv_no_sup_value` for columns not included in the supplemental log. (Ignored for source endpoints.)
         :param pulumi.Input[bool] use_task_start_time_for_full_load_timestamp: When set to `true`, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to `true`, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time.When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
+        _S3EndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_column_name=add_column_name,
+            add_trailing_padding_character=add_trailing_padding_character,
+            bucket_folder=bucket_folder,
+            bucket_name=bucket_name,
+            canned_acl_for_objects=canned_acl_for_objects,
+            cdc_inserts_and_updates=cdc_inserts_and_updates,
+            cdc_inserts_only=cdc_inserts_only,
+            cdc_max_batch_interval=cdc_max_batch_interval,
+            cdc_min_file_size=cdc_min_file_size,
+            cdc_path=cdc_path,
+            certificate_arn=certificate_arn,
+            compression_type=compression_type,
+            csv_delimiter=csv_delimiter,
+            csv_no_sup_value=csv_no_sup_value,
+            csv_null_value=csv_null_value,
+            csv_row_delimiter=csv_row_delimiter,
+            data_format=data_format,
+            data_page_size=data_page_size,
+            date_partition_delimiter=date_partition_delimiter,
+            date_partition_enabled=date_partition_enabled,
+            date_partition_sequence=date_partition_sequence,
+            date_partition_timezone=date_partition_timezone,
+            detach_target_on_lob_lookup_failure_parquet=detach_target_on_lob_lookup_failure_parquet,
+            dict_page_size_limit=dict_page_size_limit,
+            enable_statistics=enable_statistics,
+            encoding_type=encoding_type,
+            encryption_mode=encryption_mode,
+            endpoint_arn=endpoint_arn,
+            endpoint_id=endpoint_id,
+            endpoint_type=endpoint_type,
+            engine_display_name=engine_display_name,
+            expected_bucket_owner=expected_bucket_owner,
+            external_id=external_id,
+            external_table_definition=external_table_definition,
+            ignore_header_rows=ignore_header_rows,
+            include_op_for_full_load=include_op_for_full_load,
+            kms_key_arn=kms_key_arn,
+            max_file_size=max_file_size,
+            parquet_timestamp_in_millisecond=parquet_timestamp_in_millisecond,
+            parquet_version=parquet_version,
+            preserve_transactions=preserve_transactions,
+            rfc4180=rfc4180,
+            row_group_length=row_group_length,
+            server_side_encryption_kms_key_id=server_side_encryption_kms_key_id,
+            service_access_role_arn=service_access_role_arn,
+            ssl_mode=ssl_mode,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            timestamp_column_name=timestamp_column_name,
+            use_csv_no_sup_value=use_csv_no_sup_value,
+            use_task_start_time_for_full_load_timestamp=use_task_start_time_for_full_load_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_column_name: Optional[pulumi.Input[bool]] = None,
+             add_trailing_padding_character: Optional[pulumi.Input[bool]] = None,
+             bucket_folder: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             canned_acl_for_objects: Optional[pulumi.Input[str]] = None,
+             cdc_inserts_and_updates: Optional[pulumi.Input[bool]] = None,
+             cdc_inserts_only: Optional[pulumi.Input[bool]] = None,
+             cdc_max_batch_interval: Optional[pulumi.Input[int]] = None,
+             cdc_min_file_size: Optional[pulumi.Input[int]] = None,
+             cdc_path: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             compression_type: Optional[pulumi.Input[str]] = None,
+             csv_delimiter: Optional[pulumi.Input[str]] = None,
+             csv_no_sup_value: Optional[pulumi.Input[str]] = None,
+             csv_null_value: Optional[pulumi.Input[str]] = None,
+             csv_row_delimiter: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             data_page_size: Optional[pulumi.Input[int]] = None,
+             date_partition_delimiter: Optional[pulumi.Input[str]] = None,
+             date_partition_enabled: Optional[pulumi.Input[bool]] = None,
+             date_partition_sequence: Optional[pulumi.Input[str]] = None,
+             date_partition_timezone: Optional[pulumi.Input[str]] = None,
+             detach_target_on_lob_lookup_failure_parquet: Optional[pulumi.Input[bool]] = None,
+             dict_page_size_limit: Optional[pulumi.Input[int]] = None,
+             enable_statistics: Optional[pulumi.Input[bool]] = None,
+             encoding_type: Optional[pulumi.Input[str]] = None,
+             encryption_mode: Optional[pulumi.Input[str]] = None,
+             endpoint_arn: Optional[pulumi.Input[str]] = None,
+             endpoint_id: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             engine_display_name: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             external_table_definition: Optional[pulumi.Input[str]] = None,
+             ignore_header_rows: Optional[pulumi.Input[int]] = None,
+             include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             max_file_size: Optional[pulumi.Input[int]] = None,
+             parquet_timestamp_in_millisecond: Optional[pulumi.Input[bool]] = None,
+             parquet_version: Optional[pulumi.Input[str]] = None,
+             preserve_transactions: Optional[pulumi.Input[bool]] = None,
+             rfc4180: Optional[pulumi.Input[bool]] = None,
+             row_group_length: Optional[pulumi.Input[int]] = None,
+             server_side_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
+             service_access_role_arn: Optional[pulumi.Input[str]] = None,
+             ssl_mode: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timestamp_column_name: Optional[pulumi.Input[str]] = None,
+             use_csv_no_sup_value: Optional[pulumi.Input[bool]] = None,
+             use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if add_column_name is not None:
-            pulumi.set(__self__, "add_column_name", add_column_name)
+            _setter("add_column_name", add_column_name)
         if add_trailing_padding_character is not None:
-            pulumi.set(__self__, "add_trailing_padding_character", add_trailing_padding_character)
+            _setter("add_trailing_padding_character", add_trailing_padding_character)
         if bucket_folder is not None:
-            pulumi.set(__self__, "bucket_folder", bucket_folder)
+            _setter("bucket_folder", bucket_folder)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if canned_acl_for_objects is not None:
-            pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+            _setter("canned_acl_for_objects", canned_acl_for_objects)
         if cdc_inserts_and_updates is not None:
-            pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+            _setter("cdc_inserts_and_updates", cdc_inserts_and_updates)
         if cdc_inserts_only is not None:
-            pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+            _setter("cdc_inserts_only", cdc_inserts_only)
         if cdc_max_batch_interval is not None:
-            pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+            _setter("cdc_max_batch_interval", cdc_max_batch_interval)
         if cdc_min_file_size is not None:
-            pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+            _setter("cdc_min_file_size", cdc_min_file_size)
         if cdc_path is not None:
-            pulumi.set(__self__, "cdc_path", cdc_path)
+            _setter("cdc_path", cdc_path)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if compression_type is not None:
-            pulumi.set(__self__, "compression_type", compression_type)
+            _setter("compression_type", compression_type)
         if csv_delimiter is not None:
-            pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+            _setter("csv_delimiter", csv_delimiter)
         if csv_no_sup_value is not None:
-            pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+            _setter("csv_no_sup_value", csv_no_sup_value)
         if csv_null_value is not None:
-            pulumi.set(__self__, "csv_null_value", csv_null_value)
+            _setter("csv_null_value", csv_null_value)
         if csv_row_delimiter is not None:
-            pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+            _setter("csv_row_delimiter", csv_row_delimiter)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if data_page_size is not None:
-            pulumi.set(__self__, "data_page_size", data_page_size)
+            _setter("data_page_size", data_page_size)
         if date_partition_delimiter is not None:
-            pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+            _setter("date_partition_delimiter", date_partition_delimiter)
         if date_partition_enabled is not None:
-            pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+            _setter("date_partition_enabled", date_partition_enabled)
         if date_partition_sequence is not None:
-            pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+            _setter("date_partition_sequence", date_partition_sequence)
         if date_partition_timezone is not None:
-            pulumi.set(__self__, "date_partition_timezone", date_partition_timezone)
+            _setter("date_partition_timezone", date_partition_timezone)
         if detach_target_on_lob_lookup_failure_parquet is not None:
-            pulumi.set(__self__, "detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
+            _setter("detach_target_on_lob_lookup_failure_parquet", detach_target_on_lob_lookup_failure_parquet)
         if dict_page_size_limit is not None:
-            pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+            _setter("dict_page_size_limit", dict_page_size_limit)
         if enable_statistics is not None:
-            pulumi.set(__self__, "enable_statistics", enable_statistics)
+            _setter("enable_statistics", enable_statistics)
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if encryption_mode is not None:
-            pulumi.set(__self__, "encryption_mode", encryption_mode)
+            _setter("encryption_mode", encryption_mode)
         if endpoint_arn is not None:
-            pulumi.set(__self__, "endpoint_arn", endpoint_arn)
+            _setter("endpoint_arn", endpoint_arn)
         if endpoint_id is not None:
-            pulumi.set(__self__, "endpoint_id", endpoint_id)
+            _setter("endpoint_id", endpoint_id)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if engine_display_name is not None:
-            pulumi.set(__self__, "engine_display_name", engine_display_name)
+            _setter("engine_display_name", engine_display_name)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if external_table_definition is not None:
-            pulumi.set(__self__, "external_table_definition", external_table_definition)
+            _setter("external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
-            pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+            _setter("ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
-            pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+            _setter("include_op_for_full_load", include_op_for_full_load)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if max_file_size is not None:
-            pulumi.set(__self__, "max_file_size", max_file_size)
+            _setter("max_file_size", max_file_size)
         if parquet_timestamp_in_millisecond is not None:
-            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+            _setter("parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
         if parquet_version is not None:
-            pulumi.set(__self__, "parquet_version", parquet_version)
+            _setter("parquet_version", parquet_version)
         if preserve_transactions is not None:
-            pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+            _setter("preserve_transactions", preserve_transactions)
         if rfc4180 is not None:
-            pulumi.set(__self__, "rfc4180", rfc4180)
+            _setter("rfc4180", rfc4180)
         if row_group_length is not None:
-            pulumi.set(__self__, "row_group_length", row_group_length)
+            _setter("row_group_length", row_group_length)
         if server_side_encryption_kms_key_id is not None:
-            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+            _setter("server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
-            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+            _setter("service_access_role_arn", service_access_role_arn)
         if ssl_mode is not None:
-            pulumi.set(__self__, "ssl_mode", ssl_mode)
+            _setter("ssl_mode", ssl_mode)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timestamp_column_name is not None:
-            pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+            _setter("timestamp_column_name", timestamp_column_name)
         if use_csv_no_sup_value is not None:
-            pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+            _setter("use_csv_no_sup_value", use_csv_no_sup_value)
         if use_task_start_time_for_full_load_timestamp is not None:
-            pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+            _setter("use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
 
     @property
     @pulumi.getter(name="addColumnName")
@@ -1920,6 +2132,10 @@ class S3Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            S3EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -43,9 +43,22 @@ class QueueReservationPlanSettings(dict):
         :param str renewal_type: Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
         :param int reserved_slots: Specifies the number of reserved transcode slots (RTS) for queue.
         """
-        pulumi.set(__self__, "commitment", commitment)
-        pulumi.set(__self__, "renewal_type", renewal_type)
-        pulumi.set(__self__, "reserved_slots", reserved_slots)
+        QueueReservationPlanSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commitment=commitment,
+            renewal_type=renewal_type,
+            reserved_slots=reserved_slots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commitment: str,
+             renewal_type: str,
+             reserved_slots: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commitment", commitment)
+        _setter("renewal_type", renewal_type)
+        _setter("reserved_slots", reserved_slots)
 
     @property
     @pulumi.getter

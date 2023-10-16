@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,14 +52,29 @@ class CertificateDomainValidationOption(dict):
         :param str resource_record_type: The type of DNS record to create
         :param str resource_record_value: The value the DNS record needs to have
         """
+        CertificateDomainValidationOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            resource_record_name=resource_record_name,
+            resource_record_type=resource_record_type,
+            resource_record_value=resource_record_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[str] = None,
+             resource_record_name: Optional[str] = None,
+             resource_record_type: Optional[str] = None,
+             resource_record_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if resource_record_name is not None:
-            pulumi.set(__self__, "resource_record_name", resource_record_name)
+            _setter("resource_record_name", resource_record_name)
         if resource_record_type is not None:
-            pulumi.set(__self__, "resource_record_type", resource_record_type)
+            _setter("resource_record_type", resource_record_type)
         if resource_record_value is not None:
-            pulumi.set(__self__, "resource_record_value", resource_record_value)
+            _setter("resource_record_value", resource_record_value)
 
     @property
     @pulumi.getter(name="domainName")
@@ -118,8 +133,17 @@ class CertificateOptions(dict):
         """
         :param str certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
         """
+        CertificateOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_transparency_logging_preference=certificate_transparency_logging_preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_transparency_logging_preference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_transparency_logging_preference is not None:
-            pulumi.set(__self__, "certificate_transparency_logging_preference", certificate_transparency_logging_preference)
+            _setter("certificate_transparency_logging_preference", certificate_transparency_logging_preference)
 
     @property
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
@@ -161,12 +185,25 @@ class CertificateRenewalSummary(dict):
         :param str renewal_status: The status of ACM's managed renewal of the certificate
         :param str renewal_status_reason: The reason that a renewal request was unsuccessful or is pending
         """
+        CertificateRenewalSummary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            renewal_status=renewal_status,
+            renewal_status_reason=renewal_status_reason,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             renewal_status: Optional[str] = None,
+             renewal_status_reason: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if renewal_status is not None:
-            pulumi.set(__self__, "renewal_status", renewal_status)
+            _setter("renewal_status", renewal_status)
         if renewal_status_reason is not None:
-            pulumi.set(__self__, "renewal_status_reason", renewal_status_reason)
+            _setter("renewal_status_reason", renewal_status_reason)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="renewalStatus")
@@ -218,8 +255,19 @@ class CertificateValidationOption(dict):
         :param str domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param str validation_domain: Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "validation_domain", validation_domain)
+        CertificateValidationOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            validation_domain=validation_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             validation_domain: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("validation_domain", validation_domain)
 
     @property
     @pulumi.getter(name="domainName")

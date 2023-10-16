@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,26 @@ class LoadBalancerPolicyArgs:
         :param pulumi.Input[str] policy_type_name: The policy type.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
         """
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "policy_type_name", policy_type_name)
+        LoadBalancerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            policy_name=policy_name,
+            policy_type_name=policy_type_name,
+            policy_attributes=policy_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: pulumi.Input[str],
+             policy_name: pulumi.Input[str],
+             policy_type_name: pulumi.Input[str],
+             policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("load_balancer_name", load_balancer_name)
+        _setter("policy_name", policy_name)
+        _setter("policy_type_name", policy_type_name)
         if policy_attributes is not None:
-            pulumi.set(__self__, "policy_attributes", policy_attributes)
+            _setter("policy_attributes", policy_attributes)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -96,14 +111,29 @@ class _LoadBalancerPolicyState:
         :param pulumi.Input[str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[str] policy_type_name: The policy type.
         """
+        _LoadBalancerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            policy_attributes=policy_attributes,
+            policy_name=policy_name,
+            policy_type_name=policy_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if policy_attributes is not None:
-            pulumi.set(__self__, "policy_attributes", policy_attributes)
+            _setter("policy_attributes", policy_attributes)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if policy_type_name is not None:
-            pulumi.set(__self__, "policy_type_name", policy_type_name)
+            _setter("policy_type_name", policy_type_name)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -325,6 +355,10 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

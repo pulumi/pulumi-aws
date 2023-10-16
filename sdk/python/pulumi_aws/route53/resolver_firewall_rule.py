@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverFirewallRuleArgs', 'ResolverFirewallRule']
@@ -35,20 +35,45 @@ class ResolverFirewallRuleArgs:
         :param pulumi.Input[str] block_response: The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
-        pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
-        pulumi.set(__self__, "priority", priority)
+        ResolverFirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            firewall_domain_list_id=firewall_domain_list_id,
+            firewall_rule_group_id=firewall_rule_group_id,
+            priority=priority,
+            block_override_dns_type=block_override_dns_type,
+            block_override_domain=block_override_domain,
+            block_override_ttl=block_override_ttl,
+            block_response=block_response,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             firewall_domain_list_id: pulumi.Input[str],
+             firewall_rule_group_id: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             block_override_dns_type: Optional[pulumi.Input[str]] = None,
+             block_override_domain: Optional[pulumi.Input[str]] = None,
+             block_override_ttl: Optional[pulumi.Input[int]] = None,
+             block_response: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("firewall_domain_list_id", firewall_domain_list_id)
+        _setter("firewall_rule_group_id", firewall_rule_group_id)
+        _setter("priority", priority)
         if block_override_dns_type is not None:
-            pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
+            _setter("block_override_dns_type", block_override_dns_type)
         if block_override_domain is not None:
-            pulumi.set(__self__, "block_override_domain", block_override_domain)
+            _setter("block_override_domain", block_override_domain)
         if block_override_ttl is not None:
-            pulumi.set(__self__, "block_override_ttl", block_override_ttl)
+            _setter("block_override_ttl", block_override_ttl)
         if block_response is not None:
-            pulumi.set(__self__, "block_response", block_response)
+            _setter("block_response", block_response)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -183,24 +208,49 @@ class _ResolverFirewallRuleState:
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         """
+        _ResolverFirewallRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            block_override_dns_type=block_override_dns_type,
+            block_override_domain=block_override_domain,
+            block_override_ttl=block_override_ttl,
+            block_response=block_response,
+            firewall_domain_list_id=firewall_domain_list_id,
+            firewall_rule_group_id=firewall_rule_group_id,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             block_override_dns_type: Optional[pulumi.Input[str]] = None,
+             block_override_domain: Optional[pulumi.Input[str]] = None,
+             block_override_ttl: Optional[pulumi.Input[int]] = None,
+             block_response: Optional[pulumi.Input[str]] = None,
+             firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+             firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if block_override_dns_type is not None:
-            pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
+            _setter("block_override_dns_type", block_override_dns_type)
         if block_override_domain is not None:
-            pulumi.set(__self__, "block_override_domain", block_override_domain)
+            _setter("block_override_domain", block_override_domain)
         if block_override_ttl is not None:
-            pulumi.set(__self__, "block_override_ttl", block_override_ttl)
+            _setter("block_override_ttl", block_override_ttl)
         if block_response is not None:
-            pulumi.set(__self__, "block_response", block_response)
+            _setter("block_response", block_response)
         if firewall_domain_list_id is not None:
-            pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
+            _setter("firewall_domain_list_id", firewall_domain_list_id)
         if firewall_rule_group_id is not None:
-            pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
+            _setter("firewall_rule_group_id", firewall_rule_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -422,6 +472,10 @@ class ResolverFirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverFirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

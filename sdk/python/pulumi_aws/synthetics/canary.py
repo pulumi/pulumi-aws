@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,37 +57,80 @@ class CanaryArgs:
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
-        pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "handler", handler)
-        pulumi.set(__self__, "runtime_version", runtime_version)
-        pulumi.set(__self__, "schedule", schedule)
+        CanaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_s3_location=artifact_s3_location,
+            execution_role_arn=execution_role_arn,
+            handler=handler,
+            runtime_version=runtime_version,
+            schedule=schedule,
+            artifact_config=artifact_config,
+            delete_lambda=delete_lambda,
+            failure_retention_period=failure_retention_period,
+            name=name,
+            run_config=run_config,
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_version=s3_version,
+            start_canary=start_canary,
+            success_retention_period=success_retention_period,
+            tags=tags,
+            vpc_config=vpc_config,
+            zip_file=zip_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_s3_location: pulumi.Input[str],
+             execution_role_arn: pulumi.Input[str],
+             handler: pulumi.Input[str],
+             runtime_version: pulumi.Input[str],
+             schedule: pulumi.Input['CanaryScheduleArgs'],
+             artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+             delete_lambda: Optional[pulumi.Input[bool]] = None,
+             failure_retention_period: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             s3_version: Optional[pulumi.Input[str]] = None,
+             start_canary: Optional[pulumi.Input[bool]] = None,
+             success_retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+             zip_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("artifact_s3_location", artifact_s3_location)
+        _setter("execution_role_arn", execution_role_arn)
+        _setter("handler", handler)
+        _setter("runtime_version", runtime_version)
+        _setter("schedule", schedule)
         if artifact_config is not None:
-            pulumi.set(__self__, "artifact_config", artifact_config)
+            _setter("artifact_config", artifact_config)
         if delete_lambda is not None:
-            pulumi.set(__self__, "delete_lambda", delete_lambda)
+            _setter("delete_lambda", delete_lambda)
         if failure_retention_period is not None:
-            pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+            _setter("failure_retention_period", failure_retention_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if run_config is not None:
-            pulumi.set(__self__, "run_config", run_config)
+            _setter("run_config", run_config)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
         if s3_version is not None:
-            pulumi.set(__self__, "s3_version", s3_version)
+            _setter("s3_version", s3_version)
         if start_canary is not None:
-            pulumi.set(__self__, "start_canary", start_canary)
+            _setter("start_canary", start_canary)
         if success_retention_period is not None:
-            pulumi.set(__self__, "success_retention_period", success_retention_period)
+            _setter("success_retention_period", success_retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
         if zip_file is not None:
-            pulumi.set(__self__, "zip_file", zip_file)
+            _setter("zip_file", zip_file)
 
     @property
     @pulumi.getter(name="artifactS3Location")
@@ -364,57 +407,112 @@ class _CanaryState:
         :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
+        _CanaryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            artifact_config=artifact_config,
+            artifact_s3_location=artifact_s3_location,
+            delete_lambda=delete_lambda,
+            engine_arn=engine_arn,
+            execution_role_arn=execution_role_arn,
+            failure_retention_period=failure_retention_period,
+            handler=handler,
+            name=name,
+            run_config=run_config,
+            runtime_version=runtime_version,
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+            s3_version=s3_version,
+            schedule=schedule,
+            source_location_arn=source_location_arn,
+            start_canary=start_canary,
+            status=status,
+            success_retention_period=success_retention_period,
+            tags=tags,
+            tags_all=tags_all,
+            timelines=timelines,
+            vpc_config=vpc_config,
+            zip_file=zip_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+             artifact_s3_location: Optional[pulumi.Input[str]] = None,
+             delete_lambda: Optional[pulumi.Input[bool]] = None,
+             engine_arn: Optional[pulumi.Input[str]] = None,
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             failure_retention_period: Optional[pulumi.Input[int]] = None,
+             handler: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             s3_version: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['CanaryScheduleArgs']] = None,
+             source_location_arn: Optional[pulumi.Input[str]] = None,
+             start_canary: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             success_retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timelines: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]] = None,
+             vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+             zip_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if artifact_config is not None:
-            pulumi.set(__self__, "artifact_config", artifact_config)
+            _setter("artifact_config", artifact_config)
         if artifact_s3_location is not None:
-            pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
+            _setter("artifact_s3_location", artifact_s3_location)
         if delete_lambda is not None:
-            pulumi.set(__self__, "delete_lambda", delete_lambda)
+            _setter("delete_lambda", delete_lambda)
         if engine_arn is not None:
-            pulumi.set(__self__, "engine_arn", engine_arn)
+            _setter("engine_arn", engine_arn)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if failure_retention_period is not None:
-            pulumi.set(__self__, "failure_retention_period", failure_retention_period)
+            _setter("failure_retention_period", failure_retention_period)
         if handler is not None:
-            pulumi.set(__self__, "handler", handler)
+            _setter("handler", handler)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if run_config is not None:
-            pulumi.set(__self__, "run_config", run_config)
+            _setter("run_config", run_config)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if s3_key is not None:
-            pulumi.set(__self__, "s3_key", s3_key)
+            _setter("s3_key", s3_key)
         if s3_version is not None:
-            pulumi.set(__self__, "s3_version", s3_version)
+            _setter("s3_version", s3_version)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if source_location_arn is not None:
-            pulumi.set(__self__, "source_location_arn", source_location_arn)
+            _setter("source_location_arn", source_location_arn)
         if start_canary is not None:
-            pulumi.set(__self__, "start_canary", start_canary)
+            _setter("start_canary", start_canary)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if success_retention_period is not None:
-            pulumi.set(__self__, "success_retention_period", success_retention_period)
+            _setter("success_retention_period", success_retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if timelines is not None:
-            pulumi.set(__self__, "timelines", timelines)
+            _setter("timelines", timelines)
         if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+            _setter("vpc_config", vpc_config)
         if zip_file is not None:
-            pulumi.set(__self__, "zip_file", zip_file)
+            _setter("zip_file", zip_file)
 
     @property
     @pulumi.getter
@@ -833,6 +931,10 @@ class Canary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CanaryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -865,6 +967,11 @@ class Canary(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CanaryArgs.__new__(CanaryArgs)
 
+            if artifact_config is not None and not isinstance(artifact_config, CanaryArtifactConfigArgs):
+                artifact_config = artifact_config or {}
+                def _setter(key, value):
+                    artifact_config[key] = value
+                CanaryArtifactConfigArgs._configure(_setter, **artifact_config)
             __props__.__dict__["artifact_config"] = artifact_config
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
@@ -878,6 +985,11 @@ class Canary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'handler'")
             __props__.__dict__["handler"] = handler
             __props__.__dict__["name"] = name
+            if run_config is not None and not isinstance(run_config, CanaryRunConfigArgs):
+                run_config = run_config or {}
+                def _setter(key, value):
+                    run_config[key] = value
+                CanaryRunConfigArgs._configure(_setter, **run_config)
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_version'")
@@ -885,12 +997,22 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["s3_bucket"] = s3_bucket
             __props__.__dict__["s3_key"] = s3_key
             __props__.__dict__["s3_version"] = s3_version
+            if schedule is not None and not isinstance(schedule, CanaryScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                CanaryScheduleArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_canary"] = start_canary
             __props__.__dict__["success_retention_period"] = success_retention_period
             __props__.__dict__["tags"] = tags
+            if vpc_config is not None and not isinstance(vpc_config, CanaryVpcConfigArgs):
+                vpc_config = vpc_config or {}
+                def _setter(key, value):
+                    vpc_config[key] = value
+                CanaryVpcConfigArgs._configure(_setter, **vpc_config)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["zip_file"] = zip_file
             __props__.__dict__["arn"] = None

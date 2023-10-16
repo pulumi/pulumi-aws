@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,8 +41,19 @@ class EfsLocationEc2ConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
         :param pulumi.Input[str] subnet_arn: Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
         """
-        pulumi.set(__self__, "security_group_arns", security_group_arns)
-        pulumi.set(__self__, "subnet_arn", subnet_arn)
+        EfsLocationEc2ConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_arns=security_group_arns,
+            subnet_arn=subnet_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_arns", security_group_arns)
+        _setter("subnet_arn", subnet_arn)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -76,7 +87,16 @@ class FsxOpenZfsFileSystemProtocolArgs:
         """
         :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs'] nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
         """
-        pulumi.set(__self__, "nfs", nfs)
+        FsxOpenZfsFileSystemProtocolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nfs=nfs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nfs: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nfs", nfs)
 
     @property
     @pulumi.getter
@@ -98,7 +118,16 @@ class FsxOpenZfsFileSystemProtocolNfsArgs:
         """
         :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs'] mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
         """
-        pulumi.set(__self__, "mount_options", mount_options)
+        FsxOpenZfsFileSystemProtocolNfsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_options=mount_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_options: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -120,8 +149,17 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs:
         """
         :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
         """
+        FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -143,7 +181,16 @@ class LocationAzureBlobSasConfigurationArgs:
         """
         :param pulumi.Input[str] token: A SAS token that provides permissions to access your Azure Blob Storage.
         """
-        pulumi.set(__self__, "token", token)
+        LocationAzureBlobSasConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -167,10 +214,21 @@ class LocationFsxOntapFileSystemProtocolArgs:
         :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs'] nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
         :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs'] smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
         """
+        LocationFsxOntapFileSystemProtocolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nfs=nfs,
+            smb=smb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nfs: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']] = None,
+             smb: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if nfs is not None:
-            pulumi.set(__self__, "nfs", nfs)
+            _setter("nfs", nfs)
         if smb is not None:
-            pulumi.set(__self__, "smb", smb)
+            _setter("smb", smb)
 
     @property
     @pulumi.getter
@@ -204,7 +262,16 @@ class LocationFsxOntapFileSystemProtocolNfsArgs:
         """
         :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs'] mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
         """
-        pulumi.set(__self__, "mount_options", mount_options)
+        LocationFsxOntapFileSystemProtocolNfsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_options=mount_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -226,8 +293,17 @@ class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs:
         """
         :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
         """
+        LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -255,11 +331,26 @@ class LocationFsxOntapFileSystemProtocolSmbArgs:
         :param pulumi.Input[str] user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
         :param pulumi.Input[str] domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
         """
-        pulumi.set(__self__, "mount_options", mount_options)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "user", user)
+        LocationFsxOntapFileSystemProtocolSmbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_options=mount_options,
+            password=password,
+            user=user,
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs'],
+             password: pulumi.Input[str],
+             user: pulumi.Input[str],
+             domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mount_options", mount_options)
+        _setter("password", password)
+        _setter("user", user)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -317,8 +408,17 @@ class LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs:
         """
         :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
         """
+        LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -342,8 +442,19 @@ class LocationHdfsNameNodeArgs:
         :param pulumi.Input[str] hostname: The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
         :param pulumi.Input[int] port: The port that the NameNode uses to listen to client requests.
         """
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "port", port)
+        LocationHdfsNameNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostname=hostname,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostname: pulumi.Input[str],
+             port: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostname", hostname)
+        _setter("port", port)
 
     @property
     @pulumi.getter
@@ -379,10 +490,21 @@ class LocationHdfsQopConfigurationArgs:
         :param pulumi.Input[str] data_transfer_protection: The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
         :param pulumi.Input[str] rpc_protection: The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
         """
+        LocationHdfsQopConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_transfer_protection=data_transfer_protection,
+            rpc_protection=rpc_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_transfer_protection: Optional[pulumi.Input[str]] = None,
+             rpc_protection: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if data_transfer_protection is not None:
-            pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
+            _setter("data_transfer_protection", data_transfer_protection)
         if rpc_protection is not None:
-            pulumi.set(__self__, "rpc_protection", rpc_protection)
+            _setter("rpc_protection", rpc_protection)
 
     @property
     @pulumi.getter(name="dataTransferProtection")
@@ -416,8 +538,17 @@ class LocationSmbMountOptionsArgs:
         """
         :param pulumi.Input[str] version: The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
         """
+        LocationSmbMountOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -439,8 +570,17 @@ class NfsLocationMountOptionsArgs:
         """
         :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
         """
+        NfsLocationMountOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -462,7 +602,16 @@ class NfsLocationOnPremConfigArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
+        NfsLocationOnPremConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("agent_arns", agent_arns)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -484,7 +633,16 @@ class S3LocationS3ConfigArgs:
         """
         :param pulumi.Input[str] bucket_access_role_arn: ARN of the IAM Role used to connect to the S3 Bucket.
         """
-        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+        S3LocationS3ConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_access_role_arn=bucket_access_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_access_role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_access_role_arn", bucket_access_role_arn)
 
     @property
     @pulumi.getter(name="bucketAccessRoleArn")
@@ -508,10 +666,21 @@ class TaskExcludesArgs:
         :param pulumi.Input[str] filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
         :param pulumi.Input[str] value: A single filter string that consists of the patterns to exclude. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         """
+        TaskExcludesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_type=filter_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="filterType")
@@ -547,10 +716,21 @@ class TaskIncludesArgs:
         :param pulumi.Input[str] filter_type: The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
         :param pulumi.Input[str] value: A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         """
+        TaskIncludesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_type=filter_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if filter_type is not None:
-            pulumi.set(__self__, "filter_type", filter_type)
+            _setter("filter_type", filter_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="filterType")
@@ -612,36 +792,73 @@ class TaskOptionsArgs:
         :param pulumi.Input[str] uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param pulumi.Input[str] verify_mode: Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
         """
+        TaskOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            atime=atime,
+            bytes_per_second=bytes_per_second,
+            gid=gid,
+            log_level=log_level,
+            mtime=mtime,
+            object_tags=object_tags,
+            overwrite_mode=overwrite_mode,
+            posix_permissions=posix_permissions,
+            preserve_deleted_files=preserve_deleted_files,
+            preserve_devices=preserve_devices,
+            security_descriptor_copy_flags=security_descriptor_copy_flags,
+            task_queueing=task_queueing,
+            transfer_mode=transfer_mode,
+            uid=uid,
+            verify_mode=verify_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             atime: Optional[pulumi.Input[str]] = None,
+             bytes_per_second: Optional[pulumi.Input[int]] = None,
+             gid: Optional[pulumi.Input[str]] = None,
+             log_level: Optional[pulumi.Input[str]] = None,
+             mtime: Optional[pulumi.Input[str]] = None,
+             object_tags: Optional[pulumi.Input[str]] = None,
+             overwrite_mode: Optional[pulumi.Input[str]] = None,
+             posix_permissions: Optional[pulumi.Input[str]] = None,
+             preserve_deleted_files: Optional[pulumi.Input[str]] = None,
+             preserve_devices: Optional[pulumi.Input[str]] = None,
+             security_descriptor_copy_flags: Optional[pulumi.Input[str]] = None,
+             task_queueing: Optional[pulumi.Input[str]] = None,
+             transfer_mode: Optional[pulumi.Input[str]] = None,
+             uid: Optional[pulumi.Input[str]] = None,
+             verify_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if atime is not None:
-            pulumi.set(__self__, "atime", atime)
+            _setter("atime", atime)
         if bytes_per_second is not None:
-            pulumi.set(__self__, "bytes_per_second", bytes_per_second)
+            _setter("bytes_per_second", bytes_per_second)
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if mtime is not None:
-            pulumi.set(__self__, "mtime", mtime)
+            _setter("mtime", mtime)
         if object_tags is not None:
-            pulumi.set(__self__, "object_tags", object_tags)
+            _setter("object_tags", object_tags)
         if overwrite_mode is not None:
-            pulumi.set(__self__, "overwrite_mode", overwrite_mode)
+            _setter("overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
-            pulumi.set(__self__, "posix_permissions", posix_permissions)
+            _setter("posix_permissions", posix_permissions)
         if preserve_deleted_files is not None:
-            pulumi.set(__self__, "preserve_deleted_files", preserve_deleted_files)
+            _setter("preserve_deleted_files", preserve_deleted_files)
         if preserve_devices is not None:
-            pulumi.set(__self__, "preserve_devices", preserve_devices)
+            _setter("preserve_devices", preserve_devices)
         if security_descriptor_copy_flags is not None:
-            pulumi.set(__self__, "security_descriptor_copy_flags", security_descriptor_copy_flags)
+            _setter("security_descriptor_copy_flags", security_descriptor_copy_flags)
         if task_queueing is not None:
-            pulumi.set(__self__, "task_queueing", task_queueing)
+            _setter("task_queueing", task_queueing)
         if transfer_mode is not None:
-            pulumi.set(__self__, "transfer_mode", transfer_mode)
+            _setter("transfer_mode", transfer_mode)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
         if verify_mode is not None:
-            pulumi.set(__self__, "verify_mode", verify_mode)
+            _setter("verify_mode", verify_mode)
 
     @property
     @pulumi.getter
@@ -831,7 +1048,16 @@ class TaskScheduleArgs:
         """
         :param pulumi.Input[str] schedule_expression: Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        TaskScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")

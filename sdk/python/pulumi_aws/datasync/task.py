@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,47 @@ class TaskArgs:
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "destination_location_arn", destination_location_arn)
-        pulumi.set(__self__, "source_location_arn", source_location_arn)
+        TaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_location_arn=destination_location_arn,
+            source_location_arn=source_location_arn,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            excludes=excludes,
+            includes=includes,
+            name=name,
+            options=options,
+            schedule=schedule,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_location_arn: pulumi.Input[str],
+             source_location_arn: pulumi.Input[str],
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
+             includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
+             schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_location_arn", destination_location_arn)
+        _setter("source_location_arn", source_location_arn)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationLocationArn")
@@ -191,31 +216,60 @@ class _TaskState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TaskState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            destination_location_arn=destination_location_arn,
+            excludes=excludes,
+            includes=includes,
+            name=name,
+            options=options,
+            schedule=schedule,
+            source_location_arn=source_location_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             destination_location_arn: Optional[pulumi.Input[str]] = None,
+             excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
+             includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
+             schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
+             source_location_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if destination_location_arn is not None:
-            pulumi.set(__self__, "destination_location_arn", destination_location_arn)
+            _setter("destination_location_arn", destination_location_arn)
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if source_location_arn is not None:
-            pulumi.set(__self__, "source_location_arn", source_location_arn)
+            _setter("source_location_arn", source_location_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -484,6 +538,10 @@ class Task(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -511,10 +569,30 @@ class Task(pulumi.CustomResource):
             if destination_location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_location_arn'")
             __props__.__dict__["destination_location_arn"] = destination_location_arn
+            if excludes is not None and not isinstance(excludes, TaskExcludesArgs):
+                excludes = excludes or {}
+                def _setter(key, value):
+                    excludes[key] = value
+                TaskExcludesArgs._configure(_setter, **excludes)
             __props__.__dict__["excludes"] = excludes
+            if includes is not None and not isinstance(includes, TaskIncludesArgs):
+                includes = includes or {}
+                def _setter(key, value):
+                    includes[key] = value
+                TaskIncludesArgs._configure(_setter, **includes)
             __props__.__dict__["includes"] = includes
             __props__.__dict__["name"] = name
+            if options is not None and not isinstance(options, TaskOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                TaskOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
+            if schedule is not None and not isinstance(schedule, TaskScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                TaskScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             if source_location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_location_arn'")

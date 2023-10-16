@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationAdminAccountArgs', 'OrganizationAdminAccount']
@@ -19,7 +19,16 @@ class OrganizationAdminAccountArgs:
         The set of arguments for constructing a OrganizationAdminAccount resource.
         :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
-        pulumi.set(__self__, "admin_account_id", admin_account_id)
+        OrganizationAdminAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -42,8 +51,17 @@ class _OrganizationAdminAccountState:
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
         :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
+        _OrganizationAdminAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_account_id=admin_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if admin_account_id is not None:
-            pulumi.set(__self__, "admin_account_id", admin_account_id)
+            _setter("admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
@@ -129,6 +147,10 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationAdminAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainDkimArgs', 'DomainDkim']
@@ -19,7 +19,16 @@ class DomainDkimArgs:
         The set of arguments for constructing a DomainDkim resource.
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
         """
-        pulumi.set(__self__, "domain", domain)
+        DomainDkimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain", domain)
 
     @property
     @pulumi.getter
@@ -49,10 +58,21 @@ class _DomainDkimState:
                in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
         :param pulumi.Input[str] domain: Verified domain name to generate DKIM tokens for.
         """
+        _DomainDkimState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dkim_tokens=dkim_tokens,
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dkim_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dkim_tokens is not None:
-            pulumi.set(__self__, "dkim_tokens", dkim_tokens)
+            _setter("dkim_tokens", dkim_tokens)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
 
     @property
     @pulumi.getter(name="dkimTokens")
@@ -173,6 +193,10 @@ class DomainDkim(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainDkimArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

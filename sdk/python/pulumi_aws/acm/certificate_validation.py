@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateValidationArgs', 'CertificateValidation']
@@ -21,9 +21,20 @@ class CertificateValidationArgs:
         :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        CertificateValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            validation_record_fqdns=validation_record_fqdns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: pulumi.Input[str],
+             validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_arn", certificate_arn)
         if validation_record_fqdns is not None:
-            pulumi.set(__self__, "validation_record_fqdns", validation_record_fqdns)
+            _setter("validation_record_fqdns", validation_record_fqdns)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -60,10 +71,21 @@ class _CertificateValidationState:
         :param pulumi.Input[str] certificate_arn: ARN of the certificate that is being validated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
+        _CertificateValidationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            validation_record_fqdns=validation_record_fqdns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if validation_record_fqdns is not None:
-            pulumi.set(__self__, "validation_record_fqdns", validation_record_fqdns)
+            _setter("validation_record_fqdns", validation_record_fqdns)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -213,6 +235,10 @@ class CertificateValidation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateValidationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

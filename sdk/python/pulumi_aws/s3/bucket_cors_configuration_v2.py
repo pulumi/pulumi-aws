@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class BucketCorsConfigurationV2Args:
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "cors_rules", cors_rules)
+        BucketCorsConfigurationV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            cors_rules=cors_rules,
+            expected_bucket_owner=expected_bucket_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             cors_rules: pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]],
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket", bucket)
+        _setter("cors_rules", cors_rules)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter
@@ -79,12 +92,25 @@ class _BucketCorsConfigurationV2State:
         :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
+        _BucketCorsConfigurationV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            cors_rules=cors_rules,
+            expected_bucket_owner=expected_bucket_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter
@@ -256,6 +282,10 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketCorsConfigurationV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

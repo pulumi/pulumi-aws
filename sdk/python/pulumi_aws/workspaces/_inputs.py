@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,12 +24,25 @@ class ConnectionAliasTimeoutsArgs:
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[str]] = None):
+        ConnectionAliasTimeoutsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[pulumi.Input[str]] = None,
+             delete: Optional[pulumi.Input[str]] = None,
+             update: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter
@@ -74,16 +87,33 @@ class DirectorySelfServicePermissionsArgs:
         :param pulumi.Input[bool] restart_workspace: Whether WorkSpaces directory users can restart their workspace. Default `true`.
         :param pulumi.Input[bool] switch_running_mode: Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
         """
+        DirectorySelfServicePermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_compute_type=change_compute_type,
+            increase_volume_size=increase_volume_size,
+            rebuild_workspace=rebuild_workspace,
+            restart_workspace=restart_workspace,
+            switch_running_mode=switch_running_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_compute_type: Optional[pulumi.Input[bool]] = None,
+             increase_volume_size: Optional[pulumi.Input[bool]] = None,
+             rebuild_workspace: Optional[pulumi.Input[bool]] = None,
+             restart_workspace: Optional[pulumi.Input[bool]] = None,
+             switch_running_mode: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if change_compute_type is not None:
-            pulumi.set(__self__, "change_compute_type", change_compute_type)
+            _setter("change_compute_type", change_compute_type)
         if increase_volume_size is not None:
-            pulumi.set(__self__, "increase_volume_size", increase_volume_size)
+            _setter("increase_volume_size", increase_volume_size)
         if rebuild_workspace is not None:
-            pulumi.set(__self__, "rebuild_workspace", rebuild_workspace)
+            _setter("rebuild_workspace", rebuild_workspace)
         if restart_workspace is not None:
-            pulumi.set(__self__, "restart_workspace", restart_workspace)
+            _setter("restart_workspace", restart_workspace)
         if switch_running_mode is not None:
-            pulumi.set(__self__, "switch_running_mode", switch_running_mode)
+            _setter("switch_running_mode", switch_running_mode)
 
     @property
     @pulumi.getter(name="changeComputeType")
@@ -167,22 +197,45 @@ class DirectoryWorkspaceAccessPropertiesArgs:
         :param pulumi.Input[str] device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
         :param pulumi.Input[str] device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
         """
+        DirectoryWorkspaceAccessPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_type_android=device_type_android,
+            device_type_chromeos=device_type_chromeos,
+            device_type_ios=device_type_ios,
+            device_type_linux=device_type_linux,
+            device_type_osx=device_type_osx,
+            device_type_web=device_type_web,
+            device_type_windows=device_type_windows,
+            device_type_zeroclient=device_type_zeroclient,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_type_android: Optional[pulumi.Input[str]] = None,
+             device_type_chromeos: Optional[pulumi.Input[str]] = None,
+             device_type_ios: Optional[pulumi.Input[str]] = None,
+             device_type_linux: Optional[pulumi.Input[str]] = None,
+             device_type_osx: Optional[pulumi.Input[str]] = None,
+             device_type_web: Optional[pulumi.Input[str]] = None,
+             device_type_windows: Optional[pulumi.Input[str]] = None,
+             device_type_zeroclient: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if device_type_android is not None:
-            pulumi.set(__self__, "device_type_android", device_type_android)
+            _setter("device_type_android", device_type_android)
         if device_type_chromeos is not None:
-            pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
+            _setter("device_type_chromeos", device_type_chromeos)
         if device_type_ios is not None:
-            pulumi.set(__self__, "device_type_ios", device_type_ios)
+            _setter("device_type_ios", device_type_ios)
         if device_type_linux is not None:
-            pulumi.set(__self__, "device_type_linux", device_type_linux)
+            _setter("device_type_linux", device_type_linux)
         if device_type_osx is not None:
-            pulumi.set(__self__, "device_type_osx", device_type_osx)
+            _setter("device_type_osx", device_type_osx)
         if device_type_web is not None:
-            pulumi.set(__self__, "device_type_web", device_type_web)
+            _setter("device_type_web", device_type_web)
         if device_type_windows is not None:
-            pulumi.set(__self__, "device_type_windows", device_type_windows)
+            _setter("device_type_windows", device_type_windows)
         if device_type_zeroclient is not None:
-            pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+            _setter("device_type_zeroclient", device_type_zeroclient)
 
     @property
     @pulumi.getter(name="deviceTypeAndroid")
@@ -296,16 +349,33 @@ class DirectoryWorkspaceCreationPropertiesArgs:
         :param pulumi.Input[bool] enable_maintenance_mode: Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
         :param pulumi.Input[bool] user_enabled_as_local_administrator: Indicates whether users are local administrators of their WorkSpaces.
         """
+        DirectoryWorkspaceCreationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_security_group_id=custom_security_group_id,
+            default_ou=default_ou,
+            enable_internet_access=enable_internet_access,
+            enable_maintenance_mode=enable_maintenance_mode,
+            user_enabled_as_local_administrator=user_enabled_as_local_administrator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_security_group_id: Optional[pulumi.Input[str]] = None,
+             default_ou: Optional[pulumi.Input[str]] = None,
+             enable_internet_access: Optional[pulumi.Input[bool]] = None,
+             enable_maintenance_mode: Optional[pulumi.Input[bool]] = None,
+             user_enabled_as_local_administrator: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_security_group_id is not None:
-            pulumi.set(__self__, "custom_security_group_id", custom_security_group_id)
+            _setter("custom_security_group_id", custom_security_group_id)
         if default_ou is not None:
-            pulumi.set(__self__, "default_ou", default_ou)
+            _setter("default_ou", default_ou)
         if enable_internet_access is not None:
-            pulumi.set(__self__, "enable_internet_access", enable_internet_access)
+            _setter("enable_internet_access", enable_internet_access)
         if enable_maintenance_mode is not None:
-            pulumi.set(__self__, "enable_maintenance_mode", enable_maintenance_mode)
+            _setter("enable_maintenance_mode", enable_maintenance_mode)
         if user_enabled_as_local_administrator is not None:
-            pulumi.set(__self__, "user_enabled_as_local_administrator", user_enabled_as_local_administrator)
+            _setter("user_enabled_as_local_administrator", user_enabled_as_local_administrator)
 
     @property
     @pulumi.getter(name="customSecurityGroupId")
@@ -377,9 +447,20 @@ class IpGroupRuleArgs:
         :param pulumi.Input[str] source: The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         :param pulumi.Input[str] description: The description of the IP group.
         """
-        pulumi.set(__self__, "source", source)
+        IpGroupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source", source)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -421,16 +502,33 @@ class WorkspaceWorkspacePropertiesArgs:
         :param pulumi.Input[int] running_mode_auto_stop_timeout_in_minutes: The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         :param pulumi.Input[int] user_volume_size_gib: The size of the user storage.
         """
+        WorkspaceWorkspacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type_name=compute_type_name,
+            root_volume_size_gib=root_volume_size_gib,
+            running_mode=running_mode,
+            running_mode_auto_stop_timeout_in_minutes=running_mode_auto_stop_timeout_in_minutes,
+            user_volume_size_gib=user_volume_size_gib,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type_name: Optional[pulumi.Input[str]] = None,
+             root_volume_size_gib: Optional[pulumi.Input[int]] = None,
+             running_mode: Optional[pulumi.Input[str]] = None,
+             running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             user_volume_size_gib: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_type_name is not None:
-            pulumi.set(__self__, "compute_type_name", compute_type_name)
+            _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
-            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+            _setter("root_volume_size_gib", root_volume_size_gib)
         if running_mode is not None:
-            pulumi.set(__self__, "running_mode", running_mode)
+            _setter("running_mode", running_mode)
         if running_mode_auto_stop_timeout_in_minutes is not None:
-            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+            _setter("running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
         if user_volume_size_gib is not None:
-            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+            _setter("user_volume_size_gib", user_volume_size_gib)
 
     @property
     @pulumi.getter(name="computeTypeName")

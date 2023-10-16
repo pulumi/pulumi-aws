@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,8 +22,19 @@ class VaultNotificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         :param pulumi.Input[str] sns_topic: The SNS Topic ARN.
         """
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "sns_topic", sns_topic)
+        VaultNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+            sns_topic=sns_topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             sns_topic: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("events", events)
+        _setter("sns_topic", sns_topic)
 
     @property
     @pulumi.getter

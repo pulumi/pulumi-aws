@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitVirtualInterfaceArgs', 'TransitVirtualInterface']
@@ -42,25 +42,56 @@ class TransitVirtualInterfaceArgs:
         :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
-        pulumi.set(__self__, "vlan", vlan)
+        TransitVirtualInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            bgp_asn=bgp_asn,
+            connection_id=connection_id,
+            dx_gateway_id=dx_gateway_id,
+            vlan=vlan,
+            amazon_address=amazon_address,
+            bgp_auth_key=bgp_auth_key,
+            customer_address=customer_address,
+            mtu=mtu,
+            name=name,
+            sitelink_enabled=sitelink_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input[str],
+             bgp_asn: pulumi.Input[int],
+             connection_id: pulumi.Input[str],
+             dx_gateway_id: pulumi.Input[str],
+             vlan: pulumi.Input[int],
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sitelink_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_family", address_family)
+        _setter("bgp_asn", bgp_asn)
+        _setter("connection_id", connection_id)
+        _setter("dx_gateway_id", dx_gateway_id)
+        _setter("vlan", vlan)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sitelink_enabled is not None:
-            pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
+            _setter("sitelink_enabled", sitelink_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -248,43 +279,84 @@ class _TransitVirtualInterfaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
+        _TransitVirtualInterfaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            amazon_address=amazon_address,
+            amazon_side_asn=amazon_side_asn,
+            arn=arn,
+            aws_device=aws_device,
+            bgp_asn=bgp_asn,
+            bgp_auth_key=bgp_auth_key,
+            connection_id=connection_id,
+            customer_address=customer_address,
+            dx_gateway_id=dx_gateway_id,
+            jumbo_frame_capable=jumbo_frame_capable,
+            mtu=mtu,
+            name=name,
+            sitelink_enabled=sitelink_enabled,
+            tags=tags,
+            tags_all=tags_all,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[str]] = None,
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             amazon_side_asn: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bgp_asn: Optional[pulumi.Input[int]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
+             mtu: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sitelink_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_family is not None:
-            pulumi.set(__self__, "address_family", address_family)
+            _setter("address_family", address_family)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bgp_asn is not None:
-            pulumi.set(__self__, "bgp_asn", bgp_asn)
+            _setter("bgp_asn", bgp_asn)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if jumbo_frame_capable is not None:
-            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
+            _setter("jumbo_frame_capable", jumbo_frame_capable)
         if mtu is not None:
-            pulumi.set(__self__, "mtu", mtu)
+            _setter("mtu", mtu)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sitelink_enabled is not None:
-            pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
+            _setter("sitelink_enabled", sitelink_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -596,6 +668,10 @@ class TransitVirtualInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitVirtualInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

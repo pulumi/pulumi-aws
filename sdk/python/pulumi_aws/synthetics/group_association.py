@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupAssociationArgs', 'GroupAssociation']
@@ -21,8 +21,19 @@ class GroupAssociationArgs:
         :param pulumi.Input[str] canary_arn: ARN of the canary.
         :param pulumi.Input[str] group_name: Name of the group that the canary will be associated with.
         """
-        pulumi.set(__self__, "canary_arn", canary_arn)
-        pulumi.set(__self__, "group_name", group_name)
+        GroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            canary_arn=canary_arn,
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             canary_arn: pulumi.Input[str],
+             group_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("canary_arn", canary_arn)
+        _setter("group_name", group_name)
 
     @property
     @pulumi.getter(name="canaryArn")
@@ -62,14 +73,29 @@ class _GroupAssociationState:
         :param pulumi.Input[str] group_id: ID of the Group.
         :param pulumi.Input[str] group_name: Name of the group that the canary will be associated with.
         """
+        _GroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            canary_arn=canary_arn,
+            group_arn=group_arn,
+            group_id=group_id,
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             canary_arn: Optional[pulumi.Input[str]] = None,
+             group_arn: Optional[pulumi.Input[str]] = None,
+             group_id: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if canary_arn is not None:
-            pulumi.set(__self__, "canary_arn", canary_arn)
+            _setter("canary_arn", canary_arn)
         if group_arn is not None:
-            pulumi.set(__self__, "group_arn", group_arn)
+            _setter("group_arn", group_arn)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
 
     @property
     @pulumi.getter(name="canaryArn")
@@ -192,6 +218,10 @@ class GroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

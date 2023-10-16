@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -152,8 +152,19 @@ class ConnectorProfileConnectorProfileConfig(dict):
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs' connector_profile_credentials: The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs' connector_profile_properties: The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
         """
-        pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
-        pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
+        ConnectorProfileConnectorProfileConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_profile_credentials=connector_profile_credentials,
+            connector_profile_properties=connector_profile_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_profile_credentials: 'outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials',
+             connector_profile_properties: 'outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_profile_credentials", connector_profile_credentials)
+        _setter("connector_profile_properties", connector_profile_properties)
 
     @property
     @pulumi.getter(name="connectorProfileCredentials")
@@ -238,42 +249,85 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials(dict):
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs' veeva: Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs' zendesk: Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amplitude=amplitude,
+            custom_connector=custom_connector,
+            datadog=datadog,
+            dynatrace=dynatrace,
+            google_analytics=google_analytics,
+            honeycode=honeycode,
+            infor_nexus=infor_nexus,
+            marketo=marketo,
+            redshift=redshift,
+            salesforce=salesforce,
+            sapo_data=sapo_data,
+            service_now=service_now,
+            singular=singular,
+            slack=slack,
+            snowflake=snowflake,
+            trendmicro=trendmicro,
+            veeva=veeva,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amplitude: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude'] = None,
+             custom_connector: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector'] = None,
+             datadog: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog'] = None,
+             dynatrace: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace'] = None,
+             google_analytics: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics'] = None,
+             honeycode: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode'] = None,
+             infor_nexus: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus'] = None,
+             marketo: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo'] = None,
+             redshift: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift'] = None,
+             salesforce: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce'] = None,
+             sapo_data: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData'] = None,
+             service_now: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow'] = None,
+             singular: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular'] = None,
+             slack: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack'] = None,
+             snowflake: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake'] = None,
+             trendmicro: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro'] = None,
+             veeva: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva'] = None,
+             zendesk: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amplitude is not None:
-            pulumi.set(__self__, "amplitude", amplitude)
+            _setter("amplitude", amplitude)
         if custom_connector is not None:
-            pulumi.set(__self__, "custom_connector", custom_connector)
+            _setter("custom_connector", custom_connector)
         if datadog is not None:
-            pulumi.set(__self__, "datadog", datadog)
+            _setter("datadog", datadog)
         if dynatrace is not None:
-            pulumi.set(__self__, "dynatrace", dynatrace)
+            _setter("dynatrace", dynatrace)
         if google_analytics is not None:
-            pulumi.set(__self__, "google_analytics", google_analytics)
+            _setter("google_analytics", google_analytics)
         if honeycode is not None:
-            pulumi.set(__self__, "honeycode", honeycode)
+            _setter("honeycode", honeycode)
         if infor_nexus is not None:
-            pulumi.set(__self__, "infor_nexus", infor_nexus)
+            _setter("infor_nexus", infor_nexus)
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if sapo_data is not None:
-            pulumi.set(__self__, "sapo_data", sapo_data)
+            _setter("sapo_data", sapo_data)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if singular is not None:
-            pulumi.set(__self__, "singular", singular)
+            _setter("singular", singular)
         if slack is not None:
-            pulumi.set(__self__, "slack", slack)
+            _setter("slack", slack)
         if snowflake is not None:
-            pulumi.set(__self__, "snowflake", snowflake)
+            _setter("snowflake", snowflake)
         if trendmicro is not None:
-            pulumi.set(__self__, "trendmicro", trendmicro)
+            _setter("trendmicro", trendmicro)
         if veeva is not None:
-            pulumi.set(__self__, "veeva", veeva)
+            _setter("veeva", veeva)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -448,8 +502,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
         :param str api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         :param str secret_key: The Secret Access Key portion of the credentials.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "secret_key", secret_key)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            secret_key=secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             secret_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
+        _setter("secret_key", secret_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -502,15 +567,32 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs' custom: If the connector uses the custom authentication mechanism, this holds the required credentials.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args' oauth2: OAuth 2.0 credentials required for the authentication of the user.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            api_key=api_key,
+            basic=basic,
+            custom=custom,
+            oauth2=oauth2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: str,
+             api_key: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey'] = None,
+             basic: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic'] = None,
+             custom: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom'] = None,
+             oauth2: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_type", authentication_type)
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if basic is not None:
-            pulumi.set(__self__, "basic", basic)
+            _setter("basic", basic)
         if custom is not None:
-            pulumi.set(__self__, "custom", custom)
+            _setter("custom", custom)
         if oauth2 is not None:
-            pulumi.set(__self__, "oauth2", oauth2)
+            _setter("oauth2", oauth2)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -581,9 +663,20 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param str api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         :param str api_secret_key: The API secret key required for API key authentication.
         """
-        pulumi.set(__self__, "api_key", api_key)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            api_secret_key=api_secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             api_secret_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
         if api_secret_key is not None:
-            pulumi.set(__self__, "api_secret_key", api_secret_key)
+            _setter("api_secret_key", api_secret_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -611,8 +704,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -659,9 +763,20 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param str custom_authentication_type: The custom authentication type that the connector uses.
         :param Mapping[str, str] credentials_map: A map that holds custom authentication credentials.
         """
-        pulumi.set(__self__, "custom_authentication_type", custom_authentication_type)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_authentication_type=custom_authentication_type,
+            credentials_map=credentials_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_authentication_type: str,
+             credentials_map: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_authentication_type", custom_authentication_type)
         if credentials_map is not None:
-            pulumi.set(__self__, "credentials_map", credentials_map)
+            _setter("credentials_map", credentials_map)
 
     @property
     @pulumi.getter(name="customAuthenticationType")
@@ -720,16 +835,33 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            client_id=client_id,
+            client_secret=client_secret,
+            oauth_request=oauth_request,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest'] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -800,10 +932,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -850,8 +993,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(d
         :param str api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         :param str application_key: Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "application_key", application_key)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_key=application_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             application_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
+        _setter("application_key", application_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -894,7 +1048,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace
         """
         :param str api_token: The API tokens used by Dynatrace API to authenticate various API calls.
         """
-        pulumi.set(__self__, "api_token", api_token)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_token=api_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_token: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_token", api_token)
 
     @property
     @pulumi.getter(name="apiToken")
@@ -945,14 +1108,31 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            access_token=access_token,
+            oauth_request=oauth_request,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: str,
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest'] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1023,10 +1203,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1077,12 +1268,25 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            oauth_request=oauth_request,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest'] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -1137,10 +1341,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1193,10 +1408,25 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexu
         :param str secret_access_key: The secret key used to sign requests.
         :param str user_id: Identifier for the user.
         """
-        pulumi.set(__self__, "access_key_id", access_key_id)
-        pulumi.set(__self__, "datakey", datakey)
-        pulumi.set(__self__, "secret_access_key", secret_access_key)
-        pulumi.set(__self__, "user_id", user_id)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key_id=access_key_id,
+            datakey=datakey,
+            secret_access_key=secret_access_key,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key_id: str,
+             datakey: str,
+             secret_access_key: str,
+             user_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access_key_id", access_key_id)
+        _setter("datakey", datakey)
+        _setter("secret_access_key", secret_access_key)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -1267,12 +1497,27 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(d
         :param str access_token: The access token used to access the connector on your behalf.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            access_token=access_token,
+            oauth_request=oauth_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: str,
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1335,10 +1580,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOa
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1366,8 +1622,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift(
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1422,14 +1689,29 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            client_credentials_arn=client_credentials_arn,
+            oauth_request=oauth_request,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             client_credentials_arn: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest'] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if client_credentials_arn is not None:
-            pulumi.set(__self__, "client_credentials_arn", client_credentials_arn)
+            _setter("client_credentials_arn", client_credentials_arn)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -1492,10 +1774,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1542,10 +1835,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs' basic_auth_credentials: The SAPOData basic authentication credentials.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs' oauth_credentials: The SAPOData OAuth type authentication credentials.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            basic_auth_credentials=basic_auth_credentials,
+            oauth_credentials=oauth_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             basic_auth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials'] = None,
+             oauth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+            _setter("basic_auth_credentials", basic_auth_credentials)
         if oauth_credentials is not None:
-            pulumi.set(__self__, "oauth_credentials", oauth_credentials)
+            _setter("oauth_credentials", oauth_credentials)
 
     @property
     @pulumi.getter(name="basicAuthCredentials")
@@ -1573,8 +1877,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1633,14 +1948,31 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            access_token=access_token,
+            oauth_request=oauth_request,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: str,
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest'] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1711,10 +2043,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1742,8 +2085,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1786,7 +2140,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(
         """
         :param str api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
         """
-        pulumi.set(__self__, "api_key", api_key)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -1833,12 +2196,27 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack(dic
         :param str access_token: The access token used to access the connector on your behalf.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            access_token=access_token,
+            oauth_request=oauth_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: str,
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1901,10 +2279,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOaut
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -1932,8 +2321,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1976,7 +2376,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicr
         """
         :param str api_secret_key: The API secret key required for API key authentication.
         """
-        pulumi.set(__self__, "api_secret_key", api_secret_key)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_secret_key=api_secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_secret_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_secret_key", api_secret_key)
 
     @property
     @pulumi.getter(name="apiSecretKey")
@@ -1996,8 +2405,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva(dic
         :param str password: The password to use to connect to a resource.
         :param str username: The username to use to connect to a resource.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2052,12 +2472,27 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk(d
         :param str access_token: The access token used to access the connector on your behalf.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            access_token=access_token,
+            oauth_request=oauth_request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: str,
+             client_secret: str,
+             access_token: Optional[str] = None,
+             oauth_request: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if oauth_request is not None:
-            pulumi.set(__self__, "oauth_request", oauth_request)
+            _setter("oauth_request", oauth_request)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2120,10 +2555,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOa
         :param str auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param str redirect_uri: The URL to which the authentication server redirects the browser after authorization has been granted.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code=auth_code,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code: Optional[str] = None,
+             redirect_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="authCode")
@@ -2208,42 +2654,85 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs' veeva: Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs' zendesk: Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfileProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amplitude=amplitude,
+            custom_connector=custom_connector,
+            datadog=datadog,
+            dynatrace=dynatrace,
+            google_analytics=google_analytics,
+            honeycode=honeycode,
+            infor_nexus=infor_nexus,
+            marketo=marketo,
+            redshift=redshift,
+            salesforce=salesforce,
+            sapo_data=sapo_data,
+            service_now=service_now,
+            singular=singular,
+            slack=slack,
+            snowflake=snowflake,
+            trendmicro=trendmicro,
+            veeva=veeva,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amplitude: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude'] = None,
+             custom_connector: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector'] = None,
+             datadog: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog'] = None,
+             dynatrace: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace'] = None,
+             google_analytics: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics'] = None,
+             honeycode: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode'] = None,
+             infor_nexus: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus'] = None,
+             marketo: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo'] = None,
+             redshift: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift'] = None,
+             salesforce: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce'] = None,
+             sapo_data: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData'] = None,
+             service_now: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow'] = None,
+             singular: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular'] = None,
+             slack: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack'] = None,
+             snowflake: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake'] = None,
+             trendmicro: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro'] = None,
+             veeva: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva'] = None,
+             zendesk: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amplitude is not None:
-            pulumi.set(__self__, "amplitude", amplitude)
+            _setter("amplitude", amplitude)
         if custom_connector is not None:
-            pulumi.set(__self__, "custom_connector", custom_connector)
+            _setter("custom_connector", custom_connector)
         if datadog is not None:
-            pulumi.set(__self__, "datadog", datadog)
+            _setter("datadog", datadog)
         if dynatrace is not None:
-            pulumi.set(__self__, "dynatrace", dynatrace)
+            _setter("dynatrace", dynatrace)
         if google_analytics is not None:
-            pulumi.set(__self__, "google_analytics", google_analytics)
+            _setter("google_analytics", google_analytics)
         if honeycode is not None:
-            pulumi.set(__self__, "honeycode", honeycode)
+            _setter("honeycode", honeycode)
         if infor_nexus is not None:
-            pulumi.set(__self__, "infor_nexus", infor_nexus)
+            _setter("infor_nexus", infor_nexus)
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if sapo_data is not None:
-            pulumi.set(__self__, "sapo_data", sapo_data)
+            _setter("sapo_data", sapo_data)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if singular is not None:
-            pulumi.set(__self__, "singular", singular)
+            _setter("singular", singular)
         if slack is not None:
-            pulumi.set(__self__, "slack", slack)
+            _setter("slack", slack)
         if snowflake is not None:
-            pulumi.set(__self__, "snowflake", snowflake)
+            _setter("snowflake", snowflake)
         if trendmicro is not None:
-            pulumi.set(__self__, "trendmicro", trendmicro)
+            _setter("trendmicro", trendmicro)
         if veeva is not None:
-            pulumi.set(__self__, "veeva", veeva)
+            _setter("veeva", veeva)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -2394,6 +2883,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -2424,10 +2918,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs' oauth2_properties: The OAuth 2.0 properties required for OAuth 2.0 authentication.
         :param Mapping[str, str] profile_properties: A map of properties that are required to create a profile for the custom connector.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oauth2_properties=oauth2_properties,
+            profile_properties=profile_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oauth2_properties: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties'] = None,
+             profile_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if oauth2_properties is not None:
-            pulumi.set(__self__, "oauth2_properties", oauth2_properties)
+            _setter("oauth2_properties", oauth2_properties)
         if profile_properties is not None:
-            pulumi.set(__self__, "profile_properties", profile_properties)
+            _setter("profile_properties", profile_properties)
 
     @property
     @pulumi.getter(name="oauth2Properties")
@@ -2478,10 +2983,23 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
         :param str token_url: The token URL required for OAuth 2.0 authentication.
         :param Mapping[str, str] token_url_custom_properties: Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
         """
-        pulumi.set(__self__, "oauth2_grant_type", oauth2_grant_type)
-        pulumi.set(__self__, "token_url", token_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oauth2_grant_type=oauth2_grant_type,
+            token_url=token_url,
+            token_url_custom_properties=token_url_custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oauth2_grant_type: str,
+             token_url: str,
+             token_url_custom_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("oauth2_grant_type", oauth2_grant_type)
+        _setter("token_url", token_url)
         if token_url_custom_properties is not None:
-            pulumi.set(__self__, "token_url_custom_properties", token_url_custom_properties)
+            _setter("token_url_custom_properties", token_url_custom_properties)
 
     @property
     @pulumi.getter(name="oauth2GrantType")
@@ -2532,7 +3050,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(di
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2567,7 +3094,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2582,11 +3118,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2614,7 +3160,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2649,7 +3204,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(di
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2708,18 +3272,39 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
         :param str database_name: The name of an Amazon Redshift database.
         :param str database_url: The JDBC URL of the Amazon Redshift cluster.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            role_arn=role_arn,
+            bucket_prefix=bucket_prefix,
+            cluster_identifier=cluster_identifier,
+            data_api_role_arn=data_api_role_arn,
+            database_name=database_name,
+            database_url=database_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             role_arn: str,
+             bucket_prefix: Optional[str] = None,
+             cluster_identifier: Optional[str] = None,
+             data_api_role_arn: Optional[str] = None,
+             database_name: Optional[str] = None,
+             database_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("role_arn", role_arn)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if data_api_role_arn is not None:
-            pulumi.set(__self__, "data_api_role_arn", data_api_role_arn)
+            _setter("data_api_role_arn", data_api_role_arn)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if database_url is not None:
-            pulumi.set(__self__, "database_url", database_url)
+            _setter("database_url", database_url)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2806,10 +3391,21 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
         :param str instance_url: The location of the Datadog resource.
         :param bool is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment.
         """
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+            is_sandbox_environment=is_sandbox_environment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: Optional[str] = None,
+             is_sandbox_environment: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_url is not None:
-            pulumi.set(__self__, "instance_url", instance_url)
+            _setter("instance_url", instance_url)
         if is_sandbox_environment is not None:
-            pulumi.set(__self__, "is_sandbox_environment", is_sandbox_environment)
+            _setter("is_sandbox_environment", is_sandbox_environment)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -2876,16 +3472,37 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(d
         :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs' oauth_properties: The SAPOData OAuth properties required for OAuth type authentication.
         :param str private_link_service_name: The SAPOData Private Link service name to be used for private data transfers.
         """
-        pulumi.set(__self__, "application_host_url", application_host_url)
-        pulumi.set(__self__, "application_service_path", application_service_path)
-        pulumi.set(__self__, "client_number", client_number)
-        pulumi.set(__self__, "port_number", port_number)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_host_url=application_host_url,
+            application_service_path=application_service_path,
+            client_number=client_number,
+            port_number=port_number,
+            logon_language=logon_language,
+            oauth_properties=oauth_properties,
+            private_link_service_name=private_link_service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_host_url: str,
+             application_service_path: str,
+             client_number: str,
+             port_number: int,
+             logon_language: Optional[str] = None,
+             oauth_properties: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties'] = None,
+             private_link_service_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_host_url", application_host_url)
+        _setter("application_service_path", application_service_path)
+        _setter("client_number", client_number)
+        _setter("port_number", port_number)
         if logon_language is not None:
-            pulumi.set(__self__, "logon_language", logon_language)
+            _setter("logon_language", logon_language)
         if oauth_properties is not None:
-            pulumi.set(__self__, "oauth_properties", oauth_properties)
+            _setter("oauth_properties", oauth_properties)
         if private_link_service_name is not None:
-            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
+            _setter("private_link_service_name", private_link_service_name)
 
     @property
     @pulumi.getter(name="applicationHostUrl")
@@ -2976,9 +3593,22 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
         :param Sequence[str] oauth_scopes: The OAuth scopes required for OAuth type authentication.
         :param str token_url: The token URL required for OAuth 2.0 authentication.
         """
-        pulumi.set(__self__, "auth_code_url", auth_code_url)
-        pulumi.set(__self__, "oauth_scopes", oauth_scopes)
-        pulumi.set(__self__, "token_url", token_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_code_url=auth_code_url,
+            oauth_scopes=oauth_scopes,
+            token_url=token_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_code_url: str,
+             oauth_scopes: Sequence[str],
+             token_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auth_code_url", auth_code_url)
+        _setter("oauth_scopes", oauth_scopes)
+        _setter("token_url", token_url)
 
     @property
     @pulumi.getter(name="authCodeUrl")
@@ -3029,7 +3659,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -3043,6 +3682,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
 @pulumi.output_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular(dict):
     def __init__(__self__):
+        pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -3070,7 +3714,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(dict
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -3123,17 +3776,38 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
         :param str private_link_service_name: The SAPOData Private Link service name to be used for private data transfers.
         :param str region: AWS Region of the Snowflake account.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "warehouse", warehouse)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            stage=stage,
+            warehouse=warehouse,
+            account_name=account_name,
+            bucket_prefix=bucket_prefix,
+            private_link_service_name=private_link_service_name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             stage: str,
+             warehouse: str,
+             account_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             private_link_service_name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("stage", stage)
+        _setter("warehouse", warehouse)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if private_link_service_name is not None:
-            pulumi.set(__self__, "private_link_service_name", private_link_service_name)
+            _setter("private_link_service_name", private_link_service_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -3196,6 +3870,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -3222,7 +3901,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva(dict
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -3257,7 +3945,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk(di
         """
         :param str instance_url: The location of the Datadog resource.
         """
-        pulumi.set(__self__, "instance_url", instance_url)
+        ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_url=instance_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instance_url", instance_url)
 
     @property
     @pulumi.getter(name="instanceUrl")
@@ -3304,12 +4001,27 @@ class FlowDestinationFlowConfig(dict):
         :param str api_version: API version that the destination connector uses.
         :param str connector_profile_name: Name of the connector profile. This name must be unique for each connector profile in the AWS account.
         """
-        pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "destination_connector_properties", destination_connector_properties)
+        FlowDestinationFlowConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            destination_connector_properties=destination_connector_properties,
+            api_version=api_version,
+            connector_profile_name=connector_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: str,
+             destination_connector_properties: 'outputs.FlowDestinationFlowConfigDestinationConnectorProperties',
+             api_version: Optional[str] = None,
+             connector_profile_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_type", connector_type)
+        _setter("destination_connector_properties", destination_connector_properties)
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if connector_profile_name is not None:
-            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
+            _setter("connector_profile_name", connector_profile_name)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -3399,32 +4111,65 @@ class FlowDestinationFlowConfigDestinationConnectorProperties(dict):
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs' upsolver: Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs' zendesk: Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         """
+        FlowDestinationFlowConfigDestinationConnectorProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_connector=custom_connector,
+            customer_profiles=customer_profiles,
+            event_bridge=event_bridge,
+            honeycode=honeycode,
+            lookout_metrics=lookout_metrics,
+            marketo=marketo,
+            redshift=redshift,
+            s3=s3,
+            salesforce=salesforce,
+            sapo_data=sapo_data,
+            snowflake=snowflake,
+            upsolver=upsolver,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_connector: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector'] = None,
+             customer_profiles: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles'] = None,
+             event_bridge: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge'] = None,
+             honeycode: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode'] = None,
+             lookout_metrics: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics'] = None,
+             marketo: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo'] = None,
+             redshift: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift'] = None,
+             s3: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3'] = None,
+             salesforce: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce'] = None,
+             sapo_data: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData'] = None,
+             snowflake: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake'] = None,
+             upsolver: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver'] = None,
+             zendesk: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_connector is not None:
-            pulumi.set(__self__, "custom_connector", custom_connector)
+            _setter("custom_connector", custom_connector)
         if customer_profiles is not None:
-            pulumi.set(__self__, "customer_profiles", customer_profiles)
+            _setter("customer_profiles", customer_profiles)
         if event_bridge is not None:
-            pulumi.set(__self__, "event_bridge", event_bridge)
+            _setter("event_bridge", event_bridge)
         if honeycode is not None:
-            pulumi.set(__self__, "honeycode", honeycode)
+            _setter("honeycode", honeycode)
         if lookout_metrics is not None:
-            pulumi.set(__self__, "lookout_metrics", lookout_metrics)
+            _setter("lookout_metrics", lookout_metrics)
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if redshift is not None:
-            pulumi.set(__self__, "redshift", redshift)
+            _setter("redshift", redshift)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if sapo_data is not None:
-            pulumi.set(__self__, "sapo_data", sapo_data)
+            _setter("sapo_data", sapo_data)
         if snowflake is not None:
-            pulumi.set(__self__, "snowflake", snowflake)
+            _setter("snowflake", snowflake)
         if upsolver is not None:
-            pulumi.set(__self__, "upsolver", upsolver)
+            _setter("upsolver", upsolver)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter(name="customConnector")
@@ -3564,19 +4309,36 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dic
         """
         :param str entity_name: Entity specified in the custom connector as a destination in the flow.
         :param Mapping[str, str] custom_properties: Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
-        pulumi.set(__self__, "entity_name", entity_name)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_name=entity_name,
+            custom_properties=custom_properties,
+            error_handling_config=error_handling_config,
+            id_field_names=id_field_names,
+            write_operation_type=write_operation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_name: str,
+             custom_properties: Optional[Mapping[str, str]] = None,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig'] = None,
+             id_field_names: Optional[Sequence[str]] = None,
+             write_operation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entity_name", entity_name)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
         if id_field_names is not None:
-            pulumi.set(__self__, "id_field_names", id_field_names)
+            _setter("id_field_names", id_field_names)
         if write_operation_type is not None:
-            pulumi.set(__self__, "write_operation_type", write_operation_type)
+            _setter("write_operation_type", write_operation_type)
 
     @property
     @pulumi.getter(name="entityName")
@@ -3598,7 +4360,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dic
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -3651,12 +4413,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -3711,9 +4486,20 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(di
         :param str domain_name: Unique name of the Amazon Connect Customer Profiles domain.
         :param str object_type_name: Object specified in the Amazon Connect Customer Profiles flow destination.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            object_type_name=object_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             object_type_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
         if object_type_name is not None:
-            pulumi.set(__self__, "object_type_name", object_type_name)
+            _setter("object_type_name", object_type_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -3756,11 +4542,22 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            error_handling_config=error_handling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
 
     @property
     @pulumi.getter
@@ -3774,7 +4571,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -3811,12 +4608,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -3867,11 +4677,22 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            error_handling_config=error_handling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
 
     @property
     @pulumi.getter
@@ -3885,7 +4706,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -3922,12 +4743,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -3958,6 +4792,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
 class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
@@ -3984,11 +4823,22 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            error_handling_config=error_handling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
 
     @property
     @pulumi.getter
@@ -4002,7 +4852,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -4039,12 +4889,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4102,15 +4965,30 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
         """
         :param str intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         :param str object: Object specified in the flow destination.
-        :param str bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param str bucket_prefix: Amazon S3 bucket prefix.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
-        pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intermediate_bucket_name=intermediate_bucket_name,
+            object=object,
+            bucket_prefix=bucket_prefix,
+            error_handling_config=error_handling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intermediate_bucket_name: str,
+             object: str,
+             bucket_prefix: Optional[str] = None,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("intermediate_bucket_name", intermediate_bucket_name)
+        _setter("object", object)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
 
     @property
     @pulumi.getter(name="intermediateBucketName")
@@ -4132,7 +5010,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         """
-        Object key for the bucket in which Amazon AppFlow places the destination files.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4140,7 +5018,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -4177,12 +5055,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4237,21 +5128,34 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
                  bucket_prefix: Optional[str] = None,
                  s3_output_format_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig'] = None):
         """
-        :param str bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-        :param str bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
+        :param str bucket_name: Name of the Amazon S3 bucket.
+        :param str bucket_prefix: Amazon S3 bucket prefix.
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            s3_output_format_config=s3_output_format_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             bucket_prefix: Optional[str] = None,
+             s3_output_format_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if s3_output_format_config is not None:
-            pulumi.set(__self__, "s3_output_format_config", s3_output_format_config)
+            _setter("s3_output_format_config", s3_output_format_config)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
         """
-        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4259,7 +5163,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         """
-        Object key for the bucket in which Amazon AppFlow places the destination files.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4308,14 +5212,29 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         :param bool preserve_source_data_typing: Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation_config=aggregation_config,
+            file_type=file_type,
+            prefix_config=prefix_config,
+            preserve_source_data_typing=preserve_source_data_typing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig'] = None,
+             file_type: Optional[str] = None,
+             prefix_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig'] = None,
+             preserve_source_data_typing: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation_config is not None:
-            pulumi.set(__self__, "aggregation_config", aggregation_config)
+            _setter("aggregation_config", aggregation_config)
         if file_type is not None:
-            pulumi.set(__self__, "file_type", file_type)
+            _setter("file_type", file_type)
         if prefix_config is not None:
-            pulumi.set(__self__, "prefix_config", prefix_config)
+            _setter("prefix_config", prefix_config)
         if preserve_source_data_typing is not None:
-            pulumi.set(__self__, "preserve_source_data_typing", preserve_source_data_typing)
+            _setter("preserve_source_data_typing", preserve_source_data_typing)
 
     @property
     @pulumi.getter(name="aggregationConfig")
@@ -4374,8 +5293,17 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         """
         :param str aggregation_type: Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation_type=aggregation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation_type is not None:
-            pulumi.set(__self__, "aggregation_type", aggregation_type)
+            _setter("aggregation_type", aggregation_type)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -4414,10 +5342,21 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         :param str prefix_format: Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
         :param str prefix_type: Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_format=prefix_format,
+            prefix_type=prefix_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_format: Optional[str] = None,
+             prefix_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if prefix_format is not None:
-            pulumi.set(__self__, "prefix_format", prefix_format)
+            _setter("prefix_format", prefix_format)
         if prefix_type is not None:
-            pulumi.set(__self__, "prefix_type", prefix_type)
+            _setter("prefix_type", prefix_type)
 
     @property
     @pulumi.getter(name="prefixFormat")
@@ -4466,17 +5405,32 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            error_handling_config=error_handling_config,
+            id_field_names=id_field_names,
+            write_operation_type=write_operation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig'] = None,
+             id_field_names: Optional[Sequence[str]] = None,
+             write_operation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
         if id_field_names is not None:
-            pulumi.set(__self__, "id_field_names", id_field_names)
+            _setter("id_field_names", id_field_names)
         if write_operation_type is not None:
-            pulumi.set(__self__, "write_operation_type", write_operation_type)
+            _setter("write_operation_type", write_operation_type)
 
     @property
     @pulumi.getter
@@ -4490,7 +5444,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -4543,12 +5497,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4610,20 +5577,37 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object_path: Object path specified in the SAPOData flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs' success_response_handling_config: Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
-        pulumi.set(__self__, "object_path", object_path)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_path=object_path,
+            error_handling_config=error_handling_config,
+            id_field_names=id_field_names,
+            success_response_handling_config=success_response_handling_config,
+            write_operation_type=write_operation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_path: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig'] = None,
+             id_field_names: Optional[Sequence[str]] = None,
+             success_response_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig'] = None,
+             write_operation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_path", object_path)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
         if id_field_names is not None:
-            pulumi.set(__self__, "id_field_names", id_field_names)
+            _setter("id_field_names", id_field_names)
         if success_response_handling_config is not None:
-            pulumi.set(__self__, "success_response_handling_config", success_response_handling_config)
+            _setter("success_response_handling_config", success_response_handling_config)
         if write_operation_type is not None:
-            pulumi.set(__self__, "write_operation_type", write_operation_type)
+            _setter("write_operation_type", write_operation_type)
 
     @property
     @pulumi.getter(name="objectPath")
@@ -4637,7 +5621,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -4698,12 +5682,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4758,10 +5755,21 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
         :param str bucket_name: Name of the Amazon S3 bucket.
         :param str bucket_prefix: Amazon S3 bucket prefix.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4811,15 +5819,30 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
         """
         :param str intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         :param str object: Object specified in the flow destination.
-        :param str bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param str bucket_prefix: Amazon S3 bucket prefix.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
-        pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intermediate_bucket_name=intermediate_bucket_name,
+            object=object,
+            bucket_prefix=bucket_prefix,
+            error_handling_config=error_handling_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intermediate_bucket_name: str,
+             object: str,
+             bucket_prefix: Optional[str] = None,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("intermediate_bucket_name", intermediate_bucket_name)
+        _setter("object", object)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
 
     @property
     @pulumi.getter(name="intermediateBucketName")
@@ -4841,7 +5864,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         """
-        Object key for the bucket in which Amazon AppFlow places the destination files.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -4849,7 +5872,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -4886,12 +5909,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -4946,20 +5982,33 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
                  s3_output_format_config: 'outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig',
                  bucket_prefix: Optional[str] = None):
         """
-        :param str bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        :param str bucket_name: Name of the Amazon S3 bucket.
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
-        :param str bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
+        :param str bucket_prefix: Amazon S3 bucket prefix.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "s3_output_format_config", s3_output_format_config)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            s3_output_format_config=s3_output_format_config,
+            bucket_prefix=bucket_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             s3_output_format_config: 'outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig',
+             bucket_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
+        _setter("s3_output_format_config", s3_output_format_config)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
         """
-        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -4975,7 +6024,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         """
-        Object key for the bucket in which Amazon AppFlow places the destination files.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -5012,11 +6061,24 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         :param str file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         """
-        pulumi.set(__self__, "prefix_config", prefix_config)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_config=prefix_config,
+            aggregation_config=aggregation_config,
+            file_type=file_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_config: 'outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig',
+             aggregation_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig'] = None,
+             file_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("prefix_config", prefix_config)
         if aggregation_config is not None:
-            pulumi.set(__self__, "aggregation_config", aggregation_config)
+            _setter("aggregation_config", aggregation_config)
         if file_type is not None:
-            pulumi.set(__self__, "file_type", file_type)
+            _setter("file_type", file_type)
 
     @property
     @pulumi.getter(name="prefixConfig")
@@ -5067,8 +6129,17 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         """
         :param str aggregation_type: Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation_type=aggregation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aggregation_type is not None:
-            pulumi.set(__self__, "aggregation_type", aggregation_type)
+            _setter("aggregation_type", aggregation_type)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -5107,9 +6178,20 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         :param str prefix_type: Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         :param str prefix_format: Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
         """
-        pulumi.set(__self__, "prefix_type", prefix_type)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_type=prefix_type,
+            prefix_format=prefix_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_type: str,
+             prefix_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("prefix_type", prefix_type)
         if prefix_format is not None:
-            pulumi.set(__self__, "prefix_format", prefix_format)
+            _setter("prefix_format", prefix_format)
 
     @property
     @pulumi.getter(name="prefixType")
@@ -5158,17 +6240,32 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
-        pulumi.set(__self__, "object", object)
+        FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            error_handling_config=error_handling_config,
+            id_field_names=id_field_names,
+            write_operation_type=write_operation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig'] = None,
+             id_field_names: Optional[Sequence[str]] = None,
+             write_operation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if error_handling_config is not None:
-            pulumi.set(__self__, "error_handling_config", error_handling_config)
+            _setter("error_handling_config", error_handling_config)
         if id_field_names is not None:
-            pulumi.set(__self__, "id_field_names", id_field_names)
+            _setter("id_field_names", id_field_names)
         if write_operation_type is not None:
-            pulumi.set(__self__, "write_operation_type", write_operation_type)
+            _setter("write_operation_type", write_operation_type)
 
     @property
     @pulumi.getter
@@ -5182,7 +6279,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
     @pulumi.getter(name="errorHandlingConfig")
     def error_handling_config(self) -> Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig']:
         """
-        Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         return pulumi.get(self, "error_handling_config")
 
@@ -5235,12 +6332,25 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
         :param str bucket_prefix: Amazon S3 bucket prefix.
         :param bool fail_on_first_destination_error: If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
+        FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            fail_on_first_destination_error=fail_on_first_destination_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             bucket_prefix: Optional[str] = None,
+             fail_on_first_destination_error: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if fail_on_first_destination_error is not None:
-            pulumi.set(__self__, "fail_on_first_destination_error", fail_on_first_destination_error)
+            _setter("fail_on_first_destination_error", fail_on_first_destination_error)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -5307,14 +6417,31 @@ class FlowSourceFlowConfig(dict):
         :param str connector_profile_name: Name of the connector profile. This name must be unique for each connector profile in the AWS account.
         :param 'FlowSourceFlowConfigIncrementalPullConfigArgs' incremental_pull_config: Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
         """
-        pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "source_connector_properties", source_connector_properties)
+        FlowSourceFlowConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            source_connector_properties=source_connector_properties,
+            api_version=api_version,
+            connector_profile_name=connector_profile_name,
+            incremental_pull_config=incremental_pull_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: str,
+             source_connector_properties: 'outputs.FlowSourceFlowConfigSourceConnectorProperties',
+             api_version: Optional[str] = None,
+             connector_profile_name: Optional[str] = None,
+             incremental_pull_config: Optional['outputs.FlowSourceFlowConfigIncrementalPullConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connector_type", connector_type)
+        _setter("source_connector_properties", source_connector_properties)
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if connector_profile_name is not None:
-            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
+            _setter("connector_profile_name", connector_profile_name)
         if incremental_pull_config is not None:
-            pulumi.set(__self__, "incremental_pull_config", incremental_pull_config)
+            _setter("incremental_pull_config", incremental_pull_config)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -5381,8 +6508,17 @@ class FlowSourceFlowConfigIncrementalPullConfig(dict):
         """
         :param str datetime_type_field_name: Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
+        FlowSourceFlowConfigIncrementalPullConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datetime_type_field_name=datetime_type_field_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datetime_type_field_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datetime_type_field_name is not None:
-            pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
+            _setter("datetime_type_field_name", datetime_type_field_name)
 
     @property
     @pulumi.getter(name="datetimeTypeFieldName")
@@ -5455,38 +6591,77 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs' veeva: Information that is required for querying Veeva. See Veeva Source Properties for more details.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs' zendesk: Information that is required for querying Zendesk. See Generic Source Properties for more details.
         """
+        FlowSourceFlowConfigSourceConnectorProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amplitude=amplitude,
+            custom_connector=custom_connector,
+            datadog=datadog,
+            dynatrace=dynatrace,
+            google_analytics=google_analytics,
+            infor_nexus=infor_nexus,
+            marketo=marketo,
+            s3=s3,
+            salesforce=salesforce,
+            sapo_data=sapo_data,
+            service_now=service_now,
+            singular=singular,
+            slack=slack,
+            trendmicro=trendmicro,
+            veeva=veeva,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amplitude: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitude'] = None,
+             custom_connector: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector'] = None,
+             datadog: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadog'] = None,
+             dynatrace: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace'] = None,
+             google_analytics: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics'] = None,
+             infor_nexus: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexus'] = None,
+             marketo: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketo'] = None,
+             s3: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3'] = None,
+             salesforce: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforce'] = None,
+             sapo_data: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoData'] = None,
+             service_now: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNow'] = None,
+             singular: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSingular'] = None,
+             slack: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSlack'] = None,
+             trendmicro: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro'] = None,
+             veeva: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesVeeva'] = None,
+             zendesk: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesZendesk'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amplitude is not None:
-            pulumi.set(__self__, "amplitude", amplitude)
+            _setter("amplitude", amplitude)
         if custom_connector is not None:
-            pulumi.set(__self__, "custom_connector", custom_connector)
+            _setter("custom_connector", custom_connector)
         if datadog is not None:
-            pulumi.set(__self__, "datadog", datadog)
+            _setter("datadog", datadog)
         if dynatrace is not None:
-            pulumi.set(__self__, "dynatrace", dynatrace)
+            _setter("dynatrace", dynatrace)
         if google_analytics is not None:
-            pulumi.set(__self__, "google_analytics", google_analytics)
+            _setter("google_analytics", google_analytics)
         if infor_nexus is not None:
-            pulumi.set(__self__, "infor_nexus", infor_nexus)
+            _setter("infor_nexus", infor_nexus)
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if sapo_data is not None:
-            pulumi.set(__self__, "sapo_data", sapo_data)
+            _setter("sapo_data", sapo_data)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if singular is not None:
-            pulumi.set(__self__, "singular", singular)
+            _setter("singular", singular)
         if slack is not None:
-            pulumi.set(__self__, "slack", slack)
+            _setter("slack", slack)
         if trendmicro is not None:
-            pulumi.set(__self__, "trendmicro", trendmicro)
+            _setter("trendmicro", trendmicro)
         if veeva is not None:
-            pulumi.set(__self__, "veeva", veeva)
+            _setter("veeva", veeva)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -5624,7 +6799,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesAmplitude(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesAmplitude._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5663,9 +6847,20 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(dict):
         :param str entity_name: Entity specified in the custom connector as a destination in the flow.
         :param Mapping[str, str] custom_properties: Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
         """
-        pulumi.set(__self__, "entity_name", entity_name)
+        FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_name=entity_name,
+            custom_properties=custom_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_name: str,
+             custom_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("entity_name", entity_name)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
 
     @property
     @pulumi.getter(name="entityName")
@@ -5691,7 +6886,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDatadog(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesDatadog._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5709,7 +6913,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesDynatrace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5727,7 +6940,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5745,7 +6967,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesInforNexus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5763,7 +6994,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketo(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesMarketo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5802,21 +7042,34 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
                  bucket_prefix: Optional[str] = None,
                  s3_input_format_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig'] = None):
         """
-        :param str bucket_name: Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
-        :param str bucket_prefix: Object key for the bucket in which Amazon AppFlow places the destination files.
+        :param str bucket_name: Name of the Amazon S3 bucket.
+        :param str bucket_prefix: Amazon S3 bucket prefix.
         :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs' s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        FlowSourceFlowConfigSourceConnectorPropertiesS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            bucket_prefix=bucket_prefix,
+            s3_input_format_config=s3_input_format_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             bucket_prefix: Optional[str] = None,
+             s3_input_format_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if s3_input_format_config is not None:
-            pulumi.set(__self__, "s3_input_format_config", s3_input_format_config)
+            _setter("s3_input_format_config", s3_input_format_config)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
         """
-        Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+        Name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -5824,7 +7077,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[str]:
         """
-        Object key for the bucket in which Amazon AppFlow places the destination files.
+        Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -5861,8 +7114,17 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(dict):
         """
         :param str s3_input_file_type: File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
         """
+        FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_input_file_type=s3_input_file_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_input_file_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_input_file_type is not None:
-            pulumi.set(__self__, "s3_input_file_type", s3_input_file_type)
+            _setter("s3_input_file_type", s3_input_file_type)
 
     @property
     @pulumi.getter(name="s3InputFileType")
@@ -5903,11 +7165,24 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
         :param bool enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param bool include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesSalesforce._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            enable_dynamic_field_update=enable_dynamic_field_update,
+            include_deleted_records=include_deleted_records,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             enable_dynamic_field_update: Optional[bool] = None,
+             include_deleted_records: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if enable_dynamic_field_update is not None:
-            pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
+            _setter("enable_dynamic_field_update", enable_dynamic_field_update)
         if include_deleted_records is not None:
-            pulumi.set(__self__, "include_deleted_records", include_deleted_records)
+            _setter("include_deleted_records", include_deleted_records)
 
     @property
     @pulumi.getter
@@ -5958,7 +7233,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
         """
         :param str object_path: Object path specified in the SAPOData flow destination.
         """
-        pulumi.set(__self__, "object_path", object_path)
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_path=object_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_path", object_path)
 
     @property
     @pulumi.getter(name="objectPath")
@@ -5976,7 +7260,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesServiceNow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -5994,7 +7287,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSingular(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesSingular._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -6012,7 +7314,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSlack(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesSlack._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -6030,7 +7341,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -6079,15 +7399,32 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
         :param bool include_renditions: Boolean value to include file renditions in Veeva document extract flow.
         :param bool include_source_files: Boolean value to include source files in Veeva document extract flow.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesVeeva._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+            document_type=document_type,
+            include_all_versions=include_all_versions,
+            include_renditions=include_renditions,
+            include_source_files=include_source_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             document_type: Optional[str] = None,
+             include_all_versions: Optional[bool] = None,
+             include_renditions: Optional[bool] = None,
+             include_source_files: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
         if document_type is not None:
-            pulumi.set(__self__, "document_type", document_type)
+            _setter("document_type", document_type)
         if include_all_versions is not None:
-            pulumi.set(__self__, "include_all_versions", include_all_versions)
+            _setter("include_all_versions", include_all_versions)
         if include_renditions is not None:
-            pulumi.set(__self__, "include_renditions", include_renditions)
+            _setter("include_renditions", include_renditions)
         if include_source_files is not None:
-            pulumi.set(__self__, "include_source_files", include_source_files)
+            _setter("include_source_files", include_source_files)
 
     @property
     @pulumi.getter
@@ -6137,7 +7474,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendesk(dict):
         """
         :param str object: Object specified in the flow destination.
         """
-        pulumi.set(__self__, "object", object)
+        FlowSourceFlowConfigSourceConnectorPropertiesZendesk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object=object,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object", object)
 
     @property
     @pulumi.getter
@@ -6188,14 +7534,31 @@ class FlowTask(dict):
         :param str destination_field: Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         :param Mapping[str, str] task_properties: Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         """
-        pulumi.set(__self__, "source_fields", source_fields)
-        pulumi.set(__self__, "task_type", task_type)
+        FlowTask._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_fields=source_fields,
+            task_type=task_type,
+            connector_operators=connector_operators,
+            destination_field=destination_field,
+            task_properties=task_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_fields: Sequence[str],
+             task_type: str,
+             connector_operators: Optional[Sequence['outputs.FlowTaskConnectorOperator']] = None,
+             destination_field: Optional[str] = None,
+             task_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_fields", source_fields)
+        _setter("task_type", task_type)
         if connector_operators is not None:
-            pulumi.set(__self__, "connector_operators", connector_operators)
+            _setter("connector_operators", connector_operators)
         if destination_field is not None:
-            pulumi.set(__self__, "destination_field", destination_field)
+            _setter("destination_field", destination_field)
         if task_properties is not None:
-            pulumi.set(__self__, "task_properties", task_properties)
+            _setter("task_properties", task_properties)
 
     @property
     @pulumi.getter(name="sourceFields")
@@ -6300,38 +7663,77 @@ class FlowTaskConnectorOperator(dict):
         :param str veeva: Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         :param str zendesk: Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         """
+        FlowTaskConnectorOperator._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amplitude=amplitude,
+            custom_connector=custom_connector,
+            datadog=datadog,
+            dynatrace=dynatrace,
+            google_analytics=google_analytics,
+            infor_nexus=infor_nexus,
+            marketo=marketo,
+            s3=s3,
+            salesforce=salesforce,
+            sapo_data=sapo_data,
+            service_now=service_now,
+            singular=singular,
+            slack=slack,
+            trendmicro=trendmicro,
+            veeva=veeva,
+            zendesk=zendesk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amplitude: Optional[str] = None,
+             custom_connector: Optional[str] = None,
+             datadog: Optional[str] = None,
+             dynatrace: Optional[str] = None,
+             google_analytics: Optional[str] = None,
+             infor_nexus: Optional[str] = None,
+             marketo: Optional[str] = None,
+             s3: Optional[str] = None,
+             salesforce: Optional[str] = None,
+             sapo_data: Optional[str] = None,
+             service_now: Optional[str] = None,
+             singular: Optional[str] = None,
+             slack: Optional[str] = None,
+             trendmicro: Optional[str] = None,
+             veeva: Optional[str] = None,
+             zendesk: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if amplitude is not None:
-            pulumi.set(__self__, "amplitude", amplitude)
+            _setter("amplitude", amplitude)
         if custom_connector is not None:
-            pulumi.set(__self__, "custom_connector", custom_connector)
+            _setter("custom_connector", custom_connector)
         if datadog is not None:
-            pulumi.set(__self__, "datadog", datadog)
+            _setter("datadog", datadog)
         if dynatrace is not None:
-            pulumi.set(__self__, "dynatrace", dynatrace)
+            _setter("dynatrace", dynatrace)
         if google_analytics is not None:
-            pulumi.set(__self__, "google_analytics", google_analytics)
+            _setter("google_analytics", google_analytics)
         if infor_nexus is not None:
-            pulumi.set(__self__, "infor_nexus", infor_nexus)
+            _setter("infor_nexus", infor_nexus)
         if marketo is not None:
-            pulumi.set(__self__, "marketo", marketo)
+            _setter("marketo", marketo)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if salesforce is not None:
-            pulumi.set(__self__, "salesforce", salesforce)
+            _setter("salesforce", salesforce)
         if sapo_data is not None:
-            pulumi.set(__self__, "sapo_data", sapo_data)
+            _setter("sapo_data", sapo_data)
         if service_now is not None:
-            pulumi.set(__self__, "service_now", service_now)
+            _setter("service_now", service_now)
         if singular is not None:
-            pulumi.set(__self__, "singular", singular)
+            _setter("singular", singular)
         if slack is not None:
-            pulumi.set(__self__, "slack", slack)
+            _setter("slack", slack)
         if trendmicro is not None:
-            pulumi.set(__self__, "trendmicro", trendmicro)
+            _setter("trendmicro", trendmicro)
         if veeva is not None:
-            pulumi.set(__self__, "veeva", veeva)
+            _setter("veeva", veeva)
         if zendesk is not None:
-            pulumi.set(__self__, "zendesk", zendesk)
+            _setter("zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -6490,9 +7892,20 @@ class FlowTriggerConfig(dict):
         :param str trigger_type: Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
         :param 'FlowTriggerConfigTriggerPropertiesArgs' trigger_properties: Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
         """
-        pulumi.set(__self__, "trigger_type", trigger_type)
+        FlowTriggerConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            trigger_type=trigger_type,
+            trigger_properties=trigger_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             trigger_type: str,
+             trigger_properties: Optional['outputs.FlowTriggerConfigTriggerProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("trigger_type", trigger_type)
         if trigger_properties is not None:
-            pulumi.set(__self__, "trigger_properties", trigger_properties)
+            _setter("trigger_properties", trigger_properties)
 
     @property
     @pulumi.getter(name="triggerType")
@@ -6515,8 +7928,17 @@ class FlowTriggerConfig(dict):
 class FlowTriggerConfigTriggerProperties(dict):
     def __init__(__self__, *,
                  scheduled: Optional['outputs.FlowTriggerConfigTriggerPropertiesScheduled'] = None):
+        FlowTriggerConfigTriggerProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheduled=scheduled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheduled: Optional['outputs.FlowTriggerConfigTriggerPropertiesScheduled'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if scheduled is not None:
-            pulumi.set(__self__, "scheduled", scheduled)
+            _setter("scheduled", scheduled)
 
     @property
     @pulumi.getter
@@ -6570,19 +7992,40 @@ class FlowTriggerConfigTriggerPropertiesScheduled(dict):
         :param str schedule_start_time: Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         :param str timezone: Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        FlowTriggerConfigTriggerPropertiesScheduled._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+            data_pull_mode=data_pull_mode,
+            first_execution_from=first_execution_from,
+            schedule_end_time=schedule_end_time,
+            schedule_offset=schedule_offset,
+            schedule_start_time=schedule_start_time,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: str,
+             data_pull_mode: Optional[str] = None,
+             first_execution_from: Optional[str] = None,
+             schedule_end_time: Optional[str] = None,
+             schedule_offset: Optional[int] = None,
+             schedule_start_time: Optional[str] = None,
+             timezone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedule_expression", schedule_expression)
         if data_pull_mode is not None:
-            pulumi.set(__self__, "data_pull_mode", data_pull_mode)
+            _setter("data_pull_mode", data_pull_mode)
         if first_execution_from is not None:
-            pulumi.set(__self__, "first_execution_from", first_execution_from)
+            _setter("first_execution_from", first_execution_from)
         if schedule_end_time is not None:
-            pulumi.set(__self__, "schedule_end_time", schedule_end_time)
+            _setter("schedule_end_time", schedule_end_time)
         if schedule_offset is not None:
-            pulumi.set(__self__, "schedule_offset", schedule_offset)
+            _setter("schedule_offset", schedule_offset)
         if schedule_start_time is not None:
-            pulumi.set(__self__, "schedule_start_time", schedule_start_time)
+            _setter("schedule_start_time", schedule_start_time)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter(name="scheduleExpression")

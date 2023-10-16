@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,34 +49,71 @@ class MatchmakingConfigurationArgs:
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive matchmaking notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
-        pulumi.set(__self__, "rule_set_name", rule_set_name)
+        MatchmakingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_timeout_seconds=request_timeout_seconds,
+            rule_set_name=rule_set_name,
+            acceptance_required=acceptance_required,
+            acceptance_timeout_seconds=acceptance_timeout_seconds,
+            additional_player_count=additional_player_count,
+            backfill_mode=backfill_mode,
+            custom_event_data=custom_event_data,
+            description=description,
+            flex_match_mode=flex_match_mode,
+            game_properties=game_properties,
+            game_session_data=game_session_data,
+            game_session_queue_arns=game_session_queue_arns,
+            name=name,
+            notification_target=notification_target,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_timeout_seconds: pulumi.Input[int],
+             rule_set_name: pulumi.Input[str],
+             acceptance_required: Optional[pulumi.Input[bool]] = None,
+             acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             additional_player_count: Optional[pulumi.Input[int]] = None,
+             backfill_mode: Optional[pulumi.Input[str]] = None,
+             custom_event_data: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flex_match_mode: Optional[pulumi.Input[str]] = None,
+             game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
+             game_session_data: Optional[pulumi.Input[str]] = None,
+             game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_target: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("request_timeout_seconds", request_timeout_seconds)
+        _setter("rule_set_name", rule_set_name)
         if acceptance_required is not None:
-            pulumi.set(__self__, "acceptance_required", acceptance_required)
+            _setter("acceptance_required", acceptance_required)
         if acceptance_timeout_seconds is not None:
-            pulumi.set(__self__, "acceptance_timeout_seconds", acceptance_timeout_seconds)
+            _setter("acceptance_timeout_seconds", acceptance_timeout_seconds)
         if additional_player_count is not None:
-            pulumi.set(__self__, "additional_player_count", additional_player_count)
+            _setter("additional_player_count", additional_player_count)
         if backfill_mode is not None:
-            pulumi.set(__self__, "backfill_mode", backfill_mode)
+            _setter("backfill_mode", backfill_mode)
         if custom_event_data is not None:
-            pulumi.set(__self__, "custom_event_data", custom_event_data)
+            _setter("custom_event_data", custom_event_data)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flex_match_mode is not None:
-            pulumi.set(__self__, "flex_match_mode", flex_match_mode)
+            _setter("flex_match_mode", flex_match_mode)
         if game_properties is not None:
-            pulumi.set(__self__, "game_properties", game_properties)
+            _setter("game_properties", game_properties)
         if game_session_data is not None:
-            pulumi.set(__self__, "game_session_data", game_session_data)
+            _setter("game_session_data", game_session_data)
         if game_session_queue_arns is not None:
-            pulumi.set(__self__, "game_session_queue_arns", game_session_queue_arns)
+            _setter("game_session_queue_arns", game_session_queue_arns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_target is not None:
-            pulumi.set(__self__, "notification_target", notification_target)
+            _setter("notification_target", notification_target)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="requestTimeoutSeconds")
@@ -302,47 +339,92 @@ class _MatchmakingConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _MatchmakingConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceptance_required=acceptance_required,
+            acceptance_timeout_seconds=acceptance_timeout_seconds,
+            additional_player_count=additional_player_count,
+            arn=arn,
+            backfill_mode=backfill_mode,
+            creation_time=creation_time,
+            custom_event_data=custom_event_data,
+            description=description,
+            flex_match_mode=flex_match_mode,
+            game_properties=game_properties,
+            game_session_data=game_session_data,
+            game_session_queue_arns=game_session_queue_arns,
+            name=name,
+            notification_target=notification_target,
+            request_timeout_seconds=request_timeout_seconds,
+            rule_set_arn=rule_set_arn,
+            rule_set_name=rule_set_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceptance_required: Optional[pulumi.Input[bool]] = None,
+             acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             additional_player_count: Optional[pulumi.Input[int]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             backfill_mode: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             custom_event_data: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flex_match_mode: Optional[pulumi.Input[str]] = None,
+             game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
+             game_session_data: Optional[pulumi.Input[str]] = None,
+             game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_target: Optional[pulumi.Input[str]] = None,
+             request_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             rule_set_arn: Optional[pulumi.Input[str]] = None,
+             rule_set_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if acceptance_required is not None:
-            pulumi.set(__self__, "acceptance_required", acceptance_required)
+            _setter("acceptance_required", acceptance_required)
         if acceptance_timeout_seconds is not None:
-            pulumi.set(__self__, "acceptance_timeout_seconds", acceptance_timeout_seconds)
+            _setter("acceptance_timeout_seconds", acceptance_timeout_seconds)
         if additional_player_count is not None:
-            pulumi.set(__self__, "additional_player_count", additional_player_count)
+            _setter("additional_player_count", additional_player_count)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if backfill_mode is not None:
-            pulumi.set(__self__, "backfill_mode", backfill_mode)
+            _setter("backfill_mode", backfill_mode)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if custom_event_data is not None:
-            pulumi.set(__self__, "custom_event_data", custom_event_data)
+            _setter("custom_event_data", custom_event_data)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flex_match_mode is not None:
-            pulumi.set(__self__, "flex_match_mode", flex_match_mode)
+            _setter("flex_match_mode", flex_match_mode)
         if game_properties is not None:
-            pulumi.set(__self__, "game_properties", game_properties)
+            _setter("game_properties", game_properties)
         if game_session_data is not None:
-            pulumi.set(__self__, "game_session_data", game_session_data)
+            _setter("game_session_data", game_session_data)
         if game_session_queue_arns is not None:
-            pulumi.set(__self__, "game_session_queue_arns", game_session_queue_arns)
+            _setter("game_session_queue_arns", game_session_queue_arns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_target is not None:
-            pulumi.set(__self__, "notification_target", notification_target)
+            _setter("notification_target", notification_target)
         if request_timeout_seconds is not None:
-            pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
+            _setter("request_timeout_seconds", request_timeout_seconds)
         if rule_set_arn is not None:
-            pulumi.set(__self__, "rule_set_arn", rule_set_arn)
+            _setter("rule_set_arn", rule_set_arn)
         if rule_set_name is not None:
-            pulumi.set(__self__, "rule_set_name", rule_set_name)
+            _setter("rule_set_name", rule_set_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -732,6 +814,10 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MatchmakingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

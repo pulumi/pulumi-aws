@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,12 +28,25 @@ class LoggingConfigurationDestinationConfigurationArgs:
         :param pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         :param pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args'] s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
+        LoggingConfigurationDestinationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            firehose=firehose,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']] = None,
+             firehose: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']] = None,
+             s3: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -79,7 +92,16 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
         """
         :param pulumi.Input[str] log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -101,7 +123,16 @@ class LoggingConfigurationDestinationConfigurationFirehoseArgs:
         """
         :param pulumi.Input[str] delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
         """
-        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
+        LoggingConfigurationDestinationConfigurationFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_name=delivery_stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -125,7 +156,16 @@ class LoggingConfigurationDestinationConfigurationS3Args:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        LoggingConfigurationDestinationConfigurationS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -153,10 +193,21 @@ class RoomMessageReviewHandlerArgs:
                encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
         :param pulumi.Input[str] uri: ARN of the lambda message review handler function.
         """
+        RoomMessageReviewHandlerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_result=fallback_result,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_result: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fallback_result is not None:
-            pulumi.set(__self__, "fallback_result", fallback_result)
+            _setter("fallback_result", fallback_result)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="fallbackResult")

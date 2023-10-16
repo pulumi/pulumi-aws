@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicSubscriptionArgs', 'TopicSubscription']
@@ -41,25 +41,54 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "topic", topic)
+        TopicSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            protocol=protocol,
+            topic=topic,
+            confirmation_timeout_in_minutes=confirmation_timeout_in_minutes,
+            delivery_policy=delivery_policy,
+            endpoint_auto_confirms=endpoint_auto_confirms,
+            filter_policy=filter_policy,
+            filter_policy_scope=filter_policy_scope,
+            raw_message_delivery=raw_message_delivery,
+            redrive_policy=redrive_policy,
+            subscription_role_arn=subscription_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             topic: pulumi.Input[str],
+             confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+             filter_policy: Optional[pulumi.Input[str]] = None,
+             filter_policy_scope: Optional[pulumi.Input[str]] = None,
+             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+             redrive_policy: Optional[pulumi.Input[str]] = None,
+             subscription_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint", endpoint)
+        _setter("protocol", protocol)
+        _setter("topic", topic)
         if confirmation_timeout_in_minutes is not None:
-            pulumi.set(__self__, "confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
+            _setter("confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint_auto_confirms is not None:
-            pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
+            _setter("endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
-            pulumi.set(__self__, "filter_policy", filter_policy)
+            _setter("filter_policy", filter_policy)
         if filter_policy_scope is not None:
-            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
+            _setter("filter_policy_scope", filter_policy_scope)
         if raw_message_delivery is not None:
-            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+            _setter("raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if subscription_role_arn is not None:
-            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+            _setter("subscription_role_arn", subscription_role_arn)
 
     @property
     @pulumi.getter
@@ -234,36 +263,73 @@ class _TopicSubscriptionState:
                
                The following arguments are optional:
         """
+        _TopicSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            confirmation_timeout_in_minutes=confirmation_timeout_in_minutes,
+            confirmation_was_authenticated=confirmation_was_authenticated,
+            delivery_policy=delivery_policy,
+            endpoint=endpoint,
+            endpoint_auto_confirms=endpoint_auto_confirms,
+            filter_policy=filter_policy,
+            filter_policy_scope=filter_policy_scope,
+            owner_id=owner_id,
+            pending_confirmation=pending_confirmation,
+            protocol=protocol,
+            raw_message_delivery=raw_message_delivery,
+            redrive_policy=redrive_policy,
+            subscription_role_arn=subscription_role_arn,
+            topic=topic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             confirmation_was_authenticated: Optional[pulumi.Input[bool]] = None,
+             delivery_policy: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             endpoint_auto_confirms: Optional[pulumi.Input[bool]] = None,
+             filter_policy: Optional[pulumi.Input[str]] = None,
+             filter_policy_scope: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             pending_confirmation: Optional[pulumi.Input[bool]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
+             redrive_policy: Optional[pulumi.Input[str]] = None,
+             subscription_role_arn: Optional[pulumi.Input[str]] = None,
+             topic: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if confirmation_timeout_in_minutes is not None:
-            pulumi.set(__self__, "confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
+            _setter("confirmation_timeout_in_minutes", confirmation_timeout_in_minutes)
         if confirmation_was_authenticated is not None:
-            pulumi.set(__self__, "confirmation_was_authenticated", confirmation_was_authenticated)
+            _setter("confirmation_was_authenticated", confirmation_was_authenticated)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if endpoint_auto_confirms is not None:
-            pulumi.set(__self__, "endpoint_auto_confirms", endpoint_auto_confirms)
+            _setter("endpoint_auto_confirms", endpoint_auto_confirms)
         if filter_policy is not None:
-            pulumi.set(__self__, "filter_policy", filter_policy)
+            _setter("filter_policy", filter_policy)
         if filter_policy_scope is not None:
-            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
+            _setter("filter_policy_scope", filter_policy_scope)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if pending_confirmation is not None:
-            pulumi.set(__self__, "pending_confirmation", pending_confirmation)
+            _setter("pending_confirmation", pending_confirmation)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if raw_message_delivery is not None:
-            pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
+            _setter("raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
         if subscription_role_arn is not None:
-            pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
+            _setter("subscription_role_arn", subscription_role_arn)
         if topic is not None:
-            pulumi.set(__self__, "topic", topic)
+            _setter("topic", topic)
 
     @property
     @pulumi.getter
@@ -833,6 +899,10 @@ class TopicSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

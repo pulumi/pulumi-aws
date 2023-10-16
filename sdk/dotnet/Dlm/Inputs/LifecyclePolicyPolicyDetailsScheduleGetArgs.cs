@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
         /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         }
 
         /// <summary>
-        /// See the `deprecate_rule` block. Max of 1 per schedule.
+        /// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
         /// </summary>
         [Input("deprecateRule")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleGetArgs>? DeprecateRule { get; set; }

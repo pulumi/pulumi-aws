@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -64,9 +64,22 @@ class RecordAlias(dict):
         :param str name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
         :param str zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
-        pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "zone_id", zone_id)
+        RecordAlias._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            evaluate_target_health=evaluate_target_health,
+            name=name,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             evaluate_target_health: bool,
+             name: str,
+             zone_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("evaluate_target_health", evaluate_target_health)
+        _setter("name", name)
+        _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="evaluateTargetHealth")
@@ -121,8 +134,19 @@ class RecordCidrRoutingPolicy(dict):
         :param str collection_id: The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
         :param str location_name: The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
         """
-        pulumi.set(__self__, "collection_id", collection_id)
-        pulumi.set(__self__, "location_name", location_name)
+        RecordCidrRoutingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_id=collection_id,
+            location_name=location_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_id: str,
+             location_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("collection_id", collection_id)
+        _setter("location_name", location_name)
 
     @property
     @pulumi.getter(name="collectionId")
@@ -148,7 +172,16 @@ class RecordFailoverRoutingPolicy(dict):
         """
         :param str type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
         """
-        pulumi.set(__self__, "type", type)
+        RecordFailoverRoutingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -170,12 +203,25 @@ class RecordGeolocationRoutingPolicy(dict):
         :param str country: A two-character country code or `*` to indicate a default resource record set.
         :param str subdivision: A subdivision code for a country.
         """
+        RecordGeolocationRoutingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            continent=continent,
+            country=country,
+            subdivision=subdivision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             continent: Optional[str] = None,
+             country: Optional[str] = None,
+             subdivision: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if continent is not None:
-            pulumi.set(__self__, "continent", continent)
+            _setter("continent", continent)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if subdivision is not None:
-            pulumi.set(__self__, "subdivision", subdivision)
+            _setter("subdivision", subdivision)
 
     @property
     @pulumi.getter
@@ -209,7 +255,16 @@ class RecordLatencyRoutingPolicy(dict):
         """
         :param str region: An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
         """
-        pulumi.set(__self__, "region", region)
+        RecordLatencyRoutingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -227,7 +282,16 @@ class RecordWeightedRoutingPolicy(dict):
         """
         :param int weight: A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
         """
-        pulumi.set(__self__, "weight", weight)
+        RecordWeightedRoutingPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -267,11 +331,24 @@ class ResolverEndpointIpAddress(dict):
         :param str subnet_id: The ID of the subnet that contains the IP address.
         :param str ip: The IP address in the subnet that you want to use for DNS queries.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ResolverEndpointIpAddress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            ip=ip,
+            ip_id=ip_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             ip: Optional[str] = None,
+             ip_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if ip_id is not None:
-            pulumi.set(__self__, "ip_id", ip_id)
+            _setter("ip_id", ip_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -304,9 +381,20 @@ class ResolverRuleTargetIp(dict):
         :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
         :param int port: The port at `ip` that you want to forward DNS queries to. Default value is `53`
         """
-        pulumi.set(__self__, "ip", ip)
+        ResolverRuleTargetIp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: str,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip", ip)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -353,9 +441,20 @@ class ZoneVpc(dict):
         :param str vpc_id: ID of the VPC to associate.
         :param str vpc_region: Region of the VPC to associate. Defaults to AWS provider region.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ZoneVpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            vpc_region=vpc_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: str,
+             vpc_region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("vpc_id", vpc_id)
         if vpc_region is not None:
-            pulumi.set(__self__, "vpc_region", vpc_region)
+            _setter("vpc_region", vpc_region)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -382,8 +481,19 @@ class GetQueryLogConfigFilterResult(dict):
         """
         :param str name: The name of the query logging configuration.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetQueryLogConfigFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -404,8 +514,19 @@ class GetResolverEndpointFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetResolverEndpointFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -447,18 +568,49 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
         :param str name: The name of the rule.
         :param int priority: The setting that determines the processing order of the rules in a rule group.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
-        pulumi.set(__self__, "block_override_domain", block_override_domain)
-        pulumi.set(__self__, "block_override_ttl", block_override_ttl)
-        pulumi.set(__self__, "block_response", block_response)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "creator_request_id", creator_request_id)
-        pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
-        pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
-        pulumi.set(__self__, "modification_time", modification_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        GetResolverFirewallRulesFirewallRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            block_override_dns_type=block_override_dns_type,
+            block_override_domain=block_override_domain,
+            block_override_ttl=block_override_ttl,
+            block_response=block_response,
+            creation_time=creation_time,
+            creator_request_id=creator_request_id,
+            firewall_domain_list_id=firewall_domain_list_id,
+            firewall_rule_group_id=firewall_rule_group_id,
+            modification_time=modification_time,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: str,
+             block_override_dns_type: str,
+             block_override_domain: str,
+             block_override_ttl: int,
+             block_response: str,
+             creation_time: str,
+             creator_request_id: str,
+             firewall_domain_list_id: str,
+             firewall_rule_group_id: str,
+             modification_time: str,
+             name: str,
+             priority: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("block_override_dns_type", block_override_dns_type)
+        _setter("block_override_domain", block_override_domain)
+        _setter("block_override_ttl", block_override_ttl)
+        _setter("block_response", block_response)
+        _setter("creation_time", creation_time)
+        _setter("creator_request_id", creator_request_id)
+        _setter("firewall_domain_list_id", firewall_domain_list_id)
+        _setter("firewall_rule_group_id", firewall_rule_group_id)
+        _setter("modification_time", modification_time)
+        _setter("name", name)
+        _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -570,13 +722,28 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
         :param str type: Type of the endpoint. Valid values are `value` , `cloudfront` , `elastic-load-balancer`, `s3-website`
         :param str value: Value of the `type`.
         """
-        pulumi.set(__self__, "id", id)
+        GetTrafficPolicyDocumentEndpointResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            region=region,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             region: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -632,21 +799,44 @@ class GetTrafficPolicyDocumentRuleResult(dict):
         :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         :param str type: Type of the rule.
         """
-        pulumi.set(__self__, "id", id)
+        GetTrafficPolicyDocumentRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            geo_proximity_locations=geo_proximity_locations,
+            items=items,
+            locations=locations,
+            primary=primary,
+            regions=regions,
+            secondary=secondary,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             geo_proximity_locations: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult']] = None,
+             items: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleItemResult']] = None,
+             locations: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleLocationResult']] = None,
+             primary: Optional['outputs.GetTrafficPolicyDocumentRulePrimaryResult'] = None,
+             regions: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleRegionResult']] = None,
+             secondary: Optional['outputs.GetTrafficPolicyDocumentRuleSecondaryResult'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if geo_proximity_locations is not None:
-            pulumi.set(__self__, "geo_proximity_locations", geo_proximity_locations)
+            _setter("geo_proximity_locations", geo_proximity_locations)
         if items is not None:
-            pulumi.set(__self__, "items", items)
+            _setter("items", items)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if secondary is not None:
-            pulumi.set(__self__, "secondary", secondary)
+            _setter("secondary", secondary)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -734,22 +924,45 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
         :param str region: If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
         :param str rule_reference: References to a rule.
         """
+        GetTrafficPolicyDocumentRuleGeoProximityLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bias=bias,
+            endpoint_reference=endpoint_reference,
+            evaluate_target_health=evaluate_target_health,
+            health_check=health_check,
+            latitude=latitude,
+            longitude=longitude,
+            region=region,
+            rule_reference=rule_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bias: Optional[str] = None,
+             endpoint_reference: Optional[str] = None,
+             evaluate_target_health: Optional[bool] = None,
+             health_check: Optional[str] = None,
+             latitude: Optional[str] = None,
+             longitude: Optional[str] = None,
+             region: Optional[str] = None,
+             rule_reference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bias is not None:
-            pulumi.set(__self__, "bias", bias)
+            _setter("bias", bias)
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if latitude is not None:
-            pulumi.set(__self__, "latitude", latitude)
+            _setter("latitude", latitude)
         if longitude is not None:
-            pulumi.set(__self__, "longitude", longitude)
+            _setter("longitude", longitude)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_reference is not None:
-            pulumi.set(__self__, "rule_reference", rule_reference)
+            _setter("rule_reference", rule_reference)
 
     @property
     @pulumi.getter
@@ -825,10 +1038,21 @@ class GetTrafficPolicyDocumentRuleItemResult(dict):
         :param str endpoint_reference: References to an endpoint.
         :param str health_check: If you want to associate a health check with the endpoint or rule.
         """
+        GetTrafficPolicyDocumentRuleItemResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_reference=endpoint_reference,
+            health_check=health_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_reference: Optional[str] = None,
+             health_check: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
 
     @property
     @pulumi.getter(name="endpointReference")
@@ -868,22 +1092,45 @@ class GetTrafficPolicyDocumentRuleLocationResult(dict):
         :param str rule_reference: References to a rule.
         :param str subdivision: Value of a subdivision.
         """
+        GetTrafficPolicyDocumentRuleLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            continent=continent,
+            country=country,
+            endpoint_reference=endpoint_reference,
+            evaluate_target_health=evaluate_target_health,
+            health_check=health_check,
+            is_default=is_default,
+            rule_reference=rule_reference,
+            subdivision=subdivision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             continent: Optional[str] = None,
+             country: Optional[str] = None,
+             endpoint_reference: Optional[str] = None,
+             evaluate_target_health: Optional[bool] = None,
+             health_check: Optional[str] = None,
+             is_default: Optional[bool] = None,
+             rule_reference: Optional[str] = None,
+             subdivision: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if continent is not None:
-            pulumi.set(__self__, "continent", continent)
+            _setter("continent", continent)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if rule_reference is not None:
-            pulumi.set(__self__, "rule_reference", rule_reference)
+            _setter("rule_reference", rule_reference)
         if subdivision is not None:
-            pulumi.set(__self__, "subdivision", subdivision)
+            _setter("subdivision", subdivision)
 
     @property
     @pulumi.getter
@@ -963,14 +1210,29 @@ class GetTrafficPolicyDocumentRulePrimaryResult(dict):
         :param str health_check: If you want to associate a health check with the endpoint or rule.
         :param str rule_reference: References to a rule.
         """
+        GetTrafficPolicyDocumentRulePrimaryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_reference=endpoint_reference,
+            evaluate_target_health=evaluate_target_health,
+            health_check=health_check,
+            rule_reference=rule_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_reference: Optional[str] = None,
+             evaluate_target_health: Optional[bool] = None,
+             health_check: Optional[str] = None,
+             rule_reference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if rule_reference is not None:
-            pulumi.set(__self__, "rule_reference", rule_reference)
+            _setter("rule_reference", rule_reference)
 
     @property
     @pulumi.getter(name="endpointReference")
@@ -1020,16 +1282,33 @@ class GetTrafficPolicyDocumentRuleRegionResult(dict):
         :param str region: Region code for the AWS Region that you created the resource in.
         :param str rule_reference: References to a rule.
         """
+        GetTrafficPolicyDocumentRuleRegionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_reference=endpoint_reference,
+            evaluate_target_health=evaluate_target_health,
+            health_check=health_check,
+            region=region,
+            rule_reference=rule_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_reference: Optional[str] = None,
+             evaluate_target_health: Optional[bool] = None,
+             health_check: Optional[str] = None,
+             region: Optional[str] = None,
+             rule_reference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if rule_reference is not None:
-            pulumi.set(__self__, "rule_reference", rule_reference)
+            _setter("rule_reference", rule_reference)
 
     @property
     @pulumi.getter(name="endpointReference")
@@ -1085,14 +1364,29 @@ class GetTrafficPolicyDocumentRuleSecondaryResult(dict):
         :param str health_check: If you want to associate a health check with the endpoint or rule.
         :param str rule_reference: References to a rule.
         """
+        GetTrafficPolicyDocumentRuleSecondaryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_reference=endpoint_reference,
+            evaluate_target_health=evaluate_target_health,
+            health_check=health_check,
+            rule_reference=rule_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_reference: Optional[str] = None,
+             evaluate_target_health: Optional[bool] = None,
+             health_check: Optional[str] = None,
+             rule_reference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_reference is not None:
-            pulumi.set(__self__, "endpoint_reference", endpoint_reference)
+            _setter("endpoint_reference", endpoint_reference)
         if evaluate_target_health is not None:
-            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+            _setter("evaluate_target_health", evaluate_target_health)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if rule_reference is not None:
-            pulumi.set(__self__, "rule_reference", rule_reference)
+            _setter("rule_reference", rule_reference)
 
     @property
     @pulumi.getter(name="endpointReference")

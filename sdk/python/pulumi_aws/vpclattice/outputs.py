@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -65,10 +65,21 @@ class ListenerDefaultAction(dict):
                
                > **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         """
+        ListenerDefaultAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fixed_response=fixed_response,
+            forwards=forwards,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fixed_response: Optional['outputs.ListenerDefaultActionFixedResponse'] = None,
+             forwards: Optional[Sequence['outputs.ListenerDefaultActionForward']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fixed_response is not None:
-            pulumi.set(__self__, "fixed_response", fixed_response)
+            _setter("fixed_response", fixed_response)
         if forwards is not None:
-            pulumi.set(__self__, "forwards", forwards)
+            _setter("forwards", forwards)
 
     @property
     @pulumi.getter(name="fixedResponse")
@@ -110,7 +121,16 @@ class ListenerDefaultActionFixedResponse(dict):
         """
         :param int status_code: Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        ListenerDefaultActionFixedResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -145,8 +165,17 @@ class ListenerDefaultActionForward(dict):
         """
         :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: One or more target group blocks.
         """
+        ListenerDefaultActionForward._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_groups=target_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_groups: Optional[Sequence['outputs.ListenerDefaultActionForwardTargetGroup']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_groups is not None:
-            pulumi.set(__self__, "target_groups", target_groups)
+            _setter("target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -184,10 +213,21 @@ class ListenerDefaultActionForwardTargetGroup(dict):
         :param int weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
                weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         """
+        ListenerDefaultActionForwardTargetGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_group_identifier=target_group_identifier,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_group_identifier: Optional[str] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if target_group_identifier is not None:
-            pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+            _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
@@ -233,10 +273,21 @@ class ListenerRuleAction(dict):
         :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Describes the rule action that returns a custom HTTP response.
         :param 'ListenerRuleActionForwardArgs' forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
         """
+        ListenerRuleAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fixed_response=fixed_response,
+            forward=forward,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fixed_response: Optional['outputs.ListenerRuleActionFixedResponse'] = None,
+             forward: Optional['outputs.ListenerRuleActionForward'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fixed_response is not None:
-            pulumi.set(__self__, "fixed_response", fixed_response)
+            _setter("fixed_response", fixed_response)
         if forward is not None:
-            pulumi.set(__self__, "forward", forward)
+            _setter("forward", forward)
 
     @property
     @pulumi.getter(name="fixedResponse")
@@ -279,7 +330,16 @@ class ListenerRuleActionFixedResponse(dict):
         """
         :param int status_code: The HTTP response code.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        ListenerRuleActionFixedResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -316,7 +376,16 @@ class ListenerRuleActionForward(dict):
                
                The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         """
-        pulumi.set(__self__, "target_groups", target_groups)
+        ListenerRuleActionForward._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_groups=target_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -351,9 +420,20 @@ class ListenerRuleActionForwardTargetGroup(dict):
     def __init__(__self__, *,
                  target_group_identifier: str,
                  weight: Optional[int] = None):
-        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        ListenerRuleActionForwardTargetGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_group_identifier=target_group_identifier,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_group_identifier: str,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
@@ -390,8 +470,17 @@ class ListenerRuleMatch(dict):
         """
         :param 'ListenerRuleMatchHttpMatchArgs' http_match: The HTTP criteria that a rule must match.
         """
+        ListenerRuleMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_match=http_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_match: Optional['outputs.ListenerRuleMatchHttpMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if http_match is not None:
-            pulumi.set(__self__, "http_match", http_match)
+            _setter("http_match", http_match)
 
     @property
     @pulumi.getter(name="httpMatch")
@@ -432,12 +521,25 @@ class ListenerRuleMatchHttpMatch(dict):
         :param str method: The HTTP method type.
         :param 'ListenerRuleMatchHttpMatchPathMatchArgs' path_match: The path match.
         """
+        ListenerRuleMatchHttpMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_matches=header_matches,
+            method=method,
+            path_match=path_match,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_matches: Optional[Sequence['outputs.ListenerRuleMatchHttpMatchHeaderMatch']] = None,
+             method: Optional[str] = None,
+             path_match: Optional['outputs.ListenerRuleMatchHttpMatchPathMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if header_matches is not None:
-            pulumi.set(__self__, "header_matches", header_matches)
+            _setter("header_matches", header_matches)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if path_match is not None:
-            pulumi.set(__self__, "path_match", path_match)
+            _setter("path_match", path_match)
 
     @property
     @pulumi.getter(name="headerMatches")
@@ -492,10 +594,23 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
         :param str name: The name of the header.
         :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
-        pulumi.set(__self__, "match", match)
-        pulumi.set(__self__, "name", name)
+        ListenerRuleMatchHttpMatchHeaderMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+            name=name,
+            case_sensitive=case_sensitive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch',
+             name: str,
+             case_sensitive: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
+        _setter("name", name)
         if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+            _setter("case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter
@@ -533,12 +648,25 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
         :param str exact: Specifies an exact type match.
         :param str prefix: Specifies a prefix type match. Matches the value with the prefix.
         """
+        ListenerRuleMatchHttpMatchHeaderMatchMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contains=contains,
+            exact=exact,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contains: Optional[str] = None,
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if contains is not None:
-            pulumi.set(__self__, "contains", contains)
+            _setter("contains", contains)
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -591,9 +719,20 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
         :param 'ListenerRuleMatchHttpMatchPathMatchMatchArgs' match: The header match type.
         :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
-        pulumi.set(__self__, "match", match)
+        ListenerRuleMatchHttpMatchPathMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match=match,
+            case_sensitive=case_sensitive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match: 'outputs.ListenerRuleMatchHttpMatchPathMatchMatch',
+             case_sensitive: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("match", match)
         if case_sensitive is not None:
-            pulumi.set(__self__, "case_sensitive", case_sensitive)
+            _setter("case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter
@@ -621,10 +760,21 @@ class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
         :param str exact: Specifies an exact type match.
         :param str prefix: Specifies a prefix type match. Matches the value with the prefix.
         """
+        ListenerRuleMatchHttpMatchPathMatchMatch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exact=exact,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exact: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            pulumi.set(__self__, "exact", exact)
+            _setter("exact", exact)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -667,10 +817,21 @@ class ServiceDnsEntry(dict):
     def __init__(__self__, *,
                  domain_name: Optional[str] = None,
                  hosted_zone_id: Optional[str] = None):
+        ServiceDnsEntry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            hosted_zone_id=hosted_zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[str] = None,
+             hosted_zone_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -711,10 +872,21 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
         :param str domain_name: The domain name of the service.
         :param str hosted_zone_id: The ID of the hosted zone.
         """
+        ServiceNetworkServiceAssociationDnsEntry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            hosted_zone_id=hosted_zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[str] = None,
+             hosted_zone_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -742,9 +914,20 @@ class TargetGroupAttachmentTarget(dict):
         :param str id: The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
         :param int port: This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
-        pulumi.set(__self__, "id", id)
+        TargetGroupAttachmentTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -803,15 +986,34 @@ class TargetGroupConfig(dict):
         :param str ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
         :param str protocol_version: The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        TargetGroupConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+            vpc_identifier=vpc_identifier,
+            health_check=health_check,
+            ip_address_type=ip_address_type,
+            protocol_version=protocol_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: int,
+             protocol: str,
+             vpc_identifier: str,
+             health_check: Optional['outputs.TargetGroupConfigHealthCheck'] = None,
+             ip_address_type: Optional[str] = None,
+             protocol_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("port", port)
+        _setter("protocol", protocol)
+        _setter("vpc_identifier", vpc_identifier)
         if health_check is not None:
-            pulumi.set(__self__, "health_check", health_check)
+            _setter("health_check", health_check)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
 
     @property
     @pulumi.getter
@@ -912,26 +1114,53 @@ class TargetGroupConfigHealthCheck(dict):
         :param str protocol_version: The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
         :param int unhealthy_threshold_count: The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
         """
+        TargetGroupConfigHealthCheck._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            health_check_interval_seconds=health_check_interval_seconds,
+            health_check_timeout_seconds=health_check_timeout_seconds,
+            healthy_threshold_count=healthy_threshold_count,
+            matcher=matcher,
+            path=path,
+            port=port,
+            protocol=protocol,
+            protocol_version=protocol_version,
+            unhealthy_threshold_count=unhealthy_threshold_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             health_check_interval_seconds: Optional[int] = None,
+             health_check_timeout_seconds: Optional[int] = None,
+             healthy_threshold_count: Optional[int] = None,
+             matcher: Optional['outputs.TargetGroupConfigHealthCheckMatcher'] = None,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             protocol_version: Optional[str] = None,
+             unhealthy_threshold_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if health_check_interval_seconds is not None:
-            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
+            _setter("health_check_interval_seconds", health_check_interval_seconds)
         if health_check_timeout_seconds is not None:
-            pulumi.set(__self__, "health_check_timeout_seconds", health_check_timeout_seconds)
+            _setter("health_check_timeout_seconds", health_check_timeout_seconds)
         if healthy_threshold_count is not None:
-            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
+            _setter("healthy_threshold_count", healthy_threshold_count)
         if matcher is not None:
-            pulumi.set(__self__, "matcher", matcher)
+            _setter("matcher", matcher)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
         if unhealthy_threshold_count is not None:
-            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
+            _setter("unhealthy_threshold_count", unhealthy_threshold_count)
 
     @property
     @pulumi.getter
@@ -1019,8 +1248,17 @@ class TargetGroupConfigHealthCheckMatcher(dict):
         """
         :param str value: The HTTP codes to use when checking for a successful response from a target.
         """
+        TargetGroupConfigHealthCheckMatcher._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1036,8 +1274,19 @@ class GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
                  fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
                  forwards: Sequence['outputs.GetListenerDefaultActionForwardResult']):
-        pulumi.set(__self__, "fixed_responses", fixed_responses)
-        pulumi.set(__self__, "forwards", forwards)
+        GetListenerDefaultActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fixed_responses=fixed_responses,
+            forwards=forwards,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
+             forwards: Sequence['outputs.GetListenerDefaultActionForwardResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fixed_responses", fixed_responses)
+        _setter("forwards", forwards)
 
     @property
     @pulumi.getter(name="fixedResponses")
@@ -1054,7 +1303,16 @@ class GetListenerDefaultActionResult(dict):
 class GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
                  status_code: int):
-        pulumi.set(__self__, "status_code", status_code)
+        GetListenerDefaultActionFixedResponseResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1066,7 +1324,16 @@ class GetListenerDefaultActionFixedResponseResult(dict):
 class GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
-        pulumi.set(__self__, "target_groups", target_groups)
+        GetListenerDefaultActionForwardResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_groups=target_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -1079,8 +1346,19 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
                  target_group_identifier: str,
                  weight: int):
-        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
-        pulumi.set(__self__, "weight", weight)
+        GetListenerDefaultActionForwardTargetGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_group_identifier=target_group_identifier,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_group_identifier: str,
+             weight: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_group_identifier", target_group_identifier)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
@@ -1098,8 +1376,19 @@ class GetServiceDnsEntryResult(dict):
     def __init__(__self__, *,
                  domain_name: str,
                  hosted_zone_id: str):
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        GetServiceDnsEntryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            hosted_zone_id=hosted_zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: str,
+             hosted_zone_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")

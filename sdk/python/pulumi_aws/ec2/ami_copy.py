@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,33 +39,62 @@ class AmiCopyArgs:
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "source_ami_id", source_ami_id)
-        pulumi.set(__self__, "source_ami_region", source_ami_region)
+        AmiCopyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_ami_id=source_ami_id,
+            source_ami_region=source_ami_region,
+            deprecation_time=deprecation_time,
+            description=description,
+            destination_outpost_arn=destination_outpost_arn,
+            ebs_block_devices=ebs_block_devices,
+            encrypted=encrypted,
+            ephemeral_block_devices=ephemeral_block_devices,
+            kms_key_id=kms_key_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_ami_id: pulumi.Input[str],
+             source_ami_region: pulumi.Input[str],
+             deprecation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_outpost_arn: Optional[pulumi.Input[str]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("source_ami_id", source_ami_id)
+        _setter("source_ami_region", source_ami_region)
         if deprecation_time is not None:
-            pulumi.set(__self__, "deprecation_time", deprecation_time)
+            _setter("deprecation_time", deprecation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_outpost_arn is not None:
-            pulumi.set(__self__, "destination_outpost_arn", destination_outpost_arn)
+            _setter("destination_outpost_arn", destination_outpost_arn)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="sourceAmiId")
@@ -147,7 +176,7 @@ class AmiCopyArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         """
         return pulumi.get(self, "encrypted")
 
@@ -254,7 +283,7 @@ class _AmiCopyState:
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
@@ -279,77 +308,152 @@ class _AmiCopyState:
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
         """
+        _AmiCopyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            architecture=architecture,
+            arn=arn,
+            boot_mode=boot_mode,
+            deprecation_time=deprecation_time,
+            description=description,
+            destination_outpost_arn=destination_outpost_arn,
+            ebs_block_devices=ebs_block_devices,
+            ena_support=ena_support,
+            encrypted=encrypted,
+            ephemeral_block_devices=ephemeral_block_devices,
+            hypervisor=hypervisor,
+            image_location=image_location,
+            image_owner_alias=image_owner_alias,
+            image_type=image_type,
+            imds_support=imds_support,
+            kernel_id=kernel_id,
+            kms_key_id=kms_key_id,
+            manage_ebs_snapshots=manage_ebs_snapshots,
+            name=name,
+            owner_id=owner_id,
+            platform=platform,
+            platform_details=platform_details,
+            public=public,
+            ramdisk_id=ramdisk_id,
+            root_device_name=root_device_name,
+            root_snapshot_id=root_snapshot_id,
+            source_ami_id=source_ami_id,
+            source_ami_region=source_ami_region,
+            sriov_net_support=sriov_net_support,
+            tags=tags,
+            tags_all=tags_all,
+            tpm_support=tpm_support,
+            usage_operation=usage_operation,
+            virtualization_type=virtualization_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             architecture: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             boot_mode: Optional[pulumi.Input[str]] = None,
+             deprecation_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_outpost_arn: Optional[pulumi.Input[str]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
+             ena_support: Optional[pulumi.Input[bool]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
+             hypervisor: Optional[pulumi.Input[str]] = None,
+             image_location: Optional[pulumi.Input[str]] = None,
+             image_owner_alias: Optional[pulumi.Input[str]] = None,
+             image_type: Optional[pulumi.Input[str]] = None,
+             imds_support: Optional[pulumi.Input[str]] = None,
+             kernel_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             manage_ebs_snapshots: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             platform_details: Optional[pulumi.Input[str]] = None,
+             public: Optional[pulumi.Input[bool]] = None,
+             ramdisk_id: Optional[pulumi.Input[str]] = None,
+             root_device_name: Optional[pulumi.Input[str]] = None,
+             root_snapshot_id: Optional[pulumi.Input[str]] = None,
+             source_ami_id: Optional[pulumi.Input[str]] = None,
+             source_ami_region: Optional[pulumi.Input[str]] = None,
+             sriov_net_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tpm_support: Optional[pulumi.Input[str]] = None,
+             usage_operation: Optional[pulumi.Input[str]] = None,
+             virtualization_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if boot_mode is not None:
-            pulumi.set(__self__, "boot_mode", boot_mode)
+            _setter("boot_mode", boot_mode)
         if deprecation_time is not None:
-            pulumi.set(__self__, "deprecation_time", deprecation_time)
+            _setter("deprecation_time", deprecation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_outpost_arn is not None:
-            pulumi.set(__self__, "destination_outpost_arn", destination_outpost_arn)
+            _setter("destination_outpost_arn", destination_outpost_arn)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ena_support is not None:
-            pulumi.set(__self__, "ena_support", ena_support)
+            _setter("ena_support", ena_support)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if hypervisor is not None:
-            pulumi.set(__self__, "hypervisor", hypervisor)
+            _setter("hypervisor", hypervisor)
         if image_location is not None:
-            pulumi.set(__self__, "image_location", image_location)
+            _setter("image_location", image_location)
         if image_owner_alias is not None:
-            pulumi.set(__self__, "image_owner_alias", image_owner_alias)
+            _setter("image_owner_alias", image_owner_alias)
         if image_type is not None:
-            pulumi.set(__self__, "image_type", image_type)
+            _setter("image_type", image_type)
         if imds_support is not None:
-            pulumi.set(__self__, "imds_support", imds_support)
+            _setter("imds_support", imds_support)
         if kernel_id is not None:
-            pulumi.set(__self__, "kernel_id", kernel_id)
+            _setter("kernel_id", kernel_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if manage_ebs_snapshots is not None:
-            pulumi.set(__self__, "manage_ebs_snapshots", manage_ebs_snapshots)
+            _setter("manage_ebs_snapshots", manage_ebs_snapshots)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if platform_details is not None:
-            pulumi.set(__self__, "platform_details", platform_details)
+            _setter("platform_details", platform_details)
         if public is not None:
-            pulumi.set(__self__, "public", public)
+            _setter("public", public)
         if ramdisk_id is not None:
-            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+            _setter("ramdisk_id", ramdisk_id)
         if root_device_name is not None:
-            pulumi.set(__self__, "root_device_name", root_device_name)
+            _setter("root_device_name", root_device_name)
         if root_snapshot_id is not None:
-            pulumi.set(__self__, "root_snapshot_id", root_snapshot_id)
+            _setter("root_snapshot_id", root_snapshot_id)
         if source_ami_id is not None:
-            pulumi.set(__self__, "source_ami_id", source_ami_id)
+            _setter("source_ami_id", source_ami_id)
         if source_ami_region is not None:
-            pulumi.set(__self__, "source_ami_region", source_ami_region)
+            _setter("source_ami_region", source_ami_region)
         if sriov_net_support is not None:
-            pulumi.set(__self__, "sriov_net_support", sriov_net_support)
+            _setter("sriov_net_support", sriov_net_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tpm_support is not None:
-            pulumi.set(__self__, "tpm_support", tpm_support)
+            _setter("tpm_support", tpm_support)
         if usage_operation is not None:
-            pulumi.set(__self__, "usage_operation", usage_operation)
+            _setter("usage_operation", usage_operation)
         if virtualization_type is not None:
-            pulumi.set(__self__, "virtualization_type", virtualization_type)
+            _setter("virtualization_type", virtualization_type)
 
     @property
     @pulumi.getter
@@ -453,7 +557,7 @@ class _AmiCopyState:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         """
         return pulumi.get(self, "encrypted")
 
@@ -794,7 +898,7 @@ class AmiCopy(pulumi.CustomResource):
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
@@ -849,6 +953,10 @@ class AmiCopy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AmiCopyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -975,7 +1083,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[bool] encrypted: Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
@@ -1110,7 +1218,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
         """
         return pulumi.get(self, "encrypted")
 

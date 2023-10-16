@@ -81,16 +81,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -252,8 +250,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -264,8 +261,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 

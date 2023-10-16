@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,20 @@ class ResourceDataSyncArgs:
         :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
         :param pulumi.Input[str] name: Name for the configuration.
         """
-        pulumi.set(__self__, "s3_destination", s3_destination)
+        ResourceDataSyncArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_destination=s3_destination,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_destination: pulumi.Input['ResourceDataSyncS3DestinationArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_destination", s3_destination)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="s3Destination")
@@ -62,10 +73,21 @@ class _ResourceDataSyncState:
         :param pulumi.Input[str] name: Name for the configuration.
         :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: Amazon S3 configuration details for the sync.
         """
+        _ResourceDataSyncState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            s3_destination=s3_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if s3_destination is not None:
-            pulumi.set(__self__, "s3_destination", s3_destination)
+            _setter("s3_destination", s3_destination)
 
     @property
     @pulumi.getter
@@ -229,6 +251,10 @@ class ResourceDataSync(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceDataSyncArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -246,6 +272,11 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__ = ResourceDataSyncArgs.__new__(ResourceDataSyncArgs)
 
             __props__.__dict__["name"] = name
+            if s3_destination is not None and not isinstance(s3_destination, ResourceDataSyncS3DestinationArgs):
+                s3_destination = s3_destination or {}
+                def _setter(key, value):
+                    s3_destination[key] = value
+                ResourceDataSyncS3DestinationArgs._configure(_setter, **s3_destination)
             if s3_destination is None and not opts.urn:
                 raise TypeError("Missing required property 's3_destination'")
             __props__.__dict__["s3_destination"] = s3_destination

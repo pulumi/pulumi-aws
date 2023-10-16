@@ -23,22 +23,22 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     private @Nullable List<GatewayRouteSpecHttpRouteMatchHeader> headers;
     /**
-     * @return Host name to rewrite.
+     * @return Host name to match on.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
-     * @return Exact path to rewrite.
+     * @return Client request path to match on.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchPath path;
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return The port number to match from the request.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
@@ -57,28 +57,28 @@ public final class GatewayRouteSpecHttpRouteMatch {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Host name to rewrite.
+     * @return Host name to match on.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return Exact path to rewrite.
+     * @return Client request path to match on.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchPath> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return The port number to match from the request.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {

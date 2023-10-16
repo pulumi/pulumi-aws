@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,14 +32,29 @@ class SnapshotImportClientDataArgs:
         :param pulumi.Input[float] upload_size: The size of the uploaded disk image, in GiB.
         :param pulumi.Input[str] upload_start: The time that the disk upload starts.
         """
+        SnapshotImportClientDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            upload_end=upload_end,
+            upload_size=upload_size,
+            upload_start=upload_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             upload_end: Optional[pulumi.Input[str]] = None,
+             upload_size: Optional[pulumi.Input[float]] = None,
+             upload_start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if upload_end is not None:
-            pulumi.set(__self__, "upload_end", upload_end)
+            _setter("upload_end", upload_end)
         if upload_size is not None:
-            pulumi.set(__self__, "upload_size", upload_size)
+            _setter("upload_size", upload_size)
         if upload_start is not None:
-            pulumi.set(__self__, "upload_start", upload_start)
+            _setter("upload_start", upload_start)
 
     @property
     @pulumi.getter
@@ -103,13 +118,28 @@ class SnapshotImportDiskContainerArgs:
         :param pulumi.Input[str] url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
         :param pulumi.Input['SnapshotImportDiskContainerUserBucketArgs'] user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
-        pulumi.set(__self__, "format", format)
+        SnapshotImportDiskContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            description=description,
+            url=url,
+            user_bucket=user_bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             user_bucket: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("format", format)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if user_bucket is not None:
-            pulumi.set(__self__, "user_bucket", user_bucket)
+            _setter("user_bucket", user_bucket)
 
     @property
     @pulumi.getter
@@ -169,8 +199,19 @@ class SnapshotImportDiskContainerUserBucketArgs:
         :param pulumi.Input[str] s3_bucket: The name of the Amazon S3 bucket where the disk image is located.
         :param pulumi.Input[str] s3_key: The file name of the disk image.
         """
-        pulumi.set(__self__, "s3_bucket", s3_bucket)
-        pulumi.set(__self__, "s3_key", s3_key)
+        SnapshotImportDiskContainerUserBucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket=s3_bucket,
+            s3_key=s3_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket: pulumi.Input[str],
+             s3_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("s3_bucket", s3_bucket)
+        _setter("s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -222,8 +263,19 @@ class GetEbsVolumesFilterArgs:
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetEbsVolumesFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -271,8 +323,19 @@ class GetSnapshotFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetSnapshotFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -298,8 +361,19 @@ class GetSnapshotIdsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetSnapshotIdsFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -325,8 +399,19 @@ class GetVolumeFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetVolumeFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

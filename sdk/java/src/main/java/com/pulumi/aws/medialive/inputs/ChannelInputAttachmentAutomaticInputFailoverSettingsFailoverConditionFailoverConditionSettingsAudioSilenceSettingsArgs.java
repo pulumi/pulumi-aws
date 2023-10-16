@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs();
 
     /**
-     * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+     * The name of the audio selector used as the source for this AudioDescription.
      * 
      */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
     /**
-     * @return The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+     * @return The name of the audio selector used as the source for this AudioDescription.
      * 
      */
     public Output<String> audioSelectorName() {
@@ -72,7 +72,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
+         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountSettingDefaultArgs', 'AccountSettingDefault']
@@ -21,9 +21,20 @@ class AccountSettingDefaultArgs:
         :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
         :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
         """
-        pulumi.set(__self__, "value", value)
+        AccountSettingDefaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("value", value)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -61,12 +72,25 @@ class _AccountSettingDefaultState:
         :param pulumi.Input[str] name: Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
         :param pulumi.Input[str] value: State of the setting. Valid values are `enabled` and `disabled`.
         """
+        _AccountSettingDefaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            principal_arn=principal_arn,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if principal_arn is not None:
-            pulumi.set(__self__, "principal_arn", principal_arn)
+            _setter("principal_arn", principal_arn)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -179,6 +203,10 @@ class AccountSettingDefault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountSettingDefaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

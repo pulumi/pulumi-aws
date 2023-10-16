@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -46,24 +46,51 @@ class PipelineArgs:
                `thumbnail_config`. If you specify values for `content_config` and
                `thumbnail_config`, omit the `output_bucket` object.
         """
-        pulumi.set(__self__, "input_bucket", input_bucket)
-        pulumi.set(__self__, "role", role)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_bucket=input_bucket,
+            role=role,
+            aws_kms_key_arn=aws_kms_key_arn,
+            content_config=content_config,
+            content_config_permissions=content_config_permissions,
+            name=name,
+            notifications=notifications,
+            output_bucket=output_bucket,
+            thumbnail_config=thumbnail_config,
+            thumbnail_config_permissions=thumbnail_config_permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_bucket: pulumi.Input[str],
+             role: pulumi.Input[str],
+             aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
+             content_config: Optional[pulumi.Input['PipelineContentConfigArgs']] = None,
+             content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
+             output_bucket: Optional[pulumi.Input[str]] = None,
+             thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
+             thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("input_bucket", input_bucket)
+        _setter("role", role)
         if aws_kms_key_arn is not None:
-            pulumi.set(__self__, "aws_kms_key_arn", aws_kms_key_arn)
+            _setter("aws_kms_key_arn", aws_kms_key_arn)
         if content_config is not None:
-            pulumi.set(__self__, "content_config", content_config)
+            _setter("content_config", content_config)
         if content_config_permissions is not None:
-            pulumi.set(__self__, "content_config_permissions", content_config_permissions)
+            _setter("content_config_permissions", content_config_permissions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if output_bucket is not None:
-            pulumi.set(__self__, "output_bucket", output_bucket)
+            _setter("output_bucket", output_bucket)
         if thumbnail_config is not None:
-            pulumi.set(__self__, "thumbnail_config", thumbnail_config)
+            _setter("thumbnail_config", thumbnail_config)
         if thumbnail_config_permissions is not None:
-            pulumi.set(__self__, "thumbnail_config_permissions", thumbnail_config_permissions)
+            _setter("thumbnail_config_permissions", thumbnail_config_permissions)
 
     @property
     @pulumi.getter(name="inputBucket")
@@ -228,28 +255,57 @@ class _PipelineState:
                `thumbnail_config`. If you specify values for `content_config` and
                `thumbnail_config`, omit the `output_bucket` object.
         """
+        _PipelineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_kms_key_arn=aws_kms_key_arn,
+            content_config=content_config,
+            content_config_permissions=content_config_permissions,
+            input_bucket=input_bucket,
+            name=name,
+            notifications=notifications,
+            output_bucket=output_bucket,
+            role=role,
+            thumbnail_config=thumbnail_config,
+            thumbnail_config_permissions=thumbnail_config_permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
+             content_config: Optional[pulumi.Input['PipelineContentConfigArgs']] = None,
+             content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]] = None,
+             input_bucket: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
+             output_bucket: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
+             thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_kms_key_arn is not None:
-            pulumi.set(__self__, "aws_kms_key_arn", aws_kms_key_arn)
+            _setter("aws_kms_key_arn", aws_kms_key_arn)
         if content_config is not None:
-            pulumi.set(__self__, "content_config", content_config)
+            _setter("content_config", content_config)
         if content_config_permissions is not None:
-            pulumi.set(__self__, "content_config_permissions", content_config_permissions)
+            _setter("content_config_permissions", content_config_permissions)
         if input_bucket is not None:
-            pulumi.set(__self__, "input_bucket", input_bucket)
+            _setter("input_bucket", input_bucket)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
         if output_bucket is not None:
-            pulumi.set(__self__, "output_bucket", output_bucket)
+            _setter("output_bucket", output_bucket)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if thumbnail_config is not None:
-            pulumi.set(__self__, "thumbnail_config", thumbnail_config)
+            _setter("thumbnail_config", thumbnail_config)
         if thumbnail_config_permissions is not None:
-            pulumi.set(__self__, "thumbnail_config_permissions", thumbnail_config_permissions)
+            _setter("thumbnail_config_permissions", thumbnail_config_permissions)
 
     @property
     @pulumi.getter
@@ -503,6 +559,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -528,17 +588,32 @@ class Pipeline(pulumi.CustomResource):
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
             __props__.__dict__["aws_kms_key_arn"] = aws_kms_key_arn
+            if content_config is not None and not isinstance(content_config, PipelineContentConfigArgs):
+                content_config = content_config or {}
+                def _setter(key, value):
+                    content_config[key] = value
+                PipelineContentConfigArgs._configure(_setter, **content_config)
             __props__.__dict__["content_config"] = content_config
             __props__.__dict__["content_config_permissions"] = content_config_permissions
             if input_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'input_bucket'")
             __props__.__dict__["input_bucket"] = input_bucket
             __props__.__dict__["name"] = name
+            if notifications is not None and not isinstance(notifications, PipelineNotificationsArgs):
+                notifications = notifications or {}
+                def _setter(key, value):
+                    notifications[key] = value
+                PipelineNotificationsArgs._configure(_setter, **notifications)
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["output_bucket"] = output_bucket
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
+            if thumbnail_config is not None and not isinstance(thumbnail_config, PipelineThumbnailConfigArgs):
+                thumbnail_config = thumbnail_config or {}
+                def _setter(key, value):
+                    thumbnail_config[key] = value
+                PipelineThumbnailConfigArgs._configure(_setter, **thumbnail_config)
             __props__.__dict__["thumbnail_config"] = thumbnail_config
             __props__.__dict__["thumbnail_config_permissions"] = thumbnail_config_permissions
             __props__.__dict__["arn"] = None

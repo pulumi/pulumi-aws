@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -50,12 +50,25 @@ class EnvironmentLastUpdated(dict):
                * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param str status: The status of the Amazon MWAA Environment
         """
+        EnvironmentLastUpdated._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            errors=errors,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             errors: Optional[Sequence['outputs.EnvironmentLastUpdatedError']] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -104,10 +117,21 @@ class EnvironmentLastUpdatedError(dict):
     def __init__(__self__, *,
                  error_code: Optional[str] = None,
                  error_message: Optional[str] = None):
+        EnvironmentLastUpdatedError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -160,16 +184,33 @@ class EnvironmentLoggingConfiguration(dict):
         :param 'EnvironmentLoggingConfigurationWebserverLogsArgs' webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
         :param 'EnvironmentLoggingConfigurationWorkerLogsArgs' worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
         """
+        EnvironmentLoggingConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dag_processing_logs=dag_processing_logs,
+            scheduler_logs=scheduler_logs,
+            task_logs=task_logs,
+            webserver_logs=webserver_logs,
+            worker_logs=worker_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dag_processing_logs: Optional['outputs.EnvironmentLoggingConfigurationDagProcessingLogs'] = None,
+             scheduler_logs: Optional['outputs.EnvironmentLoggingConfigurationSchedulerLogs'] = None,
+             task_logs: Optional['outputs.EnvironmentLoggingConfigurationTaskLogs'] = None,
+             webserver_logs: Optional['outputs.EnvironmentLoggingConfigurationWebserverLogs'] = None,
+             worker_logs: Optional['outputs.EnvironmentLoggingConfigurationWorkerLogs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dag_processing_logs is not None:
-            pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
+            _setter("dag_processing_logs", dag_processing_logs)
         if scheduler_logs is not None:
-            pulumi.set(__self__, "scheduler_logs", scheduler_logs)
+            _setter("scheduler_logs", scheduler_logs)
         if task_logs is not None:
-            pulumi.set(__self__, "task_logs", task_logs)
+            _setter("task_logs", task_logs)
         if webserver_logs is not None:
-            pulumi.set(__self__, "webserver_logs", webserver_logs)
+            _setter("webserver_logs", webserver_logs)
         if worker_logs is not None:
-            pulumi.set(__self__, "worker_logs", worker_logs)
+            _setter("worker_logs", worker_logs)
 
     @property
     @pulumi.getter(name="dagProcessingLogs")
@@ -241,12 +282,25 @@ class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
         :param bool enabled: Enabling or disabling the collection of logs
         :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
+        EnvironmentLoggingConfigurationDagProcessingLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            enabled=enabled,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_log_group_arn: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -299,12 +353,25 @@ class EnvironmentLoggingConfigurationSchedulerLogs(dict):
         :param bool enabled: Enabling or disabling the collection of logs
         :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
+        EnvironmentLoggingConfigurationSchedulerLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            enabled=enabled,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_log_group_arn: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -357,12 +424,25 @@ class EnvironmentLoggingConfigurationTaskLogs(dict):
         :param bool enabled: Enabling or disabling the collection of logs
         :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
+        EnvironmentLoggingConfigurationTaskLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            enabled=enabled,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_log_group_arn: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -415,12 +495,25 @@ class EnvironmentLoggingConfigurationWebserverLogs(dict):
         :param bool enabled: Enabling or disabling the collection of logs
         :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
+        EnvironmentLoggingConfigurationWebserverLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            enabled=enabled,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_log_group_arn: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -473,12 +566,25 @@ class EnvironmentLoggingConfigurationWorkerLogs(dict):
         :param bool enabled: Enabling or disabling the collection of logs
         :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
         """
+        EnvironmentLoggingConfigurationWorkerLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
+            enabled=enabled,
+            log_level=log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_log_group_arn: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -530,8 +636,19 @@ class EnvironmentNetworkConfiguration(dict):
         :param Sequence[str] security_group_ids: Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
         :param Sequence[str] subnet_ids: The private subnet IDs in which the environment should be created. MWAA requires two subnets.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        EnvironmentNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Sequence[str],
+             subnet_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")

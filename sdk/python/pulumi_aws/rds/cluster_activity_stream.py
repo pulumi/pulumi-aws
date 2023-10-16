@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterActivityStreamArgs', 'ClusterActivityStream']
@@ -25,11 +25,26 @@ class ClusterActivityStreamArgs:
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         :param pulumi.Input[bool] engine_native_audit_fields_included: Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         """
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ClusterActivityStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            mode=mode,
+            resource_arn=resource_arn,
+            engine_native_audit_fields_included=engine_native_audit_fields_included,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: pulumi.Input[str],
+             mode: pulumi.Input[str],
+             resource_arn: pulumi.Input[str],
+             engine_native_audit_fields_included: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kms_key_id", kms_key_id)
+        _setter("mode", mode)
+        _setter("resource_arn", resource_arn)
         if engine_native_audit_fields_included is not None:
-            pulumi.set(__self__, "engine_native_audit_fields_included", engine_native_audit_fields_included)
+            _setter("engine_native_audit_fields_included", engine_native_audit_fields_included)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -96,16 +111,33 @@ class _ClusterActivityStreamState:
         :param pulumi.Input[str] mode: Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the DB cluster.
         """
+        _ClusterActivityStreamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engine_native_audit_fields_included=engine_native_audit_fields_included,
+            kinesis_stream_name=kinesis_stream_name,
+            kms_key_id=kms_key_id,
+            mode=mode,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engine_native_audit_fields_included: Optional[pulumi.Input[bool]] = None,
+             kinesis_stream_name: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if engine_native_audit_fields_included is not None:
-            pulumi.set(__self__, "engine_native_audit_fields_included", engine_native_audit_fields_included)
+            _setter("engine_native_audit_fields_included", engine_native_audit_fields_included)
         if kinesis_stream_name is not None:
-            pulumi.set(__self__, "kinesis_stream_name", kinesis_stream_name)
+            _setter("kinesis_stream_name", kinesis_stream_name)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="engineNativeAuditFieldsIncluded")
@@ -301,6 +333,10 @@ class ClusterActivityStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterActivityStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

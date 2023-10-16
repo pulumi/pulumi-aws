@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,24 +40,49 @@ class FileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
+        FileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone_name=availability_zone_name,
+            creation_token=creation_token,
+            encrypted=encrypted,
+            kms_key_id=kms_key_id,
+            lifecycle_policies=lifecycle_policies,
+            performance_mode=performance_mode,
+            provisioned_throughput_in_mibps=provisioned_throughput_in_mibps,
+            tags=tags,
+            throughput_mode=throughput_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone_name: Optional[pulumi.Input[str]] = None,
+             creation_token: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
+             performance_mode: Optional[pulumi.Input[str]] = None,
+             provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone_name is not None:
-            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+            _setter("availability_zone_name", availability_zone_name)
         if creation_token is not None:
-            pulumi.set(__self__, "creation_token", creation_token)
+            _setter("creation_token", creation_token)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_policies is not None:
-            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
+            _setter("lifecycle_policies", lifecycle_policies)
         if performance_mode is not None:
-            pulumi.set(__self__, "performance_mode", performance_mode)
+            _setter("performance_mode", performance_mode)
         if provisioned_throughput_in_mibps is not None:
-            pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+            _setter("provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
+            _setter("throughput_mode", throughput_mode)
 
     @property
     @pulumi.getter(name="availabilityZoneName")
@@ -214,43 +239,84 @@ class _FileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
+        _FileSystemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zone_id=availability_zone_id,
+            availability_zone_name=availability_zone_name,
+            creation_token=creation_token,
+            dns_name=dns_name,
+            encrypted=encrypted,
+            kms_key_id=kms_key_id,
+            lifecycle_policies=lifecycle_policies,
+            name=name,
+            number_of_mount_targets=number_of_mount_targets,
+            owner_id=owner_id,
+            performance_mode=performance_mode,
+            provisioned_throughput_in_mibps=provisioned_throughput_in_mibps,
+            size_in_bytes=size_in_bytes,
+            tags=tags,
+            tags_all=tags_all,
+            throughput_mode=throughput_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             availability_zone_name: Optional[pulumi.Input[str]] = None,
+             creation_token: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_mount_targets: Optional[pulumi.Input[int]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             performance_mode: Optional[pulumi.Input[str]] = None,
+             provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone_id is not None:
-            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+            _setter("availability_zone_id", availability_zone_id)
         if availability_zone_name is not None:
-            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+            _setter("availability_zone_name", availability_zone_name)
         if creation_token is not None:
-            pulumi.set(__self__, "creation_token", creation_token)
+            _setter("creation_token", creation_token)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if lifecycle_policies is not None:
-            pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
+            _setter("lifecycle_policies", lifecycle_policies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_mount_targets is not None:
-            pulumi.set(__self__, "number_of_mount_targets", number_of_mount_targets)
+            _setter("number_of_mount_targets", number_of_mount_targets)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if performance_mode is not None:
-            pulumi.set(__self__, "performance_mode", performance_mode)
+            _setter("performance_mode", performance_mode)
         if provisioned_throughput_in_mibps is not None:
-            pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+            _setter("provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if size_in_bytes is not None:
-            pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+            _setter("size_in_bytes", size_in_bytes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
+            _setter("throughput_mode", throughput_mode)
 
     @property
     @pulumi.getter
@@ -575,6 +641,10 @@ class FileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

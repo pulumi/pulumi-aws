@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -23,8 +23,19 @@ class ResourceArgs:
                The following arguments are optional:
         :param pulumi.Input[str] resource_arn: The ARN of the resource to be added to the group.
         """
-        pulumi.set(__self__, "group_arn", group_arn)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_arn=group_arn,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_arn: pulumi.Input[str],
+             resource_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("group_arn", group_arn)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -67,12 +78,25 @@ class _ResourceState:
         :param pulumi.Input[str] resource_arn: The ARN of the resource to be added to the group.
         :param pulumi.Input[str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
+        _ResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_arn=group_arn,
+            resource_arn=resource_arn,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if group_arn is not None:
-            pulumi.set(__self__, "group_arn", group_arn)
+            _setter("group_arn", group_arn)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -186,6 +210,10 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

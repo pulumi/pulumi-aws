@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LbHttpsRedirectionPolicyArgs', 'LbHttpsRedirectionPolicy']
@@ -21,8 +21,19 @@ class LbHttpsRedirectionPolicyArgs:
         :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "lb_name", lb_name)
+        LbHttpsRedirectionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             lb_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _LbHttpsRedirectionPolicyState:
         :param pulumi.Input[bool] enabled: The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to enable http to https redirection.
         """
+        _LbHttpsRedirectionPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             lb_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if lb_name is not None:
-            pulumi.set(__self__, "lb_name", lb_name)
+            _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter
@@ -186,6 +208,10 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LbHttpsRedirectionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

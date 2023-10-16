@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventApiDestinationArgs', 'EventApiDestination']
@@ -29,15 +29,34 @@ class EventApiDestinationArgs:
         :param pulumi.Input[int] invocation_rate_limit_per_second: Enter the maximum number of invocations per second to allow for this destination. Enter a value greater than 0 (default 300).
         :param pulumi.Input[str] name: The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
-        pulumi.set(__self__, "connection_arn", connection_arn)
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "invocation_endpoint", invocation_endpoint)
+        EventApiDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_arn=connection_arn,
+            http_method=http_method,
+            invocation_endpoint=invocation_endpoint,
+            description=description,
+            invocation_rate_limit_per_second=invocation_rate_limit_per_second,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_arn: pulumi.Input[str],
+             http_method: pulumi.Input[str],
+             invocation_endpoint: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_arn", connection_arn)
+        _setter("http_method", http_method)
+        _setter("invocation_endpoint", invocation_endpoint)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if invocation_rate_limit_per_second is not None:
-            pulumi.set(__self__, "invocation_rate_limit_per_second", invocation_rate_limit_per_second)
+            _setter("invocation_rate_limit_per_second", invocation_rate_limit_per_second)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="connectionArn")
@@ -132,20 +151,41 @@ class _EventApiDestinationState:
         :param pulumi.Input[int] invocation_rate_limit_per_second: Enter the maximum number of invocations per second to allow for this destination. Enter a value greater than 0 (default 300).
         :param pulumi.Input[str] name: The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
+        _EventApiDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            connection_arn=connection_arn,
+            description=description,
+            http_method=http_method,
+            invocation_endpoint=invocation_endpoint,
+            invocation_rate_limit_per_second=invocation_rate_limit_per_second,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             connection_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             invocation_endpoint: Optional[pulumi.Input[str]] = None,
+             invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if connection_arn is not None:
-            pulumi.set(__self__, "connection_arn", connection_arn)
+            _setter("connection_arn", connection_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if invocation_endpoint is not None:
-            pulumi.set(__self__, "invocation_endpoint", invocation_endpoint)
+            _setter("invocation_endpoint", invocation_endpoint)
         if invocation_rate_limit_per_second is not None:
-            pulumi.set(__self__, "invocation_rate_limit_per_second", invocation_rate_limit_per_second)
+            _setter("invocation_rate_limit_per_second", invocation_rate_limit_per_second)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -323,6 +363,10 @@ class EventApiDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventApiDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -47,13 +47,30 @@ class TriggerTrigger(dict):
         :param Sequence[str] branches: The branches that will be included in the trigger configuration. If no branches are specified, the trigger will apply to all branches.
         :param str custom_data: Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "name", name)
+        TriggerTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            events=events,
+            name=name,
+            branches=branches,
+            custom_data=custom_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: str,
+             events: Sequence[str],
+             name: str,
+             branches: Optional[Sequence[str]] = None,
+             custom_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("destination_arn", destination_arn)
+        _setter("events", events)
+        _setter("name", name)
         if branches is not None:
-            pulumi.set(__self__, "branches", branches)
+            _setter("branches", branches)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
 
     @property
     @pulumi.getter(name="destinationArn")

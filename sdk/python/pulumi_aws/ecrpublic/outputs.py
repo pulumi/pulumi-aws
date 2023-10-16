@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,18 +53,37 @@ class RepositoryCatalogData(dict):
         :param Sequence[str] operating_systems: The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         :param str usage_text: Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         """
+        RepositoryCatalogData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            about_text=about_text,
+            architectures=architectures,
+            description=description,
+            logo_image_blob=logo_image_blob,
+            operating_systems=operating_systems,
+            usage_text=usage_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             about_text: Optional[str] = None,
+             architectures: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             logo_image_blob: Optional[str] = None,
+             operating_systems: Optional[Sequence[str]] = None,
+             usage_text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if about_text is not None:
-            pulumi.set(__self__, "about_text", about_text)
+            _setter("about_text", about_text)
         if architectures is not None:
-            pulumi.set(__self__, "architectures", architectures)
+            _setter("architectures", architectures)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if logo_image_blob is not None:
-            pulumi.set(__self__, "logo_image_blob", logo_image_blob)
+            _setter("logo_image_blob", logo_image_blob)
         if operating_systems is not None:
-            pulumi.set(__self__, "operating_systems", operating_systems)
+            _setter("operating_systems", operating_systems)
         if usage_text is not None:
-            pulumi.set(__self__, "usage_text", usage_text)
+            _setter("usage_text", usage_text)
 
     @property
     @pulumi.getter(name="aboutText")

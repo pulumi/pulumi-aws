@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,15 +33,36 @@ class StreamArgs:
         :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "inclusive_start_time", inclusive_start_time)
-        pulumi.set(__self__, "kinesis_configuration", kinesis_configuration)
-        pulumi.set(__self__, "ledger_name", ledger_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
+        StreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inclusive_start_time=inclusive_start_time,
+            kinesis_configuration=kinesis_configuration,
+            ledger_name=ledger_name,
+            role_arn=role_arn,
+            stream_name=stream_name,
+            exclusive_end_time=exclusive_end_time,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inclusive_start_time: pulumi.Input[str],
+             kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArgs'],
+             ledger_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             stream_name: pulumi.Input[str],
+             exclusive_end_time: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("inclusive_start_time", inclusive_start_time)
+        _setter("kinesis_configuration", kinesis_configuration)
+        _setter("ledger_name", ledger_name)
+        _setter("role_arn", role_arn)
+        _setter("stream_name", stream_name)
         if exclusive_end_time is not None:
-            pulumi.set(__self__, "exclusive_end_time", exclusive_end_time)
+            _setter("exclusive_end_time", exclusive_end_time)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="inclusiveStartTime")
@@ -152,27 +173,52 @@ class _StreamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _StreamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            exclusive_end_time=exclusive_end_time,
+            inclusive_start_time=inclusive_start_time,
+            kinesis_configuration=kinesis_configuration,
+            ledger_name=ledger_name,
+            role_arn=role_arn,
+            stream_name=stream_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             exclusive_end_time: Optional[pulumi.Input[str]] = None,
+             inclusive_start_time: Optional[pulumi.Input[str]] = None,
+             kinesis_configuration: Optional[pulumi.Input['StreamKinesisConfigurationArgs']] = None,
+             ledger_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             stream_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if exclusive_end_time is not None:
-            pulumi.set(__self__, "exclusive_end_time", exclusive_end_time)
+            _setter("exclusive_end_time", exclusive_end_time)
         if inclusive_start_time is not None:
-            pulumi.set(__self__, "inclusive_start_time", inclusive_start_time)
+            _setter("inclusive_start_time", inclusive_start_time)
         if kinesis_configuration is not None:
-            pulumi.set(__self__, "kinesis_configuration", kinesis_configuration)
+            _setter("kinesis_configuration", kinesis_configuration)
         if ledger_name is not None:
-            pulumi.set(__self__, "ledger_name", ledger_name)
+            _setter("ledger_name", ledger_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -371,6 +417,10 @@ class Stream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -396,6 +446,11 @@ class Stream(pulumi.CustomResource):
             if inclusive_start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'inclusive_start_time'")
             __props__.__dict__["inclusive_start_time"] = inclusive_start_time
+            if kinesis_configuration is not None and not isinstance(kinesis_configuration, StreamKinesisConfigurationArgs):
+                kinesis_configuration = kinesis_configuration or {}
+                def _setter(key, value):
+                    kinesis_configuration[key] = value
+                StreamKinesisConfigurationArgs._configure(_setter, **kinesis_configuration)
             if kinesis_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'kinesis_configuration'")
             __props__.__dict__["kinesis_configuration"] = kinesis_configuration

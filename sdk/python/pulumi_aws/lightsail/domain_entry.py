@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainEntryArgs', 'DomainEntry']
@@ -27,13 +27,30 @@ class DomainEntryArgs:
         :param pulumi.Input[bool] is_alias: If the entry should be an alias Defaults to `false`
         :param pulumi.Input[str] name: Name of the entry record
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "type", type)
+        DomainEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            target=target,
+            type=type,
+            is_alias=is_alias,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             target: pulumi.Input[str],
+             type: pulumi.Input[str],
+             is_alias: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_name", domain_name)
+        _setter("target", target)
+        _setter("type", type)
         if is_alias is not None:
-            pulumi.set(__self__, "is_alias", is_alias)
+            _setter("is_alias", is_alias)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -112,16 +129,33 @@ class _DomainEntryState:
         :param pulumi.Input[str] target: Target of the domain entry
         :param pulumi.Input[str] type: Type of record
         """
+        _DomainEntryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            is_alias=is_alias,
+            name=name,
+            target=target,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             is_alias: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if is_alias is not None:
-            pulumi.set(__self__, "is_alias", is_alias)
+            _setter("is_alias", is_alias)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="domainName")
@@ -271,6 +305,10 @@ class DomainEntry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainEntryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

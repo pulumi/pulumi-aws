@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
@@ -36,23 +36,48 @@ class AuthorizerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provider_arns: List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         :param pulumi.Input[str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
-        pulumi.set(__self__, "rest_api", rest_api)
+        AuthorizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rest_api=rest_api,
+            authorizer_credentials=authorizer_credentials,
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_uri=authorizer_uri,
+            identity_source=identity_source,
+            identity_validation_expression=identity_validation_expression,
+            name=name,
+            provider_arns=provider_arns,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rest_api: pulumi.Input[str],
+             authorizer_credentials: Optional[pulumi.Input[str]] = None,
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             identity_source: Optional[pulumi.Input[str]] = None,
+             identity_validation_expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("rest_api", rest_api)
         if authorizer_credentials is not None:
-            pulumi.set(__self__, "authorizer_credentials", authorizer_credentials)
+            _setter("authorizer_credentials", authorizer_credentials)
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if identity_source is not None:
-            pulumi.set(__self__, "identity_source", identity_source)
+            _setter("identity_source", identity_source)
         if identity_validation_expression is not None:
-            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+            _setter("identity_validation_expression", identity_validation_expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_arns is not None:
-            pulumi.set(__self__, "provider_arns", provider_arns)
+            _setter("provider_arns", provider_arns)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="restApi")
@@ -191,26 +216,53 @@ class _AuthorizerState:
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         :param pulumi.Input[str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
+        _AuthorizerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            authorizer_credentials=authorizer_credentials,
+            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
+            authorizer_uri=authorizer_uri,
+            identity_source=identity_source,
+            identity_validation_expression=identity_validation_expression,
+            name=name,
+            provider_arns=provider_arns,
+            rest_api=rest_api,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             authorizer_credentials: Optional[pulumi.Input[str]] = None,
+             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             authorizer_uri: Optional[pulumi.Input[str]] = None,
+             identity_source: Optional[pulumi.Input[str]] = None,
+             identity_validation_expression: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authorizer_credentials is not None:
-            pulumi.set(__self__, "authorizer_credentials", authorizer_credentials)
+            _setter("authorizer_credentials", authorizer_credentials)
         if authorizer_result_ttl_in_seconds is not None:
-            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+            _setter("authorizer_uri", authorizer_uri)
         if identity_source is not None:
-            pulumi.set(__self__, "identity_source", identity_source)
+            _setter("identity_source", identity_source)
         if identity_validation_expression is not None:
-            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+            _setter("identity_validation_expression", identity_validation_expression)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider_arns is not None:
-            pulumi.set(__self__, "provider_arns", provider_arns)
+            _setter("provider_arns", provider_arns)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -490,6 +542,10 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

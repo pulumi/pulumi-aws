@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnvironmentMembershipArgs', 'EnvironmentMembership']
@@ -23,9 +23,22 @@ class EnvironmentMembershipArgs:
         :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         """
-        pulumi.set(__self__, "environment_id", environment_id)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "user_arn", user_arn)
+        EnvironmentMembershipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_id=environment_id,
+            permissions=permissions,
+            user_arn=user_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_id: pulumi.Input[str],
+             permissions: pulumi.Input[str],
+             user_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("environment_id", environment_id)
+        _setter("permissions", permissions)
+        _setter("user_arn", user_arn)
 
     @property
     @pulumi.getter(name="environmentId")
@@ -78,14 +91,29 @@ class _EnvironmentMembershipState:
         :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         :param pulumi.Input[str] user_id: he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
+        _EnvironmentMembershipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_id=environment_id,
+            permissions=permissions,
+            user_arn=user_arn,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_id: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             user_arn: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if user_arn is not None:
-            pulumi.set(__self__, "user_arn", user_arn)
+            _setter("user_arn", user_arn)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="environmentId")
@@ -217,6 +245,10 @@ class EnvironmentMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

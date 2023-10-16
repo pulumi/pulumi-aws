@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,35 +51,72 @@ class CatalogTableArgs:
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
-        pulumi.set(__self__, "database_name", database_name)
+        CatalogTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            catalog_id=catalog_id,
+            description=description,
+            name=name,
+            open_table_format_input=open_table_format_input,
+            owner=owner,
+            parameters=parameters,
+            partition_indices=partition_indices,
+            partition_keys=partition_keys,
+            retention=retention,
+            storage_descriptor=storage_descriptor,
+            table_type=table_type,
+            target_table=target_table,
+            view_expanded_text=view_expanded_text,
+            view_original_text=view_original_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
+             partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+             retention: Optional[pulumi.Input[int]] = None,
+             storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
+             table_type: Optional[pulumi.Input[str]] = None,
+             target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+             view_expanded_text: Optional[pulumi.Input[str]] = None,
+             view_original_text: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_table_format_input is not None:
-            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
+            _setter("open_table_format_input", open_table_format_input)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition_indices is not None:
-            pulumi.set(__self__, "partition_indices", partition_indices)
+            _setter("partition_indices", partition_indices)
         if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
+            _setter("partition_keys", partition_keys)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
         if table_type is not None:
-            pulumi.set(__self__, "table_type", table_type)
+            _setter("table_type", table_type)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
         if view_expanded_text is not None:
-            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+            _setter("view_expanded_text", view_expanded_text)
         if view_original_text is not None:
-            pulumi.set(__self__, "view_original_text", view_original_text)
+            _setter("view_original_text", view_original_text)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -304,38 +341,77 @@ class _CatalogTableState:
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
+        _CatalogTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_id=catalog_id,
+            database_name=database_name,
+            description=description,
+            name=name,
+            open_table_format_input=open_table_format_input,
+            owner=owner,
+            parameters=parameters,
+            partition_indices=partition_indices,
+            partition_keys=partition_keys,
+            retention=retention,
+            storage_descriptor=storage_descriptor,
+            table_type=table_type,
+            target_table=target_table,
+            view_expanded_text=view_expanded_text,
+            view_original_text=view_original_text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
+             partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+             retention: Optional[pulumi.Input[int]] = None,
+             storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
+             table_type: Optional[pulumi.Input[str]] = None,
+             target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+             view_expanded_text: Optional[pulumi.Input[str]] = None,
+             view_original_text: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_table_format_input is not None:
-            pulumi.set(__self__, "open_table_format_input", open_table_format_input)
+            _setter("open_table_format_input", open_table_format_input)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition_indices is not None:
-            pulumi.set(__self__, "partition_indices", partition_indices)
+            _setter("partition_indices", partition_indices)
         if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
+            _setter("partition_keys", partition_keys)
         if retention is not None:
-            pulumi.set(__self__, "retention", retention)
+            _setter("retention", retention)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
         if table_type is not None:
-            pulumi.set(__self__, "table_type", table_type)
+            _setter("table_type", table_type)
         if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
+            _setter("target_table", target_table)
         if view_expanded_text is not None:
-            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+            _setter("view_expanded_text", view_expanded_text)
         if view_original_text is not None:
-            pulumi.set(__self__, "view_original_text", view_original_text)
+            _setter("view_original_text", view_original_text)
 
     @property
     @pulumi.getter
@@ -739,6 +815,10 @@ class CatalogTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CatalogTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -774,14 +854,29 @@ class CatalogTable(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if open_table_format_input is not None and not isinstance(open_table_format_input, CatalogTableOpenTableFormatInputArgs):
+                open_table_format_input = open_table_format_input or {}
+                def _setter(key, value):
+                    open_table_format_input[key] = value
+                CatalogTableOpenTableFormatInputArgs._configure(_setter, **open_table_format_input)
             __props__.__dict__["open_table_format_input"] = open_table_format_input
             __props__.__dict__["owner"] = owner
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["partition_indices"] = partition_indices
             __props__.__dict__["partition_keys"] = partition_keys
             __props__.__dict__["retention"] = retention
+            if storage_descriptor is not None and not isinstance(storage_descriptor, CatalogTableStorageDescriptorArgs):
+                storage_descriptor = storage_descriptor or {}
+                def _setter(key, value):
+                    storage_descriptor[key] = value
+                CatalogTableStorageDescriptorArgs._configure(_setter, **storage_descriptor)
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             __props__.__dict__["table_type"] = table_type
+            if target_table is not None and not isinstance(target_table, CatalogTableTargetTableArgs):
+                target_table = target_table or {}
+                def _setter(key, value):
+                    target_table[key] = value
+                CatalogTableTargetTableArgs._configure(_setter, **target_table)
             __props__.__dict__["target_table"] = target_table
             __props__.__dict__["view_expanded_text"] = view_expanded_text
             __props__.__dict__["view_original_text"] = view_original_text

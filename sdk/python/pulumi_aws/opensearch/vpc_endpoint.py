@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,19 @@ class VpcEndpointArgs:
         :param pulumi.Input[str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         :param pulumi.Input['VpcEndpointVpcOptionsArgs'] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
-        pulumi.set(__self__, "domain_arn", domain_arn)
-        pulumi.set(__self__, "vpc_options", vpc_options)
+        VpcEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_arn=domain_arn,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_arn: pulumi.Input[str],
+             vpc_options: pulumi.Input['VpcEndpointVpcOptionsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("domain_arn", domain_arn)
+        _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="domainArn")
@@ -63,12 +74,25 @@ class _VpcEndpointState:
         :param pulumi.Input[str] endpoint: The connection endpoint ID for connecting to the domain.
         :param pulumi.Input['VpcEndpointVpcOptionsArgs'] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
+        _VpcEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_arn=domain_arn,
+            endpoint=endpoint,
+            vpc_options=vpc_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_arn: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             vpc_options: Optional[pulumi.Input['VpcEndpointVpcOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_arn is not None:
-            pulumi.set(__self__, "domain_arn", domain_arn)
+            _setter("domain_arn", domain_arn)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if vpc_options is not None:
-            pulumi.set(__self__, "vpc_options", vpc_options)
+            _setter("vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="domainArn")
@@ -200,6 +224,10 @@ class VpcEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,6 +247,11 @@ class VpcEndpoint(pulumi.CustomResource):
             if domain_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_arn'")
             __props__.__dict__["domain_arn"] = domain_arn
+            if vpc_options is not None and not isinstance(vpc_options, VpcEndpointVpcOptionsArgs):
+                vpc_options = vpc_options or {}
+                def _setter(key, value):
+                    vpc_options[key] = value
+                VpcEndpointVpcOptionsArgs._configure(_setter, **vpc_options)
             if vpc_options is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_options'")
             __props__.__dict__["vpc_options"] = vpc_options

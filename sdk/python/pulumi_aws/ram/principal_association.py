@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrincipalAssociationArgs', 'PrincipalAssociation']
@@ -21,8 +21,19 @@ class PrincipalAssociationArgs:
         :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+        PrincipalAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal=principal,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal: pulumi.Input[str],
+             resource_share_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal", principal)
+        _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _PrincipalAssociationState:
         :param pulumi.Input[str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
         """
+        _PrincipalAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal=principal,
+            resource_share_arn=resource_share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal: Optional[pulumi.Input[str]] = None,
+             resource_share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if resource_share_arn is not None:
-            pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+            _setter("resource_share_arn", resource_share_arn)
 
     @property
     @pulumi.getter
@@ -206,6 +228,10 @@ class PrincipalAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrincipalAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

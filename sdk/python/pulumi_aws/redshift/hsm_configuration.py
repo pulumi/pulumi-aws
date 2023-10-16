@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HsmConfigurationArgs', 'HsmConfiguration']
@@ -31,14 +31,35 @@ class HsmConfigurationArgs:
         :param pulumi.Input[str] hsm_server_public_certificate: The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "hsm_configuration_identifier", hsm_configuration_identifier)
-        pulumi.set(__self__, "hsm_ip_address", hsm_ip_address)
-        pulumi.set(__self__, "hsm_partition_name", hsm_partition_name)
-        pulumi.set(__self__, "hsm_partition_password", hsm_partition_password)
-        pulumi.set(__self__, "hsm_server_public_certificate", hsm_server_public_certificate)
+        HsmConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            hsm_configuration_identifier=hsm_configuration_identifier,
+            hsm_ip_address=hsm_ip_address,
+            hsm_partition_name=hsm_partition_name,
+            hsm_partition_password=hsm_partition_password,
+            hsm_server_public_certificate=hsm_server_public_certificate,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             hsm_configuration_identifier: pulumi.Input[str],
+             hsm_ip_address: pulumi.Input[str],
+             hsm_partition_name: pulumi.Input[str],
+             hsm_partition_password: pulumi.Input[str],
+             hsm_server_public_certificate: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("hsm_configuration_identifier", hsm_configuration_identifier)
+        _setter("hsm_ip_address", hsm_ip_address)
+        _setter("hsm_partition_name", hsm_partition_name)
+        _setter("hsm_partition_password", hsm_partition_password)
+        _setter("hsm_server_public_certificate", hsm_server_public_certificate)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -149,27 +170,52 @@ class _HsmConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _HsmConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            hsm_configuration_identifier=hsm_configuration_identifier,
+            hsm_ip_address=hsm_ip_address,
+            hsm_partition_name=hsm_partition_name,
+            hsm_partition_password=hsm_partition_password,
+            hsm_server_public_certificate=hsm_server_public_certificate,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
+             hsm_ip_address: Optional[pulumi.Input[str]] = None,
+             hsm_partition_name: Optional[pulumi.Input[str]] = None,
+             hsm_partition_password: Optional[pulumi.Input[str]] = None,
+             hsm_server_public_certificate: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hsm_configuration_identifier is not None:
-            pulumi.set(__self__, "hsm_configuration_identifier", hsm_configuration_identifier)
+            _setter("hsm_configuration_identifier", hsm_configuration_identifier)
         if hsm_ip_address is not None:
-            pulumi.set(__self__, "hsm_ip_address", hsm_ip_address)
+            _setter("hsm_ip_address", hsm_ip_address)
         if hsm_partition_name is not None:
-            pulumi.set(__self__, "hsm_partition_name", hsm_partition_name)
+            _setter("hsm_partition_name", hsm_partition_name)
         if hsm_partition_password is not None:
-            pulumi.set(__self__, "hsm_partition_password", hsm_partition_password)
+            _setter("hsm_partition_password", hsm_partition_password)
         if hsm_server_public_certificate is not None:
-            pulumi.set(__self__, "hsm_server_public_certificate", hsm_server_public_certificate)
+            _setter("hsm_server_public_certificate", hsm_server_public_certificate)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -374,6 +420,10 @@ class HsmConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HsmConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
