@@ -25,7 +25,10 @@ import (
 )
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(defaults, fixupImports(), applyReplacementsDotJSON())
+	return append(defaults,
+		fixupImports(),
+		fixupExampleStrings(),
+		applyReplacementsDotJSON())
 }
 
 func fixupImports() tfbridge.DocsEdit {
@@ -49,6 +52,26 @@ func fixupImports() tfbridge.DocsEdit {
 				return match
 			})
 			content = quotedImportRegexp.ReplaceAllLiteral(content, []byte("`pulumi import`"))
+			return content, nil
+		},
+	}
+}
+
+// This fixes up strings such as:
+//
+//	name        = "terraform-kinesis-firehose-os",
+//
+// Replacing the above with:
+//
+//	name        = "pulumi-kinesis-firehose-os"
+//
+func fixupExampleStrings() tfbridge.DocsEdit {
+	const tf = `"terraform-`
+
+	return tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(path string, content []byte) ([]byte, error) {
+			content = bytes.ReplaceAll(content, []byte(tf), []byte(`"pulumi-`))
 			return content, nil
 		},
 	}
