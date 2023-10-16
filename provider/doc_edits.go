@@ -70,49 +70,10 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	fmt.Printf("Gathered %d replacements\n", len(replacements))
 	var applied int
 
-	checkForTODOs := make(chan struct {
-		path    string
-		content []byte
-	})
-	doneWithTODOs := make(chan struct{})
-
-	go func() {
-		r := regexp.MustCompile("[tT]erraform")
-		for {
-			f, ok := <-checkForTODOs
-			if !ok {
-				// Signal that we are done processing and it is safe to proceed.
-				close(doneWithTODOs)
-				return
-			}
-			var end int
-			for _, m := range r.FindAllIndex(f.content, -1) {
-				// If we see ```terraform, we skip that
-				if i := m[0]; i > 3 && (f.content[i-1] == '`' &&
-					f.content[i-2] == '`' && f.content[i-3] == '`') {
-					continue
-				}
-				if m[0] < end {
-					// This match is on the same line as the previous
-					// match, so we don't need to add it twice.
-					continue
-				}
-				var start int
-				start, end = findLine(f.content, m[0])
-				line := string(f.content[start:end])
-
-				replacements[f.path] = append(replacements[f.path], struct {
-					Old string `json:"old"`
-					New string `json:"new"`
-				}{line, r.ReplaceAllLiteralString(line, "TODO")})
-			}
-		}
-	}()
-
+	// Print the number of replacements actually applied, then write out the new
+	// `replacements.json` with new TODOs for elided text.
 	PostTfgenHook = append(PostTfgenHook, func() {
 		fmt.Printf("Applied %d replacements", applied)
-		close(checkForTODOs)
-		<-doneWithTODOs
 		var b bytes.Buffer
 		m := json.NewEncoder(&b)
 		m.SetEscapeHTML(false)
@@ -140,10 +101,7 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 				content = bytes.ReplaceAll(content, old, new)
 			}
 
-			checkForTODOs <- struct {
-				path    string
-				content []byte
-			}{path, content}
+			replacements.checkForTODOs(path, content)
 
 			return content, nil
 		},
@@ -155,6 +113,32 @@ var PostTfgenHook []func()
 type replacementFile map[string][]struct {
 	Old string `json:"old"`
 	New string `json:"new"`
+}
+
+var elidedText = regexp.MustCompile("[tT]erraform")
+
+func (r replacementFile) checkForTODOs(path string, content []byte) {
+	var end int
+	for _, m := range elidedText.FindAllIndex(content, -1) {
+		// If we see ```terraform, we skip that
+		if i := m[0]; i > 3 && (content[i-1] == '`' &&
+			content[i-2] == '`' && content[i-3] == '`') {
+			continue
+		}
+		if m[0] < end {
+			// This match is on the same line as the previous
+			// match, so we don't need to add it twice.
+			continue
+		}
+		var start int
+		start, end = findLine(content, m[0])
+		line := string(content[start:end])
+
+		r[path] = append(r[path], struct {
+			Old string `json:"old"`
+			New string `json:"new"`
+		}{line, elidedText.ReplaceAllLiteralString(line, "TODO")})
+	}
 }
 
 func findLine(src []byte, i int) (int, int) {
