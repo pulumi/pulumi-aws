@@ -61,7 +61,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
+//	$ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-pulumi
 //
 // ```
 type ParameterGroup struct {

@@ -55,13 +55,17 @@ foo: bar
 foo: bar
 ` + "```\n",
 		},
+		{
+			`% terraform import has-terraform-name`,
+			`% pulumi import has-pulumi-name`,
+		},
 	}
 
 	for _, tt := range tests {
 		tt := tt
 		t.Run(tt.text, func(t *testing.T) {
 			t.Parallel()
-			actual, err := fixupImports.Edit("doc.md", []byte(tt.text))
+			actual, err := fixupImports().Edit("doc.md", []byte(tt.text))
 			require.NoError(t, err)
 			assert.Equal(t, tt.expected, string(actual))
 		})

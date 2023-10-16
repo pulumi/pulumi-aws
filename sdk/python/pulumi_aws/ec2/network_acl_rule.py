@@ -447,10 +447,6 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Import
 
-        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
-
-        Using the procotol's string value:
-
         Using the procotol's decimal value:
 
         __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
@@ -522,10 +518,6 @@ class NetworkAclRule(pulumi.CustomResource):
         > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 
         ## Import
-
-        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
-
-        Using the procotol's string value:
 
         Using the procotol's decimal value:
 

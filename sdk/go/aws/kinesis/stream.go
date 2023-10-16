@@ -60,7 +60,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
+//	$ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
 //
 // ```
 type Stream struct {

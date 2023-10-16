@@ -22,8 +22,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using a proposal ID:
- *
  * Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
  *
  * __With `pulumi import`__, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:

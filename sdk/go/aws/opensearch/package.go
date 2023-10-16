@@ -19,11 +19,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 //
-//	to = aws_opensearch_package.example
+// ```sh
 //
-//	id = "package-id" } Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For exampleconsole % pulumi import aws:opensearch/package:Package example package-id
+//	$ pulumi import aws:opensearch/package:Package example package-id
+//
+// ```
 type Package struct {
 	pulumi.CustomResourceState
 

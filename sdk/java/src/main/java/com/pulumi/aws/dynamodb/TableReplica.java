@@ -90,8 +90,6 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
- * 
  * Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
  * 
  * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.

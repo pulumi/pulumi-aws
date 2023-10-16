@@ -45,13 +45,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// # Using `pulumi import`, import Transfer Workflows using the
 //
-//	to = aws_verifiedaccess_instance.example
+// `id`. For example:
 //
-//	id = "vai-1234567890abcdef0" } Using `pulumi import`, import Transfer Workflows using the
+// ```sh
 //
-// `id`. For exampleconsole % pulumi import aws:verifiedaccess/instance:Instance vai-1234567890abcdef0
+//	$ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+//
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 

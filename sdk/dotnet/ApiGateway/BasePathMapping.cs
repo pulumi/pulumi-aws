@@ -53,8 +53,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// For an empty `base_path` or, in other words, a root path (`/`):
-    /// 
     /// For a non-root `base_path`:
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:

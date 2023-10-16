@@ -192,8 +192,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         ## Import
 
-        __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
-
         Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
 
         __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
@@ -224,8 +222,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
 
         ## Import
-
-        __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 
         Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
 

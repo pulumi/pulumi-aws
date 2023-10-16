@@ -22,8 +22,6 @@ import (
 //
 // ## Import
 //
-// __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
-//
 // Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
 //
 // __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.

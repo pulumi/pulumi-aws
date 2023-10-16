@@ -100,8 +100,6 @@ import {Bucket} from "./index";
  *
  * ## Import
  *
- * Import using the `id`, which is the bucket name and the key together:
- *
  * Import using S3 URL syntax:
  *
  * __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:

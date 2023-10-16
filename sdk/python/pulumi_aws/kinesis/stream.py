@@ -423,7 +423,7 @@ class Stream(pulumi.CustomResource):
         Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
+         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
 
         :param str resource_name: The name of the resource.
@@ -478,7 +478,7 @@ class Stream(pulumi.CustomResource):
         Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
+         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
 
         :param str resource_name: The name of the resource.

@@ -38,8 +38,6 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The VPC is in the same region where you have configured the TODO AWS Provider:
- *
  * The VPC is _not_ in the same region where you have configured the TODO AWS Provider:
  *
  * __Using `pulumi import` to import__ Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
  * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
  *
- * > **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview
+ * > **NOTE:** After applying your changes, you may encounter a perpetual diff in your pulumi preview
  * output for a `parameter` whose `value` remains unchanged but whose `applyMethod` is changing
  * (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
  * apply method of a parameter is changing, the AWS API will not register this change. To change

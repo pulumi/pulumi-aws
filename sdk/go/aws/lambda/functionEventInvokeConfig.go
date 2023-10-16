@@ -159,8 +159,6 @@ import (
 //
 // ## Import
 //
-// ARN without qualifier (all versions and aliases):
-//
 // ARN with qualifier:
 //
 // Name without qualifier (all versions and aliases):
