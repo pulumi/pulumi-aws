@@ -20,7 +20,6 @@ import (
 	"fmt"
 	"os"
 	"regexp"
-	"strings"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
@@ -55,6 +54,7 @@ func fixupImports() tfbridge.DocsEdit {
 	}
 }
 
+// Apply replacements from `replacements.json` (as search and replace) to read in docs.
 func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	filePath := "./provider/replacements.json"
 	fileBytes, err := os.ReadFile(filePath)
@@ -65,17 +65,6 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 	err = json.Unmarshal(fileBytes, &replacements)
 	if err != nil {
 		panic(err)
-	}
-
-	for k, v := range replacements {
-		i := strings.LastIndexByte(k, '/')
-		if i == -1 {
-			continue
-		}
-		delete(replacements, k)
-
-		key := k[i+1:]
-		replacements[key] = append(replacements[key], v...)
 	}
 
 	fmt.Printf("Gathered %d replacements\n", len(replacements))
