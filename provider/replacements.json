@@ -43,20 +43,6 @@
       "new": ""
     }
   ],
-  "api_gateway_gateway_response.markdown": [
-    {
-      "old": "% terraform import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED",
-      "new": "% pulumi import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:",
-      "new": "Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:"
-    }
-  ],
   "api_gateway_method_settings.html.markdown": [
     {
       "old": "An end-to-end example of a REST API configured with OpenAPI can be found in the `/examples/api-gateway-rest-api-openapi` directory within the GitHub repository.\n",
@@ -99,12 +85,6 @@
     {
       "old": "-> Enable the resource `lifecycle` configuration block `create_before_destroy` argument in this resource configuration to properly order redeployments.\n",
       "new": ""
-    }
-  ],
-  "appautoscaling_target.html.markdown": [
-    {
-      "old": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.",
-      "new": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below."
     }
   ],
   "appmesh_gateway_route.html.markdown": [
@@ -353,30 +333,10 @@
       "new": "  name            = \"TODO-example-table\""
     }
   ],
-  "cloud9_environment_membership.markdown": [
-    {
-      "old": "% terraform import aws_cloud9_environment_membership.test environment-id#user-arn",
-      "new": "% pulumi import aws_cloud9_environment_membership.test environment-id#user-arn"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:",
-      "new": "Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:"
-    }
-  ],
   "cloudcontrolapi_resource.html.markdown": [
     {
       "old": "* `desired_state` - (Required) JSON string matching the CloudFormation resource type schema with desired configuration. Terraform configuration expressions can be converted into JSON using the `jsonencode()` function.",
       "new": "* `desired_state` - (Required) JSON string matching the CloudFormation resource type schema with desired configuration."
-    }
-  ],
-  "cloudformation_stack_set_instance.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:",
-      "new": "**Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:"
     }
   ],
   "cloudformation_type.html.markdown": [
@@ -497,20 +457,6 @@
       "new": ""
     }
   ],
-  "codepipeline.markdown": [
-    {
-      "old": "% terraform import aws_codepipeline.foo example",
-      "new": "% pulumi import aws_codepipeline.foo example"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodePipelines using the name. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import CodePipelines using the name. For example:",
-      "new": "Using `pulumi import`, import CodePipelines using the name. For example:"
-    }
-  ],
   "codepipeline_custom_action_type.html.markdown": [
     {
       "old": "  id = \"Build:terraform:1\"",
@@ -519,110 +465,6 @@
     {
       "old": "* `id` - Composed of category, provider and version. For example, `Build:terraform:1`",
       "new": "* `id` - Composed of category, provider and version. For example, `Build:example:1`"
-    }
-  ],
-  "codepipeline_webhook.markdown": [
-    {
-      "old": "% terraform import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example",
-      "new": "% pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import CodePipeline Webhooks using their ARN. For example:",
-      "new": "Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:"
-    }
-  ],
-  "codestarconnections_connection.markdown": [
-    {
-      "old": "% terraform import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448",
-      "new": "% pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import CodeStar connections using the ARN. For example:",
-      "new": "Using `pulumi import`, import CodeStar connections using the ARN. For example:"
-    }
-  ],
-  "codestarconnections_host.markdown": [
-    {
-      "old": "% terraform import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448",
-      "new": "% pulumi import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar Host using the ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import CodeStar Host using the ARN. For example:",
-      "new": "Using `pulumi import`, import CodeStar Host using the ARN. For example:"
-    }
-  ],
-  "codestarnotifications_notification_rule.markdown": [
-    {
-      "old": "% terraform import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b",
-      "new": "% pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import CodeStar notification rule using the ARN. For example:",
-      "new": "Using `pulumi import`, import CodeStar notification rule using the ARN. For example:"
-    }
-  ],
-  "cognito_identity_pool.markdown": [
-    {
-      "old": "% terraform import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3",
-      "new": "% pulumi import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool using its ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Cognito Identity Pool using its ID. For example:",
-      "new": "Using `pulumi import`, import Cognito Identity Pool using its ID. For example:"
-    }
-  ],
-  "cognito_identity_pool_provider_principal_tag.markdown": [
-    {
-      "old": "% terraform import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD",
-      "new": "% pulumi import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:",
-      "new": "Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:"
-    }
-  ],
-  "cognito_identity_pool_roles_attachment.markdown": [
-    {
-      "old": "% terraform import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42",
-      "new": "% pulumi import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:",
-      "new": "Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:"
-    }
-  ],
-  "cognito_risk_configuration.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:",
-      "new": "**Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:"
     }
   ],
   "cognito_user.html.markdown": [
@@ -649,20 +491,6 @@
       "new": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the TODO resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes."
     }
   ],
-  "cognito_user_pool.markdown": [
-    {
-      "old": "% terraform import aws_cognito_user_pool.pool us-west-2_abc123",
-      "new": "% pulumi import aws_cognito_user_pool.pool us-west-2_abc123"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Cognito User Pools using the `id`. For example:",
-      "new": "Using `pulumi import`, import Cognito User Pools using the `id`. For example:"
-    }
-  ],
   "comprehend_document_classifier.html.markdown": [
     {
       "old": "  If omitted, Terraform will assign a random, unique version name.",
@@ -673,34 +501,6 @@
     {
       "old": "  If omitted, Terraform will assign a random, unique version name.",
       "new": "  If omitted, the provider will assign a random, unique version name."
-    }
-  ],
-  "config_aggregate_authorization.markdown": [
-    {
-      "old": "% terraform import aws_config_aggregate_authorization.example 123456789012:us-east-1",
-      "new": "% pulumi import aws_config_aggregate_authorization.example 123456789012:us-east-1"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Config aggregate authorizations using `account_id:region`. For example:",
-      "new": "Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:"
-    }
-  ],
-  "connect_bot_association.markdown": [
-    {
-      "old": "% terraform import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2",
-      "new": "% pulumi import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:",
-      "new": "Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:"
     }
   ],
   "connect_contact_flow.html.markdown": [
@@ -727,100 +527,6 @@
       "new": "* `content_hash` - (Optional) Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`."
     }
   ],
-  "connect_lambda_function_association.markdown": [
-    {
-      "old": "% terraform import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example",
-      "new": "% pulumi import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:",
-      "new": "Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:"
-    }
-  ],
-  "continuous-validation-examples.html.markdown": [
-    {
-      "old": "  Using Terraform Cloud's Continuous Validation feature with the AWS Provider",
-      "new": "  Using TODO Cloud's Continuous Validation feature with the AWS Provider"
-    },
-    {
-      "old": "# Using Terraform Cloud's Continuous Validation feature with the AWS Provider",
-      "new": "# Using TODO Cloud's Continuous Validation feature with the AWS Provider"
-    },
-    {
-      "old": "## Continuous Validation in Terraform Cloud",
-      "new": "## Continuous Validation in TODO Cloud"
-    },
-    {
-      "old": "Below, this guide shows examples of how data returned by the AWS provider can be used to define checks in your Terraform configuration.",
-      "new": "Below, this guide shows examples of how data returned by the AWS provider can be used to define checks in your TODO configuration."
-    },
-    {
-      "old": "Custom conditions can be created using data from Terraform providers’ resources and data sources. Data can also be combined from multiple sources; for example, you can use checks to monitor expirable resources by comparing a resource’s expiration date attribute to the current time returned by Terraform’s built-in time functions.",
-      "new": "Custom conditions can be created using data from TODO providers’ resources and data sources. Data can also be combined from multiple sources; for example, you can use checks to monitor expirable resources by comparing a resource’s expiration date attribute to the current time returned by TODO’s built-in time functions."
-    },
-    {
-      "old": "The Continuous Validation feature in Terraform Cloud (TFC) allows users to make assertions about their infrastructure between applied runs. This helps users to identify issues at the time they first appear and avoid situations where a change is only identified once it causes a customer-facing problem.",
-      "new": "The Continuous Validation feature in TODO Cloud (TFC) allows users to make assertions about their infrastructure between applied runs. This helps users to identify issues at the time they first appear and avoid situations where a change is only identified once it causes a customer-facing problem."
-    },
-    {
-      "old": "Users can add checks to their Terraform configuration using check blocks. Check blocks contain assertions that are defined with a custom condition expression and an error message. When the condition expression evaluates to true the check passes, but when the expression evaluates to false Terraform will show a warning message that includes the user-defined error message.",
-      "new": "Users can add checks to their TODO configuration using check blocks. Check blocks contain assertions that are defined with a custom condition expression and an error message. When the condition expression evaluates to true the check passes, but when the expression evaluates to false TODO will show a warning message that includes the user-defined error message."
-    },
-    {
-      "old": "page_title: \"Using Terraform Cloud's Continuous Validation feature with the AWS Provider\"",
-      "new": "page_title: \"Using TODO Cloud's Continuous Validation feature with the AWS Provider\""
-    }
-  ],
-  "custom-service-endpoints.html.markdown": [
-    {
-      "old": "    for Markdown within HTML elements, however the Terraform Registry parser",
-      "new": "    for Markdown within HTML elements, however the TODO Registry parser"
-    },
-    {
-      "old": "    maintaining a table. The terraform.io Markdown parser previously allowed",
-      "new": "    maintaining a table. The TODO.io Markdown parser previously allowed"
-    },
-    {
-      "old": "  Configuring the Terraform AWS Provider to connect to custom AWS service endpoints and AWS compatible solutions.",
-      "new": "  Configuring the TODO AWS Provider to connect to custom AWS service endpoints and AWS compatible solutions."
-    },
-    {
-      "old": "As a convenience, for compatibility with the Terraform S3 Backend,",
-      "new": "As a convenience, for compatibility with the TODO S3 Backend,"
-    },
-    {
-      "old": "If multiple, different Terraform AWS Provider configurations are required, see the Terraform documentation on multiple provider instances for additional information about the `alias` provider configuration and its usage.",
-      "new": "If multiple, different TODO AWS Provider configurations are required, see the TODO documentation on multiple provider instances for additional information about the `alias` provider configuration and its usage."
-    },
-    {
-      "old": "The Terraform AWS Provider allows the following endpoints to be customized.",
-      "new": "The TODO AWS Provider allows the following endpoints to be customized."
-    },
-    {
-      "old": "The Terraform AWS Provider configuration can be customized to connect to non-default AWS service endpoints and AWS compatible solutions. This may be useful for environments with specific compliance requirements, such as using [AWS FIPS 140-2 endpoints](https://aws.amazon.com/compliance/fips/), connecting to AWS Snowball, SC2S, or C2S environments, or local testing.",
-      "new": "The TODO AWS Provider configuration can be customized to connect to non-default AWS service endpoints and AWS compatible solutions. This may be useful for environments with specific compliance requirements, such as using [AWS FIPS 140-2 endpoints](https://aws.amazon.com/compliance/fips/), connecting to AWS Snowball, SC2S, or C2S environments, or local testing."
-    },
-    {
-      "old": "To configure the Terraform AWS Provider to use customized endpoints, it can be done within `provider` declarations using the `endpoints` configuration block, e.g.,",
-      "new": "To configure the TODO AWS Provider to use customized endpoints, it can be done within `provider` declarations using the `endpoints` configuration block, e.g.,"
-    },
-    {
-      "old": "page_title: \"Terraform AWS Provider Custom Service Endpoint Configuration\"",
-      "new": "page_title: \"TODO AWS Provider Custom Service Endpoint Configuration\""
-    },
-    {
-      "old": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time.",
-      "new": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by TODO during provider changes is exclusively done against default AWS endpoints at this time."
-    },
-    {
-      "old": "~> **NOTE:** Support for connecting the Terraform AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual Terraform resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time.",
-      "new": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time."
-    }
-  ],
   "db_instance.html.markdown": [
     {
       "old": "> **Hands-on:** Try the Manage AWS RDS Instances tutorial on HashiCorp Learn.",
@@ -839,20 +545,6 @@
       "new": "if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified."
     }
   ],
-  "db_instance_automated_backups_replication.markdown": [
-    {
-      "old": "% terraform import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my",
-      "new": "% pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import RDS instance automated backups replication using the `arn`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import RDS instance automated backups replication using the `arn`. For example:",
-      "new": "Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:"
-    }
-  ],
   "db_option_group.html.markdown": [
     {
       "old": "* `option_group_description` - (Optional) Description of the option group. Defaults to \"Managed by Terraform\".",
@@ -869,40 +561,16 @@
       "new": "~> **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview"
     }
   ],
-  "db_proxy_target.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:",
-      "new": "**Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:"
-    }
-  ],
-  "db_security_group.html.markdown": [
-    {
-      "old": "!> **WARNING:** With the retirement of EC2-Classic the `aws_db_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from Terraform state using the `terraform state rm` command.",
-      "new": "!> **WARNING:** With the retirement of EC2-Classic the `aws_db_security_group` resource has been deprecated and will be removed in a future version."
-    }
-  ],
   "db_subnet_group.html.markdown": [
     {
       "old": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Terraform\".",
       "new": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Pulumi\"."
     }
   ],
-  "default_route_table.html.markdown": [
-    {
-      "old": "\n[aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table\n[tf-route-tables]: /docs/providers/aws/r/route_table.html\n[tf-main-route-table-association]: /docs/providers/aws/r/main_route_table_association.html",
-      "new": ""
-    }
-  ],
   "default_tags.html.markdown": [
     {
       "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
       "new": "With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
-    }
-  ],
-  "default_tags.markdown": [
-    {
-      "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
-      "new": "With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
     }
   ],
   "default_vpc.html.markdown": [
@@ -915,20 +583,6 @@
     {
       "old": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Terraform is unable to detect this at plan time but it will fail during apply.",
       "new": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply."
-    }
-  ],
-  "dlm_lifecycle_policy.markdown": [
-    {
-      "old": "% terraform import aws_dlm_lifecycle_policy.example policy-abcdef12345678901",
-      "new": "% pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import DLM lifecycle policies using their policy ID. For example:",
-      "new": "Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:"
     }
   ],
   "dms_s3_endpoint.html.markdown": [
@@ -1049,18 +703,6 @@
       "new": "* `kms_key_id` - (Optional) The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted."
     }
   ],
-  "ec2_client_vpn_authorization_rule.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:",
-      "new": "**Using `pulumi import` to import** AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:"
-    }
-  ],
-  "ec2_client_vpn_network_association.html.markdown": [
-    {
-      "old": "~> **NOTE on Client VPN endpoint target network security groups:** Terraform provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.",
-      "new": "~> **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association."
-    }
-  ],
   "ec2_managed_prefix_list.html.markdown": [
     {
       "old": "~> **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** Terraform",
@@ -1115,12 +757,6 @@
     {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide",
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
-    }
-  ],
-  "ecs_cluster_capacity_providers.html.markdown": [
-    {
-      "old": "~> **NOTE on Clusters and Cluster Capacity Providers:** Terraform provides both a standalone `aws_ecs_cluster_capacity_providers` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws_ecs_cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.",
-      "new": "~> **NOTE on Clusters and Cluster Capacity Providers:** The provider provides both a standalone `aws_ecs_cluster_capacity_providers` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws_ecs_cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites."
     }
   ],
   "ecs_tag.html.markdown": [
@@ -1213,12 +849,6 @@
       "new": "The provider will only perform drift detection if a configuration value is provided."
     }
   ],
-  "elastic_beanstalk_application.html.markdown": [
-    {
-      "old": "$ terraform import aws_elastic_beanstalk_application.tf_test tf-test-name",
-      "new": "$ terraform import aws_elastic_beanstalk_application.my_test tf-test-name"
-    }
-  ],
   "elastic_beanstalk_configuration_template.html.markdown": [
     {
       "old": "[1]: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html",
@@ -1237,18 +867,6 @@
     {
       "old": "or Terraform will always return a diff.",
       "new": "or the provider will always return a diff."
-    }
-  ],
-  "elasticache_security_group.html.markdown": [
-    {
-      "old": "!> **WARNING:** With the retirement of EC2-Classic the `aws_elasticache_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from Terraform state using the `terraform state rm` command.",
-      "new": "!> **WARNING:** With the retirement of EC2-Classic the `aws_elasticache_security_group` resource has been deprecated and will be removed in a future version."
-    }
-  ],
-  "elasticache_user.html.markdown": [
-    {
-      "old": "~> **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
-      "new": ""
     }
   ],
   "elasticache_user_group_association.html.markdown": [
@@ -1323,60 +941,6 @@
       "new": "        \"AwsKmsKey\": \"arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key\""
     }
   ],
-  "emrcontainers_job_template.markdown": [
-    {
-      "old": "% terraform import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l",
-      "new": "% pulumi import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import EKS job templates using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import EKS job templates using the `id`. For example:",
-      "new": "Using `pulumi import`, import EKS job templates using the `id`. For example:"
-    }
-  ],
-  "emrcontainers_virtual_cluster.markdown": [
-    {
-      "old": "% terraform import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l",
-      "new": "% pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import EKS Clusters using the `id`. For example:",
-      "new": "Using `pulumi import`, import EKS Clusters using the `id`. For example:"
-    }
-  ],
-  "emrserverless_application.markdown": [
-    {
-      "old": "% terraform import aws_emrserverless_application.example id",
-      "new": "% pulumi import aws_emrserverless_application.example id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import EMR Severless applications using the `id`. For example:",
-      "new": "Using `pulumi import`, import EMR Severless applications using the `id`. For example:"
-    }
-  ],
-  "evidently_launch.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:",
-      "new": "**Using `pulumi import` to import** CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:"
-    }
-  ],
-  "fsx_file_cache.html.markdown": [
-    {
-      "old": "Terraform resource for managing",
-      "new": "Resource for managing"
-    }
-  ],
   "fsx_lustre_file_system.html.markdown": [
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
@@ -1417,34 +981,6 @@
     {
       "old": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
-    }
-  ],
-  "gamelift_game_server_group.markdown": [
-    {
-      "old": "% terraform import aws_gamelift_game_server_group.example example",
-      "new": "% pulumi import aws_gamelift_game_server_group.example example"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import GameLift Game Server Group using the `name`. For example:",
-      "new": "Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:"
-    }
-  ],
-  "glue_dev_endpoint.markdown": [
-    {
-      "old": "% terraform import aws_glue_dev_endpoint.example foo",
-      "new": "% pulumi import aws_glue_dev_endpoint.example foo"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import a Glue Development Endpoint using the `name`. For example:",
-      "new": "Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:"
     }
   ],
   "glue_resource_policy.html.markdown": [
@@ -1495,20 +1031,6 @@
     {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide",
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
-    }
-  ],
-  "iam_group_policy_attachment.markdown": [
-    {
-      "old": "% terraform import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
-      "new": "% pulumi import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM group policy attachments using the group name and policy arn separated by `/`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:",
-      "new": "Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:"
     }
   ],
   "iam_policy.html.markdown": [
@@ -1573,20 +1095,6 @@
       "new": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference."
     }
   ],
-  "iam_role_policy_attachment.markdown": [
-    {
-      "old": "% terraform import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
-      "new": "% pulumi import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:",
-      "new": "Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:"
-    }
-  ],
   "iam_server_certificate.html.markdown": [
     {
       "old": "[lifecycle]: /docs/configuration/resources.html",
@@ -1609,22 +1117,6 @@
     {
       "old": "~> If `arn` is a non-role ARN, Terraform gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Terraform gives an error if the identified IAM role does not exist.",
       "new": "~> If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist."
-    }
-  ],
-  "iam_session_context.markdown": [
-    {
-      "old": "### Find the Terraform Runner's Source Role",
-      "new": "### Find the Provider's Source Role"
-    },
-    {
-      "old": "~> If `arn` is a non-role ARN, Terraform gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Terraform gives an error if the identified IAM role does not exist.",
-      "new": "~> If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist."
-    }
-  ],
-  "iam_signing_certificate.html.markdown": [
-    {
-      "old": "~> **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
-      "new": ""
     }
   ],
   "iam_user_group_membership.html.markdown": [
@@ -1669,20 +1161,6 @@
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
     }
   ],
-  "iam_user_policy_attachment.markdown": [
-    {
-      "old": "% terraform import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
-      "new": "% pulumi import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:",
-      "new": "Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:"
-    }
-  ],
   "iam_virtual_mfa_device.html.markdown": [
     {
       "old": "~> **Note:** A virtual MFA device cannot be directly associated with an IAM User from Terraform.",
@@ -1691,12 +1169,6 @@
     {
       "old": "~> **Note:** All attributes will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
       "new": ""
-    }
-  ],
-  "inspector2_enabler.html.markdown": [
-    {
-      "old": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, Terraform will ignore the status of the other type.",
-      "new": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type."
     }
   ],
   "instances.html.markdown": [
@@ -1767,28 +1239,6 @@
     {
       "old": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, Terraform will recreate the resource whenever dynamic partitioning is enabled or disabled.",
       "new": "~> **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled."
-    }
-  ],
-  "kinesis_stream.html.markdown": [
-    {
-      "old": "  id = \"terraform-kinesis-test\"",
-      "new": "  id = \"TODO-kinesis-test\""
-    }
-  ],
-  "kinesis_video_stream.html.markdown": [
-    {
-      "old": "  id = \"arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975\"",
-      "new": "  id = \"arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975\""
-    }
-  ],
-  "kms_ciphertext.html.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n",
-      "new": ""
-    },
-    {
-      "old": "Read more about sensitive data in state.\n",
-      "new": ""
     }
   ],
   "kms_key_policy.html.markdown": [
@@ -1869,12 +1319,6 @@
     {
       "old": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Terraform to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)",
       "new": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)"
-    }
-  ],
-  "lambda_function_event_invoke_config.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:",
-      "new": "**Using `pulumi import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:"
     }
   ],
   "lambda_functions.html.markdown": [
@@ -1997,38 +1441,10 @@
       "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger a redeployment."
     }
   ],
-  "licensemanager_association.markdown": [
-    {
-      "old": "% terraform import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-      "new": "% pulumi import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import license configurations using `resource_arn,license_configuration_arn`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import license configurations using `resource_arn,license_configuration_arn`. For example:",
-      "new": "Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:"
-    }
-  ],
   "licensemanager_license_configuration.html.markdown": [
     {
       "old": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.",
       "new": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead."
-    }
-  ],
-  "licensemanager_license_configuration.markdown": [
-    {
-      "old": "% terraform import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
-      "new": "% pulumi import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import license configurations using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import license configurations using the `id`. For example:",
-      "new": "Using `pulumi import`, import license configurations using the `id`. For example:"
     }
   ],
   "lightsail_bucket.html.markdown": [
@@ -2091,12 +1507,6 @@
       "new": "* `description` - (Optional) Description for the subnet group."
     }
   ],
-  "memorydb_user.html.markdown": [
-    {
-      "old": "~> **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
-      "new": ""
-    }
-  ],
   "msk_scram_secret_association.html.markdown": [
     {
       "old": "however, this policy will not be in terraform and as such, will present a diff on plan/apply. For that reason, you must use the `aws_secretsmanager_secret_policy`",
@@ -2155,26 +1565,6 @@
       "new": "~> **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource"
     }
   ],
-  "network_acl_rule.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as \"6\") or string (such as \"tcp\") value. For example:",
-      "new": "**Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as \"6\") or string (such as \"tcp\") value. For example:"
-    }
-  ],
-  "network_interface.markdown": [
-    {
-      "old": "% terraform import aws_network_interface.test eni-e5aa89a3",
-      "new": "% pulumi import aws_network_interface.test eni-e5aa89a3"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Network Interfaces using the `id`. For example:",
-      "new": "Using `pulumi import`, import Network Interfaces using the `id`. For example:"
-    }
-  ],
   "networkfirewall_firewall_policy.html.markdown": [
     {
       "old": "[1]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ram_resource_share",
@@ -2213,16 +1603,6 @@
       "new": "~> **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource's `policy_document` argument is incompatible with using the `aws_networkmanager_core_network_policy_attachment` resource. When using this resource's `policy_document` argument and the `aws_networkmanager_core_network_policy_attachment` resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference."
     }
   ],
-  "networkmanager_core_network_policy_attachment.html.markdown": [
-    {
-      "old": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws_networkmanager_core_network` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument.",
-      "new": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws_networkmanager_core_network` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument."
-    },
-    {
-      "old": "~> **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `aws_networkmanager_core_network` resource `policy_document` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Terraform will show a permanent difference.",
-      "new": "~> **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `aws_networkmanager_core_network` resource `policy_document` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference."
-    }
-  ],
   "networkmanager_core_network_policy_document.html.markdown": [
     {
       "old": "-> For more information about building AWS Core Network policy documents with Terraform, see the Using AWS & AWSCC Provider Together Guide",
@@ -2255,12 +1635,6 @@
       "new": "~> **Note:** You can enable `node_to_node_encryption` _in place_ for an existing, unencrypted domain only if you are using OpenSearch or your Elasticsearch version is 6.7 or greater. For other versions, if you enable `node_to_node_encryption`, the provider will recreate the domain, potentially causing data loss. For any version, if you disable `node_to_node_encryption` for an existing, node-to-node encrypted domain, the provider will recreate the domain, potentially causing data loss."
     }
   ],
-  "opsworks_rds_db_instance.html.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n",
-      "new": ""
-    }
-  ],
   "opsworks_stack.html.markdown": [
     {
       "old": "* `password` - (Optional) Password to use when authenticating to the source. Terraform cannot perform drift detection of this configuration.",
@@ -2287,164 +1661,10 @@
       "new": "which the provider is working."
     }
   ],
-  "pinpoint_adm_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_adm_channel.channel application-id",
-      "new": "% pulumi import aws_pinpoint_adm_channel.channel application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint ADM Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_apns_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_apns_channel.apns application-id",
-      "new": "% pulumi import aws_pinpoint_apns_channel.apns application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint APNs Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_apns_sandbox_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id",
-      "new": "% pulumi import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs Sandbox Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_apns_voip_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_apns_voip_channel.apns_voip application-id",
-      "new": "% pulumi import aws_pinpoint_apns_voip_channel.apns_voip application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_apns_voip_sandbox_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id",
-      "new": "% pulumi import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:"
-    }
-  ],
   "pinpoint_app.html.markdown": [
     {
       "old": "* `name` - (Optional) The application name. By default generated by Terraform",
       "new": "* `name` - (Optional) The application name. By default generated by Pulumi"
-    }
-  ],
-  "pinpoint_app.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_app.name application-id",
-      "new": "% pulumi import aws_pinpoint_app.name application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint App using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint App using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint App using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_baidu_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_baidu_channel.channel application-id",
-      "new": "% pulumi import aws_pinpoint_baidu_channel.channel application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint Baidu Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_email_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_email_channel.email application-id",
-      "new": "% pulumi import aws_pinpoint_email_channel.email application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint Email Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_event_stream.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_event_stream.stream application-id",
-      "new": "% pulumi import aws_pinpoint_event_stream.stream application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Event Stream using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint Event Stream using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_gcm_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_gcm_channel.gcm application-id",
-      "new": "% pulumi import aws_pinpoint_gcm_channel.gcm application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Pinpoint GCM Channel using the `application-id`. For example:",
-      "new": "Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:"
-    }
-  ],
-  "pinpoint_sms_channel.markdown": [
-    {
-      "old": "% terraform import aws_pinpoint_sms_channel.sms application-id",
-      "new": "% pulumi import aws_pinpoint_sms_channel.sms application-id"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import the Pinpoint SMS Channel using the `application_id`. For example:",
-      "new": "Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:"
     }
   ],
   "qldb_ledger.html.markdown": [
@@ -2463,52 +1683,10 @@
       "new": "  account_name          = \"quicksight-pulumi\""
     }
   ],
-  "ram_principal_association.markdown": [
-    {
-      "old": "% terraform import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012",
-      "new": "% pulumi import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:",
-      "new": "Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:"
-    }
-  ],
-  "ram_resource_share.markdown": [
-    {
-      "old": "% terraform import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12",
-      "new": "% pulumi import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import resource shares using the `arn` of the resource share. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import resource shares using the `arn` of the resource share. For example:",
-      "new": "Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:"
-    }
-  ],
   "ram_resource_share_accepter.html.markdown": [
     {
       "old": "This configuration provides an example of using multiple Terraform AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`.",
       "new": "This configuration provides an example of using multiple TODO AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`."
-    }
-  ],
-  "ram_resource_share_accepter.markdown": [
-    {
-      "old": "% terraform import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767",
-      "new": "% pulumi import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import resource share accepters using the resource share ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import resource share accepters using the resource share ARN. For example:",
-      "new": "Using `pulumi import`, import resource share accepters using the resource share ARN. For example:"
     }
   ],
   "rds_cluster.html.markdown": [
@@ -2567,20 +1745,6 @@
       "new": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by TODO\"."
     }
   ],
-  "rds_cluster_parameter_group.markdown": [
-    {
-      "old": "% terraform import aws_rds_cluster_parameter_group.cluster_pg production-pg-1",
-      "new": "% pulumi import aws_rds_cluster_parameter_group.cluster_pg production-pg-1"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import RDS Cluster Parameter Groups using the `name`. For example:",
-      "new": "Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:"
-    }
-  ],
   "rds_global_cluster.html.markdown": [
     {
       "old": "* `engine_version` - (Optional) Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws_rds_cluster_instance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, Terraform will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws_rds_cluster` resource as shown above in [Upgrading Engine Versions](#upgrading-engine-versions) example.",
@@ -2597,92 +1761,6 @@
     {
       "old": "When you upgrade the version of an `aws_rds_global_cluster`, Terraform will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws_rds_cluster` resource is being updated through the `aws_rds_global_cluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws_rds_cluster`.",
       "new": "When you upgrade the version of an `aws_rds_global_cluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws_rds_cluster` resource is being updated through the `aws_rds_global_cluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws_rds_cluster`."
-    }
-  ],
-  "redshift_parameter_group.html.markdown": [
-    {
-      "old": "  id = \"parameter-group-test-terraform\"",
-      "new": "  id = \"parameter-group-test-TODO\""
-    }
-  ],
-  "redshift_security_group.html.markdown": [
-    {
-      "old": "!> **WARNING:** With the retirement of EC2-Classic the `aws_redshift_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from Terraform state using the `terraform state rm` command.",
-      "new": "!> **WARNING:** With the retirement of EC2-Classic the `aws_redshift_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from state manually."
-    }
-  ],
-  "resource-tagging.html.markdown": [
-    {
-      "old": "  Managing resource tags with the Terraform AWS Provider.",
-      "new": "  Managing resource tags with the TODO AWS Provider."
-    },
-    {
-      "old": "# Terraform 0.12 and later syntax",
-      "new": "# TODO 0.12 and later syntax"
-    },
-    {
-      "old": "-> Not all AWS resources support tagging, which can differ across AWS services and even across resources within the same service. Browse the individual Terraform AWS Provider resource documentation pages for the `tags` argument, to see which support resource tagging. If the AWS API implements tagging support for a resource and it is missing from the Terraform AWS Provider resource, a feature request can be submitted.",
-      "new": "-> Not all AWS resources support tagging, which can differ across AWS services and even across resources within the same service. Browse the individual TODO AWS Provider resource documentation pages for the `tags` argument, to see which support resource tagging. If the AWS API implements tagging support for a resource and it is missing from the TODO AWS Provider resource, a feature request can be submitted."
-    },
-    {
-      "old": "-> Not all services supported by the Terraform AWS Provider implement these resources. Browse the Terraform AWS Provider resource documentation pages for a resource with a type ending in `_tag`. If there is a use case where this type of resource is missing, a feature request can be submitted.",
-      "new": "-> Not all services supported by the TODO AWS Provider implement these resources. Browse the TODO AWS Provider resource documentation pages for a resource with a type ending in `_tag`. If there is a use case where this type of resource is missing, a feature request can be submitted."
-    },
-    {
-      "old": "All Terraform resources support the `lifecycle` configuration block `ignore_changes` argument, which can be used to explicitly ignore all tags changes on a resource beyond an initial configuration or individual tag values.",
-      "new": "All TODO resources support the `lifecycle` configuration block `ignore_changes` argument, which can be used to explicitly ignore all tags changes on a resource beyond an initial configuration or individual tag values."
-    },
-    {
-      "old": "As of version 2.60.0 of the Terraform AWS Provider, there is support for ignoring tag changes across all resources under a provider. This simplifies situations where certain tags may be externally applied more globally and enhances functionality beyond `ignore_changes` to support cases such as tag key prefixes.",
-      "new": "As of version 2.60.0 of the TODO AWS Provider, there is support for ignoring tag changes across all resources under a provider. This simplifies situations where certain tags may be externally applied more globally and enhances functionality beyond `ignore_changes` to support cases such as tag key prefixes."
-    },
-    {
-      "old": "As of version 3.38.0 of the Terraform AWS Provider, the Terraform Configuration language also enables provider-level tagging as an alternative to the methods described in the [Getting Started with Resource Tags](#getting-started-with-resource-tags) section above.",
-      "new": "As of version 3.38.0 of the TODO AWS Provider, the TODO Configuration language also enables provider-level tagging as an alternative to the methods described in the [Getting Started with Resource Tags](#getting-started-with-resource-tags) section above."
-    },
-    {
-      "old": "Certain Terraform AWS Provider services support a special resource for managing an individual tag on a resource without managing the resource itself. One example is the `aws_ec2_tag` resource. These resources enable tagging where resources are created outside Terraform such as EC2 Images (AMIs), shared across accounts via Resource Access Manager (RAM), or implicitly created by other means such as EC2 VPN Connections implicitly creating a taggable EC2 Transit Gateway VPN Attachment.",
-      "new": "Certain TODO AWS Provider services support a special resource for managing an individual tag on a resource without managing the resource itself. One example is the `aws_ec2_tag` resource. These resources enable tagging where resources are created outside TODO such as EC2 Images (AMIs), shared across accounts via Resource Access Manager (RAM), or implicitly created by other means such as EC2 VPN Connections implicitly creating a taggable EC2 Transit Gateway VPN Attachment."
-    },
-    {
-      "old": "For most environments and use cases, this is the typical implementation pattern, whether it be in a standalone Terraform configuration or within a Terraform Module. The Terraform configuration language also enables less repetitive configurations via variables, locals, or potentially a combination of these, e.g.,",
-      "new": "For most environments and use cases, this is the typical implementation pattern, whether it be in a standalone TODO configuration or within a TODO Module. The TODO configuration language also enables less repetitive configurations via variables, locals, or potentially a combination of these, e.g.,"
-    },
-    {
-      "old": "Many AWS services implement [resource tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) as an essential part of managing components. These arbitrary key-value pairs can be utilized for billing, ownership, automation, [access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html), and many other use cases. Given that these tags are an important aspect of successfully managing an AWS environment, the Terraform AWS Provider implements additional functionality beyond the typical one-to-one resource lifecycle management for easier and more customized implementations.",
-      "new": "Many AWS services implement [resource tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) as an essential part of managing components. These arbitrary key-value pairs can be utilized for billing, ownership, automation, [access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html), and many other use cases. Given that these tags are an important aspect of successfully managing an AWS environment, the TODO AWS Provider implements additional functionality beyond the typical one-to-one resource lifecycle management for easier and more customized implementations."
-    },
-    {
-      "old": "Systems outside of Terraform may automatically interact with the tagging associated with AWS resources. These external systems may be for administrative purposes, such as a Configuration Management Database, or the tagging may be required functionality for those systems, such as Kubernetes. This section shows methods to prevent Terraform from showing differences for specific tags.",
-      "new": "Systems outside of TODO may automatically interact with the tagging associated with AWS resources. These external systems may be for administrative purposes, such as a Configuration Management Database, or the tagging may be required functionality for those systems, such as Kubernetes. This section shows methods to prevent TODO from showing differences for specific tags."
-    },
-    {
-      "old": "Terraform AWS Provider resources that support resource tags implement a consistent argument named `tags` which accepts a key-value map, e.g.,",
-      "new": "TODO AWS Provider resources that support resource tags implement a consistent argument named `tags` which accepts a key-value map, e.g.,"
-    },
-    {
-      "old": "The inline map provided to `for_each` in the example above is used for brevity, but other Terraform configuration language features similar to those noted at the beginning of this guide can be used to make the example more extensible.",
-      "new": "The inline map provided to `for_each` in the example above is used for brevity, but other TODO configuration language features similar to those noted at the beginning of this guide can be used to make the example more extensible."
-    },
-    {
-      "old": "The provider ignore tags configuration applies to all Terraform AWS Provider resources under that particular instance (the `default` provider instance in the above cases). If multiple, different Terraform AWS Provider configurations are being used (e.g., multiple provider instances), the ignore tags configuration must be added to all applicable provider configurations.",
-      "new": "The provider ignore tags configuration applies to all TODO AWS Provider resources under that particular instance (the `default` provider instance in the above cases). If multiple, different TODO AWS Provider configurations are being used (e.g., multiple provider instances), the ignore tags configuration must be added to all applicable provider configurations."
-    },
-    {
-      "old": "The tags for the resource are wholly managed by Terraform except tag keys beginning with `aws:` as these are managed by AWS services and cannot typically be edited or deleted. Any non-AWS tags added to the VPC outside of Terraform will be proposed for removal on the next Terraform execution. Missing tags or those with incorrect values from the Terraform configuration will be proposed for addition or update on the next Terraform execution. Advanced patterns that can adjust these behaviors for special use cases, such as Terraform AWS Provider configurations that affect all resources and the ability to manage resource tags for resources not managed by Terraform, can be found later in this guide.",
-      "new": "The tags for the resource are wholly managed by TODO except tag keys beginning with `aws:` as these are managed by AWS services and cannot typically be edited or deleted. Any non-AWS tags added to the VPC outside of TODO will be proposed for removal on the next TODO execution. Missing tags or those with incorrect values from the TODO configuration will be proposed for addition or update on the next TODO execution. Advanced patterns that can adjust these behaviors for special use cases, such as TODO AWS Provider configurations that affect all resources and the ability to manage resource tags for resources not managed by TODO, can be found later in this guide."
-    },
-    {
-      "old": "This functionality is available for all Terraform AWS Provider resources that currently support `tags`, with the exception of the `aws_autoscaling_group` resource. Refactoring the use of variables or locals may look like:",
-      "new": "This functionality is available for all TODO AWS Provider resources that currently support `tags`, with the exception of the `aws_autoscaling_group` resource. Refactoring the use of variables or locals may look like:"
-    },
-    {
-      "old": "page_title: \"Terraform AWS Provider Resource Tagging\"",
-      "new": "page_title: \"TODO AWS Provider Resource Tagging\""
-    },
-    {
-      "old": "~> **NOTE:** This is an advanced use case and can cause conflicting management issues when improperly implemented. These individual tag resources should not be combined with the Terraform resource for managing the parent resource. For example, using `aws_vpc` and `aws_ec2_tag` to manage tags of the same VPC will cause a perpetual difference where the `aws_vpc` resource will try to remove the tag being added by the `aws_ec2_tag` resource.",
-      "new": "~> **NOTE:** This is an advanced use case and can cause conflicting management issues when improperly implemented. These individual tag resources should not be combined with the TODO resource for managing the parent resource. For example, using `aws_vpc` and `aws_ec2_tag` to manage tags of the same VPC will cause a perpetual difference where the `aws_vpc` resource will try to remove the tag being added by the `aws_ec2_tag` resource."
     }
   ],
   "route.html.markdown": [
@@ -2709,76 +1787,6 @@
       "new": "**Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For example:"
     }
   ],
-  "route53_resolver_firewall_config.markdown": [
-    {
-      "old": "% terraform import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95",
-      "new": "% pulumi import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:",
-      "new": "Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:"
-    }
-  ],
-  "route53_resolver_firewall_domain_list.markdown": [
-    {
-      "old": "% terraform import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef",
-      "new": "% pulumi import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:",
-      "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:"
-    }
-  ],
-  "route53_resolver_firewall_rule.markdown": [
-    {
-      "old": "% terraform import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef",
-      "new": "% pulumi import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:",
-      "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:"
-    }
-  ],
-  "route53_resolver_firewall_rule_group.markdown": [
-    {
-      "old": "% terraform import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef",
-      "new": "% pulumi import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:",
-      "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:"
-    }
-  ],
-  "route53_resolver_firewall_rule_group_association.markdown": [
-    {
-      "old": "% terraform import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef",
-      "new": "% pulumi import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:",
-      "new": "Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:"
-    }
-  ],
   "route53_zone_association.html.markdown": [
     {
       "old": "**Using `terraform import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:",
@@ -2797,18 +1805,6 @@
     {
       "old": "The `aws_route53domains_registered_domain` resource behaves differently from normal resources in that if a domain has been registered, Terraform does not _register_ this domain, but instead \"adopts\" it into management. `terraform destroy` does not delete the domain but does remove the resource from Terraform state.",
       "new": "The `aws_route53domains_registered_domain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead \"adopts\" it into management. A destroy does not delete the domain but does remove the resource from state."
-    }
-  ],
-  "route_table_association.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:",
-      "new": "**Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:"
-    }
-  ],
-  "s3_access_point.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import.** For example:",
-      "new": "**Using `pulumi import` to import.** For example:"
     }
   ],
   "s3_account_public_access_block.html.markdown": [
@@ -3269,68 +2265,6 @@
       "new": "The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:"
     }
   ],
-  "security_group_rule.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:",
-      "new": "**Using `pulumi import` to import** Security Group Rules using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (such as a `cidr_block`) separated by underscores (`_`). All parts are required. For example:"
-    }
-  ],
-  "securityhub_account.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_account.example 123456789012",
-      "new": "% pulumi import aws_securityhub_account.example 123456789012"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import an existing Security Hub enabled account using the AWS account ID. For example:",
-      "new": "Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:"
-    }
-  ],
-  "securityhub_finding_aggregator.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456",
-      "new": "% pulumi import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub finding aggregator using the `arn`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import an existing Security Hub finding aggregator using the `arn`. For example:",
-      "new": "Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:"
-    }
-  ],
-  "securityhub_invite_accepter.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_invite_accepter.example 123456789012",
-      "new": "% pulumi import aws_securityhub_invite_accepter.example 123456789012"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub invite acceptance using the account ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Security Hub invite acceptance using the account ID. For example:",
-      "new": "Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:"
-    }
-  ],
-  "securityhub_member.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_member.example 123456789012",
-      "new": "% pulumi import aws_securityhub_member.example 123456789012"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub members using their account ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Security Hub members using their account ID. For example:",
-      "new": "Using `pulumi import`, import Security Hub members using their account ID. For example:"
-    }
-  ],
   "securityhub_organization_configuration.html.markdown": [
     {
       "old": "~> **NOTE:** This is an advanced Terraform resource. Terraform will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Terraform configuration.",
@@ -3341,34 +2275,6 @@
       "new": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation"
     }
   ],
-  "securityhub_organization_configuration.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_organization_configuration.example 123456789012",
-      "new": "% pulumi import aws_securityhub_organization_configuration.example 123456789012"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import an existing Security Hub enabled account using the AWS account ID. For example:",
-      "new": "Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:"
-    }
-  ],
-  "securityhub_product_subscription.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement",
-      "new": "% pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub product subscriptions using `product_arn,arn`. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Security Hub product subscriptions using `product_arn,arn`. For example:",
-      "new": "Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:"
-    }
-  ],
   "securityhub_standards_control.html.markdown": [
     {
       "old": "Terraform does not _create_ this resource, but instead \"adopts\" it",
@@ -3377,38 +2283,6 @@
     {
       "old": "into management. When you _delete_ this resource configuration, Terraform \"abandons\" resource as is and just removes it from the state.",
       "new": "into management. When you _delete_ this resource configuration, TODO \"abandons\" resource as is and just removes it from the state."
-    }
-  ],
-  "securityhub_standards_control.markdown": [
-    {
-      "old": "Terraform does not _create_ this resource, but instead \"adopts\" it",
-      "new": "The provider does not _create_ this resource, but instead \"adopts\" it"
-    },
-    {
-      "old": "into management. When you _delete_ this resource configuration, Terraform \"abandons\" resource as is and just removes it from the state.",
-      "new": "into management. When you _delete_ this resource configuration, the provider \"abandons\" resource as is and just removes it from the state."
-    }
-  ],
-  "securityhub_standards_subscription.markdown": [
-    {
-      "old": "% terraform import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0",
-      "new": "% pulumi import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0"
-    },
-    {
-      "old": "% terraform import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0",
-      "new": "% pulumi import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0"
-    },
-    {
-      "old": "% terraform import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1",
-      "new": "% pulumi import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub standards subscriptions using the standards subscription ARN. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:",
-      "new": "Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:"
     }
   ],
   "service_discovery_instance.html.markdown": [
@@ -3425,20 +2299,6 @@
     {
       "old": "~> **NOTE:** This resource does not require explicit import and will assume management of an existing service quota on Terraform resource creation.",
       "new": "~> **NOTE:** This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation."
-    }
-  ],
-  "ses_identity_notification_topic.markdown": [
-    {
-      "old": "% terraform import aws_ses_identity_notification_topic.test 'example.com|Bounce'",
-      "new": "% pulumi import aws_ses_identity_notification_topic.test 'example.com|Bounce'"
-    },
-    {
-      "old": "In Terraform v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:",
-      "new": ""
-    },
-    {
-      "old": "Using `terraform import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:",
-      "new": "Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:"
     }
   ],
   "sns_topic.html.markdown": [
@@ -3479,12 +2339,6 @@
       "new": "resource \"aws_sqs_queue\" \"example_queue_deadletter\" {"
     }
   ],
-  "ssm_default_patch_baseline.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:",
-      "new": "**Using `pulumi import` to import** the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:"
-    }
-  ],
   "ssm_document.html.markdown": [
     {
       "old": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
@@ -3523,12 +2377,6 @@
     {
       "old": "* `value` - Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
       "new": "* `value` - Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.\n"
-    }
-  ],
-  "ssm_parameters_by_path.html.markdown": [
-    {
-      "old": "~> **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
-      "new": ""
     }
   ],
   "ssmcontacts_contact.html.markdown": [
@@ -3597,76 +2445,6 @@
     {
       "old": "~> **NOTE:** This tagging resource should not be combined with the Terraform resource for managing the parent resource. For example, using `aws_transfer_server` and `aws_transfer_tag` to manage tags of the same server will cause a perpetual difference where the `aws_transfer_server` resource will try to remove the tag being added by the `aws_transfer_tag` resource.",
       "new": "~> **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws_transfer_server` and `aws_transfer_tag` to manage tags of the same server will cause a perpetual difference where the `aws_transfer_server` resource will try to remove the tag being added by the `aws_transfer_tag` resource."
-    }
-  ],
-  "using-aws-with-awscc-provider.html.markdown": [
-    {
-      "old": "      source  = \"hashicorp/aws\"",
-      "new": "      source  = \"TODO/aws\""
-    },
-    {
-      "old": "      source  = \"hashicorp/awscc\"",
-      "new": "      source  = \"TODO/awscc\""
-    },
-    {
-      "old": "    key   = \"terraform\"",
-      "new": "    key   = \"TODO\""
-    },
-    {
-      "old": "  Managing resource tags with the Terraform AWS Provider.",
-      "new": "  Managing resource tags with the TODO AWS Provider."
-    },
-    {
-      "old": "  tags            = local.terraform_tag",
-      "new": "  tags            = local.TODO_tag"
-    },
-    {
-      "old": "  tags = concat(local.terraform_tag,",
-      "new": "  tags = concat(local.TODO_tag,"
-    },
-    {
-      "old": "  terraform_tag = [{",
-      "new": "  TODO_tag = [{"
-    },
-    {
-      "old": "Above, we define a `awscc_networkmanager_global_network` with 2 tags and a description. AWSCC resources use the [standard AWS tag format](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) which is expressed in HCL as a list of maps with 2 keys. We want to reuse the `terraform = true` tag so we define it as a `local` then we use concat to join the list of tags together.",
-      "new": "Above, we define a `awscc_networkmanager_global_network` with 2 tags and a description. AWSCC resources use the [standard AWS tag format](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) which is expressed in HCL as a list of maps with 2 keys. We want to reuse the `TODO = true` tag so we define it as a `local` then we use concat to join the list of tags together."
-    },
-    {
-      "old": "For Terraform users managing infrastructure on AWS, we expect the AWSCC provider will be used alongside the existing AWS provider. This guide is provided to show guidance and an example of using the providers together to deploy an AWS Cloud WAN Core Network.",
-      "new": "For TODO users managing infrastructure on AWS, we expect the AWSCC provider will be used alongside the existing AWS provider. This guide is provided to show guidance and an example of using the providers together to deploy an AWS Cloud WAN Core Network."
-    },
-    {
-      "old": "For more information about the AWSCC provider, please see the provider documentation in Terraform Registry",
-      "new": "For more information about the AWSCC provider, please see the provider documentation in TODO Registry"
-    },
-    {
-      "old": "Terraform can use many providers at once, as long as they are specified in your `terraform` configuration block:",
-      "new": "TODO can use many providers at once, as long as they are specified in your `TODO` configuration block:"
-    },
-    {
-      "old": "Thanks to Terraform's plugin design, the providers work together seemlessly!",
-      "new": "Thanks to TODO's plugin design, the providers work together seemlessly!"
-    },
-    {
-      "old": "The HashiCorp TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard.",
-      "new": "The TODO TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard."
-    },
-    {
-      "old": "The HashiCorp Terraform AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to Terraform users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard.",
-      "new": "The HashiCorp TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard."
-    },
-    {
-      "old": "The code snippet above informs terraform to download 2 providers as plugins for the current root module, the AWS and AWSCC provider. You can tell which provider is being use by looking at the resource or data source name-prefix. Resources that start with `aws_` use the AWS provider, resources that start with `awscc_` are using the AWSCC provider.",
-      "new": "The code snippet above informs TODO to download 2 providers as plugins for the current root module, the AWS and AWSCC provider. You can tell which provider is being use by looking at the resource or data source name-prefix. Resources that start with `aws_` use the AWS provider, resources that start with `awscc_` are using the AWSCC provider."
-    },
-    {
-      "old": "page_title: \"Using the Terraform awscc provider with aws provider\"",
-      "new": "page_title: \"Using the TODO awscc provider with aws provider\""
-    },
-    {
-      "old": "terraform {",
-      "new": "TODO {"
     }
   ],
   "vpc_endpoint.html.markdown": [
