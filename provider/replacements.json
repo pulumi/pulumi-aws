@@ -9,10 +9,6 @@
       "new": "    * `validation_method` - (Optional) Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi."
     },
     {
-      "old": "    * `validation_method` - (Required) Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into Terraform.",
-      "new": "    * `validation_method` - (Required) Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider."
-    },
-    {
       "old": "  or use the `terraform taint` command to trigger recreation.",
       "new": ""
     },
@@ -133,10 +129,6 @@
       "new": ""
     },
     {
-      "old": "* Remove service `service_names` from the `spec` argument. AWS has created a `aws_appmesh_virtual_service` resource for each service name. Import these resource using `terraform import`.",
-      "new": "* Remove service `service_names` from the `spec` argument. AWS has created a `aws_appmesh_virtual_service` resource for each service name. Import these resource using `pulumi import`."
-    },
-    {
       "old": "* `mesh_owner` - (Optional) AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider][1] is currently connected to.",
       "new": "* `mesh_owner` - (Optional) AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to."
     }
@@ -175,10 +167,6 @@
   ],
   "athena_database.html.markdown": [
     {
-      "old": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.,",
-      "new": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g.,"
-    },
-    {
       "old": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     }
@@ -193,10 +181,6 @@
     {
       "old": "  Terraform to skip all Capacity Waiting behavior.",
       "new": "  the provider to skip all Capacity Waiting behavior."
-    },
-    {
-      "old": "* `min_elb_capacity` - (Optional) Setting this causes Terraform to wait for",
-      "new": "* `min_elb_capacity` - (Optional) Setting this causes the provider to wait for"
     },
     {
       "old": "- `min_elb_capacity` - (Optional) Setting this causes Terraform to wait for",
@@ -313,10 +297,6 @@
     {
       "old": "  description              = \"I made this collaboration with terraform!\"",
       "new": "  description              = \"I made this collaboration with Pulumi!\""
-    },
-    {
-      "old": "  name                     = \"terraform-example-collaboration\"",
-      "new": "  name                     = \"pulumi-example-collaboration\""
     }
   ],
   "cleanrooms_configured_table.html.markdown": [
@@ -327,10 +307,6 @@
     {
       "old": "  description     = \"I made this table with terraform!\"",
       "new": "  description     = \"I made this table with TODO!\""
-    },
-    {
-      "old": "  name            = \"terraform-example-table\"",
-      "new": "  name            = \"TODO-example-table\""
     }
   ],
   "cloudcontrolapi_resource.html.markdown": [
@@ -405,10 +381,6 @@
     {
       "old": "  bucket        = \"tf-test-trail\"",
       "new": "  bucket        = \"my-test-trail\""
-    },
-    {
-      "old": "  name                          = \"tf-trail-foobar\"",
-      "new": "  name                          = \"my-trail-foobar\""
     }
   ],
   "cloudwatch_event_bus_policy.html.markdown": [
@@ -452,10 +424,6 @@
     }
   ],
   "codepipeline_custom_action_type.html.markdown": [
-    {
-      "old": "  id = \"Build:terraform:1\"",
-      "new": "  id = \"Build:pulumi:1\""
-    },
     {
       "old": "* `id` - Composed of category, provider and version. For example, `Build:terraform:1`",
       "new": "* `id` - Composed of category, provider and version. For example, `Build:example:1`"
@@ -503,10 +471,6 @@
       "new": "    \"Application\" = \"Example\""
     },
     {
-      "old": "    \"Application\" = \"Terraform\",",
-      "new": "    \"Application\" = \"Example\","
-    },
-    {
       "old": "* `content_hash` - (Optional) Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`. The usual way to set this is filebase64sha256(\"mycontact_flow.json\") (Terraform 0.11.12 and later) or base64sha256(file(\"mycontact_flow.json\")) (Terraform 0.11.11 and earlier), where \"mycontact_flow.json\" is the local filename of the Contact Flow source.",
       "new": "* `content_hash` - (Optional) Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`."
     }
@@ -549,10 +513,6 @@
     {
       "old": "> **Hands-on:** For an example of the `aws_db_parameter_group` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.",
       "new": ""
-    },
-    {
-      "old": "~> **NOTE:** After applying your changes, you may encounter a perpetual diff in your Terraform plan",
-      "new": "~> **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview"
     }
   ],
   "db_subnet_group.html.markdown": [
@@ -639,10 +599,6 @@
       "new": "* `storage_encrypted` - (Optional, Forces new resources) Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided."
     },
     {
-      "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the the provider configuration or use `ignore_changes` to hide the difference, e.g."
-    },
-    {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
     }
@@ -660,10 +616,6 @@
     }
   ],
   "dx_gateway_association_proposal.html.markdown": [
-    {
-      "old": "**With `terraform import`**, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:",
-      "new": "**With `TODO import`**, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:"
-    },
     {
       "old": "A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws_dx_gateway_association_proposal` and `aws_dx_gateway_association` resources can be found in the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository.\n",
       "new": ""
@@ -704,10 +656,6 @@
     }
   ],
   "ec2_managed_prefix_list_entry.html.markdown": [
-    {
-      "old": "~> **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** Terraform",
-      "new": "~> **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider"
-    },
     {
       "old": "~> **NOTE:** Terraform currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.",
       "new": "~> **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten."
@@ -770,10 +718,6 @@
     }
   ],
   "ecs_task_set.html.markdown": [
-    {
-      "old": "  # Optional: Allow external changes without Terraform plan difference",
-      "new": "  # Optional: Allow external changes without preview difference"
-    },
     {
       "old": "* `force_delete` - (Optional) Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, Terraform drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.",
       "new": "* `force_delete` - (Optional) Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling."
@@ -917,10 +861,6 @@
       "new": "* `additional_info` - (Optional) JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider."
     },
     {
-      "old": "Since the API does not return the actual values for Kerberos configurations, environments with those Terraform configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Terraform resources to prevent perpetual differences, e.g.,",
-      "new": "Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the  `ignore_changes` option available to all resources to prevent perpetual differences, e.g.,"
-    },
-    {
       "old": "Since the API does not return the actual values for Kerberos configurations, environments with those Terraform configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Terraform resources to prevent perpetual differences. For example:",
       "new": "Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:"
     },
@@ -943,29 +883,17 @@
   ],
   "fsx_ontap_file_system.html.markdown": [
     {
-      "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.,",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g.,"
-    },
-    {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_ontap_storage_virtual_machine.html.markdown": [
     {
-      "old": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.,",
-      "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g.,"
-    },
-    {
       "old": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
     }
   ],
   "fsx_openzfs_file_system.html.markdown": [
-    {
-      "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.,",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g.,"
-    },
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
@@ -1159,10 +1087,6 @@
     {
       "old": "~> **Note:** A virtual MFA device cannot be directly associated with an IAM User from Terraform.",
       "new": "~> **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider."
-    },
-    {
-      "old": "~> **Note:** All attributes will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n",
-      "new": ""
     }
   ],
   "instances.html.markdown": [
@@ -1209,17 +1133,9 @@
     {
       "old": "* `key_name` - (Optional) The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.",
       "new": "* `key_name` - (Optional) The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name."
-    },
-    {
-      "old": "~> **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.",
-      "new": "~> **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation."
     }
   ],
   "kinesis_firehose_delivery_stream.html.markdown": [
-    {
-      "old": "  name        = \"terraform-kinesis-firehose-os\"",
-      "new": "  name        = \"pulumi-kinesis-firehose-os\""
-    },
     {
       "old": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in terraform state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.",
       "new": "~> **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values."
@@ -1341,10 +1257,6 @@
       "new": "~> **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws_lambda_invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the [CRUD Lifecycle Scope](#crud-lifecycle-scope) example below."
     },
     {
-      "old": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Terraform to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)",
-      "new": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)"
-    },
-    {
       "old": "~> **NOTE:** `lifecycle_scope = \"CRUD\"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `terraform_key` argument.",
       "new": "~> **NOTE:** `lifecycle_scope = \"CRUD\"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument."
     }
@@ -1382,10 +1294,6 @@
     }
   ],
   "launch_configuration.html.markdown": [
-    {
-      "old": "  id = \"terraform-lg-123456\"",
-      "new": "  id = \"TODO-lg-123456\""
-    },
     {
       "old": "-> **Note** When using `aws_launch_configuration` with `aws_autoscaling_group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the autoscaling group correctly.",
       "new": "-> **Note** When using `aws_launch_configuration` with `aws_autoscaling_group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute."
@@ -1529,10 +1437,6 @@
       "new": "* `storage_encrypted` - (Optional, Forces new resources) Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided."
     },
     {
-      "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference, e.g.",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from configuration or use `ignore_changes` to hide the difference, e.g."
-    },
-    {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
       "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
     }
@@ -1571,24 +1475,8 @@
   ],
   "networkmanager_core_network.html.markdown": [
     {
-      "old": "* `create_base_policy` - (Optional) Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws_networkmanager_core_network_policy_attachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this Terraform snippet can be found above [for VPC Attachment in a single region](#with-vpc-attachment-single-region) and [for VPC Attachment multi-region](#with-vpc-attachment-multi-region). An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws_networkmanager_core_network_policy_attachment` resource.",
-      "new": "* `create_base_policy` - (Optional) Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws_networkmanager_core_network_policy_attachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this snippet can be found above [for VPC Attachment in a single region](#with-vpc-attachment-single-region) and [for VPC Attachment multi-region](#with-vpc-attachment-multi-region). An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws_networkmanager_core_network_policy_attachment` resource."
-    },
-    {
       "old": "* `create_base_policy` - (Optional) Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws_networkmanager_core_network_policy_attachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above [for VPC Attachment in a single region](#with-vpc-attachment-single-region) and [for VPC Attachment multi-region](#with-vpc-attachment-multi-region). An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws_networkmanager_core_network_policy_attachment` resource.",
       "new": "* `create_base_policy` - (Optional) Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws_networkmanager_core_network_policy_attachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above [for VPC Attachment in a single region](#with-vpc-attachment-single-region) and [for VPC Attachment multi-region](#with-vpc-attachment-multi-region). An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws_networkmanager_core_network_policy_attachment` resource."
-    },
-    {
-      "old": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws_networkmanager_core_network` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `aws_networkmanager_core_network` `base_policy_regions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.",
-      "new": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument of the `aws_networkmanager_core_network` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `aws_networkmanager_core_network` `base_policy_regions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy."
-    },
-    {
-      "old": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument.",
-      "new": "The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `create_base_policy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `create_base_policy` argument."
-    },
-    {
-      "old": "~> **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource's `policy_document` argument is incompatible with using the `aws_networkmanager_core_network_policy_attachment` resource. When using this resource's `policy_document` argument and the `aws_networkmanager_core_network_policy_attachment` resource, both will attempt to manage the core network's policy document and Terraform will show a permanent difference.",
-      "new": "~> **NOTE on Core Networks and Policy Attachments:** For a given core network, this resource's `policy_document` argument is incompatible with using the `aws_networkmanager_core_network_policy_attachment` resource. When using this resource's `policy_document` argument and the `aws_networkmanager_core_network_policy_attachment` resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference."
     }
   ],
   "networkmanager_core_network_policy_document.html.markdown": [
@@ -1679,10 +1567,6 @@
   ],
   "rds_cluster.html.markdown": [
     {
-      "old": "* `availability_zones` - (Optional) List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next Terraform apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.",
-      "new": "* `availability_zones` - (Optional) List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next apply. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary."
-    },
-    {
       "old": "* `cluster_identifier` - (Optional, Forces new resources) The cluster identifier. If omitted, Terraform will assign a random, unique identifier.",
       "new": "* `cluster_identifier` - (Optional, Forces new resources) The cluster identifier. If omitted, this provider will assign a random, unique identifier."
     },
@@ -1753,10 +1637,6 @@
   ],
   "route.html.markdown": [
     {
-      "old": "**Using `terraform import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:",
-      "new": "**Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:"
-    },
-    {
       "old": "~> **NOTE on Route Tables and Routes:** Terraform currently provides both a standalone Route resource and a Route Table resource with routes defined in-line. At this time you cannot use a Route Table with in-line routes in conjunction with any Route resources. Doing so will cause a conflict of rule settings and will overwrite rules.",
       "new": "~> **NOTE on Route Tables and Routes:** This provider currently provides both a standalone Route resource and a Route Table resource with routes defined in-line. At this time you cannot use a Route Table with in-line routes in conjunction with any Route resources. Doing so will cause a conflict of rule settings and will overwrite rules."
     },
@@ -1769,17 +1649,9 @@
     {
       "old": "* `records` - (Required for non-alias records) A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\\"\\\"` inside the Terraform configuration string (e.g., `\"first255characters\\\"\\\"morecharacters\"`).",
       "new": "* `records` - (Required for non-alias records) A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\\"\\\"` inside the provider configuration string (e.g., `\"first255characters\\\"\\\"morecharacters\"`)."
-    },
-    {
-      "old": "**Using `terraform import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For example:",
-      "new": "**Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For example:"
     }
   ],
   "route53_zone_association.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:",
-      "new": "**Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:"
-    },
     {
       "old": "The VPC is _not_ in the same region where you have configured the Terraform AWS Provider:",
       "new": "The VPC is _not_ in the same region where you have configured the TODO AWS Provider:"
@@ -1821,10 +1693,6 @@
     {
       "old": "* `cors_rule` - (Optional, **Deprecated**) Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See [CORS rule](#cors-rule) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_cors_configuration` instead.",
       "new": "* `cors_rule` - (Optional, **Deprecated**) Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See [CORS rule](#cors-rule) below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_cors_configuration` instead."
-    },
-    {
-      "old": "* `force_destroy` - (Optional, Default:`false`) Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.",
-      "new": "* `force_destroy` - (Optional, Default:`false`) Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation."
     },
     {
       "old": "* `grant` - (Optional, **Deprecated**) An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See [Grant](#grant) below for details. Conflicts with `acl`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead.",
@@ -1893,10 +1761,6 @@
   ],
   "s3_bucket_accelerate_configuration.html.markdown": [
     {
-      "old": "**Using `terraform import` to import.** For example:",
-      "new": "**Using `pulumi import` to import.** For example:"
-    },
-    {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
     },
@@ -1906,10 +1770,6 @@
     }
   ],
   "s3_bucket_acl.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:",
-      "new": "**Using `pulumi import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket _differs_ from the account used to configure the Terraform AWS Provider, and the source bucket is **configured** with a",
       "new": "If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a"
@@ -1937,10 +1797,6 @@
       "new": "    allowed_origins = [\"https://s3-website-test.domain.example\"]"
     },
     {
-      "old": "**Using `terraform import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
-    {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
     },
@@ -1950,10 +1806,6 @@
     }
   ],
   "s3_bucket_lifecycle_configuration.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
@@ -1980,10 +1832,6 @@
     }
   ],
   "s3_bucket_logging.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
@@ -2015,17 +1863,9 @@
     {
       "old": "* `source_hash` - (Optional) Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5(\"path/to/source\")` (Terraform 0.11.12 or later). (The value is only stored in state and not saved by AWS.)",
       "new": "* `source_hash` - (Optional) Triggers updates like `etag` but useful to address `etag` encryption limitations."
-    },
-    {
-      "old": "**Using `terraform import` to import** objects using the `id` or S3 URL. For example:",
-      "new": "**Using `pulumi import` to import** objects using the `id` or S3 URL. For example:"
     }
   ],
   "s3_bucket_object_lock_configuration.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
@@ -2043,10 +1883,6 @@
   ],
   "s3_bucket_request_payment_configuration.html.markdown": [
     {
-      "old": "**Using `terraform import` to import** S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
-    {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
     },
@@ -2057,10 +1893,6 @@
   ],
   "s3_bucket_server_side_encryption_configuration.html.markdown": [
     {
-      "old": "**Using `terraform import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket server-side encryption configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
-    {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
     },
@@ -2070,10 +1902,6 @@
     }
   ],
   "s3_bucket_versioning.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** S3 bucket versioning using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket versioning using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
@@ -2088,10 +1916,6 @@
     }
   ],
   "s3_bucket_website_configuration.html.markdown": [
-    {
-      "old": "**Using `terraform import` to import** S3 bucket website configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
-      "new": "**Using `pulumi import` to import** S3 bucket website configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:"
-    },
     {
       "old": "If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider,",
       "new": "If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider,"
@@ -2125,14 +1949,6 @@
     {
       "old": "* `source_hash` - (Optional) Triggers updates like `etag` but useful to address `etag` encryption limitations. Set using `filemd5(\"path/to/source\")` (Terraform 0.11.12 or later). (The value is only stored in state and not saved by AWS.)",
       "new": "* `source_hash` - (Optional) Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)"
-    },
-    {
-      "old": "**Using `terraform import` to import** objects using the `id` or S3 URL. For example:",
-      "new": "**Using `pulumi import` to import** objects using the `id` or S3 URL. For example:"
-    },
-    {
-      "old": "-> **Note:** Terraform ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.",
-      "new": "-> **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`."
     }
   ],
   "s3_objects.html.markdown": [
@@ -2194,10 +2010,6 @@
     }
   ],
   "secretsmanager_secret_version.html.markdown": [
-    {
-      "old": "### Handling Key-Value Secret Strings in JSON\n[^#]+",
-      "new": ""
-    },
     {
       "old": "Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:",
       "new": "Reading key-value pairs from JSON back into a native map"
@@ -2307,18 +2119,6 @@
       "new": "    sourceQueueArns   = [aws_sqs_queue.example_queue.arn]"
     },
     {
-      "old": "  name                    = \"terraform-example-queue\"",
-      "new": "  name                    = \"example-queue\""
-    },
-    {
-      "old": "  name                  = \"terraform-example-queue.fifo\"",
-      "new": "  name                  = \"example-queue.fifo\""
-    },
-    {
-      "old": "  name = \"terraform-example-deadletter-queue\"",
-      "new": "  name = \"example-deadletter-queue\""
-    },
-    {
       "old": "* `sqs_managed_sse_enabled` - (Optional) Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). Terraform will only perform drift detection of its value when present in a configuration.",
       "new": "* `sqs_managed_sse_enabled` - (Optional) Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration."
     },
@@ -2335,28 +2135,12 @@
   ],
   "ssm_parameter.html.markdown": [
     {
-      "old": "* `insecure_value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the Terraform plan output. This argument is not valid with a `type` of `SecureString`.",
-      "new": "* `insecure_value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the preview. This argument is not valid with a `type` of `SecureString`."
-    },
-    {
-      "old": "* `overwrite` - (Optional) Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).",
-      "new": "* `overwrite` - (Optional) Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise."
-    },
-    {
       "old": "* `overwrite` - (Optional, **Deprecated**) Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Terraform to avoid overwrite of existing resource, and will default to `true` otherwise (Terraform lifecycle rules should then be used to manage the update behavior).",
       "new": "* `overwrite` - (Optional, **Deprecated**) Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior)."
     },
     {
-      "old": "* `overwrite` - (Optional, **Deprecated**) Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by terraform to avoid overwrite of existing resource and will default to `true` otherwise (terraform lifecycle rules should then be used to manage the update behavior).",
-      "new": "* `overwrite` - (Optional, **Deprecated**) Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior)."
-    },
-    {
       "old": "~> **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by Terraform before.",
       "new": "~> **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before."
-    },
-    {
-      "old": "~> **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n\n",
-      "new": ""
     },
     {
       "old": "* `value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.\n",
