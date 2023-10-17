@@ -115,6 +115,7 @@ import (
 //				TimestampColumnName:                  pulumi.String("tx_commit_time"),
 //				UseCsvNoSupValue:                     pulumi.Bool(false),
 //				UseTaskStartTimeForFullLoadTimestamp: pulumi.Bool(true),
+//				GlueCatalogGeneration:                pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				aws_iam_role_policy.Example,
 //			}))
@@ -207,6 +208,8 @@ type S3Endpoint struct {
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrOutput `pulumi:"externalTableDefinition"`
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration pulumi.BoolPtrOutput `pulumi:"glueCatalogGeneration"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 	IgnoreHeaderRows pulumi.IntPtrOutput `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -363,6 +366,8 @@ type s3endpointState struct {
 	ExternalId *string `pulumi:"externalId"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration *bool `pulumi:"glueCatalogGeneration"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -474,6 +479,8 @@ type S3EndpointState struct {
 	ExternalId pulumi.StringPtrInput
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration pulumi.BoolPtrInput
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 	IgnoreHeaderRows pulumi.IntPtrInput
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -583,6 +590,8 @@ type s3endpointArgs struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration *bool `pulumi:"glueCatalogGeneration"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -683,6 +692,8 @@ type S3EndpointArgs struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration pulumi.BoolPtrInput
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
 	IgnoreHeaderRows pulumi.IntPtrInput
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -998,6 +1009,11 @@ func (o S3EndpointOutput) ExternalId() pulumi.StringOutput {
 // JSON document that describes how AWS DMS should interpret the data.
 func (o S3EndpointOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
+}
+
+// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+func (o S3EndpointOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.GlueCatalogGeneration }).(pulumi.BoolPtrOutput)
 }
 
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)

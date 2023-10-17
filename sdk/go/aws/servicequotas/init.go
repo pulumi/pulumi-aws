@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceQuota{}
 	case "aws:servicequotas/template:Template":
 		r = &Template{}
+	case "aws:servicequotas/templateAssociation:TemplateAssociation":
+		r = &TemplateAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicequotas/template",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicequotas/templateAssociation",
 		&module{version},
 	)
 }

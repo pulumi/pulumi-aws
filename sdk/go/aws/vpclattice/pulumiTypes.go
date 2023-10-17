@@ -2627,16 +2627,18 @@ func (o TargetGroupAttachmentTargetPtrOutput) Port() pulumi.IntPtrOutput {
 type TargetGroupConfig struct {
 	// The health check configuration.
 	HealthCheck *TargetGroupConfigHealthCheck `pulumi:"healthCheck"`
-	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 	IpAddressType *string `pulumi:"ipAddressType"`
+	// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+	LambdaEventStructureVersion *string `pulumi:"lambdaEventStructureVersion"`
 	// The port on which the targets are listening.
-	Port int `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-	Protocol string `pulumi:"protocol"`
+	Port *int `pulumi:"port"`
+	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+	Protocol *string `pulumi:"protocol"`
 	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
 	ProtocolVersion *string `pulumi:"protocolVersion"`
 	// The ID of the VPC.
-	VpcIdentifier string `pulumi:"vpcIdentifier"`
+	VpcIdentifier *string `pulumi:"vpcIdentifier"`
 }
 
 // TargetGroupConfigInput is an input type that accepts TargetGroupConfigArgs and TargetGroupConfigOutput values.
@@ -2653,16 +2655,18 @@ type TargetGroupConfigInput interface {
 type TargetGroupConfigArgs struct {
 	// The health check configuration.
 	HealthCheck TargetGroupConfigHealthCheckPtrInput `pulumi:"healthCheck"`
-	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+	// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
+	// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+	LambdaEventStructureVersion pulumi.StringPtrInput `pulumi:"lambdaEventStructureVersion"`
 	// The port on which the targets are listening.
-	Port pulumi.IntInput `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
 	ProtocolVersion pulumi.StringPtrInput `pulumi:"protocolVersion"`
 	// The ID of the VPC.
-	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+	VpcIdentifier pulumi.StringPtrInput `pulumi:"vpcIdentifier"`
 }
 
 func (TargetGroupConfigArgs) ElementType() reflect.Type {
@@ -2765,19 +2769,24 @@ func (o TargetGroupConfigOutput) HealthCheck() TargetGroupConfigHealthCheckPtrOu
 	return o.ApplyT(func(v TargetGroupConfig) *TargetGroupConfigHealthCheck { return v.HealthCheck }).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 func (o TargetGroupConfigOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfig) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The port on which the targets are listening.
-func (o TargetGroupConfigOutput) Port() pulumi.IntOutput {
-	return o.ApplyT(func(v TargetGroupConfig) int { return v.Port }).(pulumi.IntOutput)
+// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+func (o TargetGroupConfigOutput) LambdaEventStructureVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.LambdaEventStructureVersion }).(pulumi.StringPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-func (o TargetGroupConfigOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupConfig) string { return v.Protocol }).(pulumi.StringOutput)
+// The port on which the targets are listening.
+func (o TargetGroupConfigOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+func (o TargetGroupConfigOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 // The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
@@ -2786,8 +2795,8 @@ func (o TargetGroupConfigOutput) ProtocolVersion() pulumi.StringPtrOutput {
 }
 
 // The ID of the VPC.
-func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetGroupConfig) string { return v.VpcIdentifier }).(pulumi.StringOutput)
+func (o TargetGroupConfigOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupConfig) *string { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type TargetGroupConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2830,7 +2839,7 @@ func (o TargetGroupConfigPtrOutput) HealthCheck() TargetGroupConfigHealthCheckPt
 	}).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
 func (o TargetGroupConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
@@ -2840,23 +2849,33 @@ func (o TargetGroupConfigPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+func (o TargetGroupConfigPtrOutput) LambdaEventStructureVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaEventStructureVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // The port on which the targets are listening.
 func (o TargetGroupConfigPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Port
+		return v.Port
 	}).(pulumi.IntPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
 func (o TargetGroupConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Protocol
+		return v.Protocol
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2876,7 +2895,7 @@ func (o TargetGroupConfigPtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.VpcIdentifier
+		return v.VpcIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 

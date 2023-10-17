@@ -66,6 +66,7 @@ import * as utilities from "../utilities";
  *         alarms: ["my-alarm-name"],
  *         enabled: true,
  *     },
+ *     outdatedInstancesStrategy: "UPDATE",
  * });
  * ```
  * ### Blue Green Deployments with ECS
@@ -254,6 +255,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter[] | undefined>;
     /**
+     * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     */
+    public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
+    /**
      * The service role ARN that allows deployments.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
@@ -301,6 +306,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["ecsService"] = state ? state.ecsService : undefined;
             resourceInputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
+            resourceInputs["outdatedInstancesStrategy"] = state ? state.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -329,6 +335,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["ecsService"] = args ? args.ecsService : undefined;
             resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
+            resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
@@ -413,6 +420,10 @@ export interface DeploymentGroupState {
      */
     onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter>[]>;
     /**
+     * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     */
+    outdatedInstancesStrategy?: pulumi.Input<string>;
+    /**
      * The service role ARN that allows deployments.
      */
     serviceRoleArn?: pulumi.Input<string>;
@@ -488,6 +499,10 @@ export interface DeploymentGroupArgs {
      * On premise tag filters associated with the group. See the AWS docs for details.
      */
     onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesInstanceTagFilter>[]>;
+    /**
+     * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     */
+    outdatedInstancesStrategy?: pulumi.Input<string>;
     /**
      * The service role ARN that allows deployments.
      */

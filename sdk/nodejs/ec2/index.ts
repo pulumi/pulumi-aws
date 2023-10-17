@@ -415,6 +415,11 @@ export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = nul
 export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
 
+export { ImageBlockPublicAccessArgs, ImageBlockPublicAccessState } from "./imageBlockPublicAccess";
+export type ImageBlockPublicAccess = import("./imageBlockPublicAccess").ImageBlockPublicAccess;
+export const ImageBlockPublicAccess: typeof import("./imageBlockPublicAccess").ImageBlockPublicAccess = null as any;
+utilities.lazyLoad(exports, ["ImageBlockPublicAccess"], () => require("./imageBlockPublicAccess"));
+
 export { InstanceArgs, InstanceState } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
@@ -828,6 +833,8 @@ const _module = {
                 return new Fleet(name, <any>undefined, { urn })
             case "aws:ec2/flowLog:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
+            case "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess":
+                return new ImageBlockPublicAccess(name, <any>undefined, { urn })
             case "aws:ec2/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
             case "aws:ec2/internetGateway:InternetGateway":
@@ -997,6 +1004,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/eip", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/eipAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/flowLog", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/imageBlockPublicAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/internetGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/internetGatewayAttachment", _module)

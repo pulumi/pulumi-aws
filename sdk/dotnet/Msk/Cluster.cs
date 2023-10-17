@@ -340,6 +340,12 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// UUID of the MSK cluster, for use in IAM policies.
+        /// </summary>
+        [Output("clusterUuid")]
+        public Output<string> ClusterUuid { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         /// </summary>
         [Output("configurationInfo")]
@@ -637,6 +643,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// UUID of the MSK cluster, for use in IAM policies.
+        /// </summary>
+        [Input("clusterUuid")]
+        public Input<string>? ClusterUuid { get; set; }
 
         /// <summary>
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.

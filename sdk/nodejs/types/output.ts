@@ -15470,6 +15470,7 @@ export namespace config {
         backup?: string;
         batch?: string;
         beanstalk?: string;
+        bedrock?: string;
         budgets?: string;
         ce?: string;
         chime?: string;
@@ -19014,6 +19015,10 @@ export namespace dms {
          */
         externalTableDefinition?: string;
         /**
+         * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+         */
+        glueCatalogGeneration?: boolean;
+        /**
          * When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
          */
         ignoreHeaderRows?: number;
@@ -19159,6 +19164,7 @@ export namespace dms {
         encodingType: string;
         encryptionMode: string;
         externalTableDefinition: string;
+        glueCatalogGeneration: boolean;
         ignoreHeaderRows: number;
         ignoreHeadersRow: number;
         includeOpForFullLoad: boolean;
@@ -19348,6 +19354,58 @@ export namespace dynamodb {
          * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          */
         writeCapacity?: number;
+    }
+
+    export interface TableImportTable {
+        /**
+         * Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+         */
+        inputCompressionType?: string;
+        /**
+         * The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+         */
+        inputFormat: string;
+        /**
+         * Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+         */
+        inputFormatOptions?: outputs.dynamodb.TableImportTableInputFormatOptions;
+        /**
+         * Values for the S3 bucket the source file is imported from. See below.
+         */
+        s3BucketSource: outputs.dynamodb.TableImportTableS3BucketSource;
+    }
+
+    export interface TableImportTableInputFormatOptions {
+        /**
+         * This block contains the processing options for the CSV file being imported:
+         */
+        csv?: outputs.dynamodb.TableImportTableInputFormatOptionsCsv;
+    }
+
+    export interface TableImportTableInputFormatOptionsCsv {
+        /**
+         * The delimiter used for separating items in the CSV file being imported.
+         */
+        delimiter?: string;
+        /**
+         * List of the headers used to specify a common header for all source CSV files being imported.
+         */
+        headerLists?: string[];
+    }
+
+    export interface TableImportTableS3BucketSource {
+        /**
+         * The S3 bucket that is being imported from.
+         */
+        bucket: string;
+        /**
+         * The account number of the S3 bucket that is being imported from.
+         */
+        bucketOwner?: string;
+        /**
+         * The key prefix shared by all S3 Objects that are being imported.
+         */
+        keyPrefix?: string;
     }
 
     export interface TableLocalSecondaryIndex {
@@ -32285,6 +32343,17 @@ export namespace guardduty {
          * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
          */
         autoEnable: boolean;
+    }
+
+    export interface OrganizationConfigurationFeatureAdditionalConfiguration {
+        /**
+         * The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         */
+        autoEnable: string;
+        /**
+         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+         */
+        name: string;
     }
 
 }
@@ -51348,7 +51417,7 @@ export namespace redshiftserverless {
 
     export interface WorkgroupConfigParameter {
         /**
-         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath` and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          */
         parameterKey: string;
         /**
@@ -58428,6 +58497,41 @@ export namespace servicequotas {
         type: string;
     }
 
+    export interface GetTemplatesTemplate {
+        /**
+         * Indicates whether the quota is global.
+         */
+        globalQuota: boolean;
+        /**
+         * Quota identifier.
+         */
+        quotaCode: string;
+        /**
+         * Quota name.
+         */
+        quotaName: string;
+        /**
+         * AWS Region to which the quota increases apply.
+         */
+        region: string;
+        /**
+         * (Required) Service identifier.
+         */
+        serviceCode: string;
+        /**
+         * Service name.
+         */
+        serviceName: string;
+        /**
+         * Unit of measurement.
+         */
+        unit: string;
+        /**
+         * (Required) The new, increased value for the quota.
+         */
+        value: number;
+    }
+
     export interface ServiceQuotaUsageMetric {
         /**
          * The metric dimensions.
@@ -60746,6 +60850,70 @@ export namespace transfer {
 }
 
 export namespace verifiedaccess {
+    export interface InstanceLoggingConfigurationAccessLogs {
+        /**
+         * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         */
+        cloudwatchLogs?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogs;
+        /**
+         * Include trust data sent by trust providers into the logs.
+         */
+        includeTrustContext: boolean;
+        /**
+         * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         */
+        kinesisDataFirehose?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose;
+        /**
+         * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         */
+        logVersion: string;
+        /**
+         * A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         */
+        s3?: outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The name of the CloudWatch Logs Log Group.
+         */
+        logGroup?: string;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+        /**
+         * The name of the delivery stream.
+         */
+        deliveryStream?: string;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: boolean;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsS3 {
+        /**
+         * The name of S3 bucket.
+         */
+        bucketName?: string;
+        /**
+         * The ID of the AWS account that owns the Amazon S3 bucket.
+         */
+        bucketOwner: string;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The bucket prefix.
+         */
+        prefix?: string;
+    }
+
     export interface InstanceVerifiedAccessTrustProvider {
         /**
          * A description for the AWS Verified Access Instance.
@@ -61011,25 +61179,29 @@ export namespace vpclattice {
          */
         healthCheck?: outputs.vpclattice.TargetGroupConfigHealthCheck;
         /**
-         * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+         * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
          */
         ipAddressType: string;
+        /**
+         * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         */
+        lambdaEventStructureVersion: string;
         /**
          * The port on which the targets are listening.
          */
         port: number;
         /**
-         * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+         * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
          */
         protocol: string;
         /**
          * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
          */
-        protocolVersion?: string;
+        protocolVersion: string;
         /**
          * The ID of the VPC.
          */
-        vpcIdentifier: string;
+        vpcIdentifier?: string;
     }
 
     export interface TargetGroupConfigHealthCheck {
@@ -65638,6 +65810,10 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
         /**
+         * Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+         */
+        awsManagedRulesAcfpRuleSet?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet;
+        /**
          * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
          */
         awsManagedRulesAtpRuleSet?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet;
@@ -65661,6 +65837,137 @@ export namespace wafv2 {
          * Details about your login page username field. See `usernameField` for more details.
          */
         usernameField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
+        /**
+         * The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
+         */
+        creationPath: string;
+        /**
+         * Whether or not to allow the use of regular expressions in the login page path.
+         */
+        enableRegexInPath?: boolean;
+        /**
+         * The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
+         */
+        registrationPagePath: string;
+        /**
+         * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
+         */
+        requestInspection: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection;
+        /**
+         * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
+         */
+        responseInspection?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+        emailField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField;
+        /**
+         * Details about your login page password field. See `passwordField` for more details.
+         */
+        passwordField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField;
+        /**
+         * The payload type for your login endpoint, either JSON or form encoded.
+         */
+        payloadType: string;
+        /**
+         * Details about your login page username field. See `usernameField` for more details.
+         */
+        usernameField?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
+        /**
+         * The name of the password field.
+         */
+        identifier: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField {
+        /**
+         * The name of the password field.
+         */
+        identifier: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {
+        /**
+         * The name of the username field.
+         */
+        identifier: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection {
+        /**
+         * Configures inspection of the response body. See `bodyContains` for more details.
+         */
+        bodyContains?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains;
+        /**
+         * Configures inspection of the response header.See `header` for more details.
+         */
+        header?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader;
+        /**
+         * Configures inspection of the response JSON. See `json` for more details.
+         */
+        json?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson;
+        /**
+         * Configures inspection of the response status code.See `statusCode` for more details.
+         */
+        statusCode?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains {
+        /**
+         * Strings in the body of the response that indicate a failed login attempt.
+         */
+        failureStrings: string[];
+        /**
+         * Strings in the body of the response that indicate a successful login attempt.
+         */
+        successStrings: string[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: string[];
+        /**
+         * The name of the header to use.
+         */
+        name: string;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: string[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: string[];
+        /**
+         * The identifier for the value to match against in the JSON.
+         */
+        identifier: string;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: string[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode {
+        /**
+         * Status codes in the response that indicate a failed login attempt.
+         */
+        failureCodes: number[];
+        /**
+         * Status codes in the response that indicate a successful login attempt.
+         */
+        successCodes: number[];
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {

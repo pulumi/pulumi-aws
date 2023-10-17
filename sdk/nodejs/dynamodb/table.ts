@@ -162,6 +162,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly hashKey!: pulumi.Output<string>;
     /**
+     * Import Amazon S3 data into a new table. See below.
+     */
+    public readonly importTable!: pulumi.Output<outputs.dynamodb.TableImportTable | undefined>;
+    /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
@@ -263,6 +267,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = state ? state.hashKey : undefined;
+            resourceInputs["importTable"] = state ? state.importTable : undefined;
             resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
@@ -289,6 +294,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
             resourceInputs["hashKey"] = args ? args.hashKey : undefined;
+            resourceInputs["importTable"] = args ? args.importTable : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
@@ -345,6 +351,10 @@ export interface TableState {
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
     hashKey?: pulumi.Input<string>;
+    /**
+     * Import Amazon S3 data into a new table. See below.
+     */
+    importTable?: pulumi.Input<inputs.dynamodb.TableImportTable>;
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */
@@ -453,6 +463,10 @@ export interface TableArgs {
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      */
     hashKey?: pulumi.Input<string>;
+    /**
+     * Import Amazon S3 data into a new table. See below.
+     */
+    importTable?: pulumi.Input<inputs.dynamodb.TableImportTable>;
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      */

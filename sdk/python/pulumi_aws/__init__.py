@@ -3715,6 +3715,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/imageBlockPublicAccess",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess": "ImageBlockPublicAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/instance",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -5551,6 +5559,14 @@ _utilities.register(
   "fqn": "pulumi_aws.guardduty",
   "classes": {
    "aws:guardduty/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "guardduty/organizationConfigurationFeature",
+  "fqn": "pulumi_aws.guardduty",
+  "classes": {
+   "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature": "OrganizationConfigurationFeature"
   }
  },
  {
@@ -9483,6 +9499,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicequotas/templateAssociation",
+  "fqn": "pulumi_aws.servicequotas",
+  "classes": {
+   "aws:servicequotas/templateAssociation:TemplateAssociation": "TemplateAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ses/activeReceiptRuleSet",
   "fqn": "pulumi_aws.ses",
   "classes": {
@@ -10283,10 +10307,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "verifiedaccess/group",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "verifiedaccess/instance",
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedaccess/instanceLoggingConfiguration",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration": "InstanceLoggingConfiguration"
   }
  },
  {

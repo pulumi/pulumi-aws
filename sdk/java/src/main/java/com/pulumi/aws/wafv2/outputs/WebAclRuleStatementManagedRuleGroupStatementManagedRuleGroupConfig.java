@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+    /**
+     * @return Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
     /**
      * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
      * 
@@ -47,6 +53,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField usernameField;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig() {}
+    /**
+     * @return Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet> awsManagedRulesAcfpRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
+    }
     /**
      * @return Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
      * 
@@ -99,6 +112,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet awsManagedRulesBotControlRuleSet;
         private @Nullable String loginPath;
@@ -108,6 +122,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.awsManagedRulesAcfpRuleSet = defaults.awsManagedRulesAcfpRuleSet;
     	      this.awsManagedRulesAtpRuleSet = defaults.awsManagedRulesAtpRuleSet;
     	      this.awsManagedRulesBotControlRuleSet = defaults.awsManagedRulesBotControlRuleSet;
     	      this.loginPath = defaults.loginPath;
@@ -116,6 +131,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     	      this.usernameField = defaults.usernameField;
         }
 
+        @CustomType.Setter
+        public Builder awsManagedRulesAcfpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet awsManagedRulesAcfpRuleSet) {
+            this.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            return this;
+        }
         @CustomType.Setter
         public Builder awsManagedRulesAtpRuleSet(@Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet awsManagedRulesAtpRuleSet) {
             this.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
@@ -148,6 +168,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig build() {
             final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig();
+            o.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
             o.awsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             o.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             o.loginPath = loginPath;

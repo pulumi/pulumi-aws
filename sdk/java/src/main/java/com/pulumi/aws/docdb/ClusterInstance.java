@@ -93,15 +93,15 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * Amazon Resource Name (ARN) of cluster instance
@@ -174,6 +174,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
+     * Copy all DB instance `tags` to snapshots. Default is `false`.
+     * 
+     */
+    @Export(name="copyTagsToSnapshot", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> copyTagsToSnapshot;
+
+    /**
+     * @return Copy all DB instance `tags` to snapshots. Default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> copyTagsToSnapshot() {
+        return Codegen.optional(this.copyTagsToSnapshot);
+    }
+    /**
      * The DB subnet group to associate with this DB instance.
      * 
      */
@@ -206,14 +220,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enablePerformanceInsights", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enablePerformanceInsights;
+    private Output</* @Nullable */ Boolean> enablePerformanceInsights;
 
     /**
      * @return A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
-    public Output<Boolean> enablePerformanceInsights() {
-        return this.enablePerformanceInsights;
+    public Output<Optional<Boolean>> enablePerformanceInsights() {
+        return Codegen.optional(this.enablePerformanceInsights);
     }
     /**
      * The DNS address for this instance. May not be writable
@@ -289,6 +303,13 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -301,6 +322,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      * 
      */
@@ -311,6 +333,13 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * @return The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -323,6 +352,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      * 
      */

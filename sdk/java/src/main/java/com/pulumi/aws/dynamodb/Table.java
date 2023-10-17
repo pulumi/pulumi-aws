@@ -8,6 +8,7 @@ import com.pulumi.aws.dynamodb.TableArgs;
 import com.pulumi.aws.dynamodb.inputs.TableState;
 import com.pulumi.aws.dynamodb.outputs.TableAttribute;
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndex;
+import com.pulumi.aws.dynamodb.outputs.TableImportTable;
 import com.pulumi.aws.dynamodb.outputs.TableLocalSecondaryIndex;
 import com.pulumi.aws.dynamodb.outputs.TablePointInTimeRecovery;
 import com.pulumi.aws.dynamodb.outputs.TableReplica;
@@ -254,6 +255,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<String> hashKey() {
         return this.hashKey;
+    }
+    /**
+     * Import Amazon S3 data into a new table. See below.
+     * 
+     */
+    @Export(name="importTable", refs={TableImportTable.class}, tree="[0]")
+    private Output</* @Nullable */ TableImportTable> importTable;
+
+    /**
+     * @return Import Amazon S3 data into a new table. See below.
+     * 
+     */
+    public Output<Optional<TableImportTable>> importTable() {
+        return Codegen.optional(this.importTable);
     }
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.

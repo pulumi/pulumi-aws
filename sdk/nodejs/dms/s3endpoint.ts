@@ -84,6 +84,7 @@ import * as utilities from "../utilities";
  *     timestampColumnName: "tx_commit_time",
  *     useCsvNoSupValue: false,
  *     useTaskStartTimeForFullLoadTimestamp: true,
+ *     glueCatalogGeneration: true,
  * }, {
  *     dependsOn: [aws_iam_role_policy.example],
  * });
@@ -262,6 +263,10 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     public readonly externalTableDefinition!: pulumi.Output<string | undefined>;
     /**
+     * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     */
+    public readonly glueCatalogGeneration!: pulumi.Output<boolean | undefined>;
+    /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */
     public readonly ignoreHeaderRows!: pulumi.Output<number | undefined>;
@@ -385,6 +390,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["externalTableDefinition"] = state ? state.externalTableDefinition : undefined;
+            resourceInputs["glueCatalogGeneration"] = state ? state.glueCatalogGeneration : undefined;
             resourceInputs["ignoreHeaderRows"] = state ? state.ignoreHeaderRows : undefined;
             resourceInputs["includeOpForFullLoad"] = state ? state.includeOpForFullLoad : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
@@ -448,6 +454,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["externalTableDefinition"] = args ? args.externalTableDefinition : undefined;
+            resourceInputs["glueCatalogGeneration"] = args ? args.glueCatalogGeneration : undefined;
             resourceInputs["ignoreHeaderRows"] = args ? args.ignoreHeaderRows : undefined;
             resourceInputs["includeOpForFullLoad"] = args ? args.includeOpForFullLoad : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
@@ -617,6 +624,10 @@ export interface S3EndpointState {
      * JSON document that describes how AWS DMS should interpret the data.
      */
     externalTableDefinition?: pulumi.Input<string>;
+    /**
+     * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     */
+    glueCatalogGeneration?: pulumi.Input<boolean>;
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */
@@ -823,6 +834,10 @@ export interface S3EndpointArgs {
      * JSON document that describes how AWS DMS should interpret the data.
      */
     externalTableDefinition?: pulumi.Input<string>;
+    /**
+     * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     */
+    glueCatalogGeneration?: pulumi.Input<boolean>;
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      */

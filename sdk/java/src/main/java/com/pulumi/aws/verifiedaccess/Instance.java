@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import javax.annotation.Nullable;
  * Resource for managing a Verified Access Instance.
  * 
  * ## Example Usage
+ * ### Basic
  * ```java
  * package generated_program;
  * 
@@ -50,10 +52,39 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With `fips_enabled`
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.verifiedaccess.Instance;
+ * import com.pulumi.aws.verifiedaccess.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
+ *             .fipsEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transfer Workflows using the
+ * Using `pulumi import`, import Verified Access Instances using the
  * 
  * `id`. For example:
  * 
@@ -91,6 +122,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * 
+     */
+    @Export(name="fipsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> fipsEnabled;
+
+    /**
+     * @return Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * 
+     */
+    public Output<Optional<Boolean>> fipsEnabled() {
+        return Codegen.optional(this.fipsEnabled);
     }
     /**
      * The time that the Verified Access Instance was last updated.

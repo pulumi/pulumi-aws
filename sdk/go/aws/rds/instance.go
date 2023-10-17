@@ -265,7 +265,7 @@ type Instance struct {
 	// with read replicas, it should be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additional read replica contraints.
+	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
@@ -535,7 +535,7 @@ type instanceState struct {
 	// with read replicas, it should be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additional read replica contraints.
+	// for additional read replica constraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
@@ -765,7 +765,7 @@ type InstanceState struct {
 	// with read replicas, it should be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additional read replica contraints.
+	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
@@ -995,7 +995,7 @@ type instanceArgs struct {
 	// with read replicas, it should be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additional read replica contraints.
+	// for additional read replica constraints.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
@@ -1201,7 +1201,7 @@ type InstanceArgs struct {
 	// with read replicas, it should be specified only if the source database
 	// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 	// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-	// for additional read replica contraints.
+	// for additional read replica constraints.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
@@ -1571,7 +1571,7 @@ func (o InstanceOutput) DbName() pulumi.StringOutput {
 // with read replicas, it should be specified only if the source database
 // specifies an instance in another AWS Region. See [DBSubnetGroupName in API
 // action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-// for additional read replica contraints.
+// for additional read replica constraints.
 func (o InstanceOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
 }

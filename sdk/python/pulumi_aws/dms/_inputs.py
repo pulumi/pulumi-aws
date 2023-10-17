@@ -867,6 +867,7 @@ class EndpointS3SettingsArgs:
                  encoding_type: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
@@ -905,6 +906,7 @@ class EndpointS3SettingsArgs:
         :param pulumi.Input[str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
         :param pulumi.Input[str] encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[int] max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
@@ -967,6 +969,8 @@ class EndpointS3SettingsArgs:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
@@ -1281,6 +1285,18 @@ class EndpointS3SettingsArgs:
     @external_table_definition.setter
     def external_table_definition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "external_table_definition", value)
+
+    @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "glue_catalog_generation")
+
+    @glue_catalog_generation.setter
+    def glue_catalog_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "glue_catalog_generation", value)
 
     @property
     @pulumi.getter(name="ignoreHeaderRows")

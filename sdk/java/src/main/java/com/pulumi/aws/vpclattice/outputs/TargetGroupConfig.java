@@ -19,20 +19,25 @@ public final class TargetGroupConfig {
      */
     private @Nullable TargetGroupConfigHealthCheck healthCheck;
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
      * 
      */
     private @Nullable String ipAddressType;
     /**
+     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * 
+     */
+    private @Nullable String lambdaEventStructureVersion;
+    /**
      * @return The port on which the targets are listening.
      * 
      */
-    private Integer port;
+    private @Nullable Integer port;
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
      * 
      */
-    private String protocol;
+    private @Nullable String protocol;
     /**
      * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
      * 
@@ -42,7 +47,7 @@ public final class TargetGroupConfig {
      * @return The ID of the VPC.
      * 
      */
-    private String vpcIdentifier;
+    private @Nullable String vpcIdentifier;
 
     private TargetGroupConfig() {}
     /**
@@ -53,25 +58,32 @@ public final class TargetGroupConfig {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
      * 
      */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
     /**
+     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * 
+     */
+    public Optional<String> lambdaEventStructureVersion() {
+        return Optional.ofNullable(this.lambdaEventStructureVersion);
+    }
+    /**
      * @return The port on which the targets are listening.
      * 
      */
-    public Integer port() {
-        return this.port;
+    public Optional<Integer> port() {
+        return Optional.ofNullable(this.port);
     }
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
      * 
      */
-    public String protocol() {
-        return this.protocol;
+    public Optional<String> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
     /**
      * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
@@ -84,8 +96,8 @@ public final class TargetGroupConfig {
      * @return The ID of the VPC.
      * 
      */
-    public String vpcIdentifier() {
-        return this.vpcIdentifier;
+    public Optional<String> vpcIdentifier() {
+        return Optional.ofNullable(this.vpcIdentifier);
     }
 
     public static Builder builder() {
@@ -99,15 +111,17 @@ public final class TargetGroupConfig {
     public static final class Builder {
         private @Nullable TargetGroupConfigHealthCheck healthCheck;
         private @Nullable String ipAddressType;
-        private Integer port;
-        private String protocol;
+        private @Nullable String lambdaEventStructureVersion;
+        private @Nullable Integer port;
+        private @Nullable String protocol;
         private @Nullable String protocolVersion;
-        private String vpcIdentifier;
+        private @Nullable String vpcIdentifier;
         public Builder() {}
         public Builder(TargetGroupConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthCheck = defaults.healthCheck;
     	      this.ipAddressType = defaults.ipAddressType;
+    	      this.lambdaEventStructureVersion = defaults.lambdaEventStructureVersion;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
     	      this.protocolVersion = defaults.protocolVersion;
@@ -125,13 +139,18 @@ public final class TargetGroupConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+        public Builder lambdaEventStructureVersion(@Nullable String lambdaEventStructureVersion) {
+            this.lambdaEventStructureVersion = lambdaEventStructureVersion;
             return this;
         }
         @CustomType.Setter
-        public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+        public Builder port(@Nullable Integer port) {
+            this.port = port;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder protocol(@Nullable String protocol) {
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
@@ -140,14 +159,15 @@ public final class TargetGroupConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcIdentifier(String vpcIdentifier) {
-            this.vpcIdentifier = Objects.requireNonNull(vpcIdentifier);
+        public Builder vpcIdentifier(@Nullable String vpcIdentifier) {
+            this.vpcIdentifier = vpcIdentifier;
             return this;
         }
         public TargetGroupConfig build() {
             final var o = new TargetGroupConfig();
             o.healthCheck = healthCheck;
             o.ipAddressType = ipAddressType;
+            o.lambdaEventStructureVersion = lambdaEventStructureVersion;
             o.port = port;
             o.protocol = protocol;
             o.protocolVersion = protocolVersion;

@@ -8,12 +8,274 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'InstanceLoggingConfigurationAccessLogs',
+    'InstanceLoggingConfigurationAccessLogsCloudwatchLogs',
+    'InstanceLoggingConfigurationAccessLogsKinesisDataFirehose',
+    'InstanceLoggingConfigurationAccessLogsS3',
     'InstanceVerifiedAccessTrustProvider',
     'TrustProviderDeviceOptions',
     'TrustProviderOidcOptions',
 ]
+
+@pulumi.output_type
+class InstanceLoggingConfigurationAccessLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+        elif key == "includeTrustContext":
+            suggest = "include_trust_context"
+        elif key == "kinesisDataFirehose":
+            suggest = "kinesis_data_firehose"
+        elif key == "logVersion":
+            suggest = "log_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLoggingConfigurationAccessLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLoggingConfigurationAccessLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLoggingConfigurationAccessLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional['outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs'] = None,
+                 include_trust_context: Optional[bool] = None,
+                 kinesis_data_firehose: Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose'] = None,
+                 log_version: Optional[str] = None,
+                 s3: Optional['outputs.InstanceLoggingConfigurationAccessLogsS3'] = None):
+        """
+        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs' cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        :param bool include_trust_context: Include trust data sent by trust providers into the logs.
+        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs' kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        :param str log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if include_trust_context is not None:
+            pulumi.set(__self__, "include_trust_context", include_trust_context)
+        if kinesis_data_firehose is not None:
+            pulumi.set(__self__, "kinesis_data_firehose", kinesis_data_firehose)
+        if log_version is not None:
+            pulumi.set(__self__, "log_version", log_version)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs']:
+        """
+        A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @property
+    @pulumi.getter(name="includeTrustContext")
+    def include_trust_context(self) -> Optional[bool]:
+        """
+        Include trust data sent by trust providers into the logs.
+        """
+        return pulumi.get(self, "include_trust_context")
+
+    @property
+    @pulumi.getter(name="kinesisDataFirehose")
+    def kinesis_data_firehose(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose']:
+        """
+        A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        """
+        return pulumi.get(self, "kinesis_data_firehose")
+
+    @property
+    @pulumi.getter(name="logVersion")
+    def log_version(self) -> Optional[str]:
+        """
+        The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        """
+        return pulumi.get(self, "log_version")
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsS3']:
+        """
+        A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLoggingConfigurationAccessLogsCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLoggingConfigurationAccessLogsCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLoggingConfigurationAccessLogsCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 log_group: Optional[str] = None):
+        """
+        :param bool enabled: Indicates whether logging is enabled.
+        :param str log_group: The name of the CloudWatch Logs Log Group.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[str]:
+        """
+        The name of the CloudWatch Logs Log Group.
+        """
+        return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLoggingConfigurationAccessLogsKinesisDataFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 delivery_stream: Optional[str] = None):
+        """
+        :param bool enabled: Indicates whether logging is enabled.
+        :param str delivery_stream: The name of the delivery stream.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[str]:
+        """
+        The name of the delivery stream.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+
+@pulumi.output_type
+class InstanceLoggingConfigurationAccessLogsS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketOwner":
+            suggest = "bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLoggingConfigurationAccessLogsS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLoggingConfigurationAccessLogsS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLoggingConfigurationAccessLogsS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 bucket_name: Optional[str] = None,
+                 bucket_owner: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param bool enabled: Indicates whether logging is enabled.
+        :param str bucket_name: The name of S3 bucket.
+        :param str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
+        :param str prefix: The bucket prefix.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        """
+        The name of S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        """
+        The ID of the AWS account that owns the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
+
 
 @pulumi.output_type
 class InstanceVerifiedAccessTrustProvider(dict):

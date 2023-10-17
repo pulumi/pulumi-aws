@@ -96,6 +96,21 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Copy all DB instance `tags` to snapshots. Default is `false`.
+     * 
+     */
+    @Import(name="copyTagsToSnapshot")
+    private @Nullable Output<Boolean> copyTagsToSnapshot;
+
+    /**
+     * @return Copy all DB instance `tags` to snapshots. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> copyTagsToSnapshot() {
+        return Optional.ofNullable(this.copyTagsToSnapshot);
+    }
+
+    /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
@@ -159,6 +174,13 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -171,6 +193,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      * 
      */
@@ -181,6 +204,13 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
      * @return The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -193,6 +223,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      * 
      */
@@ -270,6 +301,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.availabilityZone = $.availabilityZone;
         this.caCertIdentifier = $.caCertIdentifier;
         this.clusterIdentifier = $.clusterIdentifier;
+        this.copyTagsToSnapshot = $.copyTagsToSnapshot;
         this.enablePerformanceInsights = $.enablePerformanceInsights;
         this.engine = $.engine;
         this.identifier = $.identifier;
@@ -407,6 +439,27 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param copyTagsToSnapshot Copy all DB instance `tags` to snapshots. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyTagsToSnapshot(@Nullable Output<Boolean> copyTagsToSnapshot) {
+            $.copyTagsToSnapshot = copyTagsToSnapshot;
+            return this;
+        }
+
+        /**
+         * @param copyTagsToSnapshot Copy all DB instance `tags` to snapshots. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder copyTagsToSnapshot(Boolean copyTagsToSnapshot) {
+            return copyTagsToSnapshot(Output.of(copyTagsToSnapshot));
+        }
+
+        /**
          * @param enablePerformanceInsights A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
          * 
          * @return builder
@@ -494,6 +547,13 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
          * DocumentDB currently supports the below instance classes.
          * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+         * - db.r6g.large
+         * - db.r6g.xlarge
+         * - db.r6g.2xlarge
+         * - db.r6g.4xlarge
+         * - db.r6g.8xlarge
+         * - db.r6g.12xlarge
+         * - db.r6g.16xlarge
          * - db.r5.large
          * - db.r5.xlarge
          * - db.r5.2xlarge
@@ -506,6 +566,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          * - db.r4.4xlarge
          * - db.r4.8xlarge
          * - db.r4.16xlarge
+         * - db.t4g.medium
          * - db.t3.medium
          * 
          * @return builder
@@ -520,6 +581,13 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
          * DocumentDB currently supports the below instance classes.
          * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+         * - db.r6g.large
+         * - db.r6g.xlarge
+         * - db.r6g.2xlarge
+         * - db.r6g.4xlarge
+         * - db.r6g.8xlarge
+         * - db.r6g.12xlarge
+         * - db.r6g.16xlarge
          * - db.r5.large
          * - db.r5.xlarge
          * - db.r5.2xlarge
@@ -532,6 +600,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          * - db.r4.4xlarge
          * - db.r4.8xlarge
          * - db.r4.16xlarge
+         * - db.t4g.medium
          * - db.t3.medium
          * 
          * @return builder

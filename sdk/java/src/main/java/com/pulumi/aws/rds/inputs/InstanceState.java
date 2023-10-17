@@ -331,7 +331,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
+     * for additional read replica constraints.
      * 
      */
     @Import(name="dbSubnetGroupName")
@@ -344,7 +344,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
+     * for additional read replica constraints.
      * 
      */
     public Optional<Output<String>> dbSubnetGroupName() {
@@ -1800,7 +1800,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * with read replicas, it should be specified only if the source database
          * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
          * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-         * for additional read replica contraints.
+         * for additional read replica constraints.
          * 
          * @return builder
          * 
@@ -1817,7 +1817,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * with read replicas, it should be specified only if the source database
          * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
          * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-         * for additional read replica contraints.
+         * for additional read replica constraints.
          * 
          * @return builder
          * 

@@ -85,7 +85,7 @@ type ClusterInstance struct {
 
 	// Specifies whether any database modifications
 	// are applied immediately, or during the next maintenance window. Default is`false`.
-	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster instance
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
@@ -96,12 +96,14 @@ type ClusterInstance struct {
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// Copy all DB instance `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-	EnablePerformanceInsights pulumi.BoolOutput `pulumi:"enablePerformanceInsights"`
+	EnablePerformanceInsights pulumi.BoolPtrOutput `pulumi:"enablePerformanceInsights"`
 	// The DNS address for this instance. May not be writable
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -115,6 +117,13 @@ type ClusterInstance struct {
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r6g.large
+	// - db.r6g.xlarge
+	// - db.r6g.2xlarge
+	// - db.r6g.4xlarge
+	// - db.r6g.8xlarge
+	// - db.r6g.12xlarge
+	// - db.r6g.16xlarge
 	// - db.r5.large
 	// - db.r5.xlarge
 	// - db.r5.2xlarge
@@ -127,6 +136,7 @@ type ClusterInstance struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t4g.medium
 	// - db.t3.medium
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
@@ -208,6 +218,8 @@ type clusterInstanceState struct {
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// Copy all DB instance `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// The region-unique, immutable identifier for the DB instance.
@@ -227,6 +239,13 @@ type clusterInstanceState struct {
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r6g.large
+	// - db.r6g.xlarge
+	// - db.r6g.2xlarge
+	// - db.r6g.4xlarge
+	// - db.r6g.8xlarge
+	// - db.r6g.12xlarge
+	// - db.r6g.16xlarge
 	// - db.r5.large
 	// - db.r5.xlarge
 	// - db.r5.2xlarge
@@ -239,6 +258,7 @@ type clusterInstanceState struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t4g.medium
 	// - db.t3.medium
 	InstanceClass *string `pulumi:"instanceClass"`
 	// The ARN for the KMS encryption key if one is set to the cluster.
@@ -281,6 +301,8 @@ type ClusterInstanceState struct {
 	CaCertIdentifier pulumi.StringPtrInput
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringPtrInput
+	// Copy all DB instance `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The DB subnet group to associate with this DB instance.
 	DbSubnetGroupName pulumi.StringPtrInput
 	// The region-unique, immutable identifier for the DB instance.
@@ -300,6 +322,13 @@ type ClusterInstanceState struct {
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r6g.large
+	// - db.r6g.xlarge
+	// - db.r6g.2xlarge
+	// - db.r6g.4xlarge
+	// - db.r6g.8xlarge
+	// - db.r6g.12xlarge
+	// - db.r6g.16xlarge
 	// - db.r5.large
 	// - db.r5.xlarge
 	// - db.r5.2xlarge
@@ -312,6 +341,7 @@ type ClusterInstanceState struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t4g.medium
 	// - db.t3.medium
 	InstanceClass pulumi.StringPtrInput
 	// The ARN for the KMS encryption key if one is set to the cluster.
@@ -356,6 +386,8 @@ type clusterInstanceArgs struct {
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// Copy all DB instance `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
 	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -367,6 +399,13 @@ type clusterInstanceArgs struct {
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r6g.large
+	// - db.r6g.xlarge
+	// - db.r6g.2xlarge
+	// - db.r6g.4xlarge
+	// - db.r6g.8xlarge
+	// - db.r6g.12xlarge
+	// - db.r6g.16xlarge
 	// - db.r5.large
 	// - db.r5.xlarge
 	// - db.r5.2xlarge
@@ -379,6 +418,7 @@ type clusterInstanceArgs struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t4g.medium
 	// - db.t3.medium
 	InstanceClass string `pulumi:"instanceClass"`
 	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
@@ -405,6 +445,8 @@ type ClusterInstanceArgs struct {
 	CaCertIdentifier pulumi.StringPtrInput
 	// The identifier of the `docdb.Cluster` in which to launch this instance.
 	ClusterIdentifier pulumi.StringInput
+	// Copy all DB instance `tags` to snapshots. Default is `false`.
+	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
 	EnablePerformanceInsights pulumi.BoolPtrInput
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
@@ -416,6 +458,13 @@ type ClusterInstanceArgs struct {
 	// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 	// DocumentDB currently supports the below instance classes.
 	// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+	// - db.r6g.large
+	// - db.r6g.xlarge
+	// - db.r6g.2xlarge
+	// - db.r6g.4xlarge
+	// - db.r6g.8xlarge
+	// - db.r6g.12xlarge
+	// - db.r6g.16xlarge
 	// - db.r5.large
 	// - db.r5.xlarge
 	// - db.r5.2xlarge
@@ -428,6 +477,7 @@ type ClusterInstanceArgs struct {
 	// - db.r4.4xlarge
 	// - db.r4.8xlarge
 	// - db.r4.16xlarge
+	// - db.t4g.medium
 	// - db.t3.medium
 	InstanceClass pulumi.StringInput
 	// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
@@ -554,8 +604,8 @@ func (o ClusterInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Clu
 
 // Specifies whether any database modifications
 // are applied immediately, or during the next maintenance window. Default is`false`.
-func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.ApplyImmediately }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of cluster instance
@@ -583,6 +633,11 @@ func (o ClusterInstanceOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// Copy all DB instance `tags` to snapshots. Default is `false`.
+func (o ClusterInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
 // The DB subnet group to associate with this DB instance.
 func (o ClusterInstanceOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
@@ -594,8 +649,8 @@ func (o ClusterInstanceOutput) DbiResourceId() pulumi.StringOutput {
 }
 
 // A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-func (o ClusterInstanceOutput) EnablePerformanceInsights() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolOutput { return v.EnablePerformanceInsights }).(pulumi.BoolOutput)
+func (o ClusterInstanceOutput) EnablePerformanceInsights() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.EnablePerformanceInsights }).(pulumi.BoolPtrOutput)
 }
 
 // The DNS address for this instance. May not be writable
@@ -626,6 +681,13 @@ func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringOutput {
 // The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
 // DocumentDB currently supports the below instance classes.
 // Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+// - db.r6g.large
+// - db.r6g.xlarge
+// - db.r6g.2xlarge
+// - db.r6g.4xlarge
+// - db.r6g.8xlarge
+// - db.r6g.12xlarge
+// - db.r6g.16xlarge
 // - db.r5.large
 // - db.r5.xlarge
 // - db.r5.2xlarge
@@ -638,6 +700,7 @@ func (o ClusterInstanceOutput) IdentifierPrefix() pulumi.StringOutput {
 // - db.r4.4xlarge
 // - db.r4.8xlarge
 // - db.r4.16xlarge
+// - db.t4g.medium
 // - db.t3.medium
 func (o ClusterInstanceOutput) InstanceClass() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.InstanceClass }).(pulumi.StringOutput)

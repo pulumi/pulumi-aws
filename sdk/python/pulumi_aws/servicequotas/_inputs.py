@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'ServiceQuotaUsageMetricArgs',
     'ServiceQuotaUsageMetricMetricDimensionArgs',
+    'GetTemplatesTemplateArgs',
 ]
 
 @pulumi.input_type
@@ -136,5 +137,132 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GetTemplatesTemplateArgs:
+    def __init__(__self__, *,
+                 global_quota: bool,
+                 quota_code: str,
+                 quota_name: str,
+                 region: str,
+                 service_code: str,
+                 service_name: str,
+                 unit: str,
+                 value: float):
+        """
+        :param bool global_quota: Indicates whether the quota is global.
+        :param str quota_code: Quota identifier.
+        :param str quota_name: Quota name.
+        :param str region: AWS Region to which the quota increases apply.
+        :param str service_code: (Required) Service identifier.
+        :param str service_name: Service name.
+        :param str unit: Unit of measurement.
+        :param float value: (Required) The new, increased value for the quota.
+        """
+        pulumi.set(__self__, "global_quota", global_quota)
+        pulumi.set(__self__, "quota_code", quota_code)
+        pulumi.set(__self__, "quota_name", quota_name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "service_code", service_code)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="globalQuota")
+    def global_quota(self) -> bool:
+        """
+        Indicates whether the quota is global.
+        """
+        return pulumi.get(self, "global_quota")
+
+    @global_quota.setter
+    def global_quota(self, value: bool):
+        pulumi.set(self, "global_quota", value)
+
+    @property
+    @pulumi.getter(name="quotaCode")
+    def quota_code(self) -> str:
+        """
+        Quota identifier.
+        """
+        return pulumi.get(self, "quota_code")
+
+    @quota_code.setter
+    def quota_code(self, value: str):
+        pulumi.set(self, "quota_code", value)
+
+    @property
+    @pulumi.getter(name="quotaName")
+    def quota_name(self) -> str:
+        """
+        Quota name.
+        """
+        return pulumi.get(self, "quota_name")
+
+    @quota_name.setter
+    def quota_name(self, value: str):
+        pulumi.set(self, "quota_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        AWS Region to which the quota increases apply.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: str):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="serviceCode")
+    def service_code(self) -> str:
+        """
+        (Required) Service identifier.
+        """
+        return pulumi.get(self, "service_code")
+
+    @service_code.setter
+    def service_code(self, value: str):
+        pulumi.set(self, "service_code", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        """
+        Service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: str):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Unit of measurement.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: str):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        (Required) The new, increased value for the quota.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: float):
+        pulumi.set(self, "value", value)
 
 

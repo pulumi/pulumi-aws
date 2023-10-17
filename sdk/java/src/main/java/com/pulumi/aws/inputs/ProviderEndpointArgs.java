@@ -204,6 +204,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.beanstalk);
     }
 
+    @Import(name="bedrock")
+    private @Nullable Output<String> bedrock;
+
+    public Optional<Output<String>> bedrock() {
+        return Optional.ofNullable(this.bedrock);
+    }
+
     @Import(name="budgets")
     private @Nullable Output<String> budgets;
 
@@ -1788,6 +1795,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.backup = $.backup;
         this.batch = $.batch;
         this.beanstalk = $.beanstalk;
+        this.bedrock = $.bedrock;
         this.budgets = $.budgets;
         this.ce = $.ce;
         this.chime = $.chime;
@@ -2271,6 +2279,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder beanstalk(String beanstalk) {
             return beanstalk(Output.of(beanstalk));
+        }
+
+        public Builder bedrock(@Nullable Output<String> bedrock) {
+            $.bedrock = bedrock;
+            return this;
+        }
+
+        public Builder bedrock(String bedrock) {
+            return bedrock(Output.of(bedrock));
         }
 
         public Builder budgets(@Nullable Output<String> budgets) {

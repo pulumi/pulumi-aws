@@ -163,6 +163,10 @@ namespace Pulumi.Aws.Msk
         public readonly string BootstrapBrokersTls;
         public readonly string ClusterName;
         /// <summary>
+        /// UUID of the MSK cluster, for use in IAM policies.
+        /// </summary>
+        public readonly string ClusterUuid;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -207,6 +211,8 @@ namespace Pulumi.Aws.Msk
 
             string clusterName,
 
+            string clusterUuid,
+
             string id,
 
             string kafkaVersion,
@@ -228,6 +234,7 @@ namespace Pulumi.Aws.Msk
             BootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             BootstrapBrokersTls = bootstrapBrokersTls;
             ClusterName = clusterName;
+            ClusterUuid = clusterUuid;
             Id = id;
             KafkaVersion = kafkaVersion;
             NumberOfBrokerNodes = numberOfBrokerNodes;

@@ -44,6 +44,12 @@ namespace Pulumi.Aws.Msk
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// UUID of the serverless cluster, for use in IAM policies.
+        /// </summary>
+        [Output("clusterUuid")]
+        public Output<string> ClusterUuid { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// UUID of the serverless cluster, for use in IAM policies.
+        /// </summary>
+        [Input("clusterUuid")]
+        public Input<string>? ClusterUuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

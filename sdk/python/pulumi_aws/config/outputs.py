@@ -198,6 +198,7 @@ class Endpoints(dict):
                  backup: Optional[str] = None,
                  batch: Optional[str] = None,
                  beanstalk: Optional[str] = None,
+                 bedrock: Optional[str] = None,
                  budgets: Optional[str] = None,
                  ce: Optional[str] = None,
                  chime: Optional[str] = None,
@@ -474,6 +475,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "batch", batch)
         if beanstalk is not None:
             pulumi.set(__self__, "beanstalk", beanstalk)
+        if bedrock is not None:
+            pulumi.set(__self__, "bedrock", bedrock)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -1053,6 +1056,11 @@ class Endpoints(dict):
     @pulumi.getter
     def beanstalk(self) -> Optional[str]:
         return pulumi.get(self, "beanstalk")
+
+    @property
+    @pulumi.getter
+    def bedrock(self) -> Optional[str]:
+        return pulumi.get(self, "bedrock")
 
     @property
     @pulumi.getter

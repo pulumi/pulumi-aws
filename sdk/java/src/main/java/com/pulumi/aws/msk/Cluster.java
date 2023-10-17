@@ -466,6 +466,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterName;
     }
     /**
+     * UUID of the MSK cluster, for use in IAM policies.
+     * 
+     */
+    @Export(name="clusterUuid", refs={String.class}, tree="[0]")
+    private Output<String> clusterUuid;
+
+    /**
+     * @return UUID of the MSK cluster, for use in IAM policies.
+     * 
+     */
+    public Output<String> clusterUuid() {
+        return this.clusterUuid;
+    }
+    /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      * 
      */

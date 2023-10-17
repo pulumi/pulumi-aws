@@ -30,6 +30,7 @@ class DeploymentGroupArgs:
                  ecs_service: Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']] = None,
                  load_balancer_info: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
@@ -48,6 +49,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
@@ -76,6 +78,8 @@ class DeploymentGroupArgs:
             pulumi.set(__self__, "load_balancer_info", load_balancer_info)
         if on_premises_instance_tag_filters is not None:
             pulumi.set(__self__, "on_premises_instance_tag_filters", on_premises_instance_tag_filters)
+        if outdated_instances_strategy is not None:
+            pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trigger_configurations is not None:
@@ -250,6 +254,18 @@ class DeploymentGroupArgs:
         pulumi.set(self, "on_premises_instance_tag_filters", value)
 
     @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        """
+        return pulumi.get(self, "outdated_instances_strategy")
+
+    @outdated_instances_strategy.setter
+    def outdated_instances_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outdated_instances_strategy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -293,6 +309,7 @@ class _DeploymentGroupState:
                  ecs_service: Optional[pulumi.Input['DeploymentGroupEcsServiceArgs']] = None,
                  load_balancer_info: Optional[pulumi.Input['DeploymentGroupLoadBalancerInfoArgs']] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -315,6 +332,7 @@ class _DeploymentGroupState:
         :param pulumi.Input['DeploymentGroupEcsServiceArgs'] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input['DeploymentGroupLoadBalancerInfoArgs'] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -352,6 +370,8 @@ class _DeploymentGroupState:
             pulumi.set(__self__, "load_balancer_info", load_balancer_info)
         if on_premises_instance_tag_filters is not None:
             pulumi.set(__self__, "on_premises_instance_tag_filters", on_premises_instance_tag_filters)
+        if outdated_instances_strategy is not None:
+            pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if tags is not None:
@@ -557,6 +577,18 @@ class _DeploymentGroupState:
         pulumi.set(self, "on_premises_instance_tag_filters", value)
 
     @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        """
+        return pulumi.get(self, "outdated_instances_strategy")
+
+    @outdated_instances_strategy.setter
+    def outdated_instances_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outdated_instances_strategy", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -626,6 +658,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  ecs_service: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]] = None,
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
@@ -685,7 +718,8 @@ class DeploymentGroup(pulumi.CustomResource):
             alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
-            ))
+            ),
+            outdated_instances_strategy="UPDATE")
         ```
         ### Blue Green Deployments with ECS
 
@@ -793,6 +827,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
@@ -858,7 +893,8 @@ class DeploymentGroup(pulumi.CustomResource):
             alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
-            ))
+            ),
+            outdated_instances_strategy="UPDATE")
         ```
         ### Blue Green Deployments with ECS
 
@@ -979,6 +1015,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  ecs_service: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]] = None,
                  load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
+                 outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigurationArgs']]]]] = None,
@@ -1008,6 +1045,7 @@ class DeploymentGroup(pulumi.CustomResource):
             __props__.__dict__["ecs_service"] = ecs_service
             __props__.__dict__["load_balancer_info"] = load_balancer_info
             __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
+            __props__.__dict__["outdated_instances_strategy"] = outdated_instances_strategy
             if service_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
@@ -1045,6 +1083,7 @@ class DeploymentGroup(pulumi.CustomResource):
             ecs_service: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']]] = None,
             load_balancer_info: Optional[pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']]] = None,
             on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]]] = None,
+            outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1072,6 +1111,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentGroupEcsServiceArgs']] ecs_service: Configuration block(s) of the ECS services for a deployment group (documented below).
         :param pulumi.Input[pulumi.InputType['DeploymentGroupLoadBalancerInfoArgs']] load_balancer_info: Single configuration block of the load balancer to use in a blue/green deployment (documented below).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
+        :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1097,6 +1137,7 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["ecs_service"] = ecs_service
         __props__.__dict__["load_balancer_info"] = load_balancer_info
         __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
+        __props__.__dict__["outdated_instances_strategy"] = outdated_instances_strategy
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1230,6 +1271,14 @@ class DeploymentGroup(pulumi.CustomResource):
         On premise tag filters associated with the group. See the AWS docs for details.
         """
         return pulumi.get(self, "on_premises_instance_tag_filters")
+
+    @property
+    @pulumi.getter(name="outdatedInstancesStrategy")
+    def outdated_instances_strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        """
+        return pulumi.get(self, "outdated_instances_strategy")
 
     @property
     @pulumi.getter(name="serviceRoleArn")

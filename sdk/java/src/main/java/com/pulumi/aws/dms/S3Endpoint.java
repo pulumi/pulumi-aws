@@ -135,6 +135,7 @@ import javax.annotation.Nullable;
  *             .timestampColumnName(&#34;tx_commit_time&#34;)
  *             .useCsvNoSupValue(false)
  *             .useTaskStartTimeForFullLoadTimestamp(true)
+ *             .glueCatalogGeneration(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(aws_iam_role_policy.example())
  *                 .build());
@@ -629,6 +630,20 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> externalTableDefinition() {
         return Codegen.optional(this.externalTableDefinition);
+    }
+    /**
+     * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    @Export(name="glueCatalogGeneration", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> glueCatalogGeneration;
+
+    /**
+     * @return Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> glueCatalogGeneration() {
+        return Codegen.optional(this.glueCatalogGeneration);
     }
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)

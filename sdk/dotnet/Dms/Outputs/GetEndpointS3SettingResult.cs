@@ -37,6 +37,7 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly string EncodingType;
         public readonly string EncryptionMode;
         public readonly string ExternalTableDefinition;
+        public readonly bool GlueCatalogGeneration;
         public readonly int IgnoreHeaderRows;
         public readonly int IgnoreHeadersRow;
         public readonly bool IncludeOpForFullLoad;
@@ -102,6 +103,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string externalTableDefinition,
 
+            bool glueCatalogGeneration,
+
             int ignoreHeaderRows,
 
             int ignoreHeadersRow,
@@ -154,6 +157,7 @@ namespace Pulumi.Aws.Dms.Outputs
             EncodingType = encodingType;
             EncryptionMode = encryptionMode;
             ExternalTableDefinition = externalTableDefinition;
+            GlueCatalogGeneration = glueCatalogGeneration;
             IgnoreHeaderRows = ignoreHeaderRows;
             IgnoreHeadersRow = ignoreHeadersRow;
             IncludeOpForFullLoad = includeOpForFullLoad;

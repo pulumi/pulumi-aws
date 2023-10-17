@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Instance.
  *
  * ## Example Usage
+ * ### Basic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,10 +24,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With `fipsEnabled`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.verifiedaccess.Instance("example", {fipsEnabled: true});
+ * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Transfer Workflows using the
+ * Using `pulumi import`, import Verified Access Instances using the
  *
  * `id`. For example:
  *
@@ -71,6 +80,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     */
+    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The time that the Verified Access Instance was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
@@ -102,6 +115,7 @@ export class Instance extends pulumi.CustomResource {
             const state = argsOrState as InstanceState | undefined;
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -109,6 +123,7 @@ export class Instance extends pulumi.CustomResource {
         } else {
             const args = argsOrState as InstanceArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
@@ -135,6 +150,10 @@ export interface InstanceState {
      */
     description?: pulumi.Input<string>;
     /**
+     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
+    /**
      * The time that the Verified Access Instance was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string>;
@@ -160,6 +179,10 @@ export interface InstanceArgs {
      * A description for the AWS Verified Access Instance.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     */
+    fipsEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

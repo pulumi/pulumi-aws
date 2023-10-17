@@ -268,6 +268,21 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     * 
+     */
+    @Import(name="outdatedInstancesStrategy")
+    private @Nullable Output<String> outdatedInstancesStrategy;
+
+    /**
+     * @return Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     * 
+     */
+    public Optional<Output<String>> outdatedInstancesStrategy() {
+        return Optional.ofNullable(this.outdatedInstancesStrategy);
+    }
+
+    /**
      * The service role ARN that allows deployments.
      * 
      */
@@ -354,6 +369,7 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         this.ecsService = $.ecsService;
         this.loadBalancerInfo = $.loadBalancerInfo;
         this.onPremisesInstanceTagFilters = $.onPremisesInstanceTagFilters;
+        this.outdatedInstancesStrategy = $.outdatedInstancesStrategy;
         this.serviceRoleArn = $.serviceRoleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -752,6 +768,27 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
          */
         public Builder onPremisesInstanceTagFilters(DeploymentGroupOnPremisesInstanceTagFilterArgs... onPremisesInstanceTagFilters) {
             return onPremisesInstanceTagFilters(List.of(onPremisesInstanceTagFilters));
+        }
+
+        /**
+         * @param outdatedInstancesStrategy Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outdatedInstancesStrategy(@Nullable Output<String> outdatedInstancesStrategy) {
+            $.outdatedInstancesStrategy = outdatedInstancesStrategy;
+            return this;
+        }
+
+        /**
+         * @param outdatedInstancesStrategy Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outdatedInstancesStrategy(String outdatedInstancesStrategy) {
+            return outdatedInstancesStrategy(Output.of(outdatedInstancesStrategy));
         }
 
         /**

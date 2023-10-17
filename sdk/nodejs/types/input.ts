@@ -128,6 +128,7 @@ export interface ProviderEndpoint {
     backup?: pulumi.Input<string>;
     batch?: pulumi.Input<string>;
     beanstalk?: pulumi.Input<string>;
+    bedrock?: pulumi.Input<string>;
     budgets?: pulumi.Input<string>;
     ce?: pulumi.Input<string>;
     chime?: pulumi.Input<string>;
@@ -16234,6 +16235,10 @@ export namespace dms {
          */
         externalTableDefinition?: pulumi.Input<string>;
         /**
+         * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+         */
+        glueCatalogGeneration?: pulumi.Input<boolean>;
+        /**
          * When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
          */
         ignoreHeaderRows?: pulumi.Input<number>;
@@ -16418,6 +16423,58 @@ export namespace dynamodb {
          * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          */
         writeCapacity?: pulumi.Input<number>;
+    }
+
+    export interface TableImportTable {
+        /**
+         * Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+         */
+        inputCompressionType?: pulumi.Input<string>;
+        /**
+         * The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+         */
+        inputFormat: pulumi.Input<string>;
+        /**
+         * Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+         */
+        inputFormatOptions?: pulumi.Input<inputs.dynamodb.TableImportTableInputFormatOptions>;
+        /**
+         * Values for the S3 bucket the source file is imported from. See below.
+         */
+        s3BucketSource: pulumi.Input<inputs.dynamodb.TableImportTableS3BucketSource>;
+    }
+
+    export interface TableImportTableInputFormatOptions {
+        /**
+         * This block contains the processing options for the CSV file being imported:
+         */
+        csv?: pulumi.Input<inputs.dynamodb.TableImportTableInputFormatOptionsCsv>;
+    }
+
+    export interface TableImportTableInputFormatOptionsCsv {
+        /**
+         * The delimiter used for separating items in the CSV file being imported.
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * List of the headers used to specify a common header for all source CSV files being imported.
+         */
+        headerLists?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TableImportTableS3BucketSource {
+        /**
+         * The S3 bucket that is being imported from.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The account number of the S3 bucket that is being imported from.
+         */
+        bucketOwner?: pulumi.Input<string>;
+        /**
+         * The key prefix shared by all S3 Objects that are being imported.
+         */
+        keyPrefix?: pulumi.Input<string>;
     }
 
     export interface TableLocalSecondaryIndex {
@@ -27673,6 +27730,17 @@ export namespace guardduty {
          * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
          */
         autoEnable: pulumi.Input<boolean>;
+    }
+
+    export interface OrganizationConfigurationFeatureAdditionalConfiguration {
+        /**
+         * The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+         */
+        autoEnable: pulumi.Input<string>;
+        /**
+         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+         */
+        name: pulumi.Input<string>;
     }
 }
 
@@ -44869,7 +44937,7 @@ export namespace redshiftserverless {
 
     export interface WorkgroupConfigParameter {
         /**
-         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath` and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
+         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          */
         parameterKey: pulumi.Input<string>;
         /**
@@ -51877,6 +51945,76 @@ export namespace servicediscovery {
 }
 
 export namespace servicequotas {
+    export interface GetTemplatesTemplate {
+        /**
+         * Indicates whether the quota is global.
+         */
+        globalQuota?: boolean;
+        /**
+         * Quota identifier.
+         */
+        quotaCode?: string;
+        /**
+         * Quota name.
+         */
+        quotaName?: string;
+        /**
+         * AWS Region to which the quota increases apply.
+         */
+        region?: string;
+        /**
+         * (Required) Service identifier.
+         */
+        serviceCode?: string;
+        /**
+         * Service name.
+         */
+        serviceName?: string;
+        /**
+         * Unit of measurement.
+         */
+        unit?: string;
+        /**
+         * (Required) The new, increased value for the quota.
+         */
+        value?: number;
+    }
+
+    export interface GetTemplatesTemplateArgs {
+        /**
+         * Indicates whether the quota is global.
+         */
+        globalQuota?: pulumi.Input<boolean>;
+        /**
+         * Quota identifier.
+         */
+        quotaCode?: pulumi.Input<string>;
+        /**
+         * Quota name.
+         */
+        quotaName?: pulumi.Input<string>;
+        /**
+         * AWS Region to which the quota increases apply.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * (Required) Service identifier.
+         */
+        serviceCode?: pulumi.Input<string>;
+        /**
+         * Service name.
+         */
+        serviceName?: pulumi.Input<string>;
+        /**
+         * Unit of measurement.
+         */
+        unit?: pulumi.Input<string>;
+        /**
+         * (Required) The new, increased value for the quota.
+         */
+        value?: pulumi.Input<number>;
+    }
+
     export interface ServiceQuotaUsageMetric {
         /**
          * The metric dimensions.
@@ -53842,6 +53980,70 @@ export namespace transfer {
 }
 
 export namespace verifiedaccess {
+    export interface InstanceLoggingConfigurationAccessLogs {
+        /**
+         * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         */
+        cloudwatchLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogs>;
+        /**
+         * Include trust data sent by trust providers into the logs.
+         */
+        includeTrustContext?: pulumi.Input<boolean>;
+        /**
+         * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         */
+        kinesisDataFirehose?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose>;
+        /**
+         * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         */
+        logVersion?: pulumi.Input<string>;
+        /**
+         * A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         */
+        s3?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3>;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The name of the CloudWatch Logs Log Group.
+         */
+        logGroup?: pulumi.Input<string>;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+        /**
+         * The name of the delivery stream.
+         */
+        deliveryStream?: pulumi.Input<string>;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface InstanceLoggingConfigurationAccessLogsS3 {
+        /**
+         * The name of S3 bucket.
+         */
+        bucketName?: pulumi.Input<string>;
+        /**
+         * The ID of the AWS account that owns the Amazon S3 bucket.
+         */
+        bucketOwner?: pulumi.Input<string>;
+        /**
+         * Indicates whether logging is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The bucket prefix.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
     export interface InstanceVerifiedAccessTrustProvider {
         /**
          * A description for the AWS Verified Access Instance.
@@ -54106,17 +54308,21 @@ export namespace vpclattice {
          */
         healthCheck?: pulumi.Input<inputs.vpclattice.TargetGroupConfigHealthCheck>;
         /**
-         * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+         * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
          */
         ipAddressType?: pulumi.Input<string>;
         /**
+         * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         */
+        lambdaEventStructureVersion?: pulumi.Input<string>;
+        /**
          * The port on which the targets are listening.
          */
-        port: pulumi.Input<number>;
+        port?: pulumi.Input<number>;
         /**
-         * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+         * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
          */
-        protocol: pulumi.Input<string>;
+        protocol?: pulumi.Input<string>;
         /**
          * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
          */
@@ -54124,7 +54330,7 @@ export namespace vpclattice {
         /**
          * The ID of the VPC.
          */
-        vpcIdentifier: pulumi.Input<string>;
+        vpcIdentifier?: pulumi.Input<string>;
     }
 
     export interface TargetGroupConfigHealthCheck {
@@ -58723,6 +58929,10 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
         /**
+         * Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+         */
+        awsManagedRulesAcfpRuleSet?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet>;
+        /**
          * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
          */
         awsManagedRulesAtpRuleSet?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet>;
@@ -58746,6 +58956,137 @@ export namespace wafv2 {
          * Details about your login page username field. See `usernameField` for more details.
          */
         usernameField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet {
+        /**
+         * The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
+         */
+        creationPath: pulumi.Input<string>;
+        /**
+         * Whether or not to allow the use of regular expressions in the login page path.
+         */
+        enableRegexInPath?: pulumi.Input<boolean>;
+        /**
+         * The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
+         */
+        registrationPagePath: pulumi.Input<string>;
+        /**
+         * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
+         */
+        requestInspection: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection>;
+        /**
+         * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
+         */
+        responseInspection?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection {
+        emailField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField>;
+        /**
+         * Details about your login page password field. See `passwordField` for more details.
+         */
+        passwordField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField>;
+        /**
+         * The payload type for your login endpoint, either JSON or form encoded.
+         */
+        payloadType: pulumi.Input<string>;
+        /**
+         * Details about your login page username field. See `usernameField` for more details.
+         */
+        usernameField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField {
+        /**
+         * The name of the password field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField {
+        /**
+         * The name of the password field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField {
+        /**
+         * The name of the username field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection {
+        /**
+         * Configures inspection of the response body. See `bodyContains` for more details.
+         */
+        bodyContains?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains>;
+        /**
+         * Configures inspection of the response header.See `header` for more details.
+         */
+        header?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader>;
+        /**
+         * Configures inspection of the response JSON. See `json` for more details.
+         */
+        json?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson>;
+        /**
+         * Configures inspection of the response status code.See `statusCode` for more details.
+         */
+        statusCode?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains {
+        /**
+         * Strings in the body of the response that indicate a failed login attempt.
+         */
+        failureStrings: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Strings in the body of the response that indicate a successful login attempt.
+         */
+        successStrings: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the header to use.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier for the value to match against in the JSON.
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode {
+        /**
+         * Status codes in the response that indicate a failed login attempt.
+         */
+        failureCodes: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Status codes in the response that indicate a successful login attempt.
+         */
+        successCodes: pulumi.Input<pulumi.Input<number>[]>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {

@@ -21,6 +21,7 @@ class TableArgs:
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
+                 import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
@@ -44,6 +45,7 @@ class TableArgs:
         :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
+        :param pulumi.Input['TableImportTableArgs'] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
@@ -75,6 +77,8 @@ class TableArgs:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
+        if import_table is not None:
+            pulumi.set(__self__, "import_table", import_table)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if name is not None:
@@ -167,6 +171,18 @@ class TableArgs:
     @hash_key.setter
     def hash_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter(name="importTable")
+    def import_table(self) -> Optional[pulumi.Input['TableImportTableArgs']]:
+        """
+        Import Amazon S3 data into a new table. See below.
+        """
+        return pulumi.get(self, "import_table")
+
+    @import_table.setter
+    def import_table(self, value: Optional[pulumi.Input['TableImportTableArgs']]):
+        pulumi.set(self, "import_table", value)
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
@@ -374,6 +390,7 @@ class _TableState:
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
+                 import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
@@ -401,6 +418,7 @@ class _TableState:
         :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
+        :param pulumi.Input['TableImportTableArgs'] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
@@ -437,6 +455,8 @@ class _TableState:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
+        if import_table is not None:
+            pulumi.set(__self__, "import_table", import_table)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if name is not None:
@@ -550,6 +570,18 @@ class _TableState:
     @hash_key.setter
     def hash_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hash_key", value)
+
+    @property
+    @pulumi.getter(name="importTable")
+    def import_table(self) -> Optional[pulumi.Input['TableImportTableArgs']]:
+        """
+        Import Amazon S3 data into a new table. See below.
+        """
+        return pulumi.get(self, "import_table")
+
+    @import_table.setter
+    def import_table(self, value: Optional[pulumi.Input['TableImportTableArgs']]):
+        pulumi.set(self, "import_table", value)
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
@@ -797,6 +829,7 @@ class Table(pulumi.CustomResource):
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
+                 import_table: Optional[pulumi.Input[pulumi.InputType['TableImportTableArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
@@ -921,6 +954,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
+        :param pulumi.Input[pulumi.InputType['TableImportTableArgs']] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
@@ -1068,6 +1102,7 @@ class Table(pulumi.CustomResource):
                  deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
                  hash_key: Optional[pulumi.Input[str]] = None,
+                 import_table: Optional[pulumi.Input[pulumi.InputType['TableImportTableArgs']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
@@ -1098,6 +1133,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
             __props__.__dict__["hash_key"] = hash_key
+            __props__.__dict__["import_table"] = import_table
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["name"] = name
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
@@ -1136,6 +1172,7 @@ class Table(pulumi.CustomResource):
             deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
             global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]]] = None,
             hash_key: Optional[pulumi.Input[str]] = None,
+            import_table: Optional[pulumi.Input[pulumi.InputType['TableImportTableArgs']]] = None,
             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
@@ -1168,6 +1205,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         :param pulumi.Input[str] hash_key: Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
+        :param pulumi.Input[pulumi.InputType['TableImportTableArgs']] import_table: Import Amazon S3 data into a new table. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
@@ -1202,6 +1240,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
         __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
         __props__.__dict__["hash_key"] = hash_key
+        __props__.__dict__["import_table"] = import_table
         __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
         __props__.__dict__["name"] = name
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
@@ -1270,6 +1309,14 @@ class Table(pulumi.CustomResource):
         Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         """
         return pulumi.get(self, "hash_key")
+
+    @property
+    @pulumi.getter(name="importTable")
+    def import_table(self) -> pulumi.Output[Optional['outputs.TableImportTable']]:
+        """
+        Import Amazon S3 data into a new table. See below.
+        """
+        return pulumi.get(self, "import_table")
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")

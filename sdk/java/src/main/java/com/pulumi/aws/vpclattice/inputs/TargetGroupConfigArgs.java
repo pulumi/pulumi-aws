@@ -33,14 +33,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+     * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -48,33 +48,48 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * 
+     */
+    @Import(name="lambdaEventStructureVersion")
+    private @Nullable Output<String> lambdaEventStructureVersion;
+
+    /**
+     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * 
+     */
+    public Optional<Output<String>> lambdaEventStructureVersion() {
+        return Optional.ofNullable(this.lambdaEventStructureVersion);
+    }
+
+    /**
      * The port on which the targets are listening.
      * 
      */
-    @Import(name="port", required=true)
-    private Output<Integer> port;
+    @Import(name="port")
+    private @Nullable Output<Integer> port;
 
     /**
      * @return The port on which the targets are listening.
      * 
      */
-    public Output<Integer> port() {
-        return this.port;
+    public Optional<Output<Integer>> port() {
+        return Optional.ofNullable(this.port);
     }
 
     /**
-     * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+     * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
      * 
      */
-    @Import(name="protocol", required=true)
-    private Output<String> protocol;
+    @Import(name="protocol")
+    private @Nullable Output<String> protocol;
 
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
      * 
      */
-    public Output<String> protocol() {
-        return this.protocol;
+    public Optional<Output<String>> protocol() {
+        return Optional.ofNullable(this.protocol);
     }
 
     /**
@@ -96,15 +111,15 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
      * The ID of the VPC.
      * 
      */
-    @Import(name="vpcIdentifier", required=true)
-    private Output<String> vpcIdentifier;
+    @Import(name="vpcIdentifier")
+    private @Nullable Output<String> vpcIdentifier;
 
     /**
      * @return The ID of the VPC.
      * 
      */
-    public Output<String> vpcIdentifier() {
-        return this.vpcIdentifier;
+    public Optional<Output<String>> vpcIdentifier() {
+        return Optional.ofNullable(this.vpcIdentifier);
     }
 
     private TargetGroupConfigArgs() {}
@@ -112,6 +127,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     private TargetGroupConfigArgs(TargetGroupConfigArgs $) {
         this.healthCheck = $.healthCheck;
         this.ipAddressType = $.ipAddressType;
+        this.lambdaEventStructureVersion = $.lambdaEventStructureVersion;
         this.port = $.port;
         this.protocol = $.protocol;
         this.protocolVersion = $.protocolVersion;
@@ -158,7 +174,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
          * 
          * @return builder
          * 
@@ -169,7 +185,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
          * 
          * @return builder
          * 
@@ -179,12 +195,33 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaEventStructureVersion(@Nullable Output<String> lambdaEventStructureVersion) {
+            $.lambdaEventStructureVersion = lambdaEventStructureVersion;
+            return this;
+        }
+
+        /**
+         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaEventStructureVersion(String lambdaEventStructureVersion) {
+            return lambdaEventStructureVersion(Output.of(lambdaEventStructureVersion));
+        }
+
+        /**
          * @param port The port on which the targets are listening.
          * 
          * @return builder
          * 
          */
-        public Builder port(Output<Integer> port) {
+        public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
@@ -200,18 +237,18 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
          * 
          * @return builder
          * 
          */
-        public Builder protocol(Output<String> protocol) {
+        public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
         /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
          * 
          * @return builder
          * 
@@ -247,7 +284,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder vpcIdentifier(Output<String> vpcIdentifier) {
+        public Builder vpcIdentifier(@Nullable Output<String> vpcIdentifier) {
             $.vpcIdentifier = vpcIdentifier;
             return this;
         }
@@ -263,9 +300,6 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         public TargetGroupConfigArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.vpcIdentifier = Objects.requireNonNull($.vpcIdentifier, "expected parameter 'vpcIdentifier' to be non-null");
             return $;
         }
     }

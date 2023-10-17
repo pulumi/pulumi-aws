@@ -55,6 +55,11 @@ export type OrganizationConfiguration = import("./organizationConfiguration").Or
 export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
 utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
 
+export { OrganizationConfigurationFeatureArgs, OrganizationConfigurationFeatureState } from "./organizationConfigurationFeature";
+export type OrganizationConfigurationFeature = import("./organizationConfigurationFeature").OrganizationConfigurationFeature;
+export const OrganizationConfigurationFeature: typeof import("./organizationConfigurationFeature").OrganizationConfigurationFeature = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfigurationFeature"], () => require("./organizationConfigurationFeature"));
+
 export { PublishingDestinationArgs, PublishingDestinationState } from "./publishingDestination";
 export type PublishingDestination = import("./publishingDestination").PublishingDestination;
 export const PublishingDestination: typeof import("./publishingDestination").PublishingDestination = null as any;
@@ -86,6 +91,8 @@ const _module = {
                 return new OrganizationAdminAccount(name, <any>undefined, { urn })
             case "aws:guardduty/organizationConfiguration:OrganizationConfiguration":
                 return new OrganizationConfiguration(name, <any>undefined, { urn })
+            case "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature":
+                return new OrganizationConfigurationFeature(name, <any>undefined, { urn })
             case "aws:guardduty/publishingDestination:PublishingDestination":
                 return new PublishingDestination(name, <any>undefined, { urn })
             case "aws:guardduty/threatIntelSet:ThreatIntelSet":
@@ -103,5 +110,6 @@ pulumi.runtime.registerResourceModule("aws", "guardduty/inviteAccepter", _module
 pulumi.runtime.registerResourceModule("aws", "guardduty/member", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "guardduty/organizationConfigurationFeature", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/publishingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/threatIntelSet", _module)

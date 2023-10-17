@@ -35,6 +35,8 @@ type ServerlessCluster struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationOutput `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// UUID of the serverless cluster, for use in IAM policies.
+	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -91,6 +93,8 @@ type serverlessClusterState struct {
 	ClientAuthentication *ServerlessClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// The name of the serverless cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// UUID of the serverless cluster, for use in IAM policies.
+	ClusterUuid *string `pulumi:"clusterUuid"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -108,6 +112,8 @@ type ServerlessClusterState struct {
 	ClientAuthentication ServerlessClusterClientAuthenticationPtrInput
 	// The name of the serverless cluster.
 	ClusterName pulumi.StringPtrInput
+	// UUID of the serverless cluster, for use in IAM policies.
+	ClusterUuid pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -269,6 +275,11 @@ func (o ServerlessClusterOutput) ClientAuthentication() ServerlessClusterClientA
 // The name of the serverless cluster.
 func (o ServerlessClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// UUID of the serverless cluster, for use in IAM policies.
+func (o ServerlessClusterOutput) ClusterUuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -768,14 +768,16 @@ class TargetGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vpcIdentifier":
-            suggest = "vpc_identifier"
-        elif key == "healthCheck":
+        if key == "healthCheck":
             suggest = "health_check"
         elif key == "ipAddressType":
             suggest = "ip_address_type"
+        elif key == "lambdaEventStructureVersion":
+            suggest = "lambda_event_structure_version"
         elif key == "protocolVersion":
             suggest = "protocol_version"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TargetGroupConfig. Access the value via the '{suggest}' property getter instead.")
@@ -789,53 +791,36 @@ class TargetGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 port: int,
-                 protocol: str,
-                 vpc_identifier: str,
                  health_check: Optional['outputs.TargetGroupConfigHealthCheck'] = None,
                  ip_address_type: Optional[str] = None,
-                 protocol_version: Optional[str] = None):
+                 lambda_event_structure_version: Optional[str] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 protocol_version: Optional[str] = None,
+                 vpc_identifier: Optional[str] = None):
         """
-        :param int port: The port on which the targets are listening.
-        :param str protocol: The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-        :param str vpc_identifier: The ID of the VPC.
         :param 'TargetGroupConfigHealthCheckArgs' health_check: The health check configuration.
-        :param str ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        :param str ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+        :param str lambda_event_structure_version: The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        :param int port: The port on which the targets are listening.
+        :param str protocol: The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
         :param str protocol_version: The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+        :param str vpc_identifier: The ID of the VPC.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if lambda_event_structure_version is not None:
+            pulumi.set(__self__, "lambda_event_structure_version", lambda_event_structure_version)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
-
-    @property
-    @pulumi.getter
-    def port(self) -> int:
-        """
-        The port on which the targets are listening.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> str:
-        """
-        The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> str:
-        """
-        The ID of the VPC.
-        """
-        return pulumi.get(self, "vpc_identifier")
+        if vpc_identifier is not None:
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -849,9 +834,33 @@ class TargetGroupConfig(dict):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[str]:
         """
-        The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         """
         return pulumi.get(self, "ip_address_type")
+
+    @property
+    @pulumi.getter(name="lambdaEventStructureVersion")
+    def lambda_event_structure_version(self) -> Optional[str]:
+        """
+        The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        """
+        return pulumi.get(self, "lambda_event_structure_version")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port on which the targets are listening.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+        """
+        return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="protocolVersion")
@@ -860,6 +869,14 @@ class TargetGroupConfig(dict):
         The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
         """
         return pulumi.get(self, "protocol_version")
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> Optional[str]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_identifier")
 
 
 @pulumi.output_type

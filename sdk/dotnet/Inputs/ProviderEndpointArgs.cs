@@ -93,6 +93,9 @@ namespace Pulumi.Aws.Inputs
         [Input("beanstalk")]
         public Input<string>? Beanstalk { get; set; }
 
+        [Input("bedrock")]
+        public Input<string>? Bedrock { get; set; }
+
         [Input("budgets")]
         public Input<string>? Budgets { get; set; }
 

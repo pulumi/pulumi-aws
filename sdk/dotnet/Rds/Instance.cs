@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Rds
         /// with read replicas, it should be specified only if the source database
         /// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         /// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        /// for additional read replica contraints.
+        /// for additional read replica constraints.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
@@ -851,7 +851,7 @@ namespace Pulumi.Aws.Rds
         /// with read replicas, it should be specified only if the source database
         /// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         /// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        /// for additional read replica contraints.
+        /// for additional read replica constraints.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -1346,7 +1346,7 @@ namespace Pulumi.Aws.Rds
         /// with read replicas, it should be specified only if the source database
         /// specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         /// action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        /// for additional read replica contraints.
+        /// for additional read replica constraints.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }

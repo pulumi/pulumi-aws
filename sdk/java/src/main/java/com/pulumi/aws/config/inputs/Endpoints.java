@@ -38,6 +38,7 @@ public final class Endpoints {
     private @Nullable String backup;
     private @Nullable String batch;
     private @Nullable String beanstalk;
+    private @Nullable String bedrock;
     private @Nullable String budgets;
     private @Nullable String ce;
     private @Nullable String chime;
@@ -342,6 +343,9 @@ public final class Endpoints {
     }
     public Optional<String> beanstalk() {
         return Optional.ofNullable(this.beanstalk);
+    }
+    public Optional<String> bedrock() {
+        return Optional.ofNullable(this.bedrock);
     }
     public Optional<String> budgets() {
         return Optional.ofNullable(this.budgets);
@@ -1046,6 +1050,7 @@ public final class Endpoints {
         private @Nullable String backup;
         private @Nullable String batch;
         private @Nullable String beanstalk;
+        private @Nullable String bedrock;
         private @Nullable String budgets;
         private @Nullable String ce;
         private @Nullable String chime;
@@ -1298,6 +1303,7 @@ public final class Endpoints {
     	      this.backup = defaults.backup;
     	      this.batch = defaults.batch;
     	      this.beanstalk = defaults.beanstalk;
+    	      this.bedrock = defaults.bedrock;
     	      this.budgets = defaults.budgets;
     	      this.ce = defaults.ce;
     	      this.chime = defaults.chime;
@@ -1655,6 +1661,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder beanstalk(@Nullable String beanstalk) {
             this.beanstalk = beanstalk;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bedrock(@Nullable String bedrock) {
+            this.bedrock = bedrock;
             return this;
         }
         @CustomType.Setter
@@ -2796,6 +2807,7 @@ public final class Endpoints {
             o.backup = backup;
             o.batch = batch;
             o.beanstalk = beanstalk;
+            o.bedrock = bedrock;
             o.budgets = budgets;
             o.ce = ce;
             o.chime = chime;

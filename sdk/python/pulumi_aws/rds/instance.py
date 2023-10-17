@@ -124,7 +124,7 @@ class InstanceArgs:
                with read replicas, it should be specified only if the source database
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica contraints.
+               for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
@@ -571,7 +571,7 @@ class InstanceArgs:
         with read replicas, it should be specified only if the source database
         specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica contraints.
+        for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -1294,7 +1294,7 @@ class _InstanceState:
                with read replicas, it should be specified only if the source database
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica contraints.
+               for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
@@ -1791,7 +1791,7 @@ class _InstanceState:
         with read replicas, it should be specified only if the source database
         specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica contraints.
+        for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -2753,7 +2753,7 @@ class Instance(pulumi.CustomResource):
                with read replicas, it should be specified only if the source database
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica contraints.
+               for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
@@ -3277,7 +3277,7 @@ class Instance(pulumi.CustomResource):
                with read replicas, it should be specified only if the source database
                specifies an instance in another AWS Region. See [DBSubnetGroupName in API
                action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica contraints.
+               for additional read replica constraints.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] domain: The ID of the Directory Service Active Directory domain to create the instance in.
@@ -3631,7 +3631,7 @@ class Instance(pulumi.CustomResource):
         with read replicas, it should be specified only if the source database
         specifies an instance in another AWS Region. See [DBSubnetGroupName in API
         action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica contraints.
+        for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 

@@ -165,6 +165,8 @@ type Table struct {
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
+	// Import Amazon S3 data into a new table. See below.
+	ImportTable TableImportTablePtrOutput `pulumi:"importTable"`
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
@@ -257,6 +259,8 @@ type tableState struct {
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
+	// Import Amazon S3 data into a new table. See below.
+	ImportTable *TableImportTable `pulumi:"importTable"`
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
@@ -316,6 +320,8 @@ type TableState struct {
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
+	// Import Amazon S3 data into a new table. See below.
+	ImportTable TableImportTablePtrInput
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
@@ -377,6 +383,8 @@ type tableArgs struct {
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey *string `pulumi:"hashKey"`
+	// Import Amazon S3 data into a new table. See below.
+	ImportTable *TableImportTable `pulumi:"importTable"`
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
@@ -427,6 +435,8 @@ type TableArgs struct {
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 	HashKey pulumi.StringPtrInput
+	// Import Amazon S3 data into a new table. See below.
+	ImportTable TableImportTablePtrInput
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
@@ -604,6 +614,11 @@ func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutp
 // Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
 func (o TableOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
+}
+
+// Import Amazon S3 data into a new table. See below.
+func (o TableOutput) ImportTable() TableImportTablePtrOutput {
+	return o.ApplyT(func(v *Table) TableImportTablePtrOutput { return v.ImportTable }).(TableImportTablePtrOutput)
 }
 
 // Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.

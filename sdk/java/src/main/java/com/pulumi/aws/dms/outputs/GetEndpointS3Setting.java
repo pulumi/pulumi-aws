@@ -35,6 +35,7 @@ public final class GetEndpointS3Setting {
     private String encodingType;
     private String encryptionMode;
     private String externalTableDefinition;
+    private Boolean glueCatalogGeneration;
     private Integer ignoreHeaderRows;
     private Integer ignoreHeadersRow;
     private Boolean includeOpForFullLoad;
@@ -123,6 +124,9 @@ public final class GetEndpointS3Setting {
     public String externalTableDefinition() {
         return this.externalTableDefinition;
     }
+    public Boolean glueCatalogGeneration() {
+        return this.glueCatalogGeneration;
+    }
     public Integer ignoreHeaderRows() {
         return this.ignoreHeaderRows;
     }
@@ -199,6 +203,7 @@ public final class GetEndpointS3Setting {
         private String encodingType;
         private String encryptionMode;
         private String externalTableDefinition;
+        private Boolean glueCatalogGeneration;
         private Integer ignoreHeaderRows;
         private Integer ignoreHeadersRow;
         private Boolean includeOpForFullLoad;
@@ -240,6 +245,7 @@ public final class GetEndpointS3Setting {
     	      this.encodingType = defaults.encodingType;
     	      this.encryptionMode = defaults.encryptionMode;
     	      this.externalTableDefinition = defaults.externalTableDefinition;
+    	      this.glueCatalogGeneration = defaults.glueCatalogGeneration;
     	      this.ignoreHeaderRows = defaults.ignoreHeaderRows;
     	      this.ignoreHeadersRow = defaults.ignoreHeadersRow;
     	      this.includeOpForFullLoad = defaults.includeOpForFullLoad;
@@ -377,6 +383,11 @@ public final class GetEndpointS3Setting {
             return this;
         }
         @CustomType.Setter
+        public Builder glueCatalogGeneration(Boolean glueCatalogGeneration) {
+            this.glueCatalogGeneration = Objects.requireNonNull(glueCatalogGeneration);
+            return this;
+        }
+        @CustomType.Setter
         public Builder ignoreHeaderRows(Integer ignoreHeaderRows) {
             this.ignoreHeaderRows = Objects.requireNonNull(ignoreHeaderRows);
             return this;
@@ -472,6 +483,7 @@ public final class GetEndpointS3Setting {
             o.encodingType = encodingType;
             o.encryptionMode = encryptionMode;
             o.externalTableDefinition = externalTableDefinition;
+            o.glueCatalogGeneration = glueCatalogGeneration;
             o.ignoreHeaderRows = ignoreHeaderRows;
             o.ignoreHeadersRow = ignoreHeadersRow;
             o.includeOpForFullLoad = includeOpForFullLoad;

@@ -227,6 +227,7 @@ class _ClusterState:
                  broker_node_group_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoArgs']] = None,
                  client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 cluster_uuid: Optional[pulumi.Input[str]] = None,
                  configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
@@ -256,6 +257,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
         :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
+        :param pulumi.Input[str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
                * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
@@ -299,6 +301,8 @@ class _ClusterState:
             pulumi.set(__self__, "client_authentication", client_authentication)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_uuid is not None:
+            pulumi.set(__self__, "cluster_uuid", cluster_uuid)
         if configuration_info is not None:
             pulumi.set(__self__, "configuration_info", configuration_info)
         if current_version is not None:
@@ -496,6 +500,18 @@ class _ClusterState:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="clusterUuid")
+    def cluster_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        UUID of the MSK cluster, for use in IAM policies.
+        """
+        return pulumi.get(self, "cluster_uuid")
+
+    @cluster_uuid.setter
+    def cluster_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_uuid", value)
 
     @property
     @pulumi.getter(name="configurationInfo")
@@ -1044,6 +1060,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_iam"] = None
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_scram"] = None
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_tls"] = None
+            __props__.__dict__["cluster_uuid"] = None
             __props__.__dict__["current_version"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
@@ -1074,6 +1091,7 @@ class Cluster(pulumi.CustomResource):
             broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
             client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
+            cluster_uuid: Optional[pulumi.Input[str]] = None,
             configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
             current_version: Optional[pulumi.Input[str]] = None,
             encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
@@ -1108,6 +1126,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
+        :param pulumi.Input[str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
                * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
@@ -1141,6 +1160,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["broker_node_group_info"] = broker_node_group_info
         __props__.__dict__["client_authentication"] = client_authentication
         __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["cluster_uuid"] = cluster_uuid
         __props__.__dict__["configuration_info"] = configuration_info
         __props__.__dict__["current_version"] = current_version
         __props__.__dict__["encryption_info"] = encryption_info
@@ -1267,6 +1287,14 @@ class Cluster(pulumi.CustomResource):
         Name of the MSK cluster.
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="clusterUuid")
+    def cluster_uuid(self) -> pulumi.Output[str]:
+        """
+        UUID of the MSK cluster, for use in IAM policies.
+        """
+        return pulumi.get(self, "cluster_uuid")
 
     @property
     @pulumi.getter(name="configurationInfo")

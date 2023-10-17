@@ -8,8 +8,11 @@ import com.pulumi.aws.servicequotas.inputs.GetServiceArgs;
 import com.pulumi.aws.servicequotas.inputs.GetServicePlainArgs;
 import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaArgs;
 import com.pulumi.aws.servicequotas.inputs.GetServiceQuotaPlainArgs;
+import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+import com.pulumi.aws.servicequotas.inputs.GetTemplatesPlainArgs;
 import com.pulumi.aws.servicequotas.outputs.GetServiceQuotaResult;
 import com.pulumi.aws.servicequotas.outputs.GetServiceResult;
+import com.pulumi.aws.servicequotas.outputs.GetTemplatesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -352,5 +355,157 @@ public final class ServicequotasFunctions {
      */
     public static CompletableFuture<GetServiceQuotaResult> getServiceQuotaPlain(GetServiceQuotaPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicequotas/getServiceQuota:getServiceQuota", TypeShape.of(GetServiceQuotaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args) {
+        return getTemplates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args) {
+        return getTemplatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTemplatesResult> getTemplates(GetTemplatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicequotas/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Service Quotas Templates.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicequotas.ServicequotasFunctions;
+     * import com.pulumi.aws.servicequotas.inputs.GetTemplatesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicequotasFunctions.getTemplates(GetTemplatesArgs.builder()
+     *             .region(&#34;us-east-1&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTemplatesResult> getTemplatesPlain(GetTemplatesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:servicequotas/getTemplates:getTemplates", TypeShape.of(GetTemplatesResult.class), args, Utilities.withVersion(options));
     }
 }

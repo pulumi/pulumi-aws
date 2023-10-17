@@ -10,10 +10,247 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'InstanceLoggingConfigurationAccessLogsArgs',
+    'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs',
+    'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs',
+    'InstanceLoggingConfigurationAccessLogsS3Args',
     'InstanceVerifiedAccessTrustProviderArgs',
     'TrustProviderDeviceOptionsArgs',
     'TrustProviderOidcOptionsArgs',
 ]
+
+@pulumi.input_type
+class InstanceLoggingConfigurationAccessLogsArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']] = None,
+                 include_trust_context: Optional[pulumi.Input[bool]] = None,
+                 kinesis_data_firehose: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']] = None,
+                 log_version: Optional[pulumi.Input[str]] = None,
+                 s3: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']] = None):
+        """
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs'] cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        :param pulumi.Input[bool] include_trust_context: Include trust data sent by trust providers into the logs.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs'] kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        :param pulumi.Input[str] log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args'] s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if include_trust_context is not None:
+            pulumi.set(__self__, "include_trust_context", include_trust_context)
+        if kinesis_data_firehose is not None:
+            pulumi.set(__self__, "kinesis_data_firehose", kinesis_data_firehose)
+        if log_version is not None:
+            pulumi.set(__self__, "log_version", log_version)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]:
+        """
+        A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @property
+    @pulumi.getter(name="includeTrustContext")
+    def include_trust_context(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Include trust data sent by trust providers into the logs.
+        """
+        return pulumi.get(self, "include_trust_context")
+
+    @include_trust_context.setter
+    def include_trust_context(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_trust_context", value)
+
+    @property
+    @pulumi.getter(name="kinesisDataFirehose")
+    def kinesis_data_firehose(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]:
+        """
+        A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        """
+        return pulumi.get(self, "kinesis_data_firehose")
+
+    @kinesis_data_firehose.setter
+    def kinesis_data_firehose(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]):
+        pulumi.set(self, "kinesis_data_firehose", value)
+
+    @property
+    @pulumi.getter(name="logVersion")
+    def log_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        """
+        return pulumi.get(self, "log_version")
+
+    @log_version.setter
+    def log_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_version", value)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]:
+        """
+        A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+@pulumi.input_type
+class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 log_group: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        :param pulumi.Input[str] log_group: The name of the CloudWatch Logs Log Group.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the CloudWatch Logs Log Group.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group", value)
+
+
+@pulumi.input_type
+class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 delivery_stream: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        :param pulumi.Input[str] delivery_stream: The name of the delivery stream.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the delivery stream.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+@pulumi.input_type
+class InstanceLoggingConfigurationAccessLogsS3Args:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates whether logging is enabled.
+        :param pulumi.Input[str] bucket_name: The name of S3 bucket.
+        :param pulumi.Input[str] bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
+        :param pulumi.Input[str] prefix: The bucket prefix.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether logging is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account that owns the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bucket prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
 
 @pulumi.input_type
 class InstanceVerifiedAccessTrustProviderArgs:
