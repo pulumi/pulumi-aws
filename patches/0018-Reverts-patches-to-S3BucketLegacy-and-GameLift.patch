@@ -1,4 +1,4 @@
-From b664cdbb4e0867b4083a20b2be83d1629a296ba9 Mon Sep 17 00:00:00 2001
+From 4f604ede077608348240616948b6443761762a71 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
 Subject: [PATCH 18/30] Reverts patches to S3BucketLegacy and GameLift
@@ -914,5 +914,5 @@ index 7a548d8d6d..9031539c19 100644
 +	return tfresource.RetryWhenAWSErrCodeEquals(ctx, propagationTimeout, f, s3.ErrCodeNoSuchBucket)
  }
 -- 
-2.42.0
+2.39.1
 

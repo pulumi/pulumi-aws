@@ -1,4 +1,4 @@
-From df6ebc6c3f95e8fbe20ecf45eba760dd0a6e18ba Mon Sep 17 00:00:00 2001
+From 1aa0fafec51b51198bda594de81fe452bd593123 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:03:31 +0000
 Subject: [PATCH 02/30] Conns user agent
@@ -36,5 +36,5 @@ index 954266ba7a..404a654792 100644
  	}
  }
 -- 
-2.42.0
+2.39.1
 

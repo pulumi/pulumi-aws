@@ -1,4 +1,4 @@
-From 672ac1a794ce0c8163b1a378f4fb6d68b8c0df3f Mon Sep 17 00:00:00 2001
+From 6890fd0d90ed5c4defe13873a5585bc16e36009f Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/30] Add S3 legacy bucket to resources
@@ -13,7 +13,7 @@ In the upstream, all resources and datasources now use a different
 scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
 ---
- go.mod                                        |    1 +
+ go.mod                                        |    2 +
  go.sum                                        |    6 +
  internal/provider/provider.go                 |    6 +-
  internal/service/s3legacy/bucket_legacy.go    | 3029 +++++++++++++++++
@@ -27,7 +27,7 @@ https://github.com/hashicorp/terraform-provider-aws/pull/29717.
  internal/service/s3legacy/tags_gen.go         |   38 +
  internal/service/s3legacy/wait.go             |   18 +
  website/docs/r/s3_bucket_legacy.html.markdown |  575 ++++
- 14 files changed, 4142 insertions(+), 1 deletion(-)
+ 14 files changed, 4143 insertions(+), 1 deletion(-)
  create mode 100644 internal/service/s3legacy/bucket_legacy.go
  create mode 100644 internal/service/s3legacy/enum.go
  create mode 100644 internal/service/s3legacy/errors.go
@@ -41,19 +41,20 @@ https://github.com/hashicorp/terraform-provider-aws/pull/29717.
  create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
 diff --git a/go.mod b/go.mod
-index 5ed4f945c2..d92a8a2d26 100644
+index 3a9bb8ddd3..7fbef27e45 100644
 --- a/go.mod
 +++ b/go.mod
-@@ -75,6 +75,7 @@ require (
- 	github.com/beevik/etree v1.2.0
- 	github.com/google/go-cmp v0.5.9
- 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0
-+	github.com/hashicorp/aws-sdk-go-base v1.1.0
- 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.36
- 	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.37
- 	github.com/hashicorp/awspolicyequivalence v1.6.0
+@@ -2,6 +2,8 @@ module github.com/hashicorp/terraform-provider-aws
+ 
+ go 1.20
+ 
++require github.com/hashicorp/aws-sdk-go-base v1.1.0
++
+ require (
+ 	github.com/ProtonMail/go-crypto v0.0.0-20230717121422-5aa5874ade95
+ 	github.com/YakDriver/regexache v0.23.0
 diff --git a/go.sum b/go.sum
-index 9d4adefa7e..ddf43a39f3 100644
+index 961b3f0b77..a8f8fa0c03 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -22,6 +22,7 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmms
@@ -61,10 +62,10 @@ index 9d4adefa7e..ddf43a39f3 100644
  github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
  github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.45.19 h1:+4yXWhldhCVXWFOQRF99ZTJ92t4DtoHROZIbN7Ujk/U=
- github.com/aws/aws-sdk-go v1.45.19/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
- github.com/aws/aws-sdk-go-v2 v1.21.0 h1:gMT0IW+03wtYJhRqTVYn0wLzwdnK9sRMcxmtfGzRdJc=
-@@ -225,6 +226,7 @@ github.com/go-logr/logr v1.2.4 h1:g01GSCwiDw2xSZfjJ2/T9M+S6pFdcNtFYsp+Y43HYDQ=
+ github.com/aws/aws-sdk-go v1.45.24 h1:TZx/CizkmCQn8Rtsb11iLYutEQVGK5PK9wAhwouELBo=
+ github.com/aws/aws-sdk-go v1.45.24/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
+ github.com/aws/aws-sdk-go-v2 v1.21.1 h1:wjHYshtPpYOZm+/mu3NhVgRRc0baM6LJZOmxPZ5Cwzs=
+@@ -229,6 +230,7 @@ github.com/go-logr/logr v1.2.4 h1:g01GSCwiDw2xSZfjJ2/T9M+S6pFdcNtFYsp+Y43HYDQ=
  github.com/go-logr/logr v1.2.4/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
  github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
  github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
@@ -72,16 +73,16 @@ index 9d4adefa7e..ddf43a39f3 100644
  github.com/go-test/deep v1.1.0 h1:WOcxcdHcvdgThNXjw0t76K42FXTU7HpNQWHpA2HHNlg=
  github.com/go-test/deep v1.1.0/go.mod h1:5C2ZWiW0ErCdrYzpqxLbTX7MG14M9iiw8DgHncVwcsE=
  github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
-@@ -244,6 +246,8 @@ github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
+@@ -249,6 +251,8 @@ github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
  github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0 h1:IUypt/TbXiJBkBbE3926CgnjD8IltAitdn7Yive61DY=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.36 h1:PeXF9Lm40Y54iEHlFoirPjwWGEJUocZgxFOAyeaeKg8=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.36/go.mod h1:CMRjoqBNDv6ic4UMXjyrUVss92suk8ANVnJxErubAQE=
- github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.37 h1:KniXhpwH0GC5v1YCSMrD2n1qW/aeSCJV6hzIQ03Jv9I=
-@@ -315,6 +319,7 @@ github.com/imdario/mergo v0.3.15/go.mod h1:WBLT9ZmE3lPoWsEzCh9LPo3TiwVN+ZKEjmz+h
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.37 h1:cpyObAk6869M/kROO/b9F14d8zyLbO3H7Fxqxn8J7DI=
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.37/go.mod h1:9OxAOakW2pTtcX5bQMIEXwKjSJbpTNhumMCppJ4EaGw=
+ github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.38 h1:eTdtMVp6z9iqxsh9yvWFM4I+a/cy2c4BQgqnx0JSL08=
+@@ -320,6 +324,7 @@ github.com/imdario/mergo v0.3.15/go.mod h1:WBLT9ZmE3lPoWsEzCh9LPo3TiwVN+ZKEjmz+h
  github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
  github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
  github.com/jhump/protoreflect v1.15.1 h1:HUMERORf3I3ZdX05WaQ6MIpd/NJ434hTp5YiKgfCL6c=
@@ -89,7 +90,7 @@ index 9d4adefa7e..ddf43a39f3 100644
  github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
  github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
  github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
-@@ -435,6 +440,7 @@ golang.org/x/mod v0.12.0/go.mod h1:iBbtSCu2XBx23ZKBPSOrRkjjQPZFPuis4dIYUhu/chs=
+@@ -440,6 +445,7 @@ golang.org/x/mod v0.13.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
  golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
  golang.org/x/net v0.0.0-20190603091049-60506f45cf65/go.mod h1:HSz+uSET+XFnRR8LxR5pz3Of3rY3CfYBVs4xY44aLks=
  golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
@@ -4318,5 +4319,5 @@ index 0000000000..529368067d
 +
 +The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 -- 
-2.42.0
+2.39.1
 

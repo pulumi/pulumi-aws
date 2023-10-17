@@ -1633,8 +1633,9 @@ func Provider() *tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_internet_gateway":            {Tok: awsResource(ec2Mod, "InternetGateway")},
-			"aws_internet_gateway_attachment": {Tok: awsResource(ec2Mod, "InternetGatewayAttachment")},
+			"aws_internet_gateway":              {Tok: awsResource(ec2Mod, "InternetGateway")},
+			"aws_internet_gateway_attachment":   {Tok: awsResource(ec2Mod, "InternetGatewayAttachment")},
+			"aws_ec2_image_block_public_access": {Tok: awsResource(ec2Mod, "ImageBlockPublicAccess")},
 			"aws_key_pair": {
 				Tok: awsResource(ec2Mod, "KeyPair"),
 				Fields: map[string]*tfbridge.SchemaInfo{
