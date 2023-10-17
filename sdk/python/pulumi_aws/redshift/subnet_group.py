@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetGroupArgs', 'SubnetGroup']
@@ -25,15 +25,34 @@ class SubnetGroupArgs:
         :param pulumi.Input[str] name: The name of the Redshift Subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        SubnetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
+        _setter("subnet_ids", subnet_ids)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -102,23 +121,48 @@ class _SubnetGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _SubnetGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            name=name,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -313,6 +357,10 @@ class SubnetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

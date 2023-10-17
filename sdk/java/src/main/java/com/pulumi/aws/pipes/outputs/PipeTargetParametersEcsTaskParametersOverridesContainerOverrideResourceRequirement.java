@@ -10,26 +10,26 @@ import java.util.Objects;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
     /**
-     * @return The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     private String type;
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     private String value;
 
     private PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement() {}
     /**
-     * @return The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public String value() {

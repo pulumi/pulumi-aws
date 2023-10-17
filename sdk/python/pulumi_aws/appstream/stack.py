@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -50,30 +50,81 @@ class StackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
+        StackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoints=access_endpoints,
+            application_settings=application_settings,
+            description=description,
+            display_name=display_name,
+            embed_host_domains=embed_host_domains,
+            feedback_url=feedback_url,
+            name=name,
+            redirect_url=redirect_url,
+            storage_connectors=storage_connectors,
+            streaming_experience_settings=streaming_experience_settings,
+            tags=tags,
+            user_settings=user_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]] = None,
+             application_settings: Optional[pulumi.Input['StackApplicationSettingsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             embed_host_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feedback_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
+             streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if 'applicationSettings' in kwargs:
+            application_settings = kwargs['applicationSettings']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'embedHostDomains' in kwargs:
+            embed_host_domains = kwargs['embedHostDomains']
+        if 'feedbackUrl' in kwargs:
+            feedback_url = kwargs['feedbackUrl']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if 'storageConnectors' in kwargs:
+            storage_connectors = kwargs['storageConnectors']
+        if 'streamingExperienceSettings' in kwargs:
+            streaming_experience_settings = kwargs['streamingExperienceSettings']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         if access_endpoints is not None:
-            pulumi.set(__self__, "access_endpoints", access_endpoints)
+            _setter("access_endpoints", access_endpoints)
         if application_settings is not None:
-            pulumi.set(__self__, "application_settings", application_settings)
+            _setter("application_settings", application_settings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if embed_host_domains is not None:
-            pulumi.set(__self__, "embed_host_domains", embed_host_domains)
+            _setter("embed_host_domains", embed_host_domains)
         if feedback_url is not None:
-            pulumi.set(__self__, "feedback_url", feedback_url)
+            _setter("feedback_url", feedback_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if storage_connectors is not None:
-            pulumi.set(__self__, "storage_connectors", storage_connectors)
+            _setter("storage_connectors", storage_connectors)
         if streaming_experience_settings is not None:
-            pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
+            _setter("streaming_experience_settings", streaming_experience_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_settings is not None:
-            pulumi.set(__self__, "user_settings", user_settings)
+            _setter("user_settings", user_settings)
 
     @property
     @pulumi.getter(name="accessEndpoints")
@@ -269,39 +320,100 @@ class _StackState:
         :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
         """
+        _StackState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_endpoints=access_endpoints,
+            application_settings=application_settings,
+            arn=arn,
+            created_time=created_time,
+            description=description,
+            display_name=display_name,
+            embed_host_domains=embed_host_domains,
+            feedback_url=feedback_url,
+            name=name,
+            redirect_url=redirect_url,
+            storage_connectors=storage_connectors,
+            streaming_experience_settings=streaming_experience_settings,
+            tags=tags,
+            tags_all=tags_all,
+            user_settings=user_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]] = None,
+             application_settings: Optional[pulumi.Input['StackApplicationSettingsArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             embed_host_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feedback_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
+             streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if 'applicationSettings' in kwargs:
+            application_settings = kwargs['applicationSettings']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'embedHostDomains' in kwargs:
+            embed_host_domains = kwargs['embedHostDomains']
+        if 'feedbackUrl' in kwargs:
+            feedback_url = kwargs['feedbackUrl']
+        if 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if 'storageConnectors' in kwargs:
+            storage_connectors = kwargs['storageConnectors']
+        if 'streamingExperienceSettings' in kwargs:
+            streaming_experience_settings = kwargs['streamingExperienceSettings']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         if access_endpoints is not None:
-            pulumi.set(__self__, "access_endpoints", access_endpoints)
+            _setter("access_endpoints", access_endpoints)
         if application_settings is not None:
-            pulumi.set(__self__, "application_settings", application_settings)
+            _setter("application_settings", application_settings)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if embed_host_domains is not None:
-            pulumi.set(__self__, "embed_host_domains", embed_host_domains)
+            _setter("embed_host_domains", embed_host_domains)
         if feedback_url is not None:
-            pulumi.set(__self__, "feedback_url", feedback_url)
+            _setter("feedback_url", feedback_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if storage_connectors is not None:
-            pulumi.set(__self__, "storage_connectors", storage_connectors)
+            _setter("storage_connectors", storage_connectors)
         if streaming_experience_settings is not None:
-            pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
+            _setter("streaming_experience_settings", streaming_experience_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_settings is not None:
-            pulumi.set(__self__, "user_settings", user_settings)
+            _setter("user_settings", user_settings)
 
     @property
     @pulumi.getter(name="accessEndpoints")
@@ -675,6 +787,10 @@ class Stack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -702,6 +818,11 @@ class Stack(pulumi.CustomResource):
             __props__ = StackArgs.__new__(StackArgs)
 
             __props__.__dict__["access_endpoints"] = access_endpoints
+            if application_settings is not None and not isinstance(application_settings, StackApplicationSettingsArgs):
+                application_settings = application_settings or {}
+                def _setter(key, value):
+                    application_settings[key] = value
+                StackApplicationSettingsArgs._configure(_setter, **application_settings)
             __props__.__dict__["application_settings"] = application_settings
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
@@ -710,6 +831,11 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["storage_connectors"] = storage_connectors
+            if streaming_experience_settings is not None and not isinstance(streaming_experience_settings, StackStreamingExperienceSettingsArgs):
+                streaming_experience_settings = streaming_experience_settings or {}
+                def _setter(key, value):
+                    streaming_experience_settings[key] = value
+                StackStreamingExperienceSettingsArgs._configure(_setter, **streaming_experience_settings)
             __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_settings"] = user_settings

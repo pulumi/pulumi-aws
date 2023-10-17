@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Waf.Outputs
     public sealed class RuleGroupActivatedRuleAction
     {
         /// <summary>
-        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         public readonly string Type;
 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,40 @@ class BucketLoggingV2Args:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "target_bucket", target_bucket)
-        pulumi.set(__self__, "target_prefix", target_prefix)
+        BucketLoggingV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            target_bucket=target_bucket,
+            target_prefix=target_prefix,
+            expected_bucket_owner=expected_bucket_owner,
+            target_grants=target_grants,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             target_bucket: pulumi.Input[str],
+             target_prefix: pulumi.Input[str],
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetBucket' in kwargs:
+            target_bucket = kwargs['targetBucket']
+        if 'targetPrefix' in kwargs:
+            target_prefix = kwargs['targetPrefix']
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if 'targetGrants' in kwargs:
+            target_grants = kwargs['targetGrants']
+
+        _setter("bucket", bucket)
+        _setter("target_bucket", target_bucket)
+        _setter("target_prefix", target_prefix)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if target_grants is not None:
-            pulumi.set(__self__, "target_grants", target_grants)
+            _setter("target_grants", target_grants)
 
     @property
     @pulumi.getter
@@ -114,16 +141,43 @@ class _BucketLoggingV2State:
         :param pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]] target_grants: Set of configuration blocks with information for granting permissions. See below.
         :param pulumi.Input[str] target_prefix: Prefix for all log object keys.
         """
+        _BucketLoggingV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            target_bucket=target_bucket,
+            target_grants=target_grants,
+            target_prefix=target_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             target_bucket: Optional[pulumi.Input[str]] = None,
+             target_grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingV2TargetGrantArgs']]]] = None,
+             target_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if 'targetBucket' in kwargs:
+            target_bucket = kwargs['targetBucket']
+        if 'targetGrants' in kwargs:
+            target_grants = kwargs['targetGrants']
+        if 'targetPrefix' in kwargs:
+            target_prefix = kwargs['targetPrefix']
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if target_bucket is not None:
-            pulumi.set(__self__, "target_bucket", target_bucket)
+            _setter("target_bucket", target_bucket)
         if target_grants is not None:
-            pulumi.set(__self__, "target_grants", target_grants)
+            _setter("target_grants", target_grants)
         if target_prefix is not None:
-            pulumi.set(__self__, "target_prefix", target_prefix)
+            _setter("target_prefix", target_prefix)
 
     @property
     @pulumi.getter
@@ -309,6 +363,10 @@ class BucketLoggingV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketLoggingV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -25,10 +25,23 @@ class DevEnvironmentIdesArgs:
         :param pulumi.Input[str] name: The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
         :param pulumi.Input[str] runtime: A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
         """
+        DevEnvironmentIdesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            runtime=runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime is not None:
-            pulumi.set(__self__, "runtime", runtime)
+            _setter("runtime", runtime)
 
     @property
     @pulumi.getter
@@ -62,7 +75,18 @@ class DevEnvironmentPersistentStorageArgs:
         """
         :param pulumi.Input[int] size: The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
         """
-        pulumi.set(__self__, "size", size)
+        DevEnvironmentPersistentStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("size", size)
 
     @property
     @pulumi.getter
@@ -88,9 +112,26 @@ class DevEnvironmentRepositoryArgs:
                
                persistent storage (` persistent_storage`) supports the following:
         """
-        pulumi.set(__self__, "repository_name", repository_name)
+        DevEnvironmentRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            branch_name=branch_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: pulumi.Input[str],
+             branch_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
+        _setter("repository_name", repository_name)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -124,8 +165,25 @@ class GetDevEnvironmentRepositoryArgs:
     def __init__(__self__, *,
                  branch_name: str,
                  repository_name: str):
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "repository_name", repository_name)
+        GetDevEnvironmentRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name=branch_name,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name: str,
+             repository_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
+        _setter("branch_name", branch_name)
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="branchName")

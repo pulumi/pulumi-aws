@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultLockConfigurationArgs', 'VaultLockConfiguration']
@@ -25,13 +25,38 @@ class VaultLockConfigurationArgs:
         :param pulumi.Input[int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[int] min_retention_days: The minimum retention period that the vault retains its recovery points.
         """
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+        VaultLockConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_name=backup_vault_name,
+            changeable_for_days=changeable_for_days,
+            max_retention_days=max_retention_days,
+            min_retention_days=min_retention_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_name: pulumi.Input[str],
+             changeable_for_days: Optional[pulumi.Input[int]] = None,
+             max_retention_days: Optional[pulumi.Input[int]] = None,
+             min_retention_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'changeableForDays' in kwargs:
+            changeable_for_days = kwargs['changeableForDays']
+        if 'maxRetentionDays' in kwargs:
+            max_retention_days = kwargs['maxRetentionDays']
+        if 'minRetentionDays' in kwargs:
+            min_retention_days = kwargs['minRetentionDays']
+
+        _setter("backup_vault_name", backup_vault_name)
         if changeable_for_days is not None:
-            pulumi.set(__self__, "changeable_for_days", changeable_for_days)
+            _setter("changeable_for_days", changeable_for_days)
         if max_retention_days is not None:
-            pulumi.set(__self__, "max_retention_days", max_retention_days)
+            _setter("max_retention_days", max_retention_days)
         if min_retention_days is not None:
-            pulumi.set(__self__, "min_retention_days", min_retention_days)
+            _setter("min_retention_days", min_retention_days)
 
     @property
     @pulumi.getter(name="backupVaultName")
@@ -98,16 +123,45 @@ class _VaultLockConfigurationState:
         :param pulumi.Input[int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[int] min_retention_days: The minimum retention period that the vault retains its recovery points.
         """
+        _VaultLockConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_arn=backup_vault_arn,
+            backup_vault_name=backup_vault_name,
+            changeable_for_days=changeable_for_days,
+            max_retention_days=max_retention_days,
+            min_retention_days=min_retention_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_arn: Optional[pulumi.Input[str]] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             changeable_for_days: Optional[pulumi.Input[int]] = None,
+             max_retention_days: Optional[pulumi.Input[int]] = None,
+             min_retention_days: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultArn' in kwargs:
+            backup_vault_arn = kwargs['backupVaultArn']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'changeableForDays' in kwargs:
+            changeable_for_days = kwargs['changeableForDays']
+        if 'maxRetentionDays' in kwargs:
+            max_retention_days = kwargs['maxRetentionDays']
+        if 'minRetentionDays' in kwargs:
+            min_retention_days = kwargs['minRetentionDays']
+
         if backup_vault_arn is not None:
-            pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
+            _setter("backup_vault_arn", backup_vault_arn)
         if backup_vault_name is not None:
-            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+            _setter("backup_vault_name", backup_vault_name)
         if changeable_for_days is not None:
-            pulumi.set(__self__, "changeable_for_days", changeable_for_days)
+            _setter("changeable_for_days", changeable_for_days)
         if max_retention_days is not None:
-            pulumi.set(__self__, "max_retention_days", max_retention_days)
+            _setter("max_retention_days", max_retention_days)
         if min_retention_days is not None:
-            pulumi.set(__self__, "min_retention_days", min_retention_days)
+            _setter("min_retention_days", min_retention_days)
 
     @property
     @pulumi.getter(name="backupVaultArn")
@@ -251,6 +305,10 @@ class VaultLockConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultLockConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

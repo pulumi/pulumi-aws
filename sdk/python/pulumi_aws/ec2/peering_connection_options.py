@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,28 @@ class PeeringConnectionOptionsArgs:
         :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
-        pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+        PeeringConnectionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_peering_connection_id=vpc_peering_connection_id,
+            accepter=accepter,
+            requester=requester,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_peering_connection_id: pulumi.Input[str],
+             accepter: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']] = None,
+             requester: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
+        _setter("vpc_peering_connection_id", vpc_peering_connection_id)
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
 
     @property
     @pulumi.getter(name="vpcPeeringConnectionId")
@@ -80,12 +97,29 @@ class _PeeringConnectionOptionsState:
         :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
+        _PeeringConnectionOptionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accepter=accepter,
+            requester=requester,
+            vpc_peering_connection_id=vpc_peering_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accepter: Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']] = None,
+             requester: Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']] = None,
+             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
         if accepter is not None:
-            pulumi.set(__self__, "accepter", accepter)
+            _setter("accepter", accepter)
         if requester is not None:
-            pulumi.set(__self__, "requester", requester)
+            _setter("requester", requester)
         if vpc_peering_connection_id is not None:
-            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
+            _setter("vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter
@@ -339,6 +373,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PeeringConnectionOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -356,7 +394,17 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PeeringConnectionOptionsArgs.__new__(PeeringConnectionOptionsArgs)
 
+            if accepter is not None and not isinstance(accepter, PeeringConnectionOptionsAccepterArgs):
+                accepter = accepter or {}
+                def _setter(key, value):
+                    accepter[key] = value
+                PeeringConnectionOptionsAccepterArgs._configure(_setter, **accepter)
             __props__.__dict__["accepter"] = accepter
+            if requester is not None and not isinstance(requester, PeeringConnectionOptionsRequesterArgs):
+                requester = requester or {}
+                def _setter(key, value):
+                    requester[key] = value
+                PeeringConnectionOptionsRequesterArgs._configure(_setter, **requester)
             __props__.__dict__["requester"] = requester
             if vpc_peering_connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_peering_connection_id'")

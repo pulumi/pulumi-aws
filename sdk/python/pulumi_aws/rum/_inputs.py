@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,24 +37,67 @@ class AppMonitorAppMonitorConfigurationArgs:
         :param pulumi.Input[float] session_sample_rate: Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] telemetries: An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
         """
+        AppMonitorAppMonitorConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_cookies=allow_cookies,
+            enable_xray=enable_xray,
+            excluded_pages=excluded_pages,
+            favorite_pages=favorite_pages,
+            guest_role_arn=guest_role_arn,
+            identity_pool_id=identity_pool_id,
+            included_pages=included_pages,
+            session_sample_rate=session_sample_rate,
+            telemetries=telemetries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_cookies: Optional[pulumi.Input[bool]] = None,
+             enable_xray: Optional[pulumi.Input[bool]] = None,
+             excluded_pages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             favorite_pages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             guest_role_arn: Optional[pulumi.Input[str]] = None,
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             included_pages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             session_sample_rate: Optional[pulumi.Input[float]] = None,
+             telemetries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCookies' in kwargs:
+            allow_cookies = kwargs['allowCookies']
+        if 'enableXray' in kwargs:
+            enable_xray = kwargs['enableXray']
+        if 'excludedPages' in kwargs:
+            excluded_pages = kwargs['excludedPages']
+        if 'favoritePages' in kwargs:
+            favorite_pages = kwargs['favoritePages']
+        if 'guestRoleArn' in kwargs:
+            guest_role_arn = kwargs['guestRoleArn']
+        if 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if 'includedPages' in kwargs:
+            included_pages = kwargs['includedPages']
+        if 'sessionSampleRate' in kwargs:
+            session_sample_rate = kwargs['sessionSampleRate']
+
         if allow_cookies is not None:
-            pulumi.set(__self__, "allow_cookies", allow_cookies)
+            _setter("allow_cookies", allow_cookies)
         if enable_xray is not None:
-            pulumi.set(__self__, "enable_xray", enable_xray)
+            _setter("enable_xray", enable_xray)
         if excluded_pages is not None:
-            pulumi.set(__self__, "excluded_pages", excluded_pages)
+            _setter("excluded_pages", excluded_pages)
         if favorite_pages is not None:
-            pulumi.set(__self__, "favorite_pages", favorite_pages)
+            _setter("favorite_pages", favorite_pages)
         if guest_role_arn is not None:
-            pulumi.set(__self__, "guest_role_arn", guest_role_arn)
+            _setter("guest_role_arn", guest_role_arn)
         if identity_pool_id is not None:
-            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+            _setter("identity_pool_id", identity_pool_id)
         if included_pages is not None:
-            pulumi.set(__self__, "included_pages", included_pages)
+            _setter("included_pages", included_pages)
         if session_sample_rate is not None:
-            pulumi.set(__self__, "session_sample_rate", session_sample_rate)
+            _setter("session_sample_rate", session_sample_rate)
         if telemetries is not None:
-            pulumi.set(__self__, "telemetries", telemetries)
+            _setter("telemetries", telemetries)
 
     @property
     @pulumi.getter(name="allowCookies")
@@ -172,8 +215,19 @@ class AppMonitorCustomEventsArgs:
         """
         :param pulumi.Input[str] status: Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
         """
+        AppMonitorCustomEventsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter

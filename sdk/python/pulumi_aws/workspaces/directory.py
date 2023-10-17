@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,54 @@ class DirectoryArgs:
         :param pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs'] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
+        DirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            ip_group_ids=ip_group_ids,
+            self_service_permissions=self_service_permissions,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            workspace_access_properties=workspace_access_properties,
+            workspace_creation_properties=workspace_creation_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: pulumi.Input[str],
+             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+             workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'ipGroupIds' in kwargs:
+            ip_group_ids = kwargs['ipGroupIds']
+        if 'selfServicePermissions' in kwargs:
+            self_service_permissions = kwargs['selfServicePermissions']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'workspaceAccessProperties' in kwargs:
+            workspace_access_properties = kwargs['workspaceAccessProperties']
+        if 'workspaceCreationProperties' in kwargs:
+            workspace_creation_properties = kwargs['workspaceCreationProperties']
+
+        _setter("directory_id", directory_id)
         if ip_group_ids is not None:
-            pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+            _setter("ip_group_ids", ip_group_ids)
         if self_service_permissions is not None:
-            pulumi.set(__self__, "self_service_permissions", self_service_permissions)
+            _setter("self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_access_properties is not None:
-            pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
+            _setter("workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties is not None:
-            pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+            _setter("workspace_creation_properties", workspace_creation_properties)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -170,41 +205,110 @@ class _DirectoryState:
         :param pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs'] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         :param pulumi.Input[str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.
         """
+        _DirectoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            customer_user_name=customer_user_name,
+            directory_id=directory_id,
+            directory_name=directory_name,
+            directory_type=directory_type,
+            dns_ip_addresses=dns_ip_addresses,
+            iam_role_id=iam_role_id,
+            ip_group_ids=ip_group_ids,
+            registration_code=registration_code,
+            self_service_permissions=self_service_permissions,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            workspace_access_properties=workspace_access_properties,
+            workspace_creation_properties=workspace_creation_properties,
+            workspace_security_group_id=workspace_security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             customer_user_name: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             directory_name: Optional[pulumi.Input[str]] = None,
+             directory_type: Optional[pulumi.Input[str]] = None,
+             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             iam_role_id: Optional[pulumi.Input[str]] = None,
+             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             registration_code: Optional[pulumi.Input[str]] = None,
+             self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_access_properties: Optional[pulumi.Input['DirectoryWorkspaceAccessPropertiesArgs']] = None,
+             workspace_creation_properties: Optional[pulumi.Input['DirectoryWorkspaceCreationPropertiesArgs']] = None,
+             workspace_security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerUserName' in kwargs:
+            customer_user_name = kwargs['customerUserName']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'directoryType' in kwargs:
+            directory_type = kwargs['directoryType']
+        if 'dnsIpAddresses' in kwargs:
+            dns_ip_addresses = kwargs['dnsIpAddresses']
+        if 'iamRoleId' in kwargs:
+            iam_role_id = kwargs['iamRoleId']
+        if 'ipGroupIds' in kwargs:
+            ip_group_ids = kwargs['ipGroupIds']
+        if 'registrationCode' in kwargs:
+            registration_code = kwargs['registrationCode']
+        if 'selfServicePermissions' in kwargs:
+            self_service_permissions = kwargs['selfServicePermissions']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'workspaceAccessProperties' in kwargs:
+            workspace_access_properties = kwargs['workspaceAccessProperties']
+        if 'workspaceCreationProperties' in kwargs:
+            workspace_creation_properties = kwargs['workspaceCreationProperties']
+        if 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if customer_user_name is not None:
-            pulumi.set(__self__, "customer_user_name", customer_user_name)
+            _setter("customer_user_name", customer_user_name)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if directory_type is not None:
-            pulumi.set(__self__, "directory_type", directory_type)
+            _setter("directory_type", directory_type)
         if dns_ip_addresses is not None:
-            pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
+            _setter("dns_ip_addresses", dns_ip_addresses)
         if iam_role_id is not None:
-            pulumi.set(__self__, "iam_role_id", iam_role_id)
+            _setter("iam_role_id", iam_role_id)
         if ip_group_ids is not None:
-            pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+            _setter("ip_group_ids", ip_group_ids)
         if registration_code is not None:
-            pulumi.set(__self__, "registration_code", registration_code)
+            _setter("registration_code", registration_code)
         if self_service_permissions is not None:
-            pulumi.set(__self__, "self_service_permissions", self_service_permissions)
+            _setter("self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if workspace_access_properties is not None:
-            pulumi.set(__self__, "workspace_access_properties", workspace_access_properties)
+            _setter("workspace_access_properties", workspace_access_properties)
         if workspace_creation_properties is not None:
-            pulumi.set(__self__, "workspace_creation_properties", workspace_creation_properties)
+            _setter("workspace_creation_properties", workspace_creation_properties)
         if workspace_security_group_id is not None:
-            pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+            _setter("workspace_security_group_id", workspace_security_group_id)
 
     @property
     @pulumi.getter
@@ -663,6 +767,10 @@ class Directory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -688,10 +796,25 @@ class Directory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["ip_group_ids"] = ip_group_ids
+            if self_service_permissions is not None and not isinstance(self_service_permissions, DirectorySelfServicePermissionsArgs):
+                self_service_permissions = self_service_permissions or {}
+                def _setter(key, value):
+                    self_service_permissions[key] = value
+                DirectorySelfServicePermissionsArgs._configure(_setter, **self_service_permissions)
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            if workspace_access_properties is not None and not isinstance(workspace_access_properties, DirectoryWorkspaceAccessPropertiesArgs):
+                workspace_access_properties = workspace_access_properties or {}
+                def _setter(key, value):
+                    workspace_access_properties[key] = value
+                DirectoryWorkspaceAccessPropertiesArgs._configure(_setter, **workspace_access_properties)
             __props__.__dict__["workspace_access_properties"] = workspace_access_properties
+            if workspace_creation_properties is not None and not isinstance(workspace_creation_properties, DirectoryWorkspaceCreationPropertiesArgs):
+                workspace_creation_properties = workspace_creation_properties or {}
+                def _setter(key, value):
+                    workspace_creation_properties[key] = value
+                DirectoryWorkspaceCreationPropertiesArgs._configure(_setter, **workspace_creation_properties)
             __props__.__dict__["workspace_creation_properties"] = workspace_creation_properties
             __props__.__dict__["alias"] = None
             __props__.__dict__["customer_user_name"] = None

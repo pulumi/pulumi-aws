@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AlertManagerDefinitionArgs', 'AlertManagerDefinition']
@@ -21,8 +21,23 @@ class AlertManagerDefinitionArgs:
         :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        AlertManagerDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("definition", definition)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -59,10 +74,25 @@ class _AlertManagerDefinitionState:
         :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
+        _AlertManagerDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if definition is not None:
-            pulumi.set(__self__, "definition", definition)
+            _setter("definition", definition)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -174,6 +204,10 @@ class AlertManagerDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertManagerDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

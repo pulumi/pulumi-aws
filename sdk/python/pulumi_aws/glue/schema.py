@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SchemaArgs', 'Schema']
@@ -31,16 +31,47 @@ class SchemaArgs:
         :param pulumi.Input[str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "compatibility", compatibility)
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "schema_definition", schema_definition)
-        pulumi.set(__self__, "schema_name", schema_name)
+        SchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility=compatibility,
+            data_format=data_format,
+            schema_definition=schema_definition,
+            schema_name=schema_name,
+            description=description,
+            registry_arn=registry_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility: pulumi.Input[str],
+             data_format: pulumi.Input[str],
+             schema_definition: pulumi.Input[str],
+             schema_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             registry_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+
+        _setter("compatibility", compatibility)
+        _setter("data_format", data_format)
+        _setter("schema_definition", schema_definition)
+        _setter("schema_name", schema_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if registry_arn is not None:
-            pulumi.set(__self__, "registry_arn", registry_arn)
+            _setter("registry_arn", registry_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -159,35 +190,88 @@ class _SchemaState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _SchemaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            compatibility=compatibility,
+            data_format=data_format,
+            description=description,
+            latest_schema_version=latest_schema_version,
+            next_schema_version=next_schema_version,
+            registry_arn=registry_arn,
+            registry_name=registry_name,
+            schema_checkpoint=schema_checkpoint,
+            schema_definition=schema_definition,
+            schema_name=schema_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             compatibility: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             latest_schema_version: Optional[pulumi.Input[int]] = None,
+             next_schema_version: Optional[pulumi.Input[int]] = None,
+             registry_arn: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             schema_checkpoint: Optional[pulumi.Input[int]] = None,
+             schema_definition: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'latestSchemaVersion' in kwargs:
+            latest_schema_version = kwargs['latestSchemaVersion']
+        if 'nextSchemaVersion' in kwargs:
+            next_schema_version = kwargs['nextSchemaVersion']
+        if 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'schemaCheckpoint' in kwargs:
+            schema_checkpoint = kwargs['schemaCheckpoint']
+        if 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compatibility is not None:
-            pulumi.set(__self__, "compatibility", compatibility)
+            _setter("compatibility", compatibility)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if latest_schema_version is not None:
-            pulumi.set(__self__, "latest_schema_version", latest_schema_version)
+            _setter("latest_schema_version", latest_schema_version)
         if next_schema_version is not None:
-            pulumi.set(__self__, "next_schema_version", next_schema_version)
+            _setter("next_schema_version", next_schema_version)
         if registry_arn is not None:
-            pulumi.set(__self__, "registry_arn", registry_arn)
+            _setter("registry_arn", registry_arn)
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if schema_checkpoint is not None:
-            pulumi.set(__self__, "schema_checkpoint", schema_checkpoint)
+            _setter("schema_checkpoint", schema_checkpoint)
         if schema_definition is not None:
-            pulumi.set(__self__, "schema_definition", schema_definition)
+            _setter("schema_definition", schema_definition)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -438,6 +522,10 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,41 @@ class ServiceArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            certificate_arn=certificate_arn,
+            custom_domain_name=custom_domain_name,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             custom_domain_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'customDomainName' in kwargs:
+            custom_domain_name = kwargs['customDomainName']
+
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+            _setter("custom_domain_name", custom_domain_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="authType")
@@ -131,27 +156,64 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auth_type=auth_type,
+            certificate_arn=certificate_arn,
+            custom_domain_name=custom_domain_name,
+            dns_entries=dns_entries,
+            name=name,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             custom_domain_name: Optional[pulumi.Input[str]] = None,
+             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'customDomainName' in kwargs:
+            custom_domain_name = kwargs['customDomainName']
+        if 'dnsEntries' in kwargs:
+            dns_entries = kwargs['dnsEntries']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if custom_domain_name is not None:
-            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+            _setter("custom_domain_name", custom_domain_name)
         if dns_entries is not None:
-            pulumi.set(__self__, "dns_entries", dns_entries)
+            _setter("dns_entries", dns_entries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -350,6 +412,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

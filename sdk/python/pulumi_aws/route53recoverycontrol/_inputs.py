@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,10 +23,23 @@ class ClusterClusterEndpointArgs:
         :param pulumi.Input[str] endpoint: Cluster endpoint.
         :param pulumi.Input[str] region: Region of the endpoint.
         """
+        ClusterClusterEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -64,9 +77,24 @@ class SafetyRuleRuleConfigArgs:
         :param pulumi.Input[int] threshold: Number of controls that must be set when you specify an `ATLEAST` type rule.
         :param pulumi.Input[str] type: Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
         """
-        pulumi.set(__self__, "inverted", inverted)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "type", type)
+        SafetyRuleRuleConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inverted=inverted,
+            threshold=threshold,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inverted: pulumi.Input[bool],
+             threshold: pulumi.Input[int],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("inverted", inverted)
+        _setter("threshold", threshold)
+        _setter("type", type)
 
     @property
     @pulumi.getter

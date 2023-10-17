@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,52 @@ class SafetyRuleArgs:
         :param pulumi.Input[str] name: Name describing the safety rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         """
-        pulumi.set(__self__, "control_panel_arn", control_panel_arn)
-        pulumi.set(__self__, "rule_config", rule_config)
-        pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+        SafetyRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_panel_arn=control_panel_arn,
+            rule_config=rule_config,
+            wait_period_ms=wait_period_ms,
+            asserted_controls=asserted_controls,
+            gating_controls=gating_controls,
+            name=name,
+            target_controls=target_controls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_panel_arn: pulumi.Input[str],
+             rule_config: pulumi.Input['SafetyRuleRuleConfigArgs'],
+             wait_period_ms: pulumi.Input[int],
+             asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+        if 'ruleConfig' in kwargs:
+            rule_config = kwargs['ruleConfig']
+        if 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+        if 'assertedControls' in kwargs:
+            asserted_controls = kwargs['assertedControls']
+        if 'gatingControls' in kwargs:
+            gating_controls = kwargs['gatingControls']
+        if 'targetControls' in kwargs:
+            target_controls = kwargs['targetControls']
+
+        _setter("control_panel_arn", control_panel_arn)
+        _setter("rule_config", rule_config)
+        _setter("wait_period_ms", wait_period_ms)
         if asserted_controls is not None:
-            pulumi.set(__self__, "asserted_controls", asserted_controls)
+            _setter("asserted_controls", asserted_controls)
         if gating_controls is not None:
-            pulumi.set(__self__, "gating_controls", gating_controls)
+            _setter("gating_controls", gating_controls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_controls is not None:
-            pulumi.set(__self__, "target_controls", target_controls)
+            _setter("target_controls", target_controls)
 
     @property
     @pulumi.getter(name="controlPanelArn")
@@ -160,24 +195,63 @@ class _SafetyRuleState:
                
                The following arguments are optional:
         """
+        _SafetyRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            asserted_controls=asserted_controls,
+            control_panel_arn=control_panel_arn,
+            gating_controls=gating_controls,
+            name=name,
+            rule_config=rule_config,
+            status=status,
+            target_controls=target_controls,
+            wait_period_ms=wait_period_ms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             control_panel_arn: Optional[pulumi.Input[str]] = None,
+             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_period_ms: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assertedControls' in kwargs:
+            asserted_controls = kwargs['assertedControls']
+        if 'controlPanelArn' in kwargs:
+            control_panel_arn = kwargs['controlPanelArn']
+        if 'gatingControls' in kwargs:
+            gating_controls = kwargs['gatingControls']
+        if 'ruleConfig' in kwargs:
+            rule_config = kwargs['ruleConfig']
+        if 'targetControls' in kwargs:
+            target_controls = kwargs['targetControls']
+        if 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if asserted_controls is not None:
-            pulumi.set(__self__, "asserted_controls", asserted_controls)
+            _setter("asserted_controls", asserted_controls)
         if control_panel_arn is not None:
-            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
+            _setter("control_panel_arn", control_panel_arn)
         if gating_controls is not None:
-            pulumi.set(__self__, "gating_controls", gating_controls)
+            _setter("gating_controls", gating_controls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_config is not None:
-            pulumi.set(__self__, "rule_config", rule_config)
+            _setter("rule_config", rule_config)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_controls is not None:
-            pulumi.set(__self__, "target_controls", target_controls)
+            _setter("target_controls", target_controls)
         if wait_period_ms is not None:
-            pulumi.set(__self__, "wait_period_ms", wait_period_ms)
+            _setter("wait_period_ms", wait_period_ms)
 
     @property
     @pulumi.getter
@@ -419,6 +493,10 @@ class SafetyRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SafetyRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -446,6 +524,11 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["control_panel_arn"] = control_panel_arn
             __props__.__dict__["gating_controls"] = gating_controls
             __props__.__dict__["name"] = name
+            if rule_config is not None and not isinstance(rule_config, SafetyRuleRuleConfigArgs):
+                rule_config = rule_config or {}
+                def _setter(key, value):
+                    rule_config[key] = value
+                SafetyRuleRuleConfigArgs._configure(_setter, **rule_config)
             if rule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_config'")
             __props__.__dict__["rule_config"] = rule_config

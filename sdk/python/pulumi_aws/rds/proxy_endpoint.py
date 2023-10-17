@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProxyEndpointArgs', 'ProxyEndpoint']
@@ -29,15 +29,46 @@ class ProxyEndpointArgs:
         :param pulumi.Input[str] target_role: Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         """
-        pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
-        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
-        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        ProxyEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_proxy_endpoint_name=db_proxy_endpoint_name,
+            db_proxy_name=db_proxy_name,
+            vpc_subnet_ids=vpc_subnet_ids,
+            tags=tags,
+            target_role=target_role,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_proxy_endpoint_name: pulumi.Input[str],
+             db_proxy_name: pulumi.Input[str],
+             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_role: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbProxyEndpointName' in kwargs:
+            db_proxy_endpoint_name = kwargs['dbProxyEndpointName']
+        if 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if 'targetRole' in kwargs:
+            target_role = kwargs['targetRole']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
+        _setter("db_proxy_endpoint_name", db_proxy_endpoint_name)
+        _setter("db_proxy_name", db_proxy_name)
+        _setter("vpc_subnet_ids", vpc_subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_role is not None:
-            pulumi.set(__self__, "target_role", target_role)
+            _setter("target_role", target_role)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="dbProxyEndpointName")
@@ -139,31 +170,78 @@ class _ProxyEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
+        _ProxyEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            db_proxy_endpoint_name=db_proxy_endpoint_name,
+            db_proxy_name=db_proxy_name,
+            endpoint=endpoint,
+            is_default=is_default,
+            tags=tags,
+            tags_all=tags_all,
+            target_role=target_role,
+            vpc_id=vpc_id,
+            vpc_security_group_ids=vpc_security_group_ids,
+            vpc_subnet_ids=vpc_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_role: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dbProxyEndpointName' in kwargs:
+            db_proxy_endpoint_name = kwargs['dbProxyEndpointName']
+        if 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'targetRole' in kwargs:
+            target_role = kwargs['targetRole']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if db_proxy_endpoint_name is not None:
-            pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
+            _setter("db_proxy_endpoint_name", db_proxy_endpoint_name)
         if db_proxy_name is not None:
-            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+            _setter("db_proxy_name", db_proxy_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_role is not None:
-            pulumi.set(__self__, "target_role", target_role)
+            _setter("target_role", target_role)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
         if vpc_subnet_ids is not None:
-            pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+            _setter("vpc_subnet_ids", vpc_subnet_ids)
 
     @property
     @pulumi.getter
@@ -383,6 +461,10 @@ class ProxyEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProxyEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

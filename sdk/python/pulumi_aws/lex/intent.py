@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,29 +65,80 @@ class IntentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]] slots: An list of intent slots. At runtime, Amazon Lex elicits required slot values
                from the user using prompts defined in the slots. Attributes are documented under slot.
         """
-        pulumi.set(__self__, "fulfillment_activity", fulfillment_activity)
+        IntentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fulfillment_activity=fulfillment_activity,
+            conclusion_statement=conclusion_statement,
+            confirmation_prompt=confirmation_prompt,
+            create_version=create_version,
+            description=description,
+            dialog_code_hook=dialog_code_hook,
+            follow_up_prompt=follow_up_prompt,
+            name=name,
+            parent_intent_signature=parent_intent_signature,
+            rejection_statement=rejection_statement,
+            sample_utterances=sample_utterances,
+            slots=slots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fulfillment_activity: pulumi.Input['IntentFulfillmentActivityArgs'],
+             conclusion_statement: Optional[pulumi.Input['IntentConclusionStatementArgs']] = None,
+             confirmation_prompt: Optional[pulumi.Input['IntentConfirmationPromptArgs']] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dialog_code_hook: Optional[pulumi.Input['IntentDialogCodeHookArgs']] = None,
+             follow_up_prompt: Optional[pulumi.Input['IntentFollowUpPromptArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_intent_signature: Optional[pulumi.Input[str]] = None,
+             rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
+             sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fulfillmentActivity' in kwargs:
+            fulfillment_activity = kwargs['fulfillmentActivity']
+        if 'conclusionStatement' in kwargs:
+            conclusion_statement = kwargs['conclusionStatement']
+        if 'confirmationPrompt' in kwargs:
+            confirmation_prompt = kwargs['confirmationPrompt']
+        if 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if 'dialogCodeHook' in kwargs:
+            dialog_code_hook = kwargs['dialogCodeHook']
+        if 'followUpPrompt' in kwargs:
+            follow_up_prompt = kwargs['followUpPrompt']
+        if 'parentIntentSignature' in kwargs:
+            parent_intent_signature = kwargs['parentIntentSignature']
+        if 'rejectionStatement' in kwargs:
+            rejection_statement = kwargs['rejectionStatement']
+        if 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+
+        _setter("fulfillment_activity", fulfillment_activity)
         if conclusion_statement is not None:
-            pulumi.set(__self__, "conclusion_statement", conclusion_statement)
+            _setter("conclusion_statement", conclusion_statement)
         if confirmation_prompt is not None:
-            pulumi.set(__self__, "confirmation_prompt", confirmation_prompt)
+            _setter("confirmation_prompt", confirmation_prompt)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dialog_code_hook is not None:
-            pulumi.set(__self__, "dialog_code_hook", dialog_code_hook)
+            _setter("dialog_code_hook", dialog_code_hook)
         if follow_up_prompt is not None:
-            pulumi.set(__self__, "follow_up_prompt", follow_up_prompt)
+            _setter("follow_up_prompt", follow_up_prompt)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_intent_signature is not None:
-            pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+            _setter("parent_intent_signature", parent_intent_signature)
         if rejection_statement is not None:
-            pulumi.set(__self__, "rejection_statement", rejection_statement)
+            _setter("rejection_statement", rejection_statement)
         if sample_utterances is not None:
-            pulumi.set(__self__, "sample_utterances", sample_utterances)
+            _setter("sample_utterances", sample_utterances)
         if slots is not None:
-            pulumi.set(__self__, "slots", slots)
+            _setter("slots", slots)
 
     @property
     @pulumi.getter(name="fulfillmentActivity")
@@ -319,40 +370,105 @@ class _IntentState:
                from the user using prompts defined in the slots. Attributes are documented under slot.
         :param pulumi.Input[str] version: The version of the bot.
         """
+        _IntentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            checksum=checksum,
+            conclusion_statement=conclusion_statement,
+            confirmation_prompt=confirmation_prompt,
+            create_version=create_version,
+            created_date=created_date,
+            description=description,
+            dialog_code_hook=dialog_code_hook,
+            follow_up_prompt=follow_up_prompt,
+            fulfillment_activity=fulfillment_activity,
+            last_updated_date=last_updated_date,
+            name=name,
+            parent_intent_signature=parent_intent_signature,
+            rejection_statement=rejection_statement,
+            sample_utterances=sample_utterances,
+            slots=slots,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             checksum: Optional[pulumi.Input[str]] = None,
+             conclusion_statement: Optional[pulumi.Input['IntentConclusionStatementArgs']] = None,
+             confirmation_prompt: Optional[pulumi.Input['IntentConfirmationPromptArgs']] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dialog_code_hook: Optional[pulumi.Input['IntentDialogCodeHookArgs']] = None,
+             follow_up_prompt: Optional[pulumi.Input['IntentFollowUpPromptArgs']] = None,
+             fulfillment_activity: Optional[pulumi.Input['IntentFulfillmentActivityArgs']] = None,
+             last_updated_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_intent_signature: Optional[pulumi.Input[str]] = None,
+             rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
+             sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conclusionStatement' in kwargs:
+            conclusion_statement = kwargs['conclusionStatement']
+        if 'confirmationPrompt' in kwargs:
+            confirmation_prompt = kwargs['confirmationPrompt']
+        if 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'dialogCodeHook' in kwargs:
+            dialog_code_hook = kwargs['dialogCodeHook']
+        if 'followUpPrompt' in kwargs:
+            follow_up_prompt = kwargs['followUpPrompt']
+        if 'fulfillmentActivity' in kwargs:
+            fulfillment_activity = kwargs['fulfillmentActivity']
+        if 'lastUpdatedDate' in kwargs:
+            last_updated_date = kwargs['lastUpdatedDate']
+        if 'parentIntentSignature' in kwargs:
+            parent_intent_signature = kwargs['parentIntentSignature']
+        if 'rejectionStatement' in kwargs:
+            rejection_statement = kwargs['rejectionStatement']
+        if 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if checksum is not None:
-            pulumi.set(__self__, "checksum", checksum)
+            _setter("checksum", checksum)
         if conclusion_statement is not None:
-            pulumi.set(__self__, "conclusion_statement", conclusion_statement)
+            _setter("conclusion_statement", conclusion_statement)
         if confirmation_prompt is not None:
-            pulumi.set(__self__, "confirmation_prompt", confirmation_prompt)
+            _setter("confirmation_prompt", confirmation_prompt)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dialog_code_hook is not None:
-            pulumi.set(__self__, "dialog_code_hook", dialog_code_hook)
+            _setter("dialog_code_hook", dialog_code_hook)
         if follow_up_prompt is not None:
-            pulumi.set(__self__, "follow_up_prompt", follow_up_prompt)
+            _setter("follow_up_prompt", follow_up_prompt)
         if fulfillment_activity is not None:
-            pulumi.set(__self__, "fulfillment_activity", fulfillment_activity)
+            _setter("fulfillment_activity", fulfillment_activity)
         if last_updated_date is not None:
-            pulumi.set(__self__, "last_updated_date", last_updated_date)
+            _setter("last_updated_date", last_updated_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_intent_signature is not None:
-            pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+            _setter("parent_intent_signature", parent_intent_signature)
         if rejection_statement is not None:
-            pulumi.set(__self__, "rejection_statement", rejection_statement)
+            _setter("rejection_statement", rejection_statement)
         if sample_utterances is not None:
-            pulumi.set(__self__, "sample_utterances", sample_utterances)
+            _setter("sample_utterances", sample_utterances)
         if slots is not None:
-            pulumi.set(__self__, "slots", slots)
+            _setter("slots", slots)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -677,6 +793,10 @@ class Intent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -703,17 +823,47 @@ class Intent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntentArgs.__new__(IntentArgs)
 
+            if conclusion_statement is not None and not isinstance(conclusion_statement, IntentConclusionStatementArgs):
+                conclusion_statement = conclusion_statement or {}
+                def _setter(key, value):
+                    conclusion_statement[key] = value
+                IntentConclusionStatementArgs._configure(_setter, **conclusion_statement)
             __props__.__dict__["conclusion_statement"] = conclusion_statement
+            if confirmation_prompt is not None and not isinstance(confirmation_prompt, IntentConfirmationPromptArgs):
+                confirmation_prompt = confirmation_prompt or {}
+                def _setter(key, value):
+                    confirmation_prompt[key] = value
+                IntentConfirmationPromptArgs._configure(_setter, **confirmation_prompt)
             __props__.__dict__["confirmation_prompt"] = confirmation_prompt
             __props__.__dict__["create_version"] = create_version
             __props__.__dict__["description"] = description
+            if dialog_code_hook is not None and not isinstance(dialog_code_hook, IntentDialogCodeHookArgs):
+                dialog_code_hook = dialog_code_hook or {}
+                def _setter(key, value):
+                    dialog_code_hook[key] = value
+                IntentDialogCodeHookArgs._configure(_setter, **dialog_code_hook)
             __props__.__dict__["dialog_code_hook"] = dialog_code_hook
+            if follow_up_prompt is not None and not isinstance(follow_up_prompt, IntentFollowUpPromptArgs):
+                follow_up_prompt = follow_up_prompt or {}
+                def _setter(key, value):
+                    follow_up_prompt[key] = value
+                IntentFollowUpPromptArgs._configure(_setter, **follow_up_prompt)
             __props__.__dict__["follow_up_prompt"] = follow_up_prompt
+            if fulfillment_activity is not None and not isinstance(fulfillment_activity, IntentFulfillmentActivityArgs):
+                fulfillment_activity = fulfillment_activity or {}
+                def _setter(key, value):
+                    fulfillment_activity[key] = value
+                IntentFulfillmentActivityArgs._configure(_setter, **fulfillment_activity)
             if fulfillment_activity is None and not opts.urn:
                 raise TypeError("Missing required property 'fulfillment_activity'")
             __props__.__dict__["fulfillment_activity"] = fulfillment_activity
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+            if rejection_statement is not None and not isinstance(rejection_statement, IntentRejectionStatementArgs):
+                rejection_statement = rejection_statement or {}
+                def _setter(key, value):
+                    rejection_statement[key] = value
+                IntentRejectionStatementArgs._configure(_setter, **rejection_statement)
             __props__.__dict__["rejection_statement"] = rejection_statement
             __props__.__dict__["sample_utterances"] = sample_utterances
             __props__.__dict__["slots"] = slots

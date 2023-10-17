@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SigningCertificateArgs', 'SigningCertificate']
@@ -23,10 +23,29 @@ class SigningCertificateArgs:
         :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
         :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         """
-        pulumi.set(__self__, "certificate_body", certificate_body)
-        pulumi.set(__self__, "user_name", user_name)
+        SigningCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_body=certificate_body,
+            user_name=user_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_body: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBody' in kwargs:
+            certificate_body = kwargs['certificateBody']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("certificate_body", certificate_body)
+        _setter("user_name", user_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="certificateBody")
@@ -79,14 +98,37 @@ class _SigningCertificateState:
         :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
         """
+        _SigningCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_body=certificate_body,
+            certificate_id=certificate_id,
+            status=status,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBody' in kwargs:
+            certificate_body = kwargs['certificateBody']
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
+            _setter("certificate_id", certificate_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="certificateBody")
@@ -248,6 +290,10 @@ class SigningCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SigningCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

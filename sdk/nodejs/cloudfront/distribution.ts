@@ -319,7 +319,7 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
@@ -556,7 +556,7 @@ export interface DistributionState {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -680,7 +680,7 @@ export interface DistributionArgs {
      */
     defaultRootObject?: pulumi.Input<string>;
     /**
-     * Whether the distribution is enabled to accept end user requests for content.
+     * Whether Origin Shield is enabled.
      */
     enabled: pulumi.Input<boolean>;
     /**

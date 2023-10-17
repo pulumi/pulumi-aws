@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StudioArgs', 'Studio']
@@ -45,25 +45,80 @@ class StudioArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_role: The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         """
-        pulumi.set(__self__, "auth_mode", auth_mode)
-        pulumi.set(__self__, "default_s3_location", default_s3_location)
-        pulumi.set(__self__, "engine_security_group_id", engine_security_group_id)
-        pulumi.set(__self__, "service_role", service_role)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
-        pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+        StudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_mode=auth_mode,
+            default_s3_location=default_s3_location,
+            engine_security_group_id=engine_security_group_id,
+            service_role=service_role,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            workspace_security_group_id=workspace_security_group_id,
+            description=description,
+            idp_auth_url=idp_auth_url,
+            idp_relay_state_parameter_name=idp_relay_state_parameter_name,
+            name=name,
+            tags=tags,
+            user_role=user_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_mode: pulumi.Input[str],
+             default_s3_location: pulumi.Input[str],
+             engine_security_group_id: pulumi.Input[str],
+             service_role: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_id: pulumi.Input[str],
+             workspace_security_group_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             idp_auth_url: Optional[pulumi.Input[str]] = None,
+             idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if 'defaultS3Location' in kwargs:
+            default_s3_location = kwargs['defaultS3Location']
+        if 'engineSecurityGroupId' in kwargs:
+            engine_security_group_id = kwargs['engineSecurityGroupId']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+        if 'idpAuthUrl' in kwargs:
+            idp_auth_url = kwargs['idpAuthUrl']
+        if 'idpRelayStateParameterName' in kwargs:
+            idp_relay_state_parameter_name = kwargs['idpRelayStateParameterName']
+        if 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+
+        _setter("auth_mode", auth_mode)
+        _setter("default_s3_location", default_s3_location)
+        _setter("engine_security_group_id", engine_security_group_id)
+        _setter("service_role", service_role)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
+        _setter("workspace_security_group_id", workspace_security_group_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if idp_auth_url is not None:
-            pulumi.set(__self__, "idp_auth_url", idp_auth_url)
+            _setter("idp_auth_url", idp_auth_url)
         if idp_relay_state_parameter_name is not None:
-            pulumi.set(__self__, "idp_relay_state_parameter_name", idp_relay_state_parameter_name)
+            _setter("idp_relay_state_parameter_name", idp_relay_state_parameter_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_role is not None:
-            pulumi.set(__self__, "user_role", user_role)
+            _setter("user_role", user_role)
 
     @property
     @pulumi.getter(name="authMode")
@@ -263,41 +318,104 @@ class _StudioState:
                
                The following arguments are optional:
         """
+        _StudioState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auth_mode=auth_mode,
+            default_s3_location=default_s3_location,
+            description=description,
+            engine_security_group_id=engine_security_group_id,
+            idp_auth_url=idp_auth_url,
+            idp_relay_state_parameter_name=idp_relay_state_parameter_name,
+            name=name,
+            service_role=service_role,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            url=url,
+            user_role=user_role,
+            vpc_id=vpc_id,
+            workspace_security_group_id=workspace_security_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_mode: Optional[pulumi.Input[str]] = None,
+             default_s3_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_security_group_id: Optional[pulumi.Input[str]] = None,
+             idp_auth_url: Optional[pulumi.Input[str]] = None,
+             idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             user_role: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             workspace_security_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if 'defaultS3Location' in kwargs:
+            default_s3_location = kwargs['defaultS3Location']
+        if 'engineSecurityGroupId' in kwargs:
+            engine_security_group_id = kwargs['engineSecurityGroupId']
+        if 'idpAuthUrl' in kwargs:
+            idp_auth_url = kwargs['idpAuthUrl']
+        if 'idpRelayStateParameterName' in kwargs:
+            idp_relay_state_parameter_name = kwargs['idpRelayStateParameterName']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_mode is not None:
-            pulumi.set(__self__, "auth_mode", auth_mode)
+            _setter("auth_mode", auth_mode)
         if default_s3_location is not None:
-            pulumi.set(__self__, "default_s3_location", default_s3_location)
+            _setter("default_s3_location", default_s3_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_security_group_id is not None:
-            pulumi.set(__self__, "engine_security_group_id", engine_security_group_id)
+            _setter("engine_security_group_id", engine_security_group_id)
         if idp_auth_url is not None:
-            pulumi.set(__self__, "idp_auth_url", idp_auth_url)
+            _setter("idp_auth_url", idp_auth_url)
         if idp_relay_state_parameter_name is not None:
-            pulumi.set(__self__, "idp_relay_state_parameter_name", idp_relay_state_parameter_name)
+            _setter("idp_relay_state_parameter_name", idp_relay_state_parameter_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if user_role is not None:
-            pulumi.set(__self__, "user_role", user_role)
+            _setter("user_role", user_role)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if workspace_security_group_id is not None:
-            pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
+            _setter("workspace_security_group_id", workspace_security_group_id)
 
     @property
     @pulumi.getter
@@ -603,6 +721,10 @@ class Studio(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

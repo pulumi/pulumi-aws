@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AdminAccountArgs', 'AdminAccount']
@@ -19,8 +19,21 @@ class AdminAccountArgs:
         The set of arguments for constructing a AdminAccount resource.
         :param pulumi.Input[str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
+        AdminAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -43,8 +56,21 @@ class _AdminAccountState:
         Input properties used for looking up and filtering AdminAccount resources.
         :param pulumi.Input[str] account_id: The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
         """
+        _AdminAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -126,6 +152,10 @@ class AdminAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdminAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

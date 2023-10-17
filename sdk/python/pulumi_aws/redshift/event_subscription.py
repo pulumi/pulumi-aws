@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventSubscriptionArgs', 'EventSubscription']
@@ -33,21 +33,54 @@ class EventSubscriptionArgs:
         :param pulumi.Input[str] source_type: The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        EventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_topic_arn=sns_topic_arn,
+            enabled=enabled,
+            event_categories=event_categories,
+            name=name,
+            severity=severity,
+            source_ids=source_ids,
+            source_type=source_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_topic_arn: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if 'eventCategories' in kwargs:
+            event_categories = kwargs['eventCategories']
+        if 'sourceIds' in kwargs:
+            source_ids = kwargs['sourceIds']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
+        _setter("sns_topic_arn", sns_topic_arn)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_categories is not None:
-            pulumi.set(__self__, "event_categories", event_categories)
+            _setter("event_categories", event_categories)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
+            _setter("source_ids", source_ids)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -175,33 +208,78 @@ class _EventSubscriptionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _EventSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            customer_aws_id=customer_aws_id,
+            enabled=enabled,
+            event_categories=event_categories,
+            name=name,
+            severity=severity,
+            sns_topic_arn=sns_topic_arn,
+            source_ids=source_ids,
+            source_type=source_type,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             customer_aws_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerAwsId' in kwargs:
+            customer_aws_id = kwargs['customerAwsId']
+        if 'eventCategories' in kwargs:
+            event_categories = kwargs['eventCategories']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if 'sourceIds' in kwargs:
+            source_ids = kwargs['sourceIds']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if customer_aws_id is not None:
-            pulumi.set(__self__, "customer_aws_id", customer_aws_id)
+            _setter("customer_aws_id", customer_aws_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if event_categories is not None:
-            pulumi.set(__self__, "event_categories", event_categories)
+            _setter("event_categories", event_categories)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if source_ids is not None:
-            pulumi.set(__self__, "source_ids", source_ids)
+            _setter("source_ids", source_ids)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -465,6 +543,10 @@ class EventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

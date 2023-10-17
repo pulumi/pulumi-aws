@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,10 +28,23 @@ class BrokerConfigurationArgs:
         :param pulumi.Input[str] id: The Configuration ID.
         :param pulumi.Input[int] revision: Revision of the Configuration.
         """
+        BrokerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -67,10 +80,27 @@ class BrokerEncryptionOptionsArgs:
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
         :param pulumi.Input[bool] use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
         """
+        BrokerEncryptionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            use_aws_owned_key=use_aws_owned_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             use_aws_owned_key: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if use_aws_owned_key is not None:
-            pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
+            _setter("use_aws_owned_key", use_aws_owned_key)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -103,12 +133,31 @@ class BrokerInstanceArgs:
                  console_url: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None):
+        BrokerInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            console_url=console_url,
+            endpoints=endpoints,
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             console_url: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleUrl' in kwargs:
+            console_url = kwargs['consoleUrl']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if console_url is not None:
-            pulumi.set(__self__, "console_url", console_url)
+            _setter("console_url", console_url)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="consoleUrl")
@@ -165,28 +214,79 @@ class BrokerLdapServerMetadataArgs:
         :param pulumi.Input[str] user_search_matching: Search criteria for users.
         :param pulumi.Input[bool] user_search_subtree: Whether the directory search scope is the entire sub-tree.
         """
+        BrokerLdapServerMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosts=hosts,
+            role_base=role_base,
+            role_name=role_name,
+            role_search_matching=role_search_matching,
+            role_search_subtree=role_search_subtree,
+            service_account_password=service_account_password,
+            service_account_username=service_account_username,
+            user_base=user_base,
+            user_role_name=user_role_name,
+            user_search_matching=user_search_matching,
+            user_search_subtree=user_search_subtree,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_base: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             role_search_matching: Optional[pulumi.Input[str]] = None,
+             role_search_subtree: Optional[pulumi.Input[bool]] = None,
+             service_account_password: Optional[pulumi.Input[str]] = None,
+             service_account_username: Optional[pulumi.Input[str]] = None,
+             user_base: Optional[pulumi.Input[str]] = None,
+             user_role_name: Optional[pulumi.Input[str]] = None,
+             user_search_matching: Optional[pulumi.Input[str]] = None,
+             user_search_subtree: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
         if hosts is not None:
-            pulumi.set(__self__, "hosts", hosts)
+            _setter("hosts", hosts)
         if role_base is not None:
-            pulumi.set(__self__, "role_base", role_base)
+            _setter("role_base", role_base)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if role_search_matching is not None:
-            pulumi.set(__self__, "role_search_matching", role_search_matching)
+            _setter("role_search_matching", role_search_matching)
         if role_search_subtree is not None:
-            pulumi.set(__self__, "role_search_subtree", role_search_subtree)
+            _setter("role_search_subtree", role_search_subtree)
         if service_account_password is not None:
-            pulumi.set(__self__, "service_account_password", service_account_password)
+            _setter("service_account_password", service_account_password)
         if service_account_username is not None:
-            pulumi.set(__self__, "service_account_username", service_account_username)
+            _setter("service_account_username", service_account_username)
         if user_base is not None:
-            pulumi.set(__self__, "user_base", user_base)
+            _setter("user_base", user_base)
         if user_role_name is not None:
-            pulumi.set(__self__, "user_role_name", user_role_name)
+            _setter("user_role_name", user_role_name)
         if user_search_matching is not None:
-            pulumi.set(__self__, "user_search_matching", user_search_matching)
+            _setter("user_search_matching", user_search_matching)
         if user_search_subtree is not None:
-            pulumi.set(__self__, "user_search_subtree", user_search_subtree)
+            _setter("user_search_subtree", user_search_subtree)
 
     @property
     @pulumi.getter
@@ -330,10 +430,23 @@ class BrokerLogsArgs:
         :param pulumi.Input[bool] audit: Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
         :param pulumi.Input[bool] general: Enables general logging via CloudWatch. Defaults to `false`.
         """
+        BrokerLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit=audit,
+            general=general,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit: Optional[pulumi.Input[bool]] = None,
+             general: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audit is not None:
-            pulumi.set(__self__, "audit", audit)
+            _setter("audit", audit)
         if general is not None:
-            pulumi.set(__self__, "general", general)
+            _setter("general", general)
 
     @property
     @pulumi.getter
@@ -371,9 +484,30 @@ class BrokerMaintenanceWindowStartTimeArgs:
         :param pulumi.Input[str] time_of_day: Time, in 24-hour format, e.g., `02:00`.
         :param pulumi.Input[str] time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "time_of_day", time_of_day)
-        pulumi.set(__self__, "time_zone", time_zone)
+        BrokerMaintenanceWindowStartTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            time_of_day=time_of_day,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: pulumi.Input[str],
+             time_of_day: pulumi.Input[str],
+             time_zone: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("day_of_week", day_of_week)
+        _setter("time_of_day", time_of_day)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -429,14 +563,37 @@ class BrokerUserArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         :param pulumi.Input[bool] replication_user: Whether to set set replication user. Defaults to `false`.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        BrokerUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+            console_access=console_access,
+            groups=groups,
+            replication_user=replication_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             console_access: Optional[pulumi.Input[bool]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             replication_user: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+        if 'replicationUser' in kwargs:
+            replication_user = kwargs['replicationUser']
+
+        _setter("password", password)
+        _setter("username", username)
         if console_access is not None:
-            pulumi.set(__self__, "console_access", console_access)
+            _setter("console_access", console_access)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if replication_user is not None:
-            pulumi.set(__self__, "replication_user", replication_user)
+            _setter("replication_user", replication_user)
 
     @property
     @pulumi.getter

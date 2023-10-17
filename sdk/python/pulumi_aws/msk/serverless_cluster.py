@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,35 @@ class ServerlessClusterArgs:
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "client_authentication", client_authentication)
-        pulumi.set(__self__, "vpc_configs", vpc_configs)
+        ServerlessClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_authentication=client_authentication,
+            vpc_configs=vpc_configs,
+            cluster_name=cluster_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
+             vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if 'vpcConfigs' in kwargs:
+            vpc_configs = kwargs['vpcConfigs']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+
+        _setter("client_authentication", client_authentication)
+        _setter("vpc_configs", vpc_configs)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clientAuthentication")
@@ -101,21 +124,50 @@ class _ServerlessClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]] vpc_configs: VPC configuration information. See below.
         """
+        _ServerlessClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            client_authentication=client_authentication,
+            cluster_name=cluster_name,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_configs=vpc_configs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             client_authentication: Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcConfigs' in kwargs:
+            vpc_configs = kwargs['vpcConfigs']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if client_authentication is not None:
-            pulumi.set(__self__, "client_authentication", client_authentication)
+            _setter("client_authentication", client_authentication)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_configs is not None:
-            pulumi.set(__self__, "vpc_configs", vpc_configs)
+            _setter("vpc_configs", vpc_configs)
 
     @property
     @pulumi.getter
@@ -252,6 +304,10 @@ class ServerlessCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerlessClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -270,6 +326,11 @@ class ServerlessCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerlessClusterArgs.__new__(ServerlessClusterArgs)
 
+            if client_authentication is not None and not isinstance(client_authentication, ServerlessClusterClientAuthenticationArgs):
+                client_authentication = client_authentication or {}
+                def _setter(key, value):
+                    client_authentication[key] = value
+                ServerlessClusterClientAuthenticationArgs._configure(_setter, **client_authentication)
             if client_authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'client_authentication'")
             __props__.__dict__["client_authentication"] = client_authentication

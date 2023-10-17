@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,7 +23,18 @@ class MapConfiguration(dict):
         """
         :param str style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
         """
-        pulumi.set(__self__, "style", style)
+        MapConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            style=style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             style: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("style", style)
 
     @property
     @pulumi.getter
@@ -58,8 +69,21 @@ class PlaceIndexDataSourceConfiguration(dict):
         """
         :param str intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         """
+        PlaceIndexDataSourceConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intended_use=intended_use,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intended_use: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intendedUse' in kwargs:
+            intended_use = kwargs['intendedUse']
+
         if intended_use is not None:
-            pulumi.set(__self__, "intended_use", intended_use)
+            _setter("intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
@@ -77,7 +101,18 @@ class GetMapConfigurationResult(dict):
         """
         :param str style: The map style selected from an available data provider.
         """
-        pulumi.set(__self__, "style", style)
+        GetMapConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            style=style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             style: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("style", style)
 
     @property
     @pulumi.getter
@@ -92,7 +127,20 @@ class GetMapConfigurationResult(dict):
 class GetPlaceIndexDataSourceConfigurationResult(dict):
     def __init__(__self__, *,
                  intended_use: str):
-        pulumi.set(__self__, "intended_use", intended_use)
+        GetPlaceIndexDataSourceConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            intended_use=intended_use,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             intended_use: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intendedUse' in kwargs:
+            intended_use = kwargs['intendedUse']
+
+        _setter("intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")

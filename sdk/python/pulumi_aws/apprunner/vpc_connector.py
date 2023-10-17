@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcConnectorArgs', 'VpcConnector']
@@ -25,11 +25,32 @@ class VpcConnectorArgs:
         :param pulumi.Input[str] vpc_connector_name: Name for the VPC connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "subnets", subnets)
-        pulumi.set(__self__, "vpc_connector_name", vpc_connector_name)
+        VpcConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_groups=security_groups,
+            subnets=subnets,
+            vpc_connector_name=vpc_connector_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_connector_name: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'vpcConnectorName' in kwargs:
+            vpc_connector_name = kwargs['vpcConnectorName']
+
+        _setter("security_groups", security_groups)
+        _setter("subnets", subnets)
+        _setter("vpc_connector_name", vpc_connector_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -102,25 +123,58 @@ class _VpcConnectorState:
         :param pulumi.Input[str] vpc_connector_name: Name for the VPC connector.
         :param pulumi.Input[int] vpc_connector_revision: The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """
+        _VpcConnectorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            security_groups=security_groups,
+            status=status,
+            subnets=subnets,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_connector_name=vpc_connector_name,
+            vpc_connector_revision=vpc_connector_revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_connector_name: Optional[pulumi.Input[str]] = None,
+             vpc_connector_revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcConnectorName' in kwargs:
+            vpc_connector_name = kwargs['vpcConnectorName']
+        if 'vpcConnectorRevision' in kwargs:
+            vpc_connector_revision = kwargs['vpcConnectorRevision']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_connector_name is not None:
-            pulumi.set(__self__, "vpc_connector_name", vpc_connector_name)
+            _setter("vpc_connector_name", vpc_connector_name)
         if vpc_connector_revision is not None:
-            pulumi.set(__self__, "vpc_connector_revision", vpc_connector_revision)
+            _setter("vpc_connector_revision", vpc_connector_revision)
 
     @property
     @pulumi.getter
@@ -313,6 +367,10 @@ class VpcConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountRegistrationArgs', 'AccountRegistration']
@@ -23,12 +23,33 @@ class AccountRegistrationArgs:
         :param pulumi.Input[bool] deregister_on_destroy: Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         :param pulumi.Input[str] kms_key: KMS key identifier.
         """
+        AccountRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delegated_admin_account=delegated_admin_account,
+            deregister_on_destroy=deregister_on_destroy,
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delegated_admin_account: Optional[pulumi.Input[str]] = None,
+             deregister_on_destroy: Optional[pulumi.Input[bool]] = None,
+             kms_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delegatedAdminAccount' in kwargs:
+            delegated_admin_account = kwargs['delegatedAdminAccount']
+        if 'deregisterOnDestroy' in kwargs:
+            deregister_on_destroy = kwargs['deregisterOnDestroy']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         if delegated_admin_account is not None:
-            pulumi.set(__self__, "delegated_admin_account", delegated_admin_account)
+            _setter("delegated_admin_account", delegated_admin_account)
         if deregister_on_destroy is not None:
-            pulumi.set(__self__, "deregister_on_destroy", deregister_on_destroy)
+            _setter("deregister_on_destroy", deregister_on_destroy)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="delegatedAdminAccount")
@@ -81,14 +102,37 @@ class _AccountRegistrationState:
         :param pulumi.Input[str] kms_key: KMS key identifier.
         :param pulumi.Input[str] status: Status of the account registration request.
         """
+        _AccountRegistrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delegated_admin_account=delegated_admin_account,
+            deregister_on_destroy=deregister_on_destroy,
+            kms_key=kms_key,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delegated_admin_account: Optional[pulumi.Input[str]] = None,
+             deregister_on_destroy: Optional[pulumi.Input[bool]] = None,
+             kms_key: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'delegatedAdminAccount' in kwargs:
+            delegated_admin_account = kwargs['delegatedAdminAccount']
+        if 'deregisterOnDestroy' in kwargs:
+            deregister_on_destroy = kwargs['deregisterOnDestroy']
+        if 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         if delegated_admin_account is not None:
-            pulumi.set(__self__, "delegated_admin_account", delegated_admin_account)
+            _setter("delegated_admin_account", delegated_admin_account)
         if deregister_on_destroy is not None:
-            pulumi.set(__self__, "deregister_on_destroy", deregister_on_destroy)
+            _setter("deregister_on_destroy", deregister_on_destroy)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="delegatedAdminAccount")
@@ -228,6 +272,10 @@ class AccountRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

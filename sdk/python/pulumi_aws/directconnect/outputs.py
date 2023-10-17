@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,12 +35,39 @@ class GetRouterConfigurationRouterResult(dict):
         :param str vendor: Router vendor
         :param str xslt_template_name: Router XSLT Template Name
         """
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "router_type_identifier", router_type_identifier)
-        pulumi.set(__self__, "software", software)
-        pulumi.set(__self__, "vendor", vendor)
-        pulumi.set(__self__, "xslt_template_name", xslt_template_name)
-        pulumi.set(__self__, "xslt_template_name_for_mac_sec", xslt_template_name_for_mac_sec)
+        GetRouterConfigurationRouterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform=platform,
+            router_type_identifier=router_type_identifier,
+            software=software,
+            vendor=vendor,
+            xslt_template_name=xslt_template_name,
+            xslt_template_name_for_mac_sec=xslt_template_name_for_mac_sec,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform: str,
+             router_type_identifier: str,
+             software: str,
+             vendor: str,
+             xslt_template_name: str,
+             xslt_template_name_for_mac_sec: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routerTypeIdentifier' in kwargs:
+            router_type_identifier = kwargs['routerTypeIdentifier']
+        if 'xsltTemplateName' in kwargs:
+            xslt_template_name = kwargs['xsltTemplateName']
+        if 'xsltTemplateNameForMacSec' in kwargs:
+            xslt_template_name_for_mac_sec = kwargs['xsltTemplateNameForMacSec']
+
+        _setter("platform", platform)
+        _setter("router_type_identifier", router_type_identifier)
+        _setter("software", software)
+        _setter("vendor", vendor)
+        _setter("xslt_template_name", xslt_template_name)
+        _setter("xslt_template_name_for_mac_sec", xslt_template_name_for_mac_sec)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotArgs', 'Snapshot']
@@ -23,10 +23,31 @@ class SnapshotArgs:
         :param pulumi.Input[str] snapshot_name: The name of the snapshot.
         :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "snapshot_name", snapshot_name)
+        SnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            snapshot_name=snapshot_name,
+            retention_period=retention_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: pulumi.Input[str],
+             snapshot_name: pulumi.Input[str],
+             retention_period: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
+        _setter("namespace_name", namespace_name)
+        _setter("snapshot_name", snapshot_name)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -91,26 +112,73 @@ class _SnapshotState:
         :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[str] snapshot_name: The name of the snapshot.
         """
+        _SnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accounts_with_provisioned_restore_accesses=accounts_with_provisioned_restore_accesses,
+            accounts_with_restore_accesses=accounts_with_restore_accesses,
+            admin_username=admin_username,
+            arn=arn,
+            kms_key_id=kms_key_id,
+            namespace_arn=namespace_arn,
+            namespace_name=namespace_name,
+            owner_account=owner_account,
+            retention_period=retention_period,
+            snapshot_name=snapshot_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accounts_with_provisioned_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             accounts_with_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             namespace_arn: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             owner_account: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountsWithProvisionedRestoreAccesses' in kwargs:
+            accounts_with_provisioned_restore_accesses = kwargs['accountsWithProvisionedRestoreAccesses']
+        if 'accountsWithRestoreAccesses' in kwargs:
+            accounts_with_restore_accesses = kwargs['accountsWithRestoreAccesses']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'namespaceArn' in kwargs:
+            namespace_arn = kwargs['namespaceArn']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+
         if accounts_with_provisioned_restore_accesses is not None:
-            pulumi.set(__self__, "accounts_with_provisioned_restore_accesses", accounts_with_provisioned_restore_accesses)
+            _setter("accounts_with_provisioned_restore_accesses", accounts_with_provisioned_restore_accesses)
         if accounts_with_restore_accesses is not None:
-            pulumi.set(__self__, "accounts_with_restore_accesses", accounts_with_restore_accesses)
+            _setter("accounts_with_restore_accesses", accounts_with_restore_accesses)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if namespace_arn is not None:
-            pulumi.set(__self__, "namespace_arn", namespace_arn)
+            _setter("namespace_arn", namespace_arn)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if owner_account is not None:
-            pulumi.set(__self__, "owner_account", owner_account)
+            _setter("owner_account", owner_account)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
@@ -308,6 +376,10 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

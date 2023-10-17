@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailIdentityArgs', 'EmailIdentity']
@@ -19,7 +19,18 @@ class EmailIdentityArgs:
         The set of arguments for constructing a EmailIdentity resource.
         :param pulumi.Input[str] email: The email address to assign to SES.
         """
-        pulumi.set(__self__, "email", email)
+        EmailIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("email", email)
 
     @property
     @pulumi.getter
@@ -44,10 +55,23 @@ class _EmailIdentityState:
         :param pulumi.Input[str] arn: The ARN of the email identity.
         :param pulumi.Input[str] email: The email address to assign to SES.
         """
+        _EmailIdentityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            email=email,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
 
     @property
     @pulumi.getter
@@ -141,6 +165,10 @@ class EmailIdentity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailIdentityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -19,7 +19,7 @@ type LifecyclePolicyPolicyDetails struct {
 	Action *LifecyclePolicyPolicyDetailsAction `pulumi:"action"`
 	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 	EventSource *LifecyclePolicyPolicyDetailsEventSource `pulumi:"eventSource"`
-	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+	// Information about the event. See the `parameters` configuration block.
 	Parameters *LifecyclePolicyPolicyDetailsParameters `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType *string `pulumi:"policyType"`
@@ -51,7 +51,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	Action LifecyclePolicyPolicyDetailsActionPtrInput `pulumi:"action"`
 	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
 	EventSource LifecyclePolicyPolicyDetailsEventSourcePtrInput `pulumi:"eventSource"`
-	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+	// Information about the event. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsParametersPtrInput `pulumi:"parameters"`
 	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
 	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
@@ -172,7 +172,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyPolicyD
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource { return v.EventSource }).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+// Information about the event. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters { return v.Parameters }).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
 }
@@ -254,7 +254,7 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyPoli
 	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
 }
 
-// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+// Information about the event. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters {
 		if v == nil {
@@ -642,9 +642,9 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) Index(i pu
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 	CmkArn *string `pulumi:"cmkArn"`
-	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 	Encrypted *bool `pulumi:"encrypted"`
 }
 
@@ -660,9 +660,9 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInp
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
-	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
 }
 
@@ -704,14 +704,14 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 	}
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) CmkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *string {
 		return v.CmkArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *bool {
 		return v.Encrypted
@@ -899,7 +899,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 }
 
 type LifecyclePolicyPolicyDetailsEventSource struct {
-	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+	// Information about the event. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParameters `pulumi:"parameters"`
 	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 	Type string `pulumi:"type"`
@@ -917,7 +917,7 @@ type LifecyclePolicyPolicyDetailsEventSourceInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsEventSourceArgs struct {
-	// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+	// Information about the event. See the `parameters` configuration block.
 	Parameters LifecyclePolicyPolicyDetailsEventSourceParametersInput `pulumi:"parameters"`
 	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1018,7 +1018,7 @@ func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToOutput(ctx context.Cont
 	}
 }
 
-// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+// Information about the event. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSource) LifecyclePolicyPolicyDetailsEventSourceParameters {
 		return v.Parameters
@@ -1060,7 +1060,7 @@ func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Elem() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsEventSourceOutput)
 }
 
-// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+// Information about the event. See the `parameters` configuration block.
 func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) *LifecyclePolicyPolicyDetailsEventSourceParameters {
 		if v == nil {
@@ -1460,13 +1460,13 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) NoReboot() pulumi.BoolP
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags *bool `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRule `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
-	// See the `deprecateRule` block. Max of 1 per schedule.
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleDeprecateRule `pulumi:"deprecateRule"`
 	// See the `fastRestoreRule` block. Max of 1 per schedule.
 	FastRestoreRule *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule `pulumi:"fastRestoreRule"`
@@ -1494,13 +1494,13 @@ type LifecyclePolicyPolicyDetailsScheduleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArgs struct {
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRuleInput `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
-	// See the `deprecateRule` block. Max of 1 per schedule.
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 	DeprecateRule LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput `pulumi:"deprecateRule"`
 	// See the `fastRestoreRule` block. Max of 1 per schedule.
 	FastRestoreRule LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput `pulumi:"fastRestoreRule"`
@@ -1585,7 +1585,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToOutput(ctx context.Context
 	}
 }
 
-// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
@@ -1604,7 +1604,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) CrossRegionCopyRules() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
 }
 
-// See the `deprecateRule` block. Max of 1 per schedule.
+// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
 		return v.DeprecateRule
@@ -1774,13 +1774,13 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.Str
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 	CmkArn *string `pulumi:"cmkArn"`
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags *bool `pulumi:"copyTags"`
-	// See the `deprecateRule` block. Max of 1 per schedule.
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule `pulumi:"deprecateRule"`
-	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 	Encrypted bool `pulumi:"encrypted"`
 	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule `pulumi:"retainRule"`
@@ -1800,13 +1800,13 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
-	// See the `deprecateRule` block. Max of 1 per schedule.
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 	DeprecateRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput `pulumi:"deprecateRule"`
-	// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// Specifies the retention rule for cross-Region snapshot copies. See the `retainRule` block. Max of 1 per action.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput `pulumi:"retainRule"`
@@ -1883,24 +1883,24 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToOutput(
 	}
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CmkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.CmkArn }).(pulumi.StringPtrOutput)
 }
 
-// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// See the `deprecateRule` block. Max of 1 per schedule.
+// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
 		return v.DeprecateRule
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
-// To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.
+// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) bool { return v.Encrypted }).(pulumi.BoolOutput)
 }

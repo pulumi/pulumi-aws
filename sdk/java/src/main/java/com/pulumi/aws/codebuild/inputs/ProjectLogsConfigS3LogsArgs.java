@@ -62,14 +62,14 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+     * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -167,7 +167,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `ENABLED`.
+         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
          * 
          * @return builder
          * 

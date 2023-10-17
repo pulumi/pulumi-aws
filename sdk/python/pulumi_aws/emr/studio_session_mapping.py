@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StudioSessionMappingArgs', 'StudioSessionMapping']
@@ -27,13 +27,42 @@ class StudioSessionMappingArgs:
         :param pulumi.Input[str] identity_id: The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
         :param pulumi.Input[str] identity_name: The name of the user or group from the Amazon Web Services SSO Identity Store.
         """
-        pulumi.set(__self__, "identity_type", identity_type)
-        pulumi.set(__self__, "session_policy_arn", session_policy_arn)
-        pulumi.set(__self__, "studio_id", studio_id)
+        StudioSessionMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_type=identity_type,
+            session_policy_arn=session_policy_arn,
+            studio_id=studio_id,
+            identity_id=identity_id,
+            identity_name=identity_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_type: pulumi.Input[str],
+             session_policy_arn: pulumi.Input[str],
+             studio_id: pulumi.Input[str],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             identity_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if 'sessionPolicyArn' in kwargs:
+            session_policy_arn = kwargs['sessionPolicyArn']
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'identityName' in kwargs:
+            identity_name = kwargs['identityName']
+
+        _setter("identity_type", identity_type)
+        _setter("session_policy_arn", session_policy_arn)
+        _setter("studio_id", studio_id)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if identity_name is not None:
-            pulumi.set(__self__, "identity_name", identity_name)
+            _setter("identity_name", identity_name)
 
     @property
     @pulumi.getter(name="identityType")
@@ -112,16 +141,45 @@ class _StudioSessionMappingState:
         :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
         :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
+        _StudioSessionMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            identity_name=identity_name,
+            identity_type=identity_type,
+            session_policy_arn=session_policy_arn,
+            studio_id=studio_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             identity_name: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input[str]] = None,
+             session_policy_arn: Optional[pulumi.Input[str]] = None,
+             studio_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'identityName' in kwargs:
+            identity_name = kwargs['identityName']
+        if 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if 'sessionPolicyArn' in kwargs:
+            session_policy_arn = kwargs['sessionPolicyArn']
+        if 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if identity_name is not None:
-            pulumi.set(__self__, "identity_name", identity_name)
+            _setter("identity_name", identity_name)
         if identity_type is not None:
-            pulumi.set(__self__, "identity_type", identity_type)
+            _setter("identity_type", identity_type)
         if session_policy_arn is not None:
-            pulumi.set(__self__, "session_policy_arn", session_policy_arn)
+            _setter("session_policy_arn", session_policy_arn)
         if studio_id is not None:
-            pulumi.set(__self__, "studio_id", studio_id)
+            _setter("studio_id", studio_id)
 
     @property
     @pulumi.getter(name="identityId")
@@ -267,6 +325,10 @@ class StudioSessionMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StudioSessionMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

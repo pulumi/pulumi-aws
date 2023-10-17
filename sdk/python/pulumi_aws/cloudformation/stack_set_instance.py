@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,60 @@ class StackSetInstanceArgs:
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         """
-        pulumi.set(__self__, "stack_set_name", stack_set_name)
+        StackSetInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stack_set_name=stack_set_name,
+            account_id=account_id,
+            call_as=call_as,
+            deployment_targets=deployment_targets,
+            operation_preferences=operation_preferences,
+            parameter_overrides=parameter_overrides,
+            region=region,
+            retain_stack=retain_stack,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stack_set_name: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             call_as: Optional[pulumi.Input[str]] = None,
+             deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
+             operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
+             parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             retain_stack: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if 'deploymentTargets' in kwargs:
+            deployment_targets = kwargs['deploymentTargets']
+        if 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if 'parameterOverrides' in kwargs:
+            parameter_overrides = kwargs['parameterOverrides']
+        if 'retainStack' in kwargs:
+            retain_stack = kwargs['retainStack']
+
+        _setter("stack_set_name", stack_set_name)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if call_as is not None:
-            pulumi.set(__self__, "call_as", call_as)
+            _setter("call_as", call_as)
         if deployment_targets is not None:
-            pulumi.set(__self__, "deployment_targets", deployment_targets)
+            _setter("deployment_targets", deployment_targets)
         if operation_preferences is not None:
-            pulumi.set(__self__, "operation_preferences", operation_preferences)
+            _setter("operation_preferences", operation_preferences)
         if parameter_overrides is not None:
-            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+            _setter("parameter_overrides", parameter_overrides)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if retain_stack is not None:
-            pulumi.set(__self__, "retain_stack", retain_stack)
+            _setter("retain_stack", retain_stack)
 
     @property
     @pulumi.getter(name="stackSetName")
@@ -176,28 +215,79 @@ class _StackSetInstanceState:
         :param pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         :param pulumi.Input[str] stack_set_name: Name of the StackSet.
         """
+        _StackSetInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            call_as=call_as,
+            deployment_targets=deployment_targets,
+            operation_preferences=operation_preferences,
+            organizational_unit_id=organizational_unit_id,
+            parameter_overrides=parameter_overrides,
+            region=region,
+            retain_stack=retain_stack,
+            stack_id=stack_id,
+            stack_instance_summaries=stack_instance_summaries,
+            stack_set_name=stack_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             call_as: Optional[pulumi.Input[str]] = None,
+             deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
+             operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
+             organizational_unit_id: Optional[pulumi.Input[str]] = None,
+             parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             retain_stack: Optional[pulumi.Input[bool]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]] = None,
+             stack_set_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if 'deploymentTargets' in kwargs:
+            deployment_targets = kwargs['deploymentTargets']
+        if 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if 'organizationalUnitId' in kwargs:
+            organizational_unit_id = kwargs['organizationalUnitId']
+        if 'parameterOverrides' in kwargs:
+            parameter_overrides = kwargs['parameterOverrides']
+        if 'retainStack' in kwargs:
+            retain_stack = kwargs['retainStack']
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'stackInstanceSummaries' in kwargs:
+            stack_instance_summaries = kwargs['stackInstanceSummaries']
+        if 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if call_as is not None:
-            pulumi.set(__self__, "call_as", call_as)
+            _setter("call_as", call_as)
         if deployment_targets is not None:
-            pulumi.set(__self__, "deployment_targets", deployment_targets)
+            _setter("deployment_targets", deployment_targets)
         if operation_preferences is not None:
-            pulumi.set(__self__, "operation_preferences", operation_preferences)
+            _setter("operation_preferences", operation_preferences)
         if organizational_unit_id is not None:
-            pulumi.set(__self__, "organizational_unit_id", organizational_unit_id)
+            _setter("organizational_unit_id", organizational_unit_id)
         if parameter_overrides is not None:
-            pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+            _setter("parameter_overrides", parameter_overrides)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if retain_stack is not None:
-            pulumi.set(__self__, "retain_stack", retain_stack)
+            _setter("retain_stack", retain_stack)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
         if stack_instance_summaries is not None:
-            pulumi.set(__self__, "stack_instance_summaries", stack_instance_summaries)
+            _setter("stack_instance_summaries", stack_instance_summaries)
         if stack_set_name is not None:
-            pulumi.set(__self__, "stack_set_name", stack_set_name)
+            _setter("stack_set_name", stack_set_name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -539,6 +629,10 @@ class StackSetInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackSetInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -563,7 +657,17 @@ class StackSetInstance(pulumi.CustomResource):
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["call_as"] = call_as
+            if deployment_targets is not None and not isinstance(deployment_targets, StackSetInstanceDeploymentTargetsArgs):
+                deployment_targets = deployment_targets or {}
+                def _setter(key, value):
+                    deployment_targets[key] = value
+                StackSetInstanceDeploymentTargetsArgs._configure(_setter, **deployment_targets)
             __props__.__dict__["deployment_targets"] = deployment_targets
+            if operation_preferences is not None and not isinstance(operation_preferences, StackSetInstanceOperationPreferencesArgs):
+                operation_preferences = operation_preferences or {}
+                def _setter(key, value):
+                    operation_preferences[key] = value
+                StackSetInstanceOperationPreferencesArgs._configure(_setter, **operation_preferences)
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameter_overrides"] = parameter_overrides
             __props__.__dict__["region"] = region

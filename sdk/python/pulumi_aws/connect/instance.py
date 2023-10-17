@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -38,23 +38,72 @@ class InstanceArgs:
         :param pulumi.Input[str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         """
-        pulumi.set(__self__, "identity_management_type", identity_management_type)
-        pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
-        pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_management_type=identity_management_type,
+            inbound_calls_enabled=inbound_calls_enabled,
+            outbound_calls_enabled=outbound_calls_enabled,
+            auto_resolve_best_voices_enabled=auto_resolve_best_voices_enabled,
+            contact_flow_logs_enabled=contact_flow_logs_enabled,
+            contact_lens_enabled=contact_lens_enabled,
+            directory_id=directory_id,
+            early_media_enabled=early_media_enabled,
+            instance_alias=instance_alias,
+            multi_party_conference_enabled=multi_party_conference_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_management_type: pulumi.Input[str],
+             inbound_calls_enabled: pulumi.Input[bool],
+             outbound_calls_enabled: pulumi.Input[bool],
+             auto_resolve_best_voices_enabled: Optional[pulumi.Input[bool]] = None,
+             contact_flow_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             contact_lens_enabled: Optional[pulumi.Input[bool]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             early_media_enabled: Optional[pulumi.Input[bool]] = None,
+             instance_alias: Optional[pulumi.Input[str]] = None,
+             multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityManagementType' in kwargs:
+            identity_management_type = kwargs['identityManagementType']
+        if 'inboundCallsEnabled' in kwargs:
+            inbound_calls_enabled = kwargs['inboundCallsEnabled']
+        if 'outboundCallsEnabled' in kwargs:
+            outbound_calls_enabled = kwargs['outboundCallsEnabled']
+        if 'autoResolveBestVoicesEnabled' in kwargs:
+            auto_resolve_best_voices_enabled = kwargs['autoResolveBestVoicesEnabled']
+        if 'contactFlowLogsEnabled' in kwargs:
+            contact_flow_logs_enabled = kwargs['contactFlowLogsEnabled']
+        if 'contactLensEnabled' in kwargs:
+            contact_lens_enabled = kwargs['contactLensEnabled']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'earlyMediaEnabled' in kwargs:
+            early_media_enabled = kwargs['earlyMediaEnabled']
+        if 'instanceAlias' in kwargs:
+            instance_alias = kwargs['instanceAlias']
+        if 'multiPartyConferenceEnabled' in kwargs:
+            multi_party_conference_enabled = kwargs['multiPartyConferenceEnabled']
+
+        _setter("identity_management_type", identity_management_type)
+        _setter("inbound_calls_enabled", inbound_calls_enabled)
+        _setter("outbound_calls_enabled", outbound_calls_enabled)
         if auto_resolve_best_voices_enabled is not None:
-            pulumi.set(__self__, "auto_resolve_best_voices_enabled", auto_resolve_best_voices_enabled)
+            _setter("auto_resolve_best_voices_enabled", auto_resolve_best_voices_enabled)
         if contact_flow_logs_enabled is not None:
-            pulumi.set(__self__, "contact_flow_logs_enabled", contact_flow_logs_enabled)
+            _setter("contact_flow_logs_enabled", contact_flow_logs_enabled)
         if contact_lens_enabled is not None:
-            pulumi.set(__self__, "contact_lens_enabled", contact_lens_enabled)
+            _setter("contact_lens_enabled", contact_lens_enabled)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if early_media_enabled is not None:
-            pulumi.set(__self__, "early_media_enabled", early_media_enabled)
+            _setter("early_media_enabled", early_media_enabled)
         if instance_alias is not None:
-            pulumi.set(__self__, "instance_alias", instance_alias)
+            _setter("instance_alias", instance_alias)
         if multi_party_conference_enabled is not None:
-            pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
+            _setter("multi_party_conference_enabled", multi_party_conference_enabled)
 
     @property
     @pulumi.getter(name="identityManagementType")
@@ -213,34 +262,95 @@ class _InstanceState:
         :param pulumi.Input[str] service_role: The service role of the instance.
         :param pulumi.Input[str] status: The state of the instance.
         """
+        _InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_resolve_best_voices_enabled=auto_resolve_best_voices_enabled,
+            contact_flow_logs_enabled=contact_flow_logs_enabled,
+            contact_lens_enabled=contact_lens_enabled,
+            created_time=created_time,
+            directory_id=directory_id,
+            early_media_enabled=early_media_enabled,
+            identity_management_type=identity_management_type,
+            inbound_calls_enabled=inbound_calls_enabled,
+            instance_alias=instance_alias,
+            multi_party_conference_enabled=multi_party_conference_enabled,
+            outbound_calls_enabled=outbound_calls_enabled,
+            service_role=service_role,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_resolve_best_voices_enabled: Optional[pulumi.Input[bool]] = None,
+             contact_flow_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             contact_lens_enabled: Optional[pulumi.Input[bool]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             early_media_enabled: Optional[pulumi.Input[bool]] = None,
+             identity_management_type: Optional[pulumi.Input[str]] = None,
+             inbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
+             instance_alias: Optional[pulumi.Input[str]] = None,
+             multi_party_conference_enabled: Optional[pulumi.Input[bool]] = None,
+             outbound_calls_enabled: Optional[pulumi.Input[bool]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoResolveBestVoicesEnabled' in kwargs:
+            auto_resolve_best_voices_enabled = kwargs['autoResolveBestVoicesEnabled']
+        if 'contactFlowLogsEnabled' in kwargs:
+            contact_flow_logs_enabled = kwargs['contactFlowLogsEnabled']
+        if 'contactLensEnabled' in kwargs:
+            contact_lens_enabled = kwargs['contactLensEnabled']
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'earlyMediaEnabled' in kwargs:
+            early_media_enabled = kwargs['earlyMediaEnabled']
+        if 'identityManagementType' in kwargs:
+            identity_management_type = kwargs['identityManagementType']
+        if 'inboundCallsEnabled' in kwargs:
+            inbound_calls_enabled = kwargs['inboundCallsEnabled']
+        if 'instanceAlias' in kwargs:
+            instance_alias = kwargs['instanceAlias']
+        if 'multiPartyConferenceEnabled' in kwargs:
+            multi_party_conference_enabled = kwargs['multiPartyConferenceEnabled']
+        if 'outboundCallsEnabled' in kwargs:
+            outbound_calls_enabled = kwargs['outboundCallsEnabled']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_resolve_best_voices_enabled is not None:
-            pulumi.set(__self__, "auto_resolve_best_voices_enabled", auto_resolve_best_voices_enabled)
+            _setter("auto_resolve_best_voices_enabled", auto_resolve_best_voices_enabled)
         if contact_flow_logs_enabled is not None:
-            pulumi.set(__self__, "contact_flow_logs_enabled", contact_flow_logs_enabled)
+            _setter("contact_flow_logs_enabled", contact_flow_logs_enabled)
         if contact_lens_enabled is not None:
-            pulumi.set(__self__, "contact_lens_enabled", contact_lens_enabled)
+            _setter("contact_lens_enabled", contact_lens_enabled)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if early_media_enabled is not None:
-            pulumi.set(__self__, "early_media_enabled", early_media_enabled)
+            _setter("early_media_enabled", early_media_enabled)
         if identity_management_type is not None:
-            pulumi.set(__self__, "identity_management_type", identity_management_type)
+            _setter("identity_management_type", identity_management_type)
         if inbound_calls_enabled is not None:
-            pulumi.set(__self__, "inbound_calls_enabled", inbound_calls_enabled)
+            _setter("inbound_calls_enabled", inbound_calls_enabled)
         if instance_alias is not None:
-            pulumi.set(__self__, "instance_alias", instance_alias)
+            _setter("instance_alias", instance_alias)
         if multi_party_conference_enabled is not None:
-            pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
+            _setter("multi_party_conference_enabled", multi_party_conference_enabled)
         if outbound_calls_enabled is not None:
-            pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
+            _setter("outbound_calls_enabled", outbound_calls_enabled)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -562,6 +672,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -4,8 +4,12 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -49,4 +53,50 @@ type LookupSerialConsoleAccessResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func LookupSerialConsoleAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSerialConsoleAccessResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSerialConsoleAccessResult, error) {
+		r, err := LookupSerialConsoleAccess(ctx, opts...)
+		var s LookupSerialConsoleAccessResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupSerialConsoleAccessResultOutput)
+}
+
+// A collection of values returned by getSerialConsoleAccess.
+type LookupSerialConsoleAccessResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSerialConsoleAccessResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSerialConsoleAccessResult)(nil)).Elem()
+}
+
+func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResultOutput() LookupSerialConsoleAccessResultOutput {
+	return o
+}
+
+func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResultOutputWithContext(ctx context.Context) LookupSerialConsoleAccessResultOutput {
+	return o
+}
+
+func (o LookupSerialConsoleAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSerialConsoleAccessResult] {
+	return pulumix.Output[LookupSerialConsoleAccessResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether or not serial console access is enabled. Returns as `true` or `false`.
+func (o LookupSerialConsoleAccessResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSerialConsoleAccessResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSerialConsoleAccessResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSerialConsoleAccessResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSerialConsoleAccessResultOutput{})
 }

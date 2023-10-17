@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DefaultKmsKeyArgs', 'DefaultKmsKey']
@@ -19,7 +19,20 @@ class DefaultKmsKeyArgs:
         The set of arguments for constructing a DefaultKmsKey resource.
         :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
-        pulumi.set(__self__, "key_arn", key_arn)
+        DefaultKmsKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_arn=key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
+        _setter("key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -42,8 +55,21 @@ class _DefaultKmsKeyState:
         Input properties used for looking up and filtering DefaultKmsKey resources.
         :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
+        _DefaultKmsKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_arn=key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
+            _setter("key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -139,6 +165,10 @@ class DefaultKmsKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefaultKmsKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

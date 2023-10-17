@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,30 @@ class ContinuousDeploymentPolicyArgs:
         :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ContinuousDeploymentPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            staging_distribution_dns_names=staging_distribution_dns_names,
+            traffic_config=traffic_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
+             traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stagingDistributionDnsNames' in kwargs:
+            staging_distribution_dns_names = kwargs['stagingDistributionDnsNames']
+        if 'trafficConfig' in kwargs:
+            traffic_config = kwargs['trafficConfig']
+
+        _setter("enabled", enabled)
         if staging_distribution_dns_names is not None:
-            pulumi.set(__self__, "staging_distribution_dns_names", staging_distribution_dns_names)
+            _setter("staging_distribution_dns_names", staging_distribution_dns_names)
         if traffic_config is not None:
-            pulumi.set(__self__, "traffic_config", traffic_config)
+            _setter("traffic_config", traffic_config)
 
     @property
     @pulumi.getter
@@ -84,16 +103,41 @@ class _ContinuousDeploymentPolicyState:
         :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
+        _ContinuousDeploymentPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            etag=etag,
+            last_modified_time=last_modified_time,
+            staging_distribution_dns_names=staging_distribution_dns_names,
+            traffic_config=traffic_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             last_modified_time: Optional[pulumi.Input[str]] = None,
+             staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
+             traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'stagingDistributionDnsNames' in kwargs:
+            staging_distribution_dns_names = kwargs['stagingDistributionDnsNames']
+        if 'trafficConfig' in kwargs:
+            traffic_config = kwargs['trafficConfig']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if staging_distribution_dns_names is not None:
-            pulumi.set(__self__, "staging_distribution_dns_names", staging_distribution_dns_names)
+            _setter("staging_distribution_dns_names", staging_distribution_dns_names)
         if traffic_config is not None:
-            pulumi.set(__self__, "traffic_config", traffic_config)
+            _setter("traffic_config", traffic_config)
 
     @property
     @pulumi.getter
@@ -353,6 +397,10 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContinuousDeploymentPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -373,7 +421,17 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            if staging_distribution_dns_names is not None and not isinstance(staging_distribution_dns_names, ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs):
+                staging_distribution_dns_names = staging_distribution_dns_names or {}
+                def _setter(key, value):
+                    staging_distribution_dns_names[key] = value
+                ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs._configure(_setter, **staging_distribution_dns_names)
             __props__.__dict__["staging_distribution_dns_names"] = staging_distribution_dns_names
+            if traffic_config is not None and not isinstance(traffic_config, ContinuousDeploymentPolicyTrafficConfigArgs):
+                traffic_config = traffic_config or {}
+                def _setter(key, value):
+                    traffic_config[key] = value
+                ContinuousDeploymentPolicyTrafficConfigArgs._configure(_setter, **traffic_config)
             __props__.__dict__["traffic_config"] = traffic_config
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time"] = None

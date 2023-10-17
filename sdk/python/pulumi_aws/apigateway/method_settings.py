@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,33 @@ class MethodSettingsArgs:
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
-        pulumi.set(__self__, "method_path", method_path)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "settings", settings)
-        pulumi.set(__self__, "stage_name", stage_name)
+        MethodSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method_path=method_path,
+            rest_api=rest_api,
+            settings=settings,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method_path: pulumi.Input[str],
+             rest_api: pulumi.Input[str],
+             settings: pulumi.Input['MethodSettingsSettingsArgs'],
+             stage_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'methodPath' in kwargs:
+            method_path = kwargs['methodPath']
+        if 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
+        _setter("method_path", method_path)
+        _setter("rest_api", rest_api)
+        _setter("settings", settings)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="methodPath")
@@ -95,14 +118,37 @@ class _MethodSettingsState:
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
+        _MethodSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method_path=method_path,
+            rest_api=rest_api,
+            settings=settings,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method_path: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['MethodSettingsSettingsArgs']] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'methodPath' in kwargs:
+            method_path = kwargs['methodPath']
+        if 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if method_path is not None:
-            pulumi.set(__self__, "method_path", method_path)
+            _setter("method_path", method_path)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="methodPath")
@@ -456,6 +502,10 @@ class MethodSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MethodSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -480,6 +530,11 @@ class MethodSettings(pulumi.CustomResource):
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
+            if settings is not None and not isinstance(settings, MethodSettingsSettingsArgs):
+                settings = settings or {}
+                def _setter(key, value):
+                    settings[key] = value
+                MethodSettingsSettingsArgs._configure(_setter, **settings)
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings

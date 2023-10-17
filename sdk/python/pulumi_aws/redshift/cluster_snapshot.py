@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterSnapshotArgs', 'ClusterSnapshot']
@@ -25,12 +25,35 @@ class ClusterSnapshotArgs:
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+        ClusterSnapshotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            snapshot_identifier=snapshot_identifier,
+            manual_snapshot_retention_period=manual_snapshot_retention_period,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: pulumi.Input[str],
+             snapshot_identifier: pulumi.Input[str],
+             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'manualSnapshotRetentionPeriod' in kwargs:
+            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
+
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("snapshot_identifier", snapshot_identifier)
         if manual_snapshot_retention_period is not None:
-            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+            _setter("manual_snapshot_retention_period", manual_snapshot_retention_period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -103,25 +126,62 @@ class _ClusterSnapshotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ClusterSnapshotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cluster_identifier=cluster_identifier,
+            kms_key_id=kms_key_id,
+            manual_snapshot_retention_period=manual_snapshot_retention_period,
+            owner_account=owner_account,
+            snapshot_identifier=snapshot_identifier,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+             owner_account: Optional[pulumi.Input[str]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'manualSnapshotRetentionPeriod' in kwargs:
+            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
+        if 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if manual_snapshot_retention_period is not None:
-            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+            _setter("manual_snapshot_retention_period", manual_snapshot_retention_period)
         if owner_account is not None:
-            pulumi.set(__self__, "owner_account", owner_account)
+            _setter("owner_account", owner_account)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -278,6 +338,10 @@ class ClusterSnapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterSnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

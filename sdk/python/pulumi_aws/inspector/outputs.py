@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -39,8 +39,23 @@ class AssessmentTemplateEventSubscription(dict):
         :param str event: The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
         :param str topic_arn: The ARN of the SNS topic to which notifications are sent.
         """
-        pulumi.set(__self__, "event", event)
-        pulumi.set(__self__, "topic_arn", topic_arn)
+        AssessmentTemplateEventSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event=event,
+            topic_arn=topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event: str,
+             topic_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
+        _setter("event", event)
+        _setter("topic_arn", topic_arn)
 
     @property
     @pulumi.getter

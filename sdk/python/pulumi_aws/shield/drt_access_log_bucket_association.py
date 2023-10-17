@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,10 +24,29 @@ class DrtAccessLogBucketAssociationArgs:
         :param pulumi.Input[str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
         :param pulumi.Input[str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
         """
-        pulumi.set(__self__, "log_bucket", log_bucket)
-        pulumi.set(__self__, "role_arn_association_id", role_arn_association_id)
+        DrtAccessLogBucketAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_bucket=log_bucket,
+            role_arn_association_id=role_arn_association_id,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_bucket: pulumi.Input[str],
+             role_arn_association_id: pulumi.Input[str],
+             timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logBucket' in kwargs:
+            log_bucket = kwargs['logBucket']
+        if 'roleArnAssociationId' in kwargs:
+            role_arn_association_id = kwargs['roleArnAssociationId']
+
+        _setter("log_bucket", log_bucket)
+        _setter("role_arn_association_id", role_arn_association_id)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter(name="logBucket")
@@ -74,12 +93,31 @@ class _DrtAccessLogBucketAssociationState:
         :param pulumi.Input[str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
         :param pulumi.Input[str] role_arn_association_id: The ID of the Role Arn association used for allowing Shield DRT Access.
         """
+        _DrtAccessLogBucketAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_bucket=log_bucket,
+            role_arn_association_id=role_arn_association_id,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_bucket: Optional[pulumi.Input[str]] = None,
+             role_arn_association_id: Optional[pulumi.Input[str]] = None,
+             timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logBucket' in kwargs:
+            log_bucket = kwargs['logBucket']
+        if 'roleArnAssociationId' in kwargs:
+            role_arn_association_id = kwargs['roleArnAssociationId']
+
         if log_bucket is not None:
-            pulumi.set(__self__, "log_bucket", log_bucket)
+            _setter("log_bucket", log_bucket)
         if role_arn_association_id is not None:
-            pulumi.set(__self__, "role_arn_association_id", role_arn_association_id)
+            _setter("role_arn_association_id", role_arn_association_id)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter(name="logBucket")
@@ -177,6 +215,10 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DrtAccessLogBucketAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -200,6 +242,11 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             if role_arn_association_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn_association_id'")
             __props__.__dict__["role_arn_association_id"] = role_arn_association_id
+            if timeouts is not None and not isinstance(timeouts, DrtAccessLogBucketAssociationTimeoutsArgs):
+                timeouts = timeouts or {}
+                def _setter(key, value):
+                    timeouts[key] = value
+                DrtAccessLogBucketAssociationTimeoutsArgs._configure(_setter, **timeouts)
             __props__.__dict__["timeouts"] = timeouts
         super(DrtAccessLogBucketAssociation, __self__).__init__(
             'aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation',

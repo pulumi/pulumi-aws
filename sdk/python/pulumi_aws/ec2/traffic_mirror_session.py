@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrafficMirrorSessionArgs', 'TrafficMirrorSession']
@@ -33,18 +33,55 @@ class TrafficMirrorSessionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] virtual_network_id: The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         """
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
-        pulumi.set(__self__, "session_number", session_number)
-        pulumi.set(__self__, "traffic_mirror_filter_id", traffic_mirror_filter_id)
-        pulumi.set(__self__, "traffic_mirror_target_id", traffic_mirror_target_id)
+        TrafficMirrorSessionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_id=network_interface_id,
+            session_number=session_number,
+            traffic_mirror_filter_id=traffic_mirror_filter_id,
+            traffic_mirror_target_id=traffic_mirror_target_id,
+            description=description,
+            packet_length=packet_length,
+            tags=tags,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_id: pulumi.Input[str],
+             session_number: pulumi.Input[int],
+             traffic_mirror_filter_id: pulumi.Input[str],
+             traffic_mirror_target_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             packet_length: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'sessionNumber' in kwargs:
+            session_number = kwargs['sessionNumber']
+        if 'trafficMirrorFilterId' in kwargs:
+            traffic_mirror_filter_id = kwargs['trafficMirrorFilterId']
+        if 'trafficMirrorTargetId' in kwargs:
+            traffic_mirror_target_id = kwargs['trafficMirrorTargetId']
+        if 'packetLength' in kwargs:
+            packet_length = kwargs['packetLength']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
+        _setter("network_interface_id", network_interface_id)
+        _setter("session_number", session_number)
+        _setter("traffic_mirror_filter_id", traffic_mirror_filter_id)
+        _setter("traffic_mirror_target_id", traffic_mirror_target_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if packet_length is not None:
-            pulumi.set(__self__, "packet_length", packet_length)
+            _setter("packet_length", packet_length)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -171,31 +208,78 @@ class _TrafficMirrorSessionState:
         :param pulumi.Input[str] traffic_mirror_target_id: ID of the traffic mirror target to be used
         :param pulumi.Input[int] virtual_network_id: The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         """
+        _TrafficMirrorSessionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            network_interface_id=network_interface_id,
+            owner_id=owner_id,
+            packet_length=packet_length,
+            session_number=session_number,
+            tags=tags,
+            tags_all=tags_all,
+            traffic_mirror_filter_id=traffic_mirror_filter_id,
+            traffic_mirror_target_id=traffic_mirror_target_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             packet_length: Optional[pulumi.Input[int]] = None,
+             session_number: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
+             traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if 'packetLength' in kwargs:
+            packet_length = kwargs['packetLength']
+        if 'sessionNumber' in kwargs:
+            session_number = kwargs['sessionNumber']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'trafficMirrorFilterId' in kwargs:
+            traffic_mirror_filter_id = kwargs['trafficMirrorFilterId']
+        if 'trafficMirrorTargetId' in kwargs:
+            traffic_mirror_target_id = kwargs['trafficMirrorTargetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if packet_length is not None:
-            pulumi.set(__self__, "packet_length", packet_length)
+            _setter("packet_length", packet_length)
         if session_number is not None:
-            pulumi.set(__self__, "session_number", session_number)
+            _setter("session_number", session_number)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if traffic_mirror_filter_id is not None:
-            pulumi.set(__self__, "traffic_mirror_filter_id", traffic_mirror_filter_id)
+            _setter("traffic_mirror_filter_id", traffic_mirror_filter_id)
         if traffic_mirror_target_id is not None:
-            pulumi.set(__self__, "traffic_mirror_target_id", traffic_mirror_target_id)
+            _setter("traffic_mirror_target_id", traffic_mirror_target_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -438,6 +522,10 @@ class TrafficMirrorSession(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficMirrorSessionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

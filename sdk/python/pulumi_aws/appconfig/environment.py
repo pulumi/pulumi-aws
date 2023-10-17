@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,36 @@ class EnvironmentArgs:
         :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "application_id", application_id)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            description=description,
+            monitors=monitors,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
+        _setter("application_id", application_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitors is not None:
-            pulumi.set(__self__, "monitors", monitors)
+            _setter("monitors", monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -125,27 +146,60 @@ class _EnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _EnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            arn=arn,
+            description=description,
+            environment_id=environment_id,
+            monitors=monitors,
+            name=name,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if monitors is not None:
-            pulumi.set(__self__, "monitors", monitors)
+            _setter("monitors", monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -363,6 +417,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

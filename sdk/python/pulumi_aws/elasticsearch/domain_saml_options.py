@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,26 @@ class DomainSamlOptionsArgs:
                The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        DomainSamlOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            saml_options=saml_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: pulumi.Input[str],
+             saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
+        _setter("domain_name", domain_name)
         if saml_options is not None:
-            pulumi.set(__self__, "saml_options", saml_options)
+            _setter("saml_options", saml_options)
 
     @property
     @pulumi.getter(name="domainName")
@@ -68,10 +85,27 @@ class _DomainSamlOptionsState:
                The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
+        _DomainSamlOptionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            saml_options=saml_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if saml_options is not None:
-            pulumi.set(__self__, "saml_options", saml_options)
+            _setter("saml_options", saml_options)
 
     @property
     @pulumi.getter(name="domainName")
@@ -211,6 +245,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainSamlOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,6 +268,11 @@ class DomainSamlOptions(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            if saml_options is not None and not isinstance(saml_options, DomainSamlOptionsSamlOptionsArgs):
+                saml_options = saml_options or {}
+                def _setter(key, value):
+                    saml_options[key] = value
+                DomainSamlOptionsSamlOptionsArgs._configure(_setter, **saml_options)
             __props__.__dict__["saml_options"] = saml_options
         super(DomainSamlOptions, __self__).__init__(
             'aws:elasticsearch/domainSamlOptions:DomainSamlOptions',

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -60,45 +60,128 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            attachments=attachments,
+            description=description,
+            interface_type=interface_type,
+            ipv4_prefix_count=ipv4_prefix_count,
+            ipv4_prefixes=ipv4_prefixes,
+            ipv6_address_count=ipv6_address_count,
+            ipv6_address_list_enabled=ipv6_address_list_enabled,
+            ipv6_address_lists=ipv6_address_lists,
+            ipv6_addresses=ipv6_addresses,
+            ipv6_prefix_count=ipv6_prefix_count,
+            ipv6_prefixes=ipv6_prefixes,
+            private_ip=private_ip,
+            private_ip_list_enabled=private_ip_list_enabled,
+            private_ip_lists=private_ip_lists,
+            private_ips=private_ips,
+            private_ips_count=private_ips_count,
+            security_groups=security_groups,
+            source_dest_check=source_dest_check,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             interface_type: Optional[pulumi.Input[str]] = None,
+             ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_address_count: Optional[pulumi.Input[int]] = None,
+             ipv6_address_list_enabled: Optional[pulumi.Input[bool]] = None,
+             ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             private_ip_list_enabled: Optional[pulumi.Input[bool]] = None,
+             private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ips_count: Optional[pulumi.Input[int]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_dest_check: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6AddressListEnabled' in kwargs:
+            ipv6_address_list_enabled = kwargs['ipv6AddressListEnabled']
+        if 'ipv6AddressLists' in kwargs:
+            ipv6_address_lists = kwargs['ipv6AddressLists']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if 'privateIpListEnabled' in kwargs:
+            private_ip_list_enabled = kwargs['privateIpListEnabled']
+        if 'privateIpLists' in kwargs:
+            private_ip_lists = kwargs['privateIpLists']
+        if 'privateIps' in kwargs:
+            private_ips = kwargs['privateIps']
+        if 'privateIpsCount' in kwargs:
+            private_ips_count = kwargs['privateIpsCount']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+
+        _setter("subnet_id", subnet_id)
         if attachments is not None:
-            pulumi.set(__self__, "attachments", attachments)
+            _setter("attachments", attachments)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if interface_type is not None:
-            pulumi.set(__self__, "interface_type", interface_type)
+            _setter("interface_type", interface_type)
         if ipv4_prefix_count is not None:
-            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+            _setter("ipv4_prefix_count", ipv4_prefix_count)
         if ipv4_prefixes is not None:
-            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
+            _setter("ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
-            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+            _setter("ipv6_address_count", ipv6_address_count)
         if ipv6_address_list_enabled is not None:
-            pulumi.set(__self__, "ipv6_address_list_enabled", ipv6_address_list_enabled)
+            _setter("ipv6_address_list_enabled", ipv6_address_list_enabled)
         if ipv6_address_lists is not None:
-            pulumi.set(__self__, "ipv6_address_lists", ipv6_address_lists)
+            _setter("ipv6_address_lists", ipv6_address_lists)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if ipv6_prefix_count is not None:
-            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+            _setter("ipv6_prefix_count", ipv6_prefix_count)
         if ipv6_prefixes is not None:
-            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
+            _setter("ipv6_prefixes", ipv6_prefixes)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if private_ip_list_enabled is not None:
-            pulumi.set(__self__, "private_ip_list_enabled", private_ip_list_enabled)
+            _setter("private_ip_list_enabled", private_ip_list_enabled)
         if private_ip_lists is not None:
-            pulumi.set(__self__, "private_ip_lists", private_ip_lists)
+            _setter("private_ip_lists", private_ip_lists)
         if private_ips is not None:
-            pulumi.set(__self__, "private_ips", private_ips)
+            _setter("private_ips", private_ips)
         if private_ips_count is not None:
-            pulumi.set(__self__, "private_ips_count", private_ips_count)
+            _setter("private_ips_count", private_ips_count)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_dest_check is not None:
-            pulumi.set(__self__, "source_dest_check", source_dest_check)
+            _setter("source_dest_check", source_dest_check)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -398,61 +481,166 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _NetworkInterfaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attachments=attachments,
+            description=description,
+            interface_type=interface_type,
+            ipv4_prefix_count=ipv4_prefix_count,
+            ipv4_prefixes=ipv4_prefixes,
+            ipv6_address_count=ipv6_address_count,
+            ipv6_address_list_enabled=ipv6_address_list_enabled,
+            ipv6_address_lists=ipv6_address_lists,
+            ipv6_addresses=ipv6_addresses,
+            ipv6_prefix_count=ipv6_prefix_count,
+            ipv6_prefixes=ipv6_prefixes,
+            mac_address=mac_address,
+            outpost_arn=outpost_arn,
+            owner_id=owner_id,
+            private_dns_name=private_dns_name,
+            private_ip=private_ip,
+            private_ip_list_enabled=private_ip_list_enabled,
+            private_ip_lists=private_ip_lists,
+            private_ips=private_ips,
+            private_ips_count=private_ips_count,
+            security_groups=security_groups,
+            source_dest_check=source_dest_check,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             interface_type: Optional[pulumi.Input[str]] = None,
+             ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv4_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_address_count: Optional[pulumi.Input[int]] = None,
+             ipv6_address_list_enabled: Optional[pulumi.Input[bool]] = None,
+             ipv6_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipv6_prefix_count: Optional[pulumi.Input[int]] = None,
+             ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             private_dns_name: Optional[pulumi.Input[str]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             private_ip_list_enabled: Optional[pulumi.Input[bool]] = None,
+             private_ip_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_ips_count: Optional[pulumi.Input[int]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_dest_check: Optional[pulumi.Input[bool]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if 'ipv6AddressListEnabled' in kwargs:
+            ipv6_address_list_enabled = kwargs['ipv6AddressListEnabled']
+        if 'ipv6AddressLists' in kwargs:
+            ipv6_address_lists = kwargs['ipv6AddressLists']
+        if 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if 'privateDnsName' in kwargs:
+            private_dns_name = kwargs['privateDnsName']
+        if 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if 'privateIpListEnabled' in kwargs:
+            private_ip_list_enabled = kwargs['privateIpListEnabled']
+        if 'privateIpLists' in kwargs:
+            private_ip_lists = kwargs['privateIpLists']
+        if 'privateIps' in kwargs:
+            private_ips = kwargs['privateIps']
+        if 'privateIpsCount' in kwargs:
+            private_ips_count = kwargs['privateIpsCount']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attachments is not None:
-            pulumi.set(__self__, "attachments", attachments)
+            _setter("attachments", attachments)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if interface_type is not None:
-            pulumi.set(__self__, "interface_type", interface_type)
+            _setter("interface_type", interface_type)
         if ipv4_prefix_count is not None:
-            pulumi.set(__self__, "ipv4_prefix_count", ipv4_prefix_count)
+            _setter("ipv4_prefix_count", ipv4_prefix_count)
         if ipv4_prefixes is not None:
-            pulumi.set(__self__, "ipv4_prefixes", ipv4_prefixes)
+            _setter("ipv4_prefixes", ipv4_prefixes)
         if ipv6_address_count is not None:
-            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+            _setter("ipv6_address_count", ipv6_address_count)
         if ipv6_address_list_enabled is not None:
-            pulumi.set(__self__, "ipv6_address_list_enabled", ipv6_address_list_enabled)
+            _setter("ipv6_address_list_enabled", ipv6_address_list_enabled)
         if ipv6_address_lists is not None:
-            pulumi.set(__self__, "ipv6_address_lists", ipv6_address_lists)
+            _setter("ipv6_address_lists", ipv6_address_lists)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if ipv6_prefix_count is not None:
-            pulumi.set(__self__, "ipv6_prefix_count", ipv6_prefix_count)
+            _setter("ipv6_prefix_count", ipv6_prefix_count)
         if ipv6_prefixes is not None:
-            pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
+            _setter("ipv6_prefixes", ipv6_prefixes)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if private_dns_name is not None:
-            pulumi.set(__self__, "private_dns_name", private_dns_name)
+            _setter("private_dns_name", private_dns_name)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if private_ip_list_enabled is not None:
-            pulumi.set(__self__, "private_ip_list_enabled", private_ip_list_enabled)
+            _setter("private_ip_list_enabled", private_ip_list_enabled)
         if private_ip_lists is not None:
-            pulumi.set(__self__, "private_ip_lists", private_ip_lists)
+            _setter("private_ip_lists", private_ip_lists)
         if private_ips is not None:
-            pulumi.set(__self__, "private_ips", private_ips)
+            _setter("private_ips", private_ips)
         if private_ips_count is not None:
-            pulumi.set(__self__, "private_ips_count", private_ips_count)
+            _setter("private_ips_count", private_ips_count)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if source_dest_check is not None:
-            pulumi.set(__self__, "source_dest_check", source_dest_check)
+            _setter("source_dest_check", source_dest_check)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -918,6 +1106,10 @@ class NetworkInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

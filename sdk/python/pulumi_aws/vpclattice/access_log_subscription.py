@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessLogSubscriptionArgs', 'AccessLogSubscription']
@@ -22,10 +22,29 @@ class AccessLogSubscriptionArgs:
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "resource_identifier", resource_identifier)
+        AccessLogSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            resource_identifier=resource_identifier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: pulumi.Input[str],
+             resource_identifier: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
+        _setter("destination_arn", destination_arn)
+        _setter("resource_identifier", resource_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -77,21 +96,50 @@ class _AccessLogSubscriptionState:
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         """
+        _AccessLogSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            destination_arn=destination_arn,
+            resource_arn=resource_arn,
+            resource_identifier=resource_identifier,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if destination_arn is not None:
-            pulumi.set(__self__, "destination_arn", destination_arn)
+            _setter("destination_arn", destination_arn)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -239,6 +287,10 @@ class AccessLogSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessLogSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

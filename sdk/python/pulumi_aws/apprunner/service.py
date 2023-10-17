@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,65 @@ class ServiceArgs:
         :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "source_configuration", source_configuration)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+            source_configuration=source_configuration,
+            auto_scaling_configuration_arn=auto_scaling_configuration_arn,
+            encryption_configuration=encryption_configuration,
+            health_check_configuration=health_check_configuration,
+            instance_configuration=instance_configuration,
+            network_configuration=network_configuration,
+            observability_configuration=observability_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: pulumi.Input[str],
+             source_configuration: pulumi.Input['ServiceSourceConfigurationArgs'],
+             auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
+             health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
+             instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
+             network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+             observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+        if 'autoScalingConfigurationArn' in kwargs:
+            auto_scaling_configuration_arn = kwargs['autoScalingConfigurationArn']
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'healthCheckConfiguration' in kwargs:
+            health_check_configuration = kwargs['healthCheckConfiguration']
+        if 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'observabilityConfiguration' in kwargs:
+            observability_configuration = kwargs['observabilityConfiguration']
+
+        _setter("service_name", service_name)
+        _setter("source_configuration", source_configuration)
         if auto_scaling_configuration_arn is not None:
-            pulumi.set(__self__, "auto_scaling_configuration_arn", auto_scaling_configuration_arn)
+            _setter("auto_scaling_configuration_arn", auto_scaling_configuration_arn)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if health_check_configuration is not None:
-            pulumi.set(__self__, "health_check_configuration", health_check_configuration)
+            _setter("health_check_configuration", health_check_configuration)
         if instance_configuration is not None:
-            pulumi.set(__self__, "instance_configuration", instance_configuration)
+            _setter("instance_configuration", instance_configuration)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if observability_configuration is not None:
-            pulumi.set(__self__, "observability_configuration", observability_configuration)
+            _setter("observability_configuration", observability_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -203,37 +246,96 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_scaling_configuration_arn=auto_scaling_configuration_arn,
+            encryption_configuration=encryption_configuration,
+            health_check_configuration=health_check_configuration,
+            instance_configuration=instance_configuration,
+            network_configuration=network_configuration,
+            observability_configuration=observability_configuration,
+            service_id=service_id,
+            service_name=service_name,
+            service_url=service_url,
+            source_configuration=source_configuration,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
+             encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
+             health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
+             instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
+             network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+             observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_url: Optional[pulumi.Input[str]] = None,
+             source_configuration: Optional[pulumi.Input['ServiceSourceConfigurationArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoScalingConfigurationArn' in kwargs:
+            auto_scaling_configuration_arn = kwargs['autoScalingConfigurationArn']
+        if 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if 'healthCheckConfiguration' in kwargs:
+            health_check_configuration = kwargs['healthCheckConfiguration']
+        if 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'observabilityConfiguration' in kwargs:
+            observability_configuration = kwargs['observabilityConfiguration']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+        if 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_scaling_configuration_arn is not None:
-            pulumi.set(__self__, "auto_scaling_configuration_arn", auto_scaling_configuration_arn)
+            _setter("auto_scaling_configuration_arn", auto_scaling_configuration_arn)
         if encryption_configuration is not None:
-            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+            _setter("encryption_configuration", encryption_configuration)
         if health_check_configuration is not None:
-            pulumi.set(__self__, "health_check_configuration", health_check_configuration)
+            _setter("health_check_configuration", health_check_configuration)
         if instance_configuration is not None:
-            pulumi.set(__self__, "instance_configuration", instance_configuration)
+            _setter("instance_configuration", instance_configuration)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if observability_configuration is not None:
-            pulumi.set(__self__, "observability_configuration", observability_configuration)
+            _setter("observability_configuration", observability_configuration)
         if service_id is not None:
-            pulumi.set(__self__, "service_id", service_id)
+            _setter("service_id", service_id)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
         if source_configuration is not None:
-            pulumi.set(__self__, "source_configuration", source_configuration)
+            _setter("source_configuration", source_configuration)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -664,6 +766,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -688,14 +794,44 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
+            if encryption_configuration is not None and not isinstance(encryption_configuration, ServiceEncryptionConfigurationArgs):
+                encryption_configuration = encryption_configuration or {}
+                def _setter(key, value):
+                    encryption_configuration[key] = value
+                ServiceEncryptionConfigurationArgs._configure(_setter, **encryption_configuration)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
+            if health_check_configuration is not None and not isinstance(health_check_configuration, ServiceHealthCheckConfigurationArgs):
+                health_check_configuration = health_check_configuration or {}
+                def _setter(key, value):
+                    health_check_configuration[key] = value
+                ServiceHealthCheckConfigurationArgs._configure(_setter, **health_check_configuration)
             __props__.__dict__["health_check_configuration"] = health_check_configuration
+            if instance_configuration is not None and not isinstance(instance_configuration, ServiceInstanceConfigurationArgs):
+                instance_configuration = instance_configuration or {}
+                def _setter(key, value):
+                    instance_configuration[key] = value
+                ServiceInstanceConfigurationArgs._configure(_setter, **instance_configuration)
             __props__.__dict__["instance_configuration"] = instance_configuration
+            if network_configuration is not None and not isinstance(network_configuration, ServiceNetworkConfigurationArgs):
+                network_configuration = network_configuration or {}
+                def _setter(key, value):
+                    network_configuration[key] = value
+                ServiceNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
+            if observability_configuration is not None and not isinstance(observability_configuration, ServiceObservabilityConfigurationArgs):
+                observability_configuration = observability_configuration or {}
+                def _setter(key, value):
+                    observability_configuration[key] = value
+                ServiceObservabilityConfigurationArgs._configure(_setter, **observability_configuration)
             __props__.__dict__["observability_configuration"] = observability_configuration
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            if source_configuration is not None and not isinstance(source_configuration, ServiceSourceConfigurationArgs):
+                source_configuration = source_configuration or {}
+                def _setter(key, value):
+                    source_configuration[key] = value
+                ServiceSourceConfigurationArgs._configure(_setter, **source_configuration)
             if source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'source_configuration'")
             __props__.__dict__["source_configuration"] = source_configuration

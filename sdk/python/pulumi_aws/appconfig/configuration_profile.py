@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,51 @@ class ConfigurationProfileArgs:
         :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "location_uri", location_uri)
+        ConfigurationProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            location_uri=location_uri,
+            description=description,
+            name=name,
+            retrieval_role_arn=retrieval_role_arn,
+            tags=tags,
+            type=type,
+            validators=validators,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             location_uri: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retrieval_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'locationUri' in kwargs:
+            location_uri = kwargs['locationUri']
+        if 'retrievalRoleArn' in kwargs:
+            retrieval_role_arn = kwargs['retrievalRoleArn']
+
+        _setter("application_id", application_id)
+        _setter("location_uri", location_uri)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retrieval_role_arn is not None:
-            pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
+            _setter("retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validators is not None:
-            pulumi.set(__self__, "validators", validators)
+            _setter("validators", validators)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -175,31 +206,72 @@ class _ConfigurationProfileState:
         :param pulumi.Input[str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
         """
+        _ConfigurationProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            arn=arn,
+            configuration_profile_id=configuration_profile_id,
+            description=description,
+            location_uri=location_uri,
+            name=name,
+            retrieval_role_arn=retrieval_role_arn,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            validators=validators,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location_uri: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retrieval_role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if 'locationUri' in kwargs:
+            location_uri = kwargs['locationUri']
+        if 'retrievalRoleArn' in kwargs:
+            retrieval_role_arn = kwargs['retrievalRoleArn']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration_profile_id is not None:
-            pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
+            _setter("configuration_profile_id", configuration_profile_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location_uri is not None:
-            pulumi.set(__self__, "location_uri", location_uri)
+            _setter("location_uri", location_uri)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retrieval_role_arn is not None:
-            pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
+            _setter("retrieval_role_arn", retrieval_role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validators is not None:
-            pulumi.set(__self__, "validators", validators)
+            _setter("validators", validators)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -438,6 +510,10 @@ class ConfigurationProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

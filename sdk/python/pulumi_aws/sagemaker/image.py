@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ImageArgs', 'Image']
@@ -27,14 +27,39 @@ class ImageArgs:
         :param pulumi.Input[str] display_name: The display name of the image. When the image is added to a domain (must be unique to the domain).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "image_name", image_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_name=image_name,
+            role_arn=role_arn,
+            description=description,
+            display_name=display_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("image_name", image_name)
+        _setter("role_arn", role_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="imageName")
@@ -117,23 +142,54 @@ class _ImageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ImageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            display_name=display_name,
+            image_name=image_name,
+            role_arn=role_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -304,6 +360,10 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

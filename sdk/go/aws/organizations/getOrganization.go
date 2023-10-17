@@ -4,8 +4,12 @@
 package organizations
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about the organization that the user's account belongs to
@@ -142,4 +146,95 @@ type LookupOrganizationResult struct {
 	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
 	// List of organization roots. All elements have these attributes:
 	Roots []GetOrganizationRoot `pulumi:"roots"`
+}
+
+func LookupOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupOrganizationResult, error) {
+		r, err := LookupOrganization(ctx, opts...)
+		var s LookupOrganizationResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(LookupOrganizationResultOutput)
+}
+
+// A collection of values returned by getOrganization.
+type LookupOrganizationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOrganizationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOrganizationResult)(nil)).Elem()
+}
+
+func (o LookupOrganizationResultOutput) ToLookupOrganizationResultOutput() LookupOrganizationResultOutput {
+	return o
+}
+
+func (o LookupOrganizationResultOutput) ToLookupOrganizationResultOutputWithContext(ctx context.Context) LookupOrganizationResultOutput {
+	return o
+}
+
+func (o LookupOrganizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationResult] {
+	return pulumix.Output[LookupOrganizationResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
+func (o LookupOrganizationResultOutput) Accounts() GetOrganizationAccountArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationAccount { return v.Accounts }).(GetOrganizationAccountArrayOutput)
+}
+
+// ARN of the root
+func (o LookupOrganizationResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
+func (o LookupOrganizationResultOutput) AwsServiceAccessPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) []string { return v.AwsServiceAccessPrincipals }).(pulumi.StringArrayOutput)
+}
+
+// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+func (o LookupOrganizationResultOutput) EnabledPolicyTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) []string { return v.EnabledPolicyTypes }).(pulumi.StringArrayOutput)
+}
+
+// FeatureSet of the organization.
+func (o LookupOrganizationResultOutput) FeatureSet() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.FeatureSet }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupOrganizationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the account that is designated as the master account for the organization.
+func (o LookupOrganizationResultOutput) MasterAccountArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountArn }).(pulumi.StringOutput)
+}
+
+// The email address that is associated with the AWS account that is designated as the master account for the organization.
+func (o LookupOrganizationResultOutput) MasterAccountEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountEmail }).(pulumi.StringOutput)
+}
+
+// Unique identifier (ID) of the master account of an organization.
+func (o LookupOrganizationResultOutput) MasterAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) string { return v.MasterAccountId }).(pulumi.StringOutput)
+}
+
+// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+func (o LookupOrganizationResultOutput) NonMasterAccounts() GetOrganizationNonMasterAccountArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationNonMasterAccount { return v.NonMasterAccounts }).(GetOrganizationNonMasterAccountArrayOutput)
+}
+
+// List of organization roots. All elements have these attributes:
+func (o LookupOrganizationResultOutput) Roots() GetOrganizationRootArrayOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationRoot { return v.Roots }).(GetOrganizationRootArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOrganizationResultOutput{})
 }

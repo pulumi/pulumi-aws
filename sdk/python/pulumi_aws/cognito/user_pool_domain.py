@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPoolDomainArgs', 'UserPoolDomain']
@@ -23,10 +23,29 @@ class UserPoolDomainArgs:
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] certificate_arn: The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        UserPoolDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            user_pool_id=user_pool_id,
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             user_pool_id: pulumi.Input[str],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+
+        _setter("domain", domain)
+        _setter("user_pool_id", user_pool_id)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter
@@ -89,24 +108,65 @@ class _UserPoolDomainState:
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         :param pulumi.Input[str] version: The app version.
         """
+        _UserPoolDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_account_id=aws_account_id,
+            certificate_arn=certificate_arn,
+            cloudfront_distribution=cloudfront_distribution,
+            cloudfront_distribution_arn=cloudfront_distribution_arn,
+            cloudfront_distribution_zone_id=cloudfront_distribution_zone_id,
+            domain=domain,
+            s3_bucket=s3_bucket,
+            user_pool_id=user_pool_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             cloudfront_distribution: Optional[pulumi.Input[str]] = None,
+             cloudfront_distribution_arn: Optional[pulumi.Input[str]] = None,
+             cloudfront_distribution_zone_id: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'cloudfrontDistribution' in kwargs:
+            cloudfront_distribution = kwargs['cloudfrontDistribution']
+        if 'cloudfrontDistributionArn' in kwargs:
+            cloudfront_distribution_arn = kwargs['cloudfrontDistributionArn']
+        if 'cloudfrontDistributionZoneId' in kwargs:
+            cloudfront_distribution_zone_id = kwargs['cloudfrontDistributionZoneId']
+        if 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if certificate_arn is not None:
-            pulumi.set(__self__, "certificate_arn", certificate_arn)
+            _setter("certificate_arn", certificate_arn)
         if cloudfront_distribution is not None:
-            pulumi.set(__self__, "cloudfront_distribution", cloudfront_distribution)
+            _setter("cloudfront_distribution", cloudfront_distribution)
         if cloudfront_distribution_arn is not None:
-            pulumi.set(__self__, "cloudfront_distribution_arn", cloudfront_distribution_arn)
+            _setter("cloudfront_distribution_arn", cloudfront_distribution_arn)
         if cloudfront_distribution_zone_id is not None:
-            pulumi.set(__self__, "cloudfront_distribution_zone_id", cloudfront_distribution_zone_id)
+            _setter("cloudfront_distribution_zone_id", cloudfront_distribution_zone_id)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if s3_bucket is not None:
-            pulumi.set(__self__, "s3_bucket", s3_bucket)
+            _setter("s3_bucket", s3_bucket)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -340,6 +400,10 @@ class UserPoolDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserPoolDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

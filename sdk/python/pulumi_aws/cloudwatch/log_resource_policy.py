@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
@@ -21,8 +21,25 @@ class LogResourcePolicyArgs:
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[str] policy_name: Name of the resource policy.
         """
-        pulumi.set(__self__, "policy_document", policy_document)
-        pulumi.set(__self__, "policy_name", policy_name)
+        LogResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: pulumi.Input[str],
+             policy_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
+        _setter("policy_document", policy_document)
+        _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -59,10 +76,27 @@ class _LogResourcePolicyState:
         :param pulumi.Input[str] policy_document: Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         :param pulumi.Input[str] policy_name: Name of the resource policy.
         """
+        _LogResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_document=policy_document,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_document: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if policy_document is not None:
-            pulumi.set(__self__, "policy_document", policy_document)
+            _setter("policy_document", policy_document)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -230,6 +264,10 @@ class LogResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

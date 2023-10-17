@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceArgs>? EventSource { get; set; }
 
         /// <summary>
-        /// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+        /// Information about the event. See the `parameters` configuration block.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsParametersArgs>? Parameters { get; set; }

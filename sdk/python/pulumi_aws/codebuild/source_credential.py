@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SourceCredentialArgs', 'SourceCredential']
@@ -25,11 +25,34 @@ class SourceCredentialArgs:
         :param pulumi.Input[str] token: For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         :param pulumi.Input[str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         """
-        pulumi.set(__self__, "auth_type", auth_type)
-        pulumi.set(__self__, "server_type", server_type)
-        pulumi.set(__self__, "token", token)
+        SourceCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            server_type=server_type,
+            token=token,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: pulumi.Input[str],
+             server_type: pulumi.Input[str],
+             token: pulumi.Input[str],
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("auth_type", auth_type)
+        _setter("server_type", server_type)
+        _setter("token", token)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="authType")
@@ -96,16 +119,41 @@ class _SourceCredentialState:
         :param pulumi.Input[str] token: For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         :param pulumi.Input[str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         """
+        _SourceCredentialState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auth_type=auth_type,
+            server_type=server_type,
+            token=token,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             server_type: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if server_type is not None:
-            pulumi.set(__self__, "server_type", server_type)
+            _setter("server_type", server_type)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -277,6 +325,10 @@ class SourceCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

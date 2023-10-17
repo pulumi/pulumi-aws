@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The cpu override for the task.
+        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The memory override for the task.
+        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }

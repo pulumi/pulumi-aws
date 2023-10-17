@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,67 @@ class DataLakeSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
+        DataLakeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admins=admins,
+            allow_external_data_filtering=allow_external_data_filtering,
+            authorized_session_tag_value_lists=authorized_session_tag_value_lists,
+            catalog_id=catalog_id,
+            create_database_default_permissions=create_database_default_permissions,
+            create_table_default_permissions=create_table_default_permissions,
+            external_data_filtering_allow_lists=external_data_filtering_allow_lists,
+            read_only_admins=read_only_admins,
+            trusted_resource_owners=trusted_resource_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+             authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
+             create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+             external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowExternalDataFiltering' in kwargs:
+            allow_external_data_filtering = kwargs['allowExternalDataFiltering']
+        if 'authorizedSessionTagValueLists' in kwargs:
+            authorized_session_tag_value_lists = kwargs['authorizedSessionTagValueLists']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'createDatabaseDefaultPermissions' in kwargs:
+            create_database_default_permissions = kwargs['createDatabaseDefaultPermissions']
+        if 'createTableDefaultPermissions' in kwargs:
+            create_table_default_permissions = kwargs['createTableDefaultPermissions']
+        if 'externalDataFilteringAllowLists' in kwargs:
+            external_data_filtering_allow_lists = kwargs['externalDataFilteringAllowLists']
+        if 'readOnlyAdmins' in kwargs:
+            read_only_admins = kwargs['readOnlyAdmins']
+        if 'trustedResourceOwners' in kwargs:
+            trusted_resource_owners = kwargs['trustedResourceOwners']
+
         if admins is not None:
-            pulumi.set(__self__, "admins", admins)
+            _setter("admins", admins)
         if allow_external_data_filtering is not None:
-            pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+            _setter("allow_external_data_filtering", allow_external_data_filtering)
         if authorized_session_tag_value_lists is not None:
-            pulumi.set(__self__, "authorized_session_tag_value_lists", authorized_session_tag_value_lists)
+            _setter("authorized_session_tag_value_lists", authorized_session_tag_value_lists)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if create_database_default_permissions is not None:
-            pulumi.set(__self__, "create_database_default_permissions", create_database_default_permissions)
+            _setter("create_database_default_permissions", create_database_default_permissions)
         if create_table_default_permissions is not None:
-            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+            _setter("create_table_default_permissions", create_table_default_permissions)
         if external_data_filtering_allow_lists is not None:
-            pulumi.set(__self__, "external_data_filtering_allow_lists", external_data_filtering_allow_lists)
+            _setter("external_data_filtering_allow_lists", external_data_filtering_allow_lists)
         if read_only_admins is not None:
-            pulumi.set(__self__, "read_only_admins", read_only_admins)
+            _setter("read_only_admins", read_only_admins)
         if trusted_resource_owners is not None:
-            pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
+            _setter("trusted_resource_owners", trusted_resource_owners)
 
     @property
     @pulumi.getter
@@ -195,24 +238,67 @@ class _DataLakeSettingsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
+        _DataLakeSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admins=admins,
+            allow_external_data_filtering=allow_external_data_filtering,
+            authorized_session_tag_value_lists=authorized_session_tag_value_lists,
+            catalog_id=catalog_id,
+            create_database_default_permissions=create_database_default_permissions,
+            create_table_default_permissions=create_table_default_permissions,
+            external_data_filtering_allow_lists=external_data_filtering_allow_lists,
+            read_only_admins=read_only_admins,
+            trusted_resource_owners=trusted_resource_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
+             authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
+             create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+             external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowExternalDataFiltering' in kwargs:
+            allow_external_data_filtering = kwargs['allowExternalDataFiltering']
+        if 'authorizedSessionTagValueLists' in kwargs:
+            authorized_session_tag_value_lists = kwargs['authorizedSessionTagValueLists']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'createDatabaseDefaultPermissions' in kwargs:
+            create_database_default_permissions = kwargs['createDatabaseDefaultPermissions']
+        if 'createTableDefaultPermissions' in kwargs:
+            create_table_default_permissions = kwargs['createTableDefaultPermissions']
+        if 'externalDataFilteringAllowLists' in kwargs:
+            external_data_filtering_allow_lists = kwargs['externalDataFilteringAllowLists']
+        if 'readOnlyAdmins' in kwargs:
+            read_only_admins = kwargs['readOnlyAdmins']
+        if 'trustedResourceOwners' in kwargs:
+            trusted_resource_owners = kwargs['trustedResourceOwners']
+
         if admins is not None:
-            pulumi.set(__self__, "admins", admins)
+            _setter("admins", admins)
         if allow_external_data_filtering is not None:
-            pulumi.set(__self__, "allow_external_data_filtering", allow_external_data_filtering)
+            _setter("allow_external_data_filtering", allow_external_data_filtering)
         if authorized_session_tag_value_lists is not None:
-            pulumi.set(__self__, "authorized_session_tag_value_lists", authorized_session_tag_value_lists)
+            _setter("authorized_session_tag_value_lists", authorized_session_tag_value_lists)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if create_database_default_permissions is not None:
-            pulumi.set(__self__, "create_database_default_permissions", create_database_default_permissions)
+            _setter("create_database_default_permissions", create_database_default_permissions)
         if create_table_default_permissions is not None:
-            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+            _setter("create_table_default_permissions", create_table_default_permissions)
         if external_data_filtering_allow_lists is not None:
-            pulumi.set(__self__, "external_data_filtering_allow_lists", external_data_filtering_allow_lists)
+            _setter("external_data_filtering_allow_lists", external_data_filtering_allow_lists)
         if read_only_admins is not None:
-            pulumi.set(__self__, "read_only_admins", read_only_admins)
+            _setter("read_only_admins", read_only_admins)
         if trusted_resource_owners is not None:
-            pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
+            _setter("trusted_resource_owners", trusted_resource_owners)
 
     @property
     @pulumi.getter
@@ -514,6 +600,10 @@ class DataLakeSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataLakeSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

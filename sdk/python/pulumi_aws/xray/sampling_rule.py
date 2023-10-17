@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SamplingRuleArgs', 'SamplingRule']
@@ -43,22 +43,73 @@ class SamplingRuleArgs:
         :param pulumi.Input[str] rule_name: The name of the sampling rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "fixed_rate", fixed_rate)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "reservoir_size", reservoir_size)
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "service_type", service_type)
-        pulumi.set(__self__, "url_path", url_path)
-        pulumi.set(__self__, "version", version)
+        SamplingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fixed_rate=fixed_rate,
+            host=host,
+            http_method=http_method,
+            priority=priority,
+            reservoir_size=reservoir_size,
+            resource_arn=resource_arn,
+            service_name=service_name,
+            service_type=service_type,
+            url_path=url_path,
+            version=version,
+            attributes=attributes,
+            rule_name=rule_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fixed_rate: pulumi.Input[float],
+             host: pulumi.Input[str],
+             http_method: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             reservoir_size: pulumi.Input[int],
+             resource_arn: pulumi.Input[str],
+             service_name: pulumi.Input[str],
+             service_type: pulumi.Input[str],
+             url_path: pulumi.Input[str],
+             version: pulumi.Input[int],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
+        _setter("fixed_rate", fixed_rate)
+        _setter("host", host)
+        _setter("http_method", http_method)
+        _setter("priority", priority)
+        _setter("reservoir_size", reservoir_size)
+        _setter("resource_arn", resource_arn)
+        _setter("service_name", service_name)
+        _setter("service_type", service_type)
+        _setter("url_path", url_path)
+        _setter("version", version)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="fixedRate")
@@ -253,39 +304,96 @@ class _SamplingRuleState:
         :param pulumi.Input[str] url_path: Matches the path from a request URL.
         :param pulumi.Input[int] version: The version of the sampling rule format (`1` )
         """
+        _SamplingRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attributes=attributes,
+            fixed_rate=fixed_rate,
+            host=host,
+            http_method=http_method,
+            priority=priority,
+            reservoir_size=reservoir_size,
+            resource_arn=resource_arn,
+            rule_name=rule_name,
+            service_name=service_name,
+            service_type=service_type,
+            tags=tags,
+            tags_all=tags_all,
+            url_path=url_path,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             fixed_rate: Optional[pulumi.Input[float]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             reservoir_size: Optional[pulumi.Input[int]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url_path: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if fixed_rate is not None:
-            pulumi.set(__self__, "fixed_rate", fixed_rate)
+            _setter("fixed_rate", fixed_rate)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if reservoir_size is not None:
-            pulumi.set(__self__, "reservoir_size", reservoir_size)
+            _setter("reservoir_size", reservoir_size)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_type is not None:
-            pulumi.set(__self__, "service_type", service_type)
+            _setter("service_type", service_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url_path is not None:
-            pulumi.set(__self__, "url_path", url_path)
+            _setter("url_path", url_path)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -590,6 +698,10 @@ class SamplingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SamplingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

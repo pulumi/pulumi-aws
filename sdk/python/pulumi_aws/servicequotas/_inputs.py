@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,14 +27,39 @@ class ServiceQuotaUsageMetricArgs:
         :param pulumi.Input[str] metric_namespace: The namespace of the metric.
         :param pulumi.Input[str] metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
         """
+        ServiceQuotaUsageMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_dimensions=metric_dimensions,
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            metric_statistic_recommendation=metric_statistic_recommendation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             metric_statistic_recommendation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricDimensions' in kwargs:
+            metric_dimensions = kwargs['metricDimensions']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'metricStatisticRecommendation' in kwargs:
+            metric_statistic_recommendation = kwargs['metricStatisticRecommendation']
+
         if metric_dimensions is not None:
-            pulumi.set(__self__, "metric_dimensions", metric_dimensions)
+            _setter("metric_dimensions", metric_dimensions)
         if metric_name is not None:
-            pulumi.set(__self__, "metric_name", metric_name)
+            _setter("metric_name", metric_name)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if metric_statistic_recommendation is not None:
-            pulumi.set(__self__, "metric_statistic_recommendation", metric_statistic_recommendation)
+            _setter("metric_statistic_recommendation", metric_statistic_recommendation)
 
     @property
     @pulumi.getter(name="metricDimensions")
@@ -92,14 +117,33 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
                  resource: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        ServiceQuotaUsageMetricMetricDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            class_=class_,
+            resource=resource,
+            service=service,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             class_: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'class' in kwargs:
+            class_ = kwargs['class']
+
         if class_ is not None:
-            pulumi.set(__self__, "class_", class_)
+            _setter("class_", class_)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="class")

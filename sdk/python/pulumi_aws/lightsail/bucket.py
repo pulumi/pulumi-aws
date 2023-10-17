@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BucketArgs', 'Bucket']
@@ -25,13 +25,34 @@ class BucketArgs:
         :param pulumi.Input[str] name: The name for the bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "bundle_id", bundle_id)
+        BucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundle_id=bundle_id,
+            force_delete=force_delete,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundle_id: pulumi.Input[str],
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+
+        _setter("bundle_id", bundle_id)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -109,31 +130,74 @@ class _BucketState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _BucketState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zone=availability_zone,
+            bundle_id=bundle_id,
+            created_at=created_at,
+            force_delete=force_delete,
+            name=name,
+            region=region,
+            support_code=support_code,
+            tags=tags,
+            tags_all=tags_all,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             support_code: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if 'supportCode' in kwargs:
+            support_code = kwargs['supportCode']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if support_code is not None:
-            pulumi.set(__self__, "support_code", support_code)
+            _setter("support_code", support_code)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -341,6 +405,10 @@ class Bucket(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -52,7 +52,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings colorSpaceSettings;
     /**
-     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings filterSettings;
@@ -88,7 +88,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      */
     private @Nullable String gopSizeUnits;
     /**
-     * @return H264 level.
+     * @return H265 level.
      * 
      */
     private @Nullable String level;
@@ -210,7 +210,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         return Optional.ofNullable(this.colorSpaceSettings);
     }
     /**
-     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings> filterSettings() {
@@ -262,7 +262,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         return Optional.ofNullable(this.gopSizeUnits);
     }
     /**
-     * @return H264 level.
+     * @return H265 level.
      * 
      */
     public Optional<String> level() {

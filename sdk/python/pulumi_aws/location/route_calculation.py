@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteCalculationArgs', 'RouteCalculation']
@@ -27,12 +27,33 @@ class RouteCalculationArgs:
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "calculator_name", calculator_name)
-        pulumi.set(__self__, "data_source", data_source)
+        RouteCalculationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            calculator_name=calculator_name,
+            data_source=data_source,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             calculator_name: pulumi.Input[str],
+             data_source: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'calculatorName' in kwargs:
+            calculator_name = kwargs['calculatorName']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+
+        _setter("calculator_name", calculator_name)
+        _setter("data_source", data_source)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="calculatorName")
@@ -109,25 +130,62 @@ class _RouteCalculationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the route calculator resource was last update in ISO 8601.
         """
+        _RouteCalculationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            calculator_arn=calculator_arn,
+            calculator_name=calculator_name,
+            create_time=create_time,
+            data_source=data_source,
+            description=description,
+            tags=tags,
+            tags_all=tags_all,
+            update_time=update_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             calculator_arn: Optional[pulumi.Input[str]] = None,
+             calculator_name: Optional[pulumi.Input[str]] = None,
+             create_time: Optional[pulumi.Input[str]] = None,
+             data_source: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'calculatorArn' in kwargs:
+            calculator_arn = kwargs['calculatorArn']
+        if 'calculatorName' in kwargs:
+            calculator_name = kwargs['calculatorName']
+        if 'createTime' in kwargs:
+            create_time = kwargs['createTime']
+        if 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'updateTime' in kwargs:
+            update_time = kwargs['updateTime']
+
         if calculator_arn is not None:
-            pulumi.set(__self__, "calculator_arn", calculator_arn)
+            _setter("calculator_arn", calculator_arn)
         if calculator_name is not None:
-            pulumi.set(__self__, "calculator_name", calculator_name)
+            _setter("calculator_name", calculator_name)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+            _setter("update_time", update_time)
 
     @property
     @pulumi.getter(name="calculatorArn")
@@ -310,6 +368,10 @@ class RouteCalculation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteCalculationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

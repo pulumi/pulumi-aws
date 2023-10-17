@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,18 +44,47 @@ class ContainerServiceArgs:
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "power", power)
-        pulumi.set(__self__, "scale", scale)
+        ContainerServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            power=power,
+            scale=scale,
+            is_disabled=is_disabled,
+            name=name,
+            private_registry_access=private_registry_access,
+            public_domain_names=public_domain_names,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             power: pulumi.Input[str],
+             scale: pulumi.Input[int],
+             is_disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
+             public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDisabled' in kwargs:
+            is_disabled = kwargs['isDisabled']
+        if 'privateRegistryAccess' in kwargs:
+            private_registry_access = kwargs['privateRegistryAccess']
+        if 'publicDomainNames' in kwargs:
+            public_domain_names = kwargs['publicDomainNames']
+
+        _setter("power", power)
+        _setter("scale", scale)
         if is_disabled is not None:
-            pulumi.set(__self__, "is_disabled", is_disabled)
+            _setter("is_disabled", is_disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_registry_access is not None:
-            pulumi.set(__self__, "private_registry_access", private_registry_access)
+            _setter("private_registry_access", private_registry_access)
         if public_domain_names is not None:
-            pulumi.set(__self__, "public_domain_names", public_domain_names)
+            _setter("public_domain_names", public_domain_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -208,43 +237,106 @@ class _ContainerServiceState:
         :param pulumi.Input[str] url: The publicly accessible URL of the container service. If no public endpoint is specified in the
                currentDeployment, this URL returns a 404 response.
         """
+        _ContainerServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zone=availability_zone,
+            created_at=created_at,
+            is_disabled=is_disabled,
+            name=name,
+            power=power,
+            power_id=power_id,
+            principal_arn=principal_arn,
+            private_domain_name=private_domain_name,
+            private_registry_access=private_registry_access,
+            public_domain_names=public_domain_names,
+            resource_type=resource_type,
+            scale=scale,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             is_disabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             power: Optional[pulumi.Input[str]] = None,
+             power_id: Optional[pulumi.Input[str]] = None,
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             private_domain_name: Optional[pulumi.Input[str]] = None,
+             private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
+             public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             scale: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'isDisabled' in kwargs:
+            is_disabled = kwargs['isDisabled']
+        if 'powerId' in kwargs:
+            power_id = kwargs['powerId']
+        if 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if 'privateDomainName' in kwargs:
+            private_domain_name = kwargs['privateDomainName']
+        if 'privateRegistryAccess' in kwargs:
+            private_registry_access = kwargs['privateRegistryAccess']
+        if 'publicDomainNames' in kwargs:
+            public_domain_names = kwargs['publicDomainNames']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if is_disabled is not None:
-            pulumi.set(__self__, "is_disabled", is_disabled)
+            _setter("is_disabled", is_disabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if power is not None:
-            pulumi.set(__self__, "power", power)
+            _setter("power", power)
         if power_id is not None:
-            pulumi.set(__self__, "power_id", power_id)
+            _setter("power_id", power_id)
         if principal_arn is not None:
-            pulumi.set(__self__, "principal_arn", principal_arn)
+            _setter("principal_arn", principal_arn)
         if private_domain_name is not None:
-            pulumi.set(__self__, "private_domain_name", private_domain_name)
+            _setter("private_domain_name", private_domain_name)
         if private_registry_access is not None:
-            pulumi.set(__self__, "private_registry_access", private_registry_access)
+            _setter("private_registry_access", private_registry_access)
         if public_domain_names is not None:
-            pulumi.set(__self__, "public_domain_names", public_domain_names)
+            _setter("public_domain_names", public_domain_names)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -663,6 +755,10 @@ class ContainerService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -689,7 +785,17 @@ class ContainerService(pulumi.CustomResource):
             if power is None and not opts.urn:
                 raise TypeError("Missing required property 'power'")
             __props__.__dict__["power"] = power
+            if private_registry_access is not None and not isinstance(private_registry_access, ContainerServicePrivateRegistryAccessArgs):
+                private_registry_access = private_registry_access or {}
+                def _setter(key, value):
+                    private_registry_access[key] = value
+                ContainerServicePrivateRegistryAccessArgs._configure(_setter, **private_registry_access)
             __props__.__dict__["private_registry_access"] = private_registry_access
+            if public_domain_names is not None and not isinstance(public_domain_names, ContainerServicePublicDomainNamesArgs):
+                public_domain_names = public_domain_names or {}
+                def _setter(key, value):
+                    public_domain_names[key] = value
+                ContainerServicePublicDomainNamesArgs._configure(_setter, **public_domain_names)
             __props__.__dict__["public_domain_names"] = public_domain_names
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")

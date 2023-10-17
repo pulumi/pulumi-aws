@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         }
 
         /// <summary>
-        /// Unique identifier for the origin.
+        /// Unique identifier of the member origin.
         /// </summary>
         [Input("originId", required: true)]
         public Input<string> OriginId { get; set; } = null!;

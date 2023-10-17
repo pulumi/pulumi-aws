@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotScheduleAssociationArgs', 'SnapshotScheduleAssociation']
@@ -21,8 +21,25 @@ class SnapshotScheduleAssociationArgs:
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[str] schedule_identifier: The snapshot schedule identifier.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "schedule_identifier", schedule_identifier)
+        SnapshotScheduleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            schedule_identifier=schedule_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: pulumi.Input[str],
+             schedule_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'scheduleIdentifier' in kwargs:
+            schedule_identifier = kwargs['scheduleIdentifier']
+
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("schedule_identifier", schedule_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -59,10 +76,27 @@ class _SnapshotScheduleAssociationState:
         :param pulumi.Input[str] cluster_identifier: The cluster identifier.
         :param pulumi.Input[str] schedule_identifier: The snapshot schedule identifier.
         """
+        _SnapshotScheduleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_identifier=cluster_identifier,
+            schedule_identifier=schedule_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             schedule_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'scheduleIdentifier' in kwargs:
+            schedule_identifier = kwargs['scheduleIdentifier']
+
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if schedule_identifier is not None:
-            pulumi.set(__self__, "schedule_identifier", schedule_identifier)
+            _setter("schedule_identifier", schedule_identifier)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -178,6 +212,10 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotScheduleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

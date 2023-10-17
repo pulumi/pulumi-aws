@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetFunctionsResult',
     'AwaitableGetFunctionsResult',
     'get_functions',
+    'get_functions_output',
 ]
 
 @pulumi.output_type
@@ -88,3 +89,20 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
         function_arns=pulumi.get(__ret__, 'function_arns'),
         function_names=pulumi.get(__ret__, 'function_names'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_functions)
+def get_functions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsResult]:
+    """
+    Data resource to get a list of Lambda Functions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    all = aws.lambda.get_functions()
+    ```
+    """
+    ...

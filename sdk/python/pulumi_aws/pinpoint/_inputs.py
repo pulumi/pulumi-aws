@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,12 +26,31 @@ class AppCampaignHookArgs:
         :param pulumi.Input[str] mode: What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
         :param pulumi.Input[str] web_url: Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
         """
+        AppCampaignHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_function_name=lambda_function_name,
+            mode=mode,
+            web_url=web_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_function_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             web_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaFunctionName' in kwargs:
+            lambda_function_name = kwargs['lambdaFunctionName']
+        if 'webUrl' in kwargs:
+            web_url = kwargs['webUrl']
+
         if lambda_function_name is not None:
-            pulumi.set(__self__, "lambda_function_name", lambda_function_name)
+            _setter("lambda_function_name", lambda_function_name)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if web_url is not None:
-            pulumi.set(__self__, "web_url", web_url)
+            _setter("web_url", web_url)
 
     @property
     @pulumi.getter(name="lambdaFunctionName")
@@ -83,14 +102,35 @@ class AppLimitsArgs:
         :param pulumi.Input[int] messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
         :param pulumi.Input[int] total: The maximum total number of messages that the campaign can send.
         """
+        AppLimitsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            daily=daily,
+            maximum_duration=maximum_duration,
+            messages_per_second=messages_per_second,
+            total=total,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             daily: Optional[pulumi.Input[int]] = None,
+             maximum_duration: Optional[pulumi.Input[int]] = None,
+             messages_per_second: Optional[pulumi.Input[int]] = None,
+             total: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+        if 'messagesPerSecond' in kwargs:
+            messages_per_second = kwargs['messagesPerSecond']
+
         if daily is not None:
-            pulumi.set(__self__, "daily", daily)
+            _setter("daily", daily)
         if maximum_duration is not None:
-            pulumi.set(__self__, "maximum_duration", maximum_duration)
+            _setter("maximum_duration", maximum_duration)
         if messages_per_second is not None:
-            pulumi.set(__self__, "messages_per_second", messages_per_second)
+            _setter("messages_per_second", messages_per_second)
         if total is not None:
-            pulumi.set(__self__, "total", total)
+            _setter("total", total)
 
     @property
     @pulumi.getter
@@ -150,10 +190,23 @@ class AppQuietTimeArgs:
         :param pulumi.Input[str] end: The default end time for quiet time in ISO 8601 format. Required if `start` is set
         :param pulumi.Input[str] start: The default start time for quiet time in ISO 8601 format. Required if `end` is set
         """
+        AppQuietTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter

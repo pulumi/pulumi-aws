@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedZoneDnsSecArgs', 'HostedZoneDnsSec']
@@ -23,9 +23,26 @@ class HostedZoneDnsSecArgs:
                The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
-        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        HostedZoneDnsSecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            signing_status=signing_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: pulumi.Input[str],
+             signing_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'signingStatus' in kwargs:
+            signing_status = kwargs['signingStatus']
+
+        _setter("hosted_zone_id", hosted_zone_id)
         if signing_status is not None:
-            pulumi.set(__self__, "signing_status", signing_status)
+            _setter("signing_status", signing_status)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -66,10 +83,27 @@ class _HostedZoneDnsSecState:
                The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
+        _HostedZoneDnsSecState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosted_zone_id=hosted_zone_id,
+            signing_status=signing_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             signing_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'signingStatus' in kwargs:
+            signing_status = kwargs['signingStatus']
+
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if signing_status is not None:
-            pulumi.set(__self__, "signing_status", signing_status)
+            _setter("signing_status", signing_status)
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -255,6 +289,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedZoneDnsSecArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

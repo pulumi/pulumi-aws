@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,43 @@ class ConfigurationSetArgs:
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
+        ConfigurationSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_options=delivery_options,
+            name=name,
+            reputation_metrics_enabled=reputation_metrics_enabled,
+            sending_enabled=sending_enabled,
+            tracking_options=tracking_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             sending_enabled: Optional[pulumi.Input[bool]] = None,
+             tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if 'reputationMetricsEnabled' in kwargs:
+            reputation_metrics_enabled = kwargs['reputationMetricsEnabled']
+        if 'sendingEnabled' in kwargs:
+            sending_enabled = kwargs['sendingEnabled']
+        if 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+
         if delivery_options is not None:
-            pulumi.set(__self__, "delivery_options", delivery_options)
+            _setter("delivery_options", delivery_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reputation_metrics_enabled is not None:
-            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+            _setter("reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
-            pulumi.set(__self__, "sending_enabled", sending_enabled)
+            _setter("sending_enabled", sending_enabled)
         if tracking_options is not None:
-            pulumi.set(__self__, "tracking_options", tracking_options)
+            _setter("tracking_options", tracking_options)
 
     @property
     @pulumi.getter(name="deliveryOptions")
@@ -127,20 +154,53 @@ class _ConfigurationSetState:
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
         """
+        _ConfigurationSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            delivery_options=delivery_options,
+            last_fresh_start=last_fresh_start,
+            name=name,
+            reputation_metrics_enabled=reputation_metrics_enabled,
+            sending_enabled=sending_enabled,
+            tracking_options=tracking_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
+             last_fresh_start: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             sending_enabled: Optional[pulumi.Input[bool]] = None,
+             tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if 'lastFreshStart' in kwargs:
+            last_fresh_start = kwargs['lastFreshStart']
+        if 'reputationMetricsEnabled' in kwargs:
+            reputation_metrics_enabled = kwargs['reputationMetricsEnabled']
+        if 'sendingEnabled' in kwargs:
+            sending_enabled = kwargs['sendingEnabled']
+        if 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if delivery_options is not None:
-            pulumi.set(__self__, "delivery_options", delivery_options)
+            _setter("delivery_options", delivery_options)
         if last_fresh_start is not None:
-            pulumi.set(__self__, "last_fresh_start", last_fresh_start)
+            _setter("last_fresh_start", last_fresh_start)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reputation_metrics_enabled is not None:
-            pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+            _setter("reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
-            pulumi.set(__self__, "sending_enabled", sending_enabled)
+            _setter("sending_enabled", sending_enabled)
         if tracking_options is not None:
-            pulumi.set(__self__, "tracking_options", tracking_options)
+            _setter("tracking_options", tracking_options)
 
     @property
     @pulumi.getter
@@ -326,6 +386,10 @@ class ConfigurationSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -345,10 +409,20 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
+            if delivery_options is not None and not isinstance(delivery_options, ConfigurationSetDeliveryOptionsArgs):
+                delivery_options = delivery_options or {}
+                def _setter(key, value):
+                    delivery_options[key] = value
+                ConfigurationSetDeliveryOptionsArgs._configure(_setter, **delivery_options)
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
             __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
             __props__.__dict__["sending_enabled"] = sending_enabled
+            if tracking_options is not None and not isinstance(tracking_options, ConfigurationSetTrackingOptionsArgs):
+                tracking_options = tracking_options or {}
+                def _setter(key, value):
+                    tracking_options[key] = value
+                ConfigurationSetTrackingOptionsArgs._configure(_setter, **tracking_options)
             __props__.__dict__["tracking_options"] = tracking_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["last_fresh_start"] = None

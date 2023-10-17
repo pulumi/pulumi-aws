@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrafficPolicyArgs', 'TrafficPolicy']
@@ -25,11 +25,26 @@ class TrafficPolicyArgs:
         :param pulumi.Input[str] comment: Comment for the traffic policy.
         :param pulumi.Input[str] name: Name of the traffic policy.
         """
-        pulumi.set(__self__, "document", document)
+        TrafficPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document=document,
+            comment=comment,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document: pulumi.Input[str],
+             comment: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("document", document)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -88,16 +103,35 @@ class _TrafficPolicyState:
         :param pulumi.Input[str] type: DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
         :param pulumi.Input[int] version: Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
         """
+        _TrafficPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+            document=document,
+            name=name,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             document: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if document is not None:
-            pulumi.set(__self__, "document", document)
+            _setter("document", document)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -263,6 +297,10 @@ class TrafficPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

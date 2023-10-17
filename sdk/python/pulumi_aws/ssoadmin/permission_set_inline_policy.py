@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PermissionSetInlinePolicyArgs', 'PermissionSetInlinePolicy']
@@ -23,9 +23,30 @@ class PermissionSetInlinePolicyArgs:
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
-        pulumi.set(__self__, "inline_policy", inline_policy)
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        PermissionSetInlinePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inline_policy=inline_policy,
+            instance_arn=instance_arn,
+            permission_set_arn=permission_set_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inline_policy: pulumi.Input[str],
+             instance_arn: pulumi.Input[str],
+             permission_set_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inlinePolicy' in kwargs:
+            inline_policy = kwargs['inlinePolicy']
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+
+        _setter("inline_policy", inline_policy)
+        _setter("instance_arn", instance_arn)
+        _setter("permission_set_arn", permission_set_arn)
 
     @property
     @pulumi.getter(name="inlinePolicy")
@@ -76,12 +97,33 @@ class _PermissionSetInlinePolicyState:
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
+        _PermissionSetInlinePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inline_policy=inline_policy,
+            instance_arn=instance_arn,
+            permission_set_arn=permission_set_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inline_policy: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             permission_set_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inlinePolicy' in kwargs:
+            inline_policy = kwargs['inlinePolicy']
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+
         if inline_policy is not None:
-            pulumi.set(__self__, "inline_policy", inline_policy)
+            _setter("inline_policy", inline_policy)
         if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
+            _setter("instance_arn", instance_arn)
         if permission_set_arn is not None:
-            pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+            _setter("permission_set_arn", permission_set_arn)
 
     @property
     @pulumi.getter(name="inlinePolicy")
@@ -179,6 +221,10 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionSetInlinePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

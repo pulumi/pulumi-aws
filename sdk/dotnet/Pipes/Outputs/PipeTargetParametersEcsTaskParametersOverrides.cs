@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride> ContainerOverrides;
         /// <summary>
-        /// The cpu override for the task.
+        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         public readonly string? Cpu;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> InferenceAcceleratorOverrides;
         /// <summary>
-        /// The memory override for the task.
+        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         /// </summary>
         public readonly string? Memory;
         /// <summary>

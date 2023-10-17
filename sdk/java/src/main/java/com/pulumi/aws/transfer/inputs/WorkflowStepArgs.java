@@ -96,14 +96,14 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * @return The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
     public Output<String> type() {
@@ -245,7 +245,7 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class WorkflowStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type One of the following step types are supported. `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         * @param type The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
          * 
          * @return builder
          * 

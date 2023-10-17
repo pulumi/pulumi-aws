@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,56 @@ class ComputeEnvironmentArgs:
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "type", type)
+        ComputeEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            compute_environment_name=compute_environment_name,
+            compute_environment_name_prefix=compute_environment_name_prefix,
+            compute_resources=compute_resources,
+            eks_configuration=eks_configuration,
+            service_role=service_role,
+            state=state,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             compute_environment_name: Optional[pulumi.Input[str]] = None,
+             compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
+             compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+             eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if 'computeEnvironmentNamePrefix' in kwargs:
+            compute_environment_name_prefix = kwargs['computeEnvironmentNamePrefix']
+        if 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+
+        _setter("type", type)
         if compute_environment_name is not None:
-            pulumi.set(__self__, "compute_environment_name", compute_environment_name)
+            _setter("compute_environment_name", compute_environment_name)
         if compute_environment_name_prefix is not None:
-            pulumi.set(__self__, "compute_environment_name_prefix", compute_environment_name_prefix)
+            _setter("compute_environment_name_prefix", compute_environment_name_prefix)
         if compute_resources is not None:
-            pulumi.set(__self__, "compute_resources", compute_resources)
+            _setter("compute_resources", compute_resources)
         if eks_configuration is not None:
-            pulumi.set(__self__, "eks_configuration", eks_configuration)
+            _setter("eks_configuration", eks_configuration)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -180,35 +215,86 @@ class _ComputeEnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         """
+        _ComputeEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            compute_environment_name=compute_environment_name,
+            compute_environment_name_prefix=compute_environment_name_prefix,
+            compute_resources=compute_resources,
+            ecs_cluster_arn=ecs_cluster_arn,
+            eks_configuration=eks_configuration,
+            service_role=service_role,
+            state=state,
+            status=status,
+            status_reason=status_reason,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             compute_environment_name: Optional[pulumi.Input[str]] = None,
+             compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
+             compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
+             eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_reason: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if 'computeEnvironmentNamePrefix' in kwargs:
+            compute_environment_name_prefix = kwargs['computeEnvironmentNamePrefix']
+        if 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'statusReason' in kwargs:
+            status_reason = kwargs['statusReason']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compute_environment_name is not None:
-            pulumi.set(__self__, "compute_environment_name", compute_environment_name)
+            _setter("compute_environment_name", compute_environment_name)
         if compute_environment_name_prefix is not None:
-            pulumi.set(__self__, "compute_environment_name_prefix", compute_environment_name_prefix)
+            _setter("compute_environment_name_prefix", compute_environment_name_prefix)
         if compute_resources is not None:
-            pulumi.set(__self__, "compute_resources", compute_resources)
+            _setter("compute_resources", compute_resources)
         if ecs_cluster_arn is not None:
-            pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
+            _setter("ecs_cluster_arn", ecs_cluster_arn)
         if eks_configuration is not None:
-            pulumi.set(__self__, "eks_configuration", eks_configuration)
+            _setter("eks_configuration", eks_configuration)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_reason is not None:
-            pulumi.set(__self__, "status_reason", status_reason)
+            _setter("status_reason", status_reason)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -601,6 +687,10 @@ class ComputeEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComputeEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -625,7 +715,17 @@ class ComputeEnvironment(pulumi.CustomResource):
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
             __props__.__dict__["compute_environment_name_prefix"] = compute_environment_name_prefix
+            if compute_resources is not None and not isinstance(compute_resources, ComputeEnvironmentComputeResourcesArgs):
+                compute_resources = compute_resources or {}
+                def _setter(key, value):
+                    compute_resources[key] = value
+                ComputeEnvironmentComputeResourcesArgs._configure(_setter, **compute_resources)
             __props__.__dict__["compute_resources"] = compute_resources
+            if eks_configuration is not None and not isinstance(eks_configuration, ComputeEnvironmentEksConfigurationArgs):
+                eks_configuration = eks_configuration or {}
+                def _setter(key, value):
+                    eks_configuration[key] = value
+                ComputeEnvironmentEksConfigurationArgs._configure(_setter, **eks_configuration)
             __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["service_role"] = service_role
             __props__.__dict__["state"] = state

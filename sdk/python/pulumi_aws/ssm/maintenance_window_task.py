@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,27 +43,76 @@ class MaintenanceWindowTaskArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
         """
-        pulumi.set(__self__, "task_arn", task_arn)
-        pulumi.set(__self__, "task_type", task_type)
-        pulumi.set(__self__, "window_id", window_id)
+        MaintenanceWindowTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_arn=task_arn,
+            task_type=task_type,
+            window_id=window_id,
+            cutoff_behavior=cutoff_behavior,
+            description=description,
+            max_concurrency=max_concurrency,
+            max_errors=max_errors,
+            name=name,
+            priority=priority,
+            service_role_arn=service_role_arn,
+            targets=targets,
+            task_invocation_parameters=task_invocation_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_arn: pulumi.Input[str],
+             task_type: pulumi.Input[str],
+             window_id: pulumi.Input[str],
+             cutoff_behavior: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             max_concurrency: Optional[pulumi.Input[str]] = None,
+             max_errors: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+             task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskArn' in kwargs:
+            task_arn = kwargs['taskArn']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if 'cutoffBehavior' in kwargs:
+            cutoff_behavior = kwargs['cutoffBehavior']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'taskInvocationParameters' in kwargs:
+            task_invocation_parameters = kwargs['taskInvocationParameters']
+
+        _setter("task_arn", task_arn)
+        _setter("task_type", task_type)
+        _setter("window_id", window_id)
         if cutoff_behavior is not None:
-            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
+            _setter("cutoff_behavior", cutoff_behavior)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if max_errors is not None:
-            pulumi.set(__self__, "max_errors", max_errors)
+            _setter("max_errors", max_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if task_invocation_parameters is not None:
-            pulumi.set(__self__, "task_invocation_parameters", task_invocation_parameters)
+            _setter("task_invocation_parameters", task_invocation_parameters)
 
     @property
     @pulumi.getter(name="taskArn")
@@ -244,34 +293,89 @@ class _MaintenanceWindowTaskState:
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         :param pulumi.Input[str] window_task_id: The ID of the maintenance window task.
         """
+        _MaintenanceWindowTaskState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cutoff_behavior=cutoff_behavior,
+            description=description,
+            max_concurrency=max_concurrency,
+            max_errors=max_errors,
+            name=name,
+            priority=priority,
+            service_role_arn=service_role_arn,
+            targets=targets,
+            task_arn=task_arn,
+            task_invocation_parameters=task_invocation_parameters,
+            task_type=task_type,
+            window_id=window_id,
+            window_task_id=window_task_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cutoff_behavior: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             max_concurrency: Optional[pulumi.Input[str]] = None,
+             max_errors: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
+             task_arn: Optional[pulumi.Input[str]] = None,
+             task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             window_id: Optional[pulumi.Input[str]] = None,
+             window_task_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cutoffBehavior' in kwargs:
+            cutoff_behavior = kwargs['cutoffBehavior']
+        if 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if 'taskArn' in kwargs:
+            task_arn = kwargs['taskArn']
+        if 'taskInvocationParameters' in kwargs:
+            task_invocation_parameters = kwargs['taskInvocationParameters']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if 'windowTaskId' in kwargs:
+            window_task_id = kwargs['windowTaskId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cutoff_behavior is not None:
-            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
+            _setter("cutoff_behavior", cutoff_behavior)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if max_errors is not None:
-            pulumi.set(__self__, "max_errors", max_errors)
+            _setter("max_errors", max_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if task_arn is not None:
-            pulumi.set(__self__, "task_arn", task_arn)
+            _setter("task_arn", task_arn)
         if task_invocation_parameters is not None:
-            pulumi.set(__self__, "task_invocation_parameters", task_invocation_parameters)
+            _setter("task_invocation_parameters", task_invocation_parameters)
         if task_type is not None:
-            pulumi.set(__self__, "task_type", task_type)
+            _setter("task_type", task_type)
         if window_id is not None:
-            pulumi.set(__self__, "window_id", window_id)
+            _setter("window_id", window_id)
         if window_task_id is not None:
-            pulumi.set(__self__, "window_task_id", window_task_id)
+            _setter("window_task_id", window_task_id)
 
     @property
     @pulumi.getter
@@ -689,6 +793,10 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceWindowTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -726,6 +834,11 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
             __props__.__dict__["task_arn"] = task_arn
+            if task_invocation_parameters is not None and not isinstance(task_invocation_parameters, MaintenanceWindowTaskTaskInvocationParametersArgs):
+                task_invocation_parameters = task_invocation_parameters or {}
+                def _setter(key, value):
+                    task_invocation_parameters[key] = value
+                MaintenanceWindowTaskTaskInvocationParametersArgs._configure(_setter, **task_invocation_parameters)
             __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
             if task_type is None and not opts.urn:
                 raise TypeError("Missing required property 'task_type'")

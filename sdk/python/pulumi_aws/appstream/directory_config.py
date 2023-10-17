@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,30 @@ class DirectoryConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
-        pulumi.set(__self__, "directory_name", directory_name)
-        pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
-        pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+        DirectoryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_names=organizational_unit_distinguished_names,
+            service_account_credentials=service_account_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: pulumi.Input[str],
+             organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'organizationalUnitDistinguishedNames' in kwargs:
+            organizational_unit_distinguished_names = kwargs['organizationalUnitDistinguishedNames']
+        if 'serviceAccountCredentials' in kwargs:
+            service_account_credentials = kwargs['serviceAccountCredentials']
+
+        _setter("directory_name", directory_name)
+        _setter("organizational_unit_distinguished_names", organizational_unit_distinguished_names)
+        _setter("service_account_credentials", service_account_credentials)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -80,14 +101,39 @@ class _DirectoryConfigState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
+        _DirectoryConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time=created_time,
+            directory_name=directory_name,
+            organizational_unit_distinguished_names=organizational_unit_distinguished_names,
+            service_account_credentials=service_account_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time: Optional[pulumi.Input[str]] = None,
+             directory_name: Optional[pulumi.Input[str]] = None,
+             organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_account_credentials: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if 'organizationalUnitDistinguishedNames' in kwargs:
+            organizational_unit_distinguished_names = kwargs['organizationalUnitDistinguishedNames']
+        if 'serviceAccountCredentials' in kwargs:
+            service_account_credentials = kwargs['serviceAccountCredentials']
+
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_names is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
+            _setter("organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         if service_account_credentials is not None:
-            pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+            _setter("service_account_credentials", service_account_credentials)
 
     @property
     @pulumi.getter(name="createdTime")
@@ -221,6 +267,10 @@ class DirectoryConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,6 +294,11 @@ class DirectoryConfig(pulumi.CustomResource):
             if organizational_unit_distinguished_names is None and not opts.urn:
                 raise TypeError("Missing required property 'organizational_unit_distinguished_names'")
             __props__.__dict__["organizational_unit_distinguished_names"] = organizational_unit_distinguished_names
+            if service_account_credentials is not None and not isinstance(service_account_credentials, DirectoryConfigServiceAccountCredentialsArgs):
+                service_account_credentials = service_account_credentials or {}
+                def _setter(key, value):
+                    service_account_credentials[key] = value
+                DirectoryConfigServiceAccountCredentialsArgs._configure(_setter, **service_account_credentials)
             if service_account_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_credentials'")
             __props__.__dict__["service_account_credentials"] = service_account_credentials

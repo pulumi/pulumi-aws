@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -21,8 +21,23 @@ class ResourcePolicyArgs:
         :param pulumi.Input[str] policy: A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
         :param pulumi.Input[str] resource_arn: The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ResourcePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: pulumi.Input[str],
+             resource_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
+        _setter("policy", policy)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -59,10 +74,25 @@ class _ResourcePolicyState:
         :param pulumi.Input[str] policy: A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
         :param pulumi.Input[str] resource_arn: The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         """
+        _ResourcePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -212,6 +242,10 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

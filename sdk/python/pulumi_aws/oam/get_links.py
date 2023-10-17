@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetLinksResult',
     'AwaitableGetLinksResult',
     'get_links',
+    'get_links_output',
 ]
 
 @pulumi.output_type
@@ -76,3 +77,21 @@ def get_links(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksR
     return AwaitableGetLinksResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'))
+
+
+@_utilities.lift_output_func(get_links)
+def get_links_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinksResult]:
+    """
+    Data source for managing an AWS CloudWatch Observability Access Manager Links.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.oam.get_links()
+    ```
+    """
+    ...

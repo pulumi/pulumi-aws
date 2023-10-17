@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -44,10 +44,23 @@ class DataLakeSettingsCreateDatabaseDefaultPermission(dict):
         :param Sequence[str] permissions: List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param str principal: Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
         """
+        DataLakeSettingsCreateDatabaseDefaultPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[Sequence[str]] = None,
+             principal: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -75,10 +88,23 @@ class DataLakeSettingsCreateTableDefaultPermission(dict):
         :param Sequence[str] permissions: List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param str principal: Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
         """
+        DataLakeSettingsCreateTableDefaultPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[Sequence[str]] = None,
+             principal: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -125,9 +151,24 @@ class PermissionsDataLocation(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "arn", arn)
+        PermissionsDataLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("arn", arn)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -176,9 +217,24 @@ class PermissionsDatabase(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "name", name)
+        PermissionsDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("name", name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -229,10 +285,27 @@ class PermissionsLfTag(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        PermissionsLfTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("key", key)
+        _setter("values", values)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -293,10 +366,29 @@ class PermissionsLfTagPolicy(dict):
         :param str resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "expressions", expressions)
-        pulumi.set(__self__, "resource_type", resource_type)
+        PermissionsLfTagPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expressions=expressions,
+            resource_type=resource_type,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expressions: Sequence['outputs.PermissionsLfTagPolicyExpression'],
+             resource_type: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("expressions", expressions)
+        _setter("resource_type", resource_type)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -334,8 +426,21 @@ class PermissionsLfTagPolicyExpression(dict):
         :param str key: The key-name of an LF-Tag.
         :param Sequence[str] values: A list of possible values of an LF-Tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        PermissionsLfTagPolicyExpression._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -388,13 +493,34 @@ class PermissionsTable(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "database_name", database_name)
+        PermissionsTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            catalog_id=catalog_id,
+            name=name,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             catalog_id: Optional[str] = None,
+             name: Optional[str] = None,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("database_name", database_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -473,16 +599,45 @@ class PermissionsTableWithColumns(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        PermissionsTableWithColumns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            name=name,
+            catalog_id=catalog_id,
+            column_names=column_names,
+            excluded_column_names=excluded_column_names,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             name: str,
+             catalog_id: Optional[str] = None,
+             column_names: Optional[Sequence[str]] = None,
+             excluded_column_names: Optional[Sequence[str]] = None,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
+        _setter("database_name", database_name)
+        _setter("name", name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -563,9 +718,24 @@ class ResourceLfTagsDatabase(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceLfTagsDatabase._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("name", name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -616,10 +786,27 @@ class ResourceLfTagsLfTag(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ResourceLfTagsLfTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             catalog_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("key", key)
+        _setter("value", value)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -682,13 +869,34 @@ class ResourceLfTagsTable(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "database_name", database_name)
+        ResourceLfTagsTable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            catalog_id=catalog_id,
+            name=name,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             catalog_id: Optional[str] = None,
+             name: Optional[str] = None,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("database_name", database_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -767,16 +975,45 @@ class ResourceLfTagsTableWithColumns(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        ResourceLfTagsTableWithColumns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            name=name,
+            catalog_id=catalog_id,
+            column_names=column_names,
+            excluded_column_names=excluded_column_names,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             name: str,
+             catalog_id: Optional[str] = None,
+             column_names: Optional[Sequence[str]] = None,
+             excluded_column_names: Optional[Sequence[str]] = None,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
+        _setter("database_name", database_name)
+        _setter("name", name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -838,8 +1075,21 @@ class GetDataLakeSettingsCreateDatabaseDefaultPermissionResult(dict):
         :param Sequence[str] permissions: List of permissions granted to the principal.
         :param str principal: Principal who is granted permissions.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
+        GetDataLakeSettingsCreateDatabaseDefaultPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -867,8 +1117,21 @@ class GetDataLakeSettingsCreateTableDefaultPermissionResult(dict):
         :param Sequence[str] permissions: List of permissions granted to the principal.
         :param str principal: Principal who is granted permissions.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
+        GetDataLakeSettingsCreateTableDefaultPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Sequence[str],
+             principal: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
 
     @property
     @pulumi.getter
@@ -898,8 +1161,23 @@ class GetPermissionsDataLocationResult(dict):
                The following argument is optional:
         :param str catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "catalog_id", catalog_id)
+        GetPermissionsDataLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            catalog_id=catalog_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: str,
+             catalog_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("arn", arn)
+        _setter("catalog_id", catalog_id)
 
     @property
     @pulumi.getter
@@ -931,8 +1209,23 @@ class GetPermissionsDatabaseResult(dict):
                
                The following argument is optional:
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "name", name)
+        GetPermissionsDatabaseResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("catalog_id", catalog_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -966,9 +1259,26 @@ class GetPermissionsLfTagResult(dict):
                
                The following argument is optional:
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        GetPermissionsLfTagResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
+        _setter("catalog_id", catalog_id)
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1010,9 +1320,28 @@ class GetPermissionsLfTagPolicyResult(dict):
                The following argument is optional:
         :param str resource_type: Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "expressions", expressions)
-        pulumi.set(__self__, "resource_type", resource_type)
+        GetPermissionsLfTagPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            expressions=expressions,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             expressions: Sequence['outputs.GetPermissionsLfTagPolicyExpressionResult'],
+             resource_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("catalog_id", catalog_id)
+        _setter("expressions", expressions)
+        _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1050,8 +1379,21 @@ class GetPermissionsLfTagPolicyExpressionResult(dict):
         :param str key: Key-name of an LF-Tag.
         :param Sequence[str] values: List of possible values of an LF-Tag.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        GetPermissionsLfTagPolicyExpressionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1085,11 +1427,32 @@ class GetPermissionsTableResult(dict):
         :param str name: Name of the table. At least one of `name` or `wildcard` is required.
         :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        GetPermissionsTableResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             database_name: str,
+             name: str,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("name", name)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -1145,15 +1508,44 @@ class GetPermissionsTableWithColumnsResult(dict):
         :param Sequence[str] excluded_column_names: Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
         :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
         """
-        pulumi.set(__self__, "catalog_id", catalog_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "name", name)
+        GetPermissionsTableWithColumnsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            database_name=database_name,
+            name=name,
+            column_names=column_names,
+            excluded_column_names=excluded_column_names,
+            wildcard=wildcard,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: str,
+             database_name: str,
+             name: str,
+             column_names: Optional[Sequence[str]] = None,
+             excluded_column_names: Optional[Sequence[str]] = None,
+             wildcard: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
+        _setter("catalog_id", catalog_id)
+        _setter("database_name", database_name)
+        _setter("name", name)
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if excluded_column_names is not None:
-            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+            _setter("excluded_column_names", excluded_column_names)
         if wildcard is not None:
-            pulumi.set(__self__, "wildcard", wildcard)
+            _setter("wildcard", wildcard)
 
     @property
     @pulumi.getter(name="catalogId")

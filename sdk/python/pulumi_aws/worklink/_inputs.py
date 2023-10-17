@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,8 +23,23 @@ class FleetIdentityProviderArgs:
         :param pulumi.Input[str] saml_metadata: The SAML metadata document provided by the customer’s identity provider.
         :param pulumi.Input[str] type: The type of identity provider.
         """
-        pulumi.set(__self__, "saml_metadata", saml_metadata)
-        pulumi.set(__self__, "type", type)
+        FleetIdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            saml_metadata=saml_metadata,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             saml_metadata: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'samlMetadata' in kwargs:
+            saml_metadata = kwargs['samlMetadata']
+
+        _setter("saml_metadata", saml_metadata)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="samlMetadata")
@@ -66,9 +81,30 @@ class FleetNetworkArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         :param pulumi.Input[str] vpc_id: The VPC ID with connectivity to associated websites.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        FleetNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")

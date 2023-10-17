@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -56,12 +56,33 @@ class TableCapacitySpecification(dict):
         :param str throughput_mode: The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         :param int write_capacity_units: The throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
+        TableCapacitySpecification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            read_capacity_units=read_capacity_units,
+            throughput_mode=throughput_mode,
+            write_capacity_units=write_capacity_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             read_capacity_units: Optional[int] = None,
+             throughput_mode: Optional[str] = None,
+             write_capacity_units: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if 'throughputMode' in kwargs:
+            throughput_mode = kwargs['throughputMode']
+        if 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+
         if read_capacity_units is not None:
-            pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+            _setter("read_capacity_units", read_capacity_units)
         if throughput_mode is not None:
-            pulumi.set(__self__, "throughput_mode", throughput_mode)
+            _setter("throughput_mode", throughput_mode)
         if write_capacity_units is not None:
-            pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+            _setter("write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
@@ -95,7 +116,18 @@ class TableClientSideTimestamps(dict):
         """
         :param str status: Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
         """
-        pulumi.set(__self__, "status", status)
+        TableClientSideTimestamps._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -113,8 +145,19 @@ class TableComment(dict):
         """
         :param str message: A description of the table.
         """
+        TableComment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -151,10 +194,25 @@ class TableEncryptionSpecification(dict):
         :param str kms_key_identifier: The Amazon Resource Name (ARN) of the customer managed KMS key.
         :param str type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
+        TableEncryptionSpecification._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_identifier=kms_key_identifier,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_identifier: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         if kms_key_identifier is not None:
-            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
+            _setter("kms_key_identifier", kms_key_identifier)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="kmsKeyIdentifier")
@@ -180,8 +238,19 @@ class TablePointInTimeRecovery(dict):
         """
         :param str status: Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
         """
+        TablePointInTimeRecovery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -226,12 +295,35 @@ class TableSchemaDefinition(dict):
         :param Sequence['TableSchemaDefinitionClusteringKeyArgs'] clustering_keys: The columns that are part of the clustering key of the table.
         :param Sequence['TableSchemaDefinitionStaticColumnArgs'] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "partition_keys", partition_keys)
+        TableSchemaDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            partition_keys=partition_keys,
+            clustering_keys=clustering_keys,
+            static_columns=static_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Sequence['outputs.TableSchemaDefinitionColumn'],
+             partition_keys: Sequence['outputs.TableSchemaDefinitionPartitionKey'],
+             clustering_keys: Optional[Sequence['outputs.TableSchemaDefinitionClusteringKey']] = None,
+             static_columns: Optional[Sequence['outputs.TableSchemaDefinitionStaticColumn']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKeys' in kwargs:
+            partition_keys = kwargs['partitionKeys']
+        if 'clusteringKeys' in kwargs:
+            clustering_keys = kwargs['clusteringKeys']
+        if 'staticColumns' in kwargs:
+            static_columns = kwargs['staticColumns']
+
+        _setter("columns", columns)
+        _setter("partition_keys", partition_keys)
         if clustering_keys is not None:
-            pulumi.set(__self__, "clustering_keys", clustering_keys)
+            _setter("clustering_keys", clustering_keys)
         if static_columns is not None:
-            pulumi.set(__self__, "static_columns", static_columns)
+            _setter("static_columns", static_columns)
 
     @property
     @pulumi.getter
@@ -292,8 +384,23 @@ class TableSchemaDefinitionClusteringKey(dict):
         :param str name: The name of the clustering key column.
         :param str order_by: The order modifier. Valid values: `ASC`, `DESC`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order_by", order_by)
+        TableSchemaDefinitionClusteringKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order_by=order_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             order_by: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+
+        _setter("name", name)
+        _setter("order_by", order_by)
 
     @property
     @pulumi.getter
@@ -321,8 +428,21 @@ class TableSchemaDefinitionColumn(dict):
         :param str name: The name of the column.
         :param str type: The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TableSchemaDefinitionColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -348,7 +468,18 @@ class TableSchemaDefinitionPartitionKey(dict):
         """
         :param str name: The name of the partition key column.
         """
-        pulumi.set(__self__, "name", name)
+        TableSchemaDefinitionPartitionKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -366,7 +497,18 @@ class TableSchemaDefinitionStaticColumn(dict):
         """
         :param str name: The name of the static column.
         """
-        pulumi.set(__self__, "name", name)
+        TableSchemaDefinitionStaticColumn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -384,7 +526,18 @@ class TableTtl(dict):
         """
         :param str status: Valid values: `ENABLED`.
         """
-        pulumi.set(__self__, "status", status)
+        TableTtl._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("status", status)
 
     @property
     @pulumi.getter

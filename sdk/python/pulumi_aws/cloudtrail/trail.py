@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,37 +53,106 @@ class TrailArgs:
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        TrailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            advanced_event_selectors=advanced_event_selectors,
+            cloud_watch_logs_group_arn=cloud_watch_logs_group_arn,
+            cloud_watch_logs_role_arn=cloud_watch_logs_role_arn,
+            enable_log_file_validation=enable_log_file_validation,
+            enable_logging=enable_logging,
+            event_selectors=event_selectors,
+            include_global_service_events=include_global_service_events,
+            insight_selectors=insight_selectors,
+            is_multi_region_trail=is_multi_region_trail,
+            is_organization_trail=is_organization_trail,
+            kms_key_id=kms_key_id,
+            name=name,
+            s3_key_prefix=s3_key_prefix,
+            sns_topic_name=sns_topic_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: pulumi.Input[str],
+             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]] = None,
+             cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
+             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
+             enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
+             enable_logging: Optional[pulumi.Input[bool]] = None,
+             event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorArgs']]]] = None,
+             include_global_service_events: Optional[pulumi.Input[bool]] = None,
+             insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]]] = None,
+             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
+             is_organization_trail: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             sns_topic_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 'advancedEventSelectors' in kwargs:
+            advanced_event_selectors = kwargs['advancedEventSelectors']
+        if 'cloudWatchLogsGroupArn' in kwargs:
+            cloud_watch_logs_group_arn = kwargs['cloudWatchLogsGroupArn']
+        if 'cloudWatchLogsRoleArn' in kwargs:
+            cloud_watch_logs_role_arn = kwargs['cloudWatchLogsRoleArn']
+        if 'enableLogFileValidation' in kwargs:
+            enable_log_file_validation = kwargs['enableLogFileValidation']
+        if 'enableLogging' in kwargs:
+            enable_logging = kwargs['enableLogging']
+        if 'eventSelectors' in kwargs:
+            event_selectors = kwargs['eventSelectors']
+        if 'includeGlobalServiceEvents' in kwargs:
+            include_global_service_events = kwargs['includeGlobalServiceEvents']
+        if 'insightSelectors' in kwargs:
+            insight_selectors = kwargs['insightSelectors']
+        if 'isMultiRegionTrail' in kwargs:
+            is_multi_region_trail = kwargs['isMultiRegionTrail']
+        if 'isOrganizationTrail' in kwargs:
+            is_organization_trail = kwargs['isOrganizationTrail']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if 'snsTopicName' in kwargs:
+            sns_topic_name = kwargs['snsTopicName']
+
+        _setter("s3_bucket_name", s3_bucket_name)
         if advanced_event_selectors is not None:
-            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+            _setter("advanced_event_selectors", advanced_event_selectors)
         if cloud_watch_logs_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_group_arn", cloud_watch_logs_group_arn)
+            _setter("cloud_watch_logs_group_arn", cloud_watch_logs_group_arn)
         if cloud_watch_logs_role_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+            _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if enable_log_file_validation is not None:
-            pulumi.set(__self__, "enable_log_file_validation", enable_log_file_validation)
+            _setter("enable_log_file_validation", enable_log_file_validation)
         if enable_logging is not None:
-            pulumi.set(__self__, "enable_logging", enable_logging)
+            _setter("enable_logging", enable_logging)
         if event_selectors is not None:
-            pulumi.set(__self__, "event_selectors", event_selectors)
+            _setter("event_selectors", event_selectors)
         if include_global_service_events is not None:
-            pulumi.set(__self__, "include_global_service_events", include_global_service_events)
+            _setter("include_global_service_events", include_global_service_events)
         if insight_selectors is not None:
-            pulumi.set(__self__, "insight_selectors", insight_selectors)
+            _setter("insight_selectors", insight_selectors)
         if is_multi_region_trail is not None:
-            pulumi.set(__self__, "is_multi_region_trail", is_multi_region_trail)
+            _setter("is_multi_region_trail", is_multi_region_trail)
         if is_organization_trail is not None:
-            pulumi.set(__self__, "is_organization_trail", is_organization_trail)
+            _setter("is_organization_trail", is_organization_trail)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
-            pulumi.set(__self__, "sns_topic_name", sns_topic_name)
+            _setter("sns_topic_name", sns_topic_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -326,47 +395,126 @@ class _TrailState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _TrailState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_event_selectors=advanced_event_selectors,
+            arn=arn,
+            cloud_watch_logs_group_arn=cloud_watch_logs_group_arn,
+            cloud_watch_logs_role_arn=cloud_watch_logs_role_arn,
+            enable_log_file_validation=enable_log_file_validation,
+            enable_logging=enable_logging,
+            event_selectors=event_selectors,
+            home_region=home_region,
+            include_global_service_events=include_global_service_events,
+            insight_selectors=insight_selectors,
+            is_multi_region_trail=is_multi_region_trail,
+            is_organization_trail=is_organization_trail,
+            kms_key_id=kms_key_id,
+            name=name,
+            s3_bucket_name=s3_bucket_name,
+            s3_key_prefix=s3_key_prefix,
+            sns_topic_name=sns_topic_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
+             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
+             enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
+             enable_logging: Optional[pulumi.Input[bool]] = None,
+             event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorArgs']]]] = None,
+             home_region: Optional[pulumi.Input[str]] = None,
+             include_global_service_events: Optional[pulumi.Input[bool]] = None,
+             insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]]] = None,
+             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
+             is_organization_trail: Optional[pulumi.Input[bool]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             sns_topic_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advancedEventSelectors' in kwargs:
+            advanced_event_selectors = kwargs['advancedEventSelectors']
+        if 'cloudWatchLogsGroupArn' in kwargs:
+            cloud_watch_logs_group_arn = kwargs['cloudWatchLogsGroupArn']
+        if 'cloudWatchLogsRoleArn' in kwargs:
+            cloud_watch_logs_role_arn = kwargs['cloudWatchLogsRoleArn']
+        if 'enableLogFileValidation' in kwargs:
+            enable_log_file_validation = kwargs['enableLogFileValidation']
+        if 'enableLogging' in kwargs:
+            enable_logging = kwargs['enableLogging']
+        if 'eventSelectors' in kwargs:
+            event_selectors = kwargs['eventSelectors']
+        if 'homeRegion' in kwargs:
+            home_region = kwargs['homeRegion']
+        if 'includeGlobalServiceEvents' in kwargs:
+            include_global_service_events = kwargs['includeGlobalServiceEvents']
+        if 'insightSelectors' in kwargs:
+            insight_selectors = kwargs['insightSelectors']
+        if 'isMultiRegionTrail' in kwargs:
+            is_multi_region_trail = kwargs['isMultiRegionTrail']
+        if 'isOrganizationTrail' in kwargs:
+            is_organization_trail = kwargs['isOrganizationTrail']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if 'snsTopicName' in kwargs:
+            sns_topic_name = kwargs['snsTopicName']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if advanced_event_selectors is not None:
-            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+            _setter("advanced_event_selectors", advanced_event_selectors)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloud_watch_logs_group_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_group_arn", cloud_watch_logs_group_arn)
+            _setter("cloud_watch_logs_group_arn", cloud_watch_logs_group_arn)
         if cloud_watch_logs_role_arn is not None:
-            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+            _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if enable_log_file_validation is not None:
-            pulumi.set(__self__, "enable_log_file_validation", enable_log_file_validation)
+            _setter("enable_log_file_validation", enable_log_file_validation)
         if enable_logging is not None:
-            pulumi.set(__self__, "enable_logging", enable_logging)
+            _setter("enable_logging", enable_logging)
         if event_selectors is not None:
-            pulumi.set(__self__, "event_selectors", event_selectors)
+            _setter("event_selectors", event_selectors)
         if home_region is not None:
-            pulumi.set(__self__, "home_region", home_region)
+            _setter("home_region", home_region)
         if include_global_service_events is not None:
-            pulumi.set(__self__, "include_global_service_events", include_global_service_events)
+            _setter("include_global_service_events", include_global_service_events)
         if insight_selectors is not None:
-            pulumi.set(__self__, "insight_selectors", insight_selectors)
+            _setter("insight_selectors", insight_selectors)
         if is_multi_region_trail is not None:
-            pulumi.set(__self__, "is_multi_region_trail", is_multi_region_trail)
+            _setter("is_multi_region_trail", is_multi_region_trail)
         if is_organization_trail is not None:
-            pulumi.set(__self__, "is_organization_trail", is_organization_trail)
+            _setter("is_organization_trail", is_organization_trail)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if s3_bucket_name is not None:
-            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+            _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
-            pulumi.set(__self__, "sns_topic_name", sns_topic_name)
+            _setter("sns_topic_name", sns_topic_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="advancedEventSelectors")
@@ -939,6 +1087,10 @@ class Trail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

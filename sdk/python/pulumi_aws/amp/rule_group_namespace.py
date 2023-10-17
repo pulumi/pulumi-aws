@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RuleGroupNamespaceArgs', 'RuleGroupNamespace']
@@ -23,10 +23,27 @@ class RuleGroupNamespaceArgs:
         :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
         :param pulumi.Input[str] name: The name of the rule group namespace
         """
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        RuleGroupNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            workspace_id=workspace_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("data", data)
+        _setter("workspace_id", workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -77,12 +94,29 @@ class _RuleGroupNamespaceState:
         :param pulumi.Input[str] name: The name of the rule group namespace
         :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
         """
+        _RuleGroupNamespaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            name=name,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -208,6 +242,10 @@ class RuleGroupNamespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RuleGroupNamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

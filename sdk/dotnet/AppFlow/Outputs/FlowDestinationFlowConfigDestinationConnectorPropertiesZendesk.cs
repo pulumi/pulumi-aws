@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk
     {
         /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>

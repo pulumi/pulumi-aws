@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,59 @@ class QueueArgs:
         :param pulumi.Input[str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "hours_of_operation_id", hours_of_operation_id)
-        pulumi.set(__self__, "instance_id", instance_id)
+        QueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours_of_operation_id=hours_of_operation_id,
+            instance_id=instance_id,
+            description=description,
+            max_contacts=max_contacts,
+            name=name,
+            outbound_caller_config=outbound_caller_config,
+            quick_connect_ids=quick_connect_ids,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours_of_operation_id: pulumi.Input[str],
+             instance_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             max_contacts: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_caller_config: Optional[pulumi.Input['QueueOutboundCallerConfigArgs']] = None,
+             quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hoursOfOperationId' in kwargs:
+            hours_of_operation_id = kwargs['hoursOfOperationId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'maxContacts' in kwargs:
+            max_contacts = kwargs['maxContacts']
+        if 'outboundCallerConfig' in kwargs:
+            outbound_caller_config = kwargs['outboundCallerConfig']
+        if 'quickConnectIds' in kwargs:
+            quick_connect_ids = kwargs['quickConnectIds']
+
+        _setter("hours_of_operation_id", hours_of_operation_id)
+        _setter("instance_id", instance_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if max_contacts is not None:
-            pulumi.set(__self__, "max_contacts", max_contacts)
+            _setter("max_contacts", max_contacts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_caller_config is not None:
-            pulumi.set(__self__, "outbound_caller_config", outbound_caller_config)
+            _setter("outbound_caller_config", outbound_caller_config)
         if quick_connect_ids is not None:
-            pulumi.set(__self__, "quick_connect_ids", quick_connect_ids)
+            _setter("quick_connect_ids", quick_connect_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
@@ -193,33 +230,80 @@ class _QueueState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _QueueState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            hours_of_operation_id=hours_of_operation_id,
+            instance_id=instance_id,
+            max_contacts=max_contacts,
+            name=name,
+            outbound_caller_config=outbound_caller_config,
+            queue_id=queue_id,
+            quick_connect_ids=quick_connect_ids,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hours_of_operation_id: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             max_contacts: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_caller_config: Optional[pulumi.Input['QueueOutboundCallerConfigArgs']] = None,
+             queue_id: Optional[pulumi.Input[str]] = None,
+             quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hoursOfOperationId' in kwargs:
+            hours_of_operation_id = kwargs['hoursOfOperationId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'maxContacts' in kwargs:
+            max_contacts = kwargs['maxContacts']
+        if 'outboundCallerConfig' in kwargs:
+            outbound_caller_config = kwargs['outboundCallerConfig']
+        if 'queueId' in kwargs:
+            queue_id = kwargs['queueId']
+        if 'quickConnectIds' in kwargs:
+            quick_connect_ids = kwargs['quickConnectIds']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hours_of_operation_id is not None:
-            pulumi.set(__self__, "hours_of_operation_id", hours_of_operation_id)
+            _setter("hours_of_operation_id", hours_of_operation_id)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if max_contacts is not None:
-            pulumi.set(__self__, "max_contacts", max_contacts)
+            _setter("max_contacts", max_contacts)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_caller_config is not None:
-            pulumi.set(__self__, "outbound_caller_config", outbound_caller_config)
+            _setter("outbound_caller_config", outbound_caller_config)
         if queue_id is not None:
-            pulumi.set(__self__, "queue_id", queue_id)
+            _setter("queue_id", queue_id)
         if quick_connect_ids is not None:
-            pulumi.set(__self__, "quick_connect_ids", quick_connect_ids)
+            _setter("quick_connect_ids", quick_connect_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -536,6 +620,10 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -568,6 +656,11 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["max_contacts"] = max_contacts
             __props__.__dict__["name"] = name
+            if outbound_caller_config is not None and not isinstance(outbound_caller_config, QueueOutboundCallerConfigArgs):
+                outbound_caller_config = outbound_caller_config or {}
+                def _setter(key, value):
+                    outbound_caller_config[key] = value
+                QueueOutboundCallerConfigArgs._configure(_setter, **outbound_caller_config)
             __props__.__dict__["outbound_caller_config"] = outbound_caller_config
             __props__.__dict__["quick_connect_ids"] = quick_connect_ids
             __props__.__dict__["status"] = status

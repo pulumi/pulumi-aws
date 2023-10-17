@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,44 @@ class S3LocationArgs:
         :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
-        pulumi.set(__self__, "s3_config", s3_config)
-        pulumi.set(__self__, "subdirectory", subdirectory)
+        S3LocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_arn=s3_bucket_arn,
+            s3_config=s3_config,
+            subdirectory=subdirectory,
+            agent_arns=agent_arns,
+            s3_storage_class=s3_storage_class,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_arn: pulumi.Input[str],
+             s3_config: pulumi.Input['S3LocationS3ConfigArgs'],
+             subdirectory: pulumi.Input[str],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             s3_storage_class: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 's3StorageClass' in kwargs:
+            s3_storage_class = kwargs['s3StorageClass']
+
+        _setter("s3_bucket_arn", s3_bucket_arn)
+        _setter("s3_config", s3_config)
+        _setter("subdirectory", subdirectory)
         if agent_arns is not None:
-            pulumi.set(__self__, "agent_arns", agent_arns)
+            _setter("agent_arns", agent_arns)
         if s3_storage_class is not None:
-            pulumi.set(__self__, "s3_storage_class", s3_storage_class)
+            _setter("s3_storage_class", s3_storage_class)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="s3BucketArn")
@@ -137,27 +166,64 @@ class _S3LocationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _S3LocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            arn=arn,
+            s3_bucket_arn=s3_bucket_arn,
+            s3_config=s3_config,
+            s3_storage_class=s3_storage_class,
+            subdirectory=subdirectory,
+            tags=tags,
+            tags_all=tags_all,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
+             s3_config: Optional[pulumi.Input['S3LocationS3ConfigArgs']] = None,
+             s3_storage_class: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+        if 's3StorageClass' in kwargs:
+            s3_storage_class = kwargs['s3StorageClass']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if agent_arns is not None:
-            pulumi.set(__self__, "agent_arns", agent_arns)
+            _setter("agent_arns", agent_arns)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if s3_bucket_arn is not None:
-            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+            _setter("s3_bucket_arn", s3_bucket_arn)
         if s3_config is not None:
-            pulumi.set(__self__, "s3_config", s3_config)
+            _setter("s3_config", s3_config)
         if s3_storage_class is not None:
-            pulumi.set(__self__, "s3_storage_class", s3_storage_class)
+            _setter("s3_storage_class", s3_storage_class)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -355,6 +421,10 @@ class S3Location(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            S3LocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -379,6 +449,11 @@ class S3Location(pulumi.CustomResource):
             if s3_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_arn'")
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
+            if s3_config is not None and not isinstance(s3_config, S3LocationS3ConfigArgs):
+                s3_config = s3_config or {}
+                def _setter(key, value):
+                    s3_config[key] = value
+                S3LocationS3ConfigArgs._configure(_setter, **s3_config)
             if s3_config is None and not opts.urn:
                 raise TypeError("Missing required property 's3_config'")
             __props__.__dict__["s3_config"] = s3_config

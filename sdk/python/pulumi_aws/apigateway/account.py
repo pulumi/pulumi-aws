@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,8 +21,21 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         """
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_role_arn=cloudwatch_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchRoleArn' in kwargs:
+            cloudwatch_role_arn = kwargs['cloudwatchRoleArn']
+
         if cloudwatch_role_arn is not None:
-            pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
+            _setter("cloudwatch_role_arn", cloudwatch_role_arn)
 
     @property
     @pulumi.getter(name="cloudwatchRoleArn")
@@ -51,14 +64,37 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: A list of features supported for the account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
+        _AccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key_version=api_key_version,
+            cloudwatch_role_arn=cloudwatch_role_arn,
+            features=features,
+            throttle_settings=throttle_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key_version: Optional[pulumi.Input[str]] = None,
+             cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKeyVersion' in kwargs:
+            api_key_version = kwargs['apiKeyVersion']
+        if 'cloudwatchRoleArn' in kwargs:
+            cloudwatch_role_arn = kwargs['cloudwatchRoleArn']
+        if 'throttleSettings' in kwargs:
+            throttle_settings = kwargs['throttleSettings']
+
         if api_key_version is not None:
-            pulumi.set(__self__, "api_key_version", api_key_version)
+            _setter("api_key_version", api_key_version)
         if cloudwatch_role_arn is not None:
-            pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
+            _setter("cloudwatch_role_arn", cloudwatch_role_arn)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if throttle_settings is not None:
-            pulumi.set(__self__, "throttle_settings", throttle_settings)
+            _setter("throttle_settings", throttle_settings)
 
     @property
     @pulumi.getter(name="apiKeyVersion")
@@ -230,6 +266,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

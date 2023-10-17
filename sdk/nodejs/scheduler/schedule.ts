@@ -93,7 +93,7 @@ export class Schedule extends pulumi.CustomResource {
     }
 
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleState {
     /**
-     * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
+     * ARN of the SQS queue specified as the destination for the dead-letter queue.
      */
     arn?: pulumi.Input<string>;
     /**

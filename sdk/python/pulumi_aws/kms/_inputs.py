@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,10 +24,27 @@ class GrantConstraintArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] encryption_context_equals: A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] encryption_context_subset: A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
+        GrantConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_context_equals=encryption_context_equals,
+            encryption_context_subset=encryption_context_subset,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_context_equals: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             encryption_context_subset: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionContextEquals' in kwargs:
+            encryption_context_equals = kwargs['encryptionContextEquals']
+        if 'encryptionContextSubset' in kwargs:
+            encryption_context_subset = kwargs['encryptionContextSubset']
+
         if encryption_context_equals is not None:
-            pulumi.set(__self__, "encryption_context_equals", encryption_context_equals)
+            _setter("encryption_context_equals", encryption_context_equals)
         if encryption_context_subset is not None:
-            pulumi.set(__self__, "encryption_context_subset", encryption_context_subset)
+            _setter("encryption_context_subset", encryption_context_subset)
 
     @property
     @pulumi.getter(name="encryptionContextEquals")
@@ -61,12 +78,31 @@ class GetSecretSecretArgs:
                  payload: str,
                  context: Optional[Mapping[str, str]] = None,
                  grant_tokens: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "payload", payload)
+        GetSecretSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            payload=payload,
+            context=context,
+            grant_tokens=grant_tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             payload: str,
+             context: Optional[Mapping[str, str]] = None,
+             grant_tokens: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'grantTokens' in kwargs:
+            grant_tokens = kwargs['grantTokens']
+
+        _setter("name", name)
+        _setter("payload", payload)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if grant_tokens is not None:
-            pulumi.set(__self__, "grant_tokens", grant_tokens)
+            _setter("grant_tokens", grant_tokens)
 
     @property
     @pulumi.getter
@@ -125,16 +161,43 @@ class GetSecretsSecretArgs:
                For more information on `context` and `grant_tokens` see the [KMS
                Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "payload", payload)
+        GetSecretsSecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            payload=payload,
+            context=context,
+            encryption_algorithm=encryption_algorithm,
+            grant_tokens=grant_tokens,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             payload: str,
+             context: Optional[Mapping[str, str]] = None,
+             encryption_algorithm: Optional[str] = None,
+             grant_tokens: Optional[Sequence[str]] = None,
+             key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'grantTokens' in kwargs:
+            grant_tokens = kwargs['grantTokens']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("name", name)
+        _setter("payload", payload)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if grant_tokens is not None:
-            pulumi.set(__self__, "grant_tokens", grant_tokens)
+            _setter("grant_tokens", grant_tokens)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter

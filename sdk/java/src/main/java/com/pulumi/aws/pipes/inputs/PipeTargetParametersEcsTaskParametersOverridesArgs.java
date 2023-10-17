@@ -35,14 +35,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The cpu override for the task.
+     * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return The cpu override for the task.
+     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -95,14 +95,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The memory override for the task.
+     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return The memory override for the task.
+     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -186,7 +186,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param cpu The cpu override for the task.
+         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param cpu The cpu override for the task.
+         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param memory The memory override for the task.
+         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param memory The memory override for the task.
+         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedConfigurationVersionArgs', 'HostedConfigurationVersion']
@@ -27,12 +27,37 @@ class HostedConfigurationVersionArgs:
         :param pulumi.Input[str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[str] description: Description of the configuration.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
+        HostedConfigurationVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            configuration_profile_id=configuration_profile_id,
+            content=content,
+            content_type=content_type,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             configuration_profile_id: pulumi.Input[str],
+             content: pulumi.Input[str],
+             content_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
+        _setter("application_id", application_id)
+        _setter("configuration_profile_id", configuration_profile_id)
+        _setter("content", content)
+        _setter("content_type", content_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -115,20 +140,51 @@ class _HostedConfigurationVersionState:
         :param pulumi.Input[str] description: Description of the configuration.
         :param pulumi.Input[int] version_number: Version number of the hosted configuration.
         """
+        _HostedConfigurationVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            arn=arn,
+            configuration_profile_id=configuration_profile_id,
+            content=content,
+            content_type=content_type,
+            description=description,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configuration_profile_id is not None:
-            pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
+            _setter("configuration_profile_id", configuration_profile_id)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
+            _setter("version_number", version_number)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -422,6 +478,10 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedConfigurationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

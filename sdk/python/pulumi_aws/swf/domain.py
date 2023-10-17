@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainArgs', 'Domain']
@@ -27,15 +27,38 @@ class DomainArgs:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "workflow_execution_retention_period_in_days", workflow_execution_retention_period_in_days)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workflow_execution_retention_period_in_days=workflow_execution_retention_period_in_days,
+            description=description,
+            name=name,
+            name_prefix=name_prefix,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workflow_execution_retention_period_in_days: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workflowExecutionRetentionPeriodInDays' in kwargs:
+            workflow_execution_retention_period_in_days = kwargs['workflowExecutionRetentionPeriodInDays']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+
+        _setter("workflow_execution_retention_period_in_days", workflow_execution_retention_period_in_days)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="workflowExecutionRetentionPeriodInDays")
@@ -118,23 +141,52 @@ class _DomainState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] workflow_execution_retention_period_in_days: Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
         """
+        _DomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            name=name,
+            name_prefix=name_prefix,
+            tags=tags,
+            tags_all=tags_all,
+            workflow_execution_retention_period_in_days=workflow_execution_retention_period_in_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workflow_execution_retention_period_in_days: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'workflowExecutionRetentionPeriodInDays' in kwargs:
+            workflow_execution_retention_period_in_days = kwargs['workflowExecutionRetentionPeriodInDays']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if workflow_execution_retention_period_in_days is not None:
-            pulumi.set(__self__, "workflow_execution_retention_period_in_days", workflow_execution_retention_period_in_days)
+            _setter("workflow_execution_retention_period_in_days", workflow_execution_retention_period_in_days)
 
     @property
     @pulumi.getter
@@ -307,6 +359,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

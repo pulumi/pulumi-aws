@@ -1427,7 +1427,7 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludes struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd `pulumi:"ands"`
 }
 
@@ -1443,7 +1443,7 @@ type ClassificationJobS3JobDefinitionBucketCriteriaIncludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -1542,7 +1542,7 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) ToOutput(c
 	}
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludes) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
 		return v.Ands
@@ -1579,7 +1579,7 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Elem() 
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionBucketCriteriaIncludes) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
 		if v == nil {
@@ -3405,7 +3405,7 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueAr
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludes struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands []ClassificationJobS3JobDefinitionScopingIncludesAnd `pulumi:"ands"`
 }
 
@@ -3421,7 +3421,7 @@ type ClassificationJobS3JobDefinitionScopingIncludesInput interface {
 }
 
 type ClassificationJobS3JobDefinitionScopingIncludesArgs struct {
-	// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+	// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 	Ands ClassificationJobS3JobDefinitionScopingIncludesAndArrayInput `pulumi:"ands"`
 }
 
@@ -3520,7 +3520,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToOutput(ctx cont
 	}
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) Ands() ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludes) []ClassificationJobS3JobDefinitionScopingIncludesAnd {
 		return v.Ands
@@ -3557,7 +3557,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Elem() Classif
 	}).(ClassificationJobS3JobDefinitionScopingIncludesOutput)
 }
 
-// An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
+// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Ands() ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludes) []ClassificationJobS3JobDefinitionScopingIncludesAnd {
 		if v == nil {

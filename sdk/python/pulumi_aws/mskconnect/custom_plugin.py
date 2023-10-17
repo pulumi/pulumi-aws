@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,31 @@ class CustomPluginArgs:
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin..
         """
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "location", location)
+        CustomPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            location=location,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: pulumi.Input[str],
+             location: pulumi.Input['CustomPluginLocationArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
+        _setter("content_type", content_type)
+        _setter("location", location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="contentType")
@@ -109,20 +128,47 @@ class _CustomPluginState:
         :param pulumi.Input[str] name: The name of the custom plugin..
         :param pulumi.Input[str] state: the state of the custom plugin.
         """
+        _CustomPluginState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            content_type=content_type,
+            description=description,
+            latest_revision=latest_revision,
+            location=location,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             latest_revision: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input['CustomPluginLocationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if latest_revision is not None:
-            pulumi.set(__self__, "latest_revision", latest_revision)
+            _setter("latest_revision", latest_revision)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -312,6 +358,10 @@ class CustomPlugin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomPluginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -334,6 +384,11 @@ class CustomPlugin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
+            if location is not None and not isinstance(location, CustomPluginLocationArgs):
+                location = location or {}
+                def _setter(key, value):
+                    location[key] = value
+                CustomPluginLocationArgs._configure(_setter, **location)
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location

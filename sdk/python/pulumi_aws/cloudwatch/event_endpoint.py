@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,45 @@ class EventEndpointArgs:
         :param pulumi.Input['EventEndpointReplicationConfigArgs'] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role used for replication between event buses.
         """
-        pulumi.set(__self__, "event_buses", event_buses)
-        pulumi.set(__self__, "routing_config", routing_config)
+        EventEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_buses=event_buses,
+            routing_config=routing_config,
+            description=description,
+            name=name,
+            replication_config=replication_config,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_buses: pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]],
+             routing_config: pulumi.Input['EventEndpointRoutingConfigArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             replication_config: Optional[pulumi.Input['EventEndpointReplicationConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventBuses' in kwargs:
+            event_buses = kwargs['eventBuses']
+        if 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+        if 'replicationConfig' in kwargs:
+            replication_config = kwargs['replicationConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("event_buses", event_buses)
+        _setter("routing_config", routing_config)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if replication_config is not None:
-            pulumi.set(__self__, "replication_config", replication_config)
+            _setter("replication_config", replication_config)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="eventBuses")
@@ -137,22 +166,57 @@ class _EventEndpointState:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role used for replication between event buses.
         :param pulumi.Input['EventEndpointRoutingConfigArgs'] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
+        _EventEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            endpoint_url=endpoint_url,
+            event_buses=event_buses,
+            name=name,
+            replication_config=replication_config,
+            role_arn=role_arn,
+            routing_config=routing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             endpoint_url: Optional[pulumi.Input[str]] = None,
+             event_buses: Optional[pulumi.Input[Sequence[pulumi.Input['EventEndpointEventBusArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             replication_config: Optional[pulumi.Input['EventEndpointReplicationConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             routing_config: Optional[pulumi.Input['EventEndpointRoutingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+        if 'eventBuses' in kwargs:
+            event_buses = kwargs['eventBuses']
+        if 'replicationConfig' in kwargs:
+            replication_config = kwargs['replicationConfig']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
         if event_buses is not None:
-            pulumi.set(__self__, "event_buses", event_buses)
+            _setter("event_buses", event_buses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if replication_config is not None:
-            pulumi.set(__self__, "replication_config", replication_config)
+            _setter("replication_config", replication_config)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if routing_config is not None:
-            pulumi.set(__self__, "routing_config", routing_config)
+            _setter("routing_config", routing_config)
 
     @property
     @pulumi.getter
@@ -376,6 +440,10 @@ class EventEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -401,8 +469,18 @@ class EventEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_buses'")
             __props__.__dict__["event_buses"] = event_buses
             __props__.__dict__["name"] = name
+            if replication_config is not None and not isinstance(replication_config, EventEndpointReplicationConfigArgs):
+                replication_config = replication_config or {}
+                def _setter(key, value):
+                    replication_config[key] = value
+                EventEndpointReplicationConfigArgs._configure(_setter, **replication_config)
             __props__.__dict__["replication_config"] = replication_config
             __props__.__dict__["role_arn"] = role_arn
+            if routing_config is not None and not isinstance(routing_config, EventEndpointRoutingConfigArgs):
+                routing_config = routing_config or {}
+                def _setter(key, value):
+                    routing_config[key] = value
+                EventEndpointRoutingConfigArgs._configure(_setter, **routing_config)
             if routing_config is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_config'")
             __props__.__dict__["routing_config"] = routing_config

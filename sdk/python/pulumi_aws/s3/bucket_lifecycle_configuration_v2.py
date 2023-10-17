@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,27 @@ class BucketLifecycleConfigurationV2Args:
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "rules", rules)
+        BucketLifecycleConfigurationV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            rules=rules,
+            expected_bucket_owner=expected_bucket_owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             rules: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]],
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+
+        _setter("bucket", bucket)
+        _setter("rules", rules)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
 
     @property
     @pulumi.getter
@@ -79,12 +96,29 @@ class _BucketLifecycleConfigurationV2State:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         """
+        _BucketLifecycleConfigurationV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -764,6 +798,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketLifecycleConfigurationV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InviteAccepterArgs', 'InviteAccepter']
@@ -19,7 +19,20 @@ class InviteAccepterArgs:
         The set of arguments for constructing a InviteAccepter resource.
         :param pulumi.Input[str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
         """
-        pulumi.set(__self__, "master_id", master_id)
+        InviteAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            master_id=master_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             master_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'masterId' in kwargs:
+            master_id = kwargs['masterId']
+
+        _setter("master_id", master_id)
 
     @property
     @pulumi.getter(name="masterId")
@@ -44,10 +57,27 @@ class _InviteAccepterState:
         :param pulumi.Input[str] invitation_id: The ID of the invitation.
         :param pulumi.Input[str] master_id: The account ID of the master Security Hub account whose invitation you're accepting.
         """
+        _InviteAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invitation_id=invitation_id,
+            master_id=master_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             master_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+        if 'masterId' in kwargs:
+            master_id = kwargs['masterId']
+
         if invitation_id is not None:
-            pulumi.set(__self__, "invitation_id", invitation_id)
+            _setter("invitation_id", invitation_id)
         if master_id is not None:
-            pulumi.set(__self__, "master_id", master_id)
+            _setter("master_id", master_id)
 
     @property
     @pulumi.getter(name="invitationId")
@@ -161,6 +191,10 @@ class InviteAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InviteAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

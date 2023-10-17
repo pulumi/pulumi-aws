@@ -17,19 +17,27 @@ public final class IntentConclusionStatementArgs extends com.pulumi.resources.Re
 
     public static final IntentConclusionStatementArgs Empty = new IntentConclusionStatementArgs();
 
+    /**
+     * A set of messages, each of which provides a message string and its type.
+     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+     * Attributes are documented under message. Must contain between 1 and 15 messages.
+     * 
+     */
     @Import(name="messages", required=true)
     private Output<List<IntentConclusionStatementMessageArgs>> messages;
 
+    /**
+     * @return A set of messages, each of which provides a message string and its type.
+     * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+     * Attributes are documented under message. Must contain between 1 and 15 messages.
+     * 
+     */
     public Output<List<IntentConclusionStatementMessageArgs>> messages() {
         return this.messages;
     }
 
     /**
      * The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
@@ -39,10 +47,6 @@ public final class IntentConclusionStatementArgs extends com.pulumi.resources.Re
 
     /**
      * @return The response card. Amazon Lex will substitute session attributes and
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-     * slot values into the response card. For more information, see
-     * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * slot values into the response card. For more information, see
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
@@ -76,25 +80,45 @@ public final class IntentConclusionStatementArgs extends com.pulumi.resources.Re
             $ = new IntentConclusionStatementArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(Output<List<IntentConclusionStatementMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(List<IntentConclusionStatementMessageArgs> messages) {
             return messages(Output.of(messages));
         }
 
+        /**
+         * @param messages A set of messages, each of which provides a message string and its type.
+         * You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
+         * Attributes are documented under message. Must contain between 1 and 15 messages.
+         * 
+         * @return builder
+         * 
+         */
         public Builder messages(IntentConclusionStatementMessageArgs... messages) {
             return messages(List.of(messages));
         }
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * 
@@ -108,10 +132,6 @@ public final class IntentConclusionStatementArgs extends com.pulumi.resources.Re
 
         /**
          * @param responseCard The response card. Amazon Lex will substitute session attributes and
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
-         * slot values into the response card. For more information, see
-         * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * slot values into the response card. For more information, see
          * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
          * 

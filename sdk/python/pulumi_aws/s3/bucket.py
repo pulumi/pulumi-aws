@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -67,48 +67,123 @@ class BucketArgs:
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+        BucketArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            arn=arn,
+            bucket=bucket,
+            bucket_prefix=bucket_prefix,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            hosted_zone_id=hosted_zone_id,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            policy=policy,
+            replication_configuration=replication_configuration,
+            request_payer=request_payer,
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            tags=tags,
+            versioning=versioning,
+            website=website,
+            website_domain=website_domain,
+            website_endpoint=website_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketGrantArgs']]]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
+             website: Optional[pulumi.Input['BucketWebsiteArgs']] = None,
+             website_domain: Optional[pulumi.Input[str]] = None,
+             website_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if 'websiteDomain' in kwargs:
+            website_domain = kwargs['websiteDomain']
+        if 'websiteEndpoint' in kwargs:
+            website_endpoint = kwargs['websiteEndpoint']
+
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if replication_configuration is not None:
-            pulumi.set(__self__, "replication_configuration", replication_configuration)
+            _setter("replication_configuration", replication_configuration)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if versioning is not None:
-            pulumi.set(__self__, "versioning", versioning)
+            _setter("versioning", versioning)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
         if website_domain is not None:
-            pulumi.set(__self__, "website_domain", website_domain)
+            _setter("website_domain", website_domain)
         if website_endpoint is not None:
-            pulumi.set(__self__, "website_endpoint", website_endpoint)
+            _setter("website_endpoint", website_endpoint)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -429,59 +504,148 @@ class _BucketState:
         :param pulumi.Input[str] website_domain: The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
         :param pulumi.Input[str] website_endpoint: The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
         """
+        _BucketState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            arn=arn,
+            bucket=bucket,
+            bucket_domain_name=bucket_domain_name,
+            bucket_prefix=bucket_prefix,
+            bucket_regional_domain_name=bucket_regional_domain_name,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            hosted_zone_id=hosted_zone_id,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            policy=policy,
+            region=region,
+            replication_configuration=replication_configuration,
+            request_payer=request_payer,
+            server_side_encryption_configuration=server_side_encryption_configuration,
+            tags=tags,
+            tags_all=tags_all,
+            versioning=versioning,
+            website=website,
+            website_domain=website_domain,
+            website_endpoint=website_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[Union[str, 'CannedAcl']]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_domain_name: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             bucket_regional_domain_name: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketGrantArgs']]]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             replication_configuration: Optional[pulumi.Input['BucketReplicationConfigurationArgs']] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configuration: Optional[pulumi.Input['BucketServerSideEncryptionConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versioning: Optional[pulumi.Input['BucketVersioningArgs']] = None,
+             website: Optional[pulumi.Input['BucketWebsiteArgs']] = None,
+             website_domain: Optional[pulumi.Input[str]] = None,
+             website_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if 'bucketDomainName' in kwargs:
+            bucket_domain_name = kwargs['bucketDomainName']
+        if 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if 'bucketRegionalDomainName' in kwargs:
+            bucket_regional_domain_name = kwargs['bucketRegionalDomainName']
+        if 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'websiteDomain' in kwargs:
+            website_domain = kwargs['websiteDomain']
+        if 'websiteEndpoint' in kwargs:
+            website_endpoint = kwargs['websiteEndpoint']
+
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_domain_name is not None:
-            pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
+            _setter("bucket_domain_name", bucket_domain_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if bucket_regional_domain_name is not None:
-            pulumi.set(__self__, "bucket_regional_domain_name", bucket_regional_domain_name)
+            _setter("bucket_regional_domain_name", bucket_regional_domain_name)
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if replication_configuration is not None:
-            pulumi.set(__self__, "replication_configuration", replication_configuration)
+            _setter("replication_configuration", replication_configuration)
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configuration is not None:
-            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if versioning is not None:
-            pulumi.set(__self__, "versioning", versioning)
+            _setter("versioning", versioning)
         if website is not None:
-            pulumi.set(__self__, "website", website)
+            _setter("website", website)
         if website_domain is not None:
-            pulumi.set(__self__, "website_domain", website_domain)
+            _setter("website_domain", website_domain)
         if website_endpoint is not None:
-            pulumi.set(__self__, "website_endpoint", website_endpoint)
+            _setter("website_endpoint", website_endpoint)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -1454,6 +1618,10 @@ class Bucket(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1500,13 +1668,38 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
             __props__.__dict__["lifecycle_rules"] = lifecycle_rules
             __props__.__dict__["loggings"] = loggings
+            if object_lock_configuration is not None and not isinstance(object_lock_configuration, BucketObjectLockConfigurationArgs):
+                object_lock_configuration = object_lock_configuration or {}
+                def _setter(key, value):
+                    object_lock_configuration[key] = value
+                BucketObjectLockConfigurationArgs._configure(_setter, **object_lock_configuration)
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["policy"] = policy
+            if replication_configuration is not None and not isinstance(replication_configuration, BucketReplicationConfigurationArgs):
+                replication_configuration = replication_configuration or {}
+                def _setter(key, value):
+                    replication_configuration[key] = value
+                BucketReplicationConfigurationArgs._configure(_setter, **replication_configuration)
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["request_payer"] = request_payer
+            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, BucketServerSideEncryptionConfigurationArgs):
+                server_side_encryption_configuration = server_side_encryption_configuration or {}
+                def _setter(key, value):
+                    server_side_encryption_configuration[key] = value
+                BucketServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
+            if versioning is not None and not isinstance(versioning, BucketVersioningArgs):
+                versioning = versioning or {}
+                def _setter(key, value):
+                    versioning[key] = value
+                BucketVersioningArgs._configure(_setter, **versioning)
             __props__.__dict__["versioning"] = versioning
+            if website is not None and not isinstance(website, BucketWebsiteArgs):
+                website = website or {}
+                def _setter(key, value):
+                    website[key] = value
+                BucketWebsiteArgs._configure(_setter, **website)
             __props__.__dict__["website"] = website
             __props__.__dict__["website_domain"] = website_domain
             __props__.__dict__["website_endpoint"] = website_endpoint

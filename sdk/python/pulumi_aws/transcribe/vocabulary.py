@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VocabularyArgs', 'Vocabulary']
@@ -29,14 +29,39 @@ class VocabularyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         """
-        pulumi.set(__self__, "language_code", language_code)
-        pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+        VocabularyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            vocabulary_name=vocabulary_name,
+            phrases=phrases,
+            tags=tags,
+            vocabulary_file_uri=vocabulary_file_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: pulumi.Input[str],
+             vocabulary_name: pulumi.Input[str],
+             phrases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vocabulary_file_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'vocabularyName' in kwargs:
+            vocabulary_name = kwargs['vocabularyName']
+        if 'vocabularyFileUri' in kwargs:
+            vocabulary_file_uri = kwargs['vocabularyFileUri']
+
+        _setter("language_code", language_code)
+        _setter("vocabulary_name", vocabulary_name)
         if phrases is not None:
-            pulumi.set(__self__, "phrases", phrases)
+            _setter("phrases", phrases)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vocabulary_file_uri is not None:
-            pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
+            _setter("vocabulary_file_uri", vocabulary_file_uri)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -124,25 +149,60 @@ class _VocabularyState:
                
                The following arguments are optional:
         """
+        _VocabularyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            download_uri=download_uri,
+            language_code=language_code,
+            phrases=phrases,
+            tags=tags,
+            tags_all=tags_all,
+            vocabulary_file_uri=vocabulary_file_uri,
+            vocabulary_name=vocabulary_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             download_uri: Optional[pulumi.Input[str]] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             phrases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vocabulary_file_uri: Optional[pulumi.Input[str]] = None,
+             vocabulary_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downloadUri' in kwargs:
+            download_uri = kwargs['downloadUri']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vocabularyFileUri' in kwargs:
+            vocabulary_file_uri = kwargs['vocabularyFileUri']
+        if 'vocabularyName' in kwargs:
+            vocabulary_name = kwargs['vocabularyName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if download_uri is not None:
-            pulumi.set(__self__, "download_uri", download_uri)
+            _setter("download_uri", download_uri)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if phrases is not None:
-            pulumi.set(__self__, "phrases", phrases)
+            _setter("phrases", phrases)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vocabulary_file_uri is not None:
-            pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
+            _setter("vocabulary_file_uri", vocabulary_file_uri)
         if vocabulary_name is not None:
-            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+            _setter("vocabulary_name", vocabulary_name)
 
     @property
     @pulumi.getter
@@ -348,6 +408,10 @@ class Vocabulary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VocabularyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

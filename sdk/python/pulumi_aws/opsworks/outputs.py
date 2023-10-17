@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -120,17 +120,40 @@ class ApplicationAppSource(dict):
         :param str url: The URL where the app resource can be found.
         :param str username: Username to use when authenticating to the source.
         """
-        pulumi.set(__self__, "type", type)
+        ApplicationAppSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             password: Optional[str] = None,
+             revision: Optional[str] = None,
+             ssh_key: Optional[str] = None,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
+        _setter("type", type)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -192,10 +215,25 @@ class ApplicationEnvironment(dict):
         :param str value: Variable value.
         :param bool secure: Set visibility of the variable value to `true` or `false`.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        ApplicationEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+            secure=secure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             value: str,
+             secure: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("value", value)
         if secure is not None:
-            pulumi.set(__self__, "secure", secure)
+            _setter("secure", secure)
 
     @property
     @pulumi.getter
@@ -250,10 +288,27 @@ class ApplicationSslConfiguration(dict):
         :param str private_key: The private key; the contents of the certificate's domain.key file.
         :param str chain: Can be used to specify an intermediate certificate authority key or client authentication.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "private_key", private_key)
+        ApplicationSslConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            private_key=private_key,
+            chain=chain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: str,
+             private_key: str,
+             chain: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
+        _setter("certificate", certificate)
+        _setter("private_key", private_key)
         if chain is not None:
-            pulumi.set(__self__, "chain", chain)
+            _setter("chain", chain)
 
     @property
     @pulumi.getter
@@ -305,10 +360,25 @@ class CustomLayerCloudwatchConfiguration(dict):
         """
         :param Sequence['CustomLayerCloudwatchConfigurationLogStreamArgs'] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
         """
+        CustomLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.CustomLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -384,26 +454,75 @@ class CustomLayerCloudwatchConfigurationLogStream(dict):
         :param str multiline_start_pattern: Specifies the pattern for identifying the start of a log message.
         :param str time_zone: Specifies the time zone of log event time stamps.
         """
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        CustomLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -534,17 +653,46 @@ class CustomLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        CustomLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -614,12 +762,27 @@ class CustomLayerLoadBasedAutoScaling(dict):
         :param bool enable: Whether load-based auto scaling is enabled for the layer.
         :param 'CustomLayerLoadBasedAutoScalingUpscalingArgs' upscaling: The upscaling settings, as defined below, used for load-based autoscaling
         """
+        CustomLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -692,20 +855,55 @@ class CustomLayerLoadBasedAutoScalingDownscaling(dict):
         :param float memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
         :param int thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
         """
+        CustomLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -810,20 +1008,55 @@ class CustomLayerLoadBasedAutoScalingUpscaling(dict):
         :param float memory_threshold: The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
         :param int thresholds_wait_time: The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
         """
+        CustomLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -904,10 +1137,25 @@ class EcsClusterLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.EcsClusterLayerCloudwatchConfigurationLogStream']] = None):
+        EcsClusterLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.EcsClusterLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -967,26 +1215,75 @@ class EcsClusterLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        EcsClusterLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -1083,17 +1380,46 @@ class EcsClusterLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        EcsClusterLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -1155,12 +1481,27 @@ class EcsClusterLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingUpscaling'] = None):
+        EcsClusterLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -1215,20 +1556,55 @@ class EcsClusterLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        EcsClusterLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -1303,20 +1679,55 @@ class EcsClusterLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        EcsClusterLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -1376,10 +1787,25 @@ class GangliaLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.GangliaLayerCloudwatchConfigurationLogStream']] = None):
+        GangliaLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.GangliaLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -1439,26 +1865,75 @@ class GangliaLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        GangliaLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -1555,17 +2030,46 @@ class GangliaLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        GangliaLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -1627,12 +2131,27 @@ class GangliaLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingUpscaling'] = None):
+        GangliaLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -1687,20 +2206,55 @@ class GangliaLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        GangliaLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -1775,20 +2329,55 @@ class GangliaLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        GangliaLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -1848,10 +2437,25 @@ class HaproxyLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.HaproxyLayerCloudwatchConfigurationLogStream']] = None):
+        HaproxyLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.HaproxyLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -1911,26 +2515,75 @@ class HaproxyLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        HaproxyLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -2027,17 +2680,46 @@ class HaproxyLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        HaproxyLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -2099,12 +2781,27 @@ class HaproxyLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingUpscaling'] = None):
+        HaproxyLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -2159,20 +2856,55 @@ class HaproxyLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        HaproxyLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -2247,20 +2979,55 @@ class HaproxyLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        HaproxyLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -2332,17 +3099,48 @@ class InstanceEbsBlockDevice(dict):
                  snapshot_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
-        pulumi.set(__self__, "device_name", device_name)
+        InstanceEbsBlockDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            delete_on_termination=delete_on_termination,
+            iops=iops,
+            snapshot_id=snapshot_id,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: str,
+             delete_on_termination: Optional[bool] = None,
+             iops: Optional[int] = None,
+             snapshot_id: Optional[str] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
+        _setter("device_name", device_name)
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2399,8 +3197,25 @@ class InstanceEphemeralBlockDevice(dict):
     def __init__(__self__, *,
                  device_name: str,
                  virtual_name: str):
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        InstanceEphemeralBlockDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: str,
+             virtual_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
+        _setter("device_name", device_name)
+        _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2441,14 +3256,37 @@ class InstanceRootBlockDevice(dict):
                  iops: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
+        InstanceRootBlockDevice._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            iops=iops,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[bool] = None,
+             iops: Optional[int] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -2493,10 +3331,25 @@ class JavaAppLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.JavaAppLayerCloudwatchConfigurationLogStream']] = None):
+        JavaAppLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.JavaAppLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -2556,26 +3409,75 @@ class JavaAppLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        JavaAppLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -2672,17 +3574,46 @@ class JavaAppLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        JavaAppLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -2744,12 +3675,27 @@ class JavaAppLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        JavaAppLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -2804,20 +3750,55 @@ class JavaAppLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        JavaAppLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -2892,20 +3873,55 @@ class JavaAppLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        JavaAppLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -2965,10 +3981,25 @@ class MemcachedLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.MemcachedLayerCloudwatchConfigurationLogStream']] = None):
+        MemcachedLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.MemcachedLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -3028,26 +4059,75 @@ class MemcachedLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        MemcachedLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -3144,17 +4224,46 @@ class MemcachedLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        MemcachedLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -3216,12 +4325,27 @@ class MemcachedLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingUpscaling'] = None):
+        MemcachedLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -3276,20 +4400,55 @@ class MemcachedLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        MemcachedLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -3364,20 +4523,55 @@ class MemcachedLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        MemcachedLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -3437,10 +4631,25 @@ class MysqlLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.MysqlLayerCloudwatchConfigurationLogStream']] = None):
+        MysqlLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.MysqlLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -3500,26 +4709,75 @@ class MysqlLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        MysqlLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -3616,17 +4874,46 @@ class MysqlLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        MysqlLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -3688,12 +4975,27 @@ class MysqlLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingUpscaling'] = None):
+        MysqlLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -3748,20 +5050,55 @@ class MysqlLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        MysqlLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -3836,20 +5173,55 @@ class MysqlLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        MysqlLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -3909,10 +5281,25 @@ class NodejsAppLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.NodejsAppLayerCloudwatchConfigurationLogStream']] = None):
+        NodejsAppLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.NodejsAppLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -3972,26 +5359,75 @@ class NodejsAppLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        NodejsAppLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -4088,17 +5524,46 @@ class NodejsAppLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        NodejsAppLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -4160,12 +5625,27 @@ class NodejsAppLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        NodejsAppLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -4220,20 +5700,55 @@ class NodejsAppLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        NodejsAppLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -4308,20 +5823,55 @@ class NodejsAppLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        NodejsAppLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -4381,10 +5931,25 @@ class PhpAppLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.PhpAppLayerCloudwatchConfigurationLogStream']] = None):
+        PhpAppLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.PhpAppLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -4444,26 +6009,75 @@ class PhpAppLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        PhpAppLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -4560,17 +6174,46 @@ class PhpAppLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        PhpAppLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -4632,12 +6275,27 @@ class PhpAppLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        PhpAppLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -4692,20 +6350,55 @@ class PhpAppLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        PhpAppLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -4780,20 +6473,55 @@ class PhpAppLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        PhpAppLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -4853,10 +6581,25 @@ class RailsAppLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.RailsAppLayerCloudwatchConfigurationLogStream']] = None):
+        RailsAppLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.RailsAppLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -4916,26 +6659,75 @@ class RailsAppLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        RailsAppLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -5032,17 +6824,46 @@ class RailsAppLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        RailsAppLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -5104,12 +6925,27 @@ class RailsAppLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingUpscaling'] = None):
+        RailsAppLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -5164,20 +7000,55 @@ class RailsAppLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        RailsAppLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -5252,20 +7123,55 @@ class RailsAppLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        RailsAppLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -5337,16 +7243,39 @@ class StackCustomCookbooksSource(dict):
         :param str ssh_key: SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
         :param str username: Username to use when authenticating to the source.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "url", url)
+        StackCustomCookbooksSource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            url=url,
+            password=password,
+            revision=revision,
+            ssh_key=ssh_key,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             url: str,
+             password: Optional[str] = None,
+             revision: Optional[str] = None,
+             ssh_key: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
+        _setter("type", type)
+        _setter("url", url)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if ssh_key is not None:
-            pulumi.set(__self__, "ssh_key", ssh_key)
+            _setter("ssh_key", ssh_key)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -5419,10 +7348,25 @@ class StaticWebLayerCloudwatchConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.StaticWebLayerCloudwatchConfigurationLogStream']] = None):
+        StaticWebLayerCloudwatchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_streams=log_streams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_streams: Optional[Sequence['outputs.StaticWebLayerCloudwatchConfigurationLogStream']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logStreams' in kwargs:
+            log_streams = kwargs['logStreams']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_streams is not None:
-            pulumi.set(__self__, "log_streams", log_streams)
+            _setter("log_streams", log_streams)
 
     @property
     @pulumi.getter
@@ -5482,26 +7426,75 @@ class StaticWebLayerCloudwatchConfigurationLogStream(dict):
                  initial_position: Optional[str] = None,
                  multiline_start_pattern: Optional[str] = None,
                  time_zone: Optional[str] = None):
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        StaticWebLayerCloudwatchConfigurationLogStream._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file=file,
+            log_group_name=log_group_name,
+            batch_count=batch_count,
+            batch_size=batch_size,
+            buffer_duration=buffer_duration,
+            datetime_format=datetime_format,
+            encoding=encoding,
+            file_fingerprint_lines=file_fingerprint_lines,
+            initial_position=initial_position,
+            multiline_start_pattern=multiline_start_pattern,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file: str,
+             log_group_name: str,
+             batch_count: Optional[int] = None,
+             batch_size: Optional[int] = None,
+             buffer_duration: Optional[int] = None,
+             datetime_format: Optional[str] = None,
+             encoding: Optional[str] = None,
+             file_fingerprint_lines: Optional[str] = None,
+             initial_position: Optional[str] = None,
+             multiline_start_pattern: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'batchCount' in kwargs:
+            batch_count = kwargs['batchCount']
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'bufferDuration' in kwargs:
+            buffer_duration = kwargs['bufferDuration']
+        if 'datetimeFormat' in kwargs:
+            datetime_format = kwargs['datetimeFormat']
+        if 'fileFingerprintLines' in kwargs:
+            file_fingerprint_lines = kwargs['fileFingerprintLines']
+        if 'initialPosition' in kwargs:
+            initial_position = kwargs['initialPosition']
+        if 'multilineStartPattern' in kwargs:
+            multiline_start_pattern = kwargs['multilineStartPattern']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("file", file)
+        _setter("log_group_name", log_group_name)
         if batch_count is not None:
-            pulumi.set(__self__, "batch_count", batch_count)
+            _setter("batch_count", batch_count)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if buffer_duration is not None:
-            pulumi.set(__self__, "buffer_duration", buffer_duration)
+            _setter("buffer_duration", buffer_duration)
         if datetime_format is not None:
-            pulumi.set(__self__, "datetime_format", datetime_format)
+            _setter("datetime_format", datetime_format)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if file_fingerprint_lines is not None:
-            pulumi.set(__self__, "file_fingerprint_lines", file_fingerprint_lines)
+            _setter("file_fingerprint_lines", file_fingerprint_lines)
         if initial_position is not None:
-            pulumi.set(__self__, "initial_position", initial_position)
+            _setter("initial_position", initial_position)
         if multiline_start_pattern is not None:
-            pulumi.set(__self__, "multiline_start_pattern", multiline_start_pattern)
+            _setter("multiline_start_pattern", multiline_start_pattern)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -5598,17 +7591,46 @@ class StaticWebLayerEbsVolume(dict):
         :param str raid_level: The RAID level to use for the volume.
         :param str type: The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         """
-        pulumi.set(__self__, "mount_point", mount_point)
-        pulumi.set(__self__, "number_of_disks", number_of_disks)
-        pulumi.set(__self__, "size", size)
+        StaticWebLayerEbsVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_point=mount_point,
+            number_of_disks=number_of_disks,
+            size=size,
+            encrypted=encrypted,
+            iops=iops,
+            raid_level=raid_level,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_point: str,
+             number_of_disks: int,
+             size: int,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             raid_level: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+
+        _setter("mount_point", mount_point)
+        _setter("number_of_disks", number_of_disks)
+        _setter("size", size)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if raid_level is not None:
-            pulumi.set(__self__, "raid_level", raid_level)
+            _setter("raid_level", raid_level)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="mountPoint")
@@ -5670,12 +7692,27 @@ class StaticWebLayerLoadBasedAutoScaling(dict):
                  downscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingUpscaling'] = None):
+        StaticWebLayerLoadBasedAutoScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downscaling=downscaling,
+            enable=enable,
+            upscaling=upscaling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingDownscaling'] = None,
+             enable: Optional[bool] = None,
+             upscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingUpscaling'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if downscaling is not None:
-            pulumi.set(__self__, "downscaling", downscaling)
+            _setter("downscaling", downscaling)
         if enable is not None:
-            pulumi.set(__self__, "enable", enable)
+            _setter("enable", enable)
         if upscaling is not None:
-            pulumi.set(__self__, "upscaling", upscaling)
+            _setter("upscaling", upscaling)
 
     @property
     @pulumi.getter
@@ -5730,20 +7767,55 @@ class StaticWebLayerLoadBasedAutoScalingDownscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        StaticWebLayerLoadBasedAutoScalingDownscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter
@@ -5818,20 +7890,55 @@ class StaticWebLayerLoadBasedAutoScalingUpscaling(dict):
                  load_threshold: Optional[float] = None,
                  memory_threshold: Optional[float] = None,
                  thresholds_wait_time: Optional[int] = None):
+        StaticWebLayerLoadBasedAutoScalingUpscaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarms=alarms,
+            cpu_threshold=cpu_threshold,
+            ignore_metrics_time=ignore_metrics_time,
+            instance_count=instance_count,
+            load_threshold=load_threshold,
+            memory_threshold=memory_threshold,
+            thresholds_wait_time=thresholds_wait_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarms: Optional[Sequence[str]] = None,
+             cpu_threshold: Optional[float] = None,
+             ignore_metrics_time: Optional[int] = None,
+             instance_count: Optional[int] = None,
+             load_threshold: Optional[float] = None,
+             memory_threshold: Optional[float] = None,
+             thresholds_wait_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if alarms is not None:
-            pulumi.set(__self__, "alarms", alarms)
+            _setter("alarms", alarms)
         if cpu_threshold is not None:
-            pulumi.set(__self__, "cpu_threshold", cpu_threshold)
+            _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
-            pulumi.set(__self__, "ignore_metrics_time", ignore_metrics_time)
+            _setter("ignore_metrics_time", ignore_metrics_time)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if load_threshold is not None:
-            pulumi.set(__self__, "load_threshold", load_threshold)
+            _setter("load_threshold", load_threshold)
         if memory_threshold is not None:
-            pulumi.set(__self__, "memory_threshold", memory_threshold)
+            _setter("memory_threshold", memory_threshold)
         if thresholds_wait_time is not None:
-            pulumi.set(__self__, "thresholds_wait_time", thresholds_wait_time)
+            _setter("thresholds_wait_time", thresholds_wait_time)
 
     @property
     @pulumi.getter

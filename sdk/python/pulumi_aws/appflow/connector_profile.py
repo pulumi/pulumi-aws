@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,15 +30,46 @@ class ConnectorProfileArgs:
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
-        pulumi.set(__self__, "connection_mode", connection_mode)
-        pulumi.set(__self__, "connector_profile_config", connector_profile_config)
-        pulumi.set(__self__, "connector_type", connector_type)
+        ConnectorProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_mode=connection_mode,
+            connector_profile_config=connector_profile_config,
+            connector_type=connector_type,
+            connector_label=connector_label,
+            kms_arn=kms_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_mode: pulumi.Input[str],
+             connector_profile_config: pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'],
+             connector_type: pulumi.Input[str],
+             connector_label: Optional[pulumi.Input[str]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if 'connectorProfileConfig' in kwargs:
+            connector_profile_config = kwargs['connectorProfileConfig']
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
+        _setter("connection_mode", connection_mode)
+        _setter("connector_profile_config", connector_profile_config)
+        _setter("connector_type", connector_type)
         if connector_label is not None:
-            pulumi.set(__self__, "connector_label", connector_label)
+            _setter("connector_label", connector_label)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -131,22 +162,59 @@ class _ConnectorProfileState:
         :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
+        _ConnectorProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            connection_mode=connection_mode,
+            connector_label=connector_label,
+            connector_profile_config=connector_profile_config,
+            connector_type=connector_type,
+            credentials_arn=credentials_arn,
+            kms_arn=kms_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             connector_label: Optional[pulumi.Input[str]] = None,
+             connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
+             connector_type: Optional[pulumi.Input[str]] = None,
+             credentials_arn: Optional[pulumi.Input[str]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+        if 'connectorProfileConfig' in kwargs:
+            connector_profile_config = kwargs['connectorProfileConfig']
+        if 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if connector_label is not None:
-            pulumi.set(__self__, "connector_label", connector_label)
+            _setter("connector_label", connector_label)
         if connector_profile_config is not None:
-            pulumi.set(__self__, "connector_profile_config", connector_profile_config)
+            _setter("connector_profile_config", connector_profile_config)
         if connector_type is not None:
-            pulumi.set(__self__, "connector_type", connector_type)
+            _setter("connector_type", connector_type)
         if credentials_arn is not None:
-            pulumi.set(__self__, "credentials_arn", credentials_arn)
+            _setter("credentials_arn", credentials_arn)
         if kms_arn is not None:
-            pulumi.set(__self__, "kms_arn", kms_arn)
+            _setter("kms_arn", kms_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -308,6 +376,10 @@ class ConnectorProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -332,6 +404,11 @@ class ConnectorProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_mode'")
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connector_label"] = connector_label
+            if connector_profile_config is not None and not isinstance(connector_profile_config, ConnectorProfileConnectorProfileConfigArgs):
+                connector_profile_config = connector_profile_config or {}
+                def _setter(key, value):
+                    connector_profile_config[key] = value
+                ConnectorProfileConnectorProfileConfigArgs._configure(_setter, **connector_profile_config)
             if connector_profile_config is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_profile_config'")
             __props__.__dict__["connector_profile_config"] = connector_profile_config

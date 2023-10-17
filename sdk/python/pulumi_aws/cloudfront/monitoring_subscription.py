@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,25 @@ class MonitoringSubscriptionArgs:
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
         :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
-        pulumi.set(__self__, "distribution_id", distribution_id)
-        pulumi.set(__self__, "monitoring_subscription", monitoring_subscription)
+        MonitoringSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_id=distribution_id,
+            monitoring_subscription=monitoring_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_id: pulumi.Input[str],
+             monitoring_subscription: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'distributionId' in kwargs:
+            distribution_id = kwargs['distributionId']
+        if 'monitoringSubscription' in kwargs:
+            monitoring_subscription = kwargs['monitoringSubscription']
+
+        _setter("distribution_id", distribution_id)
+        _setter("monitoring_subscription", monitoring_subscription)
 
     @property
     @pulumi.getter(name="distributionId")
@@ -61,10 +78,27 @@ class _MonitoringSubscriptionState:
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
         :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
+        _MonitoringSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_id=distribution_id,
+            monitoring_subscription=monitoring_subscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_id: Optional[pulumi.Input[str]] = None,
+             monitoring_subscription: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'distributionId' in kwargs:
+            distribution_id = kwargs['distributionId']
+        if 'monitoringSubscription' in kwargs:
+            monitoring_subscription = kwargs['monitoringSubscription']
+
         if distribution_id is not None:
-            pulumi.set(__self__, "distribution_id", distribution_id)
+            _setter("distribution_id", distribution_id)
         if monitoring_subscription is not None:
-            pulumi.set(__self__, "monitoring_subscription", monitoring_subscription)
+            _setter("monitoring_subscription", monitoring_subscription)
 
     @property
     @pulumi.getter(name="distributionId")
@@ -172,6 +206,10 @@ class MonitoringSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitoringSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -191,6 +229,11 @@ class MonitoringSubscription(pulumi.CustomResource):
             if distribution_id is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_id'")
             __props__.__dict__["distribution_id"] = distribution_id
+            if monitoring_subscription is not None and not isinstance(monitoring_subscription, MonitoringSubscriptionMonitoringSubscriptionArgs):
+                monitoring_subscription = monitoring_subscription or {}
+                def _setter(key, value):
+                    monitoring_subscription[key] = value
+                MonitoringSubscriptionMonitoringSubscriptionArgs._configure(_setter, **monitoring_subscription)
             if monitoring_subscription is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_subscription'")
             __props__.__dict__["monitoring_subscription"] = monitoring_subscription

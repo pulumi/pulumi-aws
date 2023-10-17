@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -52,9 +52,28 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
         :param str signing_algorithm: Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         :param 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs' subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
         """
-        pulumi.set(__self__, "key_algorithm", key_algorithm)
-        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
-        pulumi.set(__self__, "subject", subject)
+        CertificateAuthorityCertificateAuthorityConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_algorithm=key_algorithm,
+            signing_algorithm=signing_algorithm,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_algorithm: str,
+             signing_algorithm: str,
+             subject: 'outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+
+        _setter("key_algorithm", key_algorithm)
+        _setter("signing_algorithm", signing_algorithm)
+        _setter("subject", subject)
 
     @property
     @pulumi.getter(name="keyAlgorithm")
@@ -137,32 +156,77 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
         :param str surname: Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
         :param str title: Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         """
+        CertificateAuthorityCertificateAuthorityConfigurationSubject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_name=common_name,
+            country=country,
+            distinguished_name_qualifier=distinguished_name_qualifier,
+            generation_qualifier=generation_qualifier,
+            given_name=given_name,
+            initials=initials,
+            locality=locality,
+            organization=organization,
+            organizational_unit=organizational_unit,
+            pseudonym=pseudonym,
+            state=state,
+            surname=surname,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_name: Optional[str] = None,
+             country: Optional[str] = None,
+             distinguished_name_qualifier: Optional[str] = None,
+             generation_qualifier: Optional[str] = None,
+             given_name: Optional[str] = None,
+             initials: Optional[str] = None,
+             locality: Optional[str] = None,
+             organization: Optional[str] = None,
+             organizational_unit: Optional[str] = None,
+             pseudonym: Optional[str] = None,
+             state: Optional[str] = None,
+             surname: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'distinguishedNameQualifier' in kwargs:
+            distinguished_name_qualifier = kwargs['distinguishedNameQualifier']
+        if 'generationQualifier' in kwargs:
+            generation_qualifier = kwargs['generationQualifier']
+        if 'givenName' in kwargs:
+            given_name = kwargs['givenName']
+        if 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
         if country is not None:
-            pulumi.set(__self__, "country", country)
+            _setter("country", country)
         if distinguished_name_qualifier is not None:
-            pulumi.set(__self__, "distinguished_name_qualifier", distinguished_name_qualifier)
+            _setter("distinguished_name_qualifier", distinguished_name_qualifier)
         if generation_qualifier is not None:
-            pulumi.set(__self__, "generation_qualifier", generation_qualifier)
+            _setter("generation_qualifier", generation_qualifier)
         if given_name is not None:
-            pulumi.set(__self__, "given_name", given_name)
+            _setter("given_name", given_name)
         if initials is not None:
-            pulumi.set(__self__, "initials", initials)
+            _setter("initials", initials)
         if locality is not None:
-            pulumi.set(__self__, "locality", locality)
+            _setter("locality", locality)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if pseudonym is not None:
-            pulumi.set(__self__, "pseudonym", pseudonym)
+            _setter("pseudonym", pseudonym)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if surname is not None:
-            pulumi.set(__self__, "surname", surname)
+            _setter("surname", surname)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="commonName")
@@ -298,10 +362,27 @@ class CertificateAuthorityRevocationConfiguration(dict):
         :param 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs' ocsp_configuration: Nested argument containing configuration of
                the custom OCSP responder endpoint. Defined below.
         """
+        CertificateAuthorityRevocationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_configuration=crl_configuration,
+            ocsp_configuration=ocsp_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration'] = None,
+             ocsp_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlConfiguration' in kwargs:
+            crl_configuration = kwargs['crlConfiguration']
+        if 'ocspConfiguration' in kwargs:
+            ocsp_configuration = kwargs['ocspConfiguration']
+
         if crl_configuration is not None:
-            pulumi.set(__self__, "crl_configuration", crl_configuration)
+            _setter("crl_configuration", crl_configuration)
         if ocsp_configuration is not None:
-            pulumi.set(__self__, "ocsp_configuration", ocsp_configuration)
+            _setter("ocsp_configuration", ocsp_configuration)
 
     @property
     @pulumi.getter(name="crlConfiguration")
@@ -359,16 +440,43 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         :param str s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
         :param str s3_object_acl: Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
         """
+        CertificateAuthorityRevocationConfigurationCrlConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_cname=custom_cname,
+            enabled=enabled,
+            expiration_in_days=expiration_in_days,
+            s3_bucket_name=s3_bucket_name,
+            s3_object_acl=s3_object_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_cname: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expiration_in_days: Optional[int] = None,
+             s3_bucket_name: Optional[str] = None,
+             s3_object_acl: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customCname' in kwargs:
+            custom_cname = kwargs['customCname']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3ObjectAcl' in kwargs:
+            s3_object_acl = kwargs['s3ObjectAcl']
+
         if custom_cname is not None:
-            pulumi.set(__self__, "custom_cname", custom_cname)
+            _setter("custom_cname", custom_cname)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiration_in_days is not None:
-            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+            _setter("expiration_in_days", expiration_in_days)
         if s3_bucket_name is not None:
-            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+            _setter("s3_bucket_name", s3_bucket_name)
         if s3_object_acl is not None:
-            pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+            _setter("s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
@@ -437,9 +545,24 @@ class CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
         :param bool enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param str ocsp_custom_cname: CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         """
-        pulumi.set(__self__, "enabled", enabled)
+        CertificateAuthorityRevocationConfigurationOcspConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            ocsp_custom_cname=ocsp_custom_cname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             ocsp_custom_cname: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ocspCustomCname' in kwargs:
+            ocsp_custom_cname = kwargs['ocspCustomCname']
+
+        _setter("enabled", enabled)
         if ocsp_custom_cname is not None:
-            pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+            _setter("ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter
@@ -467,8 +590,21 @@ class CertificateValidity(dict):
         :param str type: Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
         :param str value: If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        CertificateValidity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -492,8 +628,25 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
     def __init__(__self__, *,
                  crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
                  ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']):
-        pulumi.set(__self__, "crl_configurations", crl_configurations)
-        pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
+        GetCertificateAuthorityRevocationConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crl_configurations=crl_configurations,
+            ocsp_configurations=ocsp_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
+             ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crlConfigurations' in kwargs:
+            crl_configurations = kwargs['crlConfigurations']
+        if 'ocspConfigurations' in kwargs:
+            ocsp_configurations = kwargs['ocspConfigurations']
+
+        _setter("crl_configurations", crl_configurations)
+        _setter("ocsp_configurations", ocsp_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
@@ -514,11 +667,38 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
                  expiration_in_days: int,
                  s3_bucket_name: str,
                  s3_object_acl: str):
-        pulumi.set(__self__, "custom_cname", custom_cname)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "expiration_in_days", expiration_in_days)
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
-        pulumi.set(__self__, "s3_object_acl", s3_object_acl)
+        GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_cname=custom_cname,
+            enabled=enabled,
+            expiration_in_days=expiration_in_days,
+            s3_bucket_name=s3_bucket_name,
+            s3_object_acl=s3_object_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_cname: str,
+             enabled: bool,
+             expiration_in_days: int,
+             s3_bucket_name: str,
+             s3_object_acl: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customCname' in kwargs:
+            custom_cname = kwargs['customCname']
+        if 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+        if 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if 's3ObjectAcl' in kwargs:
+            s3_object_acl = kwargs['s3ObjectAcl']
+
+        _setter("custom_cname", custom_cname)
+        _setter("enabled", enabled)
+        _setter("expiration_in_days", expiration_in_days)
+        _setter("s3_bucket_name", s3_bucket_name)
+        _setter("s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
@@ -551,8 +731,23 @@ class GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult(dict
     def __init__(__self__, *,
                  enabled: bool,
                  ocsp_custom_cname: str):
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+        GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            ocsp_custom_cname=ocsp_custom_cname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             ocsp_custom_cname: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ocspCustomCname' in kwargs:
+            ocsp_custom_cname = kwargs['ocspCustomCname']
+
+        _setter("enabled", enabled)
+        _setter("ocsp_custom_cname", ocsp_custom_cname)
 
     @property
     @pulumi.getter

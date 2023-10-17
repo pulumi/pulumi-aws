@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,12 +25,29 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            logging_configuration=logging_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -87,21 +104,48 @@ class _WorkspaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            arn=arn,
+            logging_configuration=logging_configuration,
+            prometheus_endpoint=prometheus_endpoint,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
+             prometheus_endpoint: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if 'prometheusEndpoint' in kwargs:
+            prometheus_endpoint = kwargs['prometheusEndpoint']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if logging_configuration is not None:
-            pulumi.set(__self__, "logging_configuration", logging_configuration)
+            _setter("logging_configuration", logging_configuration)
         if prometheus_endpoint is not None:
-            pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+            _setter("prometheus_endpoint", prometheus_endpoint)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -280,6 +324,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,6 +346,11 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["alias"] = alias
+            if logging_configuration is not None and not isinstance(logging_configuration, WorkspaceLoggingConfigurationArgs):
+                logging_configuration = logging_configuration or {}
+                def _setter(key, value):
+                    logging_configuration[key] = value
+                WorkspaceLoggingConfigurationArgs._configure(_setter, **logging_configuration)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

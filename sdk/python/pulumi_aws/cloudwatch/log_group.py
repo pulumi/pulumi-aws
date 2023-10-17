@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogGroupArgs', 'LogGroup']
@@ -33,18 +33,47 @@ class LogGroupArgs:
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        LogGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            name=name,
+            name_prefix=name_prefix,
+            retention_in_days=retention_in_days,
+            skip_destroy=skip_destroy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -149,25 +178,60 @@ class _LogGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _LogGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            kms_key_id=kms_key_id,
+            name=name,
+            name_prefix=name_prefix,
+            retention_in_days=retention_in_days,
+            skip_destroy=skip_destroy,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -360,6 +424,10 @@ class LogGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AttachmentAccepterArgs', 'AttachmentAccepter']
@@ -21,8 +21,25 @@ class AttachmentAccepterArgs:
         :param pulumi.Input[str] attachment_id: The ID of the attachment.
         :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         """
-        pulumi.set(__self__, "attachment_id", attachment_id)
-        pulumi.set(__self__, "attachment_type", attachment_type)
+        AttachmentAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attachment_id=attachment_id,
+            attachment_type=attachment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attachment_id: pulumi.Input[str],
+             attachment_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentId' in kwargs:
+            attachment_id = kwargs['attachmentId']
+        if 'attachmentType' in kwargs:
+            attachment_type = kwargs['attachmentType']
+
+        _setter("attachment_id", attachment_id)
+        _setter("attachment_type", attachment_type)
 
     @property
     @pulumi.getter(name="attachmentId")
@@ -75,26 +92,73 @@ class _AttachmentAccepterState:
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
         :param pulumi.Input[str] state: The state of the attachment.
         """
+        _AttachmentAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attachment_id=attachment_id,
+            attachment_policy_rule_number=attachment_policy_rule_number,
+            attachment_type=attachment_type,
+            core_network_arn=core_network_arn,
+            core_network_id=core_network_id,
+            edge_location=edge_location,
+            owner_account_id=owner_account_id,
+            resource_arn=resource_arn,
+            segment_name=segment_name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attachment_id: Optional[pulumi.Input[str]] = None,
+             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
+             attachment_type: Optional[pulumi.Input[str]] = None,
+             core_network_arn: Optional[pulumi.Input[str]] = None,
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             segment_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachmentId' in kwargs:
+            attachment_id = kwargs['attachmentId']
+        if 'attachmentPolicyRuleNumber' in kwargs:
+            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
+        if 'attachmentType' in kwargs:
+            attachment_type = kwargs['attachmentType']
+        if 'coreNetworkArn' in kwargs:
+            core_network_arn = kwargs['coreNetworkArn']
+        if 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if 'segmentName' in kwargs:
+            segment_name = kwargs['segmentName']
+
         if attachment_id is not None:
-            pulumi.set(__self__, "attachment_id", attachment_id)
+            _setter("attachment_id", attachment_id)
         if attachment_policy_rule_number is not None:
-            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
         if attachment_type is not None:
-            pulumi.set(__self__, "attachment_type", attachment_type)
+            _setter("attachment_type", attachment_type)
         if core_network_arn is not None:
-            pulumi.set(__self__, "core_network_arn", core_network_arn)
+            _setter("core_network_arn", core_network_arn)
         if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+            _setter("core_network_id", core_network_id)
         if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
+            _setter("edge_location", edge_location)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if segment_name is not None:
-            pulumi.set(__self__, "segment_name", segment_name)
+            _setter("segment_name", segment_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="attachmentId")
@@ -296,6 +360,10 @@ class AttachmentAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachmentAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

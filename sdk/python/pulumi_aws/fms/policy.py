@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,30 +45,85 @@ class PolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
-        pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exclude_resource_tags=exclude_resource_tags,
+            security_service_policy_data=security_service_policy_data,
+            delete_all_policy_resources=delete_all_policy_resources,
+            delete_unused_fm_managed_resources=delete_unused_fm_managed_resources,
+            description=description,
+            exclude_map=exclude_map,
+            include_map=include_map,
+            name=name,
+            remediation_enabled=remediation_enabled,
+            resource_tags=resource_tags,
+            resource_type=resource_type,
+            resource_type_lists=resource_type_lists,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exclude_resource_tags: pulumi.Input[bool],
+             security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
+             delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+             delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
+             include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remediation_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludeResourceTags' in kwargs:
+            exclude_resource_tags = kwargs['excludeResourceTags']
+        if 'securityServicePolicyData' in kwargs:
+            security_service_policy_data = kwargs['securityServicePolicyData']
+        if 'deleteAllPolicyResources' in kwargs:
+            delete_all_policy_resources = kwargs['deleteAllPolicyResources']
+        if 'deleteUnusedFmManagedResources' in kwargs:
+            delete_unused_fm_managed_resources = kwargs['deleteUnusedFmManagedResources']
+        if 'excludeMap' in kwargs:
+            exclude_map = kwargs['excludeMap']
+        if 'includeMap' in kwargs:
+            include_map = kwargs['includeMap']
+        if 'remediationEnabled' in kwargs:
+            remediation_enabled = kwargs['remediationEnabled']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceTypeLists' in kwargs:
+            resource_type_lists = kwargs['resourceTypeLists']
+
+        _setter("exclude_resource_tags", exclude_resource_tags)
+        _setter("security_service_policy_data", security_service_policy_data)
         if delete_all_policy_resources is not None:
-            pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
+            _setter("delete_all_policy_resources", delete_all_policy_resources)
         if delete_unused_fm_managed_resources is not None:
-            pulumi.set(__self__, "delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
+            _setter("delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclude_map is not None:
-            pulumi.set(__self__, "exclude_map", exclude_map)
+            _setter("exclude_map", exclude_map)
         if include_map is not None:
-            pulumi.set(__self__, "include_map", include_map)
+            _setter("include_map", include_map)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remediation_enabled is not None:
-            pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+            _setter("remediation_enabled", remediation_enabled)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if resource_type_lists is not None:
-            pulumi.set(__self__, "resource_type_lists", resource_type_lists)
+            _setter("resource_type_lists", resource_type_lists)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="excludeResourceTags")
@@ -264,41 +319,106 @@ class _PolicyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            delete_all_policy_resources=delete_all_policy_resources,
+            delete_unused_fm_managed_resources=delete_unused_fm_managed_resources,
+            description=description,
+            exclude_map=exclude_map,
+            exclude_resource_tags=exclude_resource_tags,
+            include_map=include_map,
+            name=name,
+            policy_update_token=policy_update_token,
+            remediation_enabled=remediation_enabled,
+            resource_tags=resource_tags,
+            resource_type=resource_type,
+            resource_type_lists=resource_type_lists,
+            security_service_policy_data=security_service_policy_data,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
+             delete_unused_fm_managed_resources: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
+             exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
+             include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_update_token: Optional[pulumi.Input[str]] = None,
+             remediation_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_service_policy_data: Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deleteAllPolicyResources' in kwargs:
+            delete_all_policy_resources = kwargs['deleteAllPolicyResources']
+        if 'deleteUnusedFmManagedResources' in kwargs:
+            delete_unused_fm_managed_resources = kwargs['deleteUnusedFmManagedResources']
+        if 'excludeMap' in kwargs:
+            exclude_map = kwargs['excludeMap']
+        if 'excludeResourceTags' in kwargs:
+            exclude_resource_tags = kwargs['excludeResourceTags']
+        if 'includeMap' in kwargs:
+            include_map = kwargs['includeMap']
+        if 'policyUpdateToken' in kwargs:
+            policy_update_token = kwargs['policyUpdateToken']
+        if 'remediationEnabled' in kwargs:
+            remediation_enabled = kwargs['remediationEnabled']
+        if 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceTypeLists' in kwargs:
+            resource_type_lists = kwargs['resourceTypeLists']
+        if 'securityServicePolicyData' in kwargs:
+            security_service_policy_data = kwargs['securityServicePolicyData']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if delete_all_policy_resources is not None:
-            pulumi.set(__self__, "delete_all_policy_resources", delete_all_policy_resources)
+            _setter("delete_all_policy_resources", delete_all_policy_resources)
         if delete_unused_fm_managed_resources is not None:
-            pulumi.set(__self__, "delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
+            _setter("delete_unused_fm_managed_resources", delete_unused_fm_managed_resources)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclude_map is not None:
-            pulumi.set(__self__, "exclude_map", exclude_map)
+            _setter("exclude_map", exclude_map)
         if exclude_resource_tags is not None:
-            pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
+            _setter("exclude_resource_tags", exclude_resource_tags)
         if include_map is not None:
-            pulumi.set(__self__, "include_map", include_map)
+            _setter("include_map", include_map)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_update_token is not None:
-            pulumi.set(__self__, "policy_update_token", policy_update_token)
+            _setter("policy_update_token", policy_update_token)
         if remediation_enabled is not None:
-            pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+            _setter("remediation_enabled", remediation_enabled)
         if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
+            _setter("resource_tags", resource_tags)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if resource_type_lists is not None:
-            pulumi.set(__self__, "resource_type_lists", resource_type_lists)
+            _setter("resource_type_lists", resource_type_lists)
         if security_service_policy_data is not None:
-            pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
+            _setter("security_service_policy_data", security_service_policy_data)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -636,6 +756,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -666,16 +790,31 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["delete_all_policy_resources"] = delete_all_policy_resources
             __props__.__dict__["delete_unused_fm_managed_resources"] = delete_unused_fm_managed_resources
             __props__.__dict__["description"] = description
+            if exclude_map is not None and not isinstance(exclude_map, PolicyExcludeMapArgs):
+                exclude_map = exclude_map or {}
+                def _setter(key, value):
+                    exclude_map[key] = value
+                PolicyExcludeMapArgs._configure(_setter, **exclude_map)
             __props__.__dict__["exclude_map"] = exclude_map
             if exclude_resource_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'exclude_resource_tags'")
             __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
+            if include_map is not None and not isinstance(include_map, PolicyIncludeMapArgs):
+                include_map = include_map or {}
+                def _setter(key, value):
+                    include_map[key] = value
+                PolicyIncludeMapArgs._configure(_setter, **include_map)
             __props__.__dict__["include_map"] = include_map
             __props__.__dict__["name"] = name
             __props__.__dict__["remediation_enabled"] = remediation_enabled
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_lists"] = resource_type_lists
+            if security_service_policy_data is not None and not isinstance(security_service_policy_data, PolicySecurityServicePolicyDataArgs):
+                security_service_policy_data = security_service_policy_data or {}
+                def _setter(key, value):
+                    security_service_policy_data[key] = value
+                PolicySecurityServicePolicyDataArgs._configure(_setter, **security_service_policy_data)
             if security_service_policy_data is None and not opts.urn:
                 raise TypeError("Missing required property 'security_service_policy_data'")
             __props__.__dict__["security_service_policy_data"] = security_service_policy_data

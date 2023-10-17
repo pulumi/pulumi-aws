@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,13 +25,30 @@ class ChannelArgs:
         :param pulumi.Input[str] description: A description of the channel
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "channel_id", channel_id)
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_id=channel_id,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+
+        _setter("channel_id", channel_id)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="channelId")
@@ -88,23 +105,50 @@ class _ChannelState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ChannelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            channel_id=channel_id,
+            description=description,
+            hls_ingests=hls_ingests,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             channel_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if 'hlsIngests' in kwargs:
+            hls_ingests = kwargs['hlsIngests']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if channel_id is not None:
-            pulumi.set(__self__, "channel_id", channel_id)
+            _setter("channel_id", channel_id)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hls_ingests is not None:
-            pulumi.set(__self__, "hls_ingests", hls_ingests)
+            _setter("hls_ingests", hls_ingests)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -257,6 +301,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

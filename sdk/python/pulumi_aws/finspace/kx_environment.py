@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,44 @@ class KxEnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs'] transit_gateway_configuration: Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         """
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
+        KxEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            custom_dns_configurations=custom_dns_configurations,
+            description=description,
+            name=name,
+            tags=tags,
+            transit_gateway_configuration=transit_gateway_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: pulumi.Input[str],
+             custom_dns_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'customDnsConfigurations' in kwargs:
+            custom_dns_configurations = kwargs['customDnsConfigurations']
+        if 'transitGatewayConfiguration' in kwargs:
+            transit_gateway_configuration = kwargs['transitGatewayConfiguration']
+
+        _setter("kms_key_id", kms_key_id)
         if custom_dns_configurations is not None:
-            pulumi.set(__self__, "custom_dns_configurations", custom_dns_configurations)
+            _setter("custom_dns_configurations", custom_dns_configurations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_gateway_configuration is not None:
-            pulumi.set(__self__, "transit_gateway_configuration", transit_gateway_configuration)
+            _setter("transit_gateway_configuration", transit_gateway_configuration)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -154,35 +181,86 @@ class _KxEnvironmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs'] transit_gateway_configuration: Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         """
+        _KxEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            availability_zones=availability_zones,
+            created_timestamp=created_timestamp,
+            custom_dns_configurations=custom_dns_configurations,
+            description=description,
+            infrastructure_account_id=infrastructure_account_id,
+            kms_key_id=kms_key_id,
+            last_modified_timestamp=last_modified_timestamp,
+            name=name,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_configuration=transit_gateway_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             created_timestamp: Optional[pulumi.Input[str]] = None,
+             custom_dns_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             infrastructure_account_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             last_modified_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if 'customDnsConfigurations' in kwargs:
+            custom_dns_configurations = kwargs['customDnsConfigurations']
+        if 'infrastructureAccountId' in kwargs:
+            infrastructure_account_id = kwargs['infrastructureAccountId']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'lastModifiedTimestamp' in kwargs:
+            last_modified_timestamp = kwargs['lastModifiedTimestamp']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'transitGatewayConfiguration' in kwargs:
+            transit_gateway_configuration = kwargs['transitGatewayConfiguration']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if created_timestamp is not None:
-            pulumi.set(__self__, "created_timestamp", created_timestamp)
+            _setter("created_timestamp", created_timestamp)
         if custom_dns_configurations is not None:
-            pulumi.set(__self__, "custom_dns_configurations", custom_dns_configurations)
+            _setter("custom_dns_configurations", custom_dns_configurations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if infrastructure_account_id is not None:
-            pulumi.set(__self__, "infrastructure_account_id", infrastructure_account_id)
+            _setter("infrastructure_account_id", infrastructure_account_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if last_modified_timestamp is not None:
-            pulumi.set(__self__, "last_modified_timestamp", last_modified_timestamp)
+            _setter("last_modified_timestamp", last_modified_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_configuration is not None:
-            pulumi.set(__self__, "transit_gateway_configuration", transit_gateway_configuration)
+            _setter("transit_gateway_configuration", transit_gateway_configuration)
 
     @property
     @pulumi.getter
@@ -549,6 +627,10 @@ class KxEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KxEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -576,6 +658,11 @@ class KxEnvironment(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            if transit_gateway_configuration is not None and not isinstance(transit_gateway_configuration, KxEnvironmentTransitGatewayConfigurationArgs):
+                transit_gateway_configuration = transit_gateway_configuration or {}
+                def _setter(key, value):
+                    transit_gateway_configuration[key] = value
+                KxEnvironmentTransitGatewayConfigurationArgs._configure(_setter, **transit_gateway_configuration)
             __props__.__dict__["transit_gateway_configuration"] = transit_gateway_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zones"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,31 @@ class MultiplexProgramArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "multiplex_id", multiplex_id)
-        pulumi.set(__self__, "program_name", program_name)
+        MultiplexProgramArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multiplex_id=multiplex_id,
+            program_name=program_name,
+            multiplex_program_settings=multiplex_program_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multiplex_id: pulumi.Input[str],
+             program_name: pulumi.Input[str],
+             multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multiplexId' in kwargs:
+            multiplex_id = kwargs['multiplexId']
+        if 'programName' in kwargs:
+            program_name = kwargs['programName']
+        if 'multiplexProgramSettings' in kwargs:
+            multiplex_program_settings = kwargs['multiplexProgramSettings']
+
+        _setter("multiplex_id", multiplex_id)
+        _setter("program_name", program_name)
         if multiplex_program_settings is not None:
-            pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+            _setter("multiplex_program_settings", multiplex_program_settings)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -85,12 +106,33 @@ class _MultiplexProgramState:
                The following arguments are optional:
         :param pulumi.Input[str] program_name: Unique program name.
         """
+        _MultiplexProgramState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multiplex_id=multiplex_id,
+            multiplex_program_settings=multiplex_program_settings,
+            program_name=program_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multiplex_id: Optional[pulumi.Input[str]] = None,
+             multiplex_program_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsArgs']] = None,
+             program_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'multiplexId' in kwargs:
+            multiplex_id = kwargs['multiplexId']
+        if 'multiplexProgramSettings' in kwargs:
+            multiplex_program_settings = kwargs['multiplexProgramSettings']
+        if 'programName' in kwargs:
+            program_name = kwargs['programName']
+
         if multiplex_id is not None:
-            pulumi.set(__self__, "multiplex_id", multiplex_id)
+            _setter("multiplex_id", multiplex_id)
         if multiplex_program_settings is not None:
-            pulumi.set(__self__, "multiplex_program_settings", multiplex_program_settings)
+            _setter("multiplex_program_settings", multiplex_program_settings)
         if program_name is not None:
-            pulumi.set(__self__, "program_name", program_name)
+            _setter("program_name", program_name)
 
     @property
     @pulumi.getter(name="multiplexId")
@@ -256,6 +298,10 @@ class MultiplexProgram(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultiplexProgramArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -276,6 +322,11 @@ class MultiplexProgram(pulumi.CustomResource):
             if multiplex_id is None and not opts.urn:
                 raise TypeError("Missing required property 'multiplex_id'")
             __props__.__dict__["multiplex_id"] = multiplex_id
+            if multiplex_program_settings is not None and not isinstance(multiplex_program_settings, MultiplexProgramMultiplexProgramSettingsArgs):
+                multiplex_program_settings = multiplex_program_settings or {}
+                def _setter(key, value):
+                    multiplex_program_settings[key] = value
+                MultiplexProgramMultiplexProgramSettingsArgs._configure(_setter, **multiplex_program_settings)
             __props__.__dict__["multiplex_program_settings"] = multiplex_program_settings
             if program_name is None and not opts.urn:
                 raise TypeError("Missing required property 'program_name'")

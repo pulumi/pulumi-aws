@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyArgs', 'Key']
@@ -48,28 +48,75 @@ class KeyArgs:
                > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        KeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            custom_key_store_id=custom_key_store_id,
+            customer_master_key_spec=customer_master_key_spec,
+            deletion_window_in_days=deletion_window_in_days,
+            description=description,
+            enable_key_rotation=enable_key_rotation,
+            is_enabled=is_enabled,
+            key_usage=key_usage,
+            multi_region=multi_region,
+            policy=policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             custom_key_store_id: Optional[pulumi.Input[str]] = None,
+             customer_master_key_spec: Optional[pulumi.Input[str]] = None,
+             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_key_rotation: Optional[pulumi.Input[bool]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             key_usage: Optional[pulumi.Input[str]] = None,
+             multi_region: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if 'customKeyStoreId' in kwargs:
+            custom_key_store_id = kwargs['customKeyStoreId']
+        if 'customerMasterKeySpec' in kwargs:
+            customer_master_key_spec = kwargs['customerMasterKeySpec']
+        if 'deletionWindowInDays' in kwargs:
+            deletion_window_in_days = kwargs['deletionWindowInDays']
+        if 'enableKeyRotation' in kwargs:
+            enable_key_rotation = kwargs['enableKeyRotation']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'multiRegion' in kwargs:
+            multi_region = kwargs['multiRegion']
+
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if custom_key_store_id is not None:
-            pulumi.set(__self__, "custom_key_store_id", custom_key_store_id)
+            _setter("custom_key_store_id", custom_key_store_id)
         if customer_master_key_spec is not None:
-            pulumi.set(__self__, "customer_master_key_spec", customer_master_key_spec)
+            _setter("customer_master_key_spec", customer_master_key_spec)
         if deletion_window_in_days is not None:
-            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
+            _setter("deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_key_rotation is not None:
-            pulumi.set(__self__, "enable_key_rotation", enable_key_rotation)
+            _setter("enable_key_rotation", enable_key_rotation)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if key_usage is not None:
-            pulumi.set(__self__, "key_usage", key_usage)
+            _setter("key_usage", key_usage)
         if multi_region is not None:
-            pulumi.set(__self__, "multi_region", multi_region)
+            _setter("multi_region", multi_region)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -256,37 +303,94 @@ class _KeyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _KeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            custom_key_store_id=custom_key_store_id,
+            customer_master_key_spec=customer_master_key_spec,
+            deletion_window_in_days=deletion_window_in_days,
+            description=description,
+            enable_key_rotation=enable_key_rotation,
+            is_enabled=is_enabled,
+            key_id=key_id,
+            key_usage=key_usage,
+            multi_region=multi_region,
+            policy=policy,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             custom_key_store_id: Optional[pulumi.Input[str]] = None,
+             customer_master_key_spec: Optional[pulumi.Input[str]] = None,
+             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_key_rotation: Optional[pulumi.Input[bool]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_usage: Optional[pulumi.Input[str]] = None,
+             multi_region: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if 'customKeyStoreId' in kwargs:
+            custom_key_store_id = kwargs['customKeyStoreId']
+        if 'customerMasterKeySpec' in kwargs:
+            customer_master_key_spec = kwargs['customerMasterKeySpec']
+        if 'deletionWindowInDays' in kwargs:
+            deletion_window_in_days = kwargs['deletionWindowInDays']
+        if 'enableKeyRotation' in kwargs:
+            enable_key_rotation = kwargs['enableKeyRotation']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if 'multiRegion' in kwargs:
+            multi_region = kwargs['multiRegion']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if custom_key_store_id is not None:
-            pulumi.set(__self__, "custom_key_store_id", custom_key_store_id)
+            _setter("custom_key_store_id", custom_key_store_id)
         if customer_master_key_spec is not None:
-            pulumi.set(__self__, "customer_master_key_spec", customer_master_key_spec)
+            _setter("customer_master_key_spec", customer_master_key_spec)
         if deletion_window_in_days is not None:
-            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
+            _setter("deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_key_rotation is not None:
-            pulumi.set(__self__, "enable_key_rotation", enable_key_rotation)
+            _setter("enable_key_rotation", enable_key_rotation)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if key_usage is not None:
-            pulumi.set(__self__, "key_usage", key_usage)
+            _setter("key_usage", key_usage)
         if multi_region is not None:
-            pulumi.set(__self__, "multi_region", multi_region)
+            _setter("multi_region", multi_region)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -577,6 +681,10 @@ class Key(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

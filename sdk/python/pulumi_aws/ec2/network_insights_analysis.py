@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,36 @@ class NetworkInsightsAnalysisArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
-        pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
+        NetworkInsightsAnalysisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_insights_path_id=network_insights_path_id,
+            filter_in_arns=filter_in_arns,
+            tags=tags,
+            wait_for_completion=wait_for_completion,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_insights_path_id: pulumi.Input[str],
+             filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wait_for_completion: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInsightsPathId' in kwargs:
+            network_insights_path_id = kwargs['networkInsightsPathId']
+        if 'filterInArns' in kwargs:
+            filter_in_arns = kwargs['filterInArns']
+        if 'waitForCompletion' in kwargs:
+            wait_for_completion = kwargs['waitForCompletion']
+
+        _setter("network_insights_path_id", network_insights_path_id)
         if filter_in_arns is not None:
-            pulumi.set(__self__, "filter_in_arns", filter_in_arns)
+            _setter("filter_in_arns", filter_in_arns)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wait_for_completion is not None:
-            pulumi.set(__self__, "wait_for_completion", wait_for_completion)
+            _setter("wait_for_completion", wait_for_completion)
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
@@ -126,39 +149,100 @@ class _NetworkInsightsAnalysisState:
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         :param pulumi.Input[str] warning_message: The warning message.
         """
+        _NetworkInsightsAnalysisState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alternate_path_hints=alternate_path_hints,
+            arn=arn,
+            explanations=explanations,
+            filter_in_arns=filter_in_arns,
+            forward_path_components=forward_path_components,
+            network_insights_path_id=network_insights_path_id,
+            path_found=path_found,
+            return_path_components=return_path_components,
+            start_date=start_date,
+            status=status,
+            status_message=status_message,
+            tags=tags,
+            tags_all=tags_all,
+            wait_for_completion=wait_for_completion,
+            warning_message=warning_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alternate_path_hints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisAlternatePathHintArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             explanations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationArgs']]]] = None,
+             filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             forward_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]] = None,
+             network_insights_path_id: Optional[pulumi.Input[str]] = None,
+             path_found: Optional[pulumi.Input[bool]] = None,
+             return_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_message: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wait_for_completion: Optional[pulumi.Input[bool]] = None,
+             warning_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternatePathHints' in kwargs:
+            alternate_path_hints = kwargs['alternatePathHints']
+        if 'filterInArns' in kwargs:
+            filter_in_arns = kwargs['filterInArns']
+        if 'forwardPathComponents' in kwargs:
+            forward_path_components = kwargs['forwardPathComponents']
+        if 'networkInsightsPathId' in kwargs:
+            network_insights_path_id = kwargs['networkInsightsPathId']
+        if 'pathFound' in kwargs:
+            path_found = kwargs['pathFound']
+        if 'returnPathComponents' in kwargs:
+            return_path_components = kwargs['returnPathComponents']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'waitForCompletion' in kwargs:
+            wait_for_completion = kwargs['waitForCompletion']
+        if 'warningMessage' in kwargs:
+            warning_message = kwargs['warningMessage']
+
         if alternate_path_hints is not None:
-            pulumi.set(__self__, "alternate_path_hints", alternate_path_hints)
+            _setter("alternate_path_hints", alternate_path_hints)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if explanations is not None:
-            pulumi.set(__self__, "explanations", explanations)
+            _setter("explanations", explanations)
         if filter_in_arns is not None:
-            pulumi.set(__self__, "filter_in_arns", filter_in_arns)
+            _setter("filter_in_arns", filter_in_arns)
         if forward_path_components is not None:
-            pulumi.set(__self__, "forward_path_components", forward_path_components)
+            _setter("forward_path_components", forward_path_components)
         if network_insights_path_id is not None:
-            pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
+            _setter("network_insights_path_id", network_insights_path_id)
         if path_found is not None:
-            pulumi.set(__self__, "path_found", path_found)
+            _setter("path_found", path_found)
         if return_path_components is not None:
-            pulumi.set(__self__, "return_path_components", return_path_components)
+            _setter("return_path_components", return_path_components)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
+            _setter("status_message", status_message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if wait_for_completion is not None:
-            pulumi.set(__self__, "wait_for_completion", wait_for_completion)
+            _setter("wait_for_completion", wait_for_completion)
         if warning_message is not None:
-            pulumi.set(__self__, "warning_message", warning_message)
+            _setter("warning_message", warning_message)
 
     @property
     @pulumi.getter(name="alternatePathHints")
@@ -429,6 +513,10 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInsightsAnalysisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

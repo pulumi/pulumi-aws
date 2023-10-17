@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,49 @@ class CostCategoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "rule_version", rule_version)
-        pulumi.set(__self__, "rules", rules)
+        CostCategoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_version=rule_version,
+            rules=rules,
+            default_value=default_value,
+            effective_start=effective_start,
+            name=name,
+            split_charge_rules=split_charge_rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_version: pulumi.Input[str],
+             rules: pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]],
+             default_value: Optional[pulumi.Input[str]] = None,
+             effective_start: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'effectiveStart' in kwargs:
+            effective_start = kwargs['effectiveStart']
+        if 'splitChargeRules' in kwargs:
+            split_charge_rules = kwargs['splitChargeRules']
+
+        _setter("rule_version", rule_version)
+        _setter("rules", rules)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if effective_start is not None:
-            pulumi.set(__self__, "effective_start", effective_start)
+            _setter("effective_start", effective_start)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if split_charge_rules is not None:
-            pulumi.set(__self__, "split_charge_rules", split_charge_rules)
+            _setter("split_charge_rules", split_charge_rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ruleVersion")
@@ -163,29 +194,70 @@ class _CostCategoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _CostCategoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_value=default_value,
+            effective_end=effective_end,
+            effective_start=effective_start,
+            name=name,
+            rule_version=rule_version,
+            rules=rules,
+            split_charge_rules=split_charge_rules,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
+             effective_end: Optional[pulumi.Input[str]] = None,
+             effective_start: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_version: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]]] = None,
+             split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if 'effectiveEnd' in kwargs:
+            effective_end = kwargs['effectiveEnd']
+        if 'effectiveStart' in kwargs:
+            effective_start = kwargs['effectiveStart']
+        if 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+        if 'splitChargeRules' in kwargs:
+            split_charge_rules = kwargs['splitChargeRules']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if effective_end is not None:
-            pulumi.set(__self__, "effective_end", effective_end)
+            _setter("effective_end", effective_end)
         if effective_start is not None:
-            pulumi.set(__self__, "effective_start", effective_start)
+            _setter("effective_start", effective_start)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_version is not None:
-            pulumi.set(__self__, "rule_version", rule_version)
+            _setter("rule_version", rule_version)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if split_charge_rules is not None:
-            pulumi.set(__self__, "split_charge_rules", split_charge_rules)
+            _setter("split_charge_rules", split_charge_rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -460,6 +532,10 @@ class CostCategory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CostCategoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

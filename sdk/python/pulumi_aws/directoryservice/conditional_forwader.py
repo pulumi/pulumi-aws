@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConditionalForwaderArgs', 'ConditionalForwader']
@@ -23,9 +23,30 @@ class ConditionalForwaderArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "dns_ips", dns_ips)
-        pulumi.set(__self__, "remote_domain_name", remote_domain_name)
+        ConditionalForwaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            dns_ips=dns_ips,
+            remote_domain_name=remote_domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: pulumi.Input[str],
+             dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
+             remote_domain_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'remoteDomainName' in kwargs:
+            remote_domain_name = kwargs['remoteDomainName']
+
+        _setter("directory_id", directory_id)
+        _setter("dns_ips", dns_ips)
+        _setter("remote_domain_name", remote_domain_name)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -76,12 +97,33 @@ class _ConditionalForwaderState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_ips: A list of forwarder IP addresses.
         :param pulumi.Input[str] remote_domain_name: The fully qualified domain name of the remote domain for which forwarders will be used.
         """
+        _ConditionalForwaderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_id=directory_id,
+            dns_ips=dns_ips,
+            remote_domain_name=remote_domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_id: Optional[pulumi.Input[str]] = None,
+             dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'remoteDomainName' in kwargs:
+            remote_domain_name = kwargs['remoteDomainName']
+
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if dns_ips is not None:
-            pulumi.set(__self__, "dns_ips", dns_ips)
+            _setter("dns_ips", dns_ips)
         if remote_domain_name is not None:
-            pulumi.set(__self__, "remote_domain_name", remote_domain_name)
+            _setter("remote_domain_name", remote_domain_name)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -203,6 +245,10 @@ class ConditionalForwader(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConditionalForwaderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

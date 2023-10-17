@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkerConfigurationArgs', 'WorkerConfiguration']
@@ -25,11 +25,28 @@ class WorkerConfigurationArgs:
         :param pulumi.Input[str] description: A summary description of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
         """
-        pulumi.set(__self__, "properties_file_content", properties_file_content)
+        WorkerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties_file_content=properties_file_content,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties_file_content: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'propertiesFileContent' in kwargs:
+            properties_file_content = kwargs['propertiesFileContent']
+
+        _setter("properties_file_content", properties_file_content)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="propertiesFileContent")
@@ -88,16 +105,39 @@ class _WorkerConfigurationState:
                
                The following arguments are optional:
         """
+        _WorkerConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            latest_revision=latest_revision,
+            name=name,
+            properties_file_content=properties_file_content,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             latest_revision: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties_file_content: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if 'propertiesFileContent' in kwargs:
+            properties_file_content = kwargs['propertiesFileContent']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if latest_revision is not None:
-            pulumi.set(__self__, "latest_revision", latest_revision)
+            _setter("latest_revision", latest_revision)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties_file_content is not None:
-            pulumi.set(__self__, "properties_file_content", properties_file_content)
+            _setter("properties_file_content", properties_file_content)
 
     @property
     @pulumi.getter
@@ -243,6 +283,10 @@ class WorkerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

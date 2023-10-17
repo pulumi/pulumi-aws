@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,61 @@ class ApplicationArgs:
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
-        pulumi.set(__self__, "runtime_environment", runtime_environment)
-        pulumi.set(__self__, "service_execution_role", service_execution_role)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runtime_environment=runtime_environment,
+            service_execution_role=service_execution_role,
+            application_configuration=application_configuration,
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            description=description,
+            force_stop=force_stop,
+            name=name,
+            start_application=start_application,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runtime_environment: pulumi.Input[str],
+             service_execution_role: pulumi.Input[str],
+             application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+             cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_stop: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'runtimeEnvironment' in kwargs:
+            runtime_environment = kwargs['runtimeEnvironment']
+        if 'serviceExecutionRole' in kwargs:
+            service_execution_role = kwargs['serviceExecutionRole']
+        if 'applicationConfiguration' in kwargs:
+            application_configuration = kwargs['applicationConfiguration']
+        if 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if 'forceStop' in kwargs:
+            force_stop = kwargs['forceStop']
+        if 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+
+        _setter("runtime_environment", runtime_environment)
+        _setter("service_execution_role", service_execution_role)
         if application_configuration is not None:
-            pulumi.set(__self__, "application_configuration", application_configuration)
+            _setter("application_configuration", application_configuration)
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_stop is not None:
-            pulumi.set(__self__, "force_stop", force_stop)
+            _setter("force_stop", force_stop)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="runtimeEnvironment")
@@ -199,39 +238,98 @@ class _ApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
+        _ApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_configuration=application_configuration,
+            arn=arn,
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            create_timestamp=create_timestamp,
+            description=description,
+            force_stop=force_stop,
+            last_update_timestamp=last_update_timestamp,
+            name=name,
+            runtime_environment=runtime_environment,
+            service_execution_role=service_execution_role,
+            start_application=start_application,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            version_id=version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_configuration: Optional[pulumi.Input['ApplicationApplicationConfigurationArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_logging_options: Optional[pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs']] = None,
+             create_timestamp: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             force_stop: Optional[pulumi.Input[bool]] = None,
+             last_update_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             runtime_environment: Optional[pulumi.Input[str]] = None,
+             service_execution_role: Optional[pulumi.Input[str]] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConfiguration' in kwargs:
+            application_configuration = kwargs['applicationConfiguration']
+        if 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if 'createTimestamp' in kwargs:
+            create_timestamp = kwargs['createTimestamp']
+        if 'forceStop' in kwargs:
+            force_stop = kwargs['forceStop']
+        if 'lastUpdateTimestamp' in kwargs:
+            last_update_timestamp = kwargs['lastUpdateTimestamp']
+        if 'runtimeEnvironment' in kwargs:
+            runtime_environment = kwargs['runtimeEnvironment']
+        if 'serviceExecutionRole' in kwargs:
+            service_execution_role = kwargs['serviceExecutionRole']
+        if 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if application_configuration is not None:
-            pulumi.set(__self__, "application_configuration", application_configuration)
+            _setter("application_configuration", application_configuration)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if create_timestamp is not None:
-            pulumi.set(__self__, "create_timestamp", create_timestamp)
+            _setter("create_timestamp", create_timestamp)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if force_stop is not None:
-            pulumi.set(__self__, "force_stop", force_stop)
+            _setter("force_stop", force_stop)
         if last_update_timestamp is not None:
-            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+            _setter("last_update_timestamp", last_update_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if runtime_environment is not None:
-            pulumi.set(__self__, "runtime_environment", runtime_environment)
+            _setter("runtime_environment", runtime_environment)
         if service_execution_role is not None:
-            pulumi.set(__self__, "service_execution_role", service_execution_role)
+            _setter("service_execution_role", service_execution_role)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version_id is not None:
-            pulumi.set(__self__, "version_id", version_id)
+            _setter("version_id", version_id)
 
     @property
     @pulumi.getter(name="applicationConfiguration")
@@ -878,6 +976,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -901,7 +1003,17 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            if application_configuration is not None and not isinstance(application_configuration, ApplicationApplicationConfigurationArgs):
+                application_configuration = application_configuration or {}
+                def _setter(key, value):
+                    application_configuration[key] = value
+                ApplicationApplicationConfigurationArgs._configure(_setter, **application_configuration)
             __props__.__dict__["application_configuration"] = application_configuration
+            if cloudwatch_logging_options is not None and not isinstance(cloudwatch_logging_options, ApplicationCloudwatchLoggingOptionsArgs):
+                cloudwatch_logging_options = cloudwatch_logging_options or {}
+                def _setter(key, value):
+                    cloudwatch_logging_options[key] = value
+                ApplicationCloudwatchLoggingOptionsArgs._configure(_setter, **cloudwatch_logging_options)
             __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
             __props__.__dict__["description"] = description
             __props__.__dict__["force_stop"] = force_stop

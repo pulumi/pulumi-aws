@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,7 +21,20 @@ class OrganizationConfigurationArgs:
         The set of arguments for constructing a OrganizationConfiguration resource.
         :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
         """
-        pulumi.set(__self__, "auto_enable", auto_enable)
+        OrganizationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: pulumi.Input['OrganizationConfigurationAutoEnableArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+
+        _setter("auto_enable", auto_enable)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -46,10 +59,27 @@ class _OrganizationConfigurationState:
         :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
         :param pulumi.Input[bool] max_account_limit_reached: Whether your configuration reached the max account limit.
         """
+        _OrganizationConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+            max_account_limit_reached=max_account_limit_reached,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: Optional[pulumi.Input['OrganizationConfigurationAutoEnableArgs']] = None,
+             max_account_limit_reached: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if 'maxAccountLimitReached' in kwargs:
+            max_account_limit_reached = kwargs['maxAccountLimitReached']
+
         if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
+            _setter("auto_enable", auto_enable)
         if max_account_limit_reached is not None:
-            pulumi.set(__self__, "max_account_limit_reached", max_account_limit_reached)
+            _setter("max_account_limit_reached", max_account_limit_reached)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -145,6 +175,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,6 +194,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationConfigurationArgs.__new__(OrganizationConfigurationArgs)
 
+            if auto_enable is not None and not isinstance(auto_enable, OrganizationConfigurationAutoEnableArgs):
+                auto_enable = auto_enable or {}
+                def _setter(key, value):
+                    auto_enable[key] = value
+                OrganizationConfigurationAutoEnableArgs._configure(_setter, **auto_enable)
             if auto_enable is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_enable'")
             __props__.__dict__["auto_enable"] = auto_enable

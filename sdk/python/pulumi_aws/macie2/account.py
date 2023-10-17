@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountArgs', 'Account']
@@ -21,10 +21,25 @@ class AccountArgs:
         :param pulumi.Input[str] finding_publishing_frequency: Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         :param pulumi.Input[str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         """
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            finding_publishing_frequency=finding_publishing_frequency,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
@@ -67,16 +82,43 @@ class _AccountState:
         :param pulumi.Input[str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         """
+        _AccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            finding_publishing_frequency=finding_publishing_frequency,
+            service_role=service_role,
+            status=status,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[pulumi.Input[str]] = None,
+             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+        if 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if finding_publishing_frequency is not None:
-            pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
+            _setter("finding_publishing_frequency", finding_publishing_frequency)
         if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
+            _setter("service_role", service_role)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -212,6 +254,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

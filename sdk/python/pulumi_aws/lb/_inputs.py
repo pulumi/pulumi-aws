@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -63,21 +63,54 @@ class ListenerDefaultActionArgs:
         :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
         :param pulumi.Input[str] target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
-        pulumi.set(__self__, "type", type)
+        ListenerDefaultActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authenticate_cognito=authenticate_cognito,
+            authenticate_oidc=authenticate_oidc,
+            fixed_response=fixed_response,
+            forward=forward,
+            order=order,
+            redirect=redirect,
+            target_group_arn=target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             authenticate_cognito: Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']] = None,
+             authenticate_oidc: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']] = None,
+             fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']] = None,
+             forward: Optional[pulumi.Input['ListenerDefaultActionForwardArgs']] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             redirect: Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']] = None,
+             target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticateCognito' in kwargs:
+            authenticate_cognito = kwargs['authenticateCognito']
+        if 'authenticateOidc' in kwargs:
+            authenticate_oidc = kwargs['authenticateOidc']
+        if 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
+        _setter("type", type)
         if authenticate_cognito is not None:
-            pulumi.set(__self__, "authenticate_cognito", authenticate_cognito)
+            _setter("authenticate_cognito", authenticate_cognito)
         if authenticate_oidc is not None:
-            pulumi.set(__self__, "authenticate_oidc", authenticate_oidc)
+            _setter("authenticate_oidc", authenticate_oidc)
         if fixed_response is not None:
-            pulumi.set(__self__, "fixed_response", fixed_response)
+            _setter("fixed_response", fixed_response)
         if forward is not None:
-            pulumi.set(__self__, "forward", forward)
+            _setter("forward", forward)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if redirect is not None:
-            pulumi.set(__self__, "redirect", redirect)
+            _setter("redirect", redirect)
         if target_group_arn is not None:
-            pulumi.set(__self__, "target_group_arn", target_group_arn)
+            _setter("target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter
@@ -201,19 +234,58 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
         :param pulumi.Input[int] session_timeout: Maximum duration of the authentication session, in seconds.
         """
-        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
-        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
-        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
+        ListenerDefaultActionAuthenticateCognitoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_arn=user_pool_arn,
+            user_pool_client_id=user_pool_client_id,
+            user_pool_domain=user_pool_domain,
+            authentication_request_extra_params=authentication_request_extra_params,
+            on_unauthenticated_request=on_unauthenticated_request,
+            scope=scope,
+            session_cookie_name=session_cookie_name,
+            session_timeout=session_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_arn: pulumi.Input[str],
+             user_pool_client_id: pulumi.Input[str],
+             user_pool_domain: pulumi.Input[str],
+             authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             session_cookie_name: Optional[pulumi.Input[str]] = None,
+             session_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if 'userPoolClientId' in kwargs:
+            user_pool_client_id = kwargs['userPoolClientId']
+        if 'userPoolDomain' in kwargs:
+            user_pool_domain = kwargs['userPoolDomain']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
+        _setter("user_pool_arn", user_pool_arn)
+        _setter("user_pool_client_id", user_pool_client_id)
+        _setter("user_pool_domain", user_pool_domain)
         if authentication_request_extra_params is not None:
-            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+            _setter("authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+            _setter("on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if session_cookie_name is not None:
-            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+            _setter("session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            pulumi.set(__self__, "session_timeout", session_timeout)
+            _setter("session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -343,22 +415,71 @@ class ListenerDefaultActionAuthenticateOidcArgs:
         :param pulumi.Input[str] session_cookie_name: Name of the cookie used to maintain session information.
         :param pulumi.Input[int] session_timeout: Maximum duration of the authentication session, in seconds.
         """
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "token_endpoint", token_endpoint)
-        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+        ListenerDefaultActionAuthenticateOidcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer=issuer,
+            token_endpoint=token_endpoint,
+            user_info_endpoint=user_info_endpoint,
+            authentication_request_extra_params=authentication_request_extra_params,
+            on_unauthenticated_request=on_unauthenticated_request,
+            scope=scope,
+            session_cookie_name=session_cookie_name,
+            session_timeout=session_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             issuer: pulumi.Input[str],
+             token_endpoint: pulumi.Input[str],
+             user_info_endpoint: pulumi.Input[str],
+             authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             session_cookie_name: Optional[pulumi.Input[str]] = None,
+             session_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("issuer", issuer)
+        _setter("token_endpoint", token_endpoint)
+        _setter("user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
-            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+            _setter("authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+            _setter("on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if session_cookie_name is not None:
-            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+            _setter("session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            pulumi.set(__self__, "session_timeout", session_timeout)
+            _setter("session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -508,11 +629,32 @@ class ListenerDefaultActionFixedResponseArgs:
         :param pulumi.Input[str] message_body: Message body.
         :param pulumi.Input[str] status_code: HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        ListenerDefaultActionFixedResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            message_body=message_body,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: pulumi.Input[str],
+             message_body: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'messageBody' in kwargs:
+            message_body = kwargs['messageBody']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("content_type", content_type)
         if message_body is not None:
-            pulumi.set(__self__, "message_body", message_body)
+            _setter("message_body", message_body)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="contentType")
@@ -564,9 +706,24 @@ class ListenerDefaultActionForwardArgs:
                The following arguments are optional:
         :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
         """
-        pulumi.set(__self__, "target_groups", target_groups)
+        ListenerDefaultActionForwardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_groups=target_groups,
+            stickiness=stickiness,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
+             stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
+        _setter("target_groups", target_groups)
         if stickiness is not None:
-            pulumi.set(__self__, "stickiness", stickiness)
+            _setter("stickiness", stickiness)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -606,9 +763,22 @@ class ListenerDefaultActionForwardStickinessArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] enabled: Whether target group stickiness is enabled. Default is `false`.
         """
-        pulumi.set(__self__, "duration", duration)
+        ListenerDefaultActionForwardStickinessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: pulumi.Input[int],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("duration", duration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -648,9 +818,22 @@ class ListenerDefaultActionForwardTargetGroupArgs:
                The following arguments are optional:
         :param pulumi.Input[int] weight: Weight. The range is 0 to 999.
         """
-        pulumi.set(__self__, "arn", arn)
+        ListenerDefaultActionForwardTargetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("arn", arn)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -698,17 +881,40 @@ class ListenerDefaultActionRedirectArgs:
         :param pulumi.Input[str] protocol: Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] query: Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        ListenerDefaultActionRedirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+            host=host,
+            path=path,
+            port=port,
+            protocol=protocol,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: pulumi.Input[str],
+             host: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("status_code", status_code)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -805,21 +1011,54 @@ class ListenerRuleActionArgs:
         :param pulumi.Input['ListenerRuleActionRedirectArgs'] redirect: Information for creating a redirect action. Required if `type` is `redirect`.
         :param pulumi.Input[str] target_group_arn: The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
-        pulumi.set(__self__, "type", type)
+        ListenerRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authenticate_cognito=authenticate_cognito,
+            authenticate_oidc=authenticate_oidc,
+            fixed_response=fixed_response,
+            forward=forward,
+            order=order,
+            redirect=redirect,
+            target_group_arn=target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             authenticate_cognito: Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArgs']] = None,
+             authenticate_oidc: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArgs']] = None,
+             fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']] = None,
+             forward: Optional[pulumi.Input['ListenerRuleActionForwardArgs']] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             redirect: Optional[pulumi.Input['ListenerRuleActionRedirectArgs']] = None,
+             target_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticateCognito' in kwargs:
+            authenticate_cognito = kwargs['authenticateCognito']
+        if 'authenticateOidc' in kwargs:
+            authenticate_oidc = kwargs['authenticateOidc']
+        if 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+        if 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
+        _setter("type", type)
         if authenticate_cognito is not None:
-            pulumi.set(__self__, "authenticate_cognito", authenticate_cognito)
+            _setter("authenticate_cognito", authenticate_cognito)
         if authenticate_oidc is not None:
-            pulumi.set(__self__, "authenticate_oidc", authenticate_oidc)
+            _setter("authenticate_oidc", authenticate_oidc)
         if fixed_response is not None:
-            pulumi.set(__self__, "fixed_response", fixed_response)
+            _setter("fixed_response", fixed_response)
         if forward is not None:
-            pulumi.set(__self__, "forward", forward)
+            _setter("forward", forward)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if redirect is not None:
-            pulumi.set(__self__, "redirect", redirect)
+            _setter("redirect", redirect)
         if target_group_arn is not None:
-            pulumi.set(__self__, "target_group_arn", target_group_arn)
+            _setter("target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter
@@ -936,19 +1175,58 @@ class ListenerRuleActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
         :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
-        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
-        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
-        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
+        ListenerRuleActionAuthenticateCognitoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_arn=user_pool_arn,
+            user_pool_client_id=user_pool_client_id,
+            user_pool_domain=user_pool_domain,
+            authentication_request_extra_params=authentication_request_extra_params,
+            on_unauthenticated_request=on_unauthenticated_request,
+            scope=scope,
+            session_cookie_name=session_cookie_name,
+            session_timeout=session_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_arn: pulumi.Input[str],
+             user_pool_client_id: pulumi.Input[str],
+             user_pool_domain: pulumi.Input[str],
+             authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             session_cookie_name: Optional[pulumi.Input[str]] = None,
+             session_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if 'userPoolClientId' in kwargs:
+            user_pool_client_id = kwargs['userPoolClientId']
+        if 'userPoolDomain' in kwargs:
+            user_pool_domain = kwargs['userPoolDomain']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
+        _setter("user_pool_arn", user_pool_arn)
+        _setter("user_pool_client_id", user_pool_client_id)
+        _setter("user_pool_domain", user_pool_domain)
         if authentication_request_extra_params is not None:
-            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+            _setter("authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+            _setter("on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if session_cookie_name is not None:
-            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+            _setter("session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            pulumi.set(__self__, "session_timeout", session_timeout)
+            _setter("session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -1074,22 +1352,71 @@ class ListenerRuleActionAuthenticateOidcArgs:
         :param pulumi.Input[str] session_cookie_name: The name of the cookie used to maintain session information.
         :param pulumi.Input[int] session_timeout: The maximum duration of the authentication session, in seconds.
         """
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "token_endpoint", token_endpoint)
-        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+        ListenerRuleActionAuthenticateOidcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer=issuer,
+            token_endpoint=token_endpoint,
+            user_info_endpoint=user_info_endpoint,
+            authentication_request_extra_params=authentication_request_extra_params,
+            on_unauthenticated_request=on_unauthenticated_request,
+            scope=scope,
+            session_cookie_name=session_cookie_name,
+            session_timeout=session_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: pulumi.Input[str],
+             client_id: pulumi.Input[str],
+             client_secret: pulumi.Input[str],
+             issuer: pulumi.Input[str],
+             token_endpoint: pulumi.Input[str],
+             user_info_endpoint: pulumi.Input[str],
+             authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             on_unauthenticated_request: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             session_cookie_name: Optional[pulumi.Input[str]] = None,
+             session_timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+        if 'authenticationRequestExtraParams' in kwargs:
+            authentication_request_extra_params = kwargs['authenticationRequestExtraParams']
+        if 'onUnauthenticatedRequest' in kwargs:
+            on_unauthenticated_request = kwargs['onUnauthenticatedRequest']
+        if 'sessionCookieName' in kwargs:
+            session_cookie_name = kwargs['sessionCookieName']
+        if 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("issuer", issuer)
+        _setter("token_endpoint", token_endpoint)
+        _setter("user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
-            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+            _setter("authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+            _setter("on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if session_cookie_name is not None:
-            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+            _setter("session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            pulumi.set(__self__, "session_timeout", session_timeout)
+            _setter("session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -1235,11 +1562,32 @@ class ListenerRuleActionFixedResponseArgs:
         :param pulumi.Input[str] message_body: The message body.
         :param pulumi.Input[str] status_code: The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        ListenerRuleActionFixedResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            message_body=message_body,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: pulumi.Input[str],
+             message_body: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'messageBody' in kwargs:
+            message_body = kwargs['messageBody']
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("content_type", content_type)
         if message_body is not None:
-            pulumi.set(__self__, "message_body", message_body)
+            _setter("message_body", message_body)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="contentType")
@@ -1287,9 +1635,24 @@ class ListenerRuleActionForwardArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
         :param pulumi.Input['ListenerRuleActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
         """
-        pulumi.set(__self__, "target_groups", target_groups)
+        ListenerRuleActionForwardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_groups=target_groups,
+            stickiness=stickiness,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
+             stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+
+        _setter("target_groups", target_groups)
         if stickiness is not None:
-            pulumi.set(__self__, "stickiness", stickiness)
+            _setter("stickiness", stickiness)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -1325,9 +1688,22 @@ class ListenerRuleActionForwardStickinessArgs:
         :param pulumi.Input[int] duration: The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
         :param pulumi.Input[bool] enabled: Indicates whether target group stickiness is enabled.
         """
-        pulumi.set(__self__, "duration", duration)
+        ListenerRuleActionForwardStickinessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: pulumi.Input[int],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("duration", duration)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1363,9 +1739,22 @@ class ListenerRuleActionForwardTargetGroupArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target group.
         :param pulumi.Input[int] weight: The weight. The range is 0 to 999.
         """
-        pulumi.set(__self__, "arn", arn)
+        ListenerRuleActionForwardTargetGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("arn", arn)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -1409,17 +1798,40 @@ class ListenerRuleActionRedirectArgs:
         :param pulumi.Input[str] protocol: The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
         :param pulumi.Input[str] query: The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        ListenerRuleActionRedirectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+            host=host,
+            path=path,
+            port=port,
+            protocol=protocol,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: pulumi.Input[str],
+             host: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("status_code", status_code)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1513,18 +1925,51 @@ class ListenerRuleConditionArgs:
                
                > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
+        ListenerRuleConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_header=host_header,
+            http_header=http_header,
+            http_request_method=http_request_method,
+            path_pattern=path_pattern,
+            query_strings=query_strings,
+            source_ip=source_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_header: Optional[pulumi.Input['ListenerRuleConditionHostHeaderArgs']] = None,
+             http_header: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArgs']] = None,
+             http_request_method: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs']] = None,
+             path_pattern: Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']] = None,
+             query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]] = None,
+             source_ip: Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostHeader' in kwargs:
+            host_header = kwargs['hostHeader']
+        if 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if 'httpRequestMethod' in kwargs:
+            http_request_method = kwargs['httpRequestMethod']
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+        if 'sourceIp' in kwargs:
+            source_ip = kwargs['sourceIp']
+
         if host_header is not None:
-            pulumi.set(__self__, "host_header", host_header)
+            _setter("host_header", host_header)
         if http_header is not None:
-            pulumi.set(__self__, "http_header", http_header)
+            _setter("http_header", http_header)
         if http_request_method is not None:
-            pulumi.set(__self__, "http_request_method", http_request_method)
+            _setter("http_request_method", http_request_method)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if query_strings is not None:
-            pulumi.set(__self__, "query_strings", query_strings)
+            _setter("query_strings", query_strings)
         if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
+            _setter("source_ip", source_ip)
 
     @property
     @pulumi.getter(name="hostHeader")
@@ -1607,20 +2052,25 @@ class ListenerRuleConditionHostHeaderArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-               
-               
-               Query String Value Blocks (for `query_string.values`) support the following:
         """
-        pulumi.set(__self__, "values", values)
+        ListenerRuleConditionHostHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("values", values)
 
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-
-
-        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1638,8 +2088,23 @@ class ListenerRuleConditionHttpHeaderArgs:
         :param pulumi.Input[str] http_header_name: Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
         """
-        pulumi.set(__self__, "http_header_name", http_header_name)
-        pulumi.set(__self__, "values", values)
+        ListenerRuleConditionHttpHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_header_name=http_header_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_header_name: pulumi.Input[str],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaderName' in kwargs:
+            http_header_name = kwargs['httpHeaderName']
+
+        _setter("http_header_name", http_header_name)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="httpHeaderName")
@@ -1672,20 +2137,25 @@ class ListenerRuleConditionHttpRequestMethodArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-               
-               
-               Query String Value Blocks (for `query_string.values`) support the following:
         """
-        pulumi.set(__self__, "values", values)
+        ListenerRuleConditionHttpRequestMethodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("values", values)
 
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-
-
-        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1700,20 +2170,25 @@ class ListenerRuleConditionPathPatternArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-               
-               
-               Query String Value Blocks (for `query_string.values`) support the following:
         """
-        pulumi.set(__self__, "values", values)
+        ListenerRuleConditionPathPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("values", values)
 
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-
-
-        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1731,9 +2206,22 @@ class ListenerRuleConditionQueryStringArgs:
         :param pulumi.Input[str] value: Query string value pattern to match.
         :param pulumi.Input[str] key: Query string key pattern to match.
         """
-        pulumi.set(__self__, "value", value)
+        ListenerRuleConditionQueryStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("value", value)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -1766,20 +2254,25 @@ class ListenerRuleConditionSourceIpArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-               
-               
-               Query String Value Blocks (for `query_string.values`) support the following:
         """
-        pulumi.set(__self__, "values", values)
+        ListenerRuleConditionSourceIpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("values", values)
 
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-
-
-        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1799,11 +2292,26 @@ class LoadBalancerAccessLogsArgs:
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
         :param pulumi.Input[str] prefix: The S3 bucket prefix. Logs are stored in the root if not configured.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        LoadBalancerAccessLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            enabled=enabled,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("bucket", bucket)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -1856,15 +2364,44 @@ class LoadBalancerSubnetMappingArgs:
         :param pulumi.Input[str] ipv6_address: The IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
         :param pulumi.Input[str] private_ipv4_address: The private IPv4 address for an internal load balancer.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        LoadBalancerSubnetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            allocation_id=allocation_id,
+            ipv6_address=ipv6_address,
+            outpost_id=outpost_id,
+            private_ipv4_address=private_ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             outpost_id: Optional[pulumi.Input[str]] = None,
+             private_ipv4_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if 'privateIpv4Address' in kwargs:
+            private_ipv4_address = kwargs['privateIpv4Address']
+
+        _setter("subnet_id", subnet_id)
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
         if outpost_id is not None:
-            pulumi.set(__self__, "outpost_id", outpost_id)
+            _setter("outpost_id", outpost_id)
         if private_ipv4_address is not None:
-            pulumi.set(__self__, "private_ipv4_address", private_ipv4_address)
+            _setter("private_ipv4_address", private_ipv4_address)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -1947,24 +2484,55 @@ class TargetGroupHealthCheckArgs:
         :param pulumi.Input[int] timeout: Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
         :param pulumi.Input[int] unhealthy_threshold: Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
         """
+        TargetGroupHealthCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            healthy_threshold=healthy_threshold,
+            interval=interval,
+            matcher=matcher,
+            path=path,
+            port=port,
+            protocol=protocol,
+            timeout=timeout,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             healthy_threshold: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             matcher: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             unhealthy_threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if healthy_threshold is not None:
-            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+            _setter("healthy_threshold", healthy_threshold)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if matcher is not None:
-            pulumi.set(__self__, "matcher", matcher)
+            _setter("matcher", matcher)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if unhealthy_threshold is not None:
-            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+            _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter
@@ -2088,13 +2656,34 @@ class TargetGroupStickinessArgs:
         :param pulumi.Input[str] cookie_name: Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
         :param pulumi.Input[bool] enabled: Boolean to enable / disable `stickiness`. Default is `true`.
         """
-        pulumi.set(__self__, "type", type)
+        TargetGroupStickinessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            cookie_duration=cookie_duration,
+            cookie_name=cookie_name,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             cookie_duration: Optional[pulumi.Input[int]] = None,
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cookieDuration' in kwargs:
+            cookie_duration = kwargs['cookieDuration']
+        if 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+
+        _setter("type", type)
         if cookie_duration is not None:
-            pulumi.set(__self__, "cookie_duration", cookie_duration)
+            _setter("cookie_duration", cookie_duration)
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2154,8 +2743,25 @@ class TargetGroupTargetFailoverArgs:
         :param pulumi.Input[str] on_deregistration: Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
         :param pulumi.Input[str] on_unhealthy: Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
         """
-        pulumi.set(__self__, "on_deregistration", on_deregistration)
-        pulumi.set(__self__, "on_unhealthy", on_unhealthy)
+        TargetGroupTargetFailoverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            on_deregistration=on_deregistration,
+            on_unhealthy=on_unhealthy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             on_deregistration: pulumi.Input[str],
+             on_unhealthy: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'onDeregistration' in kwargs:
+            on_deregistration = kwargs['onDeregistration']
+        if 'onUnhealthy' in kwargs:
+            on_unhealthy = kwargs['onUnhealthy']
+
+        _setter("on_deregistration", on_deregistration)
+        _setter("on_unhealthy", on_unhealthy)
 
     @property
     @pulumi.getter(name="onDeregistration")

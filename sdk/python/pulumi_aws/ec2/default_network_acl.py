@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,38 @@ class DefaultNetworkAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "default_network_acl_id", default_network_acl_id)
+        DefaultNetworkAclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_network_acl_id=default_network_acl_id,
+            egress=egress,
+            ingress=ingress,
+            subnet_ids=subnet_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_network_acl_id: pulumi.Input[str],
+             egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]]] = None,
+             ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNetworkAclId' in kwargs:
+            default_network_acl_id = kwargs['defaultNetworkAclId']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
+        _setter("default_network_acl_id", default_network_acl_id)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultNetworkAclId")
@@ -130,27 +153,64 @@ class _DefaultNetworkAclState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: ID of the associated VPC
         """
+        _DefaultNetworkAclState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_network_acl_id=default_network_acl_id,
+            egress=egress,
+            ingress=ingress,
+            owner_id=owner_id,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_network_acl_id: Optional[pulumi.Input[str]] = None,
+             egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]]] = None,
+             ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNetworkAclId' in kwargs:
+            default_network_acl_id = kwargs['defaultNetworkAclId']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_network_acl_id is not None:
-            pulumi.set(__self__, "default_network_acl_id", default_network_acl_id)
+            _setter("default_network_acl_id", default_network_acl_id)
         if egress is not None:
-            pulumi.set(__self__, "egress", egress)
+            _setter("egress", egress)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -505,6 +565,10 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefaultNetworkAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

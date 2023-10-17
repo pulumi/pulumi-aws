@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs();
 
     /**
-     * Object key for the bucket in which Amazon AppFlow places the destination files.
+     * Amazon S3 bucket prefix.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     }
 
     /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -104,7 +104,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         }
 
         /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 

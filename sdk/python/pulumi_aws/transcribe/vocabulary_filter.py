@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VocabularyFilterArgs', 'VocabularyFilter']
@@ -29,14 +29,39 @@ class VocabularyFilterArgs:
         :param pulumi.Input[str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
-        pulumi.set(__self__, "language_code", language_code)
-        pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+        VocabularyFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            vocabulary_filter_name=vocabulary_filter_name,
+            tags=tags,
+            vocabulary_filter_file_uri=vocabulary_filter_file_uri,
+            words=words,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: pulumi.Input[str],
+             vocabulary_filter_name: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
+             words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'vocabularyFilterName' in kwargs:
+            vocabulary_filter_name = kwargs['vocabularyFilterName']
+        if 'vocabularyFilterFileUri' in kwargs:
+            vocabulary_filter_file_uri = kwargs['vocabularyFilterFileUri']
+
+        _setter("language_code", language_code)
+        _setter("vocabulary_filter_name", vocabulary_filter_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vocabulary_filter_file_uri is not None:
-            pulumi.set(__self__, "vocabulary_filter_file_uri", vocabulary_filter_file_uri)
+            _setter("vocabulary_filter_file_uri", vocabulary_filter_file_uri)
         if words is not None:
-            pulumi.set(__self__, "words", words)
+            _setter("words", words)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -124,25 +149,60 @@ class _VocabularyFilterState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
+        _VocabularyFilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            download_uri=download_uri,
+            language_code=language_code,
+            tags=tags,
+            tags_all=tags_all,
+            vocabulary_filter_file_uri=vocabulary_filter_file_uri,
+            vocabulary_filter_name=vocabulary_filter_name,
+            words=words,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             download_uri: Optional[pulumi.Input[str]] = None,
+             language_code: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
+             vocabulary_filter_name: Optional[pulumi.Input[str]] = None,
+             words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'downloadUri' in kwargs:
+            download_uri = kwargs['downloadUri']
+        if 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vocabularyFilterFileUri' in kwargs:
+            vocabulary_filter_file_uri = kwargs['vocabularyFilterFileUri']
+        if 'vocabularyFilterName' in kwargs:
+            vocabulary_filter_name = kwargs['vocabularyFilterName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if download_uri is not None:
-            pulumi.set(__self__, "download_uri", download_uri)
+            _setter("download_uri", download_uri)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vocabulary_filter_file_uri is not None:
-            pulumi.set(__self__, "vocabulary_filter_file_uri", vocabulary_filter_file_uri)
+            _setter("vocabulary_filter_file_uri", vocabulary_filter_file_uri)
         if vocabulary_filter_name is not None:
-            pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+            _setter("vocabulary_filter_name", vocabulary_filter_name)
         if words is not None:
-            pulumi.set(__self__, "words", words)
+            _setter("words", words)
 
     @property
     @pulumi.getter
@@ -342,6 +402,10 @@ class VocabularyFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VocabularyFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

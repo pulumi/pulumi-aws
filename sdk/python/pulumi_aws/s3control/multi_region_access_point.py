@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,9 +23,24 @@ class MultiRegionAccessPointArgs:
         :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
-        pulumi.set(__self__, "details", details)
+        MultiRegionAccessPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            details=details,
+            account_id=account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             details: pulumi.Input['MultiRegionAccessPointDetailsArgs'],
+             account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("details", details)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
 
     @property
     @pulumi.getter
@@ -70,18 +85,43 @@ class _MultiRegionAccessPointState:
         :param pulumi.Input[str] domain_name: The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         :param pulumi.Input[str] status: The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
         """
+        _MultiRegionAccessPointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            alias=alias,
+            arn=arn,
+            details=details,
+            domain_name=domain_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input['MultiRegionAccessPointDetailsArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="accountId")
@@ -255,6 +295,10 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MultiRegionAccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -272,6 +316,11 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             __props__ = MultiRegionAccessPointArgs.__new__(MultiRegionAccessPointArgs)
 
             __props__.__dict__["account_id"] = account_id
+            if details is not None and not isinstance(details, MultiRegionAccessPointDetailsArgs):
+                details = details or {}
+                def _setter(key, value):
+                    details[key] = value
+                MultiRegionAccessPointDetailsArgs._configure(_setter, **details)
             if details is None and not opts.urn:
                 raise TypeError("Missing required property 'details'")
             __props__.__dict__["details"] = details

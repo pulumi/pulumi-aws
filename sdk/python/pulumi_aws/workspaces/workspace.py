@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,58 @@ class WorkspaceArgs:
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "directory_id", directory_id)
-        pulumi.set(__self__, "user_name", user_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundle_id=bundle_id,
+            directory_id=directory_id,
+            user_name=user_name,
+            root_volume_encryption_enabled=root_volume_encryption_enabled,
+            tags=tags,
+            user_volume_encryption_enabled=user_volume_encryption_enabled,
+            volume_encryption_key=volume_encryption_key,
+            workspace_properties=workspace_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundle_id: pulumi.Input[str],
+             directory_id: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             volume_encryption_key: Optional[pulumi.Input[str]] = None,
+             workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'rootVolumeEncryptionEnabled' in kwargs:
+            root_volume_encryption_enabled = kwargs['rootVolumeEncryptionEnabled']
+        if 'userVolumeEncryptionEnabled' in kwargs:
+            user_volume_encryption_enabled = kwargs['userVolumeEncryptionEnabled']
+        if 'volumeEncryptionKey' in kwargs:
+            volume_encryption_key = kwargs['volumeEncryptionKey']
+        if 'workspaceProperties' in kwargs:
+            workspace_properties = kwargs['workspaceProperties']
+
+        _setter("bundle_id", bundle_id)
+        _setter("directory_id", directory_id)
+        _setter("user_name", user_name)
         if root_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
+            _setter("root_volume_encryption_enabled", root_volume_encryption_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
+            _setter("user_volume_encryption_enabled", user_volume_encryption_enabled)
         if volume_encryption_key is not None:
-            pulumi.set(__self__, "volume_encryption_key", volume_encryption_key)
+            _setter("volume_encryption_key", volume_encryption_key)
         if workspace_properties is not None:
-            pulumi.set(__self__, "workspace_properties", workspace_properties)
+            _setter("workspace_properties", workspace_properties)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -176,33 +215,86 @@ class _WorkspaceState:
         :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bundle_id=bundle_id,
+            computer_name=computer_name,
+            directory_id=directory_id,
+            ip_address=ip_address,
+            root_volume_encryption_enabled=root_volume_encryption_enabled,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+            user_name=user_name,
+            user_volume_encryption_enabled=user_volume_encryption_enabled,
+            volume_encryption_key=volume_encryption_key,
+            workspace_properties=workspace_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             computer_name: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             volume_encryption_key: Optional[pulumi.Input[str]] = None,
+             workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'rootVolumeEncryptionEnabled' in kwargs:
+            root_volume_encryption_enabled = kwargs['rootVolumeEncryptionEnabled']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'userVolumeEncryptionEnabled' in kwargs:
+            user_volume_encryption_enabled = kwargs['userVolumeEncryptionEnabled']
+        if 'volumeEncryptionKey' in kwargs:
+            volume_encryption_key = kwargs['volumeEncryptionKey']
+        if 'workspaceProperties' in kwargs:
+            workspace_properties = kwargs['workspaceProperties']
+
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if directory_id is not None:
-            pulumi.set(__self__, "directory_id", directory_id)
+            _setter("directory_id", directory_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if root_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "root_volume_encryption_enabled", root_volume_encryption_enabled)
+            _setter("root_volume_encryption_enabled", root_volume_encryption_enabled)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if user_volume_encryption_enabled is not None:
-            pulumi.set(__self__, "user_volume_encryption_enabled", user_volume_encryption_enabled)
+            _setter("user_volume_encryption_enabled", user_volume_encryption_enabled)
         if volume_encryption_key is not None:
-            pulumi.set(__self__, "volume_encryption_key", volume_encryption_key)
+            _setter("volume_encryption_key", volume_encryption_key)
         if workspace_properties is not None:
-            pulumi.set(__self__, "workspace_properties", workspace_properties)
+            _setter("workspace_properties", workspace_properties)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -471,6 +563,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -506,6 +602,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
             __props__.__dict__["volume_encryption_key"] = volume_encryption_key
+            if workspace_properties is not None and not isinstance(workspace_properties, WorkspaceWorkspacePropertiesArgs):
+                workspace_properties = workspace_properties or {}
+                def _setter(key, value):
+                    workspace_properties[key] = value
+                WorkspaceWorkspacePropertiesArgs._configure(_setter, **workspace_properties)
             __props__.__dict__["workspace_properties"] = workspace_properties
             __props__.__dict__["computer_name"] = None
             __props__.__dict__["ip_address"] = None

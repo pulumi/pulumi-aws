@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
@@ -27,13 +27,34 @@ class GeofenceCollectionArgs:
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "collection_name", collection_name)
+        GeofenceCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_name=collection_name,
+            description=description,
+            kms_key_id=kms_key_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
+        _setter("collection_name", collection_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -109,25 +130,62 @@ class _GeofenceCollectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] update_time: The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
         """
+        _GeofenceCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection_arn=collection_arn,
+            collection_name=collection_name,
+            create_time=create_time,
+            description=description,
+            kms_key_id=kms_key_id,
+            tags=tags,
+            tags_all=tags_all,
+            update_time=update_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection_arn: Optional[pulumi.Input[str]] = None,
+             collection_name: Optional[pulumi.Input[str]] = None,
+             create_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionArn' in kwargs:
+            collection_arn = kwargs['collectionArn']
+        if 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if 'createTime' in kwargs:
+            create_time = kwargs['createTime']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'updateTime' in kwargs:
+            update_time = kwargs['updateTime']
+
         if collection_arn is not None:
-            pulumi.set(__self__, "collection_arn", collection_arn)
+            _setter("collection_arn", collection_arn)
         if collection_name is not None:
-            pulumi.set(__self__, "collection_name", collection_name)
+            _setter("collection_name", collection_name)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+            _setter("update_time", update_time)
 
     @property
     @pulumi.getter(name="collectionArn")
@@ -303,6 +361,10 @@ class GeofenceCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GeofenceCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

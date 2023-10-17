@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LicenseConfigurationArgs', 'LicenseConfiguration']
@@ -31,19 +31,50 @@ class LicenseConfigurationArgs:
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "license_counting_type", license_counting_type)
+        LicenseConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_counting_type=license_counting_type,
+            description=description,
+            license_count=license_count,
+            license_count_hard_limit=license_count_hard_limit,
+            license_rules=license_rules,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_counting_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             license_count: Optional[pulumi.Input[int]] = None,
+             license_count_hard_limit: Optional[pulumi.Input[bool]] = None,
+             license_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseCountingType' in kwargs:
+            license_counting_type = kwargs['licenseCountingType']
+        if 'licenseCount' in kwargs:
+            license_count = kwargs['licenseCount']
+        if 'licenseCountHardLimit' in kwargs:
+            license_count_hard_limit = kwargs['licenseCountHardLimit']
+        if 'licenseRules' in kwargs:
+            license_rules = kwargs['licenseRules']
+
+        _setter("license_counting_type", license_counting_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if license_count is not None:
-            pulumi.set(__self__, "license_count", license_count)
+            _setter("license_count", license_count)
         if license_count_hard_limit is not None:
-            pulumi.set(__self__, "license_count_hard_limit", license_count_hard_limit)
+            _setter("license_count_hard_limit", license_count_hard_limit)
         if license_rules is not None:
-            pulumi.set(__self__, "license_rules", license_rules)
+            _setter("license_rules", license_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="licenseCountingType")
@@ -156,29 +187,70 @@ class _LicenseConfigurationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _LicenseConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            license_count=license_count,
+            license_count_hard_limit=license_count_hard_limit,
+            license_counting_type=license_counting_type,
+            license_rules=license_rules,
+            name=name,
+            owner_account_id=owner_account_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             license_count: Optional[pulumi.Input[int]] = None,
+             license_count_hard_limit: Optional[pulumi.Input[bool]] = None,
+             license_counting_type: Optional[pulumi.Input[str]] = None,
+             license_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseCount' in kwargs:
+            license_count = kwargs['licenseCount']
+        if 'licenseCountHardLimit' in kwargs:
+            license_count_hard_limit = kwargs['licenseCountHardLimit']
+        if 'licenseCountingType' in kwargs:
+            license_counting_type = kwargs['licenseCountingType']
+        if 'licenseRules' in kwargs:
+            license_rules = kwargs['licenseRules']
+        if 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if license_count is not None:
-            pulumi.set(__self__, "license_count", license_count)
+            _setter("license_count", license_count)
         if license_count_hard_limit is not None:
-            pulumi.set(__self__, "license_count_hard_limit", license_count_hard_limit)
+            _setter("license_count_hard_limit", license_count_hard_limit)
         if license_counting_type is not None:
-            pulumi.set(__self__, "license_counting_type", license_counting_type)
+            _setter("license_counting_type", license_counting_type)
         if license_rules is not None:
-            pulumi.set(__self__, "license_rules", license_rules)
+            _setter("license_rules", license_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -425,6 +497,10 @@ class LicenseConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LicenseConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

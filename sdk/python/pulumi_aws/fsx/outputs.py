@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -98,10 +98,27 @@ class DataRepositoryAssociationS3(dict):
         :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
         :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
         """
+        DataRepositoryAssociationS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_export_policy=auto_export_policy,
+            auto_import_policy=auto_import_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
+             auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoExportPolicy' in kwargs:
+            auto_export_policy = kwargs['autoExportPolicy']
+        if 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+
         if auto_export_policy is not None:
-            pulumi.set(__self__, "auto_export_policy", auto_export_policy)
+            _setter("auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
-            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+            _setter("auto_import_policy", auto_import_policy)
 
     @property
     @pulumi.getter(name="autoExportPolicy")
@@ -127,8 +144,19 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
         """
         :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
+        DataRepositoryAssociationS3AutoExportPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -146,8 +174,19 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
         """
         :param Sequence[str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
+        DataRepositoryAssociationS3AutoImportPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             events: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -213,26 +252,75 @@ class FileCacheDataRepositoryAssociation(dict):
         :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: (Optional) See the `nfs` configuration block.
         :param Mapping[str, str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "data_repository_path", data_repository_path)
-        pulumi.set(__self__, "file_cache_path", file_cache_path)
+        FileCacheDataRepositoryAssociation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_repository_path=data_repository_path,
+            file_cache_path=file_cache_path,
+            association_id=association_id,
+            data_repository_subdirectories=data_repository_subdirectories,
+            file_cache_id=file_cache_id,
+            file_system_id=file_system_id,
+            file_system_path=file_system_path,
+            imported_file_chunk_size=imported_file_chunk_size,
+            nfs=nfs,
+            resource_arn=resource_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_repository_path: str,
+             file_cache_path: str,
+             association_id: Optional[str] = None,
+             data_repository_subdirectories: Optional[Sequence[str]] = None,
+             file_cache_id: Optional[str] = None,
+             file_system_id: Optional[str] = None,
+             file_system_path: Optional[str] = None,
+             imported_file_chunk_size: Optional[int] = None,
+             nfs: Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']] = None,
+             resource_arn: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRepositoryPath' in kwargs:
+            data_repository_path = kwargs['dataRepositoryPath']
+        if 'fileCachePath' in kwargs:
+            file_cache_path = kwargs['fileCachePath']
+        if 'associationId' in kwargs:
+            association_id = kwargs['associationId']
+        if 'dataRepositorySubdirectories' in kwargs:
+            data_repository_subdirectories = kwargs['dataRepositorySubdirectories']
+        if 'fileCacheId' in kwargs:
+            file_cache_id = kwargs['fileCacheId']
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'fileSystemPath' in kwargs:
+            file_system_path = kwargs['fileSystemPath']
+        if 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
+        _setter("data_repository_path", data_repository_path)
+        _setter("file_cache_path", file_cache_path)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if data_repository_subdirectories is not None:
-            pulumi.set(__self__, "data_repository_subdirectories", data_repository_subdirectories)
+            _setter("data_repository_subdirectories", data_repository_subdirectories)
         if file_cache_id is not None:
-            pulumi.set(__self__, "file_cache_id", file_cache_id)
+            _setter("file_cache_id", file_cache_id)
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if file_system_path is not None:
-            pulumi.set(__self__, "file_system_path", file_system_path)
+            _setter("file_system_path", file_system_path)
         if imported_file_chunk_size is not None:
-            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+            _setter("imported_file_chunk_size", imported_file_chunk_size)
         if nfs is not None:
-            pulumi.set(__self__, "nfs", nfs)
+            _setter("nfs", nfs)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataRepositoryPath")
@@ -334,9 +422,24 @@ class FileCacheDataRepositoryAssociationNf(dict):
         :param str version: The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
         :param Sequence[str] dns_ips: A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
         """
-        pulumi.set(__self__, "version", version)
+        FileCacheDataRepositoryAssociationNf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            version=version,
+            dns_ips=dns_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             version: str,
+             dns_ips: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+
+        _setter("version", version)
         if dns_ips is not None:
-            pulumi.set(__self__, "dns_ips", dns_ips)
+            _setter("dns_ips", dns_ips)
 
     @property
     @pulumi.getter
@@ -397,15 +500,48 @@ class FileCacheLustreConfiguration(dict):
         :param int per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         :param str weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
-        pulumi.set(__self__, "deployment_type", deployment_type)
-        pulumi.set(__self__, "metadata_configurations", metadata_configurations)
-        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        FileCacheLustreConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_type=deployment_type,
+            metadata_configurations=metadata_configurations,
+            per_unit_storage_throughput=per_unit_storage_throughput,
+            log_configurations=log_configurations,
+            mount_name=mount_name,
+            weekly_maintenance_start_time=weekly_maintenance_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_type: str,
+             metadata_configurations: Sequence['outputs.FileCacheLustreConfigurationMetadataConfiguration'],
+             per_unit_storage_throughput: int,
+             log_configurations: Optional[Sequence['outputs.FileCacheLustreConfigurationLogConfiguration']] = None,
+             mount_name: Optional[str] = None,
+             weekly_maintenance_start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if 'metadataConfigurations' in kwargs:
+            metadata_configurations = kwargs['metadataConfigurations']
+        if 'perUnitStorageThroughput' in kwargs:
+            per_unit_storage_throughput = kwargs['perUnitStorageThroughput']
+        if 'logConfigurations' in kwargs:
+            log_configurations = kwargs['logConfigurations']
+        if 'mountName' in kwargs:
+            mount_name = kwargs['mountName']
+        if 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
+        _setter("deployment_type", deployment_type)
+        _setter("metadata_configurations", metadata_configurations)
+        _setter("per_unit_storage_throughput", per_unit_storage_throughput)
         if log_configurations is not None:
-            pulumi.set(__self__, "log_configurations", log_configurations)
+            _setter("log_configurations", log_configurations)
         if mount_name is not None:
-            pulumi.set(__self__, "mount_name", mount_name)
+            _setter("mount_name", mount_name)
         if weekly_maintenance_start_time is not None:
-            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -455,10 +591,23 @@ class FileCacheLustreConfigurationLogConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None,
                  level: Optional[str] = None):
+        FileCacheLustreConfigurationLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            level=level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[str] = None,
+             level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
 
     @property
     @pulumi.getter
@@ -495,7 +644,20 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
         """
         :param int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
-        pulumi.set(__self__, "storage_capacity", storage_capacity)
+        FileCacheLustreConfigurationMetadataConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_capacity=storage_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_capacity: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+
+        _setter("storage_capacity", storage_capacity)
 
     @property
     @pulumi.getter(name="storageCapacity")
@@ -515,10 +677,23 @@ class LustreFileSystemLogConfiguration(dict):
         :param str destination: The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         :param str level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         """
+        LustreFileSystemLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            level=level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[str] = None,
+             level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
 
     @property
     @pulumi.getter
@@ -565,10 +740,27 @@ class LustreFileSystemRootSquashConfiguration(dict):
         :param Sequence[str] no_squash_nids: When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
         :param str root_squash: You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
         """
+        LustreFileSystemRootSquashConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            no_squash_nids=no_squash_nids,
+            root_squash=root_squash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             no_squash_nids: Optional[Sequence[str]] = None,
+             root_squash: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'noSquashNids' in kwargs:
+            no_squash_nids = kwargs['noSquashNids']
+        if 'rootSquash' in kwargs:
+            root_squash = kwargs['rootSquash']
+
         if no_squash_nids is not None:
-            pulumi.set(__self__, "no_squash_nids", no_squash_nids)
+            _setter("no_squash_nids", no_squash_nids)
         if root_squash is not None:
-            pulumi.set(__self__, "root_squash", root_squash)
+            _setter("root_squash", root_squash)
 
     @property
     @pulumi.getter(name="noSquashNids")
@@ -596,10 +788,23 @@ class OntapFileSystemDiskIopsConfiguration(dict):
         :param int iops: The total number of SSD IOPS provisioned for the file system.
         :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
+        OntapFileSystemDiskIopsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: Optional[int] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -627,10 +832,23 @@ class OntapFileSystemEndpoint(dict):
         :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
         :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
+        OntapFileSystemEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interclusters=interclusters,
+            managements=managements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
+             managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if interclusters is not None:
-            pulumi.set(__self__, "interclusters", interclusters)
+            _setter("interclusters", interclusters)
         if managements is not None:
-            pulumi.set(__self__, "managements", managements)
+            _setter("managements", managements)
 
     @property
     @pulumi.getter
@@ -677,10 +895,27 @@ class OntapFileSystemEndpointIntercluster(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
         """
+        OntapFileSystemEndpointIntercluster._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -727,10 +962,27 @@ class OntapFileSystemEndpointManagement(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
         """
+        OntapFileSystemEndpointManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -776,10 +1028,27 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
         """
         :param str netbios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
         """
+        OntapStorageVirtualMachineActiveDirectoryConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            netbios_name=netbios_name,
+            self_managed_active_directory_configuration=self_managed_active_directory_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             netbios_name: Optional[str] = None,
+             self_managed_active_directory_configuration: Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'netbiosName' in kwargs:
+            netbios_name = kwargs['netbiosName']
+        if 'selfManagedActiveDirectoryConfiguration' in kwargs:
+            self_managed_active_directory_configuration = kwargs['selfManagedActiveDirectoryConfiguration']
+
         if netbios_name is not None:
-            pulumi.set(__self__, "netbios_name", netbios_name)
+            _setter("netbios_name", netbios_name)
         if self_managed_active_directory_configuration is not None:
-            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+            _setter("self_managed_active_directory_configuration", self_managed_active_directory_configuration)
 
     @property
     @pulumi.getter(name="netbiosName")
@@ -835,14 +1104,43 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
         :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
-        pulumi.set(__self__, "dns_ips", dns_ips)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_ips=dns_ips,
+            domain_name=domain_name,
+            password=password,
+            username=username,
+            file_system_administrators_group=file_system_administrators_group,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_ips: Sequence[str],
+             domain_name: str,
+             password: str,
+             username: str,
+             file_system_administrators_group: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
+        _setter("dns_ips", dns_ips)
+        _setter("domain_name", domain_name)
+        _setter("password", password)
+        _setter("username", username)
         if file_system_administrators_group is not None:
-            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+            _setter("file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -906,14 +1204,31 @@ class OntapStorageVirtualMachineEndpoint(dict):
         :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
+        OntapStorageVirtualMachineEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iscsis=iscsis,
+            managements=managements,
+            nfs=nfs,
+            smbs=smbs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iscsis: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']] = None,
+             managements: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']] = None,
+             nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
+             smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iscsis is not None:
-            pulumi.set(__self__, "iscsis", iscsis)
+            _setter("iscsis", iscsis)
         if managements is not None:
-            pulumi.set(__self__, "managements", managements)
+            _setter("managements", managements)
         if nfs is not None:
-            pulumi.set(__self__, "nfs", nfs)
+            _setter("nfs", nfs)
         if smbs is not None:
-            pulumi.set(__self__, "smbs", smbs)
+            _setter("smbs", smbs)
 
     @property
     @pulumi.getter
@@ -976,10 +1291,27 @@ class OntapStorageVirtualMachineEndpointIscsi(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
+        OntapStorageVirtualMachineEndpointIscsi._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1026,10 +1358,27 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
+        OntapStorageVirtualMachineEndpointManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1076,10 +1425,27 @@ class OntapStorageVirtualMachineEndpointNf(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
+        OntapStorageVirtualMachineEndpointNf._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1126,10 +1492,27 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
         :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
+        OntapStorageVirtualMachineEndpointSmb._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -1192,17 +1575,50 @@ class OntapVolumeSnaplockConfiguration(dict):
         :param 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs' retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
         :param bool volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
-        pulumi.set(__self__, "snaplock_type", snaplock_type)
+        OntapVolumeSnaplockConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snaplock_type=snaplock_type,
+            audit_log_volume=audit_log_volume,
+            autocommit_period=autocommit_period,
+            privileged_delete=privileged_delete,
+            retention_period=retention_period,
+            volume_append_mode_enabled=volume_append_mode_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snaplock_type: str,
+             audit_log_volume: Optional[bool] = None,
+             autocommit_period: Optional['outputs.OntapVolumeSnaplockConfigurationAutocommitPeriod'] = None,
+             privileged_delete: Optional[str] = None,
+             retention_period: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriod'] = None,
+             volume_append_mode_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snaplockType' in kwargs:
+            snaplock_type = kwargs['snaplockType']
+        if 'auditLogVolume' in kwargs:
+            audit_log_volume = kwargs['auditLogVolume']
+        if 'autocommitPeriod' in kwargs:
+            autocommit_period = kwargs['autocommitPeriod']
+        if 'privilegedDelete' in kwargs:
+            privileged_delete = kwargs['privilegedDelete']
+        if 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if 'volumeAppendModeEnabled' in kwargs:
+            volume_append_mode_enabled = kwargs['volumeAppendModeEnabled']
+
+        _setter("snaplock_type", snaplock_type)
         if audit_log_volume is not None:
-            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
+            _setter("audit_log_volume", audit_log_volume)
         if autocommit_period is not None:
-            pulumi.set(__self__, "autocommit_period", autocommit_period)
+            _setter("autocommit_period", autocommit_period)
         if privileged_delete is not None:
-            pulumi.set(__self__, "privileged_delete", privileged_delete)
+            _setter("privileged_delete", privileged_delete)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if volume_append_mode_enabled is not None:
-            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
+            _setter("volume_append_mode_enabled", volume_append_mode_enabled)
 
     @property
     @pulumi.getter(name="snaplockType")
@@ -1262,10 +1678,23 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
         :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
         :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
+        OntapVolumeSnaplockConfigurationAutocommitPeriod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1316,12 +1745,33 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
         :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs' maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs' minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         """
+        OntapVolumeSnaplockConfigurationRetentionPeriod._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_retention=default_retention,
+            maximum_retention=maximum_retention,
+            minimum_retention=minimum_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention'] = None,
+             maximum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention'] = None,
+             minimum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRetention' in kwargs:
+            default_retention = kwargs['defaultRetention']
+        if 'maximumRetention' in kwargs:
+            maximum_retention = kwargs['maximumRetention']
+        if 'minimumRetention' in kwargs:
+            minimum_retention = kwargs['minimumRetention']
+
         if default_retention is not None:
-            pulumi.set(__self__, "default_retention", default_retention)
+            _setter("default_retention", default_retention)
         if maximum_retention is not None:
-            pulumi.set(__self__, "maximum_retention", maximum_retention)
+            _setter("maximum_retention", maximum_retention)
         if minimum_retention is not None:
-            pulumi.set(__self__, "minimum_retention", minimum_retention)
+            _setter("minimum_retention", minimum_retention)
 
     @property
     @pulumi.getter(name="defaultRetention")
@@ -1357,10 +1807,23 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
         :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
         :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
+        OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1388,10 +1851,23 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
         :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
         :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
+        OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1419,10 +1895,23 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
         :param str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
         :param int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
+        OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1467,10 +1956,25 @@ class OntapVolumeTieringPolicy(dict):
         :param int cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         :param str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
+        OntapVolumeTieringPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cooling_period=cooling_period,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cooling_period: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'coolingPeriod' in kwargs:
+            cooling_period = kwargs['coolingPeriod']
+
         if cooling_period is not None:
-            pulumi.set(__self__, "cooling_period", cooling_period)
+            _setter("cooling_period", cooling_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="coolingPeriod")
@@ -1498,10 +2002,23 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
         :param int iops: The total number of SSD IOPS provisioned for the file system.
         :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
+        OpenZfsFileSystemDiskIopsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: Optional[int] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -1564,18 +2081,51 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
         :param int record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
+        OpenZfsFileSystemRootVolumeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_tags_to_snapshots=copy_tags_to_snapshots,
+            data_compression_type=data_compression_type,
+            nfs_exports=nfs_exports,
+            read_only=read_only,
+            record_size_kib=record_size_kib,
+            user_and_group_quotas=user_and_group_quotas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_tags_to_snapshots: Optional[bool] = None,
+             data_compression_type: Optional[str] = None,
+             nfs_exports: Optional['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports'] = None,
+             read_only: Optional[bool] = None,
+             record_size_kib: Optional[int] = None,
+             user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyTagsToSnapshots' in kwargs:
+            copy_tags_to_snapshots = kwargs['copyTagsToSnapshots']
+        if 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if 'nfsExports' in kwargs:
+            nfs_exports = kwargs['nfsExports']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'recordSizeKib' in kwargs:
+            record_size_kib = kwargs['recordSizeKib']
+        if 'userAndGroupQuotas' in kwargs:
+            user_and_group_quotas = kwargs['userAndGroupQuotas']
+
         if copy_tags_to_snapshots is not None:
-            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+            _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
-            pulumi.set(__self__, "data_compression_type", data_compression_type)
+            _setter("data_compression_type", data_compression_type)
         if nfs_exports is not None:
-            pulumi.set(__self__, "nfs_exports", nfs_exports)
+            _setter("nfs_exports", nfs_exports)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if record_size_kib is not None:
-            pulumi.set(__self__, "record_size_kib", record_size_kib)
+            _setter("record_size_kib", record_size_kib)
         if user_and_group_quotas is not None:
-            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+            _setter("user_and_group_quotas", user_and_group_quotas)
 
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
@@ -1650,7 +2200,20 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
         """
         :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
-        pulumi.set(__self__, "client_configurations", client_configurations)
+        OpenZfsFileSystemRootVolumeConfigurationNfsExports._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_configurations=client_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+
+        _setter("client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
@@ -1670,8 +2233,21 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
         :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
-        pulumi.set(__self__, "clients", clients)
-        pulumi.set(__self__, "options", options)
+        OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clients=clients,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clients: str,
+             options: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("clients", clients)
+        _setter("options", options)
 
     @property
     @pulumi.getter
@@ -1718,9 +2294,26 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
         :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         :param str type: A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
-        pulumi.set(__self__, "type", type)
+        OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            storage_capacity_quota_gib=storage_capacity_quota_gib,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: int,
+             storage_capacity_quota_gib: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageCapacityQuotaGib' in kwargs:
+            storage_capacity_quota_gib = kwargs['storageCapacityQuotaGib']
+
+        _setter("id", id)
+        _setter("storage_capacity_quota_gib", storage_capacity_quota_gib)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1771,7 +2364,20 @@ class OpenZfsVolumeNfsExports(dict):
         """
         :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
-        pulumi.set(__self__, "client_configurations", client_configurations)
+        OpenZfsVolumeNfsExports._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_configurations=client_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+
+        _setter("client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
@@ -1791,8 +2397,21 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
         :param str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         :param Sequence[str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
-        pulumi.set(__self__, "clients", clients)
-        pulumi.set(__self__, "options", options)
+        OpenZfsVolumeNfsExportsClientConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clients=clients,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clients: str,
+             options: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("clients", clients)
+        _setter("options", options)
 
     @property
     @pulumi.getter
@@ -1835,8 +2454,25 @@ class OpenZfsVolumeOriginSnapshot(dict):
     def __init__(__self__, *,
                  copy_strategy: str,
                  snapshot_arn: str):
-        pulumi.set(__self__, "copy_strategy", copy_strategy)
-        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+        OpenZfsVolumeOriginSnapshot._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_strategy=copy_strategy,
+            snapshot_arn=snapshot_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_strategy: str,
+             snapshot_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyStrategy' in kwargs:
+            copy_strategy = kwargs['copyStrategy']
+        if 'snapshotArn' in kwargs:
+            snapshot_arn = kwargs['snapshotArn']
+
+        _setter("copy_strategy", copy_strategy)
+        _setter("snapshot_arn", snapshot_arn)
 
     @property
     @pulumi.getter(name="copyStrategy")
@@ -1876,9 +2512,26 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
         :param int id: The ID of the user or group. Valid values between `0` and `2147483647`
         :param int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
-        pulumi.set(__self__, "type", type)
+        OpenZfsVolumeUserAndGroupQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            storage_capacity_quota_gib=storage_capacity_quota_gib,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: int,
+             storage_capacity_quota_gib: int,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageCapacityQuotaGib' in kwargs:
+            storage_capacity_quota_gib = kwargs['storageCapacityQuotaGib']
+
+        _setter("id", id)
+        _setter("storage_capacity_quota_gib", storage_capacity_quota_gib)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1934,12 +2587,33 @@ class WindowsFileSystemAuditLogConfiguration(dict):
         :param str file_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         :param str file_share_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         """
+        WindowsFileSystemAuditLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_log_destination=audit_log_destination,
+            file_access_audit_log_level=file_access_audit_log_level,
+            file_share_access_audit_log_level=file_share_access_audit_log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_log_destination: Optional[str] = None,
+             file_access_audit_log_level: Optional[str] = None,
+             file_share_access_audit_log_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditLogDestination' in kwargs:
+            audit_log_destination = kwargs['auditLogDestination']
+        if 'fileAccessAuditLogLevel' in kwargs:
+            file_access_audit_log_level = kwargs['fileAccessAuditLogLevel']
+        if 'fileShareAccessAuditLogLevel' in kwargs:
+            file_share_access_audit_log_level = kwargs['fileShareAccessAuditLogLevel']
+
         if audit_log_destination is not None:
-            pulumi.set(__self__, "audit_log_destination", audit_log_destination)
+            _setter("audit_log_destination", audit_log_destination)
         if file_access_audit_log_level is not None:
-            pulumi.set(__self__, "file_access_audit_log_level", file_access_audit_log_level)
+            _setter("file_access_audit_log_level", file_access_audit_log_level)
         if file_share_access_audit_log_level is not None:
-            pulumi.set(__self__, "file_share_access_audit_log_level", file_share_access_audit_log_level)
+            _setter("file_share_access_audit_log_level", file_share_access_audit_log_level)
 
     @property
     @pulumi.getter(name="auditLogDestination")
@@ -1975,10 +2649,23 @@ class WindowsFileSystemDiskIopsConfiguration(dict):
         :param int iops: The total number of SSD IOPS provisioned for the file system.
         :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
+        WindowsFileSystemDiskIopsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: Optional[int] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -2037,14 +2724,43 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
-        pulumi.set(__self__, "dns_ips", dns_ips)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        WindowsFileSystemSelfManagedActiveDirectory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_ips=dns_ips,
+            domain_name=domain_name,
+            password=password,
+            username=username,
+            file_system_administrators_group=file_system_administrators_group,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_ips: Sequence[str],
+             domain_name: str,
+             password: str,
+             username: str,
+             file_system_administrators_group: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
+        _setter("dns_ips", dns_ips)
+        _setter("domain_name", domain_name)
+        _setter("password", password)
+        _setter("username", username)
         if file_system_administrators_group is not None:
-            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+            _setter("file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -2104,8 +2820,21 @@ class GetOntapFileSystemDiskIopsConfigurationResult(dict):
         :param int iops: The total number of SSD IOPS provisioned for the file system.
         :param str mode: Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
         """
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "mode", mode)
+        GetOntapFileSystemDiskIopsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: int,
+             mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("iops", iops)
+        _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -2133,8 +2862,21 @@ class GetOntapFileSystemEndpointResult(dict):
         :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
         :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
         """
-        pulumi.set(__self__, "interclusters", interclusters)
-        pulumi.set(__self__, "managements", managements)
+        GetOntapFileSystemEndpointResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interclusters=interclusters,
+            managements=managements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interclusters: Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult'],
+             managements: Sequence['outputs.GetOntapFileSystemEndpointManagementResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("interclusters", interclusters)
+        _setter("managements", managements)
 
     @property
     @pulumi.getter
@@ -2161,8 +2903,25 @@ class GetOntapFileSystemEndpointInterclusterResult(dict):
         """
         :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         """
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapFileSystemEndpointInterclusterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2186,8 +2945,25 @@ class GetOntapFileSystemEndpointManagementResult(dict):
         """
         :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         """
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapFileSystemEndpointManagementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2211,8 +2987,25 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
         """
         :param str netbios_name: The NetBIOS name of the AD computer object to which the SVM is joined.
         """
-        pulumi.set(__self__, "netbios_name", netbios_name)
-        pulumi.set(__self__, "self_managed_active_directory_configurations", self_managed_active_directory_configurations)
+        GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            netbios_name=netbios_name,
+            self_managed_active_directory_configurations=self_managed_active_directory_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             netbios_name: str,
+             self_managed_active_directory_configurations: Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'netbiosName' in kwargs:
+            netbios_name = kwargs['netbiosName']
+        if 'selfManagedActiveDirectoryConfigurations' in kwargs:
+            self_managed_active_directory_configurations = kwargs['selfManagedActiveDirectoryConfigurations']
+
+        _setter("netbios_name", netbios_name)
+        _setter("self_managed_active_directory_configurations", self_managed_active_directory_configurations)
 
     @property
     @pulumi.getter(name="netbiosName")
@@ -2243,11 +3036,38 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
         :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
         :param str username: The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
         """
-        pulumi.set(__self__, "dns_ips", dns_ips)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
-        pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
-        pulumi.set(__self__, "username", username)
+        GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_ips=dns_ips,
+            domain_name=domain_name,
+            file_system_administrators_group=file_system_administrators_group,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_ips: Sequence[str],
+             domain_name: str,
+             file_system_administrators_group: str,
+             organizational_unit_distinguished_name: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
+        _setter("dns_ips", dns_ips)
+        _setter("domain_name", domain_name)
+        _setter("file_system_administrators_group", file_system_administrators_group)
+        _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -2302,10 +3122,27 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
         :param Sequence['GetOntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
         :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
         """
-        pulumi.set(__self__, "iscsis", iscsis)
-        pulumi.set(__self__, "managements", managements)
-        pulumi.set(__self__, "nfs", nfs)
-        pulumi.set(__self__, "smbs", smbs)
+        GetOntapStorageVirtualMachineEndpointResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iscsis=iscsis,
+            managements=managements,
+            nfs=nfs,
+            smbs=smbs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iscsis: Sequence['outputs.GetOntapStorageVirtualMachineEndpointIscsiResult'],
+             managements: Sequence['outputs.GetOntapStorageVirtualMachineEndpointManagementResult'],
+             nfs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult'],
+             smbs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("iscsis", iscsis)
+        _setter("managements", managements)
+        _setter("nfs", nfs)
+        _setter("smbs", smbs)
 
     @property
     @pulumi.getter
@@ -2342,8 +3179,25 @@ class GetOntapStorageVirtualMachineEndpointIscsiResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapStorageVirtualMachineEndpointIscsiResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2361,8 +3215,25 @@ class GetOntapStorageVirtualMachineEndpointManagementResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapStorageVirtualMachineEndpointManagementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2380,8 +3251,25 @@ class GetOntapStorageVirtualMachineEndpointNfResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapStorageVirtualMachineEndpointNfResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2399,8 +3287,25 @@ class GetOntapStorageVirtualMachineEndpointSmbResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        GetOntapStorageVirtualMachineEndpointSmbResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: str,
+             ip_addresses: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
+        _setter("dns_name", dns_name)
+        _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -2422,8 +3327,21 @@ class GetOntapStorageVirtualMachineFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetOntapStorageVirtualMachineFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2449,7 +3367,18 @@ class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
         """
         :param str message: A detailed message.
         """
-        pulumi.set(__self__, "message", message)
+        GetOntapStorageVirtualMachineLifecycleTransitionReasonResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -2469,8 +3398,21 @@ class GetOntapStorageVirtualMachinesFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetOntapStorageVirtualMachinesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2497,8 +3439,21 @@ class GetOpenZfsSnapshotFilterResult(dict):
         """
         :param str name: Name of the snapshot.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetOpenZfsSnapshotFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2520,9 +3475,30 @@ class GetWindowsFileSystemAuditLogConfigurationResult(dict):
                  audit_log_destination: str,
                  file_access_audit_log_level: str,
                  file_share_access_audit_log_level: str):
-        pulumi.set(__self__, "audit_log_destination", audit_log_destination)
-        pulumi.set(__self__, "file_access_audit_log_level", file_access_audit_log_level)
-        pulumi.set(__self__, "file_share_access_audit_log_level", file_share_access_audit_log_level)
+        GetWindowsFileSystemAuditLogConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_log_destination=audit_log_destination,
+            file_access_audit_log_level=file_access_audit_log_level,
+            file_share_access_audit_log_level=file_share_access_audit_log_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_log_destination: str,
+             file_access_audit_log_level: str,
+             file_share_access_audit_log_level: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditLogDestination' in kwargs:
+            audit_log_destination = kwargs['auditLogDestination']
+        if 'fileAccessAuditLogLevel' in kwargs:
+            file_access_audit_log_level = kwargs['fileAccessAuditLogLevel']
+        if 'fileShareAccessAuditLogLevel' in kwargs:
+            file_share_access_audit_log_level = kwargs['fileShareAccessAuditLogLevel']
+
+        _setter("audit_log_destination", audit_log_destination)
+        _setter("file_access_audit_log_level", file_access_audit_log_level)
+        _setter("file_share_access_audit_log_level", file_share_access_audit_log_level)
 
     @property
     @pulumi.getter(name="auditLogDestination")
@@ -2545,8 +3521,21 @@ class GetWindowsFileSystemDiskIopsConfigurationResult(dict):
     def __init__(__self__, *,
                  iops: int,
                  mode: str):
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "mode", mode)
+        GetWindowsFileSystemDiskIopsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: int,
+             mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("iops", iops)
+        _setter("mode", mode)
 
     @property
     @pulumi.getter

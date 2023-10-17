@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,7 +24,20 @@ class ContactChannelDeliveryAddressArgs:
         """
         :param pulumi.Input[str] simple_address: Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
         """
-        pulumi.set(__self__, "simple_address", simple_address)
+        ContactChannelDeliveryAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            simple_address=simple_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             simple_address: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'simpleAddress' in kwargs:
+            simple_address = kwargs['simpleAddress']
+
+        _setter("simple_address", simple_address)
 
     @property
     @pulumi.getter(name="simpleAddress")
@@ -44,9 +57,24 @@ class PlanStageArgs:
     def __init__(__self__, *,
                  duration_in_minutes: pulumi.Input[int],
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgs']]]] = None):
-        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
+        PlanStageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration_in_minutes=duration_in_minutes,
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration_in_minutes: pulumi.Input[int],
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+
+        _setter("duration_in_minutes", duration_in_minutes)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
@@ -72,10 +100,27 @@ class PlanStageTargetArgs:
     def __init__(__self__, *,
                  channel_target_info: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArgs']] = None,
                  contact_target_info: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArgs']] = None):
+        PlanStageTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_target_info=channel_target_info,
+            contact_target_info=contact_target_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_target_info: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArgs']] = None,
+             contact_target_info: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelTargetInfo' in kwargs:
+            channel_target_info = kwargs['channelTargetInfo']
+        if 'contactTargetInfo' in kwargs:
+            contact_target_info = kwargs['contactTargetInfo']
+
         if channel_target_info is not None:
-            pulumi.set(__self__, "channel_target_info", channel_target_info)
+            _setter("channel_target_info", channel_target_info)
         if contact_target_info is not None:
-            pulumi.set(__self__, "contact_target_info", contact_target_info)
+            _setter("contact_target_info", contact_target_info)
 
     @property
     @pulumi.getter(name="channelTargetInfo")
@@ -101,9 +146,26 @@ class PlanStageTargetChannelTargetInfoArgs:
     def __init__(__self__, *,
                  contact_channel_id: pulumi.Input[str],
                  retry_interval_in_minutes: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "contact_channel_id", contact_channel_id)
+        PlanStageTargetChannelTargetInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_channel_id=contact_channel_id,
+            retry_interval_in_minutes=retry_interval_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_channel_id: pulumi.Input[str],
+             retry_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactChannelId' in kwargs:
+            contact_channel_id = kwargs['contactChannelId']
+        if 'retryIntervalInMinutes' in kwargs:
+            retry_interval_in_minutes = kwargs['retryIntervalInMinutes']
+
+        _setter("contact_channel_id", contact_channel_id)
         if retry_interval_in_minutes is not None:
-            pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
+            _setter("retry_interval_in_minutes", retry_interval_in_minutes)
 
     @property
     @pulumi.getter(name="contactChannelId")
@@ -132,9 +194,26 @@ class PlanStageTargetContactTargetInfoArgs:
         """
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
         """
-        pulumi.set(__self__, "is_essential", is_essential)
+        PlanStageTargetContactTargetInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_essential=is_essential,
+            contact_id=contact_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_essential: pulumi.Input[bool],
+             contact_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEssential' in kwargs:
+            is_essential = kwargs['isEssential']
+        if 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+
+        _setter("is_essential", is_essential)
         if contact_id is not None:
-            pulumi.set(__self__, "contact_id", contact_id)
+            _setter("contact_id", contact_id)
 
     @property
     @pulumi.getter(name="isEssential")

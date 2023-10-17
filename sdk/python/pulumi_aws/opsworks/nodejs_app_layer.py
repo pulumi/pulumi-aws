@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -64,53 +64,154 @@ class NodejsAppLayerArgs:
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
-        pulumi.set(__self__, "stack_id", stack_id)
+        NodejsAppLayerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stack_id=stack_id,
+            auto_assign_elastic_ips=auto_assign_elastic_ips,
+            auto_assign_public_ips=auto_assign_public_ips,
+            auto_healing=auto_healing,
+            cloudwatch_configuration=cloudwatch_configuration,
+            custom_configure_recipes=custom_configure_recipes,
+            custom_deploy_recipes=custom_deploy_recipes,
+            custom_instance_profile_arn=custom_instance_profile_arn,
+            custom_json=custom_json,
+            custom_security_group_ids=custom_security_group_ids,
+            custom_setup_recipes=custom_setup_recipes,
+            custom_shutdown_recipes=custom_shutdown_recipes,
+            custom_undeploy_recipes=custom_undeploy_recipes,
+            drain_elb_on_shutdown=drain_elb_on_shutdown,
+            ebs_volumes=ebs_volumes,
+            elastic_load_balancer=elastic_load_balancer,
+            install_updates_on_boot=install_updates_on_boot,
+            instance_shutdown_timeout=instance_shutdown_timeout,
+            load_based_auto_scaling=load_based_auto_scaling,
+            name=name,
+            nodejs_version=nodejs_version,
+            system_packages=system_packages,
+            tags=tags,
+            use_ebs_optimized_instances=use_ebs_optimized_instances,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stack_id: pulumi.Input[str],
+             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
+             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
+             auto_healing: Optional[pulumi.Input[bool]] = None,
+             cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']] = None,
+             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             custom_json: Optional[pulumi.Input[str]] = None,
+             custom_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_setup_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
+             ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]] = None,
+             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
+             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+             load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nodejs_version: Optional[pulumi.Input[str]] = None,
+             system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'autoAssignElasticIps' in kwargs:
+            auto_assign_elastic_ips = kwargs['autoAssignElasticIps']
+        if 'autoAssignPublicIps' in kwargs:
+            auto_assign_public_ips = kwargs['autoAssignPublicIps']
+        if 'autoHealing' in kwargs:
+            auto_healing = kwargs['autoHealing']
+        if 'cloudwatchConfiguration' in kwargs:
+            cloudwatch_configuration = kwargs['cloudwatchConfiguration']
+        if 'customConfigureRecipes' in kwargs:
+            custom_configure_recipes = kwargs['customConfigureRecipes']
+        if 'customDeployRecipes' in kwargs:
+            custom_deploy_recipes = kwargs['customDeployRecipes']
+        if 'customInstanceProfileArn' in kwargs:
+            custom_instance_profile_arn = kwargs['customInstanceProfileArn']
+        if 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if 'customSecurityGroupIds' in kwargs:
+            custom_security_group_ids = kwargs['customSecurityGroupIds']
+        if 'customSetupRecipes' in kwargs:
+            custom_setup_recipes = kwargs['customSetupRecipes']
+        if 'customShutdownRecipes' in kwargs:
+            custom_shutdown_recipes = kwargs['customShutdownRecipes']
+        if 'customUndeployRecipes' in kwargs:
+            custom_undeploy_recipes = kwargs['customUndeployRecipes']
+        if 'drainElbOnShutdown' in kwargs:
+            drain_elb_on_shutdown = kwargs['drainElbOnShutdown']
+        if 'ebsVolumes' in kwargs:
+            ebs_volumes = kwargs['ebsVolumes']
+        if 'elasticLoadBalancer' in kwargs:
+            elastic_load_balancer = kwargs['elasticLoadBalancer']
+        if 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if 'instanceShutdownTimeout' in kwargs:
+            instance_shutdown_timeout = kwargs['instanceShutdownTimeout']
+        if 'loadBasedAutoScaling' in kwargs:
+            load_based_auto_scaling = kwargs['loadBasedAutoScaling']
+        if 'nodejsVersion' in kwargs:
+            nodejs_version = kwargs['nodejsVersion']
+        if 'systemPackages' in kwargs:
+            system_packages = kwargs['systemPackages']
+        if 'useEbsOptimizedInstances' in kwargs:
+            use_ebs_optimized_instances = kwargs['useEbsOptimizedInstances']
+
+        _setter("stack_id", stack_id)
         if auto_assign_elastic_ips is not None:
-            pulumi.set(__self__, "auto_assign_elastic_ips", auto_assign_elastic_ips)
+            _setter("auto_assign_elastic_ips", auto_assign_elastic_ips)
         if auto_assign_public_ips is not None:
-            pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
+            _setter("auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
-            pulumi.set(__self__, "auto_healing", auto_healing)
+            _setter("auto_healing", auto_healing)
         if cloudwatch_configuration is not None:
-            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
+            _setter("cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
-            pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
+            _setter("custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
-            pulumi.set(__self__, "custom_deploy_recipes", custom_deploy_recipes)
+            _setter("custom_deploy_recipes", custom_deploy_recipes)
         if custom_instance_profile_arn is not None:
-            pulumi.set(__self__, "custom_instance_profile_arn", custom_instance_profile_arn)
+            _setter("custom_instance_profile_arn", custom_instance_profile_arn)
         if custom_json is not None:
-            pulumi.set(__self__, "custom_json", custom_json)
+            _setter("custom_json", custom_json)
         if custom_security_group_ids is not None:
-            pulumi.set(__self__, "custom_security_group_ids", custom_security_group_ids)
+            _setter("custom_security_group_ids", custom_security_group_ids)
         if custom_setup_recipes is not None:
-            pulumi.set(__self__, "custom_setup_recipes", custom_setup_recipes)
+            _setter("custom_setup_recipes", custom_setup_recipes)
         if custom_shutdown_recipes is not None:
-            pulumi.set(__self__, "custom_shutdown_recipes", custom_shutdown_recipes)
+            _setter("custom_shutdown_recipes", custom_shutdown_recipes)
         if custom_undeploy_recipes is not None:
-            pulumi.set(__self__, "custom_undeploy_recipes", custom_undeploy_recipes)
+            _setter("custom_undeploy_recipes", custom_undeploy_recipes)
         if drain_elb_on_shutdown is not None:
-            pulumi.set(__self__, "drain_elb_on_shutdown", drain_elb_on_shutdown)
+            _setter("drain_elb_on_shutdown", drain_elb_on_shutdown)
         if ebs_volumes is not None:
-            pulumi.set(__self__, "ebs_volumes", ebs_volumes)
+            _setter("ebs_volumes", ebs_volumes)
         if elastic_load_balancer is not None:
-            pulumi.set(__self__, "elastic_load_balancer", elastic_load_balancer)
+            _setter("elastic_load_balancer", elastic_load_balancer)
         if install_updates_on_boot is not None:
-            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
+            _setter("install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
-            pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+            _setter("instance_shutdown_timeout", instance_shutdown_timeout)
         if load_based_auto_scaling is not None:
-            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
+            _setter("load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nodejs_version is not None:
-            pulumi.set(__self__, "nodejs_version", nodejs_version)
+            _setter("nodejs_version", nodejs_version)
         if system_packages is not None:
-            pulumi.set(__self__, "system_packages", system_packages)
+            _setter("system_packages", system_packages)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_ebs_optimized_instances is not None:
-            pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
+            _setter("use_ebs_optimized_instances", use_ebs_optimized_instances)
 
     @property
     @pulumi.getter(name="stackId")
@@ -439,61 +540,168 @@ class _NodejsAppLayerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
+        _NodejsAppLayerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_assign_elastic_ips=auto_assign_elastic_ips,
+            auto_assign_public_ips=auto_assign_public_ips,
+            auto_healing=auto_healing,
+            cloudwatch_configuration=cloudwatch_configuration,
+            custom_configure_recipes=custom_configure_recipes,
+            custom_deploy_recipes=custom_deploy_recipes,
+            custom_instance_profile_arn=custom_instance_profile_arn,
+            custom_json=custom_json,
+            custom_security_group_ids=custom_security_group_ids,
+            custom_setup_recipes=custom_setup_recipes,
+            custom_shutdown_recipes=custom_shutdown_recipes,
+            custom_undeploy_recipes=custom_undeploy_recipes,
+            drain_elb_on_shutdown=drain_elb_on_shutdown,
+            ebs_volumes=ebs_volumes,
+            elastic_load_balancer=elastic_load_balancer,
+            install_updates_on_boot=install_updates_on_boot,
+            instance_shutdown_timeout=instance_shutdown_timeout,
+            load_based_auto_scaling=load_based_auto_scaling,
+            name=name,
+            nodejs_version=nodejs_version,
+            stack_id=stack_id,
+            system_packages=system_packages,
+            tags=tags,
+            tags_all=tags_all,
+            use_ebs_optimized_instances=use_ebs_optimized_instances,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
+             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
+             auto_healing: Optional[pulumi.Input[bool]] = None,
+             cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']] = None,
+             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             custom_json: Optional[pulumi.Input[str]] = None,
+             custom_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_setup_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
+             ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]] = None,
+             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
+             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
+             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
+             load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nodejs_version: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAssignElasticIps' in kwargs:
+            auto_assign_elastic_ips = kwargs['autoAssignElasticIps']
+        if 'autoAssignPublicIps' in kwargs:
+            auto_assign_public_ips = kwargs['autoAssignPublicIps']
+        if 'autoHealing' in kwargs:
+            auto_healing = kwargs['autoHealing']
+        if 'cloudwatchConfiguration' in kwargs:
+            cloudwatch_configuration = kwargs['cloudwatchConfiguration']
+        if 'customConfigureRecipes' in kwargs:
+            custom_configure_recipes = kwargs['customConfigureRecipes']
+        if 'customDeployRecipes' in kwargs:
+            custom_deploy_recipes = kwargs['customDeployRecipes']
+        if 'customInstanceProfileArn' in kwargs:
+            custom_instance_profile_arn = kwargs['customInstanceProfileArn']
+        if 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if 'customSecurityGroupIds' in kwargs:
+            custom_security_group_ids = kwargs['customSecurityGroupIds']
+        if 'customSetupRecipes' in kwargs:
+            custom_setup_recipes = kwargs['customSetupRecipes']
+        if 'customShutdownRecipes' in kwargs:
+            custom_shutdown_recipes = kwargs['customShutdownRecipes']
+        if 'customUndeployRecipes' in kwargs:
+            custom_undeploy_recipes = kwargs['customUndeployRecipes']
+        if 'drainElbOnShutdown' in kwargs:
+            drain_elb_on_shutdown = kwargs['drainElbOnShutdown']
+        if 'ebsVolumes' in kwargs:
+            ebs_volumes = kwargs['ebsVolumes']
+        if 'elasticLoadBalancer' in kwargs:
+            elastic_load_balancer = kwargs['elasticLoadBalancer']
+        if 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if 'instanceShutdownTimeout' in kwargs:
+            instance_shutdown_timeout = kwargs['instanceShutdownTimeout']
+        if 'loadBasedAutoScaling' in kwargs:
+            load_based_auto_scaling = kwargs['loadBasedAutoScaling']
+        if 'nodejsVersion' in kwargs:
+            nodejs_version = kwargs['nodejsVersion']
+        if 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if 'systemPackages' in kwargs:
+            system_packages = kwargs['systemPackages']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'useEbsOptimizedInstances' in kwargs:
+            use_ebs_optimized_instances = kwargs['useEbsOptimizedInstances']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_assign_elastic_ips is not None:
-            pulumi.set(__self__, "auto_assign_elastic_ips", auto_assign_elastic_ips)
+            _setter("auto_assign_elastic_ips", auto_assign_elastic_ips)
         if auto_assign_public_ips is not None:
-            pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
+            _setter("auto_assign_public_ips", auto_assign_public_ips)
         if auto_healing is not None:
-            pulumi.set(__self__, "auto_healing", auto_healing)
+            _setter("auto_healing", auto_healing)
         if cloudwatch_configuration is not None:
-            pulumi.set(__self__, "cloudwatch_configuration", cloudwatch_configuration)
+            _setter("cloudwatch_configuration", cloudwatch_configuration)
         if custom_configure_recipes is not None:
-            pulumi.set(__self__, "custom_configure_recipes", custom_configure_recipes)
+            _setter("custom_configure_recipes", custom_configure_recipes)
         if custom_deploy_recipes is not None:
-            pulumi.set(__self__, "custom_deploy_recipes", custom_deploy_recipes)
+            _setter("custom_deploy_recipes", custom_deploy_recipes)
         if custom_instance_profile_arn is not None:
-            pulumi.set(__self__, "custom_instance_profile_arn", custom_instance_profile_arn)
+            _setter("custom_instance_profile_arn", custom_instance_profile_arn)
         if custom_json is not None:
-            pulumi.set(__self__, "custom_json", custom_json)
+            _setter("custom_json", custom_json)
         if custom_security_group_ids is not None:
-            pulumi.set(__self__, "custom_security_group_ids", custom_security_group_ids)
+            _setter("custom_security_group_ids", custom_security_group_ids)
         if custom_setup_recipes is not None:
-            pulumi.set(__self__, "custom_setup_recipes", custom_setup_recipes)
+            _setter("custom_setup_recipes", custom_setup_recipes)
         if custom_shutdown_recipes is not None:
-            pulumi.set(__self__, "custom_shutdown_recipes", custom_shutdown_recipes)
+            _setter("custom_shutdown_recipes", custom_shutdown_recipes)
         if custom_undeploy_recipes is not None:
-            pulumi.set(__self__, "custom_undeploy_recipes", custom_undeploy_recipes)
+            _setter("custom_undeploy_recipes", custom_undeploy_recipes)
         if drain_elb_on_shutdown is not None:
-            pulumi.set(__self__, "drain_elb_on_shutdown", drain_elb_on_shutdown)
+            _setter("drain_elb_on_shutdown", drain_elb_on_shutdown)
         if ebs_volumes is not None:
-            pulumi.set(__self__, "ebs_volumes", ebs_volumes)
+            _setter("ebs_volumes", ebs_volumes)
         if elastic_load_balancer is not None:
-            pulumi.set(__self__, "elastic_load_balancer", elastic_load_balancer)
+            _setter("elastic_load_balancer", elastic_load_balancer)
         if install_updates_on_boot is not None:
-            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
+            _setter("install_updates_on_boot", install_updates_on_boot)
         if instance_shutdown_timeout is not None:
-            pulumi.set(__self__, "instance_shutdown_timeout", instance_shutdown_timeout)
+            _setter("instance_shutdown_timeout", instance_shutdown_timeout)
         if load_based_auto_scaling is not None:
-            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
+            _setter("load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nodejs_version is not None:
-            pulumi.set(__self__, "nodejs_version", nodejs_version)
+            _setter("nodejs_version", nodejs_version)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
         if system_packages is not None:
-            pulumi.set(__self__, "system_packages", system_packages)
+            _setter("system_packages", system_packages)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
-            pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
+            _setter("use_ebs_optimized_instances", use_ebs_optimized_instances)
 
     @property
     @pulumi.getter
@@ -888,6 +1096,10 @@ class NodejsAppLayer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NodejsAppLayerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -929,6 +1141,11 @@ class NodejsAppLayer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["auto_healing"] = auto_healing
+            if cloudwatch_configuration is not None and not isinstance(cloudwatch_configuration, NodejsAppLayerCloudwatchConfigurationArgs):
+                cloudwatch_configuration = cloudwatch_configuration or {}
+                def _setter(key, value):
+                    cloudwatch_configuration[key] = value
+                NodejsAppLayerCloudwatchConfigurationArgs._configure(_setter, **cloudwatch_configuration)
             __props__.__dict__["cloudwatch_configuration"] = cloudwatch_configuration
             __props__.__dict__["custom_configure_recipes"] = custom_configure_recipes
             __props__.__dict__["custom_deploy_recipes"] = custom_deploy_recipes
@@ -943,6 +1160,11 @@ class NodejsAppLayer(pulumi.CustomResource):
             __props__.__dict__["elastic_load_balancer"] = elastic_load_balancer
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
             __props__.__dict__["instance_shutdown_timeout"] = instance_shutdown_timeout
+            if load_based_auto_scaling is not None and not isinstance(load_based_auto_scaling, NodejsAppLayerLoadBasedAutoScalingArgs):
+                load_based_auto_scaling = load_based_auto_scaling or {}
+                def _setter(key, value):
+                    load_based_auto_scaling[key] = value
+                NodejsAppLayerLoadBasedAutoScalingArgs._configure(_setter, **load_based_auto_scaling)
             __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             __props__.__dict__["nodejs_version"] = nodejs_version

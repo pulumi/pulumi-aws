@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -38,10 +38,23 @@ class BrokerConfiguration(dict):
         :param str id: The Configuration ID.
         :param int revision: Revision of the Configuration.
         """
+        BrokerConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             revision: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -88,10 +101,27 @@ class BrokerEncryptionOptions(dict):
         :param str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
         :param bool use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
         """
+        BrokerEncryptionOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            use_aws_owned_key=use_aws_owned_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[str] = None,
+             use_aws_owned_key: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if use_aws_owned_key is not None:
-            pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
+            _setter("use_aws_owned_key", use_aws_owned_key)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -135,12 +165,31 @@ class BrokerInstance(dict):
                  console_url: Optional[str] = None,
                  endpoints: Optional[Sequence[str]] = None,
                  ip_address: Optional[str] = None):
+        BrokerInstance._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            console_url=console_url,
+            endpoints=endpoints,
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             console_url: Optional[str] = None,
+             endpoints: Optional[Sequence[str]] = None,
+             ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleUrl' in kwargs:
+            console_url = kwargs['consoleUrl']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if console_url is not None:
-            pulumi.set(__self__, "console_url", console_url)
+            _setter("console_url", console_url)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="consoleUrl")
@@ -220,28 +269,79 @@ class BrokerLdapServerMetadata(dict):
         :param str user_search_matching: Search criteria for users.
         :param bool user_search_subtree: Whether the directory search scope is the entire sub-tree.
         """
+        BrokerLdapServerMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosts=hosts,
+            role_base=role_base,
+            role_name=role_name,
+            role_search_matching=role_search_matching,
+            role_search_subtree=role_search_subtree,
+            service_account_password=service_account_password,
+            service_account_username=service_account_username,
+            user_base=user_base,
+            user_role_name=user_role_name,
+            user_search_matching=user_search_matching,
+            user_search_subtree=user_search_subtree,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosts: Optional[Sequence[str]] = None,
+             role_base: Optional[str] = None,
+             role_name: Optional[str] = None,
+             role_search_matching: Optional[str] = None,
+             role_search_subtree: Optional[bool] = None,
+             service_account_password: Optional[str] = None,
+             service_account_username: Optional[str] = None,
+             user_base: Optional[str] = None,
+             user_role_name: Optional[str] = None,
+             user_search_matching: Optional[str] = None,
+             user_search_subtree: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
         if hosts is not None:
-            pulumi.set(__self__, "hosts", hosts)
+            _setter("hosts", hosts)
         if role_base is not None:
-            pulumi.set(__self__, "role_base", role_base)
+            _setter("role_base", role_base)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if role_search_matching is not None:
-            pulumi.set(__self__, "role_search_matching", role_search_matching)
+            _setter("role_search_matching", role_search_matching)
         if role_search_subtree is not None:
-            pulumi.set(__self__, "role_search_subtree", role_search_subtree)
+            _setter("role_search_subtree", role_search_subtree)
         if service_account_password is not None:
-            pulumi.set(__self__, "service_account_password", service_account_password)
+            _setter("service_account_password", service_account_password)
         if service_account_username is not None:
-            pulumi.set(__self__, "service_account_username", service_account_username)
+            _setter("service_account_username", service_account_username)
         if user_base is not None:
-            pulumi.set(__self__, "user_base", user_base)
+            _setter("user_base", user_base)
         if user_role_name is not None:
-            pulumi.set(__self__, "user_role_name", user_role_name)
+            _setter("user_role_name", user_role_name)
         if user_search_matching is not None:
-            pulumi.set(__self__, "user_search_matching", user_search_matching)
+            _setter("user_search_matching", user_search_matching)
         if user_search_subtree is not None:
-            pulumi.set(__self__, "user_search_subtree", user_search_subtree)
+            _setter("user_search_subtree", user_search_subtree)
 
     @property
     @pulumi.getter
@@ -341,10 +441,23 @@ class BrokerLogs(dict):
         :param bool audit: Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
         :param bool general: Enables general logging via CloudWatch. Defaults to `false`.
         """
+        BrokerLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit=audit,
+            general=general,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit: Optional[bool] = None,
+             general: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audit is not None:
-            pulumi.set(__self__, "audit", audit)
+            _setter("audit", audit)
         if general is not None:
-            pulumi.set(__self__, "general", general)
+            _setter("general", general)
 
     @property
     @pulumi.getter
@@ -395,9 +508,30 @@ class BrokerMaintenanceWindowStartTime(dict):
         :param str time_of_day: Time, in 24-hour format, e.g., `02:00`.
         :param str time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "time_of_day", time_of_day)
-        pulumi.set(__self__, "time_zone", time_zone)
+        BrokerMaintenanceWindowStartTime._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            time_of_day=time_of_day,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: str,
+             time_of_day: str,
+             time_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("day_of_week", day_of_week)
+        _setter("time_of_day", time_of_day)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -460,14 +594,37 @@ class BrokerUser(dict):
         :param Sequence[str] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         :param bool replication_user: Whether to set set replication user. Defaults to `false`.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        BrokerUser._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+            console_access=console_access,
+            groups=groups,
+            replication_user=replication_user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             console_access: Optional[bool] = None,
+             groups: Optional[Sequence[str]] = None,
+             replication_user: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+        if 'replicationUser' in kwargs:
+            replication_user = kwargs['replicationUser']
+
+        _setter("password", password)
+        _setter("username", username)
         if console_access is not None:
-            pulumi.set(__self__, "console_access", console_access)
+            _setter("console_access", console_access)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if replication_user is not None:
-            pulumi.set(__self__, "replication_user", replication_user)
+            _setter("replication_user", replication_user)
 
     @property
     @pulumi.getter
@@ -517,8 +674,21 @@ class GetBrokerConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  revision: int):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "revision", revision)
+        GetBrokerConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             revision: int,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -536,8 +706,25 @@ class GetBrokerEncryptionOptionResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str,
                  use_aws_owned_key: bool):
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
+        GetBrokerEncryptionOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            use_aws_owned_key=use_aws_owned_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: str,
+             use_aws_owned_key: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+
+        _setter("kms_key_id", kms_key_id)
+        _setter("use_aws_owned_key", use_aws_owned_key)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -556,9 +743,28 @@ class GetBrokerInstanceResult(dict):
                  console_url: str,
                  endpoints: Sequence[str],
                  ip_address: str):
-        pulumi.set(__self__, "console_url", console_url)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "ip_address", ip_address)
+        GetBrokerInstanceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            console_url=console_url,
+            endpoints=endpoints,
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             console_url: str,
+             endpoints: Sequence[str],
+             ip_address: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleUrl' in kwargs:
+            console_url = kwargs['consoleUrl']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
+        _setter("console_url", console_url)
+        _setter("endpoints", endpoints)
+        _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="consoleUrl")
@@ -590,17 +796,68 @@ class GetBrokerLdapServerMetadataResult(dict):
                  user_role_name: str,
                  user_search_matching: str,
                  user_search_subtree: bool):
-        pulumi.set(__self__, "hosts", hosts)
-        pulumi.set(__self__, "role_base", role_base)
-        pulumi.set(__self__, "role_name", role_name)
-        pulumi.set(__self__, "role_search_matching", role_search_matching)
-        pulumi.set(__self__, "role_search_subtree", role_search_subtree)
-        pulumi.set(__self__, "service_account_password", service_account_password)
-        pulumi.set(__self__, "service_account_username", service_account_username)
-        pulumi.set(__self__, "user_base", user_base)
-        pulumi.set(__self__, "user_role_name", user_role_name)
-        pulumi.set(__self__, "user_search_matching", user_search_matching)
-        pulumi.set(__self__, "user_search_subtree", user_search_subtree)
+        GetBrokerLdapServerMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hosts=hosts,
+            role_base=role_base,
+            role_name=role_name,
+            role_search_matching=role_search_matching,
+            role_search_subtree=role_search_subtree,
+            service_account_password=service_account_password,
+            service_account_username=service_account_username,
+            user_base=user_base,
+            user_role_name=user_role_name,
+            user_search_matching=user_search_matching,
+            user_search_subtree=user_search_subtree,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hosts: Sequence[str],
+             role_base: str,
+             role_name: str,
+             role_search_matching: str,
+             role_search_subtree: bool,
+             service_account_password: str,
+             service_account_username: str,
+             user_base: str,
+             user_role_name: str,
+             user_search_matching: str,
+             user_search_subtree: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
+        _setter("hosts", hosts)
+        _setter("role_base", role_base)
+        _setter("role_name", role_name)
+        _setter("role_search_matching", role_search_matching)
+        _setter("role_search_subtree", role_search_subtree)
+        _setter("service_account_password", service_account_password)
+        _setter("service_account_username", service_account_username)
+        _setter("user_base", user_base)
+        _setter("user_role_name", user_role_name)
+        _setter("user_search_matching", user_search_matching)
+        _setter("user_search_subtree", user_search_subtree)
 
     @property
     @pulumi.getter
@@ -663,8 +920,21 @@ class GetBrokerLogsResult(dict):
     def __init__(__self__, *,
                  audit: bool,
                  general: bool):
-        pulumi.set(__self__, "audit", audit)
-        pulumi.set(__self__, "general", general)
+        GetBrokerLogsResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit=audit,
+            general=general,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit: bool,
+             general: bool,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("audit", audit)
+        _setter("general", general)
 
     @property
     @pulumi.getter
@@ -683,9 +953,30 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
                  day_of_week: str,
                  time_of_day: str,
                  time_zone: str):
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "time_of_day", time_of_day)
-        pulumi.set(__self__, "time_zone", time_zone)
+        GetBrokerMaintenanceWindowStartTimeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            time_of_day=time_of_day,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: str,
+             time_of_day: str,
+             time_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("day_of_week", day_of_week)
+        _setter("time_of_day", time_of_day)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -710,10 +1001,31 @@ class GetBrokerUserResult(dict):
                  groups: Sequence[str],
                  replication_user: bool,
                  username: str):
-        pulumi.set(__self__, "console_access", console_access)
-        pulumi.set(__self__, "groups", groups)
-        pulumi.set(__self__, "replication_user", replication_user)
-        pulumi.set(__self__, "username", username)
+        GetBrokerUserResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            console_access=console_access,
+            groups=groups,
+            replication_user=replication_user,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             console_access: bool,
+             groups: Sequence[str],
+             replication_user: bool,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+        if 'replicationUser' in kwargs:
+            replication_user = kwargs['replicationUser']
+
+        _setter("console_access", console_access)
+        _setter("groups", groups)
+        _setter("replication_user", replication_user)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="consoleAccess")
@@ -753,12 +1065,45 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
         :param Sequence[str] supported_deployment_modes: The list of supported deployment modes.
         :param Sequence[str] supported_engine_versions: The list of supported engine versions.
         """
-        pulumi.set(__self__, "availability_zones", availability_zones)
-        pulumi.set(__self__, "engine_type", engine_type)
-        pulumi.set(__self__, "host_instance_type", host_instance_type)
-        pulumi.set(__self__, "storage_type", storage_type)
-        pulumi.set(__self__, "supported_deployment_modes", supported_deployment_modes)
-        pulumi.set(__self__, "supported_engine_versions", supported_engine_versions)
+        GetInstanceTypeOfferingsBrokerInstanceOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zones=availability_zones,
+            engine_type=engine_type,
+            host_instance_type=host_instance_type,
+            storage_type=storage_type,
+            supported_deployment_modes=supported_deployment_modes,
+            supported_engine_versions=supported_engine_versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zones: Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult'],
+             engine_type: str,
+             host_instance_type: str,
+             storage_type: str,
+             supported_deployment_modes: Sequence[str],
+             supported_engine_versions: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if 'hostInstanceType' in kwargs:
+            host_instance_type = kwargs['hostInstanceType']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'supportedDeploymentModes' in kwargs:
+            supported_deployment_modes = kwargs['supportedDeploymentModes']
+        if 'supportedEngineVersions' in kwargs:
+            supported_engine_versions = kwargs['supportedEngineVersions']
+
+        _setter("availability_zones", availability_zones)
+        _setter("engine_type", engine_type)
+        _setter("host_instance_type", host_instance_type)
+        _setter("storage_type", storage_type)
+        _setter("supported_deployment_modes", supported_deployment_modes)
+        _setter("supported_engine_versions", supported_engine_versions)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -816,7 +1161,18 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
         """
         :param str name: Name of the Availability Zone.
         """
-        pulumi.set(__self__, "name", name)
+        GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
 
     @property
     @pulumi.getter

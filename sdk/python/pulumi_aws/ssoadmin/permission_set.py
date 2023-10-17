@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PermissionSetArgs', 'PermissionSet']
@@ -29,17 +29,44 @@ class PermissionSetArgs:
         :param pulumi.Input[str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
+        PermissionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            description=description,
+            name=name,
+            relay_state=relay_state,
+            session_duration=session_duration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             relay_state: Optional[pulumi.Input[str]] = None,
+             session_duration: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'relayState' in kwargs:
+            relay_state = kwargs['relayState']
+        if 'sessionDuration' in kwargs:
+            session_duration = kwargs['sessionDuration']
+
+        _setter("instance_arn", instance_arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if relay_state is not None:
-            pulumi.set(__self__, "relay_state", relay_state)
+            _setter("relay_state", relay_state)
         if session_duration is not None:
-            pulumi.set(__self__, "session_duration", session_duration)
+            _setter("session_duration", session_duration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -138,27 +165,64 @@ class _PermissionSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _PermissionSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            created_date=created_date,
+            description=description,
+            instance_arn=instance_arn,
+            name=name,
+            relay_state=relay_state,
+            session_duration=session_duration,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             relay_state: Optional[pulumi.Input[str]] = None,
+             session_duration: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'relayState' in kwargs:
+            relay_state = kwargs['relayState']
+        if 'sessionDuration' in kwargs:
+            session_duration = kwargs['sessionDuration']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
+            _setter("instance_arn", instance_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if relay_state is not None:
-            pulumi.set(__self__, "relay_state", relay_state)
+            _setter("relay_state", relay_state)
         if session_duration is not None:
-            pulumi.set(__self__, "session_duration", session_duration)
+            _setter("session_duration", session_duration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -335,6 +399,10 @@ class PermissionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

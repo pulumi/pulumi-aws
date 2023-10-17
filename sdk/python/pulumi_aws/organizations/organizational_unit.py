@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,28 @@ class OrganizationalUnitArgs:
         :param pulumi.Input[str] name: The name for the organizational unit
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "parent_id", parent_id)
+        OrganizationalUnitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_id=parent_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+
+        _setter("parent_id", parent_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="parentId")
@@ -86,21 +103,46 @@ class _OrganizationalUnitState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _OrganizationalUnitState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accounts=accounts,
+            arn=arn,
+            name=name,
+            parent_id=parent_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitAccountArgs']]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if accounts is not None:
-            pulumi.set(__self__, "accounts", accounts)
+            _setter("accounts", accounts)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -249,6 +291,10 @@ class OrganizationalUnit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationalUnitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

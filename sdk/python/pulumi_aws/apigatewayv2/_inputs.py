@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -39,18 +39,51 @@ class ApiCorsConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: Set of exposed HTTP headers.
         :param pulumi.Input[int] max_age: Number of seconds that the browser should cache preflight request results.
         """
+        ApiCorsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_credentials=allow_credentials,
+            allow_headers=allow_headers,
+            allow_methods=allow_methods,
+            allow_origins=allow_origins,
+            expose_headers=expose_headers,
+            max_age=max_age,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_credentials: Optional[pulumi.Input[bool]] = None,
+             allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             max_age: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCredentials' in kwargs:
+            allow_credentials = kwargs['allowCredentials']
+        if 'allowHeaders' in kwargs:
+            allow_headers = kwargs['allowHeaders']
+        if 'allowMethods' in kwargs:
+            allow_methods = kwargs['allowMethods']
+        if 'allowOrigins' in kwargs:
+            allow_origins = kwargs['allowOrigins']
+        if 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+
         if allow_credentials is not None:
-            pulumi.set(__self__, "allow_credentials", allow_credentials)
+            _setter("allow_credentials", allow_credentials)
         if allow_headers is not None:
-            pulumi.set(__self__, "allow_headers", allow_headers)
+            _setter("allow_headers", allow_headers)
         if allow_methods is not None:
-            pulumi.set(__self__, "allow_methods", allow_methods)
+            _setter("allow_methods", allow_methods)
         if allow_origins is not None:
-            pulumi.set(__self__, "allow_origins", allow_origins)
+            _setter("allow_origins", allow_origins)
         if expose_headers is not None:
-            pulumi.set(__self__, "expose_headers", expose_headers)
+            _setter("expose_headers", expose_headers)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -134,10 +167,23 @@ class AuthorizerJwtConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
         :param pulumi.Input[str] issuer: Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
         """
+        AuthorizerJwtConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audiences=audiences,
+            issuer=issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audiences is not None:
-            pulumi.set(__self__, "audiences", audiences)
+            _setter("audiences", audiences)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
 
     @property
     @pulumi.getter
@@ -181,15 +227,48 @@ class DomainNameDomainNameConfigurationArgs:
         :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param pulumi.Input[str] target_domain_name: Target domain name.
         """
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
-        pulumi.set(__self__, "security_policy", security_policy)
+        DomainNameDomainNameConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+            endpoint_type=endpoint_type,
+            security_policy=security_policy,
+            hosted_zone_id=hosted_zone_id,
+            ownership_verification_certificate_arn=ownership_verification_certificate_arn,
+            target_domain_name=target_domain_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: pulumi.Input[str],
+             endpoint_type: pulumi.Input[str],
+             security_policy: pulumi.Input[str],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+             target_domain_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'securityPolicy' in kwargs:
+            security_policy = kwargs['securityPolicy']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'ownershipVerificationCertificateArn' in kwargs:
+            ownership_verification_certificate_arn = kwargs['ownershipVerificationCertificateArn']
+        if 'targetDomainName' in kwargs:
+            target_domain_name = kwargs['targetDomainName']
+
+        _setter("certificate_arn", certificate_arn)
+        _setter("endpoint_type", endpoint_type)
+        _setter("security_policy", security_policy)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if ownership_verification_certificate_arn is not None:
-            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+            _setter("ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if target_domain_name is not None:
-            pulumi.set(__self__, "target_domain_name", target_domain_name)
+            _setter("target_domain_name", target_domain_name)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -273,9 +352,26 @@ class DomainNameMutualTlsAuthenticationArgs:
         :param pulumi.Input[str] truststore_uri: Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
         :param pulumi.Input[str] truststore_version: Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
-        pulumi.set(__self__, "truststore_uri", truststore_uri)
+        DomainNameMutualTlsAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            truststore_uri=truststore_uri,
+            truststore_version=truststore_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             truststore_uri: pulumi.Input[str],
+             truststore_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'truststoreUri' in kwargs:
+            truststore_uri = kwargs['truststoreUri']
+        if 'truststoreVersion' in kwargs:
+            truststore_version = kwargs['truststoreVersion']
+
+        _setter("truststore_uri", truststore_uri)
         if truststore_version is not None:
-            pulumi.set(__self__, "truststore_version", truststore_version)
+            _setter("truststore_version", truststore_version)
 
     @property
     @pulumi.getter(name="truststoreUri")
@@ -312,8 +408,23 @@ class IntegrationResponseParameterArgs:
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         :param pulumi.Input[str] status_code: HTTP status code in the range 200-599.
         """
-        pulumi.set(__self__, "mappings", mappings)
-        pulumi.set(__self__, "status_code", status_code)
+        IntegrationResponseParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mappings=mappings,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             status_code: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
+        _setter("mappings", mappings)
+        _setter("status_code", status_code)
 
     @property
     @pulumi.getter
@@ -348,8 +459,21 @@ class IntegrationTlsConfigArgs:
         """
         :param pulumi.Input[str] server_name_to_verify: If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
         """
+        IntegrationTlsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_name_to_verify=server_name_to_verify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_name_to_verify: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverNameToVerify' in kwargs:
+            server_name_to_verify = kwargs['serverNameToVerify']
+
         if server_name_to_verify is not None:
-            pulumi.set(__self__, "server_name_to_verify", server_name_to_verify)
+            _setter("server_name_to_verify", server_name_to_verify)
 
     @property
     @pulumi.getter(name="serverNameToVerify")
@@ -373,8 +497,23 @@ class RouteRequestParameterArgs:
         :param pulumi.Input[str] request_parameter_key: Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
         :param pulumi.Input[bool] required: Boolean whether or not the parameter is required.
         """
-        pulumi.set(__self__, "request_parameter_key", request_parameter_key)
-        pulumi.set(__self__, "required", required)
+        RouteRequestParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_parameter_key=request_parameter_key,
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_parameter_key: pulumi.Input[str],
+             required: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'requestParameterKey' in kwargs:
+            request_parameter_key = kwargs['requestParameterKey']
+
+        _setter("request_parameter_key", request_parameter_key)
+        _setter("required", required)
 
     @property
     @pulumi.getter(name="requestParameterKey")
@@ -410,8 +549,23 @@ class StageAccessLogSettingsArgs:
         :param pulumi.Input[str] destination_arn: ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
         :param pulumi.Input[str] format: Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
         """
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "format", format)
+        StageAccessLogSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_arn=destination_arn,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_arn: pulumi.Input[str],
+             format: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
+        _setter("destination_arn", destination_arn)
+        _setter("format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -455,16 +609,45 @@ class StageDefaultRouteSettingsArgs:
         :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the default route.
         :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the default route.
         """
+        StageDefaultRouteSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_trace_enabled=data_trace_enabled,
+            detailed_metrics_enabled=detailed_metrics_enabled,
+            logging_level=logging_level,
+            throttling_burst_limit=throttling_burst_limit,
+            throttling_rate_limit=throttling_rate_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+             detailed_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             logging_level: Optional[pulumi.Input[str]] = None,
+             throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+             throttling_rate_limit: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if 'detailedMetricsEnabled' in kwargs:
+            detailed_metrics_enabled = kwargs['detailedMetricsEnabled']
+        if 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
         if data_trace_enabled is not None:
-            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+            _setter("data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:
-            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
+            _setter("detailed_metrics_enabled", detailed_metrics_enabled)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if throttling_burst_limit is not None:
-            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+            _setter("throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+            _setter("throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="dataTraceEnabled")
@@ -548,17 +731,50 @@ class StageRouteSettingArgs:
         :param pulumi.Input[int] throttling_burst_limit: Throttling burst limit for the route.
         :param pulumi.Input[float] throttling_rate_limit: Throttling rate limit for the route.
         """
-        pulumi.set(__self__, "route_key", route_key)
+        StageRouteSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            route_key=route_key,
+            data_trace_enabled=data_trace_enabled,
+            detailed_metrics_enabled=detailed_metrics_enabled,
+            logging_level=logging_level,
+            throttling_burst_limit=throttling_burst_limit,
+            throttling_rate_limit=throttling_rate_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             route_key: pulumi.Input[str],
+             data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+             detailed_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+             logging_level: Optional[pulumi.Input[str]] = None,
+             throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+             throttling_rate_limit: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if 'detailedMetricsEnabled' in kwargs:
+            detailed_metrics_enabled = kwargs['detailedMetricsEnabled']
+        if 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
+        _setter("route_key", route_key)
         if data_trace_enabled is not None:
-            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+            _setter("data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:
-            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
+            _setter("detailed_metrics_enabled", detailed_metrics_enabled)
         if logging_level is not None:
-            pulumi.set(__self__, "logging_level", logging_level)
+            _setter("logging_level", logging_level)
         if throttling_burst_limit is not None:
-            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+            _setter("throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+            _setter("throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="routeKey")

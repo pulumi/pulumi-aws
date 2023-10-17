@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberAssociationArgs', 'MemberAssociation']
@@ -19,7 +19,20 @@ class MemberAssociationArgs:
         The set of arguments for constructing a MemberAssociation resource.
         :param pulumi.Input[str] account_id: ID of the account to associate
         """
-        pulumi.set(__self__, "account_id", account_id)
+        MemberAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("account_id", account_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -48,14 +61,39 @@ class _MemberAssociationState:
         :param pulumi.Input[str] relationship_status: Status of the member relationship
         :param pulumi.Input[str] updated_at: Date and time of the last update of the relationship
         """
+        _MemberAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            delegated_admin_account_id=delegated_admin_account_id,
+            relationship_status=relationship_status,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
+             relationship_status: Optional[pulumi.Input[str]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'delegatedAdminAccountId' in kwargs:
+            delegated_admin_account_id = kwargs['delegatedAdminAccountId']
+        if 'relationshipStatus' in kwargs:
+            relationship_status = kwargs['relationshipStatus']
+        if 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if delegated_admin_account_id is not None:
-            pulumi.set(__self__, "delegated_admin_account_id", delegated_admin_account_id)
+            _setter("delegated_admin_account_id", delegated_admin_account_id)
         if relationship_status is not None:
-            pulumi.set(__self__, "relationship_status", relationship_status)
+            _setter("relationship_status", relationship_status)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="accountId")
@@ -175,6 +213,10 @@ class MemberAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MemberAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceTrustProviderAttachmentArgs', 'InstanceTrustProviderAttachment']
@@ -21,8 +21,25 @@ class InstanceTrustProviderAttachmentArgs:
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         """
-        pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
-        pulumi.set(__self__, "verifiedaccess_trust_provider_id", verifiedaccess_trust_provider_id)
+        InstanceTrustProviderAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            verifiedaccess_instance_id=verifiedaccess_instance_id,
+            verifiedaccess_trust_provider_id=verifiedaccess_trust_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             verifiedaccess_instance_id: pulumi.Input[str],
+             verifiedaccess_trust_provider_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'verifiedaccessInstanceId' in kwargs:
+            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
+        if 'verifiedaccessTrustProviderId' in kwargs:
+            verifiedaccess_trust_provider_id = kwargs['verifiedaccessTrustProviderId']
+
+        _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
+        _setter("verifiedaccess_trust_provider_id", verifiedaccess_trust_provider_id)
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")
@@ -59,10 +76,27 @@ class _InstanceTrustProviderAttachmentState:
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance to attach the Trust Provider to.
         :param pulumi.Input[str] verifiedaccess_trust_provider_id: The ID of the Verified Access trust provider.
         """
+        _InstanceTrustProviderAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            verifiedaccess_instance_id=verifiedaccess_instance_id,
+            verifiedaccess_trust_provider_id=verifiedaccess_trust_provider_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
+             verifiedaccess_trust_provider_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'verifiedaccessInstanceId' in kwargs:
+            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
+        if 'verifiedaccessTrustProviderId' in kwargs:
+            verifiedaccess_trust_provider_id = kwargs['verifiedaccessTrustProviderId']
+
         if verifiedaccess_instance_id is not None:
-            pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
+            _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
         if verifiedaccess_trust_provider_id is not None:
-            pulumi.set(__self__, "verifiedaccess_trust_provider_id", verifiedaccess_trust_provider_id)
+            _setter("verifiedaccess_trust_provider_id", verifiedaccess_trust_provider_id)
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")
@@ -178,6 +212,10 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceTrustProviderAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

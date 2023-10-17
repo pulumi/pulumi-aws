@@ -1409,7 +1409,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) Mediu
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	Notify      bool   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput values.
@@ -1426,7 +1427,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput int
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	Notify      pulumi.BoolInput   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ElementType() reflect.Type {
@@ -1531,6 +1533,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput
 	}).(pulumi.StringOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1575,6 +1578,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *bool {
 		if v == nil {
@@ -1587,7 +1591,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOut
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	Notify      bool   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput values.
@@ -1604,7 +1609,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput inte
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	Notify      pulumi.BoolInput   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ElementType() reflect.Type {
@@ -1707,6 +1713,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) string { return v.EventAction }).(pulumi.StringOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1751,6 +1758,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *bool {
 		if v == nil {
@@ -1763,7 +1771,8 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutp
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction string `pulumi:"eventAction"`
-	Notify      bool   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
 }
 
 // RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput values.
@@ -1780,7 +1789,8 @@ type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput i
 type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs struct {
 	// The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
 	EventAction pulumi.StringInput `pulumi:"eventAction"`
-	Notify      pulumi.BoolInput   `pulumi:"notify"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
 }
 
 func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ElementType() reflect.Type {
@@ -1885,6 +1895,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutp
 	}).(pulumi.StringOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) Notify() pulumi.BoolOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) bool { return v.Notify }).(pulumi.BoolOutput)
 }
@@ -1929,6 +1940,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to send a notification.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) Notify() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *bool {
 		if v == nil {

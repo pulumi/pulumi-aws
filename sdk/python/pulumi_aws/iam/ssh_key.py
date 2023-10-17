@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SshKeyArgs', 'SshKey']
@@ -25,11 +25,30 @@ class SshKeyArgs:
         :param pulumi.Input[str] username: The name of the IAM user to associate the SSH public key with.
         :param pulumi.Input[str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         """
-        pulumi.set(__self__, "encoding", encoding)
-        pulumi.set(__self__, "public_key", public_key)
-        pulumi.set(__self__, "username", username)
+        SshKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding=encoding,
+            public_key=public_key,
+            username=username,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding: pulumi.Input[str],
+             public_key: pulumi.Input[str],
+             username: pulumi.Input[str],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
+        _setter("encoding", encoding)
+        _setter("public_key", public_key)
+        _setter("username", username)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -98,18 +117,43 @@ class _SshKeyState:
         :param pulumi.Input[str] status: The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         :param pulumi.Input[str] username: The name of the IAM user to associate the SSH public key with.
         """
+        _SshKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding=encoding,
+            fingerprint=fingerprint,
+            public_key=public_key,
+            ssh_public_key_id=ssh_public_key_id,
+            status=status,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding: Optional[pulumi.Input[str]] = None,
+             fingerprint: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             ssh_public_key_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if 'sshPublicKeyId' in kwargs:
+            ssh_public_key_id = kwargs['sshPublicKeyId']
+
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if fingerprint is not None:
-            pulumi.set(__self__, "fingerprint", fingerprint)
+            _setter("fingerprint", fingerprint)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if ssh_public_key_id is not None:
-            pulumi.set(__self__, "ssh_public_key_id", ssh_public_key_id)
+            _setter("ssh_public_key_id", ssh_public_key_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -265,6 +309,10 @@ class SshKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SshKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

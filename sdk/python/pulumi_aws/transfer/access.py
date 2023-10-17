@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,57 @@ class AccessArgs:
         :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "server_id", server_id)
+        AccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_id=external_id,
+            server_id=server_id,
+            home_directory=home_directory,
+            home_directory_mappings=home_directory_mappings,
+            home_directory_type=home_directory_type,
+            policy=policy,
+            posix_profile=posix_profile,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_id: pulumi.Input[str],
+             server_id: pulumi.Input[str],
+             home_directory: Optional[pulumi.Input[str]] = None,
+             home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]]] = None,
+             home_directory_type: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             posix_profile: Optional[pulumi.Input['AccessPosixProfileArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'homeDirectoryMappings' in kwargs:
+            home_directory_mappings = kwargs['homeDirectoryMappings']
+        if 'homeDirectoryType' in kwargs:
+            home_directory_type = kwargs['homeDirectoryType']
+        if 'posixProfile' in kwargs:
+            posix_profile = kwargs['posixProfile']
+
+        _setter("external_id", external_id)
+        _setter("server_id", server_id)
         if home_directory is not None:
-            pulumi.set(__self__, "home_directory", home_directory)
+            _setter("home_directory", home_directory)
         if home_directory_mappings is not None:
-            pulumi.set(__self__, "home_directory_mappings", home_directory_mappings)
+            _setter("home_directory_mappings", home_directory_mappings)
         if home_directory_type is not None:
-            pulumi.set(__self__, "home_directory_type", home_directory_type)
+            _setter("home_directory_type", home_directory_type)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if posix_profile is not None:
-            pulumi.set(__self__, "posix_profile", posix_profile)
+            _setter("posix_profile", posix_profile)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter(name="externalId")
@@ -169,22 +206,59 @@ class _AccessState:
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
+        _AccessState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_id=external_id,
+            home_directory=home_directory,
+            home_directory_mappings=home_directory_mappings,
+            home_directory_type=home_directory_type,
+            policy=policy,
+            posix_profile=posix_profile,
+            role=role,
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_id: Optional[pulumi.Input[str]] = None,
+             home_directory: Optional[pulumi.Input[str]] = None,
+             home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]]] = None,
+             home_directory_type: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             posix_profile: Optional[pulumi.Input['AccessPosixProfileArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'homeDirectoryMappings' in kwargs:
+            home_directory_mappings = kwargs['homeDirectoryMappings']
+        if 'homeDirectoryType' in kwargs:
+            home_directory_type = kwargs['homeDirectoryType']
+        if 'posixProfile' in kwargs:
+            posix_profile = kwargs['posixProfile']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if home_directory is not None:
-            pulumi.set(__self__, "home_directory", home_directory)
+            _setter("home_directory", home_directory)
         if home_directory_mappings is not None:
-            pulumi.set(__self__, "home_directory_mappings", home_directory_mappings)
+            _setter("home_directory_mappings", home_directory_mappings)
         if home_directory_type is not None:
-            pulumi.set(__self__, "home_directory_type", home_directory_type)
+            _setter("home_directory_type", home_directory_type)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if posix_profile is not None:
-            pulumi.set(__self__, "posix_profile", posix_profile)
+            _setter("posix_profile", posix_profile)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
 
     @property
     @pulumi.getter(name="externalId")
@@ -406,6 +480,10 @@ class Access(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -435,6 +513,11 @@ class Access(pulumi.CustomResource):
             __props__.__dict__["home_directory_mappings"] = home_directory_mappings
             __props__.__dict__["home_directory_type"] = home_directory_type
             __props__.__dict__["policy"] = policy
+            if posix_profile is not None and not isinstance(posix_profile, AccessPosixProfileArgs):
+                posix_profile = posix_profile or {}
+                def _setter(key, value):
+                    posix_profile[key] = value
+                AccessPosixProfileArgs._configure(_setter, **posix_profile)
             __props__.__dict__["posix_profile"] = posix_profile
             __props__.__dict__["role"] = role
             if server_id is None and not opts.urn:

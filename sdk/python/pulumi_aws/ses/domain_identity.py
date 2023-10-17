@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainIdentityArgs', 'DomainIdentity']
@@ -19,7 +19,18 @@ class DomainIdentityArgs:
         The set of arguments for constructing a DomainIdentity resource.
         :param pulumi.Input[str] domain: The domain name to assign to SES
         """
-        pulumi.set(__self__, "domain", domain)
+        DomainIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("domain", domain)
 
     @property
     @pulumi.getter
@@ -53,12 +64,29 @@ class _DomainIdentityState:
                SES in the [AWS SES
                docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
         """
+        _DomainIdentityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            domain=domain,
+            verification_token=verification_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             verification_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'verificationToken' in kwargs:
+            verification_token = kwargs['verificationToken']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if verification_token is not None:
-            pulumi.set(__self__, "verification_token", verification_token)
+            _setter("verification_token", verification_token)
 
     @property
     @pulumi.getter
@@ -201,6 +229,10 @@ class DomainIdentity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainIdentityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

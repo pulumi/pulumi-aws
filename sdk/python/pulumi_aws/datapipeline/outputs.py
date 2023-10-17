@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,9 +32,22 @@ class PipelineDefinitionParameterObject(dict):
         :param str id: ID of the parameter object.
         :param Sequence['PipelineDefinitionParameterObjectAttributeArgs'] attributes: Configuration block for attributes of the parameter object. See below
         """
-        pulumi.set(__self__, "id", id)
+        PipelineDefinitionParameterObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             attributes: Optional[Sequence['outputs.PipelineDefinitionParameterObjectAttribute']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter
@@ -79,8 +92,23 @@ class PipelineDefinitionParameterObjectAttribute(dict):
         :param str key: Field identifier.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "string_value", string_value)
+        PipelineDefinitionParameterObjectAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("key", key)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -125,8 +153,23 @@ class PipelineDefinitionParameterValue(dict):
         :param str id: ID of the parameter value.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "string_value", string_value)
+        PipelineDefinitionParameterValue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("id", id)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -156,10 +199,25 @@ class PipelineDefinitionPipelineObject(dict):
         :param str name: ARN of the storage connector.
         :param Sequence['PipelineDefinitionPipelineObjectFieldArgs'] fields: Configuration block for Key-value pairs that define the properties of the object. See below
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        PipelineDefinitionPipelineObject._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            fields=fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             fields: Optional[Sequence['outputs.PipelineDefinitionPipelineObjectField']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
 
     @property
     @pulumi.getter
@@ -216,11 +274,30 @@ class PipelineDefinitionPipelineObjectField(dict):
         :param str ref_value: Field value, expressed as the identifier of another object
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
+        PipelineDefinitionPipelineObjectField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            ref_value=ref_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             ref_value: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("key", key)
         if ref_value is not None:
-            pulumi.set(__self__, "ref_value", ref_value)
+            _setter("ref_value", ref_value)
         if string_value is not None:
-            pulumi.set(__self__, "string_value", string_value)
+            _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -255,8 +332,21 @@ class GetPipelineDefinitionParameterObjectResult(dict):
         """
         :param str id: ID of the object.
         """
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "id", id)
+        GetPipelineDefinitionParameterObjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult'],
+             id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("attributes", attributes)
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -281,8 +371,23 @@ class GetPipelineDefinitionParameterObjectAttributeResult(dict):
         :param str key: Field identifier.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "string_value", string_value)
+        GetPipelineDefinitionParameterObjectAttributeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("key", key)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -310,8 +415,23 @@ class GetPipelineDefinitionParameterValueResult(dict):
         :param str id: ID of the object.
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "string_value", string_value)
+        GetPipelineDefinitionParameterValueResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("id", id)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter
@@ -341,10 +461,25 @@ class GetPipelineDefinitionPipelineObjectResult(dict):
         :param str name: ARN of the storage connector.
         :param Sequence['GetPipelineDefinitionPipelineObjectFieldArgs'] fields: Key-value pairs that define the properties of the object. See below
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        GetPipelineDefinitionPipelineObjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            fields=fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             fields: Optional[Sequence['outputs.GetPipelineDefinitionPipelineObjectFieldResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("id", id)
+        _setter("name", name)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
 
     @property
     @pulumi.getter
@@ -382,9 +517,28 @@ class GetPipelineDefinitionPipelineObjectFieldResult(dict):
         :param str ref_value: Field value, expressed as the identifier of another object
         :param str string_value: Field value, expressed as a String.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "ref_value", ref_value)
-        pulumi.set(__self__, "string_value", string_value)
+        GetPipelineDefinitionPipelineObjectFieldResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            ref_value=ref_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             ref_value: str,
+             string_value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
+        _setter("key", key)
+        _setter("ref_value", ref_value)
+        _setter("string_value", string_value)
 
     @property
     @pulumi.getter

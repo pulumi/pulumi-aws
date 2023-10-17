@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LbAttachmentArgs', 'LbAttachment']
@@ -21,8 +21,25 @@ class LbAttachmentArgs:
         :param pulumi.Input[str] instance_name: The name of the instance to attach to the load balancer.
         :param pulumi.Input[str] lb_name: The name of the Lightsail load balancer.
         """
-        pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "lb_name", lb_name)
+        LbAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: pulumi.Input[str],
+             lb_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'lbName' in kwargs:
+            lb_name = kwargs['lbName']
+
+        _setter("instance_name", instance_name)
+        _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -59,10 +76,27 @@ class _LbAttachmentState:
         :param pulumi.Input[str] instance_name: The name of the instance to attach to the load balancer.
         :param pulumi.Input[str] lb_name: The name of the Lightsail load balancer.
         """
+        _LbAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            lb_name=lb_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: Optional[pulumi.Input[str]] = None,
+             lb_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'lbName' in kwargs:
+            lb_name = kwargs['lbName']
+
         if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
+            _setter("instance_name", instance_name)
         if lb_name is not None:
-            pulumi.set(__self__, "lb_name", lb_name)
+            _setter("lb_name", lb_name)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -192,6 +226,10 @@ class LbAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LbAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

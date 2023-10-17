@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,37 @@ class ManagedPrefixListArgs:
         :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "max_entries", max_entries)
+        ManagedPrefixListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            max_entries=max_entries,
+            entries=entries,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input[str],
+             max_entries: pulumi.Input[int],
+             entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'maxEntries' in kwargs:
+            max_entries = kwargs['maxEntries']
+
+        _setter("address_family", address_family)
+        _setter("max_entries", max_entries)
         if entries is not None:
-            pulumi.set(__self__, "entries", entries)
+            _setter("entries", entries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -123,27 +146,62 @@ class _ManagedPrefixListState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: Latest version of this prefix list.
         """
+        _ManagedPrefixListState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            arn=arn,
+            entries=entries,
+            max_entries=max_entries,
+            name=name,
+            owner_id=owner_id,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             entries: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedPrefixListEntryArgs']]]] = None,
+             max_entries: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'maxEntries' in kwargs:
+            max_entries = kwargs['maxEntries']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if address_family is not None:
-            pulumi.set(__self__, "address_family", address_family)
+            _setter("address_family", address_family)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if entries is not None:
-            pulumi.set(__self__, "entries", entries)
+            _setter("entries", entries)
         if max_entries is not None:
-            pulumi.set(__self__, "max_entries", max_entries)
+            _setter("max_entries", max_entries)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -390,6 +448,10 @@ class ManagedPrefixList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPrefixListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

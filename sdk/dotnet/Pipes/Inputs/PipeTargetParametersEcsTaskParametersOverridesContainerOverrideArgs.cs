@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<string>? _commands;
 
         /// <summary>
-        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
         /// </summary>
         public InputList<string> Commands
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The cpu override for the task.
+        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>? _environments;
 
         /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs> Environments
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The memory override for the task.
+        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>? _resourceRequirements;
 
         /// <summary>
-        /// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs> ResourceRequirements
         {

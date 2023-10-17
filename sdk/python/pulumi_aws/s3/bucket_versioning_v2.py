@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,33 @@ class BucketVersioningV2Args:
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "versioning_configuration", versioning_configuration)
+        BucketVersioningV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            versioning_configuration=versioning_configuration,
+            expected_bucket_owner=expected_bucket_owner,
+            mfa=mfa,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             versioning_configuration: pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'],
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             mfa: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+
+        _setter("bucket", bucket)
+        _setter("versioning_configuration", versioning_configuration)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if mfa is not None:
-            pulumi.set(__self__, "mfa", mfa)
+            _setter("mfa", mfa)
 
     @property
     @pulumi.getter
@@ -97,14 +118,35 @@ class _BucketVersioningV2State:
         :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
+        _BucketVersioningV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            expected_bucket_owner=expected_bucket_owner,
+            mfa=mfa,
+            versioning_configuration=versioning_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
+             mfa: Optional[pulumi.Input[str]] = None,
+             versioning_configuration: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if expected_bucket_owner is not None:
-            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+            _setter("expected_bucket_owner", expected_bucket_owner)
         if mfa is not None:
-            pulumi.set(__self__, "mfa", mfa)
+            _setter("mfa", mfa)
         if versioning_configuration is not None:
-            pulumi.set(__self__, "versioning_configuration", versioning_configuration)
+            _setter("versioning_configuration", versioning_configuration)
 
     @property
     @pulumi.getter
@@ -354,6 +396,10 @@ class BucketVersioningV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketVersioningV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -377,6 +423,11 @@ class BucketVersioningV2(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["mfa"] = mfa
+            if versioning_configuration is not None and not isinstance(versioning_configuration, BucketVersioningV2VersioningConfigurationArgs):
+                versioning_configuration = versioning_configuration or {}
+                def _setter(key, value):
+                    versioning_configuration[key] = value
+                BucketVersioningV2VersioningConfigurationArgs._configure(_setter, **versioning_configuration)
             if versioning_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'versioning_configuration'")
             __props__.__dict__["versioning_configuration"] = versioning_configuration

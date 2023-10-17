@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityProviderArgs', 'IdentityProvider']
@@ -29,14 +29,47 @@ class IdentityProviderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: The list of identity providers.
         """
-        pulumi.set(__self__, "provider_details", provider_details)
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "provider_type", provider_type)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        IdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_details=provider_details,
+            provider_name=provider_name,
+            provider_type=provider_type,
+            user_pool_id=user_pool_id,
+            attribute_mapping=attribute_mapping,
+            idp_identifiers=idp_identifiers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_details: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             provider_name: pulumi.Input[str],
+             provider_type: pulumi.Input[str],
+             user_pool_id: pulumi.Input[str],
+             attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'providerDetails' in kwargs:
+            provider_details = kwargs['providerDetails']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if 'attributeMapping' in kwargs:
+            attribute_mapping = kwargs['attributeMapping']
+        if 'idpIdentifiers' in kwargs:
+            idp_identifiers = kwargs['idpIdentifiers']
+
+        _setter("provider_details", provider_details)
+        _setter("provider_name", provider_name)
+        _setter("provider_type", provider_type)
+        _setter("user_pool_id", user_pool_id)
         if attribute_mapping is not None:
-            pulumi.set(__self__, "attribute_mapping", attribute_mapping)
+            _setter("attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
-            pulumi.set(__self__, "idp_identifiers", idp_identifiers)
+            _setter("idp_identifiers", idp_identifiers)
 
     @property
     @pulumi.getter(name="providerDetails")
@@ -129,18 +162,51 @@ class _IdentityProviderState:
         :param pulumi.Input[str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         :param pulumi.Input[str] user_pool_id: The user pool id
         """
+        _IdentityProviderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_mapping=attribute_mapping,
+            idp_identifiers=idp_identifiers,
+            provider_details=provider_details,
+            provider_name=provider_name,
+            provider_type=provider_type,
+            user_pool_id=user_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             provider_name: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributeMapping' in kwargs:
+            attribute_mapping = kwargs['attributeMapping']
+        if 'idpIdentifiers' in kwargs:
+            idp_identifiers = kwargs['idpIdentifiers']
+        if 'providerDetails' in kwargs:
+            provider_details = kwargs['providerDetails']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if attribute_mapping is not None:
-            pulumi.set(__self__, "attribute_mapping", attribute_mapping)
+            _setter("attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
-            pulumi.set(__self__, "idp_identifiers", idp_identifiers)
+            _setter("idp_identifiers", idp_identifiers)
         if provider_details is not None:
-            pulumi.set(__self__, "provider_details", provider_details)
+            _setter("provider_details", provider_details)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter(name="attributeMapping")
@@ -318,6 +384,10 @@ class IdentityProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

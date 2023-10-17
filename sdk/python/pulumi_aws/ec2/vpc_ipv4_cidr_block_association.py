@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpv4CidrBlockAssociationArgs', 'VpcIpv4CidrBlockAssociation']
@@ -25,13 +25,38 @@ class VpcIpv4CidrBlockAssociationArgs:
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         """
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        VpcIpv4CidrBlockAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_id=vpc_id,
+            cidr_block=cidr_block,
+            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
+            ipv4_netmask_length=ipv4_netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_id: pulumi.Input[str],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if 'ipv4IpamPoolId' in kwargs:
+            ipv4_ipam_pool_id = kwargs['ipv4IpamPoolId']
+        if 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+
+        _setter("vpc_id", vpc_id)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if ipv4_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -96,14 +121,39 @@ class _VpcIpv4CidrBlockAssociationState:
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
         """
+        _VpcIpv4CidrBlockAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr_block=cidr_block,
+            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
+            ipv4_netmask_length=ipv4_netmask_length,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if 'ipv4IpamPoolId' in kwargs:
+            ipv4_ipam_pool_id = kwargs['ipv4IpamPoolId']
+        if 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if ipv4_ipam_pool_id is not None:
-            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+            _setter("ipv4_netmask_length", ipv4_netmask_length)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -239,6 +289,10 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpv4CidrBlockAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

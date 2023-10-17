@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,40 +57,119 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "instance_type", instance_type)
+        LaunchConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_id=image_id,
+            instance_type=instance_type,
+            associate_public_ip_address=associate_public_ip_address,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enable_monitoring=enable_monitoring,
+            ephemeral_block_devices=ephemeral_block_devices,
+            iam_instance_profile=iam_instance_profile,
+            key_name=key_name,
+            metadata_options=metadata_options,
+            name=name,
+            name_prefix=name_prefix,
+            placement_tenancy=placement_tenancy,
+            root_block_device=root_block_device,
+            security_groups=security_groups,
+            spot_price=spot_price,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_id: pulumi.Input[str],
+             instance_type: pulumi.Input[str],
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enable_monitoring: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_tenancy: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'enableMonitoring' in kwargs:
+            enable_monitoring = kwargs['enableMonitoring']
+        if 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+
+        _setter("image_id", image_id)
+        _setter("instance_type", instance_type)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enable_monitoring is not None:
-            pulumi.set(__self__, "enable_monitoring", enable_monitoring)
+            _setter("enable_monitoring", enable_monitoring)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_tenancy is not None:
-            pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+            _setter("placement_tenancy", placement_tenancy)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
 
     @property
     @pulumi.getter(name="imageId")
@@ -357,44 +436,125 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """
+        _LaunchConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            associate_public_ip_address=associate_public_ip_address,
+            ebs_block_devices=ebs_block_devices,
+            ebs_optimized=ebs_optimized,
+            enable_monitoring=enable_monitoring,
+            ephemeral_block_devices=ephemeral_block_devices,
+            iam_instance_profile=iam_instance_profile,
+            image_id=image_id,
+            instance_type=instance_type,
+            key_name=key_name,
+            metadata_options=metadata_options,
+            name=name,
+            name_prefix=name_prefix,
+            placement_tenancy=placement_tenancy,
+            root_block_device=root_block_device,
+            security_groups=security_groups,
+            spot_price=spot_price,
+            user_data=user_data,
+            user_data_base64=user_data_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]]] = None,
+             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+             enable_monitoring: Optional[pulumi.Input[bool]] = None,
+             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEphemeralBlockDeviceArgs']]]] = None,
+             iam_instance_profile: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             placement_tenancy: Optional[pulumi.Input[str]] = None,
+             root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             spot_price: Optional[pulumi.Input[str]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             user_data_base64: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if 'ebsBlockDevices' in kwargs:
+            ebs_block_devices = kwargs['ebsBlockDevices']
+        if 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if 'enableMonitoring' in kwargs:
+            enable_monitoring = kwargs['enableMonitoring']
+        if 'ephemeralBlockDevices' in kwargs:
+            ephemeral_block_devices = kwargs['ephemeralBlockDevices']
+        if 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if 'rootBlockDevice' in kwargs:
+            root_block_device = kwargs['rootBlockDevice']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'userDataBase64' in kwargs:
+            user_data_base64 = kwargs['userDataBase64']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if associate_public_ip_address is not None:
-            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+            _setter("associate_public_ip_address", associate_public_ip_address)
         if ebs_block_devices is not None:
-            pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
+            _setter("ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
-            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+            _setter("ebs_optimized", ebs_optimized)
         if enable_monitoring is not None:
-            pulumi.set(__self__, "enable_monitoring", enable_monitoring)
+            _setter("enable_monitoring", enable_monitoring)
         if ephemeral_block_devices is not None:
-            pulumi.set(__self__, "ephemeral_block_devices", ephemeral_block_devices)
+            _setter("ephemeral_block_devices", ephemeral_block_devices)
         if iam_instance_profile is not None:
-            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+            _setter("iam_instance_profile", iam_instance_profile)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if metadata_options is not None:
-            pulumi.set(__self__, "metadata_options", metadata_options)
+            _setter("metadata_options", metadata_options)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if placement_tenancy is not None:
-            pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+            _setter("placement_tenancy", placement_tenancy)
         if root_block_device is not None:
-            pulumi.set(__self__, "root_block_device", root_block_device)
+            _setter("root_block_device", root_block_device)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if spot_price is not None:
-            pulumi.set(__self__, "spot_price", spot_price)
+            _setter("spot_price", spot_price)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if user_data_base64 is not None:
-            pulumi.set(__self__, "user_data_base64", user_data_base64)
+            _setter("user_data_base64", user_data_base64)
 
     @property
     @pulumi.getter
@@ -1012,6 +1172,10 @@ class LaunchConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LaunchConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1057,10 +1221,20 @@ class LaunchConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["key_name"] = key_name
+            if metadata_options is not None and not isinstance(metadata_options, LaunchConfigurationMetadataOptionsArgs):
+                metadata_options = metadata_options or {}
+                def _setter(key, value):
+                    metadata_options[key] = value
+                LaunchConfigurationMetadataOptionsArgs._configure(_setter, **metadata_options)
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["placement_tenancy"] = placement_tenancy
+            if root_block_device is not None and not isinstance(root_block_device, LaunchConfigurationRootBlockDeviceArgs):
+                root_block_device = root_block_device or {}
+                def _setter(key, value):
+                    root_block_device[key] = value
+                LaunchConfigurationRootBlockDeviceArgs._configure(_setter, **root_block_device)
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["spot_price"] = spot_price

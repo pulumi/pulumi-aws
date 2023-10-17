@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,45 @@ class WebhookArgs:
         :param pulumi.Input[str] name: The name of the webhook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "filters", filters)
-        pulumi.set(__self__, "target_action", target_action)
-        pulumi.set(__self__, "target_pipeline", target_pipeline)
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            filters=filters,
+            target_action=target_action,
+            target_pipeline=target_pipeline,
+            authentication_configuration=authentication_configuration,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: pulumi.Input[str],
+             filters: pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]],
+             target_action: pulumi.Input[str],
+             target_pipeline: pulumi.Input[str],
+             authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+        if 'targetPipeline' in kwargs:
+            target_pipeline = kwargs['targetPipeline']
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+
+        _setter("authentication", authentication)
+        _setter("filters", filters)
+        _setter("target_action", target_action)
+        _setter("target_pipeline", target_pipeline)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -155,29 +184,66 @@ class _WebhookState:
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         :param pulumi.Input[str] url: The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         """
+        _WebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            authentication=authentication,
+            authentication_configuration=authentication_configuration,
+            filters=filters,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+            target_action=target_action,
+            target_pipeline=target_pipeline,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[str]] = None,
+             authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_action: Optional[pulumi.Input[str]] = None,
+             target_pipeline: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+        if 'targetPipeline' in kwargs:
+            target_pipeline = kwargs['targetPipeline']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_action is not None:
-            pulumi.set(__self__, "target_action", target_action)
+            _setter("target_action", target_action)
         if target_pipeline is not None:
-            pulumi.set(__self__, "target_pipeline", target_pipeline)
+            _setter("target_pipeline", target_pipeline)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -510,6 +576,10 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -534,6 +604,11 @@ class Webhook(pulumi.CustomResource):
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
+            if authentication_configuration is not None and not isinstance(authentication_configuration, WebhookAuthenticationConfigurationArgs):
+                authentication_configuration = authentication_configuration or {}
+                def _setter(key, value):
+                    authentication_configuration[key] = value
+                WebhookAuthenticationConfigurationArgs._configure(_setter, **authentication_configuration)
             __props__.__dict__["authentication_configuration"] = authentication_configuration
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")

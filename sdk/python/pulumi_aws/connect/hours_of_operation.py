@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,40 @@ class HoursOfOperationArgs:
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "configs", configs)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "time_zone", time_zone)
+        HoursOfOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configs=configs,
+            instance_id=instance_id,
+            time_zone=time_zone,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configs: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]],
+             instance_id: pulumi.Input[str],
+             time_zone: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("configs", configs)
+        _setter("instance_id", instance_id)
+        _setter("time_zone", time_zone)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -138,27 +163,62 @@ class _HoursOfOperationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         """
+        _HoursOfOperationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            configs=configs,
+            description=description,
+            hours_of_operation_id=hours_of_operation_id,
+            instance_id=instance_id,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             configs: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hours_of_operation_id: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hoursOfOperationId' in kwargs:
+            hours_of_operation_id = kwargs['hoursOfOperationId']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if configs is not None:
-            pulumi.set(__self__, "configs", configs)
+            _setter("configs", configs)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hours_of_operation_id is not None:
-            pulumi.set(__self__, "hours_of_operation_id", hours_of_operation_id)
+            _setter("hours_of_operation_id", hours_of_operation_id)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -411,6 +471,10 @@ class HoursOfOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HoursOfOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultLockArgs', 'VaultLock']
@@ -25,11 +25,34 @@ class VaultLockArgs:
         :param pulumi.Input[str] vault_name: The name of the Glacier Vault.
         :param pulumi.Input[bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         """
-        pulumi.set(__self__, "complete_lock", complete_lock)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "vault_name", vault_name)
+        VaultLockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complete_lock=complete_lock,
+            policy=policy,
+            vault_name=vault_name,
+            ignore_deletion_error=ignore_deletion_error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complete_lock: pulumi.Input[bool],
+             policy: pulumi.Input[str],
+             vault_name: pulumi.Input[str],
+             ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'completeLock' in kwargs:
+            complete_lock = kwargs['completeLock']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if 'ignoreDeletionError' in kwargs:
+            ignore_deletion_error = kwargs['ignoreDeletionError']
+
+        _setter("complete_lock", complete_lock)
+        _setter("policy", policy)
+        _setter("vault_name", vault_name)
         if ignore_deletion_error is not None:
-            pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
+            _setter("ignore_deletion_error", ignore_deletion_error)
 
     @property
     @pulumi.getter(name="completeLock")
@@ -94,14 +117,37 @@ class _VaultLockState:
         :param pulumi.Input[str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         :param pulumi.Input[str] vault_name: The name of the Glacier Vault.
         """
+        _VaultLockState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complete_lock=complete_lock,
+            ignore_deletion_error=ignore_deletion_error,
+            policy=policy,
+            vault_name=vault_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complete_lock: Optional[pulumi.Input[bool]] = None,
+             ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'completeLock' in kwargs:
+            complete_lock = kwargs['completeLock']
+        if 'ignoreDeletionError' in kwargs:
+            ignore_deletion_error = kwargs['ignoreDeletionError']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
         if complete_lock is not None:
-            pulumi.set(__self__, "complete_lock", complete_lock)
+            _setter("complete_lock", complete_lock)
         if ignore_deletion_error is not None:
-            pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
+            _setter("ignore_deletion_error", ignore_deletion_error)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if vault_name is not None:
-            pulumi.set(__self__, "vault_name", vault_name)
+            _setter("vault_name", vault_name)
 
     @property
     @pulumi.getter(name="completeLock")
@@ -285,6 +331,10 @@ class VaultLock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultLockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

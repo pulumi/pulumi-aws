@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedPolicyAttachmentArgs', 'ManagedPolicyAttachment']
@@ -23,9 +23,30 @@ class ManagedPolicyAttachmentArgs:
         :param pulumi.Input[str] managed_policy_arn: The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
-        pulumi.set(__self__, "instance_arn", instance_arn)
-        pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
-        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        ManagedPolicyAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            managed_policy_arn=managed_policy_arn,
+            permission_set_arn=permission_set_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: pulumi.Input[str],
+             managed_policy_arn: pulumi.Input[str],
+             permission_set_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'managedPolicyArn' in kwargs:
+            managed_policy_arn = kwargs['managedPolicyArn']
+        if 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+
+        _setter("instance_arn", instance_arn)
+        _setter("managed_policy_arn", managed_policy_arn)
+        _setter("permission_set_arn", permission_set_arn)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -78,14 +99,39 @@ class _ManagedPolicyAttachmentState:
         :param pulumi.Input[str] managed_policy_name: The name of the IAM Managed Policy.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
+        _ManagedPolicyAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_arn=instance_arn,
+            managed_policy_arn=managed_policy_arn,
+            managed_policy_name=managed_policy_name,
+            permission_set_arn=permission_set_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             managed_policy_arn: Optional[pulumi.Input[str]] = None,
+             managed_policy_name: Optional[pulumi.Input[str]] = None,
+             permission_set_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if 'managedPolicyArn' in kwargs:
+            managed_policy_arn = kwargs['managedPolicyArn']
+        if 'managedPolicyName' in kwargs:
+            managed_policy_name = kwargs['managedPolicyName']
+        if 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+
         if instance_arn is not None:
-            pulumi.set(__self__, "instance_arn", instance_arn)
+            _setter("instance_arn", instance_arn)
         if managed_policy_arn is not None:
-            pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
+            _setter("managed_policy_arn", managed_policy_arn)
         if managed_policy_name is not None:
-            pulumi.set(__self__, "managed_policy_name", managed_policy_name)
+            _setter("managed_policy_name", managed_policy_name)
         if permission_set_arn is not None:
-            pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+            _setter("permission_set_arn", permission_set_arn)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -193,6 +239,10 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPolicyAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

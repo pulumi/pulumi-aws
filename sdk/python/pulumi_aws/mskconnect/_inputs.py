@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,10 +41,25 @@ class ConnectorCapacityArgs:
         :param pulumi.Input['ConnectorCapacityAutoscalingArgs'] autoscaling: Information about the auto scaling parameters for the connector. See below.
         :param pulumi.Input['ConnectorCapacityProvisionedCapacityArgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector. See below.
         """
+        ConnectorCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoscaling=autoscaling,
+            provisioned_capacity=provisioned_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoscaling: Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']] = None,
+             provisioned_capacity: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'provisionedCapacity' in kwargs:
+            provisioned_capacity = kwargs['provisionedCapacity']
+
         if autoscaling is not None:
-            pulumi.set(__self__, "autoscaling", autoscaling)
+            _setter("autoscaling", autoscaling)
         if provisioned_capacity is not None:
-            pulumi.set(__self__, "provisioned_capacity", provisioned_capacity)
+            _setter("provisioned_capacity", provisioned_capacity)
 
     @property
     @pulumi.getter
@@ -86,14 +101,43 @@ class ConnectorCapacityAutoscalingArgs:
         :param pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs'] scale_in_policy: The scale-in policy for the connector. See below.
         :param pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs'] scale_out_policy: The scale-out policy for the connector. See below.
         """
-        pulumi.set(__self__, "max_worker_count", max_worker_count)
-        pulumi.set(__self__, "min_worker_count", min_worker_count)
+        ConnectorCapacityAutoscalingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_worker_count=max_worker_count,
+            min_worker_count=min_worker_count,
+            mcu_count=mcu_count,
+            scale_in_policy=scale_in_policy,
+            scale_out_policy=scale_out_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_worker_count: pulumi.Input[int],
+             min_worker_count: pulumi.Input[int],
+             mcu_count: Optional[pulumi.Input[int]] = None,
+             scale_in_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']] = None,
+             scale_out_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxWorkerCount' in kwargs:
+            max_worker_count = kwargs['maxWorkerCount']
+        if 'minWorkerCount' in kwargs:
+            min_worker_count = kwargs['minWorkerCount']
+        if 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+        if 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if 'scaleOutPolicy' in kwargs:
+            scale_out_policy = kwargs['scaleOutPolicy']
+
+        _setter("max_worker_count", max_worker_count)
+        _setter("min_worker_count", min_worker_count)
         if mcu_count is not None:
-            pulumi.set(__self__, "mcu_count", mcu_count)
+            _setter("mcu_count", mcu_count)
         if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
+            _setter("scale_in_policy", scale_in_policy)
         if scale_out_policy is not None:
-            pulumi.set(__self__, "scale_out_policy", scale_out_policy)
+            _setter("scale_out_policy", scale_out_policy)
 
     @property
     @pulumi.getter(name="maxWorkerCount")
@@ -163,8 +207,21 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
         """
         :param pulumi.Input[int] cpu_utilization_percentage: Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
         """
+        ConnectorCapacityAutoscalingScaleInPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_utilization_percentage=cpu_utilization_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_utilization_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+
         if cpu_utilization_percentage is not None:
-            pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
+            _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
     @pulumi.getter(name="cpuUtilizationPercentage")
@@ -186,8 +243,21 @@ class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
         """
         :param pulumi.Input[int] cpu_utilization_percentage: The CPU utilization percentage threshold at which you want connector scale out to be triggered.
         """
+        ConnectorCapacityAutoscalingScaleOutPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_utilization_percentage=cpu_utilization_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_utilization_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+
         if cpu_utilization_percentage is not None:
-            pulumi.set(__self__, "cpu_utilization_percentage", cpu_utilization_percentage)
+            _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
     @pulumi.getter(name="cpuUtilizationPercentage")
@@ -211,9 +281,26 @@ class ConnectorCapacityProvisionedCapacityArgs:
         :param pulumi.Input[int] worker_count: The number of workers that are allocated to the connector.
         :param pulumi.Input[int] mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         """
-        pulumi.set(__self__, "worker_count", worker_count)
+        ConnectorCapacityProvisionedCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            worker_count=worker_count,
+            mcu_count=mcu_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             worker_count: pulumi.Input[int],
+             mcu_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+
+        _setter("worker_count", worker_count)
         if mcu_count is not None:
-            pulumi.set(__self__, "mcu_count", mcu_count)
+            _setter("mcu_count", mcu_count)
 
     @property
     @pulumi.getter(name="workerCount")
@@ -247,7 +334,20 @@ class ConnectorKafkaClusterArgs:
         """
         :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs'] apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
-        pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
+        ConnectorKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apache_kafka_cluster=apache_kafka_cluster,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apache_kafka_cluster: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apacheKafkaCluster' in kwargs:
+            apache_kafka_cluster = kwargs['apacheKafkaCluster']
+
+        _setter("apache_kafka_cluster", apache_kafka_cluster)
 
     @property
     @pulumi.getter(name="apacheKafkaCluster")
@@ -271,8 +371,23 @@ class ConnectorKafkaClusterApacheKafkaClusterArgs:
         :param pulumi.Input[str] bootstrap_servers: The bootstrap servers of the cluster.
         :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs'] vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
-        pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
-        pulumi.set(__self__, "vpc", vpc)
+        ConnectorKafkaClusterApacheKafkaClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bootstrap_servers=bootstrap_servers,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bootstrap_servers: pulumi.Input[str],
+             vpc: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bootstrapServers' in kwargs:
+            bootstrap_servers = kwargs['bootstrapServers']
+
+        _setter("bootstrap_servers", bootstrap_servers)
+        _setter("vpc", vpc)
 
     @property
     @pulumi.getter(name="bootstrapServers")
@@ -308,8 +423,23 @@ class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the connector.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets for the connector.
         """
-        pulumi.set(__self__, "security_groups", security_groups)
-        pulumi.set(__self__, "subnets", subnets)
+        ConnectorKafkaClusterApacheKafkaClusterVpcArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_groups=security_groups,
+            subnets=subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("security_groups", security_groups)
+        _setter("subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -343,8 +473,21 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
         """
         :param pulumi.Input[str] authentication_type: The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
         """
+        ConnectorKafkaClusterClientAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -366,8 +509,21 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
         """
         :param pulumi.Input[str] encryption_type: The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
         """
+        ConnectorKafkaClusterEncryptionInTransitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_type=encryption_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -389,7 +545,20 @@ class ConnectorLogDeliveryArgs:
         """
         :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs'] worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
         """
-        pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
+        ConnectorLogDeliveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            worker_log_delivery=worker_log_delivery,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             worker_log_delivery: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workerLogDelivery' in kwargs:
+            worker_log_delivery = kwargs['workerLogDelivery']
+
+        _setter("worker_log_delivery", worker_log_delivery)
 
     @property
     @pulumi.getter(name="workerLogDelivery")
@@ -415,12 +584,29 @@ class ConnectorLogDeliveryWorkerLogDeliveryArgs:
         :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See below.
         :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args'] s3: Details about delivering logs to Amazon S3. See below.
         """
+        ConnectorLogDeliveryWorkerLogDeliveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            firehose=firehose,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']] = None,
+             firehose: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']] = None,
+             s3: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -468,9 +654,24 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
         :param pulumi.Input[bool] enabled: Whether log delivery to Amazon CloudWatch Logs is enabled.
         :param pulumi.Input[str] log_group: The name of the CloudWatch log group that is the destination for log delivery.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_group=log_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             log_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
+        _setter("enabled", enabled)
         if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+            _setter("log_group", log_group)
 
     @property
     @pulumi.getter
@@ -506,9 +707,24 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
         :param pulumi.Input[bool] enabled: Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
         :param pulumi.Input[str] delivery_stream: The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            delivery_stream=delivery_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             delivery_stream: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
+        _setter("enabled", enabled)
         if delivery_stream is not None:
-            pulumi.set(__self__, "delivery_stream", delivery_stream)
+            _setter("delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter
@@ -546,11 +762,26 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
         :param pulumi.Input[str] bucket: The name of the S3 bucket that is the destination for log delivery.
         :param pulumi.Input[str] prefix: The S3 prefix that is the destination for log delivery.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ConnectorLogDeliveryWorkerLogDeliveryS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             bucket: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("enabled", enabled)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -596,7 +827,20 @@ class ConnectorPluginArgs:
         """
         :param pulumi.Input['ConnectorPluginCustomPluginArgs'] custom_plugin: Details about a custom plugin. See below.
         """
-        pulumi.set(__self__, "custom_plugin", custom_plugin)
+        ConnectorPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_plugin=custom_plugin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_plugin: pulumi.Input['ConnectorPluginCustomPluginArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customPlugin' in kwargs:
+            custom_plugin = kwargs['customPlugin']
+
+        _setter("custom_plugin", custom_plugin)
 
     @property
     @pulumi.getter(name="customPlugin")
@@ -620,8 +864,21 @@ class ConnectorPluginCustomPluginArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the custom plugin.
         :param pulumi.Input[int] revision: The revision of the custom plugin.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "revision", revision)
+        ConnectorPluginCustomPluginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             revision: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("arn", arn)
+        _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -657,8 +914,21 @@ class ConnectorWorkerConfigurationArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the worker configuration.
         :param pulumi.Input[int] revision: The revision of the worker configuration.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "revision", revision)
+        ConnectorWorkerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: pulumi.Input[str],
+             revision: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("arn", arn)
+        _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -692,7 +962,18 @@ class CustomPluginLocationArgs:
         """
         :param pulumi.Input['CustomPluginLocationS3Args'] s3: Information of the plugin file stored in Amazon S3. See below.
         """
-        pulumi.set(__self__, "s3", s3)
+        CustomPluginLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: pulumi.Input['CustomPluginLocationS3Args'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -718,10 +999,31 @@ class CustomPluginLocationS3Args:
         :param pulumi.Input[str] file_key: The file key for an object in an S3 bucket.
         :param pulumi.Input[str] object_version: The version of an object in an S3 bucket.
         """
-        pulumi.set(__self__, "bucket_arn", bucket_arn)
-        pulumi.set(__self__, "file_key", file_key)
+        CustomPluginLocationS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_arn=bucket_arn,
+            file_key=file_key,
+            object_version=object_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_arn: pulumi.Input[str],
+             file_key: pulumi.Input[str],
+             object_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if 'fileKey' in kwargs:
+            file_key = kwargs['fileKey']
+        if 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
+        _setter("bucket_arn", bucket_arn)
+        _setter("file_key", file_key)
         if object_version is not None:
-            pulumi.set(__self__, "object_version", object_version)
+            _setter("object_version", object_version)
 
     @property
     @pulumi.getter(name="bucketArn")

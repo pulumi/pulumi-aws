@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointServiceAllowedPrincipleArgs', 'VpcEndpointServiceAllowedPrinciple']
@@ -21,8 +21,25 @@ class VpcEndpointServiceAllowedPrincipleArgs:
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
-        pulumi.set(__self__, "principal_arn", principal_arn)
-        pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+        VpcEndpointServiceAllowedPrincipleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_arn=principal_arn,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_arn: pulumi.Input[str],
+             vpc_endpoint_service_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+
+        _setter("principal_arn", principal_arn)
+        _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
 
     @property
     @pulumi.getter(name="principalArn")
@@ -59,10 +76,27 @@ class _VpcEndpointServiceAllowedPrincipleState:
         :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
+        _VpcEndpointServiceAllowedPrincipleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_arn=principal_arn,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+
         if principal_arn is not None:
-            pulumi.set(__self__, "principal_arn", principal_arn)
+            _setter("principal_arn", principal_arn)
         if vpc_endpoint_service_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+            _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
 
     @property
     @pulumi.getter(name="principalArn")
@@ -164,6 +198,10 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointServiceAllowedPrincipleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

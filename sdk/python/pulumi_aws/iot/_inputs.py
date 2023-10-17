@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -83,11 +83,32 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]] custom_fields: A list of thing group fields to index. This list cannot contain any managed fields. See below.
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         """
-        pulumi.set(__self__, "thing_group_indexing_mode", thing_group_indexing_mode)
+        IndexingConfigurationThingGroupIndexingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thing_group_indexing_mode=thing_group_indexing_mode,
+            custom_fields=custom_fields,
+            managed_fields=managed_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thing_group_indexing_mode: pulumi.Input[str],
+             custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]] = None,
+             managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thingGroupIndexingMode' in kwargs:
+            thing_group_indexing_mode = kwargs['thingGroupIndexingMode']
+        if 'customFields' in kwargs:
+            custom_fields = kwargs['customFields']
+        if 'managedFields' in kwargs:
+            managed_fields = kwargs['managedFields']
+
+        _setter("thing_group_indexing_mode", thing_group_indexing_mode)
         if custom_fields is not None:
-            pulumi.set(__self__, "custom_fields", custom_fields)
+            _setter("custom_fields", custom_fields)
         if managed_fields is not None:
-            pulumi.set(__self__, "managed_fields", managed_fields)
+            _setter("managed_fields", managed_fields)
 
     @property
     @pulumi.getter(name="thingGroupIndexingMode")
@@ -135,10 +156,23 @@ class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
         :param pulumi.Input[str] name: The name of the field.
         :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
+        IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -174,10 +208,23 @@ class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
         :param pulumi.Input[str] name: The name of the field.
         :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
+        IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -221,17 +268,50 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
         :param pulumi.Input[str] named_shadow_indexing_mode: [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         :param pulumi.Input[str] thing_connectivity_indexing_mode: Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
         """
-        pulumi.set(__self__, "thing_indexing_mode", thing_indexing_mode)
+        IndexingConfigurationThingIndexingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thing_indexing_mode=thing_indexing_mode,
+            custom_fields=custom_fields,
+            device_defender_indexing_mode=device_defender_indexing_mode,
+            managed_fields=managed_fields,
+            named_shadow_indexing_mode=named_shadow_indexing_mode,
+            thing_connectivity_indexing_mode=thing_connectivity_indexing_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thing_indexing_mode: pulumi.Input[str],
+             custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]] = None,
+             device_defender_indexing_mode: Optional[pulumi.Input[str]] = None,
+             managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]] = None,
+             named_shadow_indexing_mode: Optional[pulumi.Input[str]] = None,
+             thing_connectivity_indexing_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thingIndexingMode' in kwargs:
+            thing_indexing_mode = kwargs['thingIndexingMode']
+        if 'customFields' in kwargs:
+            custom_fields = kwargs['customFields']
+        if 'deviceDefenderIndexingMode' in kwargs:
+            device_defender_indexing_mode = kwargs['deviceDefenderIndexingMode']
+        if 'managedFields' in kwargs:
+            managed_fields = kwargs['managedFields']
+        if 'namedShadowIndexingMode' in kwargs:
+            named_shadow_indexing_mode = kwargs['namedShadowIndexingMode']
+        if 'thingConnectivityIndexingMode' in kwargs:
+            thing_connectivity_indexing_mode = kwargs['thingConnectivityIndexingMode']
+
+        _setter("thing_indexing_mode", thing_indexing_mode)
         if custom_fields is not None:
-            pulumi.set(__self__, "custom_fields", custom_fields)
+            _setter("custom_fields", custom_fields)
         if device_defender_indexing_mode is not None:
-            pulumi.set(__self__, "device_defender_indexing_mode", device_defender_indexing_mode)
+            _setter("device_defender_indexing_mode", device_defender_indexing_mode)
         if managed_fields is not None:
-            pulumi.set(__self__, "managed_fields", managed_fields)
+            _setter("managed_fields", managed_fields)
         if named_shadow_indexing_mode is not None:
-            pulumi.set(__self__, "named_shadow_indexing_mode", named_shadow_indexing_mode)
+            _setter("named_shadow_indexing_mode", named_shadow_indexing_mode)
         if thing_connectivity_indexing_mode is not None:
-            pulumi.set(__self__, "thing_connectivity_indexing_mode", thing_connectivity_indexing_mode)
+            _setter("thing_connectivity_indexing_mode", thing_connectivity_indexing_mode)
 
     @property
     @pulumi.getter(name="thingIndexingMode")
@@ -315,10 +395,23 @@ class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
         :param pulumi.Input[str] name: The name of the field.
         :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
+        IndexingConfigurationThingIndexingConfigurationCustomFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -354,10 +447,23 @@ class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
         :param pulumi.Input[str] name: The name of the field.
         :param pulumi.Input[str] type: The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
+        IndexingConfigurationThingIndexingConfigurationManagedFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -393,9 +499,26 @@ class ProvisioningTemplatePreProvisioningHookArgs:
         :param pulumi.Input[str] target_arn: The ARN of the target function.
         :param pulumi.Input[str] payload_version: The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
         """
-        pulumi.set(__self__, "target_arn", target_arn)
+        ProvisioningTemplatePreProvisioningHookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_arn=target_arn,
+            payload_version=payload_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_arn: pulumi.Input[str],
+             payload_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'payloadVersion' in kwargs:
+            payload_version = kwargs['payloadVersion']
+
+        _setter("target_arn", target_arn)
         if payload_version is not None:
-            pulumi.set(__self__, "payload_version", payload_version)
+            _setter("payload_version", payload_version)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -431,12 +554,33 @@ class ThingGroupMetadataArgs:
         """
         :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
         """
+        ThingGroupMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_date=creation_date,
+            parent_group_name=parent_group_name,
+            root_to_parent_groups=root_to_parent_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_date: Optional[pulumi.Input[str]] = None,
+             parent_group_name: Optional[pulumi.Input[str]] = None,
+             root_to_parent_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if 'parentGroupName' in kwargs:
+            parent_group_name = kwargs['parentGroupName']
+        if 'rootToParentGroups' in kwargs:
+            root_to_parent_groups = kwargs['rootToParentGroups']
+
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if parent_group_name is not None:
-            pulumi.set(__self__, "parent_group_name", parent_group_name)
+            _setter("parent_group_name", parent_group_name)
         if root_to_parent_groups is not None:
-            pulumi.set(__self__, "root_to_parent_groups", root_to_parent_groups)
+            _setter("root_to_parent_groups", root_to_parent_groups)
 
     @property
     @pulumi.getter(name="creationDate")
@@ -474,10 +618,27 @@ class ThingGroupMetadataRootToParentGroupArgs:
     def __init__(__self__, *,
                  group_arn: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None):
+        ThingGroupMetadataRootToParentGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_arn=group_arn,
+            group_name=group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_arn: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupArn' in kwargs:
+            group_arn = kwargs['groupArn']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         if group_arn is not None:
-            pulumi.set(__self__, "group_arn", group_arn)
+            _setter("group_arn", group_arn)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -507,10 +668,25 @@ class ThingGroupPropertiesArgs:
         :param pulumi.Input['ThingGroupPropertiesAttributePayloadArgs'] attribute_payload: The Thing Group attributes. Defined below.
         :param pulumi.Input[str] description: A description of the Thing Group.
         """
+        ThingGroupPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_payload=attribute_payload,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_payload: Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attributePayload' in kwargs:
+            attribute_payload = kwargs['attributePayload']
+
         if attribute_payload is not None:
-            pulumi.set(__self__, "attribute_payload", attribute_payload)
+            _setter("attribute_payload", attribute_payload)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="attributePayload")
@@ -544,8 +720,19 @@ class ThingGroupPropertiesAttributePayloadArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Key-value map.
         """
+        ThingGroupPropertiesAttributePayloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
 
     @property
     @pulumi.getter
@@ -569,10 +756,25 @@ class ThingTypePropertiesArgs:
         :param pulumi.Input[str] description: The description of the thing type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searchable_attributes: A list of searchable thing attribute names.
         """
+        ThingTypePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            searchable_attributes=searchable_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'searchableAttributes' in kwargs:
+            searchable_attributes = kwargs['searchableAttributes']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if searchable_attributes is not None:
-            pulumi.set(__self__, "searchable_attributes", searchable_attributes)
+            _setter("searchable_attributes", searchable_attributes)
 
     @property
     @pulumi.getter
@@ -612,10 +814,35 @@ class TopicRuleCloudwatchAlarmArgs:
         :param pulumi.Input[str] state_reason: The reason for the alarm change.
         :param pulumi.Input[str] state_value: The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
         """
-        pulumi.set(__self__, "alarm_name", alarm_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_reason", state_reason)
-        pulumi.set(__self__, "state_value", state_value)
+        TopicRuleCloudwatchAlarmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_name=alarm_name,
+            role_arn=role_arn,
+            state_reason=state_reason,
+            state_value=state_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             state_reason: pulumi.Input[str],
+             state_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateReason' in kwargs:
+            state_reason = kwargs['stateReason']
+        if 'stateValue' in kwargs:
+            state_value = kwargs['stateValue']
+
+        _setter("alarm_name", alarm_name)
+        _setter("role_arn", role_arn)
+        _setter("state_reason", state_reason)
+        _setter("state_value", state_value)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -675,8 +902,25 @@ class TopicRuleCloudwatchLogArgs:
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleCloudwatchLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("log_group_name", log_group_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -720,13 +964,46 @@ class TopicRuleCloudwatchMetricArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch metric.
         :param pulumi.Input[str] metric_timestamp: An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "metric_unit", metric_unit)
-        pulumi.set(__self__, "metric_value", metric_value)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleCloudwatchMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            metric_unit=metric_unit,
+            metric_value=metric_value,
+            role_arn=role_arn,
+            metric_timestamp=metric_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             metric_namespace: pulumi.Input[str],
+             metric_unit: pulumi.Input[str],
+             metric_value: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             metric_timestamp: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'metricUnit' in kwargs:
+            metric_unit = kwargs['metricUnit']
+        if 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'metricTimestamp' in kwargs:
+            metric_timestamp = kwargs['metricTimestamp']
+
+        _setter("metric_name", metric_name)
+        _setter("metric_namespace", metric_namespace)
+        _setter("metric_unit", metric_unit)
+        _setter("metric_value", metric_value)
+        _setter("role_arn", role_arn)
         if metric_timestamp is not None:
-            pulumi.set(__self__, "metric_timestamp", metric_timestamp)
+            _setter("metric_timestamp", metric_timestamp)
 
     @property
     @pulumi.getter(name="metricName")
@@ -814,11 +1091,36 @@ class TopicRuleDestinationVpcConfigurationArgs:
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups of the VPC destination.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        TopicRuleDestinationVpcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            subnet_ids=subnet_ids,
+            vpc_id=vpc_id,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vpc_id: pulumi.Input[str],
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("role_arn", role_arn)
+        _setter("subnet_ids", subnet_ids)
+        _setter("vpc_id", vpc_id)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -894,22 +1196,69 @@ class TopicRuleDynamodbArgs:
         :param pulumi.Input[str] range_key_type: The range key type. Valid values are "STRING" or "NUMBER".
         :param pulumi.Input[str] range_key_value: The range key value.
         """
-        pulumi.set(__self__, "hash_key_field", hash_key_field)
-        pulumi.set(__self__, "hash_key_value", hash_key_value)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleDynamodbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key_field=hash_key_field,
+            hash_key_value=hash_key_value,
+            role_arn=role_arn,
+            table_name=table_name,
+            hash_key_type=hash_key_type,
+            operation=operation,
+            payload_field=payload_field,
+            range_key_field=range_key_field,
+            range_key_type=range_key_type,
+            range_key_value=range_key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key_field: pulumi.Input[str],
+             hash_key_value: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             hash_key_type: Optional[pulumi.Input[str]] = None,
+             operation: Optional[pulumi.Input[str]] = None,
+             payload_field: Optional[pulumi.Input[str]] = None,
+             range_key_field: Optional[pulumi.Input[str]] = None,
+             range_key_type: Optional[pulumi.Input[str]] = None,
+             range_key_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
+        _setter("hash_key_field", hash_key_field)
+        _setter("hash_key_value", hash_key_value)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if hash_key_type is not None:
-            pulumi.set(__self__, "hash_key_type", hash_key_type)
+            _setter("hash_key_type", hash_key_type)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if payload_field is not None:
-            pulumi.set(__self__, "payload_field", payload_field)
+            _setter("payload_field", payload_field)
         if range_key_field is not None:
-            pulumi.set(__self__, "range_key_field", range_key_field)
+            _setter("range_key_field", range_key_field)
         if range_key_type is not None:
-            pulumi.set(__self__, "range_key_type", range_key_type)
+            _setter("range_key_type", range_key_type)
         if range_key_value is not None:
-            pulumi.set(__self__, "range_key_value", range_key_value)
+            _setter("range_key_value", range_key_value)
 
     @property
     @pulumi.getter(name="hashKeyField")
@@ -1041,9 +1390,26 @@ class TopicRuleDynamodbv2Args:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         :param pulumi.Input['TopicRuleDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleDynamodbv2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            put_item=put_item,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             put_item: Optional[pulumi.Input['TopicRuleDynamodbv2PutItemArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'putItem' in kwargs:
+            put_item = kwargs['putItem']
+
+        _setter("role_arn", role_arn)
         if put_item is not None:
-            pulumi.set(__self__, "put_item", put_item)
+            _setter("put_item", put_item)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1076,18 +1442,27 @@ class TopicRuleDynamodbv2PutItemArgs:
                  table_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
-               
-               The `dynamodbv2` object takes the following arguments:
         """
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleDynamodbv2PutItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
         The name of the DynamoDB table.
-
-        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -1111,11 +1486,32 @@ class TopicRuleElasticsearchArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that has access to Elasticsearch.
         :param pulumi.Input[str] type: The type of document you are storing.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "type", type)
+        TopicRuleElasticsearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            id=id,
+            index=index,
+            role_arn=role_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             id: pulumi.Input[str],
+             index: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("endpoint", endpoint)
+        _setter("id", id)
+        _setter("index", index)
+        _setter("role_arn", role_arn)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1200,44 +1596,105 @@ class TopicRuleErrorActionArgs:
                  sqs: Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']] = None,
                  step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None,
                  timestream: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']] = None):
+        TopicRuleErrorActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_alarm=cloudwatch_alarm,
+            cloudwatch_logs=cloudwatch_logs,
+            cloudwatch_metric=cloudwatch_metric,
+            dynamodb=dynamodb,
+            dynamodbv2=dynamodbv2,
+            elasticsearch=elasticsearch,
+            firehose=firehose,
+            http=http,
+            iot_analytics=iot_analytics,
+            iot_events=iot_events,
+            kafka=kafka,
+            kinesis=kinesis,
+            lambda_=lambda_,
+            republish=republish,
+            s3=s3,
+            sns=sns,
+            sqs=sqs,
+            step_functions=step_functions,
+            timestream=timestream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_alarm: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgs']] = None,
+             cloudwatch_logs: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgs']] = None,
+             cloudwatch_metric: Optional[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgs']] = None,
+             dynamodb: Optional[pulumi.Input['TopicRuleErrorActionDynamodbArgs']] = None,
+             dynamodbv2: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']] = None,
+             elasticsearch: Optional[pulumi.Input['TopicRuleErrorActionElasticsearchArgs']] = None,
+             firehose: Optional[pulumi.Input['TopicRuleErrorActionFirehoseArgs']] = None,
+             http: Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']] = None,
+             iot_analytics: Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']] = None,
+             iot_events: Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']] = None,
+             kafka: Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']] = None,
+             kinesis: Optional[pulumi.Input['TopicRuleErrorActionKinesisArgs']] = None,
+             lambda_: Optional[pulumi.Input['TopicRuleErrorActionLambdaArgs']] = None,
+             republish: Optional[pulumi.Input['TopicRuleErrorActionRepublishArgs']] = None,
+             s3: Optional[pulumi.Input['TopicRuleErrorActionS3Args']] = None,
+             sns: Optional[pulumi.Input['TopicRuleErrorActionSnsArgs']] = None,
+             sqs: Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']] = None,
+             step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None,
+             timestream: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchAlarm' in kwargs:
+            cloudwatch_alarm = kwargs['cloudwatchAlarm']
+        if 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+        if 'cloudwatchMetric' in kwargs:
+            cloudwatch_metric = kwargs['cloudwatchMetric']
+        if 'iotAnalytics' in kwargs:
+            iot_analytics = kwargs['iotAnalytics']
+        if 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if 'stepFunctions' in kwargs:
+            step_functions = kwargs['stepFunctions']
+
         if cloudwatch_alarm is not None:
-            pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
+            _setter("cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
-            pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
+            _setter("cloudwatch_metric", cloudwatch_metric)
         if dynamodb is not None:
-            pulumi.set(__self__, "dynamodb", dynamodb)
+            _setter("dynamodb", dynamodb)
         if dynamodbv2 is not None:
-            pulumi.set(__self__, "dynamodbv2", dynamodbv2)
+            _setter("dynamodbv2", dynamodbv2)
         if elasticsearch is not None:
-            pulumi.set(__self__, "elasticsearch", elasticsearch)
+            _setter("elasticsearch", elasticsearch)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if iot_analytics is not None:
-            pulumi.set(__self__, "iot_analytics", iot_analytics)
+            _setter("iot_analytics", iot_analytics)
         if iot_events is not None:
-            pulumi.set(__self__, "iot_events", iot_events)
+            _setter("iot_events", iot_events)
         if kafka is not None:
-            pulumi.set(__self__, "kafka", kafka)
+            _setter("kafka", kafka)
         if kinesis is not None:
-            pulumi.set(__self__, "kinesis", kinesis)
+            _setter("kinesis", kinesis)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
         if republish is not None:
-            pulumi.set(__self__, "republish", republish)
+            _setter("republish", republish)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+            _setter("sns", sns)
         if sqs is not None:
-            pulumi.set(__self__, "sqs", sqs)
+            _setter("sqs", sqs)
         if step_functions is not None:
-            pulumi.set(__self__, "step_functions", step_functions)
+            _setter("step_functions", step_functions)
         if timestream is not None:
-            pulumi.set(__self__, "timestream", timestream)
+            _setter("timestream", timestream)
 
     @property
     @pulumi.getter(name="cloudwatchAlarm")
@@ -1424,10 +1881,35 @@ class TopicRuleErrorActionCloudwatchAlarmArgs:
         :param pulumi.Input[str] state_reason: The reason for the alarm change.
         :param pulumi.Input[str] state_value: The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
         """
-        pulumi.set(__self__, "alarm_name", alarm_name)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_reason", state_reason)
-        pulumi.set(__self__, "state_value", state_value)
+        TopicRuleErrorActionCloudwatchAlarmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_name=alarm_name,
+            role_arn=role_arn,
+            state_reason=state_reason,
+            state_value=state_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             state_reason: pulumi.Input[str],
+             state_value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateReason' in kwargs:
+            state_reason = kwargs['stateReason']
+        if 'stateValue' in kwargs:
+            state_value = kwargs['stateValue']
+
+        _setter("alarm_name", alarm_name)
+        _setter("role_arn", role_arn)
+        _setter("state_reason", state_reason)
+        _setter("state_value", state_value)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -1487,8 +1969,25 @@ class TopicRuleErrorActionCloudwatchLogsArgs:
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionCloudwatchLogsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("log_group_name", log_group_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -1532,13 +2031,46 @@ class TopicRuleErrorActionCloudwatchMetricArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch metric.
         :param pulumi.Input[str] metric_timestamp: An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_namespace", metric_namespace)
-        pulumi.set(__self__, "metric_unit", metric_unit)
-        pulumi.set(__self__, "metric_value", metric_value)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionCloudwatchMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_namespace=metric_namespace,
+            metric_unit=metric_unit,
+            metric_value=metric_value,
+            role_arn=role_arn,
+            metric_timestamp=metric_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: pulumi.Input[str],
+             metric_namespace: pulumi.Input[str],
+             metric_unit: pulumi.Input[str],
+             metric_value: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             metric_timestamp: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'metricUnit' in kwargs:
+            metric_unit = kwargs['metricUnit']
+        if 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'metricTimestamp' in kwargs:
+            metric_timestamp = kwargs['metricTimestamp']
+
+        _setter("metric_name", metric_name)
+        _setter("metric_namespace", metric_namespace)
+        _setter("metric_unit", metric_unit)
+        _setter("metric_value", metric_value)
+        _setter("role_arn", role_arn)
         if metric_timestamp is not None:
-            pulumi.set(__self__, "metric_timestamp", metric_timestamp)
+            _setter("metric_timestamp", metric_timestamp)
 
     @property
     @pulumi.getter(name="metricName")
@@ -1638,22 +2170,69 @@ class TopicRuleErrorActionDynamodbArgs:
         :param pulumi.Input[str] range_key_type: The range key type. Valid values are "STRING" or "NUMBER".
         :param pulumi.Input[str] range_key_value: The range key value.
         """
-        pulumi.set(__self__, "hash_key_field", hash_key_field)
-        pulumi.set(__self__, "hash_key_value", hash_key_value)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleErrorActionDynamodbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hash_key_field=hash_key_field,
+            hash_key_value=hash_key_value,
+            role_arn=role_arn,
+            table_name=table_name,
+            hash_key_type=hash_key_type,
+            operation=operation,
+            payload_field=payload_field,
+            range_key_field=range_key_field,
+            range_key_type=range_key_type,
+            range_key_value=range_key_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hash_key_field: pulumi.Input[str],
+             hash_key_value: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             hash_key_type: Optional[pulumi.Input[str]] = None,
+             operation: Optional[pulumi.Input[str]] = None,
+             payload_field: Optional[pulumi.Input[str]] = None,
+             range_key_field: Optional[pulumi.Input[str]] = None,
+             range_key_type: Optional[pulumi.Input[str]] = None,
+             range_key_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
+        _setter("hash_key_field", hash_key_field)
+        _setter("hash_key_value", hash_key_value)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if hash_key_type is not None:
-            pulumi.set(__self__, "hash_key_type", hash_key_type)
+            _setter("hash_key_type", hash_key_type)
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if payload_field is not None:
-            pulumi.set(__self__, "payload_field", payload_field)
+            _setter("payload_field", payload_field)
         if range_key_field is not None:
-            pulumi.set(__self__, "range_key_field", range_key_field)
+            _setter("range_key_field", range_key_field)
         if range_key_type is not None:
-            pulumi.set(__self__, "range_key_type", range_key_type)
+            _setter("range_key_type", range_key_type)
         if range_key_value is not None:
-            pulumi.set(__self__, "range_key_value", range_key_value)
+            _setter("range_key_value", range_key_value)
 
     @property
     @pulumi.getter(name="hashKeyField")
@@ -1785,9 +2364,26 @@ class TopicRuleErrorActionDynamodbv2Args:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         :param pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs'] put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionDynamodbv2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            put_item=put_item,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             put_item: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'putItem' in kwargs:
+            put_item = kwargs['putItem']
+
+        _setter("role_arn", role_arn)
         if put_item is not None:
-            pulumi.set(__self__, "put_item", put_item)
+            _setter("put_item", put_item)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1820,18 +2416,27 @@ class TopicRuleErrorActionDynamodbv2PutItemArgs:
                  table_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] table_name: The name of the DynamoDB table.
-               
-               The `dynamodbv2` object takes the following arguments:
         """
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleErrorActionDynamodbv2PutItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             table_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
         The name of the DynamoDB table.
-
-        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -1855,11 +2460,32 @@ class TopicRuleErrorActionElasticsearchArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that has access to Elasticsearch.
         :param pulumi.Input[str] type: The type of document you are storing.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "index", index)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "type", type)
+        TopicRuleErrorActionElasticsearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            id=id,
+            index=index,
+            role_arn=role_arn,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: pulumi.Input[str],
+             id: pulumi.Input[str],
+             index: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("endpoint", endpoint)
+        _setter("id", id)
+        _setter("index", index)
+        _setter("role_arn", role_arn)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1935,12 +2561,35 @@ class TopicRuleErrorActionFirehoseArgs:
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         :param pulumi.Input[str] separator: A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
-        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_name=delivery_stream_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            separator=separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             separator: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
+        _setter("delivery_stream_name", delivery_stream_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if separator is not None:
-            pulumi.set(__self__, "separator", separator)
+            _setter("separator", separator)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -2002,11 +2651,30 @@ class TopicRuleErrorActionHttpArgs:
         :param pulumi.Input[str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
-        pulumi.set(__self__, "url", url)
+        TopicRuleErrorActionHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            confirmation_url=confirmation_url,
+            http_headers=http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: pulumi.Input[str],
+             confirmation_url: Optional[pulumi.Input[str]] = None,
+             http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confirmationUrl' in kwargs:
+            confirmation_url = kwargs['confirmationUrl']
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
+        _setter("url", url)
         if confirmation_url is not None:
-            pulumi.set(__self__, "confirmation_url", confirmation_url)
+            _setter("confirmation_url", confirmation_url)
         if http_headers is not None:
-            pulumi.set(__self__, "http_headers", http_headers)
+            _setter("http_headers", http_headers)
 
     @property
     @pulumi.getter
@@ -2054,8 +2722,21 @@ class TopicRuleErrorActionHttpHttpHeaderArgs:
         :param pulumi.Input[str] key: The name of the HTTP header.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TopicRuleErrorActionHttpHttpHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2093,10 +2774,31 @@ class TopicRuleErrorActionIotAnalyticsArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionIotAnalyticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
+        _setter("channel_name", channel_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2148,12 +2850,37 @@ class TopicRuleErrorActionIotEventsArgs:
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         :param pulumi.Input[str] message_id: Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
-        pulumi.set(__self__, "input_name", input_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionIotEventsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_name=input_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+
+        _setter("input_name", input_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="inputName")
@@ -2219,13 +2946,36 @@ class TopicRuleErrorActionKafkaArgs:
         :param pulumi.Input[str] key: The Kafka message key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
-        pulumi.set(__self__, "client_properties", client_properties)
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleErrorActionKafkaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_properties=client_properties,
+            destination_arn=destination_arn,
+            topic=topic,
+            key=key,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             destination_arn: pulumi.Input[str],
+             topic: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientProperties' in kwargs:
+            client_properties = kwargs['clientProperties']
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
+        _setter("client_properties", client_properties)
+        _setter("destination_arn", destination_arn)
+        _setter("topic", topic)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter(name="clientProperties")
@@ -2299,10 +3049,31 @@ class TopicRuleErrorActionKinesisArgs:
         :param pulumi.Input[str] stream_name: The name of the Amazon Kinesis stream.
         :param pulumi.Input[str] partition_key: The partition key.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
+        TopicRuleErrorActionKinesisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stream_name=stream_name,
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             stream_name: pulumi.Input[str],
+             partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
+        _setter("role_arn", role_arn)
+        _setter("stream_name", stream_name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2348,7 +3119,20 @@ class TopicRuleErrorActionLambdaArgs:
         """
         :param pulumi.Input[str] function_arn: The ARN of the Lambda function.
         """
-        pulumi.set(__self__, "function_arn", function_arn)
+        TopicRuleErrorActionLambdaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
+        _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -2376,10 +3160,27 @@ class TopicRuleErrorActionRepublishArgs:
                
                The `s3` object takes the following arguments:
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleErrorActionRepublishArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            topic=topic,
+            qos=qos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             topic: pulumi.Input[str],
+             qos: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("role_arn", role_arn)
+        _setter("topic", topic)
         if qos is not None:
-            pulumi.set(__self__, "qos", qos)
+            _setter("qos", qos)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2433,11 +3234,34 @@ class TopicRuleErrorActionS3Args:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleErrorActionS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            key=key,
+            role_arn=role_arn,
+            canned_acl=canned_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             key: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             canned_acl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
+        _setter("bucket_name", bucket_name)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if canned_acl is not None:
-            pulumi.set(__self__, "canned_acl", canned_acl)
+            _setter("canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2499,10 +3323,31 @@ class TopicRuleErrorActionSnsArgs:
         :param pulumi.Input[str] target_arn: The ARN of the SNS topic.
         :param pulumi.Input[str] message_format: The message format of the message to publish. Accepted values are "JSON" and "RAW".
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_arn", target_arn)
+        TopicRuleErrorActionSnsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            target_arn=target_arn,
+            message_format=message_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             target_arn: pulumi.Input[str],
+             message_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'messageFormat' in kwargs:
+            message_format = kwargs['messageFormat']
+
+        _setter("role_arn", role_arn)
+        _setter("target_arn", target_arn)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2552,9 +3397,30 @@ class TopicRuleErrorActionSqsArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[bool] use_base64: Specifies whether to use Base64 encoding.
         """
-        pulumi.set(__self__, "queue_url", queue_url)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "use_base64", use_base64)
+        TopicRuleErrorActionSqsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_url=queue_url,
+            role_arn=role_arn,
+            use_base64=use_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_url: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             use_base64: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
+        _setter("queue_url", queue_url)
+        _setter("role_arn", role_arn)
+        _setter("use_base64", use_base64)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -2604,10 +3470,31 @@ class TopicRuleErrorActionStepFunctionsArgs:
         :param pulumi.Input[str] state_machine_name: The name of the Step Functions state machine whose execution will be started.
         :param pulumi.Input[str] execution_name_prefix: The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_machine_name", state_machine_name)
+        TopicRuleErrorActionStepFunctionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            state_machine_name=state_machine_name,
+            execution_name_prefix=execution_name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             state_machine_name: pulumi.Input[str],
+             execution_name_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateMachineName' in kwargs:
+            state_machine_name = kwargs['stateMachineName']
+        if 'executionNamePrefix' in kwargs:
+            execution_name_prefix = kwargs['executionNamePrefix']
+
+        _setter("role_arn", role_arn)
+        _setter("state_machine_name", state_machine_name)
         if execution_name_prefix is not None:
-            pulumi.set(__self__, "execution_name_prefix", execution_name_prefix)
+            _setter("execution_name_prefix", execution_name_prefix)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2661,12 +3548,37 @@ class TopicRuleErrorActionTimestreamArgs:
         :param pulumi.Input[str] table_name: The name of the database table into which to write the measure records.
         :param pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs'] timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleErrorActionTimestreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            dimensions=dimensions,
+            role_arn=role_arn,
+            table_name=table_name,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]],
+             role_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             timestamp: Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("database_name", database_name)
+        _setter("dimensions", dimensions)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2738,8 +3650,21 @@ class TopicRuleErrorActionTimestreamDimensionArgs:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TopicRuleErrorActionTimestreamDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2775,8 +3700,21 @@ class TopicRuleErrorActionTimestreamTimestampArgs:
         :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        TopicRuleErrorActionTimestreamTimestampArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2816,12 +3754,35 @@ class TopicRuleFirehoseArgs:
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         :param pulumi.Input[str] separator: A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
-        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleFirehoseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_name=delivery_stream_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            separator=separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             separator: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
+        _setter("delivery_stream_name", delivery_stream_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if separator is not None:
-            pulumi.set(__self__, "separator", separator)
+            _setter("separator", separator)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -2883,11 +3844,30 @@ class TopicRuleHttpArgs:
         :param pulumi.Input[str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
         :param pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
-        pulumi.set(__self__, "url", url)
+        TopicRuleHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            confirmation_url=confirmation_url,
+            http_headers=http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: pulumi.Input[str],
+             confirmation_url: Optional[pulumi.Input[str]] = None,
+             http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'confirmationUrl' in kwargs:
+            confirmation_url = kwargs['confirmationUrl']
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
+        _setter("url", url)
         if confirmation_url is not None:
-            pulumi.set(__self__, "confirmation_url", confirmation_url)
+            _setter("confirmation_url", confirmation_url)
         if http_headers is not None:
-            pulumi.set(__self__, "http_headers", http_headers)
+            _setter("http_headers", http_headers)
 
     @property
     @pulumi.getter
@@ -2935,8 +3915,21 @@ class TopicRuleHttpHttpHeaderArgs:
         :param pulumi.Input[str] key: The name of the HTTP header.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        TopicRuleHttpHttpHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2974,10 +3967,31 @@ class TopicRuleIotAnalyticArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleIotAnalyticArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_name=channel_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+
+        _setter("channel_name", channel_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -3029,12 +4043,37 @@ class TopicRuleIotEventArgs:
         :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         :param pulumi.Input[str] message_id: Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
-        pulumi.set(__self__, "input_name", input_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleIotEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_name=input_name,
+            role_arn=role_arn,
+            batch_mode=batch_mode,
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_name: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             batch_mode: Optional[pulumi.Input[bool]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'batchMode' in kwargs:
+            batch_mode = kwargs['batchMode']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+
+        _setter("input_name", input_name)
+        _setter("role_arn", role_arn)
         if batch_mode is not None:
-            pulumi.set(__self__, "batch_mode", batch_mode)
+            _setter("batch_mode", batch_mode)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="inputName")
@@ -3100,13 +4139,36 @@ class TopicRuleKafkaArgs:
         :param pulumi.Input[str] key: The Kafka message key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
-        pulumi.set(__self__, "client_properties", client_properties)
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleKafkaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_properties=client_properties,
+            destination_arn=destination_arn,
+            topic=topic,
+            key=key,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             destination_arn: pulumi.Input[str],
+             topic: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientProperties' in kwargs:
+            client_properties = kwargs['clientProperties']
+        if 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
+        _setter("client_properties", client_properties)
+        _setter("destination_arn", destination_arn)
+        _setter("topic", topic)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter(name="clientProperties")
@@ -3180,10 +4242,31 @@ class TopicRuleKinesisArgs:
         :param pulumi.Input[str] stream_name: The name of the Amazon Kinesis stream.
         :param pulumi.Input[str] partition_key: The partition key.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "stream_name", stream_name)
+        TopicRuleKinesisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            stream_name=stream_name,
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             stream_name: pulumi.Input[str],
+             partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
+        _setter("role_arn", role_arn)
+        _setter("stream_name", stream_name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3229,7 +4312,20 @@ class TopicRuleLambdaArgs:
         """
         :param pulumi.Input[str] function_arn: The ARN of the Lambda function.
         """
-        pulumi.set(__self__, "function_arn", function_arn)
+        TopicRuleLambdaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_arn=function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
+        _setter("function_arn", function_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -3257,10 +4353,27 @@ class TopicRuleRepublishArgs:
                
                The `s3` object takes the following arguments:
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "topic", topic)
+        TopicRuleRepublishArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            topic=topic,
+            qos=qos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             topic: pulumi.Input[str],
+             qos: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
+        _setter("role_arn", role_arn)
+        _setter("topic", topic)
         if qos is not None:
-            pulumi.set(__self__, "qos", qos)
+            _setter("qos", qos)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3314,11 +4427,34 @@ class TopicRuleS3Args:
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
         :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "role_arn", role_arn)
+        TopicRuleS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            key=key,
+            role_arn=role_arn,
+            canned_acl=canned_acl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: pulumi.Input[str],
+             key: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             canned_acl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'cannedAcl' in kwargs:
+            canned_acl = kwargs['cannedAcl']
+
+        _setter("bucket_name", bucket_name)
+        _setter("key", key)
+        _setter("role_arn", role_arn)
         if canned_acl is not None:
-            pulumi.set(__self__, "canned_acl", canned_acl)
+            _setter("canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -3380,10 +4516,31 @@ class TopicRuleSnsArgs:
         :param pulumi.Input[str] target_arn: The ARN of the SNS topic.
         :param pulumi.Input[str] message_format: The message format of the message to publish. Accepted values are "JSON" and "RAW".
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_arn", target_arn)
+        TopicRuleSnsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            target_arn=target_arn,
+            message_format=message_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             target_arn: pulumi.Input[str],
+             message_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if 'messageFormat' in kwargs:
+            message_format = kwargs['messageFormat']
+
+        _setter("role_arn", role_arn)
+        _setter("target_arn", target_arn)
         if message_format is not None:
-            pulumi.set(__self__, "message_format", message_format)
+            _setter("message_format", message_format)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3433,9 +4590,30 @@ class TopicRuleSqsArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[bool] use_base64: Specifies whether to use Base64 encoding.
         """
-        pulumi.set(__self__, "queue_url", queue_url)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "use_base64", use_base64)
+        TopicRuleSqsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_url=queue_url,
+            role_arn=role_arn,
+            use_base64=use_base64,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_url: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             use_base64: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
+        _setter("queue_url", queue_url)
+        _setter("role_arn", role_arn)
+        _setter("use_base64", use_base64)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -3485,10 +4663,31 @@ class TopicRuleStepFunctionArgs:
         :param pulumi.Input[str] state_machine_name: The name of the Step Functions state machine whose execution will be started.
         :param pulumi.Input[str] execution_name_prefix: The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "state_machine_name", state_machine_name)
+        TopicRuleStepFunctionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arn=role_arn,
+            state_machine_name=state_machine_name,
+            execution_name_prefix=execution_name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arn: pulumi.Input[str],
+             state_machine_name: pulumi.Input[str],
+             execution_name_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'stateMachineName' in kwargs:
+            state_machine_name = kwargs['stateMachineName']
+        if 'executionNamePrefix' in kwargs:
+            execution_name_prefix = kwargs['executionNamePrefix']
+
+        _setter("role_arn", role_arn)
+        _setter("state_machine_name", state_machine_name)
         if execution_name_prefix is not None:
-            pulumi.set(__self__, "execution_name_prefix", execution_name_prefix)
+            _setter("execution_name_prefix", execution_name_prefix)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -3542,12 +4741,37 @@ class TopicRuleTimestreamArgs:
         :param pulumi.Input[str] table_name: The name of the database table into which to write the measure records.
         :param pulumi.Input['TopicRuleTimestreamTimestampArgs'] timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "dimensions", dimensions)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "table_name", table_name)
+        TopicRuleTimestreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            dimensions=dimensions,
+            role_arn=role_arn,
+            table_name=table_name,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]],
+             role_arn: pulumi.Input[str],
+             table_name: pulumi.Input[str],
+             timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("database_name", database_name)
+        _setter("dimensions", dimensions)
+        _setter("role_arn", role_arn)
+        _setter("table_name", table_name)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -3619,8 +4843,21 @@ class TopicRuleTimestreamDimensionArgs:
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TopicRuleTimestreamDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3656,8 +4893,21 @@ class TopicRuleTimestreamTimestampArgs:
         :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
         :param pulumi.Input[str] value: The value of the HTTP header.
         """
-        pulumi.set(__self__, "unit", unit)
-        pulumi.set(__self__, "value", value)
+        TopicRuleTimestreamTimestampArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("unit", unit)
+        _setter("value", value)
 
     @property
     @pulumi.getter

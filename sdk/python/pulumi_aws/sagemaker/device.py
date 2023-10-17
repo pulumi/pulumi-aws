@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,23 @@ class DeviceArgs:
         :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
-        pulumi.set(__self__, "device", device)
-        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
+        DeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device=device,
+            device_fleet_name=device_fleet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device: pulumi.Input['DeviceDeviceArgs'],
+             device_fleet_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+
+        _setter("device", device)
+        _setter("device_fleet_name", device_fleet_name)
 
     @property
     @pulumi.getter
@@ -64,14 +79,35 @@ class _DeviceState:
         :param pulumi.Input['DeviceDeviceArgs'] device: The device to register with SageMaker Edge Manager. See Device details below.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet.
         """
+        _DeviceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            arn=arn,
+            device=device,
+            device_fleet_name=device_fleet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             device: Optional[pulumi.Input['DeviceDeviceArgs']] = None,
+             device_fleet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if device is not None:
-            pulumi.set(__self__, "device", device)
+            _setter("device", device)
         if device_fleet_name is not None:
-            pulumi.set(__self__, "device_fleet_name", device_fleet_name)
+            _setter("device_fleet_name", device_fleet_name)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -198,6 +234,10 @@ class Device(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -214,6 +254,11 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
+            if device is not None and not isinstance(device, DeviceDeviceArgs):
+                device = device or {}
+                def _setter(key, value):
+                    device[key] = value
+                DeviceDeviceArgs._configure(_setter, **device)
             if device is None and not opts.urn:
                 raise TypeError("Missing required property 'device'")
             __props__.__dict__["device"] = device

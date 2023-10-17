@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebhookArgs', 'Webhook']
@@ -23,10 +23,29 @@ class WebhookArgs:
         :param pulumi.Input[str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[str] description: Description for a webhook.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "branch_name", branch_name)
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            branch_name=branch_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: pulumi.Input[str],
+             branch_name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
+        _setter("app_id", app_id)
+        _setter("branch_name", branch_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="appId")
@@ -81,16 +100,39 @@ class _WebhookState:
         :param pulumi.Input[str] description: Description for a webhook.
         :param pulumi.Input[str] url: URL of the webhook.
         """
+        _WebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            arn=arn,
+            branch_name=branch_name,
+            description=description,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="appId")
@@ -238,6 +280,10 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

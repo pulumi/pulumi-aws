@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EipAssociationArgs', 'EipAssociation']
@@ -38,18 +38,51 @@ class EipAssociationArgs:
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
         """
+        EipAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_id=allocation_id,
+            allow_reassociation=allow_reassociation,
+            instance_id=instance_id,
+            network_interface_id=network_interface_id,
+            private_ip_address=private_ip_address,
+            public_ip=public_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             allow_reassociation: Optional[pulumi.Input[bool]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'allowReassociation' in kwargs:
+            allow_reassociation = kwargs['allowReassociation']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if allow_reassociation is not None:
-            pulumi.set(__self__, "allow_reassociation", allow_reassociation)
+            _setter("allow_reassociation", allow_reassociation)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -160,18 +193,51 @@ class _EipAssociationState:
                address.
         :param pulumi.Input[str] public_ip: The Elastic IP address. This is required for EC2-Classic.
         """
+        _EipAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_id=allocation_id,
+            allow_reassociation=allow_reassociation,
+            instance_id=instance_id,
+            network_interface_id=network_interface_id,
+            private_ip_address=private_ip_address,
+            public_ip=public_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             allow_reassociation: Optional[pulumi.Input[bool]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if 'allowReassociation' in kwargs:
+            allow_reassociation = kwargs['allowReassociation']
+        if 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if allow_reassociation is not None:
-            pulumi.set(__self__, "allow_reassociation", allow_reassociation)
+            _setter("allow_reassociation", allow_reassociation)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -373,6 +439,10 @@ class EipAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EipAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -2953,8 +2953,6 @@ func (o TopicRuleDynamodbv2ArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamo
 
 type TopicRuleDynamodbv2PutItem struct {
 	// The name of the DynamoDB table.
-	//
-	// The `dynamodbv2` object takes the following arguments:
 	TableName string `pulumi:"tableName"`
 }
 
@@ -2971,8 +2969,6 @@ type TopicRuleDynamodbv2PutItemInput interface {
 
 type TopicRuleDynamodbv2PutItemArgs struct {
 	// The name of the DynamoDB table.
-	//
-	// The `dynamodbv2` object takes the following arguments:
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -3072,8 +3068,6 @@ func (o TopicRuleDynamodbv2PutItemOutput) ToOutput(ctx context.Context) pulumix.
 }
 
 // The name of the DynamoDB table.
-//
-// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -3109,8 +3103,6 @@ func (o TopicRuleDynamodbv2PutItemPtrOutput) Elem() TopicRuleDynamodbv2PutItemOu
 }
 
 // The name of the DynamoDB table.
-//
-// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) *string {
 		if v == nil {
@@ -4872,8 +4864,6 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) RoleArn() pulumi.StringPtrOutpu
 
 type TopicRuleErrorActionDynamodbv2PutItem struct {
 	// The name of the DynamoDB table.
-	//
-	// The `dynamodbv2` object takes the following arguments:
 	TableName string `pulumi:"tableName"`
 }
 
@@ -4890,8 +4880,6 @@ type TopicRuleErrorActionDynamodbv2PutItemInput interface {
 
 type TopicRuleErrorActionDynamodbv2PutItemArgs struct {
 	// The name of the DynamoDB table.
-	//
-	// The `dynamodbv2` object takes the following arguments:
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -4991,8 +4979,6 @@ func (o TopicRuleErrorActionDynamodbv2PutItemOutput) ToOutput(ctx context.Contex
 }
 
 // The name of the DynamoDB table.
-//
-// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleErrorActionDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -5028,8 +5014,6 @@ func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) Elem() TopicRuleErrorAct
 }
 
 // The name of the DynamoDB table.
-//
-// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2PutItem) *string {
 		if v == nil {

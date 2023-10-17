@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpamPoolCidrAllocationArgs', 'VpcIpamPoolCidrAllocation']
@@ -27,15 +27,40 @@ class VpcIpamPoolCidrAllocationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        VpcIpamPoolCidrAllocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_pool_id=ipam_pool_id,
+            cidr=cidr,
+            description=description,
+            disallowed_cidrs=disallowed_cidrs,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_pool_id: pulumi.Input[str],
+             cidr: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if 'disallowedCidrs' in kwargs:
+            disallowed_cidrs = kwargs['disallowedCidrs']
+        if 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
+        _setter("ipam_pool_id", ipam_pool_id)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disallowed_cidrs is not None:
-            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
+            _setter("disallowed_cidrs", disallowed_cidrs)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter(name="ipamPoolId")
@@ -121,24 +146,65 @@ class _VpcIpamPoolCidrAllocationState:
         :param pulumi.Input[str] resource_owner: The owner of the resource.
         :param pulumi.Input[str] resource_type: The type of the resource.
         """
+        _VpcIpamPoolCidrAllocationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            description=description,
+            disallowed_cidrs=disallowed_cidrs,
+            ipam_pool_allocation_id=ipam_pool_allocation_id,
+            ipam_pool_id=ipam_pool_id,
+            netmask_length=netmask_length,
+            resource_id=resource_id,
+            resource_owner=resource_owner,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipam_pool_allocation_id: Optional[pulumi.Input[str]] = None,
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_owner: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disallowedCidrs' in kwargs:
+            disallowed_cidrs = kwargs['disallowedCidrs']
+        if 'ipamPoolAllocationId' in kwargs:
+            ipam_pool_allocation_id = kwargs['ipamPoolAllocationId']
+        if 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceOwner' in kwargs:
+            resource_owner = kwargs['resourceOwner']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disallowed_cidrs is not None:
-            pulumi.set(__self__, "disallowed_cidrs", disallowed_cidrs)
+            _setter("disallowed_cidrs", disallowed_cidrs)
         if ipam_pool_allocation_id is not None:
-            pulumi.set(__self__, "ipam_pool_allocation_id", ipam_pool_allocation_id)
+            _setter("ipam_pool_allocation_id", ipam_pool_allocation_id)
         if ipam_pool_id is not None:
-            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+            _setter("ipam_pool_id", ipam_pool_id)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_owner is not None:
-            pulumi.set(__self__, "resource_owner", resource_owner)
+            _setter("resource_owner", resource_owner)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -401,6 +467,10 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamPoolCidrAllocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

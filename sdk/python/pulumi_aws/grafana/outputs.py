@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,8 +42,25 @@ class WorkspaceNetworkAccessControl(dict):
         :param Sequence[str] prefix_list_ids: An array of prefix list IDs.
         :param Sequence[str] vpce_ids: An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
         """
-        pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
-        pulumi.set(__self__, "vpce_ids", vpce_ids)
+        WorkspaceNetworkAccessControl._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_list_ids=prefix_list_ids,
+            vpce_ids=vpce_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_list_ids: Sequence[str],
+             vpce_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'prefixListIds' in kwargs:
+            prefix_list_ids = kwargs['prefixListIds']
+        if 'vpceIds' in kwargs:
+            vpce_ids = kwargs['vpceIds']
+
+        _setter("prefix_list_ids", prefix_list_ids)
+        _setter("vpce_ids", vpce_ids)
 
     @property
     @pulumi.getter(name="prefixListIds")
@@ -90,8 +107,25 @@ class WorkspaceVpcConfiguration(dict):
         :param Sequence[str] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
         :param Sequence[str] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
         """
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        WorkspaceVpcConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Sequence[str],
+             subnet_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
+        _setter("security_group_ids", security_group_ids)
+        _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")

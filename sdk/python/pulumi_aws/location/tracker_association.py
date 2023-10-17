@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrackerAssociationArgs', 'TrackerAssociation']
@@ -21,8 +21,25 @@ class TrackerAssociationArgs:
         :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
-        pulumi.set(__self__, "consumer_arn", consumer_arn)
-        pulumi.set(__self__, "tracker_name", tracker_name)
+        TrackerAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_arn=consumer_arn,
+            tracker_name=tracker_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_arn: pulumi.Input[str],
+             tracker_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
+        _setter("consumer_arn", consumer_arn)
+        _setter("tracker_name", tracker_name)
 
     @property
     @pulumi.getter(name="consumerArn")
@@ -59,10 +76,27 @@ class _TrackerAssociationState:
         :param pulumi.Input[str] consumer_arn: The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource to be associated with a geofence collection.
         """
+        _TrackerAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_arn=consumer_arn,
+            tracker_name=tracker_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_arn: Optional[pulumi.Input[str]] = None,
+             tracker_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
         if consumer_arn is not None:
-            pulumi.set(__self__, "consumer_arn", consumer_arn)
+            _setter("consumer_arn", consumer_arn)
         if tracker_name is not None:
-            pulumi.set(__self__, "tracker_name", tracker_name)
+            _setter("tracker_name", tracker_name)
 
     @property
     @pulumi.getter(name="consumerArn")
@@ -166,6 +200,10 @@ class TrackerAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrackerAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

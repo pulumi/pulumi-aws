@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,22 +39,65 @@ class ProxyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         """
-        pulumi.set(__self__, "auths", auths)
-        pulumi.set(__self__, "engine_family", engine_family)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+        ProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auths=auths,
+            engine_family=engine_family,
+            role_arn=role_arn,
+            vpc_subnet_ids=vpc_subnet_ids,
+            debug_logging=debug_logging,
+            idle_client_timeout=idle_client_timeout,
+            name=name,
+            require_tls=require_tls,
+            tags=tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auths: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]],
+             engine_family: pulumi.Input[str],
+             role_arn: pulumi.Input[str],
+             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             debug_logging: Optional[pulumi.Input[bool]] = None,
+             idle_client_timeout: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             require_tls: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'engineFamily' in kwargs:
+            engine_family = kwargs['engineFamily']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if 'debugLogging' in kwargs:
+            debug_logging = kwargs['debugLogging']
+        if 'idleClientTimeout' in kwargs:
+            idle_client_timeout = kwargs['idleClientTimeout']
+        if 'requireTls' in kwargs:
+            require_tls = kwargs['requireTls']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
+        _setter("auths", auths)
+        _setter("engine_family", engine_family)
+        _setter("role_arn", role_arn)
+        _setter("vpc_subnet_ids", vpc_subnet_ids)
         if debug_logging is not None:
-            pulumi.set(__self__, "debug_logging", debug_logging)
+            _setter("debug_logging", debug_logging)
         if idle_client_timeout is not None:
-            pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
+            _setter("idle_client_timeout", idle_client_timeout)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if require_tls is not None:
-            pulumi.set(__self__, "require_tls", require_tls)
+            _setter("require_tls", require_tls)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -209,35 +252,86 @@ class _ProxyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: One or more VPC security group IDs to associate with the new proxy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
         """
+        _ProxyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auths=auths,
+            debug_logging=debug_logging,
+            endpoint=endpoint,
+            engine_family=engine_family,
+            idle_client_timeout=idle_client_timeout,
+            name=name,
+            require_tls=require_tls,
+            role_arn=role_arn,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_security_group_ids=vpc_security_group_ids,
+            vpc_subnet_ids=vpc_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auths: Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]] = None,
+             debug_logging: Optional[pulumi.Input[bool]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             engine_family: Optional[pulumi.Input[str]] = None,
+             idle_client_timeout: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             require_tls: Optional[pulumi.Input[bool]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'debugLogging' in kwargs:
+            debug_logging = kwargs['debugLogging']
+        if 'engineFamily' in kwargs:
+            engine_family = kwargs['engineFamily']
+        if 'idleClientTimeout' in kwargs:
+            idle_client_timeout = kwargs['idleClientTimeout']
+        if 'requireTls' in kwargs:
+            require_tls = kwargs['requireTls']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auths is not None:
-            pulumi.set(__self__, "auths", auths)
+            _setter("auths", auths)
         if debug_logging is not None:
-            pulumi.set(__self__, "debug_logging", debug_logging)
+            _setter("debug_logging", debug_logging)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if engine_family is not None:
-            pulumi.set(__self__, "engine_family", engine_family)
+            _setter("engine_family", engine_family)
         if idle_client_timeout is not None:
-            pulumi.set(__self__, "idle_client_timeout", idle_client_timeout)
+            _setter("idle_client_timeout", idle_client_timeout)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if require_tls is not None:
-            pulumi.set(__self__, "require_tls", require_tls)
+            _setter("require_tls", require_tls)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
         if vpc_subnet_ids is not None:
-            pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+            _setter("vpc_subnet_ids", vpc_subnet_ids)
 
     @property
     @pulumi.getter
@@ -518,6 +612,10 @@ class Proxy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProxyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

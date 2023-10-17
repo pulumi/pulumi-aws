@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueuePolicyArgs', 'QueuePolicy']
@@ -21,8 +21,23 @@ class QueuePolicyArgs:
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "queue_url", queue_url)
+        QueuePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            queue_url=queue_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: pulumi.Input[str],
+             queue_url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+
+        _setter("policy", policy)
+        _setter("queue_url", queue_url)
 
     @property
     @pulumi.getter
@@ -59,10 +74,25 @@ class _QueuePolicyState:
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         """
+        _QueuePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            queue_url=queue_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             queue_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if queue_url is not None:
-            pulumi.set(__self__, "queue_url", queue_url)
+            _setter("queue_url", queue_url)
 
     @property
     @pulumi.getter
@@ -196,6 +226,10 @@ class QueuePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueuePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

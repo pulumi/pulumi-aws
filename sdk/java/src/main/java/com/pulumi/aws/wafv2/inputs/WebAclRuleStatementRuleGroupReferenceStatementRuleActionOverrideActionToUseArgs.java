@@ -20,14 +20,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs();
 
     /**
-     * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+     * Instructs AWS WAF to allow the web request. See `allow` below for details.
      * 
      */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs> allow;
 
     /**
-     * @return Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+     * @return Instructs AWS WAF to allow the web request. See `allow` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs>> allow() {
@@ -35,14 +35,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     }
 
     /**
-     * Specifies that AWS WAF should block requests by default. See `block` below for details.
+     * Instructs AWS WAF to block the web request. See `block` below for details.
      * 
      */
     @Import(name="block")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs> block;
 
     /**
-     * @return Specifies that AWS WAF should block requests by default. See `block` below for details.
+     * @return Instructs AWS WAF to block the web request. See `block` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs>> block() {
@@ -123,7 +123,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         * @param allow Instructs AWS WAF to allow the web request. See `allow` below for details.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param block Specifies that AWS WAF should block requests by default. See `block` below for details.
+         * @param block Instructs AWS WAF to block the web request. See `block` below for details.
          * 
          * @return builder
          * 

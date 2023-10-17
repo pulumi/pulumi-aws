@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -76,56 +76,159 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
         """
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            availability_zones=availability_zones,
+            backup_retention_period=backup_retention_period,
+            cluster_identifier=cluster_identifier,
+            cluster_identifier_prefix=cluster_identifier_prefix,
+            cluster_members=cluster_members,
+            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
+            db_subnet_group_name=db_subnet_group_name,
+            deletion_protection=deletion_protection,
+            enabled_cloudwatch_logs_exports=enabled_cloudwatch_logs_exports,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_cluster_identifier=global_cluster_identifier,
+            kms_key_id=kms_key_id,
+            master_password=master_password,
+            master_username=master_username,
+            port=port,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            skip_final_snapshot=skip_final_snapshot,
+            snapshot_identifier=snapshot_identifier,
+            storage_encrypted=storage_encrypted,
+            tags=tags,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_retention_period: Optional[pulumi.Input[int]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             master_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'clusterIdentifierPrefix' in kwargs:
+            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
+        if 'clusterMembers' in kwargs:
+            cluster_members = kwargs['clusterMembers']
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'enabledCloudwatchLogsExports' in kwargs:
+            enabled_cloudwatch_logs_exports = kwargs['enabledCloudwatchLogsExports']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'masterPassword' in kwargs:
+            master_password = kwargs['masterPassword']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:
-            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+            _setter("backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
+            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
         if cluster_members is not None:
-            pulumi.set(__self__, "cluster_members", cluster_members)
+            _setter("cluster_members", cluster_members)
         if db_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_subnet_group_name is not None:
-            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+            _setter("db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if enabled_cloudwatch_logs_exports is not None:
-            pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
+            _setter("enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+            _setter("global_cluster_identifier", global_cluster_identifier)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if master_password is not None:
-            pulumi.set(__self__, "master_password", master_password)
+            _setter("master_password", master_password)
         if master_username is not None:
-            pulumi.set(__self__, "master_username", master_username)
+            _setter("master_username", master_username)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -514,71 +617,194 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate
                with the Cluster
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_immediately=apply_immediately,
+            arn=arn,
+            availability_zones=availability_zones,
+            backup_retention_period=backup_retention_period,
+            cluster_identifier=cluster_identifier,
+            cluster_identifier_prefix=cluster_identifier_prefix,
+            cluster_members=cluster_members,
+            cluster_resource_id=cluster_resource_id,
+            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
+            db_subnet_group_name=db_subnet_group_name,
+            deletion_protection=deletion_protection,
+            enabled_cloudwatch_logs_exports=enabled_cloudwatch_logs_exports,
+            endpoint=endpoint,
+            engine=engine,
+            engine_version=engine_version,
+            final_snapshot_identifier=final_snapshot_identifier,
+            global_cluster_identifier=global_cluster_identifier,
+            hosted_zone_id=hosted_zone_id,
+            kms_key_id=kms_key_id,
+            master_password=master_password,
+            master_username=master_username,
+            port=port,
+            preferred_backup_window=preferred_backup_window,
+            preferred_maintenance_window=preferred_maintenance_window,
+            reader_endpoint=reader_endpoint,
+            skip_final_snapshot=skip_final_snapshot,
+            snapshot_identifier=snapshot_identifier,
+            storage_encrypted=storage_encrypted,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_security_group_ids=vpc_security_group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_immediately: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_retention_period: Optional[pulumi.Input[int]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+             deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             master_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             preferred_backup_window: Optional[pulumi.Input[str]] = None,
+             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+             reader_endpoint: Optional[pulumi.Input[str]] = None,
+             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+             snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             storage_encrypted: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyImmediately' in kwargs:
+            apply_immediately = kwargs['applyImmediately']
+        if 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if 'clusterIdentifierPrefix' in kwargs:
+            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
+        if 'clusterMembers' in kwargs:
+            cluster_members = kwargs['clusterMembers']
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if 'enabledCloudwatchLogsExports' in kwargs:
+            enabled_cloudwatch_logs_exports = kwargs['enabledCloudwatchLogsExports']
+        if 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if 'finalSnapshotIdentifier' in kwargs:
+            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
+        if 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if 'masterPassword' in kwargs:
+            master_password = kwargs['masterPassword']
+        if 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if 'readerEndpoint' in kwargs:
+            reader_endpoint = kwargs['readerEndpoint']
+        if 'skipFinalSnapshot' in kwargs:
+            skip_final_snapshot = kwargs['skipFinalSnapshot']
+        if 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if apply_immediately is not None:
-            pulumi.set(__self__, "apply_immediately", apply_immediately)
+            _setter("apply_immediately", apply_immediately)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if backup_retention_period is not None:
-            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+            _setter("backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
+            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
         if cluster_members is not None:
-            pulumi.set(__self__, "cluster_members", cluster_members)
+            _setter("cluster_members", cluster_members)
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if db_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_subnet_group_name is not None:
-            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+            _setter("db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
-            pulumi.set(__self__, "deletion_protection", deletion_protection)
+            _setter("deletion_protection", deletion_protection)
         if enabled_cloudwatch_logs_exports is not None:
-            pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
+            _setter("enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
+            _setter("final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+            _setter("global_cluster_identifier", global_cluster_identifier)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if master_password is not None:
-            pulumi.set(__self__, "master_password", master_password)
+            _setter("master_password", master_password)
         if master_username is not None:
-            pulumi.set(__self__, "master_username", master_username)
+            _setter("master_username", master_username)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if preferred_backup_window is not None:
-            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
+            _setter("preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+            _setter("preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
-            pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+            _setter("reader_endpoint", reader_endpoint)
         if skip_final_snapshot is not None:
-            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+            _setter("skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
+            _setter("snapshot_identifier", snapshot_identifier)
         if storage_encrypted is not None:
-            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+            _setter("storage_encrypted", storage_encrypted)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_security_group_ids is not None:
-            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+            _setter("vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1121,6 +1347,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

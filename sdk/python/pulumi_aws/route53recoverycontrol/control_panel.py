@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ControlPanelArgs', 'ControlPanel']
@@ -21,9 +21,24 @@ class ControlPanelArgs:
         :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this control panel will reside.
         :param pulumi.Input[str] name: Name describing the control panel.
         """
-        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        ControlPanelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_arn=cluster_arn,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_arn: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+
+        _setter("cluster_arn", cluster_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -68,18 +83,45 @@ class _ControlPanelState:
         :param pulumi.Input[int] routing_control_count: Number routing controls in a control panel.
         :param pulumi.Input[str] status: Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
+        _ControlPanelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cluster_arn=cluster_arn,
+            default_control_panel=default_control_panel,
+            name=name,
+            routing_control_count=routing_control_count,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             default_control_panel: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing_control_count: Optional[pulumi.Input[int]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if 'defaultControlPanel' in kwargs:
+            default_control_panel = kwargs['defaultControlPanel']
+        if 'routingControlCount' in kwargs:
+            routing_control_count = kwargs['routingControlCount']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cluster_arn is not None:
-            pulumi.set(__self__, "cluster_arn", cluster_arn)
+            _setter("cluster_arn", cluster_arn)
         if default_control_panel is not None:
-            pulumi.set(__self__, "default_control_panel", default_control_panel)
+            _setter("default_control_panel", default_control_panel)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_control_count is not None:
-            pulumi.set(__self__, "routing_control_count", routing_control_count)
+            _setter("routing_control_count", routing_control_count)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -223,6 +265,10 @@ class ControlPanel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ControlPanelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,32 @@ class VpcIpamArgs:
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "operating_regions", operating_regions)
+        VpcIpamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operating_regions=operating_regions,
+            cascade=cascade,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]],
+             cascade: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatingRegions' in kwargs:
+            operating_regions = kwargs['operatingRegions']
+
+        _setter("operating_regions", operating_regions)
         if cascade is not None:
-            pulumi.set(__self__, "cascade", cascade)
+            _setter("cascade", cascade)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="operatingRegions")
@@ -113,31 +132,76 @@ class _VpcIpamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _VpcIpamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cascade=cascade,
+            default_resource_discovery_association_id=default_resource_discovery_association_id,
+            default_resource_discovery_id=default_resource_discovery_id,
+            description=description,
+            operating_regions=operating_regions,
+            private_default_scope_id=private_default_scope_id,
+            public_default_scope_id=public_default_scope_id,
+            scope_count=scope_count,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cascade: Optional[pulumi.Input[bool]] = None,
+             default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
+             default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
+             private_default_scope_id: Optional[pulumi.Input[str]] = None,
+             public_default_scope_id: Optional[pulumi.Input[str]] = None,
+             scope_count: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultResourceDiscoveryAssociationId' in kwargs:
+            default_resource_discovery_association_id = kwargs['defaultResourceDiscoveryAssociationId']
+        if 'defaultResourceDiscoveryId' in kwargs:
+            default_resource_discovery_id = kwargs['defaultResourceDiscoveryId']
+        if 'operatingRegions' in kwargs:
+            operating_regions = kwargs['operatingRegions']
+        if 'privateDefaultScopeId' in kwargs:
+            private_default_scope_id = kwargs['privateDefaultScopeId']
+        if 'publicDefaultScopeId' in kwargs:
+            public_default_scope_id = kwargs['publicDefaultScopeId']
+        if 'scopeCount' in kwargs:
+            scope_count = kwargs['scopeCount']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cascade is not None:
-            pulumi.set(__self__, "cascade", cascade)
+            _setter("cascade", cascade)
         if default_resource_discovery_association_id is not None:
-            pulumi.set(__self__, "default_resource_discovery_association_id", default_resource_discovery_association_id)
+            _setter("default_resource_discovery_association_id", default_resource_discovery_association_id)
         if default_resource_discovery_id is not None:
-            pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
+            _setter("default_resource_discovery_id", default_resource_discovery_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if operating_regions is not None:
-            pulumi.set(__self__, "operating_regions", operating_regions)
+            _setter("operating_regions", operating_regions)
         if private_default_scope_id is not None:
-            pulumi.set(__self__, "private_default_scope_id", private_default_scope_id)
+            _setter("private_default_scope_id", private_default_scope_id)
         if public_default_scope_id is not None:
-            pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
+            _setter("public_default_scope_id", public_default_scope_id)
         if scope_count is not None:
-            pulumi.set(__self__, "scope_count", scope_count)
+            _setter("scope_count", scope_count)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -331,6 +395,10 @@ class VpcIpam(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

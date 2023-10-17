@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteTableAssociationArgs', 'RouteTableAssociation']
@@ -23,10 +23,31 @@ class RouteTableAssociationArgs:
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         :param pulumi.Input[bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         """
-        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
-        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        RouteTableAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+            replace_existing_association=replace_existing_association,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_attachment_id: pulumi.Input[str],
+             transit_gateway_route_table_id: pulumi.Input[str],
+             replace_existing_association: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if 'replaceExistingAssociation' in kwargs:
+            replace_existing_association = kwargs['replaceExistingAssociation']
+
+        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
+        _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
         if replace_existing_association is not None:
-            pulumi.set(__self__, "replace_existing_association", replace_existing_association)
+            _setter("replace_existing_association", replace_existing_association)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -81,16 +102,45 @@ class _RouteTableAssociationState:
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
+        _RouteTableAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replace_existing_association=replace_existing_association,
+            resource_id=resource_id,
+            resource_type=resource_type,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replace_existing_association: Optional[pulumi.Input[bool]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'replaceExistingAssociation' in kwargs:
+            replace_existing_association = kwargs['replaceExistingAssociation']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+
         if replace_existing_association is not None:
-            pulumi.set(__self__, "replace_existing_association", replace_existing_association)
+            _setter("replace_existing_association", replace_existing_association)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
-            pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+            _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter(name="replaceExistingAssociation")
@@ -228,6 +278,10 @@ class RouteTableAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteTableAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

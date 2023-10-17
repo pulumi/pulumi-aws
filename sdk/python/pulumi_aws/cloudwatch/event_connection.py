@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,33 @@ class EventConnectionArgs:
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
-        pulumi.set(__self__, "auth_parameters", auth_parameters)
-        pulumi.set(__self__, "authorization_type", authorization_type)
+        EventConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_parameters=auth_parameters,
+            authorization_type=authorization_type,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_parameters: pulumi.Input['EventConnectionAuthParametersArgs'],
+             authorization_type: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+
+        _setter("auth_parameters", auth_parameters)
+        _setter("authorization_type", authorization_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="authParameters")
@@ -101,18 +122,45 @@ class _EventConnectionState:
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
+        _EventConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auth_parameters=auth_parameters,
+            authorization_type=authorization_type,
+            description=description,
+            name=name,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auth_parameters: Optional[pulumi.Input['EventConnectionAuthParametersArgs']] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auth_parameters is not None:
-            pulumi.set(__self__, "auth_parameters", auth_parameters)
+            _setter("auth_parameters", auth_parameters)
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter
@@ -312,6 +360,10 @@ class EventConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -330,6 +382,11 @@ class EventConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventConnectionArgs.__new__(EventConnectionArgs)
 
+            if auth_parameters is not None and not isinstance(auth_parameters, EventConnectionAuthParametersArgs):
+                auth_parameters = auth_parameters or {}
+                def _setter(key, value):
+                    auth_parameters[key] = value
+                EventConnectionAuthParametersArgs._configure(_setter, **auth_parameters)
             if auth_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_parameters'")
             __props__.__dict__["auth_parameters"] = auth_parameters

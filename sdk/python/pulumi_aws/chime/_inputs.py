@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,8 +27,21 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgs:
         """
         :param pulumi.Input[str] cdr_bucket: The S3 bucket that stores the Voice Connector's call detail records.
         """
+        SdkvoiceGlobalSettingsVoiceConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdr_bucket=cdr_bucket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdr_bucket: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdrBucket' in kwargs:
+            cdr_bucket = kwargs['cdrBucket']
+
         if cdr_bucket is not None:
-            pulumi.set(__self__, "cdr_bucket", cdr_bucket)
+            _setter("cdr_bucket", cdr_bucket)
 
     @property
     @pulumi.getter(name="cdrBucket")
@@ -50,7 +63,20 @@ class SdkvoiceSipMediaApplicationEndpointsArgs:
         """
         :param pulumi.Input[str] lambda_arn: Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
         """
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        SdkvoiceSipMediaApplicationEndpointsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_arn=lambda_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
+        _setter("lambda_arn", lambda_arn)
 
     @property
     @pulumi.getter(name="lambdaArn")
@@ -76,9 +102,28 @@ class SdkvoiceSipRuleTargetApplicationArgs:
         :param pulumi.Input[int] priority: Priority of the SIP media application in the target list.
         :param pulumi.Input[str] sip_media_application_id: The SIP media application ID.
         """
-        pulumi.set(__self__, "aws_region", aws_region)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "sip_media_application_id", sip_media_application_id)
+        SdkvoiceSipRuleTargetApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_region=aws_region,
+            priority=priority,
+            sip_media_application_id=sip_media_application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_region: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             sip_media_application_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if 'sipMediaApplicationId' in kwargs:
+            sip_media_application_id = kwargs['sipMediaApplicationId']
+
+        _setter("aws_region", aws_region)
+        _setter("priority", priority)
+        _setter("sip_media_application_id", sip_media_application_id)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -126,7 +171,20 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_arn=kms_key_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
+        _setter("kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -152,8 +210,23 @@ class VoiceConnectorGroupConnectorArgs:
         :param pulumi.Input[int] priority: The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        VoiceConnectorGroupConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            voice_connector_id=voice_connector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: pulumi.Input[int],
+             voice_connector_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'voiceConnectorId' in kwargs:
+            voice_connector_id = kwargs['voiceConnectorId']
+
+        _setter("priority", priority)
+        _setter("voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
@@ -195,12 +268,31 @@ class VoiceConnectorOrganizationRouteArgs:
         :param pulumi.Input[int] weight: The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
         :param pulumi.Input[int] port: The designated origination route port. Defaults to `5060`.
         """
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "weight", weight)
+        VoiceConnectorOrganizationRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host=host,
+            priority=priority,
+            protocol=protocol,
+            weight=weight,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             protocol: pulumi.Input[str],
+             weight: pulumi.Input[int],
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("host", host)
+        _setter("priority", priority)
+        _setter("protocol", protocol)
+        _setter("weight", weight)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -272,10 +364,25 @@ class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
         :param pulumi.Input[str] configuration_arn: The media insights configuration that will be invoked by the Voice Connector.
         :param pulumi.Input[bool] disabled: When `true`, the media insights configuration is not enabled. Defaults to `false`.
         """
+        VoiceConnectorStreamingMediaInsightsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_arn=configuration_arn,
+            disabled=disabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_arn: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationArn' in kwargs:
+            configuration_arn = kwargs['configurationArn']
+
         if configuration_arn is not None:
-            pulumi.set(__self__, "configuration_arn", configuration_arn)
+            _setter("configuration_arn", configuration_arn)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
 
     @property
     @pulumi.getter(name="configurationArn")
@@ -311,8 +418,21 @@ class VoiceConnectorTerminationCredentialsCredentialArgs:
         :param pulumi.Input[str] password: RFC2617 compliant password associated with the SIP credentials.
         :param pulumi.Input[str] username: RFC2617 compliant username associated with the SIP credentials.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        VoiceConnectorTerminationCredentialsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter

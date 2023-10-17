@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultPolicyArgs', 'VaultPolicy']
@@ -21,8 +21,23 @@ class VaultPolicyArgs:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        pulumi.set(__self__, "policy", policy)
+        VaultPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_name=backup_vault_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_name: pulumi.Input[str],
+             policy: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+
+        _setter("backup_vault_name", backup_vault_name)
+        _setter("policy", policy)
 
     @property
     @pulumi.getter(name="backupVaultName")
@@ -61,12 +76,31 @@ class _VaultPolicyState:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add policy for.
         :param pulumi.Input[str] policy: The backup vault access policy document in JSON format.
         """
+        _VaultPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_arn=backup_vault_arn,
+            backup_vault_name=backup_vault_name,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_arn: Optional[pulumi.Input[str]] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultArn' in kwargs:
+            backup_vault_arn = kwargs['backupVaultArn']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+
         if backup_vault_arn is not None:
-            pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
+            _setter("backup_vault_arn", backup_vault_arn)
         if backup_vault_name is not None:
-            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+            _setter("backup_vault_name", backup_vault_name)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="backupVaultArn")
@@ -216,6 +250,10 @@ class VaultPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,9 +22,22 @@ class GetResourcesTagFilterArgs:
         :param str key: One part of a key-value pair that makes up a tag.
         :param Sequence[str] values: Optional part of a key-value pair that make up a tag.
         """
-        pulumi.set(__self__, "key", key)
+        GetResourcesTagFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: str,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter

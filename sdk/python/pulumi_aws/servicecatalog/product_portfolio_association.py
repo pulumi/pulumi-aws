@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProductPortfolioAssociationArgs', 'ProductPortfolioAssociation']
@@ -27,12 +27,37 @@ class ProductPortfolioAssociationArgs:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "product_id", product_id)
+        ProductPortfolioAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            accept_language=accept_language,
+            source_portfolio_id=source_portfolio_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             portfolio_id: pulumi.Input[str],
+             product_id: pulumi.Input[str],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             source_portfolio_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if 'sourcePortfolioId' in kwargs:
+            source_portfolio_id = kwargs['sourcePortfolioId']
+
+        _setter("portfolio_id", portfolio_id)
+        _setter("product_id", product_id)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if source_portfolio_id is not None:
-            pulumi.set(__self__, "source_portfolio_id", source_portfolio_id)
+            _setter("source_portfolio_id", source_portfolio_id)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -101,14 +126,39 @@ class _ProductPortfolioAssociationState:
                The following arguments are optional:
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
+        _ProductPortfolioAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            portfolio_id=portfolio_id,
+            product_id=product_id,
+            source_portfolio_id=source_portfolio_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             source_portfolio_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'sourcePortfolioId' in kwargs:
+            source_portfolio_id = kwargs['sourcePortfolioId']
+
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if portfolio_id is not None:
-            pulumi.set(__self__, "portfolio_id", portfolio_id)
+            _setter("portfolio_id", portfolio_id)
         if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
+            _setter("product_id", product_id)
         if source_portfolio_id is not None:
-            pulumi.set(__self__, "source_portfolio_id", source_portfolio_id)
+            _setter("source_portfolio_id", source_portfolio_id)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -242,6 +292,10 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductPortfolioAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

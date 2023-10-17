@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,68 @@ class WebAclArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "visibility_config", visibility_config)
+        WebAclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            scope=scope,
+            visibility_config=visibility_config,
+            association_config=association_config,
+            captcha_config=captcha_config,
+            custom_response_bodies=custom_response_bodies,
+            description=description,
+            name=name,
+            rules=rules,
+            tags=tags,
+            token_domains=token_domains,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: pulumi.Input['WebAclDefaultActionArgs'],
+             scope: pulumi.Input[str],
+             visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+             association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
+             captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if 'associationConfig' in kwargs:
+            association_config = kwargs['associationConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'customResponseBodies' in kwargs:
+            custom_response_bodies = kwargs['customResponseBodies']
+        if 'tokenDomains' in kwargs:
+            token_domains = kwargs['tokenDomains']
+
+        _setter("default_action", default_action)
+        _setter("scope", scope)
+        _setter("visibility_config", visibility_config)
         if association_config is not None:
-            pulumi.set(__self__, "association_config", association_config)
+            _setter("association_config", association_config)
         if captcha_config is not None:
-            pulumi.set(__self__, "captcha_config", captcha_config)
+            _setter("captcha_config", captcha_config)
         if custom_response_bodies is not None:
-            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+            _setter("custom_response_bodies", custom_response_bodies)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if token_domains is not None:
-            pulumi.set(__self__, "token_domains", token_domains)
+            _setter("token_domains", token_domains)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -229,39 +272,94 @@ class _WebAclState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
+        _WebAclState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            association_config=association_config,
+            capacity=capacity,
+            captcha_config=captcha_config,
+            custom_response_bodies=custom_response_bodies,
+            default_action=default_action,
+            description=description,
+            lock_token=lock_token,
+            name=name,
+            rules=rules,
+            scope=scope,
+            tags=tags,
+            tags_all=tags_all,
+            token_domains=token_domains,
+            visibility_config=visibility_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+             default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             lock_token: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associationConfig' in kwargs:
+            association_config = kwargs['associationConfig']
+        if 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if 'customResponseBodies' in kwargs:
+            custom_response_bodies = kwargs['customResponseBodies']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'lockToken' in kwargs:
+            lock_token = kwargs['lockToken']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'tokenDomains' in kwargs:
+            token_domains = kwargs['tokenDomains']
+        if 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if association_config is not None:
-            pulumi.set(__self__, "association_config", association_config)
+            _setter("association_config", association_config)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if captcha_config is not None:
-            pulumi.set(__self__, "captcha_config", captcha_config)
+            _setter("captcha_config", captcha_config)
         if custom_response_bodies is not None:
-            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+            _setter("custom_response_bodies", custom_response_bodies)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if lock_token is not None:
-            pulumi.set(__self__, "lock_token", lock_token)
+            _setter("lock_token", lock_token)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if token_domains is not None:
-            pulumi.set(__self__, "token_domains", token_domains)
+            _setter("token_domains", token_domains)
         if visibility_config is not None:
-            pulumi.set(__self__, "visibility_config", visibility_config)
+            _setter("visibility_config", visibility_config)
 
     @property
     @pulumi.getter
@@ -495,6 +593,10 @@ class WebAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -520,9 +622,24 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            if association_config is not None and not isinstance(association_config, WebAclAssociationConfigArgs):
+                association_config = association_config or {}
+                def _setter(key, value):
+                    association_config[key] = value
+                WebAclAssociationConfigArgs._configure(_setter, **association_config)
             __props__.__dict__["association_config"] = association_config
+            if captcha_config is not None and not isinstance(captcha_config, WebAclCaptchaConfigArgs):
+                captcha_config = captcha_config or {}
+                def _setter(key, value):
+                    captcha_config[key] = value
+                WebAclCaptchaConfigArgs._configure(_setter, **captcha_config)
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+            if default_action is not None and not isinstance(default_action, WebAclDefaultActionArgs):
+                default_action = default_action or {}
+                def _setter(key, value):
+                    default_action[key] = value
+                WebAclDefaultActionArgs._configure(_setter, **default_action)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -534,6 +651,11 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["token_domains"] = token_domains
+            if visibility_config is not None and not isinstance(visibility_config, WebAclVisibilityConfigArgs):
+                visibility_config = visibility_config or {}
+                def _setter(key, value):
+                    visibility_config[key] = value
+                WebAclVisibilityConfigArgs._configure(_setter, **visibility_config)
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config

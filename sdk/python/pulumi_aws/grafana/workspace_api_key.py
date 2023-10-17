@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceApiKeyArgs', 'WorkspaceApiKey']
@@ -25,10 +25,35 @@ class WorkspaceApiKeyArgs:
         :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_role", key_role)
-        pulumi.set(__self__, "seconds_to_live", seconds_to_live)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_role=key_role,
+            seconds_to_live=seconds_to_live,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_role: pulumi.Input[str],
+             seconds_to_live: pulumi.Input[int],
+             workspace_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyRole' in kwargs:
+            key_role = kwargs['keyRole']
+        if 'secondsToLive' in kwargs:
+            seconds_to_live = kwargs['secondsToLive']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("key_name", key_name)
+        _setter("key_role", key_role)
+        _setter("seconds_to_live", seconds_to_live)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="keyName")
@@ -95,16 +120,43 @@ class _WorkspaceApiKeyState:
         :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
+        _WorkspaceApiKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            key_name=key_name,
+            key_role=key_role,
+            seconds_to_live=seconds_to_live,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_role: Optional[pulumi.Input[str]] = None,
+             seconds_to_live: Optional[pulumi.Input[int]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyRole' in kwargs:
+            key_role = kwargs['keyRole']
+        if 'secondsToLive' in kwargs:
+            seconds_to_live = kwargs['secondsToLive']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_role is not None:
-            pulumi.set(__self__, "key_role", key_role)
+            _setter("key_role", key_role)
         if seconds_to_live is not None:
-            pulumi.set(__self__, "seconds_to_live", seconds_to_live)
+            _setter("seconds_to_live", seconds_to_live)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -234,6 +286,10 @@ class WorkspaceApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

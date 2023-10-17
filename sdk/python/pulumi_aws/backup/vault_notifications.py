@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultNotificationsArgs', 'VaultNotifications']
@@ -23,9 +23,30 @@ class VaultNotificationsArgs:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
-        pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        VaultNotificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_events=backup_vault_events,
+            backup_vault_name=backup_vault_name,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
+             backup_vault_name: pulumi.Input[str],
+             sns_topic_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultEvents' in kwargs:
+            backup_vault_events = kwargs['backupVaultEvents']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
+        _setter("backup_vault_events", backup_vault_events)
+        _setter("backup_vault_name", backup_vault_name)
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
@@ -78,14 +99,39 @@ class _VaultNotificationsState:
         :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
+        _VaultNotificationsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_vault_arn=backup_vault_arn,
+            backup_vault_events=backup_vault_events,
+            backup_vault_name=backup_vault_name,
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_vault_arn: Optional[pulumi.Input[str]] = None,
+             backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupVaultArn' in kwargs:
+            backup_vault_arn = kwargs['backupVaultArn']
+        if 'backupVaultEvents' in kwargs:
+            backup_vault_events = kwargs['backupVaultEvents']
+        if 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         if backup_vault_arn is not None:
-            pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
+            _setter("backup_vault_arn", backup_vault_arn)
         if backup_vault_events is not None:
-            pulumi.set(__self__, "backup_vault_events", backup_vault_events)
+            _setter("backup_vault_events", backup_vault_events)
         if backup_vault_name is not None:
-            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
+            _setter("backup_vault_name", backup_vault_name)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultArn")
@@ -249,6 +295,10 @@ class VaultNotifications(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultNotificationsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueryLogArgs', 'QueryLog']
@@ -21,8 +21,25 @@ class QueryLogArgs:
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
-        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        pulumi.set(__self__, "zone_id", zone_id)
+        QueryLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_log_group_arn: pulumi.Input[str],
+             zone_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchLogGroupArn' in kwargs:
+            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
+        if 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
+        _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -61,12 +78,31 @@ class _QueryLogState:
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
+        _QueryLogState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cloudwatchLogGroupArn' in kwargs:
+            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
+        if 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_log_group_arn is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+            _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter
@@ -238,6 +274,10 @@ class QueryLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueryLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

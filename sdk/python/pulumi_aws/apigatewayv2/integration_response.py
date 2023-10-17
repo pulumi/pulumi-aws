@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
@@ -29,15 +29,48 @@ class IntegrationResponseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "integration_id", integration_id)
-        pulumi.set(__self__, "integration_response_key", integration_response_key)
+        IntegrationResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            integration_id=integration_id,
+            integration_response_key=integration_response_key,
+            content_handling_strategy=content_handling_strategy,
+            response_templates=response_templates,
+            template_selection_expression=template_selection_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: pulumi.Input[str],
+             integration_id: pulumi.Input[str],
+             integration_response_key: pulumi.Input[str],
+             content_handling_strategy: Optional[pulumi.Input[str]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_selection_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if 'integrationResponseKey' in kwargs:
+            integration_response_key = kwargs['integrationResponseKey']
+        if 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+
+        _setter("api_id", api_id)
+        _setter("integration_id", integration_id)
+        _setter("integration_response_key", integration_response_key)
         if content_handling_strategy is not None:
-            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+            _setter("content_handling_strategy", content_handling_strategy)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if template_selection_expression is not None:
-            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+            _setter("template_selection_expression", template_selection_expression)
 
     @property
     @pulumi.getter(name="apiId")
@@ -130,18 +163,51 @@ class _IntegrationResponseState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
+        _IntegrationResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            content_handling_strategy=content_handling_strategy,
+            integration_id=integration_id,
+            integration_response_key=integration_response_key,
+            response_templates=response_templates,
+            template_selection_expression=template_selection_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             content_handling_strategy: Optional[pulumi.Input[str]] = None,
+             integration_id: Optional[pulumi.Input[str]] = None,
+             integration_response_key: Optional[pulumi.Input[str]] = None,
+             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_selection_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if 'integrationResponseKey' in kwargs:
+            integration_response_key = kwargs['integrationResponseKey']
+        if 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if content_handling_strategy is not None:
-            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+            _setter("content_handling_strategy", content_handling_strategy)
         if integration_id is not None:
-            pulumi.set(__self__, "integration_id", integration_id)
+            _setter("integration_id", integration_id)
         if integration_response_key is not None:
-            pulumi.set(__self__, "integration_response_key", integration_response_key)
+            _setter("integration_response_key", integration_response_key)
         if response_templates is not None:
-            pulumi.set(__self__, "response_templates", response_templates)
+            _setter("response_templates", response_templates)
         if template_selection_expression is not None:
-            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
+            _setter("template_selection_expression", template_selection_expression)
 
     @property
     @pulumi.getter(name="apiId")
@@ -303,6 +369,10 @@ class IntegrationResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

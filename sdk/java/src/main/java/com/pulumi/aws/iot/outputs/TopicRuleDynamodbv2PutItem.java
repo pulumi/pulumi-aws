@@ -12,16 +12,12 @@ public final class TopicRuleDynamodbv2PutItem {
     /**
      * @return The name of the DynamoDB table.
      * 
-     * The `dynamodbv2` object takes the following arguments:
-     * 
      */
     private String tableName;
 
     private TopicRuleDynamodbv2PutItem() {}
     /**
      * @return The name of the DynamoDB table.
-     * 
-     * The `dynamodbv2` object takes the following arguments:
      * 
      */
     public String tableName() {

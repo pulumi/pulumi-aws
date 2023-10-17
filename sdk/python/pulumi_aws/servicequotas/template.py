@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TemplateArgs', 'Template']
@@ -25,10 +25,31 @@ class TemplateArgs:
         :param pulumi.Input[str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[float] value: The new, increased value for the quota.
         """
-        pulumi.set(__self__, "quota_code", quota_code)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_code", service_code)
-        pulumi.set(__self__, "value", value)
+        TemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota_code=quota_code,
+            region=region,
+            service_code=service_code,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota_code: pulumi.Input[str],
+             region: pulumi.Input[str],
+             service_code: pulumi.Input[str],
+             value: pulumi.Input[float],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'quotaCode' in kwargs:
+            quota_code = kwargs['quotaCode']
+        if 'serviceCode' in kwargs:
+            service_code = kwargs['serviceCode']
+
+        _setter("quota_code", quota_code)
+        _setter("region", region)
+        _setter("service_code", service_code)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="quotaCode")
@@ -101,22 +122,57 @@ class _TemplateState:
         :param pulumi.Input[str] unit: Unit of measurement.
         :param pulumi.Input[float] value: The new, increased value for the quota.
         """
+        _TemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_quota=global_quota,
+            quota_code=quota_code,
+            quota_name=quota_name,
+            region=region,
+            service_code=service_code,
+            service_name=service_name,
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_quota: Optional[pulumi.Input[bool]] = None,
+             quota_code: Optional[pulumi.Input[str]] = None,
+             quota_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             service_code: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             unit: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'globalQuota' in kwargs:
+            global_quota = kwargs['globalQuota']
+        if 'quotaCode' in kwargs:
+            quota_code = kwargs['quotaCode']
+        if 'quotaName' in kwargs:
+            quota_name = kwargs['quotaName']
+        if 'serviceCode' in kwargs:
+            service_code = kwargs['serviceCode']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if global_quota is not None:
-            pulumi.set(__self__, "global_quota", global_quota)
+            _setter("global_quota", global_quota)
         if quota_code is not None:
-            pulumi.set(__self__, "quota_code", quota_code)
+            _setter("quota_code", quota_code)
         if quota_name is not None:
-            pulumi.set(__self__, "quota_name", quota_name)
+            _setter("quota_name", quota_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if service_code is not None:
-            pulumi.set(__self__, "service_code", service_code)
+            _setter("service_code", service_code)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="globalQuota")
@@ -302,6 +358,10 @@ class Template(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

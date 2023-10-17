@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -70,9 +70,24 @@ class FirewallEncryptionConfigurationArgs:
         :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
         """
-        pulumi.set(__self__, "type", type)
+        FirewallEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("type", type)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter
@@ -106,8 +121,21 @@ class FirewallFirewallStatusArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]] sync_states: Set of subnets configured for use by the firewall.
         """
+        FirewallFirewallStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sync_states=sync_states,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sync_states: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'syncStates' in kwargs:
+            sync_states = kwargs['syncStates']
+
         if sync_states is not None:
-            pulumi.set(__self__, "sync_states", sync_states)
+            _setter("sync_states", sync_states)
 
     @property
     @pulumi.getter(name="syncStates")
@@ -131,10 +159,25 @@ class FirewallFirewallStatusSyncStateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateAttachmentArgs']]] attachments: Nested list describing the attachment status of the firewall's association with a single VPC subnet.
         :param pulumi.Input[str] availability_zone: The Availability Zone where the subnet is configured.
         """
+        FirewallFirewallStatusSyncStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attachments=attachments,
+            availability_zone=availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attachments: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateAttachmentArgs']]]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
         if attachments is not None:
-            pulumi.set(__self__, "attachments", attachments)
+            _setter("attachments", attachments)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
 
     @property
     @pulumi.getter
@@ -170,10 +213,27 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
         :param pulumi.Input[str] endpoint_id: The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
         :param pulumi.Input[str] subnet_id: The unique identifier for the subnet.
         """
+        FirewallFirewallStatusSyncStateAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_id=endpoint_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if endpoint_id is not None:
-            pulumi.set(__self__, "endpoint_id", endpoint_id)
+            _setter("endpoint_id", endpoint_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="endpointId")
@@ -209,9 +269,24 @@ class FirewallPolicyEncryptionConfigurationArgs:
         :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
         """
-        pulumi.set(__self__, "type", type)
+        FirewallPolicyEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("type", type)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter
@@ -261,20 +336,61 @@ class FirewallPolicyFirewallPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
         """
-        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
-        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        FirewallPolicyFirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stateless_default_actions=stateless_default_actions,
+            stateless_fragment_default_actions=stateless_fragment_default_actions,
+            policy_variables=policy_variables,
+            stateful_default_actions=stateful_default_actions,
+            stateful_engine_options=stateful_engine_options,
+            stateful_rule_group_references=stateful_rule_group_references,
+            stateless_custom_actions=stateless_custom_actions,
+            stateless_rule_group_references=stateless_rule_group_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             policy_variables: Optional[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs']] = None,
+             stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stateful_engine_options: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']] = None,
+             stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
+             stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]]] = None,
+             stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statelessDefaultActions' in kwargs:
+            stateless_default_actions = kwargs['statelessDefaultActions']
+        if 'statelessFragmentDefaultActions' in kwargs:
+            stateless_fragment_default_actions = kwargs['statelessFragmentDefaultActions']
+        if 'policyVariables' in kwargs:
+            policy_variables = kwargs['policyVariables']
+        if 'statefulDefaultActions' in kwargs:
+            stateful_default_actions = kwargs['statefulDefaultActions']
+        if 'statefulEngineOptions' in kwargs:
+            stateful_engine_options = kwargs['statefulEngineOptions']
+        if 'statefulRuleGroupReferences' in kwargs:
+            stateful_rule_group_references = kwargs['statefulRuleGroupReferences']
+        if 'statelessCustomActions' in kwargs:
+            stateless_custom_actions = kwargs['statelessCustomActions']
+        if 'statelessRuleGroupReferences' in kwargs:
+            stateless_rule_group_references = kwargs['statelessRuleGroupReferences']
+
+        _setter("stateless_default_actions", stateless_default_actions)
+        _setter("stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
-            pulumi.set(__self__, "policy_variables", policy_variables)
+            _setter("policy_variables", policy_variables)
         if stateful_default_actions is not None:
-            pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
+            _setter("stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
-            pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
+            _setter("stateful_engine_options", stateful_engine_options)
         if stateful_rule_group_references is not None:
-            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
+            _setter("stateful_rule_group_references", stateful_rule_group_references)
         if stateless_custom_actions is not None:
-            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
+            _setter("stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
-            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+            _setter("stateless_rule_group_references", stateless_rule_group_references)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -379,8 +495,21 @@ class FirewallPolicyFirewallPolicyArgs:
 class FirewallPolicyFirewallPolicyPolicyVariablesArgs:
     def __init__(__self__, *,
                  rule_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]] = None):
+        FirewallPolicyFirewallPolicyPolicyVariablesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_variables=rule_variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+
         if rule_variables is not None:
-            pulumi.set(__self__, "rule_variables", rule_variables)
+            _setter("rule_variables", rule_variables)
 
     @property
     @pulumi.getter(name="ruleVariables")
@@ -401,8 +530,23 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs:
         :param pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs'] ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
         :param pulumi.Input[str] key: An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
         """
-        pulumi.set(__self__, "ip_set", ip_set)
-        pulumi.set(__self__, "key", key)
+        FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_set=ip_set,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_set: pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs'],
+             key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSet' in kwargs:
+            ip_set = kwargs['ipSet']
+
+        _setter("ip_set", ip_set)
+        _setter("key", key)
 
     @property
     @pulumi.getter(name="ipSet")
@@ -436,7 +580,18 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
         """
-        pulumi.set(__self__, "definitions", definitions)
+        FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definitions=definitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definitions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("definitions", definitions)
 
     @property
     @pulumi.getter
@@ -460,10 +615,27 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs:
         :param pulumi.Input[str] rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         :param pulumi.Input[str] stream_exception_policy: Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         """
+        FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_order=rule_order,
+            stream_exception_policy=stream_exception_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_order: Optional[pulumi.Input[str]] = None,
+             stream_exception_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+        if 'streamExceptionPolicy' in kwargs:
+            stream_exception_policy = kwargs['streamExceptionPolicy']
+
         if rule_order is not None:
-            pulumi.set(__self__, "rule_order", rule_order)
+            _setter("rule_order", rule_order)
         if stream_exception_policy is not None:
-            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+            _setter("stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -501,11 +673,28 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs'] override: Configuration block for override values
         :param pulumi.Input[int] priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_arn=resource_arn,
+            override=override,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_arn: pulumi.Input[str],
+             override: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
+        _setter("resource_arn", resource_arn)
         if override is not None:
-            pulumi.set(__self__, "override", override)
+            _setter("override", override)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -551,8 +740,19 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs:
         """
         :param pulumi.Input[str] action: The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
         """
+        FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter
@@ -576,8 +776,25 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionArgs:
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs'] action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
         :param pulumi.Input[str] action_name: A friendly name of the custom action.
         """
-        pulumi.set(__self__, "action_definition", action_definition)
-        pulumi.set(__self__, "action_name", action_name)
+        FirewallPolicyFirewallPolicyStatelessCustomActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_definition=action_definition,
+            action_name=action_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_definition: pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs'],
+             action_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
+        _setter("action_definition", action_definition)
+        _setter("action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
@@ -611,7 +828,20 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs:
         """
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs'] publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
         """
-        pulumi.set(__self__, "publish_metric_action", publish_metric_action)
+        FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publish_metric_action=publish_metric_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publish_metric_action: pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
+        _setter("publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
@@ -633,7 +863,18 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
         """
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs']]] dimensions: Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
         """
-        pulumi.set(__self__, "dimensions", dimensions)
+        FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter
@@ -655,7 +896,18 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
         """
         :param pulumi.Input[str] value: The string value to use in the custom metric dimension.
         """
-        pulumi.set(__self__, "value", value)
+        FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -679,8 +931,23 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
         :param pulumi.Input[int] priority: An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the stateless rule group.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: pulumi.Input[int],
+             resource_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
+        _setter("priority", priority)
+        _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -716,9 +983,26 @@ class FirewallSubnetMappingArgs:
         :param pulumi.Input[str] subnet_id: The unique identifier for the subnet.
         :param pulumi.Input[str] ip_address_type: The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        FirewallSubnetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            ip_address_type=ip_address_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+
+        _setter("subnet_id", subnet_id)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -752,7 +1036,20 @@ class LoggingConfigurationLoggingConfigurationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs']]] log_destination_configs: Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
         """
-        pulumi.set(__self__, "log_destination_configs", log_destination_configs)
+        LoggingConfigurationLoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_destination_configs=log_destination_configs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDestinationConfigs' in kwargs:
+            log_destination_configs = kwargs['logDestinationConfigs']
+
+        _setter("log_destination_configs", log_destination_configs)
 
     @property
     @pulumi.getter(name="logDestinationConfigs")
@@ -781,9 +1078,30 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs:
         :param pulumi.Input[str] log_destination_type: The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
         :param pulumi.Input[str] log_type: The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
         """
-        pulumi.set(__self__, "log_destination", log_destination)
-        pulumi.set(__self__, "log_destination_type", log_destination_type)
-        pulumi.set(__self__, "log_type", log_type)
+        LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_destination=log_destination,
+            log_destination_type=log_destination_type,
+            log_type=log_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_destination: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+             log_destination_type: pulumi.Input[str],
+             log_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+
+        _setter("log_destination", log_destination)
+        _setter("log_destination_type", log_destination_type)
+        _setter("log_type", log_type)
 
     @property
     @pulumi.getter(name="logDestination")
@@ -834,9 +1152,24 @@ class RuleGroupEncryptionConfigurationArgs:
         :param pulumi.Input[str] type: The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
         :param pulumi.Input[str] key_id: The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
         """
-        pulumi.set(__self__, "type", type)
+        RuleGroupEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("type", type)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter
@@ -876,13 +1209,38 @@ class RuleGroupRuleGroupArgs:
         :param pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs'] rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         :param pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs'] stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         """
-        pulumi.set(__self__, "rules_source", rules_source)
+        RuleGroupRuleGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules_source=rules_source,
+            reference_sets=reference_sets,
+            rule_variables=rule_variables,
+            stateful_rule_options=stateful_rule_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules_source: pulumi.Input['RuleGroupRuleGroupRulesSourceArgs'],
+             reference_sets: Optional[pulumi.Input['RuleGroupRuleGroupReferenceSetsArgs']] = None,
+             rule_variables: Optional[pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs']] = None,
+             stateful_rule_options: Optional[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulesSource' in kwargs:
+            rules_source = kwargs['rulesSource']
+        if 'referenceSets' in kwargs:
+            reference_sets = kwargs['referenceSets']
+        if 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+        if 'statefulRuleOptions' in kwargs:
+            stateful_rule_options = kwargs['statefulRuleOptions']
+
+        _setter("rules_source", rules_source)
         if reference_sets is not None:
-            pulumi.set(__self__, "reference_sets", reference_sets)
+            _setter("reference_sets", reference_sets)
         if rule_variables is not None:
-            pulumi.set(__self__, "rule_variables", rule_variables)
+            _setter("rule_variables", rule_variables)
         if stateful_rule_options is not None:
-            pulumi.set(__self__, "stateful_rule_options", stateful_rule_options)
+            _setter("stateful_rule_options", stateful_rule_options)
 
     @property
     @pulumi.getter(name="rulesSource")
@@ -937,8 +1295,21 @@ class RuleGroupRuleGroupArgs:
 class RuleGroupRuleGroupReferenceSetsArgs:
     def __init__(__self__, *,
                  ip_set_references: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs']]]] = None):
+        RuleGroupRuleGroupReferenceSetsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_set_references=ip_set_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_set_references: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetReferences' in kwargs:
+            ip_set_references = kwargs['ipSetReferences']
+
         if ip_set_references is not None:
-            pulumi.set(__self__, "ip_set_references", ip_set_references)
+            _setter("ip_set_references", ip_set_references)
 
     @property
     @pulumi.getter(name="ipSetReferences")
@@ -959,8 +1330,23 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
         :param pulumi.Input[str] key: A unique alphanumeric string to identify the `ip_set`.
         """
-        pulumi.set(__self__, "ip_set_references", ip_set_references)
-        pulumi.set(__self__, "key", key)
+        RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_set_references=ip_set_references,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_set_references: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]],
+             key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSetReferences' in kwargs:
+            ip_set_references = kwargs['ipSetReferences']
+
+        _setter("ip_set_references", ip_set_references)
+        _setter("key", key)
 
     @property
     @pulumi.getter(name="ipSetReferences")
@@ -994,7 +1380,20 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs:
         """
         :param pulumi.Input[str] reference_arn: Set of Managed Prefix IP ARN(s)
         """
-        pulumi.set(__self__, "reference_arn", reference_arn)
+        RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference_arn=reference_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference_arn: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referenceArn' in kwargs:
+            reference_arn = kwargs['referenceArn']
+
+        _setter("reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
@@ -1018,10 +1417,27 @@ class RuleGroupRuleGroupRuleVariablesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetArgs']]] ip_sets: Set of configuration blocks that define IP address information. See IP Sets below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetArgs']]] port_sets: Set of configuration blocks that define port range information. See Port Sets below for details.
         """
+        RuleGroupRuleGroupRuleVariablesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_sets=ip_sets,
+            port_sets=port_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetArgs']]]] = None,
+             port_sets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSets' in kwargs:
+            ip_sets = kwargs['ipSets']
+        if 'portSets' in kwargs:
+            port_sets = kwargs['portSets']
+
         if ip_sets is not None:
-            pulumi.set(__self__, "ip_sets", ip_sets)
+            _setter("ip_sets", ip_sets)
         if port_sets is not None:
-            pulumi.set(__self__, "port_sets", port_sets)
+            _setter("port_sets", port_sets)
 
     @property
     @pulumi.getter(name="ipSets")
@@ -1057,8 +1473,23 @@ class RuleGroupRuleGroupRuleVariablesIpSetArgs:
         :param pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs'] ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
         :param pulumi.Input[str] key: A unique alphanumeric string to identify the `ip_set`.
         """
-        pulumi.set(__self__, "ip_set", ip_set)
-        pulumi.set(__self__, "key", key)
+        RuleGroupRuleGroupRuleVariablesIpSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_set=ip_set,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_set: pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs'],
+             key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipSet' in kwargs:
+            ip_set = kwargs['ipSet']
+
+        _setter("ip_set", ip_set)
+        _setter("key", key)
 
     @property
     @pulumi.getter(name="ipSet")
@@ -1092,7 +1523,18 @@ class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: Set of IP addresses and address ranges, in CIDR notation.
         """
-        pulumi.set(__self__, "definitions", definitions)
+        RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definitions=definitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definitions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("definitions", definitions)
 
     @property
     @pulumi.getter
@@ -1116,8 +1558,23 @@ class RuleGroupRuleGroupRuleVariablesPortSetArgs:
         :param pulumi.Input[str] key: An unique alphanumeric string to identify the `port_set`.
         :param pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs'] port_set: A configuration block that defines a set of port ranges. See Port Set below for details.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "port_set", port_set)
+        RuleGroupRuleGroupRuleVariablesPortSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            port_set=port_set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: pulumi.Input[str],
+             port_set: pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'portSet' in kwargs:
+            port_set = kwargs['portSet']
+
+        _setter("key", key)
+        _setter("port_set", port_set)
 
     @property
     @pulumi.getter
@@ -1151,7 +1608,18 @@ class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: Set of port ranges.
         """
-        pulumi.set(__self__, "definitions", definitions)
+        RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definitions=definitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definitions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("definitions", definitions)
 
     @property
     @pulumi.getter
@@ -1179,14 +1647,39 @@ class RuleGroupRuleGroupRulesSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgs']]] stateful_rules: Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs'] stateless_rules_and_custom_actions: A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
         """
+        RuleGroupRuleGroupRulesSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules_source_list=rules_source_list,
+            rules_string=rules_string,
+            stateful_rules=stateful_rules,
+            stateless_rules_and_custom_actions=stateless_rules_and_custom_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules_source_list: Optional[pulumi.Input['RuleGroupRuleGroupRulesSourceRulesSourceListArgs']] = None,
+             rules_string: Optional[pulumi.Input[str]] = None,
+             stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgs']]]] = None,
+             stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rulesSourceList' in kwargs:
+            rules_source_list = kwargs['rulesSourceList']
+        if 'rulesString' in kwargs:
+            rules_string = kwargs['rulesString']
+        if 'statefulRules' in kwargs:
+            stateful_rules = kwargs['statefulRules']
+        if 'statelessRulesAndCustomActions' in kwargs:
+            stateless_rules_and_custom_actions = kwargs['statelessRulesAndCustomActions']
+
         if rules_source_list is not None:
-            pulumi.set(__self__, "rules_source_list", rules_source_list)
+            _setter("rules_source_list", rules_source_list)
         if rules_string is not None:
-            pulumi.set(__self__, "rules_string", rules_string)
+            _setter("rules_string", rules_string)
         if stateful_rules is not None:
-            pulumi.set(__self__, "stateful_rules", stateful_rules)
+            _setter("stateful_rules", stateful_rules)
         if stateless_rules_and_custom_actions is not None:
-            pulumi.set(__self__, "stateless_rules_and_custom_actions", stateless_rules_and_custom_actions)
+            _setter("stateless_rules_and_custom_actions", stateless_rules_and_custom_actions)
 
     @property
     @pulumi.getter(name="rulesSourceList")
@@ -1248,9 +1741,28 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_types: Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: Set of domains that you want to inspect for in your traffic flows.
         """
-        pulumi.set(__self__, "generated_rules_type", generated_rules_type)
-        pulumi.set(__self__, "target_types", target_types)
-        pulumi.set(__self__, "targets", targets)
+        RuleGroupRuleGroupRulesSourceRulesSourceListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generated_rules_type=generated_rules_type,
+            target_types=target_types,
+            targets=targets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generated_rules_type: pulumi.Input[str],
+             target_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             targets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'generatedRulesType' in kwargs:
+            generated_rules_type = kwargs['generatedRulesType']
+        if 'targetTypes' in kwargs:
+            target_types = kwargs['targetTypes']
+
+        _setter("generated_rules_type", generated_rules_type)
+        _setter("target_types", target_types)
+        _setter("targets", targets)
 
     @property
     @pulumi.getter(name="generatedRulesType")
@@ -1300,9 +1812,26 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs'] header: A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs']]] rule_options: Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "rule_options", rule_options)
+        RuleGroupRuleGroupRulesSourceStatefulRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            header=header,
+            rule_options=rule_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: pulumi.Input[str],
+             header: pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs'],
+             rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOptions' in kwargs:
+            rule_options = kwargs['ruleOptions']
+
+        _setter("action", action)
+        _setter("header", header)
+        _setter("rule_options", rule_options)
 
     @property
     @pulumi.getter
@@ -1358,12 +1887,37 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs:
         :param pulumi.Input[str] source: The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
         :param pulumi.Input[str] source_port: The source port to inspect for. To match with any address, specify `ANY`.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "destination_port", destination_port)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "source_port", source_port)
+        RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            destination_port=destination_port,
+            direction=direction,
+            protocol=protocol,
+            source=source,
+            source_port=source_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: pulumi.Input[str],
+             destination_port: pulumi.Input[str],
+             direction: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             source: pulumi.Input[str],
+             source_port: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
+        _setter("destination", destination)
+        _setter("destination_port", destination_port)
+        _setter("direction", direction)
+        _setter("protocol", protocol)
+        _setter("source", source)
+        _setter("source_port", source_port)
 
     @property
     @pulumi.getter
@@ -1448,9 +2002,22 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs:
                See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] settings: Set of strings for additional settings to use in stateful rule inspection.
         """
-        pulumi.set(__self__, "keyword", keyword)
+        RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keyword=keyword,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keyword: pulumi.Input[str],
+             settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("keyword", keyword)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -1487,9 +2054,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs']]] stateless_rules: Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs']]] custom_actions: Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
         """
-        pulumi.set(__self__, "stateless_rules", stateless_rules)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stateless_rules=stateless_rules,
+            custom_actions=custom_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs']]],
+             custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'statelessRules' in kwargs:
+            stateless_rules = kwargs['statelessRules']
+        if 'customActions' in kwargs:
+            custom_actions = kwargs['customActions']
+
+        _setter("stateless_rules", stateless_rules)
         if custom_actions is not None:
-            pulumi.set(__self__, "custom_actions", custom_actions)
+            _setter("custom_actions", custom_actions)
 
     @property
     @pulumi.getter(name="statelessRules")
@@ -1525,8 +2109,25 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArg
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs'] action_definition: A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
         :param pulumi.Input[str] action_name: A friendly name of the custom action.
         """
-        pulumi.set(__self__, "action_definition", action_definition)
-        pulumi.set(__self__, "action_name", action_name)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_definition=action_definition,
+            action_name=action_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_definition: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs'],
+             action_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
+        _setter("action_definition", action_definition)
+        _setter("action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
@@ -1560,7 +2161,20 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         """
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs'] publish_metric_action: A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
         """
-        pulumi.set(__self__, "publish_metric_action", publish_metric_action)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publish_metric_action=publish_metric_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publish_metric_action: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
+        _setter("publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
@@ -1582,7 +2196,18 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs']]] dimensions: Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
         """
-        pulumi.set(__self__, "dimensions", dimensions)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs']]],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("dimensions", dimensions)
 
     @property
     @pulumi.getter
@@ -1604,7 +2229,18 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         """
         :param pulumi.Input[str] value: The value to use in the custom metric dimension.
         """
-        pulumi.set(__self__, "value", value)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1628,8 +2264,23 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleAr
         :param pulumi.Input[int] priority: A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs'] rule_definition: A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_definition", rule_definition)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            rule_definition=rule_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: pulumi.Input[int],
+             rule_definition: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleDefinition' in kwargs:
+            rule_definition = kwargs['ruleDefinition']
+
+        _setter("priority", priority)
+        _setter("rule_definition", rule_definition)
 
     @property
     @pulumi.getter
@@ -1665,8 +2316,23 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs'] match_attributes: A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "match_attributes", match_attributes)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            match_attributes=match_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             match_attributes: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchAttributes' in kwargs:
+            match_attributes = kwargs['matchAttributes']
+
+        _setter("actions", actions)
+        _setter("match_attributes", match_attributes)
 
     @property
     @pulumi.getter
@@ -1710,18 +2376,45 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs']]] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs']]] tcp_flags: Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
         """
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_ports=destination_ports,
+            destinations=destinations,
+            protocols=protocols,
+            source_ports=source_ports,
+            sources=sources,
+            tcp_flags=tcp_flags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs']]]] = None,
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs']]]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs']]]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs']]]] = None,
+             tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if 'sourcePorts' in kwargs:
+            source_ports = kwargs['sourcePorts']
+        if 'tcpFlags' in kwargs:
+            tcp_flags = kwargs['tcpFlags']
+
         if destination_ports is not None:
-            pulumi.set(__self__, "destination_ports", destination_ports)
+            _setter("destination_ports", destination_ports)
         if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+            _setter("destinations", destinations)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if source_ports is not None:
-            pulumi.set(__self__, "source_ports", source_ports)
+            _setter("source_ports", source_ports)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tcp_flags is not None:
-            pulumi.set(__self__, "tcp_flags", tcp_flags)
+            _setter("tcp_flags", tcp_flags)
 
     @property
     @pulumi.getter(name="destinationPorts")
@@ -1803,7 +2496,20 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         :param pulumi.Input[str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
-        pulumi.set(__self__, "address_definition", address_definition)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_definition=address_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_definition: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressDefinition' in kwargs:
+            address_definition = kwargs['addressDefinition']
+
+        _setter("address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
@@ -1827,9 +2533,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         :param pulumi.Input[int] from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
         :param pulumi.Input[int] to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
         """
-        pulumi.set(__self__, "from_port", from_port)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_port=from_port,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_port: pulumi.Input[int],
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
+        _setter("from_port", from_port)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -1863,7 +2586,20 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         :param pulumi.Input[str] address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
         """
-        pulumi.set(__self__, "address_definition", address_definition)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_definition=address_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_definition: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressDefinition' in kwargs:
+            address_definition = kwargs['addressDefinition']
+
+        _setter("address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
@@ -1887,9 +2623,26 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         :param pulumi.Input[int] from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
         :param pulumi.Input[int] to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
         """
-        pulumi.set(__self__, "from_port", from_port)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_port=from_port,
+            to_port=to_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_port: pulumi.Input[int],
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
+        _setter("from_port", from_port)
         if to_port is not None:
-            pulumi.set(__self__, "to_port", to_port)
+            _setter("to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -1927,9 +2680,22 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         :param pulumi.Input[Sequence[pulumi.Input[str]]] masks: Set of flags to consider in the inspection. To inspect all flags, leave this empty.
                Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
         """
-        pulumi.set(__self__, "flags", flags)
+        RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flags=flags,
+            masks=masks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flags: pulumi.Input[Sequence[pulumi.Input[str]]],
+             masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("flags", flags)
         if masks is not None:
-            pulumi.set(__self__, "masks", masks)
+            _setter("masks", masks)
 
     @property
     @pulumi.getter
@@ -1965,7 +2731,20 @@ class RuleGroupRuleGroupStatefulRuleOptionsArgs:
         """
         :param pulumi.Input[str] rule_order: Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         """
-        pulumi.set(__self__, "rule_order", rule_order)
+        RuleGroupRuleGroupStatefulRuleOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_order=rule_order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_order: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+
+        _setter("rule_order", rule_order)
 
     @property
     @pulumi.getter(name="ruleOrder")

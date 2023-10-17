@@ -116,7 +116,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
     ///             {
     ///                 Namespace = "AWS/EBS",
-    ///                 MetricNames = new[] {},
+    ///                 MetricNames = new() { },
     ///             },
     ///         },
     ///     });

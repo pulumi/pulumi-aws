@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SinkPolicyArgs', 'SinkPolicy']
@@ -21,8 +21,23 @@ class SinkPolicyArgs:
         :param pulumi.Input[str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         :param pulumi.Input[str] sink_identifier: ARN of the sink to attach this policy to.
         """
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "sink_identifier", sink_identifier)
+        SinkPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            sink_identifier=sink_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: pulumi.Input[str],
+             sink_identifier: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sinkIdentifier' in kwargs:
+            sink_identifier = kwargs['sinkIdentifier']
+
+        _setter("policy", policy)
+        _setter("sink_identifier", sink_identifier)
 
     @property
     @pulumi.getter
@@ -63,14 +78,35 @@ class _SinkPolicyState:
         :param pulumi.Input[str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[str] sink_identifier: ARN of the sink to attach this policy to.
         """
+        _SinkPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            policy=policy,
+            sink_id=sink_id,
+            sink_identifier=sink_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             sink_id: Optional[pulumi.Input[str]] = None,
+             sink_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sinkId' in kwargs:
+            sink_id = kwargs['sinkId']
+        if 'sinkIdentifier' in kwargs:
+            sink_identifier = kwargs['sinkIdentifier']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if sink_id is not None:
-            pulumi.set(__self__, "sink_id", sink_id)
+            _setter("sink_id", sink_id)
         if sink_identifier is not None:
-            pulumi.set(__self__, "sink_identifier", sink_identifier)
+            _setter("sink_identifier", sink_identifier)
 
     @property
     @pulumi.getter
@@ -248,6 +284,10 @@ class SinkPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SinkPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -112,14 +112,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Unique identifier for the origin.
+     * Unique identifier of the member origin.
      * 
      */
     @Import(name="originId", required=true)
     private Output<String> originId;
 
     /**
-     * @return Unique identifier for the origin.
+     * @return Unique identifier of the member origin.
      * 
      */
     public Output<String> originId() {
@@ -341,7 +341,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originId Unique identifier for the origin.
+         * @param originId Unique identifier of the member origin.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originId Unique identifier for the origin.
+         * @param originId Unique identifier of the member origin.
          * 
          * @return builder
          * 

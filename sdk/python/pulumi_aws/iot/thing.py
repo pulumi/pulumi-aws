@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ThingArgs', 'Thing']
@@ -23,12 +23,29 @@ class ThingArgs:
         :param pulumi.Input[str] name: The name of the thing.
         :param pulumi.Input[str] thing_type_name: The thing type name.
         """
+        ThingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            name=name,
+            thing_type_name=thing_type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thing_type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'thingTypeName' in kwargs:
+            thing_type_name = kwargs['thingTypeName']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thing_type_name is not None:
-            pulumi.set(__self__, "thing_type_name", thing_type_name)
+            _setter("thing_type_name", thing_type_name)
 
     @property
     @pulumi.getter
@@ -85,18 +102,43 @@ class _ThingState:
         :param pulumi.Input[str] thing_type_name: The thing type name.
         :param pulumi.Input[int] version: The current version of the thing record in the registry.
         """
+        _ThingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            attributes=attributes,
+            default_client_id=default_client_id,
+            name=name,
+            thing_type_name=thing_type_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             default_client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             thing_type_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultClientId' in kwargs:
+            default_client_id = kwargs['defaultClientId']
+        if 'thingTypeName' in kwargs:
+            thing_type_name = kwargs['thingTypeName']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if default_client_id is not None:
-            pulumi.set(__self__, "default_client_id", default_client_id)
+            _setter("default_client_id", default_client_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if thing_type_name is not None:
-            pulumi.set(__self__, "thing_type_name", thing_type_name)
+            _setter("thing_type_name", thing_type_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -246,6 +288,10 @@ class Thing(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

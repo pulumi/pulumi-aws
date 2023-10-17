@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MacsecKeyAssociationArgs', 'MacsecKeyAssociation']
@@ -27,13 +27,34 @@ class MacsecKeyAssociationArgs:
                
                > **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         """
-        pulumi.set(__self__, "connection_id", connection_id)
+        MacsecKeyAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_id=connection_id,
+            cak=cak,
+            ckn=ckn,
+            secret_arn=secret_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_id: pulumi.Input[str],
+             cak: Optional[pulumi.Input[str]] = None,
+             ckn: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
+        _setter("connection_id", connection_id)
         if cak is not None:
-            pulumi.set(__self__, "cak", cak)
+            _setter("cak", cak)
         if ckn is not None:
-            pulumi.set(__self__, "ckn", ckn)
+            _setter("ckn", ckn)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -106,18 +127,45 @@ class _MacsecKeyAssociationState:
         :param pulumi.Input[str] start_on: The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         :param pulumi.Input[str] state: The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         """
+        _MacsecKeyAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cak=cak,
+            ckn=ckn,
+            connection_id=connection_id,
+            secret_arn=secret_arn,
+            start_on=start_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cak: Optional[pulumi.Input[str]] = None,
+             ckn: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             start_on: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if 'startOn' in kwargs:
+            start_on = kwargs['startOn']
+
         if cak is not None:
-            pulumi.set(__self__, "cak", cak)
+            _setter("cak", cak)
         if ckn is not None:
-            pulumi.set(__self__, "ckn", ckn)
+            _setter("ckn", ckn)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
+            _setter("secret_arn", secret_arn)
         if start_on is not None:
-            pulumi.set(__self__, "start_on", start_on)
+            _setter("start_on", start_on)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -297,6 +345,10 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MacsecKeyAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedPublicVirtualInterfaceArgs', 'HostedPublicVirtualInterface']
@@ -37,20 +37,65 @@ class HostedPublicVirtualInterfaceArgs:
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] name: The name for the virtual interface.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "bgp_asn", bgp_asn)
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "owner_account_id", owner_account_id)
-        pulumi.set(__self__, "route_filter_prefixes", route_filter_prefixes)
-        pulumi.set(__self__, "vlan", vlan)
+        HostedPublicVirtualInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            bgp_asn=bgp_asn,
+            connection_id=connection_id,
+            owner_account_id=owner_account_id,
+            route_filter_prefixes=route_filter_prefixes,
+            vlan=vlan,
+            amazon_address=amazon_address,
+            bgp_auth_key=bgp_auth_key,
+            customer_address=customer_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: pulumi.Input[str],
+             bgp_asn: pulumi.Input[int],
+             connection_id: pulumi.Input[str],
+             owner_account_id: pulumi.Input[str],
+             route_filter_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
+             vlan: pulumi.Input[int],
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if 'routeFilterPrefixes' in kwargs:
+            route_filter_prefixes = kwargs['routeFilterPrefixes']
+        if 'amazonAddress' in kwargs:
+            amazon_address = kwargs['amazonAddress']
+        if 'bgpAuthKey' in kwargs:
+            bgp_auth_key = kwargs['bgpAuthKey']
+        if 'customerAddress' in kwargs:
+            customer_address = kwargs['customerAddress']
+
+        _setter("address_family", address_family)
+        _setter("bgp_asn", bgp_asn)
+        _setter("connection_id", connection_id)
+        _setter("owner_account_id", owner_account_id)
+        _setter("route_filter_prefixes", route_filter_prefixes)
+        _setter("vlan", vlan)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -204,32 +249,87 @@ class _HostedPublicVirtualInterfaceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
+        _HostedPublicVirtualInterfaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            amazon_address=amazon_address,
+            amazon_side_asn=amazon_side_asn,
+            arn=arn,
+            aws_device=aws_device,
+            bgp_asn=bgp_asn,
+            bgp_auth_key=bgp_auth_key,
+            connection_id=connection_id,
+            customer_address=customer_address,
+            name=name,
+            owner_account_id=owner_account_id,
+            route_filter_prefixes=route_filter_prefixes,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[str]] = None,
+             amazon_address: Optional[pulumi.Input[str]] = None,
+             amazon_side_asn: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_device: Optional[pulumi.Input[str]] = None,
+             bgp_asn: Optional[pulumi.Input[int]] = None,
+             bgp_auth_key: Optional[pulumi.Input[str]] = None,
+             connection_id: Optional[pulumi.Input[str]] = None,
+             customer_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_account_id: Optional[pulumi.Input[str]] = None,
+             route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlan: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if 'amazonAddress' in kwargs:
+            amazon_address = kwargs['amazonAddress']
+        if 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+        if 'awsDevice' in kwargs:
+            aws_device = kwargs['awsDevice']
+        if 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if 'bgpAuthKey' in kwargs:
+            bgp_auth_key = kwargs['bgpAuthKey']
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'customerAddress' in kwargs:
+            customer_address = kwargs['customerAddress']
+        if 'ownerAccountId' in kwargs:
+            owner_account_id = kwargs['ownerAccountId']
+        if 'routeFilterPrefixes' in kwargs:
+            route_filter_prefixes = kwargs['routeFilterPrefixes']
+
         if address_family is not None:
-            pulumi.set(__self__, "address_family", address_family)
+            _setter("address_family", address_family)
         if amazon_address is not None:
-            pulumi.set(__self__, "amazon_address", amazon_address)
+            _setter("amazon_address", amazon_address)
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_device is not None:
-            pulumi.set(__self__, "aws_device", aws_device)
+            _setter("aws_device", aws_device)
         if bgp_asn is not None:
-            pulumi.set(__self__, "bgp_asn", bgp_asn)
+            _setter("bgp_asn", bgp_asn)
         if bgp_auth_key is not None:
-            pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
+            _setter("bgp_auth_key", bgp_auth_key)
         if connection_id is not None:
-            pulumi.set(__self__, "connection_id", connection_id)
+            _setter("connection_id", connection_id)
         if customer_address is not None:
-            pulumi.set(__self__, "customer_address", customer_address)
+            _setter("customer_address", customer_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_account_id is not None:
-            pulumi.set(__self__, "owner_account_id", owner_account_id)
+            _setter("owner_account_id", owner_account_id)
         if route_filter_prefixes is not None:
-            pulumi.set(__self__, "route_filter_prefixes", route_filter_prefixes)
+            _setter("route_filter_prefixes", route_filter_prefixes)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -492,6 +592,10 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedPublicVirtualInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

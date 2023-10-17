@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RedrivePolicyArgs', 'RedrivePolicy']
@@ -21,8 +21,25 @@ class RedrivePolicyArgs:
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
-        pulumi.set(__self__, "queue_url", queue_url)
-        pulumi.set(__self__, "redrive_policy", redrive_policy)
+        RedrivePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_url=queue_url,
+            redrive_policy=redrive_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_url: pulumi.Input[str],
+             redrive_policy: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+
+        _setter("queue_url", queue_url)
+        _setter("redrive_policy", redrive_policy)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -59,10 +76,27 @@ class _RedrivePolicyState:
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[str] redrive_policy: The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
+        _RedrivePolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_url=queue_url,
+            redrive_policy=redrive_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_url: Optional[pulumi.Input[str]] = None,
+             redrive_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+
         if queue_url is not None:
-            pulumi.set(__self__, "queue_url", queue_url)
+            _setter("queue_url", queue_url)
         if redrive_policy is not None:
-            pulumi.set(__self__, "redrive_policy", redrive_policy)
+            _setter("redrive_policy", redrive_policy)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -190,6 +224,10 @@ class RedrivePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RedrivePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

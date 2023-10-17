@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,47 @@ class UserProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
         """
-        pulumi.set(__self__, "domain_id", domain_id)
-        pulumi.set(__self__, "user_profile_name", user_profile_name)
+        UserProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_id=domain_id,
+            user_profile_name=user_profile_name,
+            single_sign_on_user_identifier=single_sign_on_user_identifier,
+            single_sign_on_user_value=single_sign_on_user_value,
+            tags=tags,
+            user_settings=user_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_id: pulumi.Input[str],
+             user_profile_name: pulumi.Input[str],
+             single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
+             single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if 'singleSignOnUserIdentifier' in kwargs:
+            single_sign_on_user_identifier = kwargs['singleSignOnUserIdentifier']
+        if 'singleSignOnUserValue' in kwargs:
+            single_sign_on_user_value = kwargs['singleSignOnUserValue']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
+        _setter("domain_id", domain_id)
+        _setter("user_profile_name", user_profile_name)
         if single_sign_on_user_identifier is not None:
-            pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
+            _setter("single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
-            pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
+            _setter("single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_settings is not None:
-            pulumi.set(__self__, "user_settings", user_settings)
+            _setter("user_settings", user_settings)
 
     @property
     @pulumi.getter(name="domainId")
@@ -139,27 +170,68 @@ class _UserProfileState:
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
         """
+        _UserProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            domain_id=domain_id,
+            home_efs_file_system_uid=home_efs_file_system_uid,
+            single_sign_on_user_identifier=single_sign_on_user_identifier,
+            single_sign_on_user_value=single_sign_on_user_value,
+            tags=tags,
+            tags_all=tags_all,
+            user_profile_name=user_profile_name,
+            user_settings=user_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
+             single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
+             single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_profile_name: Optional[pulumi.Input[str]] = None,
+             user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if 'homeEfsFileSystemUid' in kwargs:
+            home_efs_file_system_uid = kwargs['homeEfsFileSystemUid']
+        if 'singleSignOnUserIdentifier' in kwargs:
+            single_sign_on_user_identifier = kwargs['singleSignOnUserIdentifier']
+        if 'singleSignOnUserValue' in kwargs:
+            single_sign_on_user_value = kwargs['singleSignOnUserValue']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if home_efs_file_system_uid is not None:
-            pulumi.set(__self__, "home_efs_file_system_uid", home_efs_file_system_uid)
+            _setter("home_efs_file_system_uid", home_efs_file_system_uid)
         if single_sign_on_user_identifier is not None:
-            pulumi.set(__self__, "single_sign_on_user_identifier", single_sign_on_user_identifier)
+            _setter("single_sign_on_user_identifier", single_sign_on_user_identifier)
         if single_sign_on_user_value is not None:
-            pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
+            _setter("single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_profile_name is not None:
-            pulumi.set(__self__, "user_profile_name", user_profile_name)
+            _setter("user_profile_name", user_profile_name)
         if user_settings is not None:
-            pulumi.set(__self__, "user_settings", user_settings)
+            _setter("user_settings", user_settings)
 
     @property
     @pulumi.getter
@@ -356,6 +428,10 @@ class UserProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -385,6 +461,11 @@ class UserProfile(pulumi.CustomResource):
             if user_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_profile_name'")
             __props__.__dict__["user_profile_name"] = user_profile_name
+            if user_settings is not None and not isinstance(user_settings, UserProfileUserSettingsArgs):
+                user_settings = user_settings or {}
+                def _setter(key, value):
+                    user_settings[key] = value
+                UserProfileUserSettingsArgs._configure(_setter, **user_settings)
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_uid"] = None

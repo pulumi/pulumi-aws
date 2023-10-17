@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceSpecificCredentialArgs', 'ServiceSpecificCredential']
@@ -23,10 +23,29 @@ class ServiceSpecificCredentialArgs:
         :param pulumi.Input[str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         :param pulumi.Input[str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
         """
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "user_name", user_name)
+        ServiceSpecificCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+            user_name=user_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("service_name", service_name)
+        _setter("user_name", user_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -83,18 +102,49 @@ class _ServiceSpecificCredentialState:
         :param pulumi.Input[str] status: The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
         :param pulumi.Input[str] user_name: The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         """
+        _ServiceSpecificCredentialState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_name=service_name,
+            service_password=service_password,
+            service_specific_credential_id=service_specific_credential_id,
+            service_user_name=service_user_name,
+            status=status,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_password: Optional[pulumi.Input[str]] = None,
+             service_specific_credential_id: Optional[pulumi.Input[str]] = None,
+             service_user_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'servicePassword' in kwargs:
+            service_password = kwargs['servicePassword']
+        if 'serviceSpecificCredentialId' in kwargs:
+            service_specific_credential_id = kwargs['serviceSpecificCredentialId']
+        if 'serviceUserName' in kwargs:
+            service_user_name = kwargs['serviceUserName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_password is not None:
-            pulumi.set(__self__, "service_password", service_password)
+            _setter("service_password", service_password)
         if service_specific_credential_id is not None:
-            pulumi.set(__self__, "service_specific_credential_id", service_specific_credential_id)
+            _setter("service_specific_credential_id", service_specific_credential_id)
         if service_user_name is not None:
-            pulumi.set(__self__, "service_user_name", service_user_name)
+            _setter("service_user_name", service_user_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -246,6 +296,10 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceSpecificCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -64,13 +64,34 @@ class ReplicationSetRegion(dict):
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param str status_message: More information about the status of a Region.
         """
-        pulumi.set(__self__, "name", name)
+        ReplicationSetRegion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            kms_key_arn=kms_key_arn,
+            status=status,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             kms_key_arn: Optional[str] = None,
+             status: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+
+        _setter("name", name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
+            _setter("status_message", status_message)
 
     @property
     @pulumi.getter
@@ -132,8 +153,21 @@ class ResponsePlanAction(dict):
         """
         :param Sequence['ResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
+        ResponsePlanAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssm_automations=ssm_automations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssm_automations: Optional[Sequence['outputs.ResponsePlanActionSsmAutomation']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ssmAutomations' in kwargs:
+            ssm_automations = kwargs['ssmAutomations']
+
         if ssm_automations is not None:
-            pulumi.set(__self__, "ssm_automations", ssm_automations)
+            _setter("ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
@@ -186,16 +220,47 @@ class ResponsePlanActionSsmAutomation(dict):
         :param Sequence['ResponsePlanActionSsmAutomationParameterArgs'] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
         :param str target_account: The account that the automation document runs in. This can be in either the management account or an application account.
         """
-        pulumi.set(__self__, "document_name", document_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ResponsePlanActionSsmAutomation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_name=document_name,
+            role_arn=role_arn,
+            document_version=document_version,
+            dynamic_parameters=dynamic_parameters,
+            parameters=parameters,
+            target_account=target_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_name: str,
+             role_arn: str,
+             document_version: Optional[str] = None,
+             dynamic_parameters: Optional[Mapping[str, str]] = None,
+             parameters: Optional[Sequence['outputs.ResponsePlanActionSsmAutomationParameter']] = None,
+             target_account: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if 'dynamicParameters' in kwargs:
+            dynamic_parameters = kwargs['dynamicParameters']
+        if 'targetAccount' in kwargs:
+            target_account = kwargs['targetAccount']
+
+        _setter("document_name", document_name)
+        _setter("role_arn", role_arn)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if dynamic_parameters is not None:
-            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
+            _setter("dynamic_parameters", dynamic_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if target_account is not None:
-            pulumi.set(__self__, "target_account", target_account)
+            _setter("target_account", target_account)
 
     @property
     @pulumi.getter(name="documentName")
@@ -255,8 +320,21 @@ class ResponsePlanActionSsmAutomationParameter(dict):
         :param str name: The name of the response plan.
         :param Sequence[str] values: The values for the associated parameter name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        ResponsePlanActionSsmAutomationParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -313,16 +391,43 @@ class ResponsePlanIncidentTemplate(dict):
         :param Sequence['ResponsePlanIncidentTemplateNotificationTargetArgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         :param str summary: The summary of an incident.
         """
-        pulumi.set(__self__, "impact", impact)
-        pulumi.set(__self__, "title", title)
+        ResponsePlanIncidentTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            impact=impact,
+            title=title,
+            dedupe_string=dedupe_string,
+            incident_tags=incident_tags,
+            notification_targets=notification_targets,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             impact: int,
+             title: str,
+             dedupe_string: Optional[str] = None,
+             incident_tags: Optional[Mapping[str, str]] = None,
+             notification_targets: Optional[Sequence['outputs.ResponsePlanIncidentTemplateNotificationTarget']] = None,
+             summary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedupeString' in kwargs:
+            dedupe_string = kwargs['dedupeString']
+        if 'incidentTags' in kwargs:
+            incident_tags = kwargs['incidentTags']
+        if 'notificationTargets' in kwargs:
+            notification_targets = kwargs['notificationTargets']
+
+        _setter("impact", impact)
+        _setter("title", title)
         if dedupe_string is not None:
-            pulumi.set(__self__, "dedupe_string", dedupe_string)
+            _setter("dedupe_string", dedupe_string)
         if incident_tags is not None:
-            pulumi.set(__self__, "incident_tags", incident_tags)
+            _setter("incident_tags", incident_tags)
         if notification_targets is not None:
-            pulumi.set(__self__, "notification_targets", notification_targets)
+            _setter("notification_targets", notification_targets)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
 
     @property
     @pulumi.getter
@@ -399,7 +504,20 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        ResponsePlanIncidentTemplateNotificationTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_topic_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -419,8 +537,19 @@ class ResponsePlanIntegration(dict):
         """
         :param Sequence['ResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
+        ResponsePlanIntegration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pagerduties=pagerduties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pagerduties: Optional[Sequence['outputs.ResponsePlanIntegrationPagerduty']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if pagerduties is not None:
-            pulumi.set(__self__, "pagerduties", pagerduties)
+            _setter("pagerduties", pagerduties)
 
     @property
     @pulumi.getter
@@ -463,9 +592,28 @@ class ResponsePlanIntegrationPagerduty(dict):
                For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
         :param str service_id: The ID of the PagerDuty service that the response plan associated with the incident at launch.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_id", secret_id)
-        pulumi.set(__self__, "service_id", service_id)
+        ResponsePlanIntegrationPagerduty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_id=secret_id,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secret_id: str,
+             service_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
+        _setter("name", name)
+        _setter("secret_id", secret_id)
+        _setter("service_id", service_id)
 
     @property
     @pulumi.getter
@@ -508,10 +656,31 @@ class GetReplicationSetRegionResult(dict):
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param str status_message: More information about the status of a Region.
         """
-        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
+        GetReplicationSetRegionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_arn=kms_key_arn,
+            name=name,
+            status=status,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_arn: str,
+             name: str,
+             status: str,
+             status_message: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+
+        _setter("kms_key_arn", kms_key_arn)
+        _setter("name", name)
+        _setter("status", status)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="kmsKeyArn")
@@ -554,7 +723,20 @@ class GetResponsePlanActionResult(dict):
         """
         :param Sequence['GetResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
-        pulumi.set(__self__, "ssm_automations", ssm_automations)
+        GetResponsePlanActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssm_automations=ssm_automations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssm_automations: Sequence['outputs.GetResponsePlanActionSsmAutomationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ssmAutomations' in kwargs:
+            ssm_automations = kwargs['ssmAutomations']
+
+        _setter("ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
@@ -582,12 +764,43 @@ class GetResponsePlanActionSsmAutomationResult(dict):
         :param str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         :param str target_account: The account that runs the automation document. This can be in either the management account or an application account.
         """
-        pulumi.set(__self__, "document_name", document_name)
-        pulumi.set(__self__, "document_version", document_version)
-        pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "target_account", target_account)
+        GetResponsePlanActionSsmAutomationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_name=document_name,
+            document_version=document_version,
+            dynamic_parameters=dynamic_parameters,
+            parameters=parameters,
+            role_arn=role_arn,
+            target_account=target_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_name: str,
+             document_version: str,
+             dynamic_parameters: Mapping[str, str],
+             parameters: Sequence['outputs.GetResponsePlanActionSsmAutomationParameterResult'],
+             role_arn: str,
+             target_account: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if 'dynamicParameters' in kwargs:
+            dynamic_parameters = kwargs['dynamicParameters']
+        if 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if 'targetAccount' in kwargs:
+            target_account = kwargs['targetAccount']
+
+        _setter("document_name", document_name)
+        _setter("document_version", document_version)
+        _setter("dynamic_parameters", dynamic_parameters)
+        _setter("parameters", parameters)
+        _setter("role_arn", role_arn)
+        _setter("target_account", target_account)
 
     @property
     @pulumi.getter(name="documentName")
@@ -647,8 +860,21 @@ class GetResponsePlanActionSsmAutomationParameterResult(dict):
         :param str name: The name of the PagerDuty configuration.
         :param Sequence[str] values: The values for the associated parameter name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetResponsePlanActionSsmAutomationParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             values: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -684,12 +910,39 @@ class GetResponsePlanIncidentTemplateResult(dict):
         :param str summary: The summary of an incident.
         :param str title: The title of a generated incident.
         """
-        pulumi.set(__self__, "dedupe_string", dedupe_string)
-        pulumi.set(__self__, "impact", impact)
-        pulumi.set(__self__, "incident_tags", incident_tags)
-        pulumi.set(__self__, "notification_targets", notification_targets)
-        pulumi.set(__self__, "summary", summary)
-        pulumi.set(__self__, "title", title)
+        GetResponsePlanIncidentTemplateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dedupe_string=dedupe_string,
+            impact=impact,
+            incident_tags=incident_tags,
+            notification_targets=notification_targets,
+            summary=summary,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dedupe_string: str,
+             impact: int,
+             incident_tags: Mapping[str, str],
+             notification_targets: Sequence['outputs.GetResponsePlanIncidentTemplateNotificationTargetResult'],
+             summary: str,
+             title: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedupeString' in kwargs:
+            dedupe_string = kwargs['dedupeString']
+        if 'incidentTags' in kwargs:
+            incident_tags = kwargs['incidentTags']
+        if 'notificationTargets' in kwargs:
+            notification_targets = kwargs['notificationTargets']
+
+        _setter("dedupe_string", dedupe_string)
+        _setter("impact", impact)
+        _setter("incident_tags", incident_tags)
+        _setter("notification_targets", notification_targets)
+        _setter("summary", summary)
+        _setter("title", title)
 
     @property
     @pulumi.getter(name="dedupeString")
@@ -747,7 +1000,20 @@ class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
         """
         :param str sns_topic_arn: The ARN of the Amazon SNS topic.
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        GetResponsePlanIncidentTemplateNotificationTargetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_topic_arn: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -765,7 +1031,18 @@ class GetResponsePlanIntegrationResult(dict):
         """
         :param Sequence['GetResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
-        pulumi.set(__self__, "pagerduties", pagerduties)
+        GetResponsePlanIntegrationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pagerduties=pagerduties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pagerduties: Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult'],
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("pagerduties", pagerduties)
 
     @property
     @pulumi.getter
@@ -787,9 +1064,28 @@ class GetResponsePlanIntegrationPagerdutyResult(dict):
         :param str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
         :param str service_id: The ID of the PagerDuty service that the response plan associates with an incident when it launches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_id", secret_id)
-        pulumi.set(__self__, "service_id", service_id)
+        GetResponsePlanIntegrationPagerdutyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_id=secret_id,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             secret_id: str,
+             service_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
+        _setter("name", name)
+        _setter("secret_id", secret_id)
+        _setter("service_id", service_id)
 
     @property
     @pulumi.getter

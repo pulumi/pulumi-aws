@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,11 +25,28 @@ class CodeSigningConfigArgs:
         :param pulumi.Input[str] description: Descriptive name for this code signing configuration.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
-        pulumi.set(__self__, "allowed_publishers", allowed_publishers)
+        CodeSigningConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_publishers=allowed_publishers,
+            description=description,
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
+             description: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedPublishers' in kwargs:
+            allowed_publishers = kwargs['allowedPublishers']
+
+        _setter("allowed_publishers", allowed_publishers)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -86,18 +103,45 @@ class _CodeSigningConfigState:
         :param pulumi.Input[str] last_modified: The date and time that the code signing configuration was last modified.
         :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
         """
+        _CodeSigningConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_publishers=allowed_publishers,
+            arn=arn,
+            config_id=config_id,
+            description=description,
+            last_modified=last_modified,
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_publishers: Optional[pulumi.Input['CodeSigningConfigAllowedPublishersArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             config_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_modified: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedPublishers' in kwargs:
+            allowed_publishers = kwargs['allowedPublishers']
+        if 'configId' in kwargs:
+            config_id = kwargs['configId']
+        if 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+
         if allowed_publishers is not None:
-            pulumi.set(__self__, "allowed_publishers", allowed_publishers)
+            _setter("allowed_publishers", allowed_publishers)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if config_id is not None:
-            pulumi.set(__self__, "config_id", config_id)
+            _setter("config_id", config_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -267,6 +311,10 @@ class CodeSigningConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CodeSigningConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,10 +332,20 @@ class CodeSigningConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeSigningConfigArgs.__new__(CodeSigningConfigArgs)
 
+            if allowed_publishers is not None and not isinstance(allowed_publishers, CodeSigningConfigAllowedPublishersArgs):
+                allowed_publishers = allowed_publishers or {}
+                def _setter(key, value):
+                    allowed_publishers[key] = value
+                CodeSigningConfigAllowedPublishersArgs._configure(_setter, **allowed_publishers)
             if allowed_publishers is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_publishers'")
             __props__.__dict__["allowed_publishers"] = allowed_publishers
             __props__.__dict__["description"] = description
+            if policies is not None and not isinstance(policies, CodeSigningConfigPoliciesArgs):
+                policies = policies or {}
+                def _setter(key, value):
+                    policies[key] = value
+                CodeSigningConfigPoliciesArgs._configure(_setter, **policies)
             __props__.__dict__["policies"] = policies
             __props__.__dict__["arn"] = None
             __props__.__dict__["config_id"] = None

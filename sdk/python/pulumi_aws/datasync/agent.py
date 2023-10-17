@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AgentArgs', 'Agent']
@@ -33,22 +33,59 @@ class AgentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         """
+        AgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_key=activation_key,
+            ip_address=ip_address,
+            name=name,
+            private_link_endpoint=private_link_endpoint,
+            security_group_arns=security_group_arns,
+            subnet_arns=subnet_arns,
+            tags=tags,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_key: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_link_endpoint: Optional[pulumi.Input[str]] = None,
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationKey' in kwargs:
+            activation_key = kwargs['activationKey']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'privateLinkEndpoint' in kwargs:
+            private_link_endpoint = kwargs['privateLinkEndpoint']
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'subnetArns' in kwargs:
+            subnet_arns = kwargs['subnetArns']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if activation_key is not None:
-            pulumi.set(__self__, "activation_key", activation_key)
+            _setter("activation_key", activation_key)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_endpoint is not None:
-            pulumi.set(__self__, "private_link_endpoint", private_link_endpoint)
+            _setter("private_link_endpoint", private_link_endpoint)
         if security_group_arns is not None:
-            pulumi.set(__self__, "security_group_arns", security_group_arns)
+            _setter("security_group_arns", security_group_arns)
         if subnet_arns is not None:
-            pulumi.set(__self__, "subnet_arns", subnet_arns)
+            _setter("subnet_arns", subnet_arns)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="activationKey")
@@ -173,29 +210,72 @@ class _AgentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         """
+        _AgentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_key=activation_key,
+            arn=arn,
+            ip_address=ip_address,
+            name=name,
+            private_link_endpoint=private_link_endpoint,
+            security_group_arns=security_group_arns,
+            subnet_arns=subnet_arns,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_key: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_link_endpoint: Optional[pulumi.Input[str]] = None,
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activationKey' in kwargs:
+            activation_key = kwargs['activationKey']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'privateLinkEndpoint' in kwargs:
+            private_link_endpoint = kwargs['privateLinkEndpoint']
+        if 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if 'subnetArns' in kwargs:
+            subnet_arns = kwargs['subnetArns']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if activation_key is not None:
-            pulumi.set(__self__, "activation_key", activation_key)
+            _setter("activation_key", activation_key)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_endpoint is not None:
-            pulumi.set(__self__, "private_link_endpoint", private_link_endpoint)
+            _setter("private_link_endpoint", private_link_endpoint)
         if security_group_arns is not None:
-            pulumi.set(__self__, "security_group_arns", security_group_arns)
+            _setter("security_group_arns", security_group_arns)
         if subnet_arns is not None:
-            pulumi.set(__self__, "subnet_arns", subnet_arns)
+            _setter("subnet_arns", subnet_arns)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="activationKey")
@@ -406,6 +486,10 @@ class Agent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

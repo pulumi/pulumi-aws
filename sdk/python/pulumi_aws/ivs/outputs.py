@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -23,7 +23,18 @@ class RecordingConfigurationDestinationConfiguration(dict):
         """
         :param 'RecordingConfigurationDestinationConfigurationS3Args' s3: S3 destination configuration where recorded videos will be stored.
         """
-        pulumi.set(__self__, "s3", s3)
+        RecordingConfigurationDestinationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: 'outputs.RecordingConfigurationDestinationConfigurationS3',
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -60,7 +71,20 @@ class RecordingConfigurationDestinationConfigurationS3(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        RecordingConfigurationDestinationConfigurationS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+
+        _setter("bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -101,10 +125,27 @@ class RecordingConfigurationThumbnailConfiguration(dict):
         :param str recording_mode: Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
         :param int target_interval_seconds: The targeted thumbnail-generation interval in seconds.
         """
+        RecordingConfigurationThumbnailConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recording_mode=recording_mode,
+            target_interval_seconds=target_interval_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recording_mode: Optional[str] = None,
+             target_interval_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordingMode' in kwargs:
+            recording_mode = kwargs['recordingMode']
+        if 'targetIntervalSeconds' in kwargs:
+            target_interval_seconds = kwargs['targetIntervalSeconds']
+
         if recording_mode is not None:
-            pulumi.set(__self__, "recording_mode", recording_mode)
+            _setter("recording_mode", recording_mode)
         if target_interval_seconds is not None:
-            pulumi.set(__self__, "target_interval_seconds", target_interval_seconds)
+            _setter("target_interval_seconds", target_interval_seconds)
 
     @property
     @pulumi.getter(name="recordingMode")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,19 +36,56 @@ class DataRepositoryAssociationArgs:
                The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "data_repository_path", data_repository_path)
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "file_system_path", file_system_path)
+        DataRepositoryAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_repository_path=data_repository_path,
+            file_system_id=file_system_id,
+            file_system_path=file_system_path,
+            batch_import_meta_data_on_create=batch_import_meta_data_on_create,
+            delete_data_in_filesystem=delete_data_in_filesystem,
+            imported_file_chunk_size=imported_file_chunk_size,
+            s3=s3,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_repository_path: pulumi.Input[str],
+             file_system_id: pulumi.Input[str],
+             file_system_path: pulumi.Input[str],
+             batch_import_meta_data_on_create: Optional[pulumi.Input[bool]] = None,
+             delete_data_in_filesystem: Optional[pulumi.Input[bool]] = None,
+             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+             s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataRepositoryPath' in kwargs:
+            data_repository_path = kwargs['dataRepositoryPath']
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'fileSystemPath' in kwargs:
+            file_system_path = kwargs['fileSystemPath']
+        if 'batchImportMetaDataOnCreate' in kwargs:
+            batch_import_meta_data_on_create = kwargs['batchImportMetaDataOnCreate']
+        if 'deleteDataInFilesystem' in kwargs:
+            delete_data_in_filesystem = kwargs['deleteDataInFilesystem']
+        if 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+
+        _setter("data_repository_path", data_repository_path)
+        _setter("file_system_id", file_system_id)
+        _setter("file_system_path", file_system_path)
         if batch_import_meta_data_on_create is not None:
-            pulumi.set(__self__, "batch_import_meta_data_on_create", batch_import_meta_data_on_create)
+            _setter("batch_import_meta_data_on_create", batch_import_meta_data_on_create)
         if delete_data_in_filesystem is not None:
-            pulumi.set(__self__, "delete_data_in_filesystem", delete_data_in_filesystem)
+            _setter("delete_data_in_filesystem", delete_data_in_filesystem)
         if imported_file_chunk_size is not None:
-            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+            _setter("imported_file_chunk_size", imported_file_chunk_size)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataRepositoryPath")
@@ -176,31 +213,78 @@ class _DataRepositoryAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DataRepositoryAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            association_id=association_id,
+            batch_import_meta_data_on_create=batch_import_meta_data_on_create,
+            data_repository_path=data_repository_path,
+            delete_data_in_filesystem=delete_data_in_filesystem,
+            file_system_id=file_system_id,
+            file_system_path=file_system_path,
+            imported_file_chunk_size=imported_file_chunk_size,
+            s3=s3,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             association_id: Optional[pulumi.Input[str]] = None,
+             batch_import_meta_data_on_create: Optional[pulumi.Input[bool]] = None,
+             data_repository_path: Optional[pulumi.Input[str]] = None,
+             delete_data_in_filesystem: Optional[pulumi.Input[bool]] = None,
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             file_system_path: Optional[pulumi.Input[str]] = None,
+             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+             s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'associationId' in kwargs:
+            association_id = kwargs['associationId']
+        if 'batchImportMetaDataOnCreate' in kwargs:
+            batch_import_meta_data_on_create = kwargs['batchImportMetaDataOnCreate']
+        if 'dataRepositoryPath' in kwargs:
+            data_repository_path = kwargs['dataRepositoryPath']
+        if 'deleteDataInFilesystem' in kwargs:
+            delete_data_in_filesystem = kwargs['deleteDataInFilesystem']
+        if 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if 'fileSystemPath' in kwargs:
+            file_system_path = kwargs['fileSystemPath']
+        if 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if batch_import_meta_data_on_create is not None:
-            pulumi.set(__self__, "batch_import_meta_data_on_create", batch_import_meta_data_on_create)
+            _setter("batch_import_meta_data_on_create", batch_import_meta_data_on_create)
         if data_repository_path is not None:
-            pulumi.set(__self__, "data_repository_path", data_repository_path)
+            _setter("data_repository_path", data_repository_path)
         if delete_data_in_filesystem is not None:
-            pulumi.set(__self__, "delete_data_in_filesystem", delete_data_in_filesystem)
+            _setter("delete_data_in_filesystem", delete_data_in_filesystem)
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if file_system_path is not None:
-            pulumi.set(__self__, "file_system_path", file_system_path)
+            _setter("file_system_path", file_system_path)
         if imported_file_chunk_size is not None:
-            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+            _setter("imported_file_chunk_size", imported_file_chunk_size)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -478,6 +562,10 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataRepositoryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -512,6 +600,11 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'file_system_path'")
             __props__.__dict__["file_system_path"] = file_system_path
             __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
+            if s3 is not None and not isinstance(s3, DataRepositoryAssociationS3Args):
+                s3 = s3 or {}
+                def _setter(key, value):
+                    s3[key] = value
+                DataRepositoryAssociationS3Args._configure(_setter, **s3)
             __props__.__dict__["s3"] = s3
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

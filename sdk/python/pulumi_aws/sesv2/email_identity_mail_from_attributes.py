@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributes']
@@ -23,11 +23,32 @@ class EmailIdentityMailFromAttributesArgs:
         :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
-        pulumi.set(__self__, "email_identity", email_identity)
+        EmailIdentityMailFromAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_identity=email_identity,
+            behavior_on_mx_failure=behavior_on_mx_failure,
+            mail_from_domain=mail_from_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_identity: pulumi.Input[str],
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+        if 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+
+        _setter("email_identity", email_identity)
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if mail_from_domain is not None:
-            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+            _setter("mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -78,12 +99,33 @@ class _EmailIdentityMailFromAttributesState:
         :param pulumi.Input[str] email_identity: The verified email identity.
         :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
+        _EmailIdentityMailFromAttributesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            behavior_on_mx_failure=behavior_on_mx_failure,
+            email_identity=email_identity,
+            mail_from_domain=mail_from_domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
+             email_identity: Optional[pulumi.Input[str]] = None,
+             mail_from_domain: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+        if 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+
         if behavior_on_mx_failure is not None:
-            pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+            _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if email_identity is not None:
-            pulumi.set(__self__, "email_identity", email_identity)
+            _setter("email_identity", email_identity)
         if mail_from_domain is not None:
-            pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+            _setter("mail_from_domain", mail_from_domain)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -203,6 +245,10 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailIdentityMailFromAttributesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BaiduChannelArgs', 'BaiduChannel']
@@ -25,11 +25,34 @@ class BaiduChannelArgs:
         :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
         :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "secret_key", secret_key)
+        BaiduChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_id=application_id,
+            secret_key=secret_key,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: pulumi.Input[str],
+             application_id: pulumi.Input[str],
+             secret_key: pulumi.Input[str],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
+        _setter("api_key", api_key)
+        _setter("application_id", application_id)
+        _setter("secret_key", secret_key)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -94,14 +117,37 @@ class _BaiduChannelState:
         :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
         """
+        _BaiduChannelState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_id=application_id,
+            enabled=enabled,
+            secret_key=secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             application_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -235,6 +281,10 @@ class BaiduChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BaiduChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

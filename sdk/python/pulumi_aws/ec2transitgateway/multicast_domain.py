@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MulticastDomainArgs', 'MulticastDomain']
@@ -27,15 +27,42 @@ class MulticastDomainArgs:
         :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        MulticastDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transit_gateway_id=transit_gateway_id,
+            auto_accept_shared_associations=auto_accept_shared_associations,
+            igmpv2_support=igmpv2_support,
+            static_sources_support=static_sources_support,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transit_gateway_id: pulumi.Input[str],
+             auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
+             igmpv2_support: Optional[pulumi.Input[str]] = None,
+             static_sources_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if 'autoAcceptSharedAssociations' in kwargs:
+            auto_accept_shared_associations = kwargs['autoAcceptSharedAssociations']
+        if 'igmpv2Support' in kwargs:
+            igmpv2_support = kwargs['igmpv2Support']
+        if 'staticSourcesSupport' in kwargs:
+            static_sources_support = kwargs['staticSourcesSupport']
+
+        _setter("transit_gateway_id", transit_gateway_id)
         if auto_accept_shared_associations is not None:
-            pulumi.set(__self__, "auto_accept_shared_associations", auto_accept_shared_associations)
+            _setter("auto_accept_shared_associations", auto_accept_shared_associations)
         if igmpv2_support is not None:
-            pulumi.set(__self__, "igmpv2_support", igmpv2_support)
+            _setter("igmpv2_support", igmpv2_support)
         if static_sources_support is not None:
-            pulumi.set(__self__, "static_sources_support", static_sources_support)
+            _setter("static_sources_support", static_sources_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -120,25 +147,62 @@ class _MulticastDomainState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
+        _MulticastDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_accept_shared_associations=auto_accept_shared_associations,
+            igmpv2_support=igmpv2_support,
+            owner_id=owner_id,
+            static_sources_support=static_sources_support,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_id=transit_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
+             igmpv2_support: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             static_sources_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoAcceptSharedAssociations' in kwargs:
+            auto_accept_shared_associations = kwargs['autoAcceptSharedAssociations']
+        if 'igmpv2Support' in kwargs:
+            igmpv2_support = kwargs['igmpv2Support']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if 'staticSourcesSupport' in kwargs:
+            static_sources_support = kwargs['staticSourcesSupport']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_accept_shared_associations is not None:
-            pulumi.set(__self__, "auto_accept_shared_associations", auto_accept_shared_associations)
+            _setter("auto_accept_shared_associations", auto_accept_shared_associations)
         if igmpv2_support is not None:
-            pulumi.set(__self__, "igmpv2_support", igmpv2_support)
+            _setter("igmpv2_support", igmpv2_support)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if static_sources_support is not None:
-            pulumi.set(__self__, "static_sources_support", static_sources_support)
+            _setter("static_sources_support", static_sources_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
 
     @property
     @pulumi.getter
@@ -475,6 +539,10 @@ class MulticastDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MulticastDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

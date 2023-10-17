@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,14 +42,33 @@ class ClusterNode(dict):
         """
         :param int port: The port used by the configuration endpoint
         """
+        ClusterNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            availability_zone=availability_zone,
+            id=id,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             availability_zone: Optional[str] = None,
+             id: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -82,8 +101,19 @@ class ClusterServerSideEncryption(dict):
         """
         :param bool enabled: Whether to enable encryption at rest. Defaults to `false`.
         """
+        ClusterServerSideEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -103,8 +133,21 @@ class ParameterGroupParameter(dict):
         :param str name: The name of the parameter.
         :param str value: The value for the parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ParameterGroupParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

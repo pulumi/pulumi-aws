@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpotDatafeedSubscriptionArgs', 'SpotDatafeedSubscription']
@@ -21,9 +21,22 @@ class SpotDatafeedSubscriptionArgs:
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        SpotDatafeedSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: pulumi.Input[str],
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
+        _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -60,10 +73,23 @@ class _SpotDatafeedSubscriptionState:
         :param pulumi.Input[str] bucket: The Amazon S3 bucket in which to store the Spot instance data feed.
         :param pulumi.Input[str] prefix: Path of folder inside bucket to place spot pricing data.
         """
+        _SpotDatafeedSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -171,6 +197,10 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpotDatafeedSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

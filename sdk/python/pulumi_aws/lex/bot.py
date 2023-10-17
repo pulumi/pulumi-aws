@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,31 +47,88 @@ class BotArgs:
         :param pulumi.Input[str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
-        pulumi.set(__self__, "abort_statement", abort_statement)
-        pulumi.set(__self__, "child_directed", child_directed)
-        pulumi.set(__self__, "intents", intents)
+        BotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            abort_statement=abort_statement,
+            child_directed=child_directed,
+            intents=intents,
+            clarification_prompt=clarification_prompt,
+            create_version=create_version,
+            description=description,
+            detect_sentiment=detect_sentiment,
+            enable_model_improvements=enable_model_improvements,
+            idle_session_ttl_in_seconds=idle_session_ttl_in_seconds,
+            locale=locale,
+            name=name,
+            nlu_intent_confidence_threshold=nlu_intent_confidence_threshold,
+            process_behavior=process_behavior,
+            voice_id=voice_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             abort_statement: pulumi.Input['BotAbortStatementArgs'],
+             child_directed: pulumi.Input[bool],
+             intents: pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]],
+             clarification_prompt: Optional[pulumi.Input['BotClarificationPromptArgs']] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detect_sentiment: Optional[pulumi.Input[bool]] = None,
+             enable_model_improvements: Optional[pulumi.Input[bool]] = None,
+             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nlu_intent_confidence_threshold: Optional[pulumi.Input[float]] = None,
+             process_behavior: Optional[pulumi.Input[str]] = None,
+             voice_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abortStatement' in kwargs:
+            abort_statement = kwargs['abortStatement']
+        if 'childDirected' in kwargs:
+            child_directed = kwargs['childDirected']
+        if 'clarificationPrompt' in kwargs:
+            clarification_prompt = kwargs['clarificationPrompt']
+        if 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+        if 'enableModelImprovements' in kwargs:
+            enable_model_improvements = kwargs['enableModelImprovements']
+        if 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if 'nluIntentConfidenceThreshold' in kwargs:
+            nlu_intent_confidence_threshold = kwargs['nluIntentConfidenceThreshold']
+        if 'processBehavior' in kwargs:
+            process_behavior = kwargs['processBehavior']
+        if 'voiceId' in kwargs:
+            voice_id = kwargs['voiceId']
+
+        _setter("abort_statement", abort_statement)
+        _setter("child_directed", child_directed)
+        _setter("intents", intents)
         if clarification_prompt is not None:
-            pulumi.set(__self__, "clarification_prompt", clarification_prompt)
+            _setter("clarification_prompt", clarification_prompt)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detect_sentiment is not None:
-            pulumi.set(__self__, "detect_sentiment", detect_sentiment)
+            _setter("detect_sentiment", detect_sentiment)
         if enable_model_improvements is not None:
-            pulumi.set(__self__, "enable_model_improvements", enable_model_improvements)
+            _setter("enable_model_improvements", enable_model_improvements)
         if idle_session_ttl_in_seconds is not None:
-            pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
+            _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nlu_intent_confidence_threshold is not None:
-            pulumi.set(__self__, "nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
+            _setter("nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
         if process_behavior is not None:
-            pulumi.set(__self__, "process_behavior", process_behavior)
+            _setter("process_behavior", process_behavior)
         if voice_id is not None:
-            pulumi.set(__self__, "voice_id", voice_id)
+            _setter("voice_id", voice_id)
 
     @property
     @pulumi.getter(name="abortStatement")
@@ -293,48 +350,125 @@ class _BotState:
         :param pulumi.Input[str] version: The version of the bot.
         :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
+        _BotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            abort_statement=abort_statement,
+            arn=arn,
+            checksum=checksum,
+            child_directed=child_directed,
+            clarification_prompt=clarification_prompt,
+            create_version=create_version,
+            created_date=created_date,
+            description=description,
+            detect_sentiment=detect_sentiment,
+            enable_model_improvements=enable_model_improvements,
+            failure_reason=failure_reason,
+            idle_session_ttl_in_seconds=idle_session_ttl_in_seconds,
+            intents=intents,
+            last_updated_date=last_updated_date,
+            locale=locale,
+            name=name,
+            nlu_intent_confidence_threshold=nlu_intent_confidence_threshold,
+            process_behavior=process_behavior,
+            status=status,
+            version=version,
+            voice_id=voice_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             abort_statement: Optional[pulumi.Input['BotAbortStatementArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             checksum: Optional[pulumi.Input[str]] = None,
+             child_directed: Optional[pulumi.Input[bool]] = None,
+             clarification_prompt: Optional[pulumi.Input['BotClarificationPromptArgs']] = None,
+             create_version: Optional[pulumi.Input[bool]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detect_sentiment: Optional[pulumi.Input[bool]] = None,
+             enable_model_improvements: Optional[pulumi.Input[bool]] = None,
+             failure_reason: Optional[pulumi.Input[str]] = None,
+             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
+             last_updated_date: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nlu_intent_confidence_threshold: Optional[pulumi.Input[float]] = None,
+             process_behavior: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             voice_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'abortStatement' in kwargs:
+            abort_statement = kwargs['abortStatement']
+        if 'childDirected' in kwargs:
+            child_directed = kwargs['childDirected']
+        if 'clarificationPrompt' in kwargs:
+            clarification_prompt = kwargs['clarificationPrompt']
+        if 'createVersion' in kwargs:
+            create_version = kwargs['createVersion']
+        if 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+        if 'enableModelImprovements' in kwargs:
+            enable_model_improvements = kwargs['enableModelImprovements']
+        if 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if 'lastUpdatedDate' in kwargs:
+            last_updated_date = kwargs['lastUpdatedDate']
+        if 'nluIntentConfidenceThreshold' in kwargs:
+            nlu_intent_confidence_threshold = kwargs['nluIntentConfidenceThreshold']
+        if 'processBehavior' in kwargs:
+            process_behavior = kwargs['processBehavior']
+        if 'voiceId' in kwargs:
+            voice_id = kwargs['voiceId']
+
         if abort_statement is not None:
-            pulumi.set(__self__, "abort_statement", abort_statement)
+            _setter("abort_statement", abort_statement)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if checksum is not None:
-            pulumi.set(__self__, "checksum", checksum)
+            _setter("checksum", checksum)
         if child_directed is not None:
-            pulumi.set(__self__, "child_directed", child_directed)
+            _setter("child_directed", child_directed)
         if clarification_prompt is not None:
-            pulumi.set(__self__, "clarification_prompt", clarification_prompt)
+            _setter("clarification_prompt", clarification_prompt)
         if create_version is not None:
-            pulumi.set(__self__, "create_version", create_version)
+            _setter("create_version", create_version)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if detect_sentiment is not None:
-            pulumi.set(__self__, "detect_sentiment", detect_sentiment)
+            _setter("detect_sentiment", detect_sentiment)
         if enable_model_improvements is not None:
-            pulumi.set(__self__, "enable_model_improvements", enable_model_improvements)
+            _setter("enable_model_improvements", enable_model_improvements)
         if failure_reason is not None:
-            pulumi.set(__self__, "failure_reason", failure_reason)
+            _setter("failure_reason", failure_reason)
         if idle_session_ttl_in_seconds is not None:
-            pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
+            _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if intents is not None:
-            pulumi.set(__self__, "intents", intents)
+            _setter("intents", intents)
         if last_updated_date is not None:
-            pulumi.set(__self__, "last_updated_date", last_updated_date)
+            _setter("last_updated_date", last_updated_date)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nlu_intent_confidence_threshold is not None:
-            pulumi.set(__self__, "nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
+            _setter("nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
         if process_behavior is not None:
-            pulumi.set(__self__, "process_behavior", process_behavior)
+            _setter("process_behavior", process_behavior)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if voice_id is not None:
-            pulumi.set(__self__, "voice_id", voice_id)
+            _setter("voice_id", voice_id)
 
     @property
     @pulumi.getter(name="abortStatement")
@@ -735,6 +869,10 @@ class Bot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -763,12 +901,22 @@ class Bot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BotArgs.__new__(BotArgs)
 
+            if abort_statement is not None and not isinstance(abort_statement, BotAbortStatementArgs):
+                abort_statement = abort_statement or {}
+                def _setter(key, value):
+                    abort_statement[key] = value
+                BotAbortStatementArgs._configure(_setter, **abort_statement)
             if abort_statement is None and not opts.urn:
                 raise TypeError("Missing required property 'abort_statement'")
             __props__.__dict__["abort_statement"] = abort_statement
             if child_directed is None and not opts.urn:
                 raise TypeError("Missing required property 'child_directed'")
             __props__.__dict__["child_directed"] = child_directed
+            if clarification_prompt is not None and not isinstance(clarification_prompt, BotClarificationPromptArgs):
+                clarification_prompt = clarification_prompt or {}
+                def _setter(key, value):
+                    clarification_prompt[key] = value
+                BotClarificationPromptArgs._configure(_setter, **clarification_prompt)
             __props__.__dict__["clarification_prompt"] = clarification_prompt
             __props__.__dict__["create_version"] = create_version
             __props__.__dict__["description"] = description

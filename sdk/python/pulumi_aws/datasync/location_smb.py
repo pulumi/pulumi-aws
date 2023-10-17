@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,48 @@ class LocationSmbArgs:
         :param pulumi.Input['LocationSmbMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server_hostname", server_hostname)
-        pulumi.set(__self__, "subdirectory", subdirectory)
-        pulumi.set(__self__, "user", user)
+        LocationSmbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            password=password,
+            server_hostname=server_hostname,
+            subdirectory=subdirectory,
+            user=user,
+            domain=domain,
+            mount_options=mount_options,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             password: pulumi.Input[str],
+             server_hostname: pulumi.Input[str],
+             subdirectory: pulumi.Input[str],
+             user: pulumi.Input[str],
+             domain: Optional[pulumi.Input[str]] = None,
+             mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
+        _setter("agent_arns", agent_arns)
+        _setter("password", password)
+        _setter("server_hostname", server_hostname)
+        _setter("subdirectory", subdirectory)
+        _setter("user", user)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -171,31 +202,70 @@ class _LocationSmbState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user: The user who can mount the share and has file and folder permissions in the SMB share.
         """
+        _LocationSmbState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            arn=arn,
+            domain=domain,
+            mount_options=mount_options,
+            password=password,
+            server_hostname=server_hostname,
+            subdirectory=subdirectory,
+            tags=tags,
+            tags_all=tags_all,
+            uri=uri,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server_hostname: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if agent_arns is not None:
-            pulumi.set(__self__, "agent_arns", agent_arns)
+            _setter("agent_arns", agent_arns)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server_hostname is not None:
-            pulumi.set(__self__, "server_hostname", server_hostname)
+            _setter("server_hostname", server_hostname)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -425,6 +495,10 @@ class LocationSmb(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationSmbArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -451,6 +525,11 @@ class LocationSmb(pulumi.CustomResource):
                 raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["domain"] = domain
+            if mount_options is not None and not isinstance(mount_options, LocationSmbMountOptionsArgs):
+                mount_options = mount_options or {}
+                def _setter(key, value):
+                    mount_options[key] = value
+                LocationSmbMountOptionsArgs._configure(_setter, **mount_options)
             __props__.__dict__["mount_options"] = mount_options
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
