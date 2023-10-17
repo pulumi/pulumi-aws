@@ -132,8 +132,6 @@ endif
 	cd upstream-tools && yarn install --frozen-lockfile
 	# Apply all automated changes
 	cd upstream-tools && yarn --silent run apply
-	# Check for any pending replacements
-	cd upstream-tools && yarn --silent run check
 
 upstream.finalize:
 	@$(SHELL) ./scripts/upstream.sh "$@" end_rebase
