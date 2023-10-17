@@ -111,23 +111,33 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 		}
 	})
 
+	edit := func(path string, content []byte) ([]byte, error) {
+		replacementPath, ok := replacements[path]
+		if !ok {
+			return content, nil
+		}
+		applied++
+		for _, r := range replacementPath {
+			// If no-one has fixed up the TODO, don't replace it. That way the
+			// text will show up as elided instead of including the TODO in
+			// user facing docs.
+			if r.New == elidedText.ReplaceAllLiteralString(r.Old, "TODO") {
+				continue
+			}
+
+			old, new := []byte(r.Old), []byte(r.New)
+
+			content = bytes.ReplaceAll(content, old, new)
+		}
+
+		replacements.checkForTODOs(path, content)
+
+		return content, nil
+	}
+
 	return tfbridge.DocsEdit{
 		Path: "*",
-		Edit: func(path string, content []byte) ([]byte, error) {
-			replacementPath, ok := replacements[path]
-			if !ok {
-				return content, nil
-			}
-			applied++
-			for _, r := range replacementPath {
-				old, new := []byte(r.Old), []byte(r.New)
-				content = bytes.ReplaceAll(content, old, new)
-			}
-
-			replacements.checkForTODOs(path, content)
-
-			return content, nil
-		},
+		Edit: edit,
 	}
 }
 
