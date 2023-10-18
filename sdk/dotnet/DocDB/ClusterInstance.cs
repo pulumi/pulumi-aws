@@ -72,7 +72,7 @@ namespace Pulumi.Aws.DocDB
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster instance
@@ -105,6 +105,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// </summary>
+        [Output("copyTagsToSnapshot")]
+        public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// The DB subnet group to associate with this DB instance.
         /// </summary>
         [Output("dbSubnetGroupName")]
@@ -120,7 +126,7 @@ namespace Pulumi.Aws.DocDB
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
         [Output("enablePerformanceInsights")]
-        public Output<bool> EnablePerformanceInsights { get; private set; } = null!;
+        public Output<bool?> EnablePerformanceInsights { get; private set; } = null!;
 
         /// <summary>
         /// The DNS address for this instance. May not be writable
@@ -156,6 +162,13 @@ namespace Pulumi.Aws.DocDB
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        /// - db.r6g.large
+        /// - db.r6g.xlarge
+        /// - db.r6g.2xlarge
+        /// - db.r6g.4xlarge
+        /// - db.r6g.8xlarge
+        /// - db.r6g.12xlarge
+        /// - db.r6g.16xlarge
         /// - db.r5.large
         /// - db.r5.xlarge
         /// - db.r5.2xlarge
@@ -168,6 +181,7 @@ namespace Pulumi.Aws.DocDB
         /// - db.r4.4xlarge
         /// - db.r4.8xlarge
         /// - db.r4.16xlarge
+        /// - db.t4g.medium
         /// - db.t3.medium
         /// </summary>
         [Output("instanceClass")]
@@ -319,6 +333,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
         [Input("enablePerformanceInsights")]
@@ -346,6 +366,13 @@ namespace Pulumi.Aws.DocDB
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        /// - db.r6g.large
+        /// - db.r6g.xlarge
+        /// - db.r6g.2xlarge
+        /// - db.r6g.4xlarge
+        /// - db.r6g.8xlarge
+        /// - db.r6g.12xlarge
+        /// - db.r6g.16xlarge
         /// - db.r5.large
         /// - db.r5.xlarge
         /// - db.r5.2xlarge
@@ -358,6 +385,7 @@ namespace Pulumi.Aws.DocDB
         /// - db.r4.4xlarge
         /// - db.r4.8xlarge
         /// - db.r4.16xlarge
+        /// - db.t4g.medium
         /// - db.t3.medium
         /// </summary>
         [Input("instanceClass", required: true)]
@@ -440,6 +468,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
+        /// Copy all DB instance `tags` to snapshots. Default is `false`.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
         /// The DB subnet group to associate with this DB instance.
         /// </summary>
         [Input("dbSubnetGroupName")]
@@ -491,6 +525,13 @@ namespace Pulumi.Aws.DocDB
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        /// - db.r6g.large
+        /// - db.r6g.xlarge
+        /// - db.r6g.2xlarge
+        /// - db.r6g.4xlarge
+        /// - db.r6g.8xlarge
+        /// - db.r6g.12xlarge
+        /// - db.r6g.16xlarge
         /// - db.r5.large
         /// - db.r5.xlarge
         /// - db.r5.2xlarge
@@ -503,6 +544,7 @@ namespace Pulumi.Aws.DocDB
         /// - db.r4.4xlarge
         /// - db.r4.8xlarge
         /// - db.r4.16xlarge
+        /// - db.t4g.medium
         /// - db.t3.medium
         /// </summary>
         [Input("instanceClass")]

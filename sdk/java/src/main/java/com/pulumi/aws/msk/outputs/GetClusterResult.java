@@ -53,6 +53,11 @@ public final class GetClusterResult {
     private String bootstrapBrokersTls;
     private String clusterName;
     /**
+     * @return UUID of the MSK cluster, for use in IAM policies.
+     * 
+     */
+    private String clusterUuid;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -144,6 +149,13 @@ public final class GetClusterResult {
         return this.clusterName;
     }
     /**
+     * @return UUID of the MSK cluster, for use in IAM policies.
+     * 
+     */
+    public String clusterUuid() {
+        return this.clusterUuid;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -204,6 +216,7 @@ public final class GetClusterResult {
         private String bootstrapBrokersSaslScram;
         private String bootstrapBrokersTls;
         private String clusterName;
+        private String clusterUuid;
         private String id;
         private String kafkaVersion;
         private Integer numberOfBrokerNodes;
@@ -222,6 +235,7 @@ public final class GetClusterResult {
     	      this.bootstrapBrokersSaslScram = defaults.bootstrapBrokersSaslScram;
     	      this.bootstrapBrokersTls = defaults.bootstrapBrokersTls;
     	      this.clusterName = defaults.clusterName;
+    	      this.clusterUuid = defaults.clusterUuid;
     	      this.id = defaults.id;
     	      this.kafkaVersion = defaults.kafkaVersion;
     	      this.numberOfBrokerNodes = defaults.numberOfBrokerNodes;
@@ -276,6 +290,11 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder clusterUuid(String clusterUuid) {
+            this.clusterUuid = Objects.requireNonNull(clusterUuid);
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -316,6 +335,7 @@ public final class GetClusterResult {
             o.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             o.bootstrapBrokersTls = bootstrapBrokersTls;
             o.clusterName = clusterName;
+            o.clusterUuid = clusterUuid;
             o.id = id;
             o.kafkaVersion = kafkaVersion;
             o.numberOfBrokerNodes = numberOfBrokerNodes;

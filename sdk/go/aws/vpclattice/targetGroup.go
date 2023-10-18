@@ -167,7 +167,7 @@ type TargetGroup struct {
 
 	// ARN of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+	// The target group configuration.
 	Config TargetGroupConfigPtrOutput `pulumi:"config"`
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -224,7 +224,7 @@ func GetTargetGroup(ctx *pulumi.Context,
 type targetGroupState struct {
 	// ARN of the target group.
 	Arn *string `pulumi:"arn"`
-	// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+	// The target group configuration.
 	Config *TargetGroupConfig `pulumi:"config"`
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
@@ -245,7 +245,7 @@ type targetGroupState struct {
 type TargetGroupState struct {
 	// ARN of the target group.
 	Arn pulumi.StringPtrInput
-	// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+	// The target group configuration.
 	Config TargetGroupConfigPtrInput
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
@@ -268,7 +268,7 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+	// The target group configuration.
 	Config *TargetGroupConfig `pulumi:"config"`
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
@@ -282,7 +282,7 @@ type targetGroupArgs struct {
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
-	// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+	// The target group configuration.
 	Config TargetGroupConfigPtrInput
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
@@ -410,7 +410,7 @@ func (o TargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+// The target group configuration.
 func (o TargetGroupOutput) Config() TargetGroupConfigPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupConfigPtrOutput { return v.Config }).(TargetGroupConfigPtrOutput)
 }

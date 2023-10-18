@@ -292,6 +292,8 @@ type Cluster struct {
 	ClientAuthentication ClusterClientAuthenticationPtrOutput `pulumi:"clientAuthentication"`
 	// Name of the MSK cluster.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// UUID of the MSK cluster, for use in IAM policies.
+	ClusterUuid pulumi.StringOutput `pulumi:"clusterUuid"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
@@ -394,6 +396,8 @@ type clusterState struct {
 	ClientAuthentication *ClusterClientAuthentication `pulumi:"clientAuthentication"`
 	// Name of the MSK cluster.
 	ClusterName *string `pulumi:"clusterName"`
+	// UUID of the MSK cluster, for use in IAM policies.
+	ClusterUuid *string `pulumi:"clusterUuid"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
@@ -454,6 +458,8 @@ type ClusterState struct {
 	ClientAuthentication ClusterClientAuthenticationPtrInput
 	// Name of the MSK cluster.
 	ClusterName pulumi.StringPtrInput
+	// UUID of the MSK cluster, for use in IAM policies.
+	ClusterUuid pulumi.StringPtrInput
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
@@ -723,6 +729,11 @@ func (o ClusterOutput) ClientAuthentication() ClusterClientAuthenticationPtrOutp
 // Name of the MSK cluster.
 func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// UUID of the MSK cluster, for use in IAM policies.
+func (o ClusterOutput) ClusterUuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterUuid }).(pulumi.StringOutput)
 }
 
 // Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.

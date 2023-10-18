@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig
     {
         /// <summary>
+        /// Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
+        /// <summary>
         /// Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet? AwsManagedRulesAtpRuleSet;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet? awsManagedRulesAcfpRuleSet,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet? awsManagedRulesAtpRuleSet,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet? awsManagedRulesBotControlRuleSet,
@@ -52,6 +58,7 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField? usernameField)
         {
+            AwsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
             AwsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             AwsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             LoginPath = loginPath;

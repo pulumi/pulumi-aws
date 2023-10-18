@@ -127,7 +127,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * The target group configuration.
      */
     public readonly config!: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface TargetGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * The target group configuration.
      */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfig>;
     /**
@@ -238,7 +238,7 @@ export interface TargetGroupState {
  */
 export interface TargetGroupArgs {
     /**
-     * The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * The target group configuration.
      */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfig>;
     /**

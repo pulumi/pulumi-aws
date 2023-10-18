@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs();
+
+    /**
+     * Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    @Import(name="awsManagedRulesAcfpRuleSet")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs> awsManagedRulesAcfpRuleSet;
+
+    /**
+     * @return Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs>> awsManagedRulesAcfpRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
+    }
 
     /**
      * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
@@ -112,6 +128,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs $) {
+        this.awsManagedRulesAcfpRuleSet = $.awsManagedRulesAcfpRuleSet;
         this.awsManagedRulesAtpRuleSet = $.awsManagedRulesAtpRuleSet;
         this.awsManagedRulesBotControlRuleSet = $.awsManagedRulesBotControlRuleSet;
         this.loginPath = $.loginPath;
@@ -136,6 +153,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs defaults) {
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param awsManagedRulesAcfpRuleSet Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAcfpRuleSet(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs> awsManagedRulesAcfpRuleSet) {
+            $.awsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            return this;
+        }
+
+        /**
+         * @param awsManagedRulesAcfpRuleSet Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAcfpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs awsManagedRulesAcfpRuleSet) {
+            return awsManagedRulesAcfpRuleSet(Output.of(awsManagedRulesAcfpRuleSet));
         }
 
         /**

@@ -57,12 +57,18 @@ namespace Pulumi.Aws.DocDB
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
+        /// </summary>
+        [Output("allowMajorVersionUpgrade")]
+        public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`.
         /// </summary>
         [Output("applyImmediately")]
-        public Output<bool> ApplyImmediately { get; private set; } = null!;
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
@@ -303,6 +309,12 @@ namespace Pulumi.Aws.DocDB
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`.
@@ -509,6 +521,12 @@ namespace Pulumi.Aws.DocDB
 
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is

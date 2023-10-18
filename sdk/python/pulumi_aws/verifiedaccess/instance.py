@@ -17,14 +17,18 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access Instance.
+        :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -39,6 +43,18 @@ class InstanceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
 
     @property
     @pulumi.getter
@@ -58,6 +74,7 @@ class _InstanceState:
     def __init__(__self__, *,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -66,6 +83,7 @@ class _InstanceState:
         Input properties used for looking up and filtering Instance resources.
         :param pulumi.Input[str] creation_time: The time that the Verified Access Instance was created.
         :param pulumi.Input[str] description: A description for the AWS Verified Access Instance.
+        :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
@@ -74,6 +92,8 @@ class _InstanceState:
             pulumi.set(__self__, "creation_time", creation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if fips_enabled is not None:
+            pulumi.set(__self__, "fips_enabled", fips_enabled)
         if last_updated_time is not None:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if tags is not None:
@@ -109,6 +129,18 @@ class _InstanceState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        """
+        return pulumi.get(self, "fips_enabled")
+
+    @fips_enabled.setter
+    def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fips_enabled", value)
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -165,12 +197,14 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing a Verified Access Instance.
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
@@ -182,10 +216,18 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        ### With `fips_enabled`
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.verifiedaccess.Instance("example", fips_enabled=True)
+        ```
 
         ## Import
 
-        Using `pulumi import`, import Transfer Workflows using the
+        Using `pulumi import`, import Verified Access Instances using the
 
         `id`. For example:
 
@@ -196,6 +238,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access Instance.
+        :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -208,6 +251,7 @@ class Instance(pulumi.CustomResource):
         Resource for managing a Verified Access Instance.
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
@@ -219,10 +263,18 @@ class Instance(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        ### With `fips_enabled`
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.verifiedaccess.Instance("example", fips_enabled=True)
+        ```
 
         ## Import
 
-        Using `pulumi import`, import Transfer Workflows using the
+        Using `pulumi import`, import Verified Access Instances using the
 
         `id`. For example:
 
@@ -246,6 +298,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 fips_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -257,6 +310,7 @@ class Instance(pulumi.CustomResource):
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_updated_time"] = None
@@ -276,6 +330,7 @@ class Instance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            fips_enabled: Optional[pulumi.Input[bool]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -289,6 +344,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] creation_time: The time that the Verified Access Instance was created.
         :param pulumi.Input[str] description: A description for the AWS Verified Access Instance.
+        :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArgs']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
@@ -299,6 +355,7 @@ class Instance(pulumi.CustomResource):
 
         __props__.__dict__["creation_time"] = creation_time
         __props__.__dict__["description"] = description
+        __props__.__dict__["fips_enabled"] = fips_enabled
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -320,6 +377,14 @@ class Instance(pulumi.CustomResource):
         A description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fipsEnabled")
+    def fips_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        """
+        return pulumi.get(self, "fips_enabled")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

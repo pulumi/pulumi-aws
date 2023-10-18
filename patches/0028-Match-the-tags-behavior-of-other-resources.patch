@@ -1,4 +1,4 @@
-From 893738d7988f814ab4ac8366a50cb4ac8fb3b1aa Mon Sep 17 00:00:00 2001
+From c1aec4eadaec35ac735689b7863d670f94a1072c Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 2 Aug 2023 14:12:03 +0200
 Subject: [PATCH 28/30] Match the "tags" behavior of other resources
@@ -47,5 +47,5 @@ index 0563bd3a25..e6bd8e7013 100644
  
  	arn := arn.ARN{
 -- 
-2.42.0
+2.39.1
 

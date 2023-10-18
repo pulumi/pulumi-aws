@@ -20,6 +20,7 @@ class ClusterInstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,13 @@ class ClusterInstanceArgs:
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
                Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r6g.large
+               - db.r6g.xlarge
+               - db.r6g.2xlarge
+               - db.r6g.4xlarge
+               - db.r6g.8xlarge
+               - db.r6g.12xlarge
+               - db.r6g.16xlarge
                - db.r5.large
                - db.r5.xlarge
                - db.r5.2xlarge
@@ -46,12 +54,14 @@ class ClusterInstanceArgs:
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t4g.medium
                - db.t3.medium
         :param pulumi.Input[bool] apply_immediately: Specifies whether any database modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
@@ -72,6 +82,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if ca_cert_identifier is not None:
             pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if enable_performance_insights is not None:
             pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if engine is not None:
@@ -108,6 +120,13 @@ class ClusterInstanceArgs:
         The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         DocumentDB currently supports the below instance classes.
         Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        - db.r6g.large
+        - db.r6g.xlarge
+        - db.r6g.2xlarge
+        - db.r6g.4xlarge
+        - db.r6g.8xlarge
+        - db.r6g.12xlarge
+        - db.r6g.16xlarge
         - db.r5.large
         - db.r5.xlarge
         - db.r5.2xlarge
@@ -120,6 +139,7 @@ class ClusterInstanceArgs:
         - db.r4.4xlarge
         - db.r4.8xlarge
         - db.r4.16xlarge
+        - db.t4g.medium
         - db.t3.medium
         """
         return pulumi.get(self, "instance_class")
@@ -176,6 +196,18 @@ class ClusterInstanceArgs:
     @ca_cert_identifier.setter
     def ca_cert_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ca_cert_identifier", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Copy all DB instance `tags` to snapshots. Default is `false`.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
     @pulumi.getter(name="enablePerformanceInsights")
@@ -284,6 +316,7 @@ class _ClusterInstanceState:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
@@ -313,6 +346,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -324,6 +358,13 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
                Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r6g.large
+               - db.r6g.xlarge
+               - db.r6g.2xlarge
+               - db.r6g.4xlarge
+               - db.r6g.8xlarge
+               - db.r6g.12xlarge
+               - db.r6g.16xlarge
                - db.r5.large
                - db.r5.xlarge
                - db.r5.2xlarge
@@ -336,6 +377,7 @@ class _ClusterInstanceState:
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t4g.medium
                - db.t3.medium
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
@@ -361,6 +403,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if dbi_resource_id is not None:
@@ -479,6 +523,18 @@ class _ClusterInstanceState:
         pulumi.set(self, "cluster_identifier", value)
 
     @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Copy all DB instance `tags` to snapshots. Default is `false`.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -581,6 +637,13 @@ class _ClusterInstanceState:
         The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         DocumentDB currently supports the below instance classes.
         Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        - db.r6g.large
+        - db.r6g.xlarge
+        - db.r6g.2xlarge
+        - db.r6g.4xlarge
+        - db.r6g.8xlarge
+        - db.r6g.12xlarge
+        - db.r6g.16xlarge
         - db.r5.large
         - db.r5.xlarge
         - db.r5.2xlarge
@@ -593,6 +656,7 @@ class _ClusterInstanceState:
         - db.r4.4xlarge
         - db.r4.8xlarge
         - db.r4.16xlarge
+        - db.t4g.medium
         - db.t3.medium
         """
         return pulumi.get(self, "instance_class")
@@ -745,6 +809,7 @@ class ClusterInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
@@ -804,6 +869,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
@@ -811,6 +877,13 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
                Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r6g.large
+               - db.r6g.xlarge
+               - db.r6g.2xlarge
+               - db.r6g.4xlarge
+               - db.r6g.8xlarge
+               - db.r6g.12xlarge
+               - db.r6g.16xlarge
                - db.r5.large
                - db.r5.xlarge
                - db.r5.2xlarge
@@ -823,6 +896,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t4g.medium
                - db.t3.medium
         :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -897,6 +971,7 @@ class ClusterInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
@@ -922,6 +997,7 @@ class ClusterInstance(pulumi.CustomResource):
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
+            __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
             __props__.__dict__["engine"] = engine
             __props__.__dict__["identifier"] = identifier
@@ -963,6 +1039,7 @@ class ClusterInstance(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             ca_cert_identifier: Optional[pulumi.Input[str]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
+            copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             dbi_resource_id: Optional[pulumi.Input[str]] = None,
             enable_performance_insights: Optional[pulumi.Input[bool]] = None,
@@ -997,6 +1074,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all DB instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] db_subnet_group_name: The DB subnet group to associate with this DB instance.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
@@ -1008,6 +1086,13 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
                Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+               - db.r6g.large
+               - db.r6g.xlarge
+               - db.r6g.2xlarge
+               - db.r6g.4xlarge
+               - db.r6g.8xlarge
+               - db.r6g.12xlarge
+               - db.r6g.16xlarge
                - db.r5.large
                - db.r5.xlarge
                - db.r5.2xlarge
@@ -1020,6 +1105,7 @@ class ClusterInstance(pulumi.CustomResource):
                - db.r4.4xlarge
                - db.r4.8xlarge
                - db.r4.16xlarge
+               - db.t4g.medium
                - db.t3.medium
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key if one is set to the cluster.
         :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
@@ -1043,6 +1129,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
         __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["dbi_resource_id"] = dbi_resource_id
         __props__.__dict__["enable_performance_insights"] = enable_performance_insights
@@ -1067,7 +1154,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> pulumi.Output[bool]:
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether any database modifications
         are applied immediately, or during the next maintenance window. Default is`false`.
@@ -1115,6 +1202,14 @@ class ClusterInstance(pulumi.CustomResource):
         return pulumi.get(self, "cluster_identifier")
 
     @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Copy all DB instance `tags` to snapshots. Default is `false`.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[str]:
         """
@@ -1132,7 +1227,7 @@ class ClusterInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePerformanceInsights")
-    def enable_performance_insights(self) -> pulumi.Output[bool]:
+    def enable_performance_insights(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         """
@@ -1185,6 +1280,13 @@ class ClusterInstance(pulumi.CustomResource):
         The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         DocumentDB currently supports the below instance classes.
         Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+        - db.r6g.large
+        - db.r6g.xlarge
+        - db.r6g.2xlarge
+        - db.r6g.4xlarge
+        - db.r6g.8xlarge
+        - db.r6g.12xlarge
+        - db.r6g.16xlarge
         - db.r5.large
         - db.r5.xlarge
         - db.r5.2xlarge
@@ -1197,6 +1299,7 @@ class ClusterInstance(pulumi.CustomResource):
         - db.r4.4xlarge
         - db.r4.8xlarge
         - db.r4.16xlarge
+        - db.t4g.medium
         - db.t3.medium
         """
         return pulumi.get(self, "instance_class")

@@ -253,7 +253,7 @@ export class Instance extends pulumi.CustomResource {
      * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
+     * for additional read replica constraints.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -805,7 +805,7 @@ export interface InstanceState {
      * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
+     * for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -1176,7 +1176,7 @@ export interface InstanceArgs {
      * with read replicas, it should be specified only if the source database
      * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
+     * for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**

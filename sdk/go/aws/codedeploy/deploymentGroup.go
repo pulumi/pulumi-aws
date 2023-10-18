@@ -116,6 +116,7 @@ import (
 //					},
 //					Enabled: pulumi.Bool(true),
 //				},
+//				OutdatedInstancesStrategy: pulumi.String("UPDATE"),
 //			})
 //			if err != nil {
 //				return err
@@ -298,6 +299,8 @@ type DeploymentGroup struct {
 	LoadBalancerInfo DeploymentGroupLoadBalancerInfoPtrOutput `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayOutput `pulumi:"onPremisesInstanceTagFilters"`
+	// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+	OutdatedInstancesStrategy pulumi.StringPtrOutput `pulumi:"outdatedInstancesStrategy"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -385,6 +388,8 @@ type deploymentGroupState struct {
 	LoadBalancerInfo *DeploymentGroupLoadBalancerInfo `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters []DeploymentGroupOnPremisesInstanceTagFilter `pulumi:"onPremisesInstanceTagFilters"`
+	// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+	OutdatedInstancesStrategy *string `pulumi:"outdatedInstancesStrategy"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -430,6 +435,8 @@ type DeploymentGroupState struct {
 	LoadBalancerInfo DeploymentGroupLoadBalancerInfoPtrInput
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayInput
+	// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+	OutdatedInstancesStrategy pulumi.StringPtrInput
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -473,6 +480,8 @@ type deploymentGroupArgs struct {
 	LoadBalancerInfo *DeploymentGroupLoadBalancerInfo `pulumi:"loadBalancerInfo"`
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters []DeploymentGroupOnPremisesInstanceTagFilter `pulumi:"onPremisesInstanceTagFilters"`
+	// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+	OutdatedInstancesStrategy *string `pulumi:"outdatedInstancesStrategy"`
 	// The service role ARN that allows deployments.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -509,6 +518,8 @@ type DeploymentGroupArgs struct {
 	LoadBalancerInfo DeploymentGroupLoadBalancerInfoPtrInput
 	// On premise tag filters associated with the group. See the AWS docs for details.
 	OnPremisesInstanceTagFilters DeploymentGroupOnPremisesInstanceTagFilterArrayInput
+	// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+	OutdatedInstancesStrategy pulumi.StringPtrInput
 	// The service role ARN that allows deployments.
 	ServiceRoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -712,6 +723,11 @@ func (o DeploymentGroupOutput) OnPremisesInstanceTagFilters() DeploymentGroupOnP
 	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupOnPremisesInstanceTagFilterArrayOutput {
 		return v.OnPremisesInstanceTagFilters
 	}).(DeploymentGroupOnPremisesInstanceTagFilterArrayOutput)
+}
+
+// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+func (o DeploymentGroupOutput) OutdatedInstancesStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringPtrOutput { return v.OutdatedInstancesStrategy }).(pulumi.StringPtrOutput)
 }
 
 // The service role ARN that allows deployments.

@@ -81,6 +81,10 @@ export interface GetClusterResult {
     readonly bootstrapBrokersTls: string;
     readonly clusterName: string;
     /**
+     * UUID of the MSK cluster, for use in IAM policies.
+     */
+    readonly clusterUuid: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

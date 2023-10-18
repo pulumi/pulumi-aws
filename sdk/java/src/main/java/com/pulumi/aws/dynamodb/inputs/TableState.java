@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
+import com.pulumi.aws.dynamodb.inputs.TableImportTableArgs;
 import com.pulumi.aws.dynamodb.inputs.TableLocalSecondaryIndexArgs;
 import com.pulumi.aws.dynamodb.inputs.TablePointInTimeRecoveryArgs;
 import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
@@ -114,6 +115,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> hashKey() {
         return Optional.ofNullable(this.hashKey);
+    }
+
+    /**
+     * Import Amazon S3 data into a new table. See below.
+     * 
+     */
+    @Import(name="importTable")
+    private @Nullable Output<TableImportTableArgs> importTable;
+
+    /**
+     * @return Import Amazon S3 data into a new table. See below.
+     * 
+     */
+    public Optional<Output<TableImportTableArgs>> importTable() {
+        return Optional.ofNullable(this.importTable);
     }
 
     /**
@@ -426,6 +442,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.globalSecondaryIndexes = $.globalSecondaryIndexes;
         this.hashKey = $.hashKey;
+        this.importTable = $.importTable;
         this.localSecondaryIndexes = $.localSecondaryIndexes;
         this.name = $.name;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
@@ -609,6 +626,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hashKey(String hashKey) {
             return hashKey(Output.of(hashKey));
+        }
+
+        /**
+         * @param importTable Import Amazon S3 data into a new table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder importTable(@Nullable Output<TableImportTableArgs> importTable) {
+            $.importTable = importTable;
+            return this;
+        }
+
+        /**
+         * @param importTable Import Amazon S3 data into a new table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder importTable(TableImportTableArgs importTable) {
+            return importTable(Output.of(importTable));
         }
 
         /**

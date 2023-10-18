@@ -15,6 +15,7 @@ import (
 // Resource for managing a Verified Access Instance.
 //
 // ## Example Usage
+// ### Basic
 //
 // ```go
 // package main
@@ -42,10 +43,35 @@ import (
 //	}
 //
 // ```
+// ### With `fipsEnabled`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := verifiedaccess.NewInstance(ctx, "example", &verifiedaccess.InstanceArgs{
+//				FipsEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// # Using `pulumi import`, import Transfer Workflows using the
+// # Using `pulumi import`, import Verified Access Instances using the
 //
 // `id`. For example:
 //
@@ -61,6 +87,8 @@ type Instance struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// The time that the Verified Access Instance was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,6 +137,8 @@ type instanceState struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// A description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
+	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The time that the Verified Access Instance was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -124,6 +154,8 @@ type InstanceState struct {
 	CreationTime pulumi.StringPtrInput
 	// A description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrInput
+	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	FipsEnabled pulumi.BoolPtrInput
 	// The time that the Verified Access Instance was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,6 +173,8 @@ func (InstanceState) ElementType() reflect.Type {
 type instanceArgs struct {
 	// A description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
+	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -149,6 +183,8 @@ type instanceArgs struct {
 type InstanceArgs struct {
 	// A description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrInput
+	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	FipsEnabled pulumi.BoolPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -272,6 +308,11 @@ func (o InstanceOutput) CreationTime() pulumi.StringOutput {
 // A description for the AWS Verified Access Instance.
 func (o InstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+func (o InstanceOutput) FipsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The time that the Verified Access Instance was last updated.

@@ -33,14 +33,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * The target group configuration.
      * 
      */
     @Import(name="config")
     private @Nullable Output<TargetGroupConfigArgs> config;
 
     /**
-     * @return The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * @return The target group configuration.
      * 
      */
     public Optional<Output<TargetGroupConfigArgs>> config() {
@@ -186,7 +186,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+         * @param config The target group configuration.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+         * @param config The target group configuration.
          * 
          * @return builder
          * 

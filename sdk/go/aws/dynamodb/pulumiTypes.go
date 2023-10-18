@@ -440,6 +440,764 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 	}).(TableGlobalSecondaryIndexOutput)
 }
 
+type TableImportTable struct {
+	// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+	InputCompressionType *string `pulumi:"inputCompressionType"`
+	// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+	InputFormat string `pulumi:"inputFormat"`
+	// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+	InputFormatOptions *TableImportTableInputFormatOptions `pulumi:"inputFormatOptions"`
+	// Values for the S3 bucket the source file is imported from. See below.
+	S3BucketSource TableImportTableS3BucketSource `pulumi:"s3BucketSource"`
+}
+
+// TableImportTableInput is an input type that accepts TableImportTableArgs and TableImportTableOutput values.
+// You can construct a concrete instance of `TableImportTableInput` via:
+//
+//	TableImportTableArgs{...}
+type TableImportTableInput interface {
+	pulumi.Input
+
+	ToTableImportTableOutput() TableImportTableOutput
+	ToTableImportTableOutputWithContext(context.Context) TableImportTableOutput
+}
+
+type TableImportTableArgs struct {
+	// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+	InputCompressionType pulumi.StringPtrInput `pulumi:"inputCompressionType"`
+	// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+	InputFormat pulumi.StringInput `pulumi:"inputFormat"`
+	// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+	InputFormatOptions TableImportTableInputFormatOptionsPtrInput `pulumi:"inputFormatOptions"`
+	// Values for the S3 bucket the source file is imported from. See below.
+	S3BucketSource TableImportTableS3BucketSourceInput `pulumi:"s3BucketSource"`
+}
+
+func (TableImportTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTable)(nil)).Elem()
+}
+
+func (i TableImportTableArgs) ToTableImportTableOutput() TableImportTableOutput {
+	return i.ToTableImportTableOutputWithContext(context.Background())
+}
+
+func (i TableImportTableArgs) ToTableImportTableOutputWithContext(ctx context.Context) TableImportTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableOutput)
+}
+
+func (i TableImportTableArgs) ToOutput(ctx context.Context) pulumix.Output[TableImportTable] {
+	return pulumix.Output[TableImportTable]{
+		OutputState: i.ToTableImportTableOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableImportTableArgs) ToTableImportTablePtrOutput() TableImportTablePtrOutput {
+	return i.ToTableImportTablePtrOutputWithContext(context.Background())
+}
+
+func (i TableImportTableArgs) ToTableImportTablePtrOutputWithContext(ctx context.Context) TableImportTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableOutput).ToTableImportTablePtrOutputWithContext(ctx)
+}
+
+// TableImportTablePtrInput is an input type that accepts TableImportTableArgs, TableImportTablePtr and TableImportTablePtrOutput values.
+// You can construct a concrete instance of `TableImportTablePtrInput` via:
+//
+//	        TableImportTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableImportTablePtrInput interface {
+	pulumi.Input
+
+	ToTableImportTablePtrOutput() TableImportTablePtrOutput
+	ToTableImportTablePtrOutputWithContext(context.Context) TableImportTablePtrOutput
+}
+
+type tableImportTablePtrType TableImportTableArgs
+
+func TableImportTablePtr(v *TableImportTableArgs) TableImportTablePtrInput {
+	return (*tableImportTablePtrType)(v)
+}
+
+func (*tableImportTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTable)(nil)).Elem()
+}
+
+func (i *tableImportTablePtrType) ToTableImportTablePtrOutput() TableImportTablePtrOutput {
+	return i.ToTableImportTablePtrOutputWithContext(context.Background())
+}
+
+func (i *tableImportTablePtrType) ToTableImportTablePtrOutputWithContext(ctx context.Context) TableImportTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTablePtrOutput)
+}
+
+func (i *tableImportTablePtrType) ToOutput(ctx context.Context) pulumix.Output[*TableImportTable] {
+	return pulumix.Output[*TableImportTable]{
+		OutputState: i.ToTableImportTablePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableImportTableOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTable)(nil)).Elem()
+}
+
+func (o TableImportTableOutput) ToTableImportTableOutput() TableImportTableOutput {
+	return o
+}
+
+func (o TableImportTableOutput) ToTableImportTableOutputWithContext(ctx context.Context) TableImportTableOutput {
+	return o
+}
+
+func (o TableImportTableOutput) ToTableImportTablePtrOutput() TableImportTablePtrOutput {
+	return o.ToTableImportTablePtrOutputWithContext(context.Background())
+}
+
+func (o TableImportTableOutput) ToTableImportTablePtrOutputWithContext(ctx context.Context) TableImportTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportTable) *TableImportTable {
+		return &v
+	}).(TableImportTablePtrOutput)
+}
+
+func (o TableImportTableOutput) ToOutput(ctx context.Context) pulumix.Output[TableImportTable] {
+	return pulumix.Output[TableImportTable]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+func (o TableImportTableOutput) InputCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableImportTable) *string { return v.InputCompressionType }).(pulumi.StringPtrOutput)
+}
+
+// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+func (o TableImportTableOutput) InputFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v TableImportTable) string { return v.InputFormat }).(pulumi.StringOutput)
+}
+
+// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+func (o TableImportTableOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
+	return o.ApplyT(func(v TableImportTable) *TableImportTableInputFormatOptions { return v.InputFormatOptions }).(TableImportTableInputFormatOptionsPtrOutput)
+}
+
+// Values for the S3 bucket the source file is imported from. See below.
+func (o TableImportTableOutput) S3BucketSource() TableImportTableS3BucketSourceOutput {
+	return o.ApplyT(func(v TableImportTable) TableImportTableS3BucketSource { return v.S3BucketSource }).(TableImportTableS3BucketSourceOutput)
+}
+
+type TableImportTablePtrOutput struct{ *pulumi.OutputState }
+
+func (TableImportTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTable)(nil)).Elem()
+}
+
+func (o TableImportTablePtrOutput) ToTableImportTablePtrOutput() TableImportTablePtrOutput {
+	return o
+}
+
+func (o TableImportTablePtrOutput) ToTableImportTablePtrOutputWithContext(ctx context.Context) TableImportTablePtrOutput {
+	return o
+}
+
+func (o TableImportTablePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableImportTable] {
+	return pulumix.Output[*TableImportTable]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableImportTablePtrOutput) Elem() TableImportTableOutput {
+	return o.ApplyT(func(v *TableImportTable) TableImportTable {
+		if v != nil {
+			return *v
+		}
+		var ret TableImportTable
+		return ret
+	}).(TableImportTableOutput)
+}
+
+// Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+func (o TableImportTablePtrOutput) InputCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+func (o TableImportTablePtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+func (o TableImportTablePtrOutput) InputFormatOptions() TableImportTableInputFormatOptionsPtrOutput {
+	return o.ApplyT(func(v *TableImportTable) *TableImportTableInputFormatOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormatOptions
+	}).(TableImportTableInputFormatOptionsPtrOutput)
+}
+
+// Values for the S3 bucket the source file is imported from. See below.
+func (o TableImportTablePtrOutput) S3BucketSource() TableImportTableS3BucketSourcePtrOutput {
+	return o.ApplyT(func(v *TableImportTable) *TableImportTableS3BucketSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketSource
+	}).(TableImportTableS3BucketSourcePtrOutput)
+}
+
+type TableImportTableInputFormatOptions struct {
+	// This block contains the processing options for the CSV file being imported:
+	Csv *TableImportTableInputFormatOptionsCsv `pulumi:"csv"`
+}
+
+// TableImportTableInputFormatOptionsInput is an input type that accepts TableImportTableInputFormatOptionsArgs and TableImportTableInputFormatOptionsOutput values.
+// You can construct a concrete instance of `TableImportTableInputFormatOptionsInput` via:
+//
+//	TableImportTableInputFormatOptionsArgs{...}
+type TableImportTableInputFormatOptionsInput interface {
+	pulumi.Input
+
+	ToTableImportTableInputFormatOptionsOutput() TableImportTableInputFormatOptionsOutput
+	ToTableImportTableInputFormatOptionsOutputWithContext(context.Context) TableImportTableInputFormatOptionsOutput
+}
+
+type TableImportTableInputFormatOptionsArgs struct {
+	// This block contains the processing options for the CSV file being imported:
+	Csv TableImportTableInputFormatOptionsCsvPtrInput `pulumi:"csv"`
+}
+
+func (TableImportTableInputFormatOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableInputFormatOptions)(nil)).Elem()
+}
+
+func (i TableImportTableInputFormatOptionsArgs) ToTableImportTableInputFormatOptionsOutput() TableImportTableInputFormatOptionsOutput {
+	return i.ToTableImportTableInputFormatOptionsOutputWithContext(context.Background())
+}
+
+func (i TableImportTableInputFormatOptionsArgs) ToTableImportTableInputFormatOptionsOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsOutput)
+}
+
+func (i TableImportTableInputFormatOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TableImportTableInputFormatOptions] {
+	return pulumix.Output[TableImportTableInputFormatOptions]{
+		OutputState: i.ToTableImportTableInputFormatOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableImportTableInputFormatOptionsArgs) ToTableImportTableInputFormatOptionsPtrOutput() TableImportTableInputFormatOptionsPtrOutput {
+	return i.ToTableImportTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TableImportTableInputFormatOptionsArgs) ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsOutput).ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx)
+}
+
+// TableImportTableInputFormatOptionsPtrInput is an input type that accepts TableImportTableInputFormatOptionsArgs, TableImportTableInputFormatOptionsPtr and TableImportTableInputFormatOptionsPtrOutput values.
+// You can construct a concrete instance of `TableImportTableInputFormatOptionsPtrInput` via:
+//
+//	        TableImportTableInputFormatOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableImportTableInputFormatOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTableImportTableInputFormatOptionsPtrOutput() TableImportTableInputFormatOptionsPtrOutput
+	ToTableImportTableInputFormatOptionsPtrOutputWithContext(context.Context) TableImportTableInputFormatOptionsPtrOutput
+}
+
+type tableImportTableInputFormatOptionsPtrType TableImportTableInputFormatOptionsArgs
+
+func TableImportTableInputFormatOptionsPtr(v *TableImportTableInputFormatOptionsArgs) TableImportTableInputFormatOptionsPtrInput {
+	return (*tableImportTableInputFormatOptionsPtrType)(v)
+}
+
+func (*tableImportTableInputFormatOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableInputFormatOptions)(nil)).Elem()
+}
+
+func (i *tableImportTableInputFormatOptionsPtrType) ToTableImportTableInputFormatOptionsPtrOutput() TableImportTableInputFormatOptionsPtrOutput {
+	return i.ToTableImportTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableImportTableInputFormatOptionsPtrType) ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsPtrOutput)
+}
+
+func (i *tableImportTableInputFormatOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableInputFormatOptions] {
+	return pulumix.Output[*TableImportTableInputFormatOptions]{
+		OutputState: i.ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableImportTableInputFormatOptionsOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableInputFormatOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableInputFormatOptions)(nil)).Elem()
+}
+
+func (o TableImportTableInputFormatOptionsOutput) ToTableImportTableInputFormatOptionsOutput() TableImportTableInputFormatOptionsOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsOutput) ToTableImportTableInputFormatOptionsOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsOutput) ToTableImportTableInputFormatOptionsPtrOutput() TableImportTableInputFormatOptionsPtrOutput {
+	return o.ToTableImportTableInputFormatOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TableImportTableInputFormatOptionsOutput) ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportTableInputFormatOptions) *TableImportTableInputFormatOptions {
+		return &v
+	}).(TableImportTableInputFormatOptionsPtrOutput)
+}
+
+func (o TableImportTableInputFormatOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TableImportTableInputFormatOptions] {
+	return pulumix.Output[TableImportTableInputFormatOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// This block contains the processing options for the CSV file being imported:
+func (o TableImportTableInputFormatOptionsOutput) Csv() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o.ApplyT(func(v TableImportTableInputFormatOptions) *TableImportTableInputFormatOptionsCsv { return v.Csv }).(TableImportTableInputFormatOptionsCsvPtrOutput)
+}
+
+type TableImportTableInputFormatOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableInputFormatOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableInputFormatOptions)(nil)).Elem()
+}
+
+func (o TableImportTableInputFormatOptionsPtrOutput) ToTableImportTableInputFormatOptionsPtrOutput() TableImportTableInputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsPtrOutput) ToTableImportTableInputFormatOptionsPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsPtrOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableInputFormatOptions] {
+	return pulumix.Output[*TableImportTableInputFormatOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableImportTableInputFormatOptionsPtrOutput) Elem() TableImportTableInputFormatOptionsOutput {
+	return o.ApplyT(func(v *TableImportTableInputFormatOptions) TableImportTableInputFormatOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TableImportTableInputFormatOptions
+		return ret
+	}).(TableImportTableInputFormatOptionsOutput)
+}
+
+// This block contains the processing options for the CSV file being imported:
+func (o TableImportTableInputFormatOptionsPtrOutput) Csv() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o.ApplyT(func(v *TableImportTableInputFormatOptions) *TableImportTableInputFormatOptionsCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(TableImportTableInputFormatOptionsCsvPtrOutput)
+}
+
+type TableImportTableInputFormatOptionsCsv struct {
+	// The delimiter used for separating items in the CSV file being imported.
+	Delimiter *string `pulumi:"delimiter"`
+	// List of the headers used to specify a common header for all source CSV files being imported.
+	HeaderLists []string `pulumi:"headerLists"`
+}
+
+// TableImportTableInputFormatOptionsCsvInput is an input type that accepts TableImportTableInputFormatOptionsCsvArgs and TableImportTableInputFormatOptionsCsvOutput values.
+// You can construct a concrete instance of `TableImportTableInputFormatOptionsCsvInput` via:
+//
+//	TableImportTableInputFormatOptionsCsvArgs{...}
+type TableImportTableInputFormatOptionsCsvInput interface {
+	pulumi.Input
+
+	ToTableImportTableInputFormatOptionsCsvOutput() TableImportTableInputFormatOptionsCsvOutput
+	ToTableImportTableInputFormatOptionsCsvOutputWithContext(context.Context) TableImportTableInputFormatOptionsCsvOutput
+}
+
+type TableImportTableInputFormatOptionsCsvArgs struct {
+	// The delimiter used for separating items in the CSV file being imported.
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// List of the headers used to specify a common header for all source CSV files being imported.
+	HeaderLists pulumi.StringArrayInput `pulumi:"headerLists"`
+}
+
+func (TableImportTableInputFormatOptionsCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableInputFormatOptionsCsv)(nil)).Elem()
+}
+
+func (i TableImportTableInputFormatOptionsCsvArgs) ToTableImportTableInputFormatOptionsCsvOutput() TableImportTableInputFormatOptionsCsvOutput {
+	return i.ToTableImportTableInputFormatOptionsCsvOutputWithContext(context.Background())
+}
+
+func (i TableImportTableInputFormatOptionsCsvArgs) ToTableImportTableInputFormatOptionsCsvOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsCsvOutput)
+}
+
+func (i TableImportTableInputFormatOptionsCsvArgs) ToOutput(ctx context.Context) pulumix.Output[TableImportTableInputFormatOptionsCsv] {
+	return pulumix.Output[TableImportTableInputFormatOptionsCsv]{
+		OutputState: i.ToTableImportTableInputFormatOptionsCsvOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableImportTableInputFormatOptionsCsvArgs) ToTableImportTableInputFormatOptionsCsvPtrOutput() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return i.ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(context.Background())
+}
+
+func (i TableImportTableInputFormatOptionsCsvArgs) ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsCsvOutput).ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx)
+}
+
+// TableImportTableInputFormatOptionsCsvPtrInput is an input type that accepts TableImportTableInputFormatOptionsCsvArgs, TableImportTableInputFormatOptionsCsvPtr and TableImportTableInputFormatOptionsCsvPtrOutput values.
+// You can construct a concrete instance of `TableImportTableInputFormatOptionsCsvPtrInput` via:
+//
+//	        TableImportTableInputFormatOptionsCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableImportTableInputFormatOptionsCsvPtrInput interface {
+	pulumi.Input
+
+	ToTableImportTableInputFormatOptionsCsvPtrOutput() TableImportTableInputFormatOptionsCsvPtrOutput
+	ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(context.Context) TableImportTableInputFormatOptionsCsvPtrOutput
+}
+
+type tableImportTableInputFormatOptionsCsvPtrType TableImportTableInputFormatOptionsCsvArgs
+
+func TableImportTableInputFormatOptionsCsvPtr(v *TableImportTableInputFormatOptionsCsvArgs) TableImportTableInputFormatOptionsCsvPtrInput {
+	return (*tableImportTableInputFormatOptionsCsvPtrType)(v)
+}
+
+func (*tableImportTableInputFormatOptionsCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableInputFormatOptionsCsv)(nil)).Elem()
+}
+
+func (i *tableImportTableInputFormatOptionsCsvPtrType) ToTableImportTableInputFormatOptionsCsvPtrOutput() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return i.ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *tableImportTableInputFormatOptionsCsvPtrType) ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableInputFormatOptionsCsvPtrOutput)
+}
+
+func (i *tableImportTableInputFormatOptionsCsvPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableInputFormatOptionsCsv] {
+	return pulumix.Output[*TableImportTableInputFormatOptionsCsv]{
+		OutputState: i.ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableImportTableInputFormatOptionsCsvOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableInputFormatOptionsCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableInputFormatOptionsCsv)(nil)).Elem()
+}
+
+func (o TableImportTableInputFormatOptionsCsvOutput) ToTableImportTableInputFormatOptionsCsvOutput() TableImportTableInputFormatOptionsCsvOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsCsvOutput) ToTableImportTableInputFormatOptionsCsvOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsCsvOutput) ToTableImportTableInputFormatOptionsCsvPtrOutput() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o.ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(context.Background())
+}
+
+func (o TableImportTableInputFormatOptionsCsvOutput) ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportTableInputFormatOptionsCsv) *TableImportTableInputFormatOptionsCsv {
+		return &v
+	}).(TableImportTableInputFormatOptionsCsvPtrOutput)
+}
+
+func (o TableImportTableInputFormatOptionsCsvOutput) ToOutput(ctx context.Context) pulumix.Output[TableImportTableInputFormatOptionsCsv] {
+	return pulumix.Output[TableImportTableInputFormatOptionsCsv]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The delimiter used for separating items in the CSV file being imported.
+func (o TableImportTableInputFormatOptionsCsvOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableImportTableInputFormatOptionsCsv) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// List of the headers used to specify a common header for all source CSV files being imported.
+func (o TableImportTableInputFormatOptionsCsvOutput) HeaderLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableImportTableInputFormatOptionsCsv) []string { return v.HeaderLists }).(pulumi.StringArrayOutput)
+}
+
+type TableImportTableInputFormatOptionsCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableInputFormatOptionsCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableInputFormatOptionsCsv)(nil)).Elem()
+}
+
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) ToTableImportTableInputFormatOptionsCsvPtrOutput() TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) ToTableImportTableInputFormatOptionsCsvPtrOutputWithContext(ctx context.Context) TableImportTableInputFormatOptionsCsvPtrOutput {
+	return o
+}
+
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableInputFormatOptionsCsv] {
+	return pulumix.Output[*TableImportTableInputFormatOptionsCsv]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) Elem() TableImportTableInputFormatOptionsCsvOutput {
+	return o.ApplyT(func(v *TableImportTableInputFormatOptionsCsv) TableImportTableInputFormatOptionsCsv {
+		if v != nil {
+			return *v
+		}
+		var ret TableImportTableInputFormatOptionsCsv
+		return ret
+	}).(TableImportTableInputFormatOptionsCsvOutput)
+}
+
+// The delimiter used for separating items in the CSV file being imported.
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTableInputFormatOptionsCsv) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of the headers used to specify a common header for all source CSV files being imported.
+func (o TableImportTableInputFormatOptionsCsvPtrOutput) HeaderLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableImportTableInputFormatOptionsCsv) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HeaderLists
+	}).(pulumi.StringArrayOutput)
+}
+
+type TableImportTableS3BucketSource struct {
+	// The S3 bucket that is being imported from.
+	Bucket string `pulumi:"bucket"`
+	// The account number of the S3 bucket that is being imported from.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// The key prefix shared by all S3 Objects that are being imported.
+	KeyPrefix *string `pulumi:"keyPrefix"`
+}
+
+// TableImportTableS3BucketSourceInput is an input type that accepts TableImportTableS3BucketSourceArgs and TableImportTableS3BucketSourceOutput values.
+// You can construct a concrete instance of `TableImportTableS3BucketSourceInput` via:
+//
+//	TableImportTableS3BucketSourceArgs{...}
+type TableImportTableS3BucketSourceInput interface {
+	pulumi.Input
+
+	ToTableImportTableS3BucketSourceOutput() TableImportTableS3BucketSourceOutput
+	ToTableImportTableS3BucketSourceOutputWithContext(context.Context) TableImportTableS3BucketSourceOutput
+}
+
+type TableImportTableS3BucketSourceArgs struct {
+	// The S3 bucket that is being imported from.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The account number of the S3 bucket that is being imported from.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// The key prefix shared by all S3 Objects that are being imported.
+	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
+}
+
+func (TableImportTableS3BucketSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableS3BucketSource)(nil)).Elem()
+}
+
+func (i TableImportTableS3BucketSourceArgs) ToTableImportTableS3BucketSourceOutput() TableImportTableS3BucketSourceOutput {
+	return i.ToTableImportTableS3BucketSourceOutputWithContext(context.Background())
+}
+
+func (i TableImportTableS3BucketSourceArgs) ToTableImportTableS3BucketSourceOutputWithContext(ctx context.Context) TableImportTableS3BucketSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableS3BucketSourceOutput)
+}
+
+func (i TableImportTableS3BucketSourceArgs) ToOutput(ctx context.Context) pulumix.Output[TableImportTableS3BucketSource] {
+	return pulumix.Output[TableImportTableS3BucketSource]{
+		OutputState: i.ToTableImportTableS3BucketSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TableImportTableS3BucketSourceArgs) ToTableImportTableS3BucketSourcePtrOutput() TableImportTableS3BucketSourcePtrOutput {
+	return i.ToTableImportTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TableImportTableS3BucketSourceArgs) ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableImportTableS3BucketSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableS3BucketSourceOutput).ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx)
+}
+
+// TableImportTableS3BucketSourcePtrInput is an input type that accepts TableImportTableS3BucketSourceArgs, TableImportTableS3BucketSourcePtr and TableImportTableS3BucketSourcePtrOutput values.
+// You can construct a concrete instance of `TableImportTableS3BucketSourcePtrInput` via:
+//
+//	        TableImportTableS3BucketSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableImportTableS3BucketSourcePtrInput interface {
+	pulumi.Input
+
+	ToTableImportTableS3BucketSourcePtrOutput() TableImportTableS3BucketSourcePtrOutput
+	ToTableImportTableS3BucketSourcePtrOutputWithContext(context.Context) TableImportTableS3BucketSourcePtrOutput
+}
+
+type tableImportTableS3BucketSourcePtrType TableImportTableS3BucketSourceArgs
+
+func TableImportTableS3BucketSourcePtr(v *TableImportTableS3BucketSourceArgs) TableImportTableS3BucketSourcePtrInput {
+	return (*tableImportTableS3BucketSourcePtrType)(v)
+}
+
+func (*tableImportTableS3BucketSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableS3BucketSource)(nil)).Elem()
+}
+
+func (i *tableImportTableS3BucketSourcePtrType) ToTableImportTableS3BucketSourcePtrOutput() TableImportTableS3BucketSourcePtrOutput {
+	return i.ToTableImportTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tableImportTableS3BucketSourcePtrType) ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableImportTableS3BucketSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableImportTableS3BucketSourcePtrOutput)
+}
+
+func (i *tableImportTableS3BucketSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableS3BucketSource] {
+	return pulumix.Output[*TableImportTableS3BucketSource]{
+		OutputState: i.ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TableImportTableS3BucketSourceOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableS3BucketSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableImportTableS3BucketSource)(nil)).Elem()
+}
+
+func (o TableImportTableS3BucketSourceOutput) ToTableImportTableS3BucketSourceOutput() TableImportTableS3BucketSourceOutput {
+	return o
+}
+
+func (o TableImportTableS3BucketSourceOutput) ToTableImportTableS3BucketSourceOutputWithContext(ctx context.Context) TableImportTableS3BucketSourceOutput {
+	return o
+}
+
+func (o TableImportTableS3BucketSourceOutput) ToTableImportTableS3BucketSourcePtrOutput() TableImportTableS3BucketSourcePtrOutput {
+	return o.ToTableImportTableS3BucketSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TableImportTableS3BucketSourceOutput) ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableImportTableS3BucketSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableImportTableS3BucketSource) *TableImportTableS3BucketSource {
+		return &v
+	}).(TableImportTableS3BucketSourcePtrOutput)
+}
+
+func (o TableImportTableS3BucketSourceOutput) ToOutput(ctx context.Context) pulumix.Output[TableImportTableS3BucketSource] {
+	return pulumix.Output[TableImportTableS3BucketSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The S3 bucket that is being imported from.
+func (o TableImportTableS3BucketSourceOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v TableImportTableS3BucketSource) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The account number of the S3 bucket that is being imported from.
+func (o TableImportTableS3BucketSourceOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableImportTableS3BucketSource) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// The key prefix shared by all S3 Objects that are being imported.
+func (o TableImportTableS3BucketSourceOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableImportTableS3BucketSource) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type TableImportTableS3BucketSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TableImportTableS3BucketSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableImportTableS3BucketSource)(nil)).Elem()
+}
+
+func (o TableImportTableS3BucketSourcePtrOutput) ToTableImportTableS3BucketSourcePtrOutput() TableImportTableS3BucketSourcePtrOutput {
+	return o
+}
+
+func (o TableImportTableS3BucketSourcePtrOutput) ToTableImportTableS3BucketSourcePtrOutputWithContext(ctx context.Context) TableImportTableS3BucketSourcePtrOutput {
+	return o
+}
+
+func (o TableImportTableS3BucketSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableImportTableS3BucketSource] {
+	return pulumix.Output[*TableImportTableS3BucketSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TableImportTableS3BucketSourcePtrOutput) Elem() TableImportTableS3BucketSourceOutput {
+	return o.ApplyT(func(v *TableImportTableS3BucketSource) TableImportTableS3BucketSource {
+		if v != nil {
+			return *v
+		}
+		var ret TableImportTableS3BucketSource
+		return ret
+	}).(TableImportTableS3BucketSourceOutput)
+}
+
+// The S3 bucket that is being imported from.
+func (o TableImportTableS3BucketSourcePtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The account number of the S3 bucket that is being imported from.
+func (o TableImportTableS3BucketSourcePtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key prefix shared by all S3 Objects that are being imported.
+func (o TableImportTableS3BucketSourcePtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableImportTableS3BucketSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableLocalSecondaryIndex struct {
 	// Name of the index
 	Name string `pulumi:"name"`
@@ -2138,6 +2896,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeArrayInput)(nil)).Elem(), TableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexInput)(nil)).Elem(), TableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInput)(nil)).Elem(), TableImportTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTablePtrInput)(nil)).Elem(), TableImportTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsInput)(nil)).Elem(), TableImportTableInputFormatOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsPtrInput)(nil)).Elem(), TableImportTableInputFormatOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsCsvInput)(nil)).Elem(), TableImportTableInputFormatOptionsCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsCsvPtrInput)(nil)).Elem(), TableImportTableInputFormatOptionsCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableS3BucketSourceInput)(nil)).Elem(), TableImportTableS3BucketSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableS3BucketSourcePtrInput)(nil)).Elem(), TableImportTableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableLocalSecondaryIndexInput)(nil)).Elem(), TableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableLocalSecondaryIndexArrayInput)(nil)).Elem(), TableLocalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePointInTimeRecoveryInput)(nil)).Elem(), TablePointInTimeRecoveryArgs{})
@@ -2166,6 +2932,14 @@ func init() {
 	pulumi.RegisterOutputType(TableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableImportTableOutput{})
+	pulumi.RegisterOutputType(TableImportTablePtrOutput{})
+	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsOutput{})
+	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsCsvOutput{})
+	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsCsvPtrOutput{})
+	pulumi.RegisterOutputType(TableImportTableS3BucketSourceOutput{})
+	pulumi.RegisterOutputType(TableImportTableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(TablePointInTimeRecoveryOutput{})

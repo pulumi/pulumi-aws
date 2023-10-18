@@ -1,4 +1,4 @@
-From f406a503317d9a7987f93a5bd151a41a73de2df7 Mon Sep 17 00:00:00 2001
+From 7dc5e886c4ebee9f262a7533456cf5224c73ef61 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Thu, 18 May 2023 15:21:33 -0700
 Subject: [PATCH 26/30] Fix spurrious json diff for redrive_policy
@@ -38,5 +38,5 @@ index 7f55a8e6e8..d3a620f555 100644
  					json, _ := structure.NormalizeJsonString(v)
  					return json
 -- 
-2.42.0
+2.39.1
 

@@ -13,6 +13,10 @@ __all__ = [
     'GlobalTableReplicaArgs',
     'TableAttributeArgs',
     'TableGlobalSecondaryIndexArgs',
+    'TableImportTableArgs',
+    'TableImportTableInputFormatOptionsArgs',
+    'TableImportTableInputFormatOptionsCsvArgs',
+    'TableImportTableS3BucketSourceArgs',
     'TableLocalSecondaryIndexArgs',
     'TablePointInTimeRecoveryArgs',
     'TableReplicaArgs',
@@ -194,6 +198,191 @@ class TableGlobalSecondaryIndexArgs:
     @write_capacity.setter
     def write_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "write_capacity", value)
+
+
+@pulumi.input_type
+class TableImportTableArgs:
+    def __init__(__self__, *,
+                 input_format: pulumi.Input[str],
+                 s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArgs'],
+                 input_compression_type: Optional[pulumi.Input[str]] = None,
+                 input_format_options: Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']] = None):
+        """
+        :param pulumi.Input[str] input_format: The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+        :param pulumi.Input['TableImportTableS3BucketSourceArgs'] s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
+        :param pulumi.Input[str] input_compression_type: Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+        :param pulumi.Input['TableImportTableInputFormatOptionsArgs'] input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        """
+        pulumi.set(__self__, "input_format", input_format)
+        pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
+        if input_compression_type is not None:
+            pulumi.set(__self__, "input_compression_type", input_compression_type)
+        if input_format_options is not None:
+            pulumi.set(__self__, "input_format_options", input_format_options)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> pulumi.Input[str]:
+        """
+        The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "input_format", value)
+
+    @property
+    @pulumi.getter(name="s3BucketSource")
+    def s3_bucket_source(self) -> pulumi.Input['TableImportTableS3BucketSourceArgs']:
+        """
+        Values for the S3 bucket the source file is imported from. See below.
+        """
+        return pulumi.get(self, "s3_bucket_source")
+
+    @s3_bucket_source.setter
+    def s3_bucket_source(self, value: pulumi.Input['TableImportTableS3BucketSourceArgs']):
+        pulumi.set(self, "s3_bucket_source", value)
+
+    @property
+    @pulumi.getter(name="inputCompressionType")
+    def input_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
+        """
+        return pulumi.get(self, "input_compression_type")
+
+    @input_compression_type.setter
+    def input_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_compression_type", value)
+
+    @property
+    @pulumi.getter(name="inputFormatOptions")
+    def input_format_options(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']]:
+        """
+        Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        """
+        return pulumi.get(self, "input_format_options")
+
+    @input_format_options.setter
+    def input_format_options(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']]):
+        pulumi.set(self, "input_format_options", value)
+
+
+@pulumi.input_type
+class TableImportTableInputFormatOptionsArgs:
+    def __init__(__self__, *,
+                 csv: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']] = None):
+        """
+        :param pulumi.Input['TableImportTableInputFormatOptionsCsvArgs'] csv: This block contains the processing options for the CSV file being imported:
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']]:
+        """
+        This block contains the processing options for the CSV file being imported:
+        """
+        return pulumi.get(self, "csv")
+
+    @csv.setter
+    def csv(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']]):
+        pulumi.set(self, "csv", value)
+
+
+@pulumi.input_type
+class TableImportTableInputFormatOptionsCsvArgs:
+    def __init__(__self__, *,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 header_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] delimiter: The delimiter used for separating items in the CSV file being imported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] header_lists: List of the headers used to specify a common header for all source CSV files being imported.
+        """
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if header_lists is not None:
+            pulumi.set(__self__, "header_lists", header_lists)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delimiter used for separating items in the CSV file being imported.
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="headerLists")
+    def header_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the headers used to specify a common header for all source CSV files being imported.
+        """
+        return pulumi.get(self, "header_lists")
+
+    @header_lists.setter
+    def header_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "header_lists", value)
+
+
+@pulumi.input_type
+class TableImportTableS3BucketSourceArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
+                 key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: The S3 bucket that is being imported from.
+        :param pulumi.Input[str] bucket_owner: The account number of the S3 bucket that is being imported from.
+        :param pulumi.Input[str] key_prefix: The key prefix shared by all S3 Objects that are being imported.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The S3 bucket that is being imported from.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account number of the S3 bucket that is being imported from.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key prefix shared by all S3 Objects that are being imported.
+        """
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_prefix", value)
 
 
 @pulumi.input_type

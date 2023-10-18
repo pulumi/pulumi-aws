@@ -6,6 +6,7 @@ package com.pulumi.aws.verifiedaccess.inputs;
 import com.pulumi.aws.verifiedaccess.inputs.InstanceVerifiedAccessTrustProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * 
+     */
+    @Import(name="fipsEnabled")
+    private @Nullable Output<Boolean> fipsEnabled;
+
+    /**
+     * @return Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * 
+     */
+    public Optional<Output<Boolean>> fipsEnabled() {
+        return Optional.ofNullable(this.fipsEnabled);
     }
 
     /**
@@ -117,6 +133,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     private InstanceState(InstanceState $) {
         this.creationTime = $.creationTime;
         this.description = $.description;
+        this.fipsEnabled = $.fipsEnabled;
         this.lastUpdatedTime = $.lastUpdatedTime;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -181,6 +198,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fipsEnabled(@Nullable Output<Boolean> fipsEnabled) {
+            $.fipsEnabled = fipsEnabled;
+            return this;
+        }
+
+        /**
+         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fipsEnabled(Boolean fipsEnabled) {
+            return fipsEnabled(Output.of(fipsEnabled));
         }
 
         /**

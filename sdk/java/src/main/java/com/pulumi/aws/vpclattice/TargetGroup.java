@@ -205,14 +205,14 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * The target group configuration.
      * 
      */
     @Export(name="config", refs={TargetGroupConfig.class}, tree="[0]")
     private Output</* @Nullable */ TargetGroupConfig> config;
 
     /**
-     * @return The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+     * @return The target group configuration.
      * 
      */
     public Output<Optional<TargetGroupConfig>> config() {

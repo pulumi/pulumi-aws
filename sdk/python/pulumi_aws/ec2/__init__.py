@@ -88,6 +88,7 @@ from .get_vpc_peering_connection import *
 from .get_vpc_peering_connections import *
 from .get_vpcs import *
 from .get_vpn_gateway import *
+from .image_block_public_access import *
 from .instance import *
 from .internet_gateway import *
 from .internet_gateway_attachment import *

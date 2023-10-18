@@ -119,6 +119,7 @@ namespace Pulumi.Aws.CodeDeploy
     ///             },
     ///             Enabled = true,
     ///         },
+    ///         OutdatedInstancesStrategy = "UPDATE",
     ///     });
     /// 
     /// });
@@ -363,6 +364,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<ImmutableArray<Outputs.DeploymentGroupOnPremisesInstanceTagFilter>> OnPremisesInstanceTagFilters { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        /// </summary>
+        [Output("outdatedInstancesStrategy")]
+        public Output<string?> OutdatedInstancesStrategy { get; private set; } = null!;
+
+        /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
         [Output("serviceRoleArn")]
@@ -539,6 +546,12 @@ namespace Pulumi.Aws.CodeDeploy
         }
 
         /// <summary>
+        /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        /// </summary>
+        [Input("outdatedInstancesStrategy")]
+        public Input<string>? OutdatedInstancesStrategy { get; set; }
+
+        /// <summary>
         /// The service role ARN that allows deployments.
         /// </summary>
         [Input("serviceRoleArn", required: true)]
@@ -695,6 +708,12 @@ namespace Pulumi.Aws.CodeDeploy
             get => _onPremisesInstanceTagFilters ?? (_onPremisesInstanceTagFilters = new InputList<Inputs.DeploymentGroupOnPremisesInstanceTagFilterGetArgs>());
             set => _onPremisesInstanceTagFilters = value;
         }
+
+        /// <summary>
+        /// Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+        /// </summary>
+        [Input("outdatedInstancesStrategy")]
+        public Input<string>? OutdatedInstancesStrategy { get; set; }
 
         /// <summary>
         /// The service role ARN that allows deployments.

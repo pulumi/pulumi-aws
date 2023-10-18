@@ -21,7 +21,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetClusterResult:
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
+        if cluster_uuid and not isinstance(cluster_uuid, str):
+            raise TypeError("Expected argument 'cluster_uuid' to be a str")
+        pulumi.set(__self__, "cluster_uuid", cluster_uuid)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -138,6 +141,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_name")
 
     @property
+    @pulumi.getter(name="clusterUuid")
+    def cluster_uuid(self) -> str:
+        """
+        UUID of the MSK cluster, for use in IAM policies.
+        """
+        return pulumi.get(self, "cluster_uuid")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -201,6 +212,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             bootstrap_brokers_sasl_scram=self.bootstrap_brokers_sasl_scram,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
             cluster_name=self.cluster_name,
+            cluster_uuid=self.cluster_uuid,
             id=self.id,
             kafka_version=self.kafka_version,
             number_of_broker_nodes=self.number_of_broker_nodes,
@@ -246,6 +258,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         bootstrap_brokers_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_sasl_scram'),
         bootstrap_brokers_tls=pulumi.get(__ret__, 'bootstrap_brokers_tls'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        cluster_uuid=pulumi.get(__ret__, 'cluster_uuid'),
         id=pulumi.get(__ret__, 'id'),
         kafka_version=pulumi.get(__ret__, 'kafka_version'),
         number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),

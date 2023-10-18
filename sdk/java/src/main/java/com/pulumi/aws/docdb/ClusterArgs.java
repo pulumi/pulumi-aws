@@ -20,6 +20,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
+     * A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+     * 
+     */
+    @Import(name="allowMajorVersionUpgrade")
+    private @Nullable Output<Boolean> allowMajorVersionUpgrade;
+
+    /**
+     * @return A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+     * 
+     */
+    public Optional<Output<Boolean>> allowMajorVersionUpgrade() {
+        return Optional.ofNullable(this.allowMajorVersionUpgrade);
+    }
+
+    /**
      * Specifies whether any cluster modifications
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
@@ -415,6 +430,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private ClusterArgs() {}
 
     private ClusterArgs(ClusterArgs $) {
+        this.allowMajorVersionUpgrade = $.allowMajorVersionUpgrade;
         this.applyImmediately = $.applyImmediately;
         this.availabilityZones = $.availabilityZones;
         this.backupRetentionPeriod = $.backupRetentionPeriod;
@@ -458,6 +474,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ClusterArgs defaults) {
             $ = new ClusterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowMajorVersionUpgrade A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowMajorVersionUpgrade(@Nullable Output<Boolean> allowMajorVersionUpgrade) {
+            $.allowMajorVersionUpgrade = allowMajorVersionUpgrade;
+            return this;
+        }
+
+        /**
+         * @param allowMajorVersionUpgrade A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowMajorVersionUpgrade(Boolean allowMajorVersionUpgrade) {
+            return allowMajorVersionUpgrade(Output.of(allowMajorVersionUpgrade));
         }
 
         /**

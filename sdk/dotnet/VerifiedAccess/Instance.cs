@@ -13,6 +13,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing a Verified Access Instance.
     /// 
     /// ## Example Usage
+    /// ### Basic
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -33,10 +34,27 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// ### With `fips_enabled`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.VerifiedAccess.Instance("example", new()
+    ///     {
+    ///         FipsEnabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Workflows using the
+    /// Using `pulumi import`, import Verified Access Instances using the
     /// 
     /// `id`. For example:
     /// 
@@ -58,6 +76,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// </summary>
+        [Output("fipsEnabled")]
+        public Output<bool?> FipsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The time that the Verified Access Instance was last updated.
@@ -136,6 +160,12 @@ namespace Pulumi.Aws.VerifiedAccess
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -167,6 +197,12 @@ namespace Pulumi.Aws.VerifiedAccess
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        /// </summary>
+        [Input("fipsEnabled")]
+        public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
         /// The time that the Verified Access Instance was last updated.

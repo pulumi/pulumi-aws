@@ -36,6 +36,21 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * 
+     */
+    @Import(name="basePolicyDocument")
+    private @Nullable Output<String> basePolicyDocument;
+
+    /**
+     * @return Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+     * 
+     */
+    public Optional<Output<String>> basePolicyDocument() {
+        return Optional.ofNullable(this.basePolicyDocument);
+    }
+
+    /**
      * The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      * @deprecated
@@ -264,6 +279,7 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
 
     private CoreNetworkState(CoreNetworkState $) {
         this.arn = $.arn;
+        this.basePolicyDocument = $.basePolicyDocument;
         this.basePolicyRegion = $.basePolicyRegion;
         this.basePolicyRegions = $.basePolicyRegions;
         this.createBasePolicy = $.createBasePolicy;
@@ -314,6 +330,27 @@ public final class CoreNetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param basePolicyDocument Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder basePolicyDocument(@Nullable Output<String> basePolicyDocument) {
+            $.basePolicyDocument = basePolicyDocument;
+            return this;
+        }
+
+        /**
+         * @param basePolicyDocument Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder basePolicyDocument(String basePolicyDocument) {
+            return basePolicyDocument(Output.of(basePolicyDocument));
         }
 
         /**

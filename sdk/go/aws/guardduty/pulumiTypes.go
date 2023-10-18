@@ -2886,6 +2886,136 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
+type OrganizationConfigurationFeatureAdditionalConfiguration struct {
+	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+	AutoEnable string `pulumi:"autoEnable"`
+	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+	Name string `pulumi:"name"`
+}
+
+// OrganizationConfigurationFeatureAdditionalConfigurationInput is an input type that accepts OrganizationConfigurationFeatureAdditionalConfigurationArgs and OrganizationConfigurationFeatureAdditionalConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationFeatureAdditionalConfigurationInput` via:
+//
+//	OrganizationConfigurationFeatureAdditionalConfigurationArgs{...}
+type OrganizationConfigurationFeatureAdditionalConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationFeatureAdditionalConfigurationOutput() OrganizationConfigurationFeatureAdditionalConfigurationOutput
+	ToOrganizationConfigurationFeatureAdditionalConfigurationOutputWithContext(context.Context) OrganizationConfigurationFeatureAdditionalConfigurationOutput
+}
+
+type OrganizationConfigurationFeatureAdditionalConfigurationArgs struct {
+	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+	AutoEnable pulumi.StringInput `pulumi:"autoEnable"`
+	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (OrganizationConfigurationFeatureAdditionalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArgs) ToOrganizationConfigurationFeatureAdditionalConfigurationOutput() OrganizationConfigurationFeatureAdditionalConfigurationOutput {
+	return i.ToOrganizationConfigurationFeatureAdditionalConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArgs) ToOrganizationConfigurationFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureAdditionalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationFeatureAdditionalConfigurationOutput)
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationFeatureAdditionalConfiguration] {
+	return pulumix.Output[OrganizationConfigurationFeatureAdditionalConfiguration]{
+		OutputState: i.ToOrganizationConfigurationFeatureAdditionalConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// OrganizationConfigurationFeatureAdditionalConfigurationArrayInput is an input type that accepts OrganizationConfigurationFeatureAdditionalConfigurationArray and OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationFeatureAdditionalConfigurationArrayInput` via:
+//
+//	OrganizationConfigurationFeatureAdditionalConfigurationArray{ OrganizationConfigurationFeatureAdditionalConfigurationArgs{...} }
+type OrganizationConfigurationFeatureAdditionalConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutput() OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput
+	ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutputWithContext(context.Context) OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput
+}
+
+type OrganizationConfigurationFeatureAdditionalConfigurationArray []OrganizationConfigurationFeatureAdditionalConfigurationInput
+
+func (OrganizationConfigurationFeatureAdditionalConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationConfigurationFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArray) ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutput() OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
+	return i.ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArray) ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput)
+}
+
+func (i OrganizationConfigurationFeatureAdditionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationConfigurationFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]OrganizationConfigurationFeatureAdditionalConfiguration]{
+		OutputState: i.ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type OrganizationConfigurationFeatureAdditionalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationFeatureAdditionalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) ToOrganizationConfigurationFeatureAdditionalConfigurationOutput() OrganizationConfigurationFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) ToOrganizationConfigurationFeatureAdditionalConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureAdditionalConfigurationOutput {
+	return o
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationConfigurationFeatureAdditionalConfiguration] {
+	return pulumix.Output[OrganizationConfigurationFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) AutoEnable() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.AutoEnable }).(pulumi.StringOutput)
+}
+
+// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationConfigurationFeatureAdditionalConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput) ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutput() OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput) ToOrganizationConfigurationFeatureAdditionalConfigurationArrayOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
+	return o
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationConfigurationFeatureAdditionalConfiguration] {
+	return pulumix.Output[[]OrganizationConfigurationFeatureAdditionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.IntInput) OrganizationConfigurationFeatureAdditionalConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationConfigurationFeatureAdditionalConfiguration {
+		return vs[0].([]OrganizationConfigurationFeatureAdditionalConfiguration)[vs[1].(int)]
+	}).(OrganizationConfigurationFeatureAdditionalConfigurationOutput)
+}
+
 type GetDetectorFeatureType struct {
 	// Additional feature configuration.
 	AdditionalConfigurations []GetDetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
@@ -3192,6 +3322,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationFeatureAdditionalConfigurationInput)(nil)).Elem(), OrganizationConfigurationFeatureAdditionalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationFeatureAdditionalConfigurationArrayInput)(nil)).Elem(), OrganizationConfigurationFeatureAdditionalConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureTypeInput)(nil)).Elem(), GetDetectorFeatureTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureTypeArrayInput)(nil)).Elem(), GetDetectorFeatureTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDetectorFeatureAdditionalConfigurationInput)(nil)).Elem(), GetDetectorFeatureAdditionalConfigurationArgs{})
@@ -3230,6 +3362,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationFeatureAdditionalConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDetectorFeatureTypeOutput{})
 	pulumi.RegisterOutputType(GetDetectorFeatureTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetDetectorFeatureAdditionalConfigurationOutput{})

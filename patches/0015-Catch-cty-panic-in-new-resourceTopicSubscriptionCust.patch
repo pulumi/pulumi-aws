@@ -1,4 +1,4 @@
-From b4d90a0a512931b84c8c06fb372fbb7766ab8b3a Mon Sep 17 00:00:00 2001
+From 430c04fdcac5352fc74a2c3ca8ef4e13dc0b283f Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@gmail.com>
 Date: Thu, 1 Dec 2022 10:56:32 -0800
 Subject: [PATCH 15/30] Catch cty panic in new
@@ -27,5 +27,5 @@ index 97e1d8a056..bb3caf2e1d 100644
  		if !hadScope {
  			// When the filter_policy_scope hasn't been read back from the API,
 -- 
-2.42.0
+2.39.1
 

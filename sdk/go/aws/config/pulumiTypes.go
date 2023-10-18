@@ -309,6 +309,7 @@ type Endpoints struct {
 	Backup                               *string `pulumi:"backup"`
 	Batch                                *string `pulumi:"batch"`
 	Beanstalk                            *string `pulumi:"beanstalk"`
+	Bedrock                              *string `pulumi:"bedrock"`
 	Budgets                              *string `pulumi:"budgets"`
 	Ce                                   *string `pulumi:"ce"`
 	Chime                                *string `pulumi:"chime"`
@@ -572,6 +573,7 @@ type EndpointsArgs struct {
 	Backup                               pulumi.StringPtrInput `pulumi:"backup"`
 	Batch                                pulumi.StringPtrInput `pulumi:"batch"`
 	Beanstalk                            pulumi.StringPtrInput `pulumi:"beanstalk"`
+	Bedrock                              pulumi.StringPtrInput `pulumi:"bedrock"`
 	Budgets                              pulumi.StringPtrInput `pulumi:"budgets"`
 	Ce                                   pulumi.StringPtrInput `pulumi:"ce"`
 	Chime                                pulumi.StringPtrInput `pulumi:"chime"`
@@ -971,6 +973,10 @@ func (o EndpointsOutput) Batch() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Beanstalk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Beanstalk }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Bedrock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Bedrock }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Budgets() pulumi.StringPtrOutput {

@@ -185,6 +185,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> HashKey { get; private set; } = null!;
 
         /// <summary>
+        /// Import Amazon S3 data into a new table. See below.
+        /// </summary>
+        [Output("importTable")]
+        public Output<Outputs.TableImportTable?> ImportTable { get; private set; } = null!;
+
+        /// <summary>
         /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
         [Output("localSecondaryIndexes")]
@@ -394,6 +400,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("hashKey")]
         public Input<string>? HashKey { get; set; }
 
+        /// <summary>
+        /// Import Amazon S3 data into a new table. See below.
+        /// </summary>
+        [Input("importTable")]
+        public Input<Inputs.TableImportTableArgs>? ImportTable { get; set; }
+
         [Input("localSecondaryIndexes")]
         private InputList<Inputs.TableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
 
@@ -567,6 +579,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("hashKey")]
         public Input<string>? HashKey { get; set; }
+
+        /// <summary>
+        /// Import Amazon S3 data into a new table. See below.
+        /// </summary>
+        [Input("importTable")]
+        public Input<Inputs.TableImportTableGetArgs>? ImportTable { get; set; }
 
         [Input("localSecondaryIndexes")]
         private InputList<Inputs.TableLocalSecondaryIndexGetArgs>? _localSecondaryIndexes;

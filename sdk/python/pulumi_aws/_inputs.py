@@ -270,6 +270,7 @@ class ProviderEndpointArgs:
                  backup: Optional[pulumi.Input[str]] = None,
                  batch: Optional[pulumi.Input[str]] = None,
                  beanstalk: Optional[pulumi.Input[str]] = None,
+                 bedrock: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
                  ce: Optional[pulumi.Input[str]] = None,
                  chime: Optional[pulumi.Input[str]] = None,
@@ -546,6 +547,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "batch", batch)
         if beanstalk is not None:
             pulumi.set(__self__, "beanstalk", beanstalk)
+        if bedrock is not None:
+            pulumi.set(__self__, "bedrock", bedrock)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if ce is not None:
@@ -1233,6 +1236,15 @@ class ProviderEndpointArgs:
     @beanstalk.setter
     def beanstalk(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "beanstalk", value)
+
+    @property
+    @pulumi.getter
+    def bedrock(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bedrock")
+
+    @bedrock.setter
+    def bedrock(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bedrock", value)
 
     @property
     @pulumi.getter

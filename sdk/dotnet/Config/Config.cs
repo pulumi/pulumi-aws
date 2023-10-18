@@ -389,6 +389,7 @@ namespace Pulumi.Aws
                 public string? Backup { get; set; } = null!;
                 public string? Batch { get; set; } = null!;
                 public string? Beanstalk { get; set; } = null!;
+                public string? Bedrock { get; set; } = null!;
                 public string? Budgets { get; set; } = null!;
                 public string? Ce { get; set; } = null!;
                 public string? Chime { get; set; } = null!;

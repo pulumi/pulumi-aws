@@ -65,6 +65,21 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * UUID of the serverless cluster, for use in IAM policies.
+     * 
+     */
+    @Import(name="clusterUuid")
+    private @Nullable Output<String> clusterUuid;
+
+    /**
+     * @return UUID of the serverless cluster, for use in IAM policies.
+     * 
+     */
+    public Optional<Output<String>> clusterUuid() {
+        return Optional.ofNullable(this.clusterUuid);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -123,6 +138,7 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
         this.arn = $.arn;
         this.clientAuthentication = $.clientAuthentication;
         this.clusterName = $.clusterName;
+        this.clusterUuid = $.clusterUuid;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.vpcConfigs = $.vpcConfigs;
@@ -207,6 +223,27 @@ public final class ServerlessClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
+        }
+
+        /**
+         * @param clusterUuid UUID of the serverless cluster, for use in IAM policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterUuid(@Nullable Output<String> clusterUuid) {
+            $.clusterUuid = clusterUuid;
+            return this;
+        }
+
+        /**
+         * @param clusterUuid UUID of the serverless cluster, for use in IAM policies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterUuid(String clusterUuid) {
+            return clusterUuid(Output.of(clusterUuid));
         }
 
         /**

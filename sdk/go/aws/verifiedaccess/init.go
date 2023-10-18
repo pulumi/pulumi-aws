@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:verifiedaccess/group:Group":
+		r = &Group{}
 	case "aws:verifiedaccess/instance:Instance":
 		r = &Instance{}
+	case "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration":
+		r = &InstanceLoggingConfiguration{}
 	case "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment":
 		r = &InstanceTrustProviderAttachment{}
 	case "aws:verifiedaccess/trustProvider:TrustProvider":
@@ -42,7 +46,17 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"verifiedaccess/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"verifiedaccess/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"verifiedaccess/instanceLoggingConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

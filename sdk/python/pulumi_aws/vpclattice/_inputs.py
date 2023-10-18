@@ -644,65 +644,36 @@ class TargetGroupAttachmentTargetArgs:
 @pulumi.input_type
 class TargetGroupConfigArgs:
     def __init__(__self__, *,
-                 port: pulumi.Input[int],
-                 protocol: pulumi.Input[str],
-                 vpc_identifier: pulumi.Input[str],
                  health_check: Optional[pulumi.Input['TargetGroupConfigHealthCheckArgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
-                 protocol_version: Optional[pulumi.Input[str]] = None):
+                 lambda_event_structure_version: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol_version: Optional[pulumi.Input[str]] = None,
+                 vpc_identifier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] port: The port on which the targets are listening.
-        :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-        :param pulumi.Input[str] vpc_identifier: The ID of the VPC.
         :param pulumi.Input['TargetGroupConfigHealthCheckArgs'] health_check: The health check configuration.
-        :param pulumi.Input[str] ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        :param pulumi.Input[str] ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+        :param pulumi.Input[str] lambda_event_structure_version: The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        :param pulumi.Input[int] port: The port on which the targets are listening.
+        :param pulumi.Input[str] protocol: The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
         :param pulumi.Input[str] protocol_version: The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+        :param pulumi.Input[str] vpc_identifier: The ID of the VPC.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if lambda_event_structure_version is not None:
+            pulumi.set(__self__, "lambda_event_structure_version", lambda_event_structure_version)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
             pulumi.set(__self__, "protocol_version", protocol_version)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[int]:
-        """
-        The port on which the targets are listening.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
-        """
-        The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
-        pulumi.set(self, "protocol", value)
-
-    @property
-    @pulumi.getter(name="vpcIdentifier")
-    def vpc_identifier(self) -> pulumi.Input[str]:
-        """
-        The ID of the VPC.
-        """
-        return pulumi.get(self, "vpc_identifier")
-
-    @vpc_identifier.setter
-    def vpc_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpc_identifier", value)
+        if vpc_identifier is not None:
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -720,13 +691,49 @@ class TargetGroupConfigArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
     def ip_address_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="lambdaEventStructureVersion")
+    def lambda_event_structure_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        """
+        return pulumi.get(self, "lambda_event_structure_version")
+
+    @lambda_event_structure_version.setter
+    def lambda_event_structure_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_event_structure_version", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the targets are listening.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="protocolVersion")
@@ -739,6 +746,18 @@ class TargetGroupConfigArgs:
     @protocol_version.setter
     def protocol_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol_version", value)
+
+    @property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_identifier", value)
 
 
 @pulumi.input_type

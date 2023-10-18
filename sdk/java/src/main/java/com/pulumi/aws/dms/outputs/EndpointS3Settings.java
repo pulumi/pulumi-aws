@@ -134,6 +134,11 @@ public final class EndpointS3Settings {
      */
     private @Nullable String externalTableDefinition;
     /**
+     * @return Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    private @Nullable Boolean glueCatalogGeneration;
+    /**
      * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
      * 
      */
@@ -369,6 +374,13 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.externalTableDefinition);
     }
     /**
+     * @return Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    public Optional<Boolean> glueCatalogGeneration() {
+        return Optional.ofNullable(this.glueCatalogGeneration);
+    }
+    /**
      * @return When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
      * 
      */
@@ -493,6 +505,7 @@ public final class EndpointS3Settings {
         private @Nullable String encodingType;
         private @Nullable String encryptionMode;
         private @Nullable String externalTableDefinition;
+        private @Nullable Boolean glueCatalogGeneration;
         private @Nullable Integer ignoreHeaderRows;
         private @Nullable Boolean includeOpForFullLoad;
         private @Nullable Integer maxFileSize;
@@ -533,6 +546,7 @@ public final class EndpointS3Settings {
     	      this.encodingType = defaults.encodingType;
     	      this.encryptionMode = defaults.encryptionMode;
     	      this.externalTableDefinition = defaults.externalTableDefinition;
+    	      this.glueCatalogGeneration = defaults.glueCatalogGeneration;
     	      this.ignoreHeaderRows = defaults.ignoreHeaderRows;
     	      this.includeOpForFullLoad = defaults.includeOpForFullLoad;
     	      this.maxFileSize = defaults.maxFileSize;
@@ -669,6 +683,11 @@ public final class EndpointS3Settings {
             return this;
         }
         @CustomType.Setter
+        public Builder glueCatalogGeneration(@Nullable Boolean glueCatalogGeneration) {
+            this.glueCatalogGeneration = glueCatalogGeneration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ignoreHeaderRows(@Nullable Integer ignoreHeaderRows) {
             this.ignoreHeaderRows = ignoreHeaderRows;
             return this;
@@ -759,6 +778,7 @@ public final class EndpointS3Settings {
             o.encodingType = encodingType;
             o.encryptionMode = encryptionMode;
             o.externalTableDefinition = externalTableDefinition;
+            o.glueCatalogGeneration = glueCatalogGeneration;
             o.ignoreHeaderRows = ignoreHeaderRows;
             o.includeOpForFullLoad = includeOpForFullLoad;
             o.maxFileSize = maxFileSize;

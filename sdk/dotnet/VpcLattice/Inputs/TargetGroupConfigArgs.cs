@@ -19,22 +19,28 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<Inputs.TargetGroupConfigHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`
+        /// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The port on which the targets are listening.
+        /// The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
         /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
+        [Input("lambdaEventStructureVersion")]
+        public Input<string>? LambdaEventStructureVersion { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`
+        /// The port on which the targets are listening.
         /// </summary>
-        [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
 
         /// <summary>
         /// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
@@ -45,8 +51,8 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcIdentifier", required: true)]
-        public Input<string> VpcIdentifier { get; set; } = null!;
+        [Input("vpcIdentifier")]
+        public Input<string>? VpcIdentifier { get; set; }
 
         public TargetGroupConfigArgs()
         {

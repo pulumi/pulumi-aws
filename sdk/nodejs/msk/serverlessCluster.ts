@@ -61,6 +61,10 @@ export class ServerlessCluster extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * UUID of the serverless cluster, for use in IAM policies.
+     */
+    public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -91,6 +95,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["clusterUuid"] = state ? state.clusterUuid : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcConfigs"] = state ? state.vpcConfigs : undefined;
@@ -107,6 +112,7 @@ export class ServerlessCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterUuid"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface ServerlessClusterState {
      * The name of the serverless cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * UUID of the serverless cluster, for use in IAM policies.
+     */
+    clusterUuid?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

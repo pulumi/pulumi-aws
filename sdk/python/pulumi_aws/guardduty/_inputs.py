@@ -27,6 +27,7 @@ __all__ = [
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs',
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs',
     'OrganizationConfigurationDatasourcesS3LogsArgs',
+    'OrganizationConfigurationFeatureAdditionalConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -602,5 +603,42 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
     @auto_enable.setter
     def auto_enable(self, value: pulumi.Input[bool]):
         pulumi.set(self, "auto_enable", value)
+
+
+@pulumi.input_type
+class OrganizationConfigurationFeatureAdditionalConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_enable: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        :param pulumi.Input[str] name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        pulumi.set(__self__, "auto_enable", auto_enable)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="autoEnable")
+    def auto_enable(self) -> pulumi.Input[str]:
+        """
+        The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        """
+        return pulumi.get(self, "auto_enable")
+
+    @auto_enable.setter
+    def auto_enable(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auto_enable", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 

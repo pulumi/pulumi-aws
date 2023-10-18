@@ -1846,6 +1846,8 @@ type EndpointS3Settings struct {
 	EncryptionMode *string `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration *bool `pulumi:"glueCatalogGeneration"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -1934,6 +1936,8 @@ type EndpointS3SettingsArgs struct {
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
+	// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+	GlueCatalogGeneration pulumi.BoolPtrInput `pulumi:"glueCatalogGeneration"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
 	IgnoreHeaderRows pulumi.IntPtrInput `pulumi:"ignoreHeaderRows"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -2175,6 +2179,11 @@ func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 // JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
+}
+
+// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+func (o EndpointS3SettingsOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.GlueCatalogGeneration }).(pulumi.BoolPtrOutput)
 }
 
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
@@ -2510,6 +2519,16 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 		}
 		return v.ExternalTableDefinition
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+func (o EndpointS3SettingsPtrOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GlueCatalogGeneration
+	}).(pulumi.BoolPtrOutput)
 }
 
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
@@ -3966,6 +3985,7 @@ type GetEndpointS3Setting struct {
 	EncodingType                         string `pulumi:"encodingType"`
 	EncryptionMode                       string `pulumi:"encryptionMode"`
 	ExternalTableDefinition              string `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                bool   `pulumi:"glueCatalogGeneration"`
 	IgnoreHeaderRows                     int    `pulumi:"ignoreHeaderRows"`
 	IgnoreHeadersRow                     int    `pulumi:"ignoreHeadersRow"`
 	IncludeOpForFullLoad                 bool   `pulumi:"includeOpForFullLoad"`
@@ -4018,6 +4038,7 @@ type GetEndpointS3SettingArgs struct {
 	EncodingType                         pulumi.StringInput `pulumi:"encodingType"`
 	EncryptionMode                       pulumi.StringInput `pulumi:"encryptionMode"`
 	ExternalTableDefinition              pulumi.StringInput `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                pulumi.BoolInput   `pulumi:"glueCatalogGeneration"`
 	IgnoreHeaderRows                     pulumi.IntInput    `pulumi:"ignoreHeaderRows"`
 	IgnoreHeadersRow                     pulumi.IntInput    `pulumi:"ignoreHeadersRow"`
 	IncludeOpForFullLoad                 pulumi.BoolInput   `pulumi:"includeOpForFullLoad"`
@@ -4197,6 +4218,10 @@ func (o GetEndpointS3SettingOutput) EncryptionMode() pulumi.StringOutput {
 
 func (o GetEndpointS3SettingOutput) ExternalTableDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ExternalTableDefinition }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) GlueCatalogGeneration() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.GlueCatalogGeneration }).(pulumi.BoolOutput)
 }
 
 func (o GetEndpointS3SettingOutput) IgnoreHeaderRows() pulumi.IntOutput {

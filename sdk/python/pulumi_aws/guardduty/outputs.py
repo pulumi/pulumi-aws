@@ -28,6 +28,7 @@ __all__ = [
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings',
     'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes',
     'OrganizationConfigurationDatasourcesS3Logs',
+    'OrganizationConfigurationFeatureAdditionalConfiguration',
     'GetDetectorFeatureResult',
     'GetDetectorFeatureAdditionalConfigurationResult',
 ]
@@ -692,6 +693,52 @@ class OrganizationConfigurationDatasourcesS3Logs(dict):
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
+
+
+@pulumi.output_type
+class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoEnable":
+            suggest = "auto_enable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationFeatureAdditionalConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigurationFeatureAdditionalConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigurationFeatureAdditionalConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_enable: str,
+                 name: str):
+        """
+        :param str auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        :param str name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        pulumi.set(__self__, "auto_enable", auto_enable)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="autoEnable")
+    def auto_enable(self) -> str:
+        """
+        The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+        """
+        return pulumi.get(self, "auto_enable")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

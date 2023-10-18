@@ -372,6 +372,16 @@ __all__ = [
     'WebAclRuleStatementLabelMatchStatement',
     'WebAclRuleStatementManagedRuleGroupStatement',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField',
@@ -15134,7 +15144,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "awsManagedRulesAtpRuleSet":
+        if key == "awsManagedRulesAcfpRuleSet":
+            suggest = "aws_managed_rules_acfp_rule_set"
+        elif key == "awsManagedRulesAtpRuleSet":
             suggest = "aws_managed_rules_atp_rule_set"
         elif key == "awsManagedRulesBotControlRuleSet":
             suggest = "aws_managed_rules_bot_control_rule_set"
@@ -15159,6 +15171,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 aws_managed_rules_acfp_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet'] = None,
                  aws_managed_rules_atp_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet'] = None,
                  aws_managed_rules_bot_control_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
@@ -15166,6 +15179,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
                  payload_type: Optional[str] = None,
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField'] = None):
         """
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs' aws_managed_rules_acfp_rule_set: Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs' aws_managed_rules_atp_rule_set: Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs' aws_managed_rules_bot_control_rule_set: Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
         :param str login_path: The path of the login endpoint for your application.
@@ -15173,6 +15187,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
+        if aws_managed_rules_acfp_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
@@ -15185,6 +15201,14 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
+    def aws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet']:
+        """
+        Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+        """
+        return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
@@ -15233,6 +15257,510 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         Details about your login page username field. See `username_field` for more details.
         """
         return pulumi.get(self, "username_field")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationPath":
+            suggest = "creation_path"
+        elif key == "registrationPagePath":
+            suggest = "registration_page_path"
+        elif key == "requestInspection":
+            suggest = "request_inspection"
+        elif key == "enableRegexInPath":
+            suggest = "enable_regex_in_path"
+        elif key == "responseInspection":
+            suggest = "response_inspection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_path: str,
+                 registration_page_path: str,
+                 request_inspection: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection',
+                 enable_regex_in_path: Optional[bool] = None,
+                 response_inspection: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection'] = None):
+        """
+        :param str creation_path: The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
+        :param str registration_page_path: The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
+        :param bool enable_regex_in_path: Whether or not to allow the use of regular expressions in the login page path.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
+        """
+        pulumi.set(__self__, "creation_path", creation_path)
+        pulumi.set(__self__, "registration_page_path", registration_page_path)
+        pulumi.set(__self__, "request_inspection", request_inspection)
+        if enable_regex_in_path is not None:
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
+        if response_inspection is not None:
+            pulumi.set(__self__, "response_inspection", response_inspection)
+
+    @property
+    @pulumi.getter(name="creationPath")
+    def creation_path(self) -> str:
+        """
+        The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
+        """
+        return pulumi.get(self, "creation_path")
+
+    @property
+    @pulumi.getter(name="registrationPagePath")
+    def registration_page_path(self) -> str:
+        """
+        The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
+        """
+        return pulumi.get(self, "registration_page_path")
+
+    @property
+    @pulumi.getter(name="requestInspection")
+    def request_inspection(self) -> 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection':
+        """
+        The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
+        """
+        return pulumi.get(self, "request_inspection")
+
+    @property
+    @pulumi.getter(name="enableRegexInPath")
+    def enable_regex_in_path(self) -> Optional[bool]:
+        """
+        Whether or not to allow the use of regular expressions in the login page path.
+        """
+        return pulumi.get(self, "enable_regex_in_path")
+
+    @property
+    @pulumi.getter(name="responseInspection")
+    def response_inspection(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection']:
+        """
+        The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
+        """
+        return pulumi.get(self, "response_inspection")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadType":
+            suggest = "payload_type"
+        elif key == "emailField":
+            suggest = "email_field"
+        elif key == "passwordField":
+            suggest = "password_field"
+        elif key == "usernameField":
+            suggest = "username_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payload_type: str,
+                 email_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField'] = None,
+                 password_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField'] = None,
+                 username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField'] = None):
+        """
+        :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
+        """
+        pulumi.set(__self__, "payload_type", payload_type)
+        if email_field is not None:
+            pulumi.set(__self__, "email_field", email_field)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> str:
+        """
+        The payload type for your login endpoint, either JSON or form encoded.
+        """
+        return pulumi.get(self, "payload_type")
+
+    @property
+    @pulumi.getter(name="emailField")
+    def email_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField']:
+        return pulumi.get(self, "email_field")
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField']:
+        """
+        Details about your login page password field. See `password_field` for more details.
+        """
+        return pulumi.get(self, "password_field")
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField']:
+        """
+        Details about your login page username field. See `username_field` for more details.
+        """
+        return pulumi.get(self, "username_field")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField(dict):
+    def __init__(__self__, *,
+                 identifier: str):
+        """
+        :param str identifier: The name of the password field.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The name of the password field.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField(dict):
+    def __init__(__self__, *,
+                 identifier: str):
+        """
+        :param str identifier: The name of the password field.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The name of the password field.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField(dict):
+    def __init__(__self__, *,
+                 identifier: str):
+        """
+        :param str identifier: The name of the username field.
+        """
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The name of the username field.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bodyContains":
+            suggest = "body_contains"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body_contains: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains'] = None,
+                 header: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader'] = None,
+                 json: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson'] = None,
+                 status_code: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode'] = None):
+        """
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs' body_contains: Configures inspection of the response body. See `body_contains` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs' header: Configures inspection of the response header.See `header` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs' json: Configures inspection of the response JSON. See `json` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
+        """
+        if body_contains is not None:
+            pulumi.set(__self__, "body_contains", body_contains)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="bodyContains")
+    def body_contains(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains']:
+        """
+        Configures inspection of the response body. See `body_contains` for more details.
+        """
+        return pulumi.get(self, "body_contains")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader']:
+        """
+        Configures inspection of the response header.See `header` for more details.
+        """
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson']:
+        """
+        Configures inspection of the response JSON. See `json` for more details.
+        """
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode']:
+        """
+        Configures inspection of the response status code.See `status_code` for more details.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureStrings":
+            suggest = "failure_strings"
+        elif key == "successStrings":
+            suggest = "success_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_strings: Sequence[str],
+                 success_strings: Sequence[str]):
+        """
+        :param Sequence[str] failure_strings: Strings in the body of the response that indicate a failed login attempt.
+        :param Sequence[str] success_strings: Strings in the body of the response that indicate a successful login attempt.
+        """
+        pulumi.set(__self__, "failure_strings", failure_strings)
+        pulumi.set(__self__, "success_strings", success_strings)
+
+    @property
+    @pulumi.getter(name="failureStrings")
+    def failure_strings(self) -> Sequence[str]:
+        """
+        Strings in the body of the response that indicate a failed login attempt.
+        """
+        return pulumi.get(self, "failure_strings")
+
+    @property
+    @pulumi.getter(name="successStrings")
+    def success_strings(self) -> Sequence[str]:
+        """
+        Strings in the body of the response that indicate a successful login attempt.
+        """
+        return pulumi.get(self, "success_strings")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureValues":
+            suggest = "failure_values"
+        elif key == "successValues":
+            suggest = "success_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_values: Sequence[str],
+                 name: str,
+                 success_values: Sequence[str]):
+        """
+        :param Sequence[str] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
+        :param str name: The name of the header to use.
+        :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> Sequence[str]:
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
+        return pulumi.get(self, "failure_values")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the header to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> Sequence[str]:
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
+        return pulumi.get(self, "success_values")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureValues":
+            suggest = "failure_values"
+        elif key == "successValues":
+            suggest = "success_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_values: Sequence[str],
+                 identifier: str,
+                 success_values: Sequence[str]):
+        """
+        :param Sequence[str] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
+        :param str identifier: The identifier for the value to match against in the JSON.
+        :param Sequence[str] success_values: Values in the response header with the specified name that indicate a successful login attempt.
+        """
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "success_values", success_values)
+
+    @property
+    @pulumi.getter(name="failureValues")
+    def failure_values(self) -> Sequence[str]:
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
+        return pulumi.get(self, "failure_values")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The identifier for the value to match against in the JSON.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter(name="successValues")
+    def success_values(self) -> Sequence[str]:
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
+        return pulumi.get(self, "success_values")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureCodes":
+            suggest = "failure_codes"
+        elif key == "successCodes":
+            suggest = "success_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_codes: Sequence[int],
+                 success_codes: Sequence[int]):
+        """
+        :param Sequence[int] failure_codes: Status codes in the response that indicate a failed login attempt.
+        :param Sequence[int] success_codes: Status codes in the response that indicate a successful login attempt.
+        """
+        pulumi.set(__self__, "failure_codes", failure_codes)
+        pulumi.set(__self__, "success_codes", success_codes)
+
+    @property
+    @pulumi.getter(name="failureCodes")
+    def failure_codes(self) -> Sequence[int]:
+        """
+        Status codes in the response that indicate a failed login attempt.
+        """
+        return pulumi.get(self, "failure_codes")
+
+    @property
+    @pulumi.getter(name="successCodes")
+    def success_codes(self) -> Sequence[int]:
+        """
+        Status codes in the response that indicate a successful login attempt.
+        """
+        return pulumi.get(self, "success_codes")
 
 
 @pulumi.output_type

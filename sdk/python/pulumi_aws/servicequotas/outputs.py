@@ -15,6 +15,7 @@ __all__ = [
     'ServiceQuotaUsageMetricMetricDimension',
     'GetServiceQuotaUsageMetricResult',
     'GetServiceQuotaUsageMetricMetricDimensionResult',
+    'GetTemplatesTemplateResult',
 ]
 
 @pulumi.output_type
@@ -231,5 +232,100 @@ class GetServiceQuotaUsageMetricMetricDimensionResult(dict):
     @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTemplatesTemplateResult(dict):
+    def __init__(__self__, *,
+                 global_quota: bool,
+                 quota_code: str,
+                 quota_name: str,
+                 region: str,
+                 service_code: str,
+                 service_name: str,
+                 unit: str,
+                 value: float):
+        """
+        :param bool global_quota: Indicates whether the quota is global.
+        :param str quota_code: Quota identifier.
+        :param str quota_name: Quota name.
+        :param str region: AWS Region to which the quota increases apply.
+        :param str service_code: (Required) Service identifier.
+        :param str service_name: Service name.
+        :param str unit: Unit of measurement.
+        :param float value: (Required) The new, increased value for the quota.
+        """
+        pulumi.set(__self__, "global_quota", global_quota)
+        pulumi.set(__self__, "quota_code", quota_code)
+        pulumi.set(__self__, "quota_name", quota_name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "service_code", service_code)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="globalQuota")
+    def global_quota(self) -> bool:
+        """
+        Indicates whether the quota is global.
+        """
+        return pulumi.get(self, "global_quota")
+
+    @property
+    @pulumi.getter(name="quotaCode")
+    def quota_code(self) -> str:
+        """
+        Quota identifier.
+        """
+        return pulumi.get(self, "quota_code")
+
+    @property
+    @pulumi.getter(name="quotaName")
+    def quota_name(self) -> str:
+        """
+        Quota name.
+        """
+        return pulumi.get(self, "quota_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        AWS Region to which the quota increases apply.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="serviceCode")
+    def service_code(self) -> str:
+        """
+        (Required) Service identifier.
+        """
+        return pulumi.get(self, "service_code")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> str:
+        """
+        Service name.
+        """
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        Unit of measurement.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> float:
+        """
+        (Required) The new, increased value for the quota.
+        """
+        return pulumi.get(self, "value")
 
 

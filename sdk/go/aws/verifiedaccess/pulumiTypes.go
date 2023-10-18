@@ -14,6 +14,825 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type InstanceLoggingConfigurationAccessLogs struct {
+	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+	CloudwatchLogs *InstanceLoggingConfigurationAccessLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// Include trust data sent by trust providers into the logs.
+	IncludeTrustContext *bool `pulumi:"includeTrustContext"`
+	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	KinesisDataFirehose *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose `pulumi:"kinesisDataFirehose"`
+	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+	LogVersion *string `pulumi:"logVersion"`
+	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+	S3 *InstanceLoggingConfigurationAccessLogsS3 `pulumi:"s3"`
+}
+
+// InstanceLoggingConfigurationAccessLogsInput is an input type that accepts InstanceLoggingConfigurationAccessLogsArgs and InstanceLoggingConfigurationAccessLogsOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsInput` via:
+//
+//	InstanceLoggingConfigurationAccessLogsArgs{...}
+type InstanceLoggingConfigurationAccessLogsInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsOutput() InstanceLoggingConfigurationAccessLogsOutput
+	ToInstanceLoggingConfigurationAccessLogsOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsOutput
+}
+
+type InstanceLoggingConfigurationAccessLogsArgs struct {
+	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+	CloudwatchLogs InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	// Include trust data sent by trust providers into the logs.
+	IncludeTrustContext pulumi.BoolPtrInput `pulumi:"includeTrustContext"`
+	// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+	KinesisDataFirehose InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput `pulumi:"kinesisDataFirehose"`
+	// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+	LogVersion pulumi.StringPtrInput `pulumi:"logVersion"`
+	// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+	S3 InstanceLoggingConfigurationAccessLogsS3PtrInput `pulumi:"s3"`
+}
+
+func (InstanceLoggingConfigurationAccessLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogs)(nil)).Elem()
+}
+
+func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurationAccessLogsOutput() InstanceLoggingConfigurationAccessLogsOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurationAccessLogsOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsOutput)
+}
+
+func (i InstanceLoggingConfigurationAccessLogsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogs] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogs]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsOutput).ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx)
+}
+
+// InstanceLoggingConfigurationAccessLogsPtrInput is an input type that accepts InstanceLoggingConfigurationAccessLogsArgs, InstanceLoggingConfigurationAccessLogsPtr and InstanceLoggingConfigurationAccessLogsPtrOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsPtrInput` via:
+//
+//	        InstanceLoggingConfigurationAccessLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceLoggingConfigurationAccessLogsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput
+	ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput
+}
+
+type instanceLoggingConfigurationAccessLogsPtrType InstanceLoggingConfigurationAccessLogsArgs
+
+func InstanceLoggingConfigurationAccessLogsPtr(v *InstanceLoggingConfigurationAccessLogsArgs) InstanceLoggingConfigurationAccessLogsPtrInput {
+	return (*instanceLoggingConfigurationAccessLogsPtrType)(v)
+}
+
+func (*instanceLoggingConfigurationAccessLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogs)(nil)).Elem()
+}
+
+func (i *instanceLoggingConfigurationAccessLogsPtrType) ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLoggingConfigurationAccessLogsPtrType) ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsPtrOutput)
+}
+
+func (i *instanceLoggingConfigurationAccessLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogs] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogs]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceLoggingConfigurationAccessLogsOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogs)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigurationAccessLogsOutput() InstanceLoggingConfigurationAccessLogsOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigurationAccessLogsOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return o.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogs {
+		return &v
+	}).(InstanceLoggingConfigurationAccessLogsPtrOutput)
+}
+
+func (o InstanceLoggingConfigurationAccessLogsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogs] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
+}
+
+// Include trust data sent by trust providers into the logs.
+func (o InstanceLoggingConfigurationAccessLogsOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *bool { return v.IncludeTrustContext }).(pulumi.BoolPtrOutput)
+}
+
+// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+		return v.KinesisDataFirehose
+	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
+}
+
+// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+func (o InstanceLoggingConfigurationAccessLogsOutput) LogVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *string { return v.LogVersion }).(pulumi.StringPtrOutput)
+}
+
+// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 { return v.S3 }).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogs)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogs] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) Elem() InstanceLoggingConfigurationAccessLogsOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) InstanceLoggingConfigurationAccessLogs {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLoggingConfigurationAccessLogs
+		return ret
+	}).(InstanceLoggingConfigurationAccessLogsOutput)
+}
+
+// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) CloudwatchLogs() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
+}
+
+// Include trust data sent by trust providers into the logs.
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) IncludeTrustContext() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTrustContext
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) KinesisDataFirehose() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisDataFirehose
+	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
+}
+
+// The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) LogVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// A block that specifies configures sending Verified Access logs to S3. Detailed below.
+func (o InstanceLoggingConfigurationAccessLogsPtrOutput) S3() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogsS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogs struct {
+	// Indicates whether logging is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The name of the CloudWatch Logs Log Group.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput is an input type that accepts InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs and InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput` via:
+//
+//	InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{...}
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput
+	ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput
+}
+
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs struct {
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The name of the CloudWatch Logs Log Group.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput)
+}
+
+func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput).ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput is an input type that accepts InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs, InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtr and InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput` via:
+//
+//	        InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput
+	ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput
+}
+
+type instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs
+
+func InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtr(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput {
+	return (*instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType)(v)
+}
+
+func (*instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
+}
+
+func (i *instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+		return &v
+	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The name of the CloudWatch Logs Log Group.
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsCloudwatchLogs)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Elem() InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLoggingConfigurationAccessLogsCloudwatchLogs
+		return ret
+	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the CloudWatch Logs Log Group.
+func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehose struct {
+	// The name of the delivery stream.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Indicates whether logging is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput is an input type that accepts InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs and InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput` via:
+//
+//	InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{...}
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput
+	ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput
+}
+
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs struct {
+	// The name of the delivery stream.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose)(nil)).Elem()
+}
+
+func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput)
+}
+
+func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput).ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx)
+}
+
+// InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput is an input type that accepts InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs, InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtr and InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput` via:
+//
+//	        InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput
+	ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput
+}
+
+type instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
+
+func InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtr(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput {
+	return (*instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType)(v)
+}
+
+func (*instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsKinesisDataFirehose)(nil)).Elem()
+}
+
+func (i *instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
+}
+
+func (i *instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+		return &v
+	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the delivery stream.
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsKinesisDataFirehose)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Elem() InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLoggingConfigurationAccessLogsKinesisDataFirehose
+		return ret
+	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput)
+}
+
+// The name of the delivery stream.
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsS3 struct {
+	// The name of S3 bucket.
+	BucketName *string `pulumi:"bucketName"`
+	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// Indicates whether logging is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The bucket prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// InstanceLoggingConfigurationAccessLogsS3Input is an input type that accepts InstanceLoggingConfigurationAccessLogsS3Args and InstanceLoggingConfigurationAccessLogsS3Output values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsS3Input` via:
+//
+//	InstanceLoggingConfigurationAccessLogsS3Args{...}
+type InstanceLoggingConfigurationAccessLogsS3Input interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsS3Output() InstanceLoggingConfigurationAccessLogsS3Output
+	ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsS3Output
+}
+
+type InstanceLoggingConfigurationAccessLogsS3Args struct {
+	// The name of S3 bucket.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// The ID of the AWS account that owns the Amazon S3 bucket.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// Indicates whether logging is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The bucket prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (InstanceLoggingConfigurationAccessLogsS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsS3)(nil)).Elem()
+}
+
+func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigurationAccessLogsS3Output() InstanceLoggingConfigurationAccessLogsS3Output {
+	return i.ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsS3Output)
+}
+
+func (i InstanceLoggingConfigurationAccessLogsS3Args) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsS3] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsS3]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsS3Output).ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx)
+}
+
+// InstanceLoggingConfigurationAccessLogsS3PtrInput is an input type that accepts InstanceLoggingConfigurationAccessLogsS3Args, InstanceLoggingConfigurationAccessLogsS3Ptr and InstanceLoggingConfigurationAccessLogsS3PtrOutput values.
+// You can construct a concrete instance of `InstanceLoggingConfigurationAccessLogsS3PtrInput` via:
+//
+//	        InstanceLoggingConfigurationAccessLogsS3Args{...}
+//
+//	or:
+//
+//	        nil
+type InstanceLoggingConfigurationAccessLogsS3PtrInput interface {
+	pulumi.Input
+
+	ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput
+	ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput
+}
+
+type instanceLoggingConfigurationAccessLogsS3PtrType InstanceLoggingConfigurationAccessLogsS3Args
+
+func InstanceLoggingConfigurationAccessLogsS3Ptr(v *InstanceLoggingConfigurationAccessLogsS3Args) InstanceLoggingConfigurationAccessLogsS3PtrInput {
+	return (*instanceLoggingConfigurationAccessLogsS3PtrType)(v)
+}
+
+func (*instanceLoggingConfigurationAccessLogsS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsS3)(nil)).Elem()
+}
+
+func (i *instanceLoggingConfigurationAccessLogsS3PtrType) ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return i.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLoggingConfigurationAccessLogsS3PtrType) ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
+}
+
+func (i *instanceLoggingConfigurationAccessLogsS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3]{
+		OutputState: i.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceLoggingConfigurationAccessLogsS3Output struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsS3)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigurationAccessLogsS3Output() InstanceLoggingConfigurationAccessLogsS3Output {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3Output {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogsS3) *InstanceLoggingConfigurationAccessLogsS3 {
+		return &v
+	}).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3Output) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsS3] {
+	return pulumix.Output[InstanceLoggingConfigurationAccessLogsS3]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of S3 bucket.
+func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS account that owns the Amazon S3 bucket.
+func (o InstanceLoggingConfigurationAccessLogsS3Output) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsS3Output) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The bucket prefix.
+func (o InstanceLoggingConfigurationAccessLogsS3Output) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type InstanceLoggingConfigurationAccessLogsS3PtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLoggingConfigurationAccessLogsS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLoggingConfigurationAccessLogsS3)(nil)).Elem()
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput {
+	return o
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3] {
+	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Elem() InstanceLoggingConfigurationAccessLogsS3Output {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) InstanceLoggingConfigurationAccessLogsS3 {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLoggingConfigurationAccessLogsS3
+		return ret
+	}).(InstanceLoggingConfigurationAccessLogsS3Output)
+}
+
+// The name of S3 bucket.
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS account that owns the Amazon S3 bucket.
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether logging is enabled.
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The bucket prefix.
+func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLoggingConfigurationAccessLogsS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceVerifiedAccessTrustProvider struct {
 	// A description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
@@ -576,12 +1395,28 @@ func (o TrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsPtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsS3Input)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsS3PtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVerifiedAccessTrustProviderInput)(nil)).Elem(), InstanceVerifiedAccessTrustProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceVerifiedAccessTrustProviderArrayInput)(nil)).Elem(), InstanceVerifiedAccessTrustProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderDeviceOptionsInput)(nil)).Elem(), TrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderDeviceOptionsPtrInput)(nil)).Elem(), TrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsPtrInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsS3Output{})
+	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsS3PtrOutput{})
 	pulumi.RegisterOutputType(InstanceVerifiedAccessTrustProviderOutput{})
 	pulumi.RegisterOutputType(InstanceVerifiedAccessTrustProviderArrayOutput{})
 	pulumi.RegisterOutputType(TrustProviderDeviceOptionsOutput{})

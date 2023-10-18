@@ -119,6 +119,7 @@ import javax.annotation.Nullable;
  *                 .alarms(&#34;my-alarm-name&#34;)
  *                 .enabled(true)
  *                 .build())
+ *             .outdatedInstancesStrategy(&#34;UPDATE&#34;)
  *             .build());
  * 
  *     }
@@ -502,6 +503,20 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<DeploymentGroupOnPremisesInstanceTagFilter>>> onPremisesInstanceTagFilters() {
         return Codegen.optional(this.onPremisesInstanceTagFilters);
+    }
+    /**
+     * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     * 
+     */
+    @Export(name="outdatedInstancesStrategy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> outdatedInstancesStrategy;
+
+    /**
+     * @return Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
+     * 
+     */
+    public Output<Optional<String>> outdatedInstancesStrategy() {
+        return Codegen.optional(this.outdatedInstancesStrategy);
     }
     /**
      * The service role ARN that allows deployments.

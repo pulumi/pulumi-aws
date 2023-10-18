@@ -110,6 +110,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? ExternalTableDefinition;
         /// <summary>
+        /// Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+        /// </summary>
+        public readonly bool? GlueCatalogGeneration;
+        /// <summary>
         /// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         /// </summary>
         public readonly int? IgnoreHeaderRows;
@@ -212,6 +216,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? externalTableDefinition,
 
+            bool? glueCatalogGeneration,
+
             int? ignoreHeaderRows,
 
             bool? includeOpForFullLoad,
@@ -262,6 +268,7 @@ namespace Pulumi.Aws.Dms.Outputs
             EncodingType = encodingType;
             EncryptionMode = encryptionMode;
             ExternalTableDefinition = externalTableDefinition;
+            GlueCatalogGeneration = glueCatalogGeneration;
             IgnoreHeaderRows = ignoreHeaderRows;
             IncludeOpForFullLoad = includeOpForFullLoad;
             MaxFileSize = maxFileSize;

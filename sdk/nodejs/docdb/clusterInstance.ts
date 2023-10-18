@@ -80,7 +80,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is`false`.
      */
-    public readonly applyImmediately!: pulumi.Output<boolean>;
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
     /**
      * Amazon Resource Name (ARN) of cluster instance
      */
@@ -102,6 +102,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
+     * Copy all DB instance `tags` to snapshots. Default is `false`.
+     */
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * The DB subnet group to associate with this DB instance.
      */
     public /*out*/ readonly dbSubnetGroupName!: pulumi.Output<string>;
@@ -112,7 +116,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
-    public readonly enablePerformanceInsights!: pulumi.Output<boolean>;
+    public readonly enablePerformanceInsights!: pulumi.Output<boolean | undefined>;
     /**
      * The DNS address for this instance. May not be writable
      */
@@ -137,6 +141,13 @@ export class ClusterInstance extends pulumi.CustomResource {
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -149,6 +160,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      */
     public readonly instanceClass!: pulumi.Output<string>;
@@ -216,6 +228,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
             resourceInputs["enablePerformanceInsights"] = state ? state.enablePerformanceInsights : undefined;
@@ -249,6 +262,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
@@ -308,6 +322,10 @@ export interface ClusterInstanceState {
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
+     * Copy all DB instance `tags` to snapshots. Default is `false`.
+     */
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
      * The DB subnet group to associate with this DB instance.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
@@ -343,6 +361,13 @@ export interface ClusterInstanceState {
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -355,6 +380,7 @@ export interface ClusterInstanceState {
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      */
     instanceClass?: pulumi.Input<string>;
@@ -430,6 +456,10 @@ export interface ClusterInstanceArgs {
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
+     * Copy all DB instance `tags` to snapshots. Default is `false`.
+     */
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
     enablePerformanceInsights?: pulumi.Input<boolean>;
@@ -449,6 +479,13 @@ export interface ClusterInstanceArgs {
      * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
      * DocumentDB currently supports the below instance classes.
      * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * - db.r6g.large
+     * - db.r6g.xlarge
+     * - db.r6g.2xlarge
+     * - db.r6g.4xlarge
+     * - db.r6g.8xlarge
+     * - db.r6g.12xlarge
+     * - db.r6g.16xlarge
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -461,6 +498,7 @@ export interface ClusterInstanceArgs {
      * - db.r4.4xlarge
      * - db.r4.8xlarge
      * - db.r4.16xlarge
+     * - db.t4g.medium
      * - db.t3.medium
      */
     instanceClass: pulumi.Input<string>;

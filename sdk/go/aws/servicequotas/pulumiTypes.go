@@ -584,6 +584,190 @@ func (o GetServiceQuotaUsageMetricMetricDimensionArrayOutput) Index(i pulumi.Int
 	}).(GetServiceQuotaUsageMetricMetricDimensionOutput)
 }
 
+type GetTemplatesTemplate struct {
+	// Indicates whether the quota is global.
+	GlobalQuota bool `pulumi:"globalQuota"`
+	// Quota identifier.
+	QuotaCode string `pulumi:"quotaCode"`
+	// Quota name.
+	QuotaName string `pulumi:"quotaName"`
+	// AWS Region to which the quota increases apply.
+	Region string `pulumi:"region"`
+	// (Required) Service identifier.
+	ServiceCode string `pulumi:"serviceCode"`
+	// Service name.
+	ServiceName string `pulumi:"serviceName"`
+	// Unit of measurement.
+	Unit string `pulumi:"unit"`
+	// (Required) The new, increased value for the quota.
+	Value float64 `pulumi:"value"`
+}
+
+// GetTemplatesTemplateInput is an input type that accepts GetTemplatesTemplateArgs and GetTemplatesTemplateOutput values.
+// You can construct a concrete instance of `GetTemplatesTemplateInput` via:
+//
+//	GetTemplatesTemplateArgs{...}
+type GetTemplatesTemplateInput interface {
+	pulumi.Input
+
+	ToGetTemplatesTemplateOutput() GetTemplatesTemplateOutput
+	ToGetTemplatesTemplateOutputWithContext(context.Context) GetTemplatesTemplateOutput
+}
+
+type GetTemplatesTemplateArgs struct {
+	// Indicates whether the quota is global.
+	GlobalQuota pulumi.BoolInput `pulumi:"globalQuota"`
+	// Quota identifier.
+	QuotaCode pulumi.StringInput `pulumi:"quotaCode"`
+	// Quota name.
+	QuotaName pulumi.StringInput `pulumi:"quotaName"`
+	// AWS Region to which the quota increases apply.
+	Region pulumi.StringInput `pulumi:"region"`
+	// (Required) Service identifier.
+	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+	// Service name.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// Unit of measurement.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// (Required) The new, increased value for the quota.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (GetTemplatesTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplatesTemplate)(nil)).Elem()
+}
+
+func (i GetTemplatesTemplateArgs) ToGetTemplatesTemplateOutput() GetTemplatesTemplateOutput {
+	return i.ToGetTemplatesTemplateOutputWithContext(context.Background())
+}
+
+func (i GetTemplatesTemplateArgs) ToGetTemplatesTemplateOutputWithContext(ctx context.Context) GetTemplatesTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTemplatesTemplateOutput)
+}
+
+func (i GetTemplatesTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetTemplatesTemplate] {
+	return pulumix.Output[GetTemplatesTemplate]{
+		OutputState: i.ToGetTemplatesTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetTemplatesTemplateArrayInput is an input type that accepts GetTemplatesTemplateArray and GetTemplatesTemplateArrayOutput values.
+// You can construct a concrete instance of `GetTemplatesTemplateArrayInput` via:
+//
+//	GetTemplatesTemplateArray{ GetTemplatesTemplateArgs{...} }
+type GetTemplatesTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetTemplatesTemplateArrayOutput() GetTemplatesTemplateArrayOutput
+	ToGetTemplatesTemplateArrayOutputWithContext(context.Context) GetTemplatesTemplateArrayOutput
+}
+
+type GetTemplatesTemplateArray []GetTemplatesTemplateInput
+
+func (GetTemplatesTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTemplatesTemplate)(nil)).Elem()
+}
+
+func (i GetTemplatesTemplateArray) ToGetTemplatesTemplateArrayOutput() GetTemplatesTemplateArrayOutput {
+	return i.ToGetTemplatesTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetTemplatesTemplateArray) ToGetTemplatesTemplateArrayOutputWithContext(ctx context.Context) GetTemplatesTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTemplatesTemplateArrayOutput)
+}
+
+func (i GetTemplatesTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTemplatesTemplate] {
+	return pulumix.Output[[]GetTemplatesTemplate]{
+		OutputState: i.ToGetTemplatesTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetTemplatesTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetTemplatesTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTemplatesTemplate)(nil)).Elem()
+}
+
+func (o GetTemplatesTemplateOutput) ToGetTemplatesTemplateOutput() GetTemplatesTemplateOutput {
+	return o
+}
+
+func (o GetTemplatesTemplateOutput) ToGetTemplatesTemplateOutputWithContext(ctx context.Context) GetTemplatesTemplateOutput {
+	return o
+}
+
+func (o GetTemplatesTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetTemplatesTemplate] {
+	return pulumix.Output[GetTemplatesTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Indicates whether the quota is global.
+func (o GetTemplatesTemplateOutput) GlobalQuota() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) bool { return v.GlobalQuota }).(pulumi.BoolOutput)
+}
+
+// Quota identifier.
+func (o GetTemplatesTemplateOutput) QuotaCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.QuotaCode }).(pulumi.StringOutput)
+}
+
+// Quota name.
+func (o GetTemplatesTemplateOutput) QuotaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.QuotaName }).(pulumi.StringOutput)
+}
+
+// AWS Region to which the quota increases apply.
+func (o GetTemplatesTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// (Required) Service identifier.
+func (o GetTemplatesTemplateOutput) ServiceCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.ServiceCode }).(pulumi.StringOutput)
+}
+
+// Service name.
+func (o GetTemplatesTemplateOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Unit of measurement.
+func (o GetTemplatesTemplateOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// (Required) The new, increased value for the quota.
+func (o GetTemplatesTemplateOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v GetTemplatesTemplate) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type GetTemplatesTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTemplatesTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTemplatesTemplate)(nil)).Elem()
+}
+
+func (o GetTemplatesTemplateArrayOutput) ToGetTemplatesTemplateArrayOutput() GetTemplatesTemplateArrayOutput {
+	return o
+}
+
+func (o GetTemplatesTemplateArrayOutput) ToGetTemplatesTemplateArrayOutputWithContext(ctx context.Context) GetTemplatesTemplateArrayOutput {
+	return o
+}
+
+func (o GetTemplatesTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTemplatesTemplate] {
+	return pulumix.Output[[]GetTemplatesTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetTemplatesTemplateArrayOutput) Index(i pulumi.IntInput) GetTemplatesTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTemplatesTemplate {
+		return vs[0].([]GetTemplatesTemplate)[vs[1].(int)]
+	}).(GetTemplatesTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaUsageMetricInput)(nil)).Elem(), ServiceQuotaUsageMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaUsageMetricArrayInput)(nil)).Elem(), ServiceQuotaUsageMetricArray{})
@@ -593,6 +777,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQuotaUsageMetricArrayInput)(nil)).Elem(), GetServiceQuotaUsageMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQuotaUsageMetricMetricDimensionInput)(nil)).Elem(), GetServiceQuotaUsageMetricMetricDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceQuotaUsageMetricMetricDimensionArrayInput)(nil)).Elem(), GetServiceQuotaUsageMetricMetricDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesTemplateInput)(nil)).Elem(), GetTemplatesTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTemplatesTemplateArrayInput)(nil)).Elem(), GetTemplatesTemplateArray{})
 	pulumi.RegisterOutputType(ServiceQuotaUsageMetricOutput{})
 	pulumi.RegisterOutputType(ServiceQuotaUsageMetricArrayOutput{})
 	pulumi.RegisterOutputType(ServiceQuotaUsageMetricMetricDimensionOutput{})
@@ -601,4 +787,6 @@ func init() {
 	pulumi.RegisterOutputType(GetServiceQuotaUsageMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceQuotaUsageMetricMetricDimensionOutput{})
 	pulumi.RegisterOutputType(GetServiceQuotaUsageMetricMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(GetTemplatesTemplateOutput{})
+	pulumi.RegisterOutputType(GetTemplatesTemplateArrayOutput{})
 }

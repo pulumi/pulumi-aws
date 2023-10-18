@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
 export { InstanceArgs, InstanceState } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
 utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+
+export { InstanceLoggingConfigurationArgs, InstanceLoggingConfigurationState } from "./instanceLoggingConfiguration";
+export type InstanceLoggingConfiguration = import("./instanceLoggingConfiguration").InstanceLoggingConfiguration;
+export const InstanceLoggingConfiguration: typeof import("./instanceLoggingConfiguration").InstanceLoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["InstanceLoggingConfiguration"], () => require("./instanceLoggingConfiguration"));
 
 export { InstanceTrustProviderAttachmentArgs, InstanceTrustProviderAttachmentState } from "./instanceTrustProviderAttachment";
 export type InstanceTrustProviderAttachment = import("./instanceTrustProviderAttachment").InstanceTrustProviderAttachment;
@@ -25,8 +35,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:verifiedaccess/group:Group":
+                return new Group(name, <any>undefined, { urn })
             case "aws:verifiedaccess/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration":
+                return new InstanceLoggingConfiguration(name, <any>undefined, { urn })
             case "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment":
                 return new InstanceTrustProviderAttachment(name, <any>undefined, { urn })
             case "aws:verifiedaccess/trustProvider:TrustProvider":
@@ -36,6 +50,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "verifiedaccess/group", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instanceLoggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instanceTrustProviderAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/trustProvider", _module)

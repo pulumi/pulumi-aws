@@ -141,7 +141,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+        /// The target group configuration.
         /// </summary>
         [Output("config")]
         public Output<Outputs.TargetGroupConfig?> Config { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+        /// The target group configuration.
         /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigArgs>? Config { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
+        /// The target group configuration.
         /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigGetArgs>? Config { get; set; }

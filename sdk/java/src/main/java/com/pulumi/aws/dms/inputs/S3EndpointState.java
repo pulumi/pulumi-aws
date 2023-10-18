@@ -529,6 +529,21 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    @Import(name="glueCatalogGeneration")
+    private @Nullable Output<Boolean> glueCatalogGeneration;
+
+    /**
+     * @return Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> glueCatalogGeneration() {
+        return Optional.ofNullable(this.glueCatalogGeneration);
+    }
+
+    /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
      * 
      */
@@ -847,6 +862,7 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.externalId = $.externalId;
         this.externalTableDefinition = $.externalTableDefinition;
+        this.glueCatalogGeneration = $.glueCatalogGeneration;
         this.ignoreHeaderRows = $.ignoreHeaderRows;
         this.includeOpForFullLoad = $.includeOpForFullLoad;
         this.kmsKeyArn = $.kmsKeyArn;
@@ -1597,6 +1613,27 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder externalTableDefinition(String externalTableDefinition) {
             return externalTableDefinition(Output.of(externalTableDefinition));
+        }
+
+        /**
+         * @param glueCatalogGeneration Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder glueCatalogGeneration(@Nullable Output<Boolean> glueCatalogGeneration) {
+            $.glueCatalogGeneration = glueCatalogGeneration;
+            return this;
+        }
+
+        /**
+         * @param glueCatalogGeneration Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder glueCatalogGeneration(Boolean glueCatalogGeneration) {
+            return glueCatalogGeneration(Output.of(glueCatalogGeneration));
         }
 
         /**

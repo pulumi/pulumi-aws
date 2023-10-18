@@ -46,6 +46,7 @@ class S3EndpointArgs:
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -97,6 +98,7 @@ class S3EndpointArgs:
         :param pulumi.Input[str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -173,6 +175,8 @@ class S3EndpointArgs:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
@@ -591,6 +595,18 @@ class S3EndpointArgs:
         pulumi.set(self, "external_table_definition", value)
 
     @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "glue_catalog_generation")
+
+    @glue_catalog_generation.setter
+    def glue_catalog_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "glue_catalog_generation", value)
+
+    @property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[int]]:
         """
@@ -808,6 +824,7 @@ class _S3EndpointState:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -862,6 +879,7 @@ class _S3EndpointState:
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -951,6 +969,8 @@ class _S3EndpointState:
             pulumi.set(__self__, "external_id", external_id)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
@@ -1400,6 +1420,18 @@ class _S3EndpointState:
         pulumi.set(self, "external_table_definition", value)
 
     @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "glue_catalog_generation")
+
+    @glue_catalog_generation.setter
+    def glue_catalog_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "glue_catalog_generation", value)
+
+    @property
     @pulumi.getter(name="ignoreHeaderRows")
     def ignore_header_rows(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1657,6 +1689,7 @@ class S3Endpoint(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -1752,6 +1785,7 @@ class S3Endpoint(pulumi.CustomResource):
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
+            glue_catalog_generation=True,
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
         ```
 
@@ -1796,6 +1830,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -1899,6 +1934,7 @@ class S3Endpoint(pulumi.CustomResource):
             timestamp_column_name="tx_commit_time",
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
+            glue_catalog_generation=True,
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
         ```
 
@@ -1956,6 +1992,7 @@ class S3Endpoint(pulumi.CustomResource):
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -2018,6 +2055,7 @@ class S3Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["external_table_definition"] = external_table_definition
+            __props__.__dict__["glue_catalog_generation"] = glue_catalog_generation
             __props__.__dict__["ignore_header_rows"] = ignore_header_rows
             __props__.__dict__["include_op_for_full_load"] = include_op_for_full_load
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -2087,6 +2125,7 @@ class S3Endpoint(pulumi.CustomResource):
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             external_table_definition: Optional[pulumi.Input[str]] = None,
+            glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
             ignore_header_rows: Optional[pulumi.Input[int]] = None,
             include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -2146,6 +2185,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[str] external_id: Can be used for cross-account validation. Use it in another account with `dms.S3Endpoint` to create the endpoint cross-account.
         :param pulumi.Input[str] external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param pulumi.Input[bool] glue_catalog_generation: Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
         :param pulumi.Input[int] ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. (AWS default is `0`.)
         :param pulumi.Input[bool] include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -2205,6 +2245,7 @@ class S3Endpoint(pulumi.CustomResource):
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
         __props__.__dict__["external_id"] = external_id
         __props__.__dict__["external_table_definition"] = external_table_definition
+        __props__.__dict__["glue_catalog_generation"] = glue_catalog_generation
         __props__.__dict__["ignore_header_rows"] = ignore_header_rows
         __props__.__dict__["include_op_for_full_load"] = include_op_for_full_load
         __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -2496,6 +2537,14 @@ class S3Endpoint(pulumi.CustomResource):
         JSON document that describes how AWS DMS should interpret the data.
         """
         return pulumi.get(self, "external_table_definition")
+
+    @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "glue_catalog_generation")
 
     @property
     @pulumi.getter(name="ignoreHeaderRows")

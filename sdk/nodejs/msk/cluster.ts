@@ -244,6 +244,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * UUID of the MSK cluster, for use in IAM policies.
+     */
+    public /*out*/ readonly clusterUuid!: pulumi.Output<string>;
+    /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
@@ -326,6 +330,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
             resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["clusterUuid"] = state ? state.clusterUuid : undefined;
             resourceInputs["configurationInfo"] = state ? state.configurationInfo : undefined;
             resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
             resourceInputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
@@ -373,6 +378,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapBrokersVpcConnectivitySaslIam"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersVpcConnectivitySaslScram"] = undefined /*out*/;
             resourceInputs["bootstrapBrokersVpcConnectivityTls"] = undefined /*out*/;
+            resourceInputs["clusterUuid"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["zookeeperConnectString"] = undefined /*out*/;
@@ -445,6 +451,10 @@ export interface ClusterState {
      * Name of the MSK cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * UUID of the MSK cluster, for use in IAM policies.
+     */
+    clusterUuid?: pulumi.Input<string>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */

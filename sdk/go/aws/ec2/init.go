@@ -61,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Fleet{}
 	case "aws:ec2/flowLog:FlowLog":
 		r = &FlowLog{}
+	case "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess":
+		r = &ImageBlockPublicAccess{}
 	case "aws:ec2/instance:Instance":
 		r = &Instance{}
 	case "aws:ec2/internetGateway:InternetGateway":
@@ -316,6 +318,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/flowLog",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/imageBlockPublicAccess",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -77,6 +77,20 @@ public class ServerlessCluster extends com.pulumi.resources.CustomResource {
         return this.clusterName;
     }
     /**
+     * UUID of the serverless cluster, for use in IAM policies.
+     * 
+     */
+    @Export(name="clusterUuid", refs={String.class}, tree="[0]")
+    private Output<String> clusterUuid;
+
+    /**
+     * @return UUID of the serverless cluster, for use in IAM policies.
+     * 
+     */
+    public Output<String> clusterUuid() {
+        return this.clusterUuid;
+    }
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

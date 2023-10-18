@@ -78,13 +78,27 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
+     * A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+     * 
+     */
+    @Export(name="allowMajorVersionUpgrade", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowMajorVersionUpgrade;
+
+    /**
+     * @return A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
+     * 
+     */
+    public Output<Optional<Boolean>> allowMajorVersionUpgrade() {
+        return Codegen.optional(this.allowMajorVersionUpgrade);
+    }
+    /**
      * Specifies whether any cluster modifications
      * are applied immediately, or during the next maintenance window. Default is
      * `false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> applyImmediately;
+    private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
      * @return Specifies whether any cluster modifications
@@ -92,8 +106,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * `false`.
      * 
      */
-    public Output<Boolean> applyImmediately() {
-        return this.applyImmediately;
+    public Output<Optional<Boolean>> applyImmediately() {
+        return Codegen.optional(this.applyImmediately);
     }
     /**
      * Amazon Resource Name (ARN) of cluster
