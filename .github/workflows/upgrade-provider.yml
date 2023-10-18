@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Call upgrade provider action
-      uses: pulumi/pulumi-upgrade-provider-action@v0.0.8
+      uses: pulumi/pulumi-upgrade-provider-action@v0.0.9
       with:
         kind: all
         email: bot@pulumi.com
