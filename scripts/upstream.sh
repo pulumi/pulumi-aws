@@ -45,12 +45,12 @@ message_rebase_clean() {
   cat <<EOF
 
 The full patch set has been cleanly applied to the './upstream' repository.
-To "edit" the patch set, commit changes directly to './upstream'. When
-you are done making changes, run:
+To "edit" the patch set, manipulate the commits on the 'pulumi-patch' branch
+in the './upstream' submodule. When you are done making changes, run:
 
     make upstream.finalize
 
-to finish the rebase and commit those changes into the patch set.
+to finish the rebase and convert these commits back into patches.
 
 EOF
 }
@@ -59,12 +59,12 @@ message_rebase_dirty() {
 cat <<EOF
 
 The patch set did not apply cleanly. You need to manually resolve
-rebase conflicts directly in './upstream'. When you have completed
-the rebase, run
+rebase conflicts directly in './upstream' and run 'git rebase --continue'.
+When you have completed the rebase, run
 
     make upstream.finalize
 
-This will finalize the changes you made back into the patch set.
+This will save the changes you made back into the patch set.
 
 EOF
 }
