@@ -27,8 +27,15 @@ import (
 //go:embed schema-embed.json
 var pulumiSchema []byte
 
+//go:embed info.json
+var infoJson []byte
+
 func main() {
 	ctx := context.Background()
-	info := aws.Provider()
+	info, err := pf.UnpackProviderInfo(infoJson, aws.BareProvider(ctx))
+	if err != nil {
+		panic(err)
+	}
+
 	pf.MainWithMuxer(ctx, "aws", *info, pulumiSchema)
 }

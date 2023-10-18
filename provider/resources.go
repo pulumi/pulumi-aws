@@ -629,14 +629,23 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 //go:embed cmd/pulumi-resource-aws/bridge-metadata.json
 var metadata []byte
 
+func BareProvider(ctx context.Context) shim.Provider {
+	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
+
+	return p
+}
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
 	ctx := context.Background()
-	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+	p := BareProvider(ctx)
+	return ProviderFromBare(p)
+}
 
-	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
-
+// Provider returns additional overlaid schema and metadata associated with the aws package.
+func ProviderFromBare(p shim.Provider) *tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:                p,
 		Name:             "aws",

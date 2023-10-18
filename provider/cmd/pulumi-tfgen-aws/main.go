@@ -16,8 +16,10 @@ package main
 
 import (
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"os"
 )
 
 func main() {
@@ -35,4 +37,13 @@ func main() {
 	}()
 
 	pftfgen.MainWithMuxer("aws", *info)
+
+	data, err := pftfbridge.PackProviderInfo(info)
+	if err != nil {
+		panic(err)
+	}
+
+	if err := os.WriteFile("info.json", data, 0666); err != nil {
+		panic(err)
+	}
 }
