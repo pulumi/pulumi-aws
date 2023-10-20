@@ -12,9 +12,7 @@ namespace Pulumi.Aws.Dms
     /// <summary>
     /// Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
     /// 
-    /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text. Read more about sensitive data in state.
-    /// 
-    /// &gt; **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
+    /// &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text. &gt; **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
     /// 
     /// ## Example Usage
     /// 
