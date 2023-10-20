@@ -42,6 +42,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			"If omitted, Terraform will assign a random, unique name.",
 			"If omitted, the provider will assign a random, unique name."),
 		simpleReplace("Read more about sensitive data in state.\n\n", ""),
+		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
 		applyReplacementsDotJSON())
 }
 
@@ -51,6 +52,16 @@ func simpleReplace(from, to string) tfbridge.DocsEdit {
 		Path: "*",
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			return bytes.ReplaceAll(content, fromB, toB), nil
+		},
+	}
+}
+
+func reReplace(from string, to string) tfbridge.DocsEdit {
+	fromR, toB := regexp.MustCompile(from), []byte(to)
+	return tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return fromR.ReplaceAll(content, toB), nil
 		},
 	}
 }
