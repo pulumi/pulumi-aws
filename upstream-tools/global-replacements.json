@@ -33,13 +33,6 @@
         "regExpFlags": "gm",
         "old": "^(\\s*)Terraform resource (.*)$",
         "new": "$1Resource $2"
-      },
-      {
-        "old": "Read more about sensitive data in state.\n"
-      },
-      {
-        "old": "If omitted, Terraform will assign a random, unique name.",
-        "new": "If omitted, the provider will assign a random, unique name."
       }
     ]
   }

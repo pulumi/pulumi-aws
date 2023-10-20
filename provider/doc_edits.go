@@ -27,8 +27,32 @@ import (
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults,
 		fixupImports(),
-		fixupExampleStrings(),
+		// This fixes up strings such as:
+		//
+		//	name        = "terraform-kinesis-firehose-os",
+		//
+		// Replacing the above with:
+		//
+		//	name        = "pulumi-kinesis-firehose-os"
+		//
+		simpleReplace(
+			`"terraform-`,
+			`"pulumi-`),
+		simpleReplace(
+			"If omitted, Terraform will assign a random, unique name.",
+			"If omitted, the provider will assign a random, unique name."),
+		simpleReplace("Read more about sensitive data in state.\n\n", ""),
 		applyReplacementsDotJSON())
+}
+
+func simpleReplace(from, to string) tfbridge.DocsEdit {
+	fromB, toB := []byte(from), []byte(to)
+	return tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return bytes.ReplaceAll(content, fromB, toB), nil
+		},
+	}
 }
 
 func fixupImports() tfbridge.DocsEdit {
@@ -43,7 +67,7 @@ func fixupImports() tfbridge.DocsEdit {
 
 	return tfbridge.DocsEdit{
 		Path: "*",
-		Edit: func(path string, content []byte) ([]byte, error) {
+		Edit: func(_ string, content []byte) ([]byte, error) {
 			content = blockImportRegexp.ReplaceAllLiteral(content, nil)
 			content = inlineImportRegexp.ReplaceAllFunc(content, func(match []byte) []byte {
 				match = bytes.ReplaceAll(match, []byte("terraform"), []byte("pulumi"))
@@ -52,26 +76,6 @@ func fixupImports() tfbridge.DocsEdit {
 				return match
 			})
 			content = quotedImportRegexp.ReplaceAllLiteral(content, []byte("`pulumi import`"))
-			return content, nil
-		},
-	}
-}
-
-// This fixes up strings such as:
-//
-//	name        = "terraform-kinesis-firehose-os",
-//
-// Replacing the above with:
-//
-//	name        = "pulumi-kinesis-firehose-os"
-//
-func fixupExampleStrings() tfbridge.DocsEdit {
-	const tf = `"terraform-`
-
-	return tfbridge.DocsEdit{
-		Path: "*",
-		Edit: func(path string, content []byte) ([]byte, error) {
-			content = bytes.ReplaceAll(content, []byte(tf), []byte(`"pulumi-`))
 			return content, nil
 		},
 	}
