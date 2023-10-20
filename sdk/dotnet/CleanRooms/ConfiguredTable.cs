@@ -32,7 +32,7 @@ namespace Pulumi.Aws.CleanRooms
     ///             "column3",
     ///         },
     ///         AnalysisMethod = "DIRECT_QUERY",
-    ///         Description = "I made this table with TODO!",
+    ///         Description = "I made this table with Pulumi!",
     ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
     ///         {
     ///             DatabaseName = "example_database",
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.CleanRooms
     ///         },
     ///         Tags = 
     ///         {
-    ///             { "Project", "TODO" },
+    ///             { "Project", "Pulumi" },
     ///         },
     ///     });
     /// 

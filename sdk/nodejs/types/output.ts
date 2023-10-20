@@ -18437,7 +18437,7 @@ export namespace dlm {
         /**
          * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          *
-         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
+         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. Pulumi is unable to detect this at plan time but it will fail during apply.
          */
         targetTags?: {[key: string]: string};
     }

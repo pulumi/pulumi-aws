@@ -832,9 +832,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
 
-        > **Note:** All arguments including the password will be stored in the raw state as plain-text. Read more about sensitive data in state.
-
-        > **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `dms.S3Endpoint` resource instead.
+        > **Note:** All arguments including the password will be stored in the raw state as plain-text. > **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `dms.S3Endpoint` resource instead.
 
         ## Example Usage
 
@@ -905,9 +903,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
 
-        > **Note:** All arguments including the password will be stored in the raw state as plain-text. Read more about sensitive data in state.
-
-        > **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `dms.S3Endpoint` resource instead.
+        > **Note:** All arguments including the password will be stored in the raw state as plain-text. > **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `dms.S3Endpoint` resource instead.
 
         ## Example Usage
 

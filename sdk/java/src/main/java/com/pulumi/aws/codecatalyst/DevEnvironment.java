@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .projectName(&#34;myproject&#34;)
  *             .repositories(DevEnvironmentRepositoryArgs.builder()
  *                 .branchName(&#34;main&#34;)
- *                 .repositoryName(&#34;TODO-provider-aws&#34;)
+ *                 .repositoryName(&#34;pulumi-provider-aws&#34;)
  *                 .build())
  *             .spaceName(&#34;myspace&#34;)
  *             .build());

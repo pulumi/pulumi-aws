@@ -25,7 +25,46 @@ import (
 )
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	return append(defaults, fixupImports(), applyReplacementsDotJSON())
+	return append(defaults,
+		fixupImports(),
+		// This fixes up strings such as:
+		//
+		//	name        = "terraform-kinesis-firehose-os",
+		//
+		// Replacing the above with:
+		//
+		//	name        = "pulumi-kinesis-firehose-os"
+		//
+		simpleReplace(
+			`"terraform-`,
+			`"pulumi-`),
+		simpleReplace(
+			"If omitted, Terraform will assign a random, unique name.",
+			"If omitted, the provider will assign a random, unique name."),
+		simpleReplace("Read more about sensitive data in state.\n\n", ""),
+		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
+		reReplace(`(?m)^(\s*)Terraform data source `, "${1}Data source "),
+		applyReplacementsDotJSON())
+}
+
+func simpleReplace(from, to string) tfbridge.DocsEdit {
+	fromB, toB := []byte(from), []byte(to)
+	return tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return bytes.ReplaceAll(content, fromB, toB), nil
+		},
+	}
+}
+
+func reReplace(from string, to string) tfbridge.DocsEdit {
+	fromR, toB := regexp.MustCompile(from), []byte(to)
+	return tfbridge.DocsEdit{
+		Path: "*",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return fromR.ReplaceAll(content, toB), nil
+		},
+	}
 }
 
 func fixupImports() tfbridge.DocsEdit {
@@ -40,7 +79,7 @@ func fixupImports() tfbridge.DocsEdit {
 
 	return tfbridge.DocsEdit{
 		Path: "*",
-		Edit: func(path string, content []byte) ([]byte, error) {
+		Edit: func(_ string, content []byte) ([]byte, error) {
 			content = blockImportRegexp.ReplaceAllLiteral(content, nil)
 			content = inlineImportRegexp.ReplaceAllFunc(content, func(match []byte) []byte {
 				match = bytes.ReplaceAll(match, []byte("terraform"), []byte("pulumi"))
@@ -88,31 +127,44 @@ func applyReplacementsDotJSON() tfbridge.DocsEdit {
 		}
 	})
 
+	edit := func(path string, content []byte) ([]byte, error) {
+		replacementPath, ok := replacements[path]
+		if !ok {
+			return content, nil
+		}
+		applied++
+		for _, r := range replacementPath {
+			// If no-one has fixed up the TODO, don't replace it. That way the
+			// text will show up as elided instead of including the TODO in
+			// user facing docs.
+			if r.New == elidedText.ReplaceAllLiteralString(r.Old, "TODO") {
+				continue
+			}
+
+			old, new := []byte(r.Old), []byte(r.New)
+
+			content = bytes.ReplaceAll(content, old, new)
+		}
+
+		replacements.checkForTODOs(path, content)
+
+		return content, nil
+	}
+
 	return tfbridge.DocsEdit{
 		Path: "*",
-		Edit: func(path string, content []byte) ([]byte, error) {
-			replacementPath, ok := replacements[path]
-			if !ok {
-				return content, nil
-			}
-			applied++
-			for _, r := range replacementPath {
-				old, new := []byte(r.Old), []byte(r.New)
-				content = bytes.ReplaceAll(content, old, new)
-			}
-
-			replacements.checkForTODOs(path, content)
-
-			return content, nil
-		},
+		Edit: edit,
 	}
 }
 
 var PostTfgenHook []func()
 
-type replacementFile map[string][]struct {
-	Old string `json:"old"`
-	New string `json:"new"`
+type replacementFile map[string][]replacement
+
+type replacement struct {
+	Old     string `json:"old"`
+	New     string `json:"new"`
+	wasUsed bool
 }
 
 var elidedText = regexp.MustCompile("[tT]erraform")
@@ -134,10 +186,11 @@ func (r replacementFile) checkForTODOs(path string, content []byte) {
 		start, end = findLine(content, m[0])
 		line := string(content[start:end])
 
-		r[path] = append(r[path], struct {
-			Old string `json:"old"`
-			New string `json:"new"`
-		}{line, elidedText.ReplaceAllLiteralString(line, "TODO")})
+		r[path] = append(r[path], replacement{
+			Old:     line,
+			New:     elidedText.ReplaceAllLiteralString(line, "TODO"),
+			wasUsed: true,
+		})
 	}
 }
 

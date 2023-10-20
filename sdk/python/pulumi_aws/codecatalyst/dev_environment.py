@@ -317,7 +317,7 @@ class DevEnvironment(pulumi.CustomResource):
             project_name="myproject",
             repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
                 branch_name="main",
-                repository_name="TODO-provider-aws",
+                repository_name="pulumi-provider-aws",
             )],
             space_name="myspace")
         ```
@@ -363,7 +363,7 @@ class DevEnvironment(pulumi.CustomResource):
             project_name="myproject",
             repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
                 branch_name="main",
-                repository_name="TODO-provider-aws",
+                repository_name="pulumi-provider-aws",
             )],
             space_name="myspace")
         ```

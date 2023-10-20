@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *         "column3",
  *     ],
  *     analysisMethod: "DIRECT_QUERY",
- *     description: "I made this table with TODO!",
+ *     description: "I made this table with Pulumi!",
  *     tableReference: {
  *         databaseName: "example_database",
  *         tableName: "example_table",
  *     },
  *     tags: {
- *         Project: "TODO",
+ *         Project: "Pulumi",
  *     },
  * });
  * ```

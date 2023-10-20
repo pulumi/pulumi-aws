@@ -321,13 +321,13 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column3",
             ],
             analysis_method="DIRECT_QUERY",
-            description="I made this table with TODO!",
+            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",
             ),
             tags={
-                "Project": "TODO",
+                "Project": "Pulumi",
             })
         ```
 
@@ -373,13 +373,13 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column3",
             ],
             analysis_method="DIRECT_QUERY",
-            description="I made this table with TODO!",
+            description="I made this table with Pulumi!",
             table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
                 database_name="example_database",
                 table_name="example_table",
             ),
             tags={
-                "Project": "TODO",
+                "Project": "Pulumi",
             })
         ```
 

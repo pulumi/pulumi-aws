@@ -44,7 +44,7 @@ import (
 //				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
 //					&codecatalyst.DevEnvironmentRepositoryArgs{
 //						BranchName:     pulumi.String("main"),
-//						RepositoryName: pulumi.String("TODO-provider-aws"),
+//						RepositoryName: pulumi.String("pulumi-provider-aws"),
 //					},
 //				},
 //				SpaceName: pulumi.String("myspace"),

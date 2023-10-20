@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
  * });
  * ```
- * ### Find the TODO Runner's Source Role
+ * ### Find the Runner's Source Role
  *
  * Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
  *
@@ -49,7 +49,7 @@ export interface GetSessionContextArgs {
     /**
      * ARN for an assumed role.
      *
-     * > If `arn` is a non-role ARN, TODO gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
+     * > If `arn` is a non-role ARN, Pulumi gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
      */
     arn: string;
 }
@@ -96,7 +96,7 @@ export interface GetSessionContextResult {
  *     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
  * });
  * ```
- * ### Find the TODO Runner's Source Role
+ * ### Find the Runner's Source Role
  *
  * Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuerArn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
  *
@@ -121,7 +121,7 @@ export interface GetSessionContextOutputArgs {
     /**
      * ARN for an assumed role.
      *
-     * > If `arn` is a non-role ARN, TODO gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
+     * > If `arn` is a non-role ARN, Pulumi gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
      */
     arn: pulumi.Input<string>;
 }
