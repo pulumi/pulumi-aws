@@ -617,7 +617,10 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	if _, _, diag := awsbase.GetAwsConfig(context.Background(), config); diag != nil && diag.HasError() {
 		return fmt.Errorf("unable to validate AWS credentials. \n"+
 			"Details: %s\n"+
-			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n", formatDiags(diag))
+			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n\n"+
+			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
+			"correct and valid credentials are used.\nLearn more: "+
+			"https://www.pulumi.com/docs/pulumi-cloud/esc/environments/", formatDiags(diag))
 	}
 
 	return nil
