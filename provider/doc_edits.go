@@ -43,6 +43,7 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			"If omitted, the provider will assign a random, unique name."),
 		simpleReplace("Read more about sensitive data in state.\n\n", ""),
 		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
+		reReplace(`(?m)^(\s*)Terraform data source `, "${1}Data source "),
 		applyReplacementsDotJSON())
 }
 
