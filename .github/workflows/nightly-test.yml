@@ -128,6 +128,7 @@ jobs:
         - dotnet
         - go
         - java
+
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -162,6 +163,15 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/schema-tools
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        android: true
+        dotnet: false
+        haskell: true
+        large-packages: false
+        swap-storage: true
+        tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
     - name: Unit-test provider code
@@ -207,6 +217,8 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
+
+
   test:
     name: test
     needs: build_sdk
