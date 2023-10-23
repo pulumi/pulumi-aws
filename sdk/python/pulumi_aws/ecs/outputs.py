@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -94,11 +94,34 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs' managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
         :param str managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
-        pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
+        CapacityProviderAutoScalingGroupProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_scaling_group_arn=auto_scaling_group_arn,
+            managed_scaling=managed_scaling,
+            managed_termination_protection=managed_termination_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_scaling_group_arn: Optional[str] = None,
+             managed_scaling: Optional['outputs.CapacityProviderAutoScalingGroupProviderManagedScaling'] = None,
+             managed_termination_protection: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_scaling_group_arn is None and 'autoScalingGroupArn' in kwargs:
+            auto_scaling_group_arn = kwargs['autoScalingGroupArn']
+        if auto_scaling_group_arn is None:
+            raise TypeError("Missing 'auto_scaling_group_arn' argument")
+        if managed_scaling is None and 'managedScaling' in kwargs:
+            managed_scaling = kwargs['managedScaling']
+        if managed_termination_protection is None and 'managedTerminationProtection' in kwargs:
+            managed_termination_protection = kwargs['managedTerminationProtection']
+
+        _setter("auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_scaling is not None:
-            pulumi.set(__self__, "managed_scaling", managed_scaling)
+            _setter("managed_scaling", managed_scaling)
         if managed_termination_protection is not None:
-            pulumi.set(__self__, "managed_termination_protection", managed_termination_protection)
+            _setter("managed_termination_protection", managed_termination_protection)
 
     @property
     @pulumi.getter(name="autoScalingGroupArn")
@@ -163,16 +186,43 @@ class CapacityProviderAutoScalingGroupProviderManagedScaling(dict):
         :param str status: Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
         :param int target_capacity: Target utilization for the capacity provider. A number between 1 and 100.
         """
+        CapacityProviderAutoScalingGroupProviderManagedScaling._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_warmup_period=instance_warmup_period,
+            maximum_scaling_step_size=maximum_scaling_step_size,
+            minimum_scaling_step_size=minimum_scaling_step_size,
+            status=status,
+            target_capacity=target_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_warmup_period: Optional[int] = None,
+             maximum_scaling_step_size: Optional[int] = None,
+             minimum_scaling_step_size: Optional[int] = None,
+             status: Optional[str] = None,
+             target_capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_warmup_period is None and 'instanceWarmupPeriod' in kwargs:
+            instance_warmup_period = kwargs['instanceWarmupPeriod']
+        if maximum_scaling_step_size is None and 'maximumScalingStepSize' in kwargs:
+            maximum_scaling_step_size = kwargs['maximumScalingStepSize']
+        if minimum_scaling_step_size is None and 'minimumScalingStepSize' in kwargs:
+            minimum_scaling_step_size = kwargs['minimumScalingStepSize']
+        if target_capacity is None and 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+
         if instance_warmup_period is not None:
-            pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
+            _setter("instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
-            pulumi.set(__self__, "maximum_scaling_step_size", maximum_scaling_step_size)
+            _setter("maximum_scaling_step_size", maximum_scaling_step_size)
         if minimum_scaling_step_size is not None:
-            pulumi.set(__self__, "minimum_scaling_step_size", minimum_scaling_step_size)
+            _setter("minimum_scaling_step_size", minimum_scaling_step_size)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target_capacity is not None:
-            pulumi.set(__self__, "target_capacity", target_capacity)
+            _setter("target_capacity", target_capacity)
 
     @property
     @pulumi.getter(name="instanceWarmupPeriod")
@@ -243,11 +293,30 @@ class ClusterCapacityProvidersDefaultCapacityProviderStrategy(dict):
         :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
         :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        ClusterCapacityProvidersDefaultCapacityProviderStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[str] = None,
+             base: Optional[int] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -298,8 +367,21 @@ class ClusterConfiguration(dict):
         """
         :param 'ClusterConfigurationExecuteCommandConfigurationArgs' execute_command_configuration: The details of the execute command configuration. Detailed below.
         """
+        ClusterConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execute_command_configuration=execute_command_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execute_command_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if execute_command_configuration is None and 'executeCommandConfiguration' in kwargs:
+            execute_command_configuration = kwargs['executeCommandConfiguration']
+
         if execute_command_configuration is not None:
-            pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+            _setter("execute_command_configuration", execute_command_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
@@ -340,12 +422,31 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
         :param 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs' log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
         :param str logging: The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
         """
+        ClusterConfigurationExecuteCommandConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            log_configuration=log_configuration,
+            logging=logging,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[str] = None,
+             log_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration'] = None,
+             logging: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_configuration is None and 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_configuration is not None:
-            pulumi.set(__self__, "log_configuration", log_configuration)
+            _setter("log_configuration", log_configuration)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -412,16 +513,45 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
         :param str s3_bucket_name: The name of the S3 bucket to send logs to.
         :param str s3_key_prefix: An optional folder in the S3 bucket to place logs in.
         """
+        ClusterConfigurationExecuteCommandConfigurationLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_encryption_enabled=cloud_watch_encryption_enabled,
+            cloud_watch_log_group_name=cloud_watch_log_group_name,
+            s3_bucket_encryption_enabled=s3_bucket_encryption_enabled,
+            s3_bucket_name=s3_bucket_name,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_encryption_enabled: Optional[bool] = None,
+             cloud_watch_log_group_name: Optional[str] = None,
+             s3_bucket_encryption_enabled: Optional[bool] = None,
+             s3_bucket_name: Optional[str] = None,
+             s3_key_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloud_watch_encryption_enabled is None and 'cloudWatchEncryptionEnabled' in kwargs:
+            cloud_watch_encryption_enabled = kwargs['cloudWatchEncryptionEnabled']
+        if cloud_watch_log_group_name is None and 'cloudWatchLogGroupName' in kwargs:
+            cloud_watch_log_group_name = kwargs['cloudWatchLogGroupName']
+        if s3_bucket_encryption_enabled is None and 's3BucketEncryptionEnabled' in kwargs:
+            s3_bucket_encryption_enabled = kwargs['s3BucketEncryptionEnabled']
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         if cloud_watch_encryption_enabled is not None:
-            pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
+            _setter("cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
         if cloud_watch_log_group_name is not None:
-            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+            _setter("cloud_watch_log_group_name", cloud_watch_log_group_name)
         if s3_bucket_encryption_enabled is not None:
-            pulumi.set(__self__, "s3_bucket_encryption_enabled", s3_bucket_encryption_enabled)
+            _setter("s3_bucket_encryption_enabled", s3_bucket_encryption_enabled)
         if s3_bucket_name is not None:
-            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+            _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="cloudWatchEncryptionEnabled")
@@ -471,7 +601,20 @@ class ClusterServiceConnectDefaults(dict):
         """
         :param str namespace: The ARN of the `servicediscovery.HttpNamespace` that's used when you create a service and don't specify a Service Connect configuration.
         """
-        pulumi.set(__self__, "namespace", namespace)
+        ClusterServiceConnectDefaults._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -491,8 +634,25 @@ class ClusterSetting(dict):
         :param str name: Name of the setting to manage. Valid values: `containerInsights`.
         :param str value: The value to assign to the setting. Valid values are `enabled` and `disabled`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ClusterSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -539,9 +699,32 @@ class ServiceAlarms(dict):
         :param bool enable: Determines whether to use the CloudWatch alarm option in the service deployment process.
         :param bool rollback: Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
-        pulumi.set(__self__, "alarm_names", alarm_names)
-        pulumi.set(__self__, "enable", enable)
-        pulumi.set(__self__, "rollback", rollback)
+        ServiceAlarms._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alarm_names=alarm_names,
+            enable=enable,
+            rollback=rollback,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alarm_names: Optional[Sequence[str]] = None,
+             enable: Optional[bool] = None,
+             rollback: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alarm_names is None and 'alarmNames' in kwargs:
+            alarm_names = kwargs['alarmNames']
+        if alarm_names is None:
+            raise TypeError("Missing 'alarm_names' argument")
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+        if rollback is None:
+            raise TypeError("Missing 'rollback' argument")
+
+        _setter("alarm_names", alarm_names)
+        _setter("enable", enable)
+        _setter("rollback", rollback)
 
     @property
     @pulumi.getter(name="alarmNames")
@@ -596,11 +779,30 @@ class ServiceCapacityProviderStrategy(dict):
         :param int base: Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         :param int weight: Relative percentage of the total number of launched tasks that should use the specified capacity provider.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        ServiceCapacityProviderStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[str] = None,
+             base: Optional[int] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -636,8 +838,25 @@ class ServiceDeploymentCircuitBreaker(dict):
         :param bool enable: Whether to enable the deployment circuit breaker logic for the service.
         :param bool rollback: Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
-        pulumi.set(__self__, "enable", enable)
-        pulumi.set(__self__, "rollback", rollback)
+        ServiceDeploymentCircuitBreaker._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable=enable,
+            rollback=rollback,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable: Optional[bool] = None,
+             rollback: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+        if rollback is None:
+            raise TypeError("Missing 'rollback' argument")
+
+        _setter("enable", enable)
+        _setter("rollback", rollback)
 
     @property
     @pulumi.getter
@@ -663,8 +882,19 @@ class ServiceDeploymentController(dict):
         """
         :param str type: Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
         """
+        ServiceDeploymentController._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -713,12 +943,41 @@ class ServiceLoadBalancer(dict):
         :param str elb_name: Name of the ELB (Classic) to associate with the service.
         :param str target_group_arn: ARN of the Load Balancer target group to associate with the service.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "container_port", container_port)
+        ServiceLoadBalancer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            container_port=container_port,
+            elb_name=elb_name,
+            target_group_arn=target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[str] = None,
+             container_port: Optional[int] = None,
+             elb_name: Optional[str] = None,
+             target_group_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if container_port is None and 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if container_port is None:
+            raise TypeError("Missing 'container_port' argument")
+        if elb_name is None and 'elbName' in kwargs:
+            elb_name = kwargs['elbName']
+        if target_group_arn is None and 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
+        _setter("container_name", container_name)
+        _setter("container_port", container_port)
         if elb_name is not None:
-            pulumi.set(__self__, "elb_name", elb_name)
+            _setter("elb_name", elb_name)
         if target_group_arn is not None:
-            pulumi.set(__self__, "target_group_arn", target_group_arn)
+            _setter("target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter(name="containerName")
@@ -787,11 +1046,32 @@ class ServiceNetworkConfiguration(dict):
                For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        ServiceNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: Optional[Sequence[str]] = None,
+             assign_public_ip: Optional[bool] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -834,9 +1114,24 @@ class ServiceOrderedPlacementStrategy(dict):
                
                > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
-        pulumi.set(__self__, "type", type)
+        ServiceOrderedPlacementStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             field: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter
@@ -869,9 +1164,24 @@ class ServicePlacementConstraint(dict):
         :param str type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
         :param str expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
-        pulumi.set(__self__, "type", type)
+        ServicePlacementConstraint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
 
     @property
     @pulumi.getter
@@ -920,13 +1230,34 @@ class ServiceServiceConnectConfiguration(dict):
         :param str namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
         :param Sequence['ServiceServiceConnectConfigurationServiceArgs'] services: The list of Service Connect service objects. See below.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ServiceServiceConnectConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            log_configuration=log_configuration,
+            namespace=namespace,
+            services=services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             log_configuration: Optional['outputs.ServiceServiceConnectConfigurationLogConfiguration'] = None,
+             namespace: Optional[str] = None,
+             services: Optional[Sequence['outputs.ServiceServiceConnectConfigurationService']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if log_configuration is None and 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
+        _setter("enabled", enabled)
         if log_configuration is not None:
-            pulumi.set(__self__, "log_configuration", log_configuration)
+            _setter("log_configuration", log_configuration)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if services is not None:
-            pulumi.set(__self__, "services", services)
+            _setter("services", services)
 
     @property
     @pulumi.getter
@@ -991,11 +1322,32 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
         :param Mapping[str, str] options: The configuration options to send to the log driver.
         :param Sequence['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs'] secret_options: The secrets to pass to the log configuration. See below.
         """
-        pulumi.set(__self__, "log_driver", log_driver)
+        ServiceServiceConnectConfigurationLogConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_driver=log_driver,
+            options=options,
+            secret_options=secret_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_driver: Optional[str] = None,
+             options: Optional[Mapping[str, str]] = None,
+             secret_options: Optional[Sequence['outputs.ServiceServiceConnectConfigurationLogConfigurationSecretOption']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_driver is None and 'logDriver' in kwargs:
+            log_driver = kwargs['logDriver']
+        if log_driver is None:
+            raise TypeError("Missing 'log_driver' argument")
+        if secret_options is None and 'secretOptions' in kwargs:
+            secret_options = kwargs['secretOptions']
+
+        _setter("log_driver", log_driver)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if secret_options is not None:
-            pulumi.set(__self__, "secret_options", secret_options)
+            _setter("secret_options", secret_options)
 
     @property
     @pulumi.getter(name="logDriver")
@@ -1048,8 +1400,27 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOption(dict):
         :param str name: The name of the secret.
         :param str value_from: The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value_from", value_from)
+        ServiceServiceConnectConfigurationLogConfigurationSecretOption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value_from=value_from,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value_from: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value_from is None and 'valueFrom' in kwargs:
+            value_from = kwargs['valueFrom']
+        if value_from is None:
+            raise TypeError("Missing 'value_from' argument")
+
+        _setter("name", name)
+        _setter("value_from", value_from)
 
     @property
     @pulumi.getter
@@ -1104,13 +1475,40 @@ class ServiceServiceConnectConfigurationService(dict):
         :param str discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param int ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
-        pulumi.set(__self__, "port_name", port_name)
+        ServiceServiceConnectConfigurationService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port_name=port_name,
+            client_alias=client_alias,
+            discovery_name=discovery_name,
+            ingress_port_override=ingress_port_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port_name: Optional[str] = None,
+             client_alias: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
+             discovery_name: Optional[str] = None,
+             ingress_port_override: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port_name is None and 'portName' in kwargs:
+            port_name = kwargs['portName']
+        if port_name is None:
+            raise TypeError("Missing 'port_name' argument")
+        if client_alias is None and 'clientAlias' in kwargs:
+            client_alias = kwargs['clientAlias']
+        if discovery_name is None and 'discoveryName' in kwargs:
+            discovery_name = kwargs['discoveryName']
+        if ingress_port_override is None and 'ingressPortOverride' in kwargs:
+            ingress_port_override = kwargs['ingressPortOverride']
+
+        _setter("port_name", port_name)
         if client_alias is not None:
-            pulumi.set(__self__, "client_alias", client_alias)
+            _setter("client_alias", client_alias)
         if discovery_name is not None:
-            pulumi.set(__self__, "discovery_name", discovery_name)
+            _setter("discovery_name", discovery_name)
         if ingress_port_override is not None:
-            pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+            _setter("ingress_port_override", ingress_port_override)
 
     @property
     @pulumi.getter(name="portName")
@@ -1171,9 +1569,26 @@ class ServiceServiceConnectConfigurationServiceClientAlias(dict):
         :param int port: The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
         :param str dns_name: The name that you use in the applications of client tasks to connect to this service.
         """
-        pulumi.set(__self__, "port", port)
+        ServiceServiceConnectConfigurationServiceClientAlias._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            dns_name=dns_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             dns_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+
+        _setter("port", port)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
 
     @property
     @pulumi.getter
@@ -1226,13 +1641,38 @@ class ServiceServiceRegistries(dict):
         :param int container_port: Port value, already specified in the task definition, to be used for your service discovery service.
         :param int port: Port value used if your Service Discovery service specified an SRV record.
         """
-        pulumi.set(__self__, "registry_arn", registry_arn)
+        ServiceServiceRegistries._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_arn=registry_arn,
+            container_name=container_name,
+            container_port=container_port,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_arn: Optional[str] = None,
+             container_name: Optional[str] = None,
+             container_port: Optional[int] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if registry_arn is None and 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+        if registry_arn is None:
+            raise TypeError("Missing 'registry_arn' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_port is None and 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+
+        _setter("registry_arn", registry_arn)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if container_port is not None:
-            pulumi.set(__self__, "container_port", container_port)
+            _setter("container_port", container_port)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="registryArn")
@@ -1291,7 +1731,22 @@ class TaskDefinitionEphemeralStorage(dict):
         """
         :param int size_in_gib: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
         """
-        pulumi.set(__self__, "size_in_gib", size_in_gib)
+        TaskDefinitionEphemeralStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size_in_gib=size_in_gib,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size_in_gib: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if size_in_gib is None and 'sizeInGib' in kwargs:
+            size_in_gib = kwargs['sizeInGib']
+        if size_in_gib is None:
+            raise TypeError("Missing 'size_in_gib' argument")
+
+        _setter("size_in_gib", size_in_gib)
 
     @property
     @pulumi.getter(name="sizeInGib")
@@ -1330,8 +1785,29 @@ class TaskDefinitionInferenceAccelerator(dict):
         :param str device_name: Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
         :param str device_type: Elastic Inference accelerator type to use.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "device_type", device_type)
+        TaskDefinitionInferenceAccelerator._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            device_type=device_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             device_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if device_type is None:
+            raise TypeError("Missing 'device_type' argument")
+
+        _setter("device_name", device_name)
+        _setter("device_type", device_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -1359,9 +1835,24 @@ class TaskDefinitionPlacementConstraint(dict):
         :param str type: Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
         :param str expression: Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
         """
-        pulumi.set(__self__, "type", type)
+        TaskDefinitionPlacementConstraint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
 
     @property
     @pulumi.getter
@@ -1408,11 +1899,30 @@ class TaskDefinitionProxyConfiguration(dict):
         :param Mapping[str, str] properties: Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
         :param str type: Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        TaskDefinitionProxyConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            properties=properties,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+
+        _setter("container_name", container_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1467,10 +1977,27 @@ class TaskDefinitionRuntimePlatform(dict):
         :param str cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
         :param str operating_system_family: If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
         """
+        TaskDefinitionRuntimePlatform._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_architecture=cpu_architecture,
+            operating_system_family=operating_system_family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_architecture: Optional[str] = None,
+             operating_system_family: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cpu_architecture is None and 'cpuArchitecture' in kwargs:
+            cpu_architecture = kwargs['cpuArchitecture']
+        if operating_system_family is None and 'operatingSystemFamily' in kwargs:
+            operating_system_family = kwargs['operatingSystemFamily']
+
         if cpu_architecture is not None:
-            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+            _setter("cpu_architecture", cpu_architecture)
         if operating_system_family is not None:
-            pulumi.set(__self__, "operating_system_family", operating_system_family)
+            _setter("operating_system_family", operating_system_family)
 
     @property
     @pulumi.getter(name="cpuArchitecture")
@@ -1528,15 +2055,44 @@ class TaskDefinitionVolume(dict):
         :param 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs' fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param str host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         """
-        pulumi.set(__self__, "name", name)
+        TaskDefinitionVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            docker_volume_configuration=docker_volume_configuration,
+            efs_volume_configuration=efs_volume_configuration,
+            fsx_windows_file_server_volume_configuration=fsx_windows_file_server_volume_configuration,
+            host_path=host_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             docker_volume_configuration: Optional['outputs.TaskDefinitionVolumeDockerVolumeConfiguration'] = None,
+             efs_volume_configuration: Optional['outputs.TaskDefinitionVolumeEfsVolumeConfiguration'] = None,
+             fsx_windows_file_server_volume_configuration: Optional['outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration'] = None,
+             host_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if docker_volume_configuration is None and 'dockerVolumeConfiguration' in kwargs:
+            docker_volume_configuration = kwargs['dockerVolumeConfiguration']
+        if efs_volume_configuration is None and 'efsVolumeConfiguration' in kwargs:
+            efs_volume_configuration = kwargs['efsVolumeConfiguration']
+        if fsx_windows_file_server_volume_configuration is None and 'fsxWindowsFileServerVolumeConfiguration' in kwargs:
+            fsx_windows_file_server_volume_configuration = kwargs['fsxWindowsFileServerVolumeConfiguration']
+        if host_path is None and 'hostPath' in kwargs:
+            host_path = kwargs['hostPath']
+
+        _setter("name", name)
         if docker_volume_configuration is not None:
-            pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
+            _setter("docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
-            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
+            _setter("efs_volume_configuration", efs_volume_configuration)
         if fsx_windows_file_server_volume_configuration is not None:
-            pulumi.set(__self__, "fsx_windows_file_server_volume_configuration", fsx_windows_file_server_volume_configuration)
+            _setter("fsx_windows_file_server_volume_configuration", fsx_windows_file_server_volume_configuration)
         if host_path is not None:
-            pulumi.set(__self__, "host_path", host_path)
+            _setter("host_path", host_path)
 
     @property
     @pulumi.getter
@@ -1612,16 +2168,37 @@ class TaskDefinitionVolumeDockerVolumeConfiguration(dict):
         :param Mapping[str, str] labels: Map of custom metadata to add to your Docker volume.
         :param str scope: Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
         """
+        TaskDefinitionVolumeDockerVolumeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autoprovision=autoprovision,
+            driver=driver,
+            driver_opts=driver_opts,
+            labels=labels,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autoprovision: Optional[bool] = None,
+             driver: Optional[str] = None,
+             driver_opts: Optional[Mapping[str, str]] = None,
+             labels: Optional[Mapping[str, str]] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if driver_opts is None and 'driverOpts' in kwargs:
+            driver_opts = kwargs['driverOpts']
+
         if autoprovision is not None:
-            pulumi.set(__self__, "autoprovision", autoprovision)
+            _setter("autoprovision", autoprovision)
         if driver is not None:
-            pulumi.set(__self__, "driver", driver)
+            _setter("driver", driver)
         if driver_opts is not None:
-            pulumi.set(__self__, "driver_opts", driver_opts)
+            _setter("driver_opts", driver_opts)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -1704,15 +2281,46 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
         :param str transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         :param int transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
         """
-        pulumi.set(__self__, "file_system_id", file_system_id)
+        TaskDefinitionVolumeEfsVolumeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_system_id=file_system_id,
+            authorization_config=authorization_config,
+            root_directory=root_directory,
+            transit_encryption=transit_encryption,
+            transit_encryption_port=transit_encryption_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_system_id: Optional[str] = None,
+             authorization_config: Optional['outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig'] = None,
+             root_directory: Optional[str] = None,
+             transit_encryption: Optional[str] = None,
+             transit_encryption_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if authorization_config is None and 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+        if root_directory is None and 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+        if transit_encryption is None and 'transitEncryption' in kwargs:
+            transit_encryption = kwargs['transitEncryption']
+        if transit_encryption_port is None and 'transitEncryptionPort' in kwargs:
+            transit_encryption_port = kwargs['transitEncryptionPort']
+
+        _setter("file_system_id", file_system_id)
         if authorization_config is not None:
-            pulumi.set(__self__, "authorization_config", authorization_config)
+            _setter("authorization_config", authorization_config)
         if root_directory is not None:
-            pulumi.set(__self__, "root_directory", root_directory)
+            _setter("root_directory", root_directory)
         if transit_encryption is not None:
-            pulumi.set(__self__, "transit_encryption", transit_encryption)
+            _setter("transit_encryption", transit_encryption)
         if transit_encryption_port is not None:
-            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
+            _setter("transit_encryption_port", transit_encryption_port)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -1781,10 +2389,25 @@ class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(dict):
         :param str access_point_id: Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
         :param str iam: Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         """
+        TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_point_id=access_point_id,
+            iam=iam,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_point_id: Optional[str] = None,
+             iam: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_point_id is None and 'accessPointId' in kwargs:
+            access_point_id = kwargs['accessPointId']
+
         if access_point_id is not None:
-            pulumi.set(__self__, "access_point_id", access_point_id)
+            _setter("access_point_id", access_point_id)
         if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+            _setter("iam", iam)
 
     @property
     @pulumi.getter(name="accessPointId")
@@ -1835,9 +2458,36 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(dict):
         :param str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
         :param str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         """
-        pulumi.set(__self__, "authorization_config", authorization_config)
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "root_directory", root_directory)
+        TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_config=authorization_config,
+            file_system_id=file_system_id,
+            root_directory=root_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_config: Optional['outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig'] = None,
+             file_system_id: Optional[str] = None,
+             root_directory: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorization_config is None and 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+        if authorization_config is None:
+            raise TypeError("Missing 'authorization_config' argument")
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if root_directory is None and 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+        if root_directory is None:
+            raise TypeError("Missing 'root_directory' argument")
+
+        _setter("authorization_config", authorization_config)
+        _setter("file_system_id", file_system_id)
+        _setter("root_directory", root_directory)
 
     @property
     @pulumi.getter(name="authorizationConfig")
@@ -1890,8 +2540,27 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
         :param str credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
         :param str domain: A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
-        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
-        pulumi.set(__self__, "domain", domain)
+        TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials_parameter=credentials_parameter,
+            domain=domain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials_parameter: Optional[str] = None,
+             domain: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if credentials_parameter is None and 'credentialsParameter' in kwargs:
+            credentials_parameter = kwargs['credentialsParameter']
+        if credentials_parameter is None:
+            raise TypeError("Missing 'credentials_parameter' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+
+        _setter("credentials_parameter", credentials_parameter)
+        _setter("domain", domain)
 
     @property
     @pulumi.getter(name="credentialsParameter")
@@ -1938,10 +2607,31 @@ class TaskSetCapacityProviderStrategy(dict):
         :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider.
         :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
-        pulumi.set(__self__, "weight", weight)
+        TaskSetCapacityProviderStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            weight=weight,
+            base=base,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[str] = None,
+             weight: Optional[int] = None,
+             base: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+
+        _setter("capacity_provider", capacity_provider)
+        _setter("weight", weight)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -2006,13 +2696,40 @@ class TaskSetLoadBalancer(dict):
         :param str load_balancer_name: The name of the ELB (Classic) to associate with the service.
         :param str target_group_arn: The ARN of the Load Balancer target group to associate with the service.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        TaskSetLoadBalancer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            container_port=container_port,
+            load_balancer_name=load_balancer_name,
+            target_group_arn=target_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[str] = None,
+             container_port: Optional[int] = None,
+             load_balancer_name: Optional[str] = None,
+             target_group_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if container_port is None and 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if target_group_arn is None and 'targetGroupArn' in kwargs:
+            target_group_arn = kwargs['targetGroupArn']
+
+        _setter("container_name", container_name)
         if container_port is not None:
-            pulumi.set(__self__, "container_port", container_port)
+            _setter("container_port", container_port)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if target_group_arn is not None:
-            pulumi.set(__self__, "target_group_arn", target_group_arn)
+            _setter("target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter(name="containerName")
@@ -2081,11 +2798,32 @@ class TaskSetNetworkConfiguration(dict):
                For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        TaskSetNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: Optional[Sequence[str]] = None,
+             assign_public_ip: Optional[bool] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -2123,10 +2861,23 @@ class TaskSetScale(dict):
         :param str unit: The unit of measure for the scale value. Default: `PERCENT`.
         :param float value: The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
         """
+        TaskSetScale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            unit=unit,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             unit: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2179,13 +2930,38 @@ class TaskSetServiceRegistries(dict):
         :param int container_port: The port value, already specified in the task definition, to be used for your service discovery service.
         :param int port: The port value used if your Service Discovery service specified an SRV record.
         """
-        pulumi.set(__self__, "registry_arn", registry_arn)
+        TaskSetServiceRegistries._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_arn=registry_arn,
+            container_name=container_name,
+            container_port=container_port,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_arn: Optional[str] = None,
+             container_name: Optional[str] = None,
+             container_port: Optional[int] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if registry_arn is None and 'registryArn' in kwargs:
+            registry_arn = kwargs['registryArn']
+        if registry_arn is None:
+            raise TypeError("Missing 'registry_arn' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_port is None and 'containerPort' in kwargs:
+            container_port = kwargs['containerPort']
+
+        _setter("registry_arn", registry_arn)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if container_port is not None:
-            pulumi.set(__self__, "container_port", container_port)
+            _setter("container_port", container_port)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="registryArn")
@@ -2224,7 +3000,20 @@ class TaskSetServiceRegistries(dict):
 class GetClusterServiceConnectDefaultResult(dict):
     def __init__(__self__, *,
                  namespace: str):
-        pulumi.set(__self__, "namespace", namespace)
+        GetClusterServiceConnectDefaultResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -2237,8 +3026,25 @@ class GetClusterSettingResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetClusterSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2262,11 +3068,30 @@ class GetTaskExecutionCapacityProviderStrategyResult(dict):
         :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
         :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        GetTaskExecutionCapacityProviderStrategyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[str] = None,
+             base: Optional[int] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -2306,11 +3131,32 @@ class GetTaskExecutionNetworkConfigurationResult(dict):
                For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
-        pulumi.set(__self__, "subnets", subnets)
+        GetTaskExecutionNetworkConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnets=subnets,
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnets: Optional[Sequence[str]] = None,
+             assign_public_ip: Optional[bool] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
+        _setter("subnets", subnets)
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -2356,18 +3202,47 @@ class GetTaskExecutionOverridesResult(dict):
         :param str memory: The memory override for the task.
         :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
+        GetTaskExecutionOverridesResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_overrides=container_overrides,
+            cpu=cpu,
+            execution_role_arn=execution_role_arn,
+            inference_accelerator_overrides=inference_accelerator_overrides,
+            memory=memory,
+            task_role_arn=task_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResult']] = None,
+             cpu: Optional[str] = None,
+             execution_role_arn: Optional[str] = None,
+             inference_accelerator_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']] = None,
+             memory: Optional[str] = None,
+             task_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_overrides is None and 'containerOverrides' in kwargs:
+            container_overrides = kwargs['containerOverrides']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if inference_accelerator_overrides is None and 'inferenceAcceleratorOverrides' in kwargs:
+            inference_accelerator_overrides = kwargs['inferenceAcceleratorOverrides']
+        if task_role_arn is None and 'taskRoleArn' in kwargs:
+            task_role_arn = kwargs['taskRoleArn']
+
         if container_overrides is not None:
-            pulumi.set(__self__, "container_overrides", container_overrides)
+            _setter("container_overrides", container_overrides)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if inference_accelerator_overrides is not None:
-            pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
+            _setter("inference_accelerator_overrides", inference_accelerator_overrides)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if task_role_arn is not None:
-            pulumi.set(__self__, "task_role_arn", task_role_arn)
+            _setter("task_role_arn", task_role_arn)
 
     @property
     @pulumi.getter(name="containerOverrides")
@@ -2437,19 +3312,48 @@ class GetTaskExecutionOverridesContainerOverrideResult(dict):
         :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
         :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         """
-        pulumi.set(__self__, "name", name)
+        GetTaskExecutionOverridesContainerOverrideResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            commands=commands,
+            cpu=cpu,
+            environments=environments,
+            memory=memory,
+            memory_reservation=memory_reservation,
+            resource_requirements=resource_requirements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             commands: Optional[Sequence[str]] = None,
+             cpu: Optional[int] = None,
+             environments: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideEnvironmentResult']] = None,
+             memory: Optional[int] = None,
+             memory_reservation: Optional[int] = None,
+             resource_requirements: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if memory_reservation is None and 'memoryReservation' in kwargs:
+            memory_reservation = kwargs['memoryReservation']
+        if resource_requirements is None and 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+
+        _setter("name", name)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if memory_reservation is not None:
-            pulumi.set(__self__, "memory_reservation", memory_reservation)
+            _setter("memory_reservation", memory_reservation)
         if resource_requirements is not None:
-            pulumi.set(__self__, "resource_requirements", resource_requirements)
+            _setter("resource_requirements", resource_requirements)
 
     @property
     @pulumi.getter
@@ -2517,8 +3421,25 @@ class GetTaskExecutionOverridesContainerOverrideEnvironmentResult(dict):
         :param str key: The name of the key-value pair. For environment variables, this is the name of the environment variable.
         :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        GetTaskExecutionOverridesContainerOverrideEnvironmentResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2546,8 +3467,25 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
         :param str type: The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
         :param str value: The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        GetTaskExecutionOverridesContainerOverrideResourceRequirementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2575,10 +3513,27 @@ class GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
         :param str device_name: The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
         :param str device_type: The Elastic Inference accelerator type to use.
         """
+        GetTaskExecutionOverridesInferenceAcceleratorOverrideResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            device_type=device_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             device_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2606,9 +3561,24 @@ class GetTaskExecutionPlacementConstraintResult(dict):
         :param str type: The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
         :param str expression: A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
         """
-        pulumi.set(__self__, "type", type)
+        GetTaskExecutionPlacementConstraintResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
 
     @property
     @pulumi.getter
@@ -2638,9 +3608,24 @@ class GetTaskExecutionPlacementStrategyResult(dict):
                For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         :param str field: The field to apply the placement strategy against.
         """
-        pulumi.set(__self__, "type", type)
+        GetTaskExecutionPlacementStrategyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             field: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter

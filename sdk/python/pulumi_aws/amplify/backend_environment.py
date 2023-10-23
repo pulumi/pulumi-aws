@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackendEnvironmentArgs', 'BackendEnvironment']
@@ -25,12 +25,41 @@ class BackendEnvironmentArgs:
         :param pulumi.Input[str] deployment_artifacts: Name of deployment artifacts.
         :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "environment_name", environment_name)
+        BackendEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            environment_name=environment_name,
+            deployment_artifacts=deployment_artifacts,
+            stack_name=stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             deployment_artifacts: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if environment_name is None:
+            raise TypeError("Missing 'environment_name' argument")
+        if deployment_artifacts is None and 'deploymentArtifacts' in kwargs:
+            deployment_artifacts = kwargs['deploymentArtifacts']
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
+        _setter("app_id", app_id)
+        _setter("environment_name", environment_name)
         if deployment_artifacts is not None:
-            pulumi.set(__self__, "deployment_artifacts", deployment_artifacts)
+            _setter("deployment_artifacts", deployment_artifacts)
         if stack_name is not None:
-            pulumi.set(__self__, "stack_name", stack_name)
+            _setter("stack_name", stack_name)
 
     @property
     @pulumi.getter(name="appId")
@@ -97,16 +126,43 @@ class _BackendEnvironmentState:
         :param pulumi.Input[str] environment_name: Name for the backend environment.
         :param pulumi.Input[str] stack_name: AWS CloudFormation stack name of a backend environment.
         """
+        _BackendEnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            arn=arn,
+            deployment_artifacts=deployment_artifacts,
+            environment_name=environment_name,
+            stack_name=stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             deployment_artifacts: Optional[pulumi.Input[str]] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if deployment_artifacts is None and 'deploymentArtifacts' in kwargs:
+            deployment_artifacts = kwargs['deploymentArtifacts']
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if deployment_artifacts is not None:
-            pulumi.set(__self__, "deployment_artifacts", deployment_artifacts)
+            _setter("deployment_artifacts", deployment_artifacts)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if stack_name is not None:
-            pulumi.set(__self__, "stack_name", stack_name)
+            _setter("stack_name", stack_name)
 
     @property
     @pulumi.getter(name="appId")
@@ -252,6 +308,10 @@ class BackendEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackendEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

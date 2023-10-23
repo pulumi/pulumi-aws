@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceStateArgs', 'InstanceState']
@@ -25,10 +25,31 @@ class InstanceStateArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         """
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "state", state)
+        InstanceStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_id=instance_id,
+            state=state,
+            force=force,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             force: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("instance_id", instance_id)
+        _setter("state", state)
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -83,12 +104,29 @@ class _InstanceStateState:
                
                The following arguments are optional:
         """
+        _InstanceStateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            force=force,
+            instance_id=instance_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             force: Optional[pulumi.Input[bool]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -246,6 +284,10 @@ class InstanceState(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceStateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

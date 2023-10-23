@@ -94,13 +94,13 @@ import (
 //				return err
 //			}
 //			_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
-//				Users: pulumi.AnyArray{
+//				Users: pulumi.Array{
 //					user.Name,
 //				},
-//				Roles: pulumi.AnyArray{
+//				Roles: pulumi.Array{
 //					role.Name,
 //				},
-//				Groups: pulumi.AnyArray{
+//				Groups: pulumi.Array{
 //					group.Name,
 //				},
 //				PolicyArn: policyPolicy.Arn,

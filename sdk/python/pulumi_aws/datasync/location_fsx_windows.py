@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocationFsxWindowsArgs', 'LocationFsxWindows']
@@ -31,16 +31,51 @@ class LocationFsxWindowsArgs:
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "security_group_arns", security_group_arns)
-        pulumi.set(__self__, "user", user)
+        LocationFsxWindowsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fsx_filesystem_arn=fsx_filesystem_arn,
+            password=password,
+            security_group_arns=security_group_arns,
+            user=user,
+            domain=domain,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fsx_filesystem_arn is None and 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+        if fsx_filesystem_arn is None:
+            raise TypeError("Missing 'fsx_filesystem_arn' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if security_group_arns is None and 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if security_group_arns is None:
+            raise TypeError("Missing 'security_group_arns' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+
+        _setter("fsx_filesystem_arn", fsx_filesystem_arn)
+        _setter("password", password)
+        _setter("security_group_arns", security_group_arns)
+        _setter("user", user)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
@@ -155,31 +190,70 @@ class _LocationFsxWindowsState:
         :param pulumi.Input[str] uri: The URL of the FSx for Windows location that was described.
         :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
+        _LocationFsxWindowsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_time=creation_time,
+            domain=domain,
+            fsx_filesystem_arn=fsx_filesystem_arn,
+            password=password,
+            security_group_arns=security_group_arns,
+            subdirectory=subdirectory,
+            tags=tags,
+            tags_all=tags_all,
+            uri=uri,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if fsx_filesystem_arn is None and 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+        if security_group_arns is None and 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if fsx_filesystem_arn is not None:
-            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
+            _setter("fsx_filesystem_arn", fsx_filesystem_arn)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if security_group_arns is not None:
-            pulumi.set(__self__, "security_group_arns", security_group_arns)
+            _setter("security_group_arns", security_group_arns)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -404,6 +478,10 @@ class LocationFsxWindows(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationFsxWindowsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

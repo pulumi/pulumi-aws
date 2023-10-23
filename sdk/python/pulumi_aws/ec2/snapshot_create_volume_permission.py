@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotCreateVolumePermissionArgs', 'SnapshotCreateVolumePermission']
@@ -21,8 +21,29 @@ class SnapshotCreateVolumePermissionArgs:
         :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
+        SnapshotCreateVolumePermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            snapshot_id=snapshot_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if snapshot_id is None:
+            raise TypeError("Missing 'snapshot_id' argument")
+
+        _setter("account_id", account_id)
+        _setter("snapshot_id", snapshot_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -59,10 +80,27 @@ class _SnapshotCreateVolumePermissionState:
         :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
+        _SnapshotCreateVolumePermissionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            snapshot_id=snapshot_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             snapshot_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -154,6 +192,10 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotCreateVolumePermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

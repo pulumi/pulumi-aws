@@ -54,7 +54,7 @@ namespace Pulumi.Aws.StorageGateway
     ///     {
     ///         Ami = awsServiceStoragegatewayAmiFILES3Latest.Apply(getParameterResult =&gt; getParameterResult.Value),
     ///         AssociatePublicIpAddress = true,
-    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2/InstanceType.InstanceType&gt;(data.Aws_ec2_instance_type_offering.Available.Instance_type),
+    ///         InstanceType = System.Enum.Parse&lt;Aws.Ec2.InstanceType.InstanceType&gt;(data.Aws_ec2_instance_type_offering.Available.Instance_type),
     ///         VpcSecurityGroupIds = new[]
     ///         {
     ///             aws_security_group.Test.Id,

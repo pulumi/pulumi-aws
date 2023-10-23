@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DistributionOriginOriginShield {
     /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
+     * @return Whether Origin Shield is enabled.
      * 
      */
     private Boolean enabled;
@@ -25,7 +25,7 @@ public final class DistributionOriginOriginShield {
 
     private DistributionOriginOriginShield() {}
     /**
-     * @return Whether the distribution is enabled to accept end user requests for content.
+     * @return Whether Origin Shield is enabled.
      * 
      */
     public Boolean enabled() {

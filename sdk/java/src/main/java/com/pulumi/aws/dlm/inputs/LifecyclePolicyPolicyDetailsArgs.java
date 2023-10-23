@@ -52,14 +52,14 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
     }
 
     /**
-     * A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+     * Information about the event. See the `parameters` configuration block.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<LifecyclePolicyPolicyDetailsParametersArgs> parameters;
 
     /**
-     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+     * @return Information about the event. See the `parameters` configuration block.
      * 
      */
     public Optional<Output<LifecyclePolicyPolicyDetailsParametersArgs>> parameters() {
@@ -219,7 +219,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param parameters A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+         * @param parameters Information about the event. See the `parameters` configuration block.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         }
 
         /**
-         * @param parameters A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+         * @param parameters Information about the event. See the `parameters` configuration block.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointConnectionNotificationArgs', 'VpcEndpointConnectionNotification']
@@ -27,12 +27,41 @@ class VpcEndpointConnectionNotificationArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
-        pulumi.set(__self__, "connection_events", connection_events)
-        pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
+        VpcEndpointConnectionNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_events=connection_events,
+            connection_notification_arn=connection_notification_arn,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_notification_arn: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_events is None and 'connectionEvents' in kwargs:
+            connection_events = kwargs['connectionEvents']
+        if connection_events is None:
+            raise TypeError("Missing 'connection_events' argument")
+        if connection_notification_arn is None and 'connectionNotificationArn' in kwargs:
+            connection_notification_arn = kwargs['connectionNotificationArn']
+        if connection_notification_arn is None:
+            raise TypeError("Missing 'connection_notification_arn' argument")
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_service_id is None and 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+
+        _setter("connection_events", connection_events)
+        _setter("connection_notification_arn", connection_notification_arn)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_endpoint_service_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+            _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
 
     @property
     @pulumi.getter(name="connectionEvents")
@@ -105,18 +134,49 @@ class _VpcEndpointConnectionNotificationState:
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC Endpoint to receive notifications for.
         :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC Endpoint Service to receive notifications for.
         """
+        _VpcEndpointConnectionNotificationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_events=connection_events,
+            connection_notification_arn=connection_notification_arn,
+            notification_type=notification_type,
+            state=state,
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_endpoint_service_id=vpc_endpoint_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_notification_arn: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_events is None and 'connectionEvents' in kwargs:
+            connection_events = kwargs['connectionEvents']
+        if connection_notification_arn is None and 'connectionNotificationArn' in kwargs:
+            connection_notification_arn = kwargs['connectionNotificationArn']
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_service_id is None and 'vpcEndpointServiceId' in kwargs:
+            vpc_endpoint_service_id = kwargs['vpcEndpointServiceId']
+
         if connection_events is not None:
-            pulumi.set(__self__, "connection_events", connection_events)
+            _setter("connection_events", connection_events)
         if connection_notification_arn is not None:
-            pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
+            _setter("connection_notification_arn", connection_notification_arn)
         if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
+            _setter("notification_type", notification_type)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_endpoint_service_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
+            _setter("vpc_endpoint_service_id", vpc_endpoint_service_id)
 
     @property
     @pulumi.getter(name="connectionEvents")
@@ -308,6 +368,10 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcEndpointConnectionNotificationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

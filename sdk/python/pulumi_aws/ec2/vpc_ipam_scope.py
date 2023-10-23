@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpamScopeArgs', 'VpcIpamScope']
@@ -23,11 +23,30 @@ class VpcIpamScopeArgs:
         :param pulumi.Input[str] description: A description for the scope you're creating.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "ipam_id", ipam_id)
+        VpcIpamScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_id=ipam_id,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_id is None:
+            raise TypeError("Missing 'ipam_id' argument")
+
+        _setter("ipam_id", ipam_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ipamId")
@@ -88,27 +107,66 @@ class _VpcIpamScopeState:
         :param pulumi.Input[int] pool_count: The number of pools in the scope.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        _VpcIpamScopeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            ipam_arn=ipam_arn,
+            ipam_id=ipam_id,
+            ipam_scope_type=ipam_scope_type,
+            is_default=is_default,
+            pool_count=pool_count,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ipam_arn: Optional[pulumi.Input[str]] = None,
+             ipam_id: Optional[pulumi.Input[str]] = None,
+             ipam_scope_type: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             pool_count: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipam_arn is None and 'ipamArn' in kwargs:
+            ipam_arn = kwargs['ipamArn']
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_scope_type is None and 'ipamScopeType' in kwargs:
+            ipam_scope_type = kwargs['ipamScopeType']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if pool_count is None and 'poolCount' in kwargs:
+            pool_count = kwargs['poolCount']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ipam_arn is not None:
-            pulumi.set(__self__, "ipam_arn", ipam_arn)
+            _setter("ipam_arn", ipam_arn)
         if ipam_id is not None:
-            pulumi.set(__self__, "ipam_id", ipam_id)
+            _setter("ipam_id", ipam_id)
         if ipam_scope_type is not None:
-            pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
+            _setter("ipam_scope_type", ipam_scope_type)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if pool_count is not None:
-            pulumi.set(__self__, "pool_count", pool_count)
+            _setter("pool_count", pool_count)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -303,6 +361,10 @@ class VpcIpamScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

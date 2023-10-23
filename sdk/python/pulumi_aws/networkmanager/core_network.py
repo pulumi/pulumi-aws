@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,57 @@ class CoreNetworkArgs:
         :param pulumi.Input[str] description: Description of the Core Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "global_network_id", global_network_id)
+        CoreNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_network_id=global_network_id,
+            base_policy_document=base_policy_document,
+            base_policy_region=base_policy_region,
+            base_policy_regions=base_policy_regions,
+            create_base_policy=create_base_policy,
+            description=description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             base_policy_document: Optional[pulumi.Input[str]] = None,
+             base_policy_region: Optional[pulumi.Input[str]] = None,
+             base_policy_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             create_base_policy: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if base_policy_document is None and 'basePolicyDocument' in kwargs:
+            base_policy_document = kwargs['basePolicyDocument']
+        if base_policy_region is None and 'basePolicyRegion' in kwargs:
+            base_policy_region = kwargs['basePolicyRegion']
+        if base_policy_regions is None and 'basePolicyRegions' in kwargs:
+            base_policy_regions = kwargs['basePolicyRegions']
+        if create_base_policy is None and 'createBasePolicy' in kwargs:
+            create_base_policy = kwargs['createBasePolicy']
+
+        _setter("global_network_id", global_network_id)
         if base_policy_document is not None:
-            pulumi.set(__self__, "base_policy_document", base_policy_document)
+            _setter("base_policy_document", base_policy_document)
         if base_policy_region is not None:
             warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
         if base_policy_region is not None:
-            pulumi.set(__self__, "base_policy_region", base_policy_region)
+            _setter("base_policy_region", base_policy_region)
         if base_policy_regions is not None:
-            pulumi.set(__self__, "base_policy_regions", base_policy_regions)
+            _setter("base_policy_regions", base_policy_regions)
         if create_base_policy is not None:
-            pulumi.set(__self__, "create_base_policy", create_base_policy)
+            _setter("create_base_policy", create_base_policy)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -182,38 +217,87 @@ class _CoreNetworkState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _CoreNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            base_policy_document=base_policy_document,
+            base_policy_region=base_policy_region,
+            base_policy_regions=base_policy_regions,
+            create_base_policy=create_base_policy,
+            created_at=created_at,
+            description=description,
+            edges=edges,
+            global_network_id=global_network_id,
+            segments=segments,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             base_policy_document: Optional[pulumi.Input[str]] = None,
+             base_policy_region: Optional[pulumi.Input[str]] = None,
+             base_policy_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             create_base_policy: Optional[pulumi.Input[bool]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             edges: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkEdgeArgs']]]] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             segments: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkSegmentArgs']]]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if base_policy_document is None and 'basePolicyDocument' in kwargs:
+            base_policy_document = kwargs['basePolicyDocument']
+        if base_policy_region is None and 'basePolicyRegion' in kwargs:
+            base_policy_region = kwargs['basePolicyRegion']
+        if base_policy_regions is None and 'basePolicyRegions' in kwargs:
+            base_policy_regions = kwargs['basePolicyRegions']
+        if create_base_policy is None and 'createBasePolicy' in kwargs:
+            create_base_policy = kwargs['createBasePolicy']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if base_policy_document is not None:
-            pulumi.set(__self__, "base_policy_document", base_policy_document)
+            _setter("base_policy_document", base_policy_document)
         if base_policy_region is not None:
             warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
         if base_policy_region is not None:
-            pulumi.set(__self__, "base_policy_region", base_policy_region)
+            _setter("base_policy_region", base_policy_region)
         if base_policy_regions is not None:
-            pulumi.set(__self__, "base_policy_regions", base_policy_regions)
+            _setter("base_policy_regions", base_policy_regions)
         if create_base_policy is not None:
-            pulumi.set(__self__, "create_base_policy", create_base_policy)
+            _setter("create_base_policy", create_base_policy)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if edges is not None:
-            pulumi.set(__self__, "edges", edges)
+            _setter("edges", edges)
         if global_network_id is not None:
-            pulumi.set(__self__, "global_network_id", global_network_id)
+            _setter("global_network_id", global_network_id)
         if segments is not None:
-            pulumi.set(__self__, "segments", segments)
+            _setter("segments", segments)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -965,6 +1049,10 @@ class CoreNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CoreNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -987,9 +1075,6 @@ class CoreNetwork(pulumi.CustomResource):
             __props__ = CoreNetworkArgs.__new__(CoreNetworkArgs)
 
             __props__.__dict__["base_policy_document"] = base_policy_document
-            if base_policy_region is not None and not opts.urn:
-                warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-                pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
             __props__.__dict__["base_policy_region"] = base_policy_region
             __props__.__dict__["base_policy_regions"] = base_policy_regions
             __props__.__dict__["create_base_policy"] = create_base_policy

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake
     {
         /// <summary>
-        /// Object key for the bucket in which Amazon AppFlow places the destination files.
+        /// Amazon S3 bucket prefix.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecGrpcRouteMatch {
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return The port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -25,7 +25,7 @@ public final class GatewayRouteSpecGrpcRouteMatch {
 
     private GatewayRouteSpecGrpcRouteMatch() {}
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return The port number to match from the request.
      * 
      */
     public Optional<Integer> port() {

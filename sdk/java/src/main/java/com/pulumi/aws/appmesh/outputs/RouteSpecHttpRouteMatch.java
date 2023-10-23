@@ -37,8 +37,7 @@ public final class RouteSpecHttpRouteMatch {
      */
     private @Nullable Integer port;
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
@@ -83,8 +82,7 @@ public final class RouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {

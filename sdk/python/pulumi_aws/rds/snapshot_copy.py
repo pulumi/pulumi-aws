@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnapshotCopyArgs', 'SnapshotCopy']
@@ -35,22 +35,69 @@ class SnapshotCopyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         """
-        pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
-        pulumi.set(__self__, "target_db_snapshot_identifier", target_db_snapshot_identifier)
+        SnapshotCopyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_db_snapshot_identifier=source_db_snapshot_identifier,
+            target_db_snapshot_identifier=target_db_snapshot_identifier,
+            copy_tags=copy_tags,
+            destination_region=destination_region,
+            kms_key_id=kms_key_id,
+            option_group_name=option_group_name,
+            presigned_url=presigned_url,
+            tags=tags,
+            target_custom_availability_zone=target_custom_availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             target_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             copy_tags: Optional[pulumi.Input[bool]] = None,
+             destination_region: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             option_group_name: Optional[pulumi.Input[str]] = None,
+             presigned_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_db_snapshot_identifier is None and 'sourceDbSnapshotIdentifier' in kwargs:
+            source_db_snapshot_identifier = kwargs['sourceDbSnapshotIdentifier']
+        if source_db_snapshot_identifier is None:
+            raise TypeError("Missing 'source_db_snapshot_identifier' argument")
+        if target_db_snapshot_identifier is None and 'targetDbSnapshotIdentifier' in kwargs:
+            target_db_snapshot_identifier = kwargs['targetDbSnapshotIdentifier']
+        if target_db_snapshot_identifier is None:
+            raise TypeError("Missing 'target_db_snapshot_identifier' argument")
+        if copy_tags is None and 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if option_group_name is None and 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+        if presigned_url is None and 'presignedUrl' in kwargs:
+            presigned_url = kwargs['presignedUrl']
+        if target_custom_availability_zone is None and 'targetCustomAvailabilityZone' in kwargs:
+            target_custom_availability_zone = kwargs['targetCustomAvailabilityZone']
+
+        _setter("source_db_snapshot_identifier", source_db_snapshot_identifier)
+        _setter("target_db_snapshot_identifier", target_db_snapshot_identifier)
         if copy_tags is not None:
-            pulumi.set(__self__, "copy_tags", copy_tags)
+            _setter("copy_tags", copy_tags)
         if destination_region is not None:
-            pulumi.set(__self__, "destination_region", destination_region)
+            _setter("destination_region", destination_region)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if option_group_name is not None:
-            pulumi.set(__self__, "option_group_name", option_group_name)
+            _setter("option_group_name", option_group_name)
         if presigned_url is not None:
-            pulumi.set(__self__, "presigned_url", presigned_url)
+            _setter("presigned_url", presigned_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_custom_availability_zone is not None:
-            pulumi.set(__self__, "target_custom_availability_zone", target_custom_availability_zone)
+            _setter("target_custom_availability_zone", target_custom_availability_zone)
 
     @property
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
@@ -211,55 +258,146 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
         :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
+        _SnapshotCopyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocated_storage=allocated_storage,
+            availability_zone=availability_zone,
+            copy_tags=copy_tags,
+            db_snapshot_arn=db_snapshot_arn,
+            destination_region=destination_region,
+            encrypted=encrypted,
+            engine=engine,
+            engine_version=engine_version,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            license_model=license_model,
+            option_group_name=option_group_name,
+            port=port,
+            presigned_url=presigned_url,
+            snapshot_type=snapshot_type,
+            source_db_snapshot_identifier=source_db_snapshot_identifier,
+            source_region=source_region,
+            storage_type=storage_type,
+            tags=tags,
+            tags_all=tags_all,
+            target_custom_availability_zone=target_custom_availability_zone,
+            target_db_snapshot_identifier=target_db_snapshot_identifier,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocated_storage: Optional[pulumi.Input[int]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             copy_tags: Optional[pulumi.Input[bool]] = None,
+             db_snapshot_arn: Optional[pulumi.Input[str]] = None,
+             destination_region: Optional[pulumi.Input[str]] = None,
+             encrypted: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             iops: Optional[pulumi.Input[int]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             license_model: Optional[pulumi.Input[str]] = None,
+             option_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             presigned_url: Optional[pulumi.Input[str]] = None,
+             snapshot_type: Optional[pulumi.Input[str]] = None,
+             source_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             source_region: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_custom_availability_zone: Optional[pulumi.Input[str]] = None,
+             target_db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allocated_storage is None and 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if copy_tags is None and 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if db_snapshot_arn is None and 'dbSnapshotArn' in kwargs:
+            db_snapshot_arn = kwargs['dbSnapshotArn']
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if license_model is None and 'licenseModel' in kwargs:
+            license_model = kwargs['licenseModel']
+        if option_group_name is None and 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+        if presigned_url is None and 'presignedUrl' in kwargs:
+            presigned_url = kwargs['presignedUrl']
+        if snapshot_type is None and 'snapshotType' in kwargs:
+            snapshot_type = kwargs['snapshotType']
+        if source_db_snapshot_identifier is None and 'sourceDbSnapshotIdentifier' in kwargs:
+            source_db_snapshot_identifier = kwargs['sourceDbSnapshotIdentifier']
+        if source_region is None and 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_custom_availability_zone is None and 'targetCustomAvailabilityZone' in kwargs:
+            target_custom_availability_zone = kwargs['targetCustomAvailabilityZone']
+        if target_db_snapshot_identifier is None and 'targetDbSnapshotIdentifier' in kwargs:
+            target_db_snapshot_identifier = kwargs['targetDbSnapshotIdentifier']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if allocated_storage is not None:
-            pulumi.set(__self__, "allocated_storage", allocated_storage)
+            _setter("allocated_storage", allocated_storage)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if copy_tags is not None:
-            pulumi.set(__self__, "copy_tags", copy_tags)
+            _setter("copy_tags", copy_tags)
         if db_snapshot_arn is not None:
-            pulumi.set(__self__, "db_snapshot_arn", db_snapshot_arn)
+            _setter("db_snapshot_arn", db_snapshot_arn)
         if destination_region is not None:
-            pulumi.set(__self__, "destination_region", destination_region)
+            _setter("destination_region", destination_region)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if license_model is not None:
-            pulumi.set(__self__, "license_model", license_model)
+            _setter("license_model", license_model)
         if option_group_name is not None:
-            pulumi.set(__self__, "option_group_name", option_group_name)
+            _setter("option_group_name", option_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if presigned_url is not None:
-            pulumi.set(__self__, "presigned_url", presigned_url)
+            _setter("presigned_url", presigned_url)
         if snapshot_type is not None:
-            pulumi.set(__self__, "snapshot_type", snapshot_type)
+            _setter("snapshot_type", snapshot_type)
         if source_db_snapshot_identifier is not None:
-            pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
+            _setter("source_db_snapshot_identifier", source_db_snapshot_identifier)
         if source_region is not None:
-            pulumi.set(__self__, "source_region", source_region)
+            _setter("source_region", source_region)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_custom_availability_zone is not None:
-            pulumi.set(__self__, "target_custom_availability_zone", target_custom_availability_zone)
+            _setter("target_custom_availability_zone", target_custom_availability_zone)
         if target_db_snapshot_identifier is not None:
-            pulumi.set(__self__, "target_db_snapshot_identifier", target_db_snapshot_identifier)
+            _setter("target_db_snapshot_identifier", target_db_snapshot_identifier)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -650,6 +788,10 @@ class SnapshotCopy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotCopyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

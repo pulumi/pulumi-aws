@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
@@ -37,23 +37,74 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "server_hostname", server_hostname)
+        LocationObjectStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_arns=agent_arns,
+            bucket_name=bucket_name,
+            server_hostname=server_hostname,
+            access_key=access_key,
+            secret_key=secret_key,
+            server_certificate=server_certificate,
+            server_port=server_port,
+            server_protocol=server_protocol,
+            subdirectory=subdirectory,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             server_hostname: Optional[pulumi.Input[str]] = None,
+             access_key: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             server_certificate: Optional[pulumi.Input[str]] = None,
+             server_port: Optional[pulumi.Input[int]] = None,
+             server_protocol: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if server_hostname is None and 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if server_hostname is None:
+            raise TypeError("Missing 'server_hostname' argument")
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if server_certificate is None and 'serverCertificate' in kwargs:
+            server_certificate = kwargs['serverCertificate']
+        if server_port is None and 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if server_protocol is None and 'serverProtocol' in kwargs:
+            server_protocol = kwargs['serverProtocol']
+
+        _setter("agent_arns", agent_arns)
+        _setter("bucket_name", bucket_name)
+        _setter("server_hostname", server_hostname)
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if server_certificate is not None:
-            pulumi.set(__self__, "server_certificate", server_certificate)
+            _setter("server_certificate", server_certificate)
         if server_port is not None:
-            pulumi.set(__self__, "server_port", server_port)
+            _setter("server_port", server_port)
         if server_protocol is not None:
-            pulumi.set(__self__, "server_protocol", server_protocol)
+            _setter("server_protocol", server_protocol)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -208,35 +259,88 @@ class _LocationObjectStorageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uri: The URL of the Object Storage location that was described.
         """
+        _LocationObjectStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            agent_arns=agent_arns,
+            arn=arn,
+            bucket_name=bucket_name,
+            secret_key=secret_key,
+            server_certificate=server_certificate,
+            server_hostname=server_hostname,
+            server_port=server_port,
+            server_protocol=server_protocol,
+            subdirectory=subdirectory,
+            tags=tags,
+            tags_all=tags_all,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             server_certificate: Optional[pulumi.Input[str]] = None,
+             server_hostname: Optional[pulumi.Input[str]] = None,
+             server_port: Optional[pulumi.Input[int]] = None,
+             server_protocol: Optional[pulumi.Input[str]] = None,
+             subdirectory: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if server_certificate is None and 'serverCertificate' in kwargs:
+            server_certificate = kwargs['serverCertificate']
+        if server_hostname is None and 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if server_port is None and 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if server_protocol is None and 'serverProtocol' in kwargs:
+            server_protocol = kwargs['serverProtocol']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if agent_arns is not None:
-            pulumi.set(__self__, "agent_arns", agent_arns)
+            _setter("agent_arns", agent_arns)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket_name is not None:
-            pulumi.set(__self__, "bucket_name", bucket_name)
+            _setter("bucket_name", bucket_name)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if server_certificate is not None:
-            pulumi.set(__self__, "server_certificate", server_certificate)
+            _setter("server_certificate", server_certificate)
         if server_hostname is not None:
-            pulumi.set(__self__, "server_hostname", server_hostname)
+            _setter("server_hostname", server_hostname)
         if server_port is not None:
-            pulumi.set(__self__, "server_port", server_port)
+            _setter("server_port", server_port)
         if server_protocol is not None:
-            pulumi.set(__self__, "server_protocol", server_protocol)
+            _setter("server_protocol", server_protocol)
         if subdirectory is not None:
-            pulumi.set(__self__, "subdirectory", subdirectory)
+            _setter("subdirectory", subdirectory)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -493,6 +597,10 @@ class LocationObjectStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocationObjectStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

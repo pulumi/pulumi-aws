@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,14 +30,41 @@ class EventPermissionArgs:
         :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         """
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "statement_id", statement_id)
+        EventPermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal=principal,
+            statement_id=statement_id,
+            action=action,
+            condition=condition,
+            event_bus_name=event_bus_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal: Optional[pulumi.Input[str]] = None,
+             statement_id: Optional[pulumi.Input[str]] = None,
+             action: Optional[pulumi.Input[str]] = None,
+             condition: Optional[pulumi.Input['EventPermissionConditionArgs']] = None,
+             event_bus_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if statement_id is None:
+            raise TypeError("Missing 'statement_id' argument")
+        if event_bus_name is None and 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+
+        _setter("principal", principal)
+        _setter("statement_id", statement_id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if event_bus_name is not None:
-            pulumi.set(__self__, "event_bus_name", event_bus_name)
+            _setter("event_bus_name", event_bus_name)
 
     @property
     @pulumi.getter
@@ -118,16 +145,39 @@ class _EventPermissionState:
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         """
+        _EventPermissionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            condition=condition,
+            event_bus_name=event_bus_name,
+            principal=principal,
+            statement_id=statement_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             condition: Optional[pulumi.Input['EventPermissionConditionArgs']] = None,
+             event_bus_name: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             statement_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_bus_name is None and 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if event_bus_name is not None:
-            pulumi.set(__self__, "event_bus_name", event_bus_name)
+            _setter("event_bus_name", event_bus_name)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if statement_id is not None:
-            pulumi.set(__self__, "statement_id", statement_id)
+            _setter("statement_id", statement_id)
 
     @property
     @pulumi.getter
@@ -311,6 +361,10 @@ class EventPermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventPermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -331,6 +385,11 @@ class EventPermission(pulumi.CustomResource):
             __props__ = EventPermissionArgs.__new__(EventPermissionArgs)
 
             __props__.__dict__["action"] = action
+            if condition is not None and not isinstance(condition, EventPermissionConditionArgs):
+                condition = condition or {}
+                def _setter(key, value):
+                    condition[key] = value
+                EventPermissionConditionArgs._configure(_setter, **condition)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["event_bus_name"] = event_bus_name
             if principal is None and not opts.urn:

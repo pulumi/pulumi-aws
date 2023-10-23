@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,68 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] start_time: Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[str] timezone: Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
-        pulumi.set(__self__, "scalable_target_action", scalable_target_action)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "service_namespace", service_namespace)
+        ScheduledActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scalable_dimension=scalable_dimension,
+            scalable_target_action=scalable_target_action,
+            schedule=schedule,
+            service_namespace=service_namespace,
+            end_time=end_time,
+            name=name,
+            start_time=start_time,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             scalable_dimension: Optional[pulumi.Input[str]] = None,
+             scalable_target_action: Optional[pulumi.Input['ScheduledActionScalableTargetActionArgs']] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             service_namespace: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if scalable_dimension is None and 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if scalable_dimension is None:
+            raise TypeError("Missing 'scalable_dimension' argument")
+        if scalable_target_action is None and 'scalableTargetAction' in kwargs:
+            scalable_target_action = kwargs['scalableTargetAction']
+        if scalable_target_action is None:
+            raise TypeError("Missing 'scalable_target_action' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if service_namespace is None and 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if service_namespace is None:
+            raise TypeError("Missing 'service_namespace' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("resource_id", resource_id)
+        _setter("scalable_dimension", scalable_dimension)
+        _setter("scalable_target_action", scalable_target_action)
+        _setter("schedule", schedule)
+        _setter("service_namespace", service_namespace)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -186,26 +235,67 @@ class _ScheduledActionState:
         :param pulumi.Input[str] start_time: Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[str] timezone: Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         """
+        _ScheduledActionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            end_time=end_time,
+            name=name,
+            resource_id=resource_id,
+            scalable_dimension=scalable_dimension,
+            scalable_target_action=scalable_target_action,
+            schedule=schedule,
+            service_namespace=service_namespace,
+            start_time=start_time,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             scalable_dimension: Optional[pulumi.Input[str]] = None,
+             scalable_target_action: Optional[pulumi.Input['ScheduledActionScalableTargetActionArgs']] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
+             service_namespace: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if scalable_dimension is None and 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if scalable_target_action is None and 'scalableTargetAction' in kwargs:
+            scalable_target_action = kwargs['scalableTargetAction']
+        if service_namespace is None and 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scalable_dimension is not None:
-            pulumi.set(__self__, "scalable_dimension", scalable_dimension)
+            _setter("scalable_dimension", scalable_dimension)
         if scalable_target_action is not None:
-            pulumi.set(__self__, "scalable_target_action", scalable_target_action)
+            _setter("scalable_target_action", scalable_target_action)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if service_namespace is not None:
-            pulumi.set(__self__, "service_namespace", service_namespace)
+            _setter("service_namespace", service_namespace)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -469,6 +559,10 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -500,6 +594,11 @@ class ScheduledAction(pulumi.CustomResource):
             if scalable_dimension is None and not opts.urn:
                 raise TypeError("Missing required property 'scalable_dimension'")
             __props__.__dict__["scalable_dimension"] = scalable_dimension
+            if scalable_target_action is not None and not isinstance(scalable_target_action, ScheduledActionScalableTargetActionArgs):
+                scalable_target_action = scalable_target_action or {}
+                def _setter(key, value):
+                    scalable_target_action[key] = value
+                ScheduledActionScalableTargetActionArgs._configure(_setter, **scalable_target_action)
             if scalable_target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'scalable_target_action'")
             __props__.__dict__["scalable_target_action"] = scalable_target_action

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReplicaKeyArgs', 'ReplicaKey']
@@ -35,19 +35,50 @@ class ReplicaKeyArgs:
         :param pulumi.Input[str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "primary_key_arn", primary_key_arn)
+        ReplicaKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_key_arn=primary_key_arn,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            deletion_window_in_days=deletion_window_in_days,
+            description=description,
+            enabled=enabled,
+            policy=policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_key_arn: Optional[pulumi.Input[str]] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if primary_key_arn is None and 'primaryKeyArn' in kwargs:
+            primary_key_arn = kwargs['primaryKeyArn']
+        if primary_key_arn is None:
+            raise TypeError("Missing 'primary_key_arn' argument")
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if deletion_window_in_days is None and 'deletionWindowInDays' in kwargs:
+            deletion_window_in_days = kwargs['deletionWindowInDays']
+
+        _setter("primary_key_arn", primary_key_arn)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if deletion_window_in_days is not None:
-            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
+            _setter("deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="primaryKeyArn")
@@ -174,35 +205,86 @@ class _ReplicaKeyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ReplicaKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            deletion_window_in_days=deletion_window_in_days,
+            description=description,
+            enabled=enabled,
+            key_id=key_id,
+            key_rotation_enabled=key_rotation_enabled,
+            key_spec=key_spec,
+            key_usage=key_usage,
+            policy=policy,
+            primary_key_arn=primary_key_arn,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             key_spec: Optional[pulumi.Input[str]] = None,
+             key_usage: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             primary_key_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if deletion_window_in_days is None and 'deletionWindowInDays' in kwargs:
+            deletion_window_in_days = kwargs['deletionWindowInDays']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_rotation_enabled is None and 'keyRotationEnabled' in kwargs:
+            key_rotation_enabled = kwargs['keyRotationEnabled']
+        if key_spec is None and 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if primary_key_arn is None and 'primaryKeyArn' in kwargs:
+            primary_key_arn = kwargs['primaryKeyArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if deletion_window_in_days is not None:
-            pulumi.set(__self__, "deletion_window_in_days", deletion_window_in_days)
+            _setter("deletion_window_in_days", deletion_window_in_days)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if key_rotation_enabled is not None:
-            pulumi.set(__self__, "key_rotation_enabled", key_rotation_enabled)
+            _setter("key_rotation_enabled", key_rotation_enabled)
         if key_spec is not None:
-            pulumi.set(__self__, "key_spec", key_spec)
+            _setter("key_spec", key_spec)
         if key_usage is not None:
-            pulumi.set(__self__, "key_usage", key_usage)
+            _setter("key_usage", key_usage)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if primary_key_arn is not None:
-            pulumi.set(__self__, "primary_key_arn", primary_key_arn)
+            _setter("primary_key_arn", primary_key_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -469,6 +551,10 @@ class ReplicaKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicaKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

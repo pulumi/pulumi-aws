@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DedicatedHostArgs', 'DedicatedHost']
@@ -33,21 +33,62 @@ class DedicatedHostArgs:
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
+        DedicatedHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            asset_id=asset_id,
+            auto_placement=auto_placement,
+            host_recovery=host_recovery,
+            instance_family=instance_family,
+            instance_type=instance_type,
+            outpost_arn=outpost_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             asset_id: Optional[pulumi.Input[str]] = None,
+             auto_placement: Optional[pulumi.Input[str]] = None,
+             host_recovery: Optional[pulumi.Input[str]] = None,
+             instance_family: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if asset_id is None and 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if auto_placement is None and 'autoPlacement' in kwargs:
+            auto_placement = kwargs['autoPlacement']
+        if host_recovery is None and 'hostRecovery' in kwargs:
+            host_recovery = kwargs['hostRecovery']
+        if instance_family is None and 'instanceFamily' in kwargs:
+            instance_family = kwargs['instanceFamily']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+
+        _setter("availability_zone", availability_zone)
         if asset_id is not None:
-            pulumi.set(__self__, "asset_id", asset_id)
+            _setter("asset_id", asset_id)
         if auto_placement is not None:
-            pulumi.set(__self__, "auto_placement", auto_placement)
+            _setter("auto_placement", auto_placement)
         if host_recovery is not None:
-            pulumi.set(__self__, "host_recovery", host_recovery)
+            _setter("host_recovery", host_recovery)
         if instance_family is not None:
-            pulumi.set(__self__, "instance_family", instance_family)
+            _setter("instance_family", instance_family)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -174,31 +215,80 @@ class _DedicatedHostState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DedicatedHostState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            asset_id=asset_id,
+            auto_placement=auto_placement,
+            availability_zone=availability_zone,
+            host_recovery=host_recovery,
+            instance_family=instance_family,
+            instance_type=instance_type,
+            outpost_arn=outpost_arn,
+            owner_id=owner_id,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             asset_id: Optional[pulumi.Input[str]] = None,
+             auto_placement: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             host_recovery: Optional[pulumi.Input[str]] = None,
+             instance_family: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if asset_id is None and 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if auto_placement is None and 'autoPlacement' in kwargs:
+            auto_placement = kwargs['autoPlacement']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if host_recovery is None and 'hostRecovery' in kwargs:
+            host_recovery = kwargs['hostRecovery']
+        if instance_family is None and 'instanceFamily' in kwargs:
+            instance_family = kwargs['instanceFamily']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if asset_id is not None:
-            pulumi.set(__self__, "asset_id", asset_id)
+            _setter("asset_id", asset_id)
         if auto_placement is not None:
-            pulumi.set(__self__, "auto_placement", auto_placement)
+            _setter("auto_placement", auto_placement)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if host_recovery is not None:
-            pulumi.set(__self__, "host_recovery", host_recovery)
+            _setter("host_recovery", host_recovery)
         if instance_family is not None:
-            pulumi.set(__self__, "instance_family", instance_family)
+            _setter("instance_family", instance_family)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if outpost_arn is not None:
-            pulumi.set(__self__, "outpost_arn", outpost_arn)
+            _setter("outpost_arn", outpost_arn)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -429,6 +519,10 @@ class DedicatedHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

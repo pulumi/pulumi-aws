@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MethodResponseArgs', 'MethodResponse']
@@ -31,14 +31,55 @@ class MethodResponseArgs:
                For example: `response_parameters = { "method.response.header.X-Some-Header" = true }`
                would define that the header `X-Some-Header` can be provided on the response.
         """
-        pulumi.set(__self__, "http_method", http_method)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "status_code", status_code)
+        MethodResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_method=http_method,
+            resource_id=resource_id,
+            rest_api=rest_api,
+            status_code=status_code,
+            response_models=response_models,
+            response_parameters=response_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+
+        _setter("http_method", http_method)
+        _setter("resource_id", resource_id)
+        _setter("rest_api", rest_api)
+        _setter("status_code", status_code)
         if response_models is not None:
-            pulumi.set(__self__, "response_models", response_models)
+            _setter("response_models", response_models)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
 
     @property
     @pulumi.getter(name="httpMethod")
@@ -135,18 +176,51 @@ class _MethodResponseState:
         :param pulumi.Input[str] rest_api: ID of the associated REST API
         :param pulumi.Input[str] status_code: HTTP status code
         """
+        _MethodResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_method=http_method,
+            resource_id=resource_id,
+            response_models=response_models,
+            response_parameters=response_parameters,
+            rest_api=rest_api,
+            status_code=status_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             status_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if http_method is not None:
-            pulumi.set(__self__, "http_method", http_method)
+            _setter("http_method", http_method)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if response_models is not None:
-            pulumi.set(__self__, "response_models", response_models)
+            _setter("response_models", response_models)
         if response_parameters is not None:
-            pulumi.set(__self__, "response_parameters", response_parameters)
+            _setter("response_parameters", response_parameters)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if status_code is not None:
-            pulumi.set(__self__, "status_code", status_code)
+            _setter("status_code", status_code)
 
     @property
     @pulumi.getter(name="httpMethod")
@@ -340,6 +414,10 @@ class MethodResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MethodResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

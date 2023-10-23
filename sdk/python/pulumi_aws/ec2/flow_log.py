@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -52,39 +52,106 @@ class FlowLogArgs:
         :param pulumi.Input[str] transit_gateway_id: Transit Gateway ID to attach to
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
         """
+        FlowLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deliver_cross_account_role=deliver_cross_account_role,
+            destination_options=destination_options,
+            eni_id=eni_id,
+            iam_role_arn=iam_role_arn,
+            log_destination=log_destination,
+            log_destination_type=log_destination_type,
+            log_format=log_format,
+            log_group_name=log_group_name,
+            max_aggregation_interval=max_aggregation_interval,
+            subnet_id=subnet_id,
+            tags=tags,
+            traffic_type=traffic_type,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_id=transit_gateway_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
+             destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
+             eni_id: Optional[pulumi.Input[str]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             log_destination: Optional[pulumi.Input[str]] = None,
+             log_destination_type: Optional[pulumi.Input[str]] = None,
+             log_format: Optional[pulumi.Input[str]] = None,
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             max_aggregation_interval: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_type: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if deliver_cross_account_role is None and 'deliverCrossAccountRole' in kwargs:
+            deliver_cross_account_role = kwargs['deliverCrossAccountRole']
+        if destination_options is None and 'destinationOptions' in kwargs:
+            destination_options = kwargs['destinationOptions']
+        if eni_id is None and 'eniId' in kwargs:
+            eni_id = kwargs['eniId']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if log_destination_type is None and 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if log_format is None and 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if max_aggregation_interval is None and 'maxAggregationInterval' in kwargs:
+            max_aggregation_interval = kwargs['maxAggregationInterval']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if traffic_type is None and 'trafficType' in kwargs:
+            traffic_type = kwargs['trafficType']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if deliver_cross_account_role is not None:
-            pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
+            _setter("deliver_cross_account_role", deliver_cross_account_role)
         if destination_options is not None:
-            pulumi.set(__self__, "destination_options", destination_options)
+            _setter("destination_options", destination_options)
         if eni_id is not None:
-            pulumi.set(__self__, "eni_id", eni_id)
+            _setter("eni_id", eni_id)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if log_destination is not None:
-            pulumi.set(__self__, "log_destination", log_destination)
+            _setter("log_destination", log_destination)
         if log_destination_type is not None:
-            pulumi.set(__self__, "log_destination_type", log_destination_type)
+            _setter("log_destination_type", log_destination_type)
         if log_format is not None:
-            pulumi.set(__self__, "log_format", log_format)
+            _setter("log_format", log_format)
         if log_group_name is not None:
             warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
             pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if max_aggregation_interval is not None:
-            pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+            _setter("max_aggregation_interval", max_aggregation_interval)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_type is not None:
-            pulumi.set(__self__, "traffic_type", traffic_type)
+            _setter("traffic_type", traffic_type)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="deliverCrossAccountRole")
@@ -316,46 +383,119 @@ class _FlowLogState:
         :param pulumi.Input[str] transit_gateway_id: Transit Gateway ID to attach to
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
         """
+        _FlowLogState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            deliver_cross_account_role=deliver_cross_account_role,
+            destination_options=destination_options,
+            eni_id=eni_id,
+            iam_role_arn=iam_role_arn,
+            log_destination=log_destination,
+            log_destination_type=log_destination_type,
+            log_format=log_format,
+            log_group_name=log_group_name,
+            max_aggregation_interval=max_aggregation_interval,
+            subnet_id=subnet_id,
+            tags=tags,
+            tags_all=tags_all,
+            traffic_type=traffic_type,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_id=transit_gateway_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
+             destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
+             eni_id: Optional[pulumi.Input[str]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             log_destination: Optional[pulumi.Input[str]] = None,
+             log_destination_type: Optional[pulumi.Input[str]] = None,
+             log_format: Optional[pulumi.Input[str]] = None,
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             max_aggregation_interval: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_type: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if deliver_cross_account_role is None and 'deliverCrossAccountRole' in kwargs:
+            deliver_cross_account_role = kwargs['deliverCrossAccountRole']
+        if destination_options is None and 'destinationOptions' in kwargs:
+            destination_options = kwargs['destinationOptions']
+        if eni_id is None and 'eniId' in kwargs:
+            eni_id = kwargs['eniId']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if log_destination_type is None and 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if log_format is None and 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if max_aggregation_interval is None and 'maxAggregationInterval' in kwargs:
+            max_aggregation_interval = kwargs['maxAggregationInterval']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if traffic_type is None and 'trafficType' in kwargs:
+            traffic_type = kwargs['trafficType']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if deliver_cross_account_role is not None:
-            pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
+            _setter("deliver_cross_account_role", deliver_cross_account_role)
         if destination_options is not None:
-            pulumi.set(__self__, "destination_options", destination_options)
+            _setter("destination_options", destination_options)
         if eni_id is not None:
-            pulumi.set(__self__, "eni_id", eni_id)
+            _setter("eni_id", eni_id)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if log_destination is not None:
-            pulumi.set(__self__, "log_destination", log_destination)
+            _setter("log_destination", log_destination)
         if log_destination_type is not None:
-            pulumi.set(__self__, "log_destination_type", log_destination_type)
+            _setter("log_destination_type", log_destination_type)
         if log_format is not None:
-            pulumi.set(__self__, "log_format", log_format)
+            _setter("log_format", log_format)
         if log_group_name is not None:
             warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
             pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
         if log_group_name is not None:
-            pulumi.set(__self__, "log_group_name", log_group_name)
+            _setter("log_group_name", log_group_name)
         if max_aggregation_interval is not None:
-            pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
+            _setter("max_aggregation_interval", max_aggregation_interval)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if traffic_type is not None:
-            pulumi.set(__self__, "traffic_type", traffic_type)
+            _setter("traffic_type", traffic_type)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
-            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+            _setter("transit_gateway_id", transit_gateway_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -789,6 +929,10 @@ class FlowLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -819,15 +963,17 @@ class FlowLog(pulumi.CustomResource):
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
             __props__.__dict__["deliver_cross_account_role"] = deliver_cross_account_role
+            if destination_options is not None and not isinstance(destination_options, FlowLogDestinationOptionsArgs):
+                destination_options = destination_options or {}
+                def _setter(key, value):
+                    destination_options[key] = value
+                FlowLogDestinationOptionsArgs._configure(_setter, **destination_options)
             __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["eni_id"] = eni_id
             __props__.__dict__["iam_role_arn"] = iam_role_arn
             __props__.__dict__["log_destination"] = log_destination
             __props__.__dict__["log_destination_type"] = log_destination_type
             __props__.__dict__["log_format"] = log_format
-            if log_group_name is not None and not opts.urn:
-                warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
-                pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["max_aggregation_interval"] = max_aggregation_interval
             __props__.__dict__["subnet_id"] = subnet_id

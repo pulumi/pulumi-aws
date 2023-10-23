@@ -35,7 +35,7 @@ namespace Pulumi.Aws.LightSail
     ///             {
     ///                 ContainerName = "hello-world",
     ///                 Image = "amazon/amazon-lightsail:hello-world",
-    ///                 Commands = new[] {},
+    ///                 Commands = new() { },
     ///                 Environment = 
     ///                 {
     ///                     { "MY_ENVIRONMENT_VARIABLE", "my_value" },

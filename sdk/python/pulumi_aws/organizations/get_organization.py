@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'GetOrganizationResult',
     'AwaitableGetOrganizationResult',
     'get_organization',
+    'get_organization_output',
 ]
 
 @pulumi.output_type
@@ -224,3 +225,51 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         master_account_id=pulumi.get(__ret__, 'master_account_id'),
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
         roots=pulumi.get(__ret__, 'roots'))
+
+
+@_utilities.lift_output_func(get_organization)
+def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+    """
+    Get information about the organization that the user's account belongs to
+
+    ## Example Usage
+    ### List all account IDs for the organization
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.organizations.get_organization()
+    pulumi.export("accountIds", [__item.id for __item in example.accounts])
+    ```
+    ### SNS topic that can be interacted by the organization only
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.organizations.get_organization()
+    sns_topic = aws.sns.Topic("snsTopic")
+    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        effect="Allow",
+        actions=[
+            "SNS:Subscribe",
+            "SNS:Publish",
+        ],
+        conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            test="StringEquals",
+            variable="aws:PrincipalOrgID",
+            values=[example.id],
+        )],
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            type="AWS",
+            identifiers=["*"],
+        )],
+        resources=[arn],
+    )]))
+    sns_topic_policy_topic_policy = aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy",
+        arn=sns_topic.arn,
+        policy=sns_topic_policy_policy_document.json)
+    ```
+    """
+    ...

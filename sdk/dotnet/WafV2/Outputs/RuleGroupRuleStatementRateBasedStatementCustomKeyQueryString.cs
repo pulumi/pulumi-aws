@@ -17,16 +17,6 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
         /// See Text Transformation below for details.
-        /// At least one required.
-        /// See Text Transformation below for details.
-        /// At least one required.
-        /// See Text Transformation below for details.
-        /// At least one required.
-        /// See Text Transformation below for details.
-        /// At least one required.
-        /// See Text Transformation below for details.
-        /// At least one required.
-        /// See Text Transformation below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> TextTransformations;
 

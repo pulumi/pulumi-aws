@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsEventSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+        /// Information about the event. See the `parameters` configuration block.
         /// </summary>
         [Input("parameters", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsEventSourceParametersArgs> Parameters { get; set; } = null!;

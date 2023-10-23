@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,29 @@ class InstanceLoggingConfigurationArgs:
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
-        pulumi.set(__self__, "access_logs", access_logs)
-        pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
+        InstanceLoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+            verifiedaccess_instance_id=verifiedaccess_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']] = None,
+             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if access_logs is None:
+            raise TypeError("Missing 'access_logs' argument")
+        if verifiedaccess_instance_id is None and 'verifiedaccessInstanceId' in kwargs:
+            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
+        if verifiedaccess_instance_id is None:
+            raise TypeError("Missing 'verifiedaccess_instance_id' argument")
+
+        _setter("access_logs", access_logs)
+        _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -61,10 +82,27 @@ class _InstanceLoggingConfigurationState:
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
+        _InstanceLoggingConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+            verifiedaccess_instance_id=verifiedaccess_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']] = None,
+             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if verifiedaccess_instance_id is None and 'verifiedaccessInstanceId' in kwargs:
+            verifiedaccess_instance_id = kwargs['verifiedaccessInstanceId']
+
         if access_logs is not None:
-            pulumi.set(__self__, "access_logs", access_logs)
+            _setter("access_logs", access_logs)
         if verifiedaccess_instance_id is not None:
-            pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
+            _setter("verifiedaccess_instance_id", verifiedaccess_instance_id)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -332,6 +370,10 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceLoggingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -348,6 +390,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceLoggingConfigurationArgs.__new__(InstanceLoggingConfigurationArgs)
 
+            if access_logs is not None and not isinstance(access_logs, InstanceLoggingConfigurationAccessLogsArgs):
+                access_logs = access_logs or {}
+                def _setter(key, value):
+                    access_logs[key] = value
+                InstanceLoggingConfigurationAccessLogsArgs._configure(_setter, **access_logs)
             if access_logs is None and not opts.urn:
                 raise TypeError("Missing required property 'access_logs'")
             __props__.__dict__["access_logs"] = access_logs

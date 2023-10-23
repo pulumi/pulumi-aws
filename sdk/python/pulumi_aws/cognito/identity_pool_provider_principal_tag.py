@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityPoolProviderPrincipalTagArgs', 'IdentityPoolProviderPrincipalTag']
@@ -25,12 +25,41 @@ class IdentityPoolProviderPrincipalTagArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
         :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
-        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
-        pulumi.set(__self__, "identity_provider_name", identity_provider_name)
+        IdentityPoolProviderPrincipalTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_pool_id=identity_pool_id,
+            identity_provider_name=identity_provider_name,
+            principal_tags=principal_tags,
+            use_defaults=use_defaults,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             identity_provider_name: Optional[pulumi.Input[str]] = None,
+             principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_defaults: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if identity_pool_id is None:
+            raise TypeError("Missing 'identity_pool_id' argument")
+        if identity_provider_name is None and 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if identity_provider_name is None:
+            raise TypeError("Missing 'identity_provider_name' argument")
+        if principal_tags is None and 'principalTags' in kwargs:
+            principal_tags = kwargs['principalTags']
+        if use_defaults is None and 'useDefaults' in kwargs:
+            use_defaults = kwargs['useDefaults']
+
+        _setter("identity_pool_id", identity_pool_id)
+        _setter("identity_provider_name", identity_provider_name)
         if principal_tags is not None:
-            pulumi.set(__self__, "principal_tags", principal_tags)
+            _setter("principal_tags", principal_tags)
         if use_defaults is not None:
-            pulumi.set(__self__, "use_defaults", use_defaults)
+            _setter("use_defaults", use_defaults)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -95,14 +124,39 @@ class _IdentityPoolProviderPrincipalTagState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] principal_tags: String to string map of variables.
         :param pulumi.Input[bool] use_defaults: use default (username and clientID) attribute mappings.
         """
+        _IdentityPoolProviderPrincipalTagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_pool_id=identity_pool_id,
+            identity_provider_name=identity_provider_name,
+            principal_tags=principal_tags,
+            use_defaults=use_defaults,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             identity_provider_name: Optional[pulumi.Input[str]] = None,
+             principal_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_defaults: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if identity_provider_name is None and 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if principal_tags is None and 'principalTags' in kwargs:
+            principal_tags = kwargs['principalTags']
+        if use_defaults is None and 'useDefaults' in kwargs:
+            use_defaults = kwargs['useDefaults']
+
         if identity_pool_id is not None:
-            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+            _setter("identity_pool_id", identity_pool_id)
         if identity_provider_name is not None:
-            pulumi.set(__self__, "identity_provider_name", identity_provider_name)
+            _setter("identity_provider_name", identity_provider_name)
         if principal_tags is not None:
-            pulumi.set(__self__, "principal_tags", principal_tags)
+            _setter("principal_tags", principal_tags)
         if use_defaults is not None:
-            pulumi.set(__self__, "use_defaults", use_defaults)
+            _setter("use_defaults", use_defaults)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -208,6 +262,10 @@ class IdentityPoolProviderPrincipalTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityPoolProviderPrincipalTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

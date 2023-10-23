@@ -46,14 +46,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     }
 
     /**
-     * Username for destination.
+     * . Username to be used.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return Username for destination.
+     * @return . Username to be used.
      * 
      */
     public Optional<Output<String>> username() {
@@ -129,7 +129,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param username Username for destination.
+         * @param username . Username to be used.
          * 
          * @return builder
          * 

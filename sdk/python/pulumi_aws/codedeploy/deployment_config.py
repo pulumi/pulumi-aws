@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,14 +27,39 @@ class DeploymentConfigArgs:
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
+        DeploymentConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_platform=compute_platform,
+            deployment_config_name=deployment_config_name,
+            minimum_healthy_hosts=minimum_healthy_hosts,
+            traffic_routing_config=traffic_routing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_platform: Optional[pulumi.Input[str]] = None,
+             deployment_config_name: Optional[pulumi.Input[str]] = None,
+             minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+             traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compute_platform is None and 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if deployment_config_name is None and 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if minimum_healthy_hosts is None and 'minimumHealthyHosts' in kwargs:
+            minimum_healthy_hosts = kwargs['minimumHealthyHosts']
+        if traffic_routing_config is None and 'trafficRoutingConfig' in kwargs:
+            traffic_routing_config = kwargs['trafficRoutingConfig']
+
         if compute_platform is not None:
-            pulumi.set(__self__, "compute_platform", compute_platform)
+            _setter("compute_platform", compute_platform)
         if deployment_config_name is not None:
-            pulumi.set(__self__, "deployment_config_name", deployment_config_name)
+            _setter("deployment_config_name", deployment_config_name)
         if minimum_healthy_hosts is not None:
-            pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
+            _setter("minimum_healthy_hosts", minimum_healthy_hosts)
         if traffic_routing_config is not None:
-            pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
+            _setter("traffic_routing_config", traffic_routing_config)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -101,16 +126,45 @@ class _DeploymentConfigState:
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
+        _DeploymentConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_platform=compute_platform,
+            deployment_config_id=deployment_config_id,
+            deployment_config_name=deployment_config_name,
+            minimum_healthy_hosts=minimum_healthy_hosts,
+            traffic_routing_config=traffic_routing_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_platform: Optional[pulumi.Input[str]] = None,
+             deployment_config_id: Optional[pulumi.Input[str]] = None,
+             deployment_config_name: Optional[pulumi.Input[str]] = None,
+             minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+             traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compute_platform is None and 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if deployment_config_id is None and 'deploymentConfigId' in kwargs:
+            deployment_config_id = kwargs['deploymentConfigId']
+        if deployment_config_name is None and 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if minimum_healthy_hosts is None and 'minimumHealthyHosts' in kwargs:
+            minimum_healthy_hosts = kwargs['minimumHealthyHosts']
+        if traffic_routing_config is None and 'trafficRoutingConfig' in kwargs:
+            traffic_routing_config = kwargs['trafficRoutingConfig']
+
         if compute_platform is not None:
-            pulumi.set(__self__, "compute_platform", compute_platform)
+            _setter("compute_platform", compute_platform)
         if deployment_config_id is not None:
-            pulumi.set(__self__, "deployment_config_id", deployment_config_id)
+            _setter("deployment_config_id", deployment_config_id)
         if deployment_config_name is not None:
-            pulumi.set(__self__, "deployment_config_name", deployment_config_name)
+            _setter("deployment_config_name", deployment_config_name)
         if minimum_healthy_hosts is not None:
-            pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
+            _setter("minimum_healthy_hosts", minimum_healthy_hosts)
         if traffic_routing_config is not None:
-            pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
+            _setter("traffic_routing_config", traffic_routing_config)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -364,6 +418,10 @@ class DeploymentConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -384,7 +442,17 @@ class DeploymentConfig(pulumi.CustomResource):
 
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["deployment_config_name"] = deployment_config_name
+            if minimum_healthy_hosts is not None and not isinstance(minimum_healthy_hosts, DeploymentConfigMinimumHealthyHostsArgs):
+                minimum_healthy_hosts = minimum_healthy_hosts or {}
+                def _setter(key, value):
+                    minimum_healthy_hosts[key] = value
+                DeploymentConfigMinimumHealthyHostsArgs._configure(_setter, **minimum_healthy_hosts)
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
+            if traffic_routing_config is not None and not isinstance(traffic_routing_config, DeploymentConfigTrafficRoutingConfigArgs):
+                traffic_routing_config = traffic_routing_config or {}
+                def _setter(key, value):
+                    traffic_routing_config[key] = value
+                DeploymentConfigTrafficRoutingConfigArgs._configure(_setter, **traffic_routing_config)
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
             __props__.__dict__["deployment_config_id"] = None
         super(DeploymentConfig, __self__).__init__(

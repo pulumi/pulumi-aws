@@ -21,7 +21,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides;
     /**
-     * @return The cpu override for the task.
+     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     private @Nullable String cpu;
@@ -41,7 +41,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
     /**
-     * @return The memory override for the task.
+     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     private @Nullable String memory;
@@ -60,7 +60,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         return this.containerOverrides == null ? List.of() : this.containerOverrides;
     }
     /**
-     * @return The cpu override for the task.
+     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<String> cpu() {
@@ -88,7 +88,7 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         return this.inferenceAcceleratorOverrides == null ? List.of() : this.inferenceAcceleratorOverrides;
     }
     /**
-     * @return The memory override for the task.
+     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     public Optional<String> memory() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,8 +24,27 @@ class AliasRoutingConfigurationArgs:
         :param pulumi.Input[str] state_machine_version_arn: The Amazon Resource Name (ARN) of the state machine version.
         :param pulumi.Input[int] weight: Percentage of traffic routed to the state machine version.
         """
-        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
-        pulumi.set(__self__, "weight", weight)
+        AliasRoutingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state_machine_version_arn=state_machine_version_arn,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state_machine_version_arn: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if state_machine_version_arn is None and 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+        if state_machine_version_arn is None:
+            raise TypeError("Missing 'state_machine_version_arn' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+
+        _setter("state_machine_version_arn", state_machine_version_arn)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")
@@ -63,12 +82,31 @@ class StateMachineLoggingConfigurationArgs:
         :param pulumi.Input[str] level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
+        StateMachineLoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_execution_data=include_execution_data,
+            level=level,
+            log_destination=log_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_execution_data: Optional[pulumi.Input[bool]] = None,
+             level: Optional[pulumi.Input[str]] = None,
+             log_destination: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if include_execution_data is None and 'includeExecutionData' in kwargs:
+            include_execution_data = kwargs['includeExecutionData']
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+
         if include_execution_data is not None:
-            pulumi.set(__self__, "include_execution_data", include_execution_data)
+            _setter("include_execution_data", include_execution_data)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if log_destination is not None:
-            pulumi.set(__self__, "log_destination", log_destination)
+            _setter("log_destination", log_destination)
 
     @property
     @pulumi.getter(name="includeExecutionData")
@@ -114,8 +152,19 @@ class StateMachineTracingConfigurationArgs:
         """
         :param pulumi.Input[bool] enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
         """
+        StateMachineTracingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter

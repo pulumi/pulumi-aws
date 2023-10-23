@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,10 +24,31 @@ class OrganizationConfigurationAutoEnableArgs:
         :param pulumi.Input[bool] ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         :param pulumi.Input[bool] lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         """
-        pulumi.set(__self__, "ec2", ec2)
-        pulumi.set(__self__, "ecr", ecr)
+        OrganizationConfigurationAutoEnableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ec2=ec2,
+            ecr=ecr,
+            lambda_=lambda_,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ec2: Optional[pulumi.Input[bool]] = None,
+             ecr: Optional[pulumi.Input[bool]] = None,
+             lambda_: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ec2 is None:
+            raise TypeError("Missing 'ec2' argument")
+        if ecr is None:
+            raise TypeError("Missing 'ecr' argument")
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
+        _setter("ec2", ec2)
+        _setter("ecr", ecr)
         if lambda_ is not None:
-            pulumi.set(__self__, "lambda_", lambda_)
+            _setter("lambda_", lambda_)
 
     @property
     @pulumi.getter

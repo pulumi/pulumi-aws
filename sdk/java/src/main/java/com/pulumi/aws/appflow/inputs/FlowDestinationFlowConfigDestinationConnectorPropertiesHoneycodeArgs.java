@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs();
 
     /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs> errorHandlingConfig;
 
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs>> errorHandlingConfig() {
@@ -72,7 +72,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneyc
         }
 
         /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
          * 
          * @return builder
          * 

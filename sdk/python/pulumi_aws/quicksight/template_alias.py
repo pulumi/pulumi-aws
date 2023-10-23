@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TemplateAliasArgs', 'TemplateAlias']
@@ -27,11 +27,42 @@ class TemplateAliasArgs:
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         """
-        pulumi.set(__self__, "alias_name", alias_name)
-        pulumi.set(__self__, "template_id", template_id)
-        pulumi.set(__self__, "template_version_number", template_version_number)
+        TemplateAliasArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias_name=alias_name,
+            template_id=template_id,
+            template_version_number=template_version_number,
+            aws_account_id=aws_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias_name: Optional[pulumi.Input[str]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             template_version_number: Optional[pulumi.Input[int]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alias_name is None and 'aliasName' in kwargs:
+            alias_name = kwargs['aliasName']
+        if alias_name is None:
+            raise TypeError("Missing 'alias_name' argument")
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if template_id is None:
+            raise TypeError("Missing 'template_id' argument")
+        if template_version_number is None and 'templateVersionNumber' in kwargs:
+            template_version_number = kwargs['templateVersionNumber']
+        if template_version_number is None:
+            raise TypeError("Missing 'template_version_number' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+
+        _setter("alias_name", alias_name)
+        _setter("template_id", template_id)
+        _setter("template_version_number", template_version_number)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -102,16 +133,43 @@ class _TemplateAliasState:
                
                The following arguments are optional:
         """
+        _TemplateAliasState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias_name=alias_name,
+            arn=arn,
+            aws_account_id=aws_account_id,
+            template_id=template_id,
+            template_version_number=template_version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias_name: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             template_version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alias_name is None and 'aliasName' in kwargs:
+            alias_name = kwargs['aliasName']
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if template_version_number is None and 'templateVersionNumber' in kwargs:
+            template_version_number = kwargs['templateVersionNumber']
+
         if alias_name is not None:
-            pulumi.set(__self__, "alias_name", alias_name)
+            _setter("alias_name", alias_name)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if template_version_number is not None:
-            pulumi.set(__self__, "template_version_number", template_version_number)
+            _setter("template_version_number", template_version_number)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -259,6 +317,10 @@ class TemplateAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

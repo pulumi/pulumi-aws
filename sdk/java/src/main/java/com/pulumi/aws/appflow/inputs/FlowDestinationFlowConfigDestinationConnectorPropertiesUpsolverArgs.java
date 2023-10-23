@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs();
 
     /**
-     * Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+     * Name of the Amazon S3 bucket.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+     * @return Name of the Amazon S3 bucket.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     }
 
     /**
-     * Object key for the bucket in which Amazon AppFlow places the destination files.
+     * Amazon S3 bucket prefix.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Object key for the bucket in which Amazon AppFlow places the destination files.
+     * @return Amazon S3 bucket prefix.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -88,7 +88,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * @param bucketName Name of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param bucketName Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
+         * @param bucketName Name of the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         }
 
         /**
-         * @param bucketPrefix Object key for the bucket in which Amazon AppFlow places the destination files.
+         * @param bucketPrefix Amazon S3 bucket prefix.
          * 
          * @return builder
          * 

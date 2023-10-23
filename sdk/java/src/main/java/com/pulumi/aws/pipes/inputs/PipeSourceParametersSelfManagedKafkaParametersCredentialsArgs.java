@@ -16,14 +16,14 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
     public static final PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs Empty = new PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs();
 
     /**
-     * The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     @Import(name="basicAuth", required=true)
     private Output<String> basicAuth;
 
     /**
-     * @return The ARN of the Secrets Manager secret containing the basic auth credentials.
+     * @return The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public Output<String> basicAuth() {
@@ -103,7 +103,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
         }
 
         /**
-         * @param basicAuth The ARN of the Secrets Manager secret containing the basic auth credentials.
+         * @param basicAuth The ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
         }
 
         /**
-         * @param basicAuth The ARN of the Secrets Manager secret containing the basic auth credentials.
+         * @param basicAuth The ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 

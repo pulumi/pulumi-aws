@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -43,26 +43,75 @@ class UserArgs:
                
                > **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         """
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
-        pulumi.set(__self__, "username", username)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_pool_id=user_pool_id,
+            username=username,
+            attributes=attributes,
+            client_metadata=client_metadata,
+            desired_delivery_mediums=desired_delivery_mediums,
+            enabled=enabled,
+            force_alias_creation=force_alias_creation,
+            message_action=message_action,
+            password=password,
+            temporary_password=temporary_password,
+            validation_data=validation_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             force_alias_creation: Optional[pulumi.Input[bool]] = None,
+             message_action: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             temporary_password: Optional[pulumi.Input[str]] = None,
+             validation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if client_metadata is None and 'clientMetadata' in kwargs:
+            client_metadata = kwargs['clientMetadata']
+        if desired_delivery_mediums is None and 'desiredDeliveryMediums' in kwargs:
+            desired_delivery_mediums = kwargs['desiredDeliveryMediums']
+        if force_alias_creation is None and 'forceAliasCreation' in kwargs:
+            force_alias_creation = kwargs['forceAliasCreation']
+        if message_action is None and 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if temporary_password is None and 'temporaryPassword' in kwargs:
+            temporary_password = kwargs['temporaryPassword']
+        if validation_data is None and 'validationData' in kwargs:
+            validation_data = kwargs['validationData']
+
+        _setter("user_pool_id", user_pool_id)
+        _setter("username", username)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if client_metadata is not None:
-            pulumi.set(__self__, "client_metadata", client_metadata)
+            _setter("client_metadata", client_metadata)
         if desired_delivery_mediums is not None:
-            pulumi.set(__self__, "desired_delivery_mediums", desired_delivery_mediums)
+            _setter("desired_delivery_mediums", desired_delivery_mediums)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if force_alias_creation is not None:
-            pulumi.set(__self__, "force_alias_creation", force_alias_creation)
+            _setter("force_alias_creation", force_alias_creation)
         if message_action is not None:
-            pulumi.set(__self__, "message_action", message_action)
+            _setter("message_action", message_action)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if temporary_password is not None:
-            pulumi.set(__self__, "temporary_password", temporary_password)
+            _setter("temporary_password", temporary_password)
         if validation_data is not None:
-            pulumi.set(__self__, "validation_data", validation_data)
+            _setter("validation_data", validation_data)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -241,40 +290,105 @@ class _UserState:
                
                > **NOTE:** Clearing `password` or `temporary_password` does not reset user's password in Cognito.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            client_metadata=client_metadata,
+            creation_date=creation_date,
+            desired_delivery_mediums=desired_delivery_mediums,
+            enabled=enabled,
+            force_alias_creation=force_alias_creation,
+            last_modified_date=last_modified_date,
+            message_action=message_action,
+            mfa_setting_lists=mfa_setting_lists,
+            password=password,
+            preferred_mfa_setting=preferred_mfa_setting,
+            status=status,
+            sub=sub,
+            temporary_password=temporary_password,
+            user_pool_id=user_pool_id,
+            username=username,
+            validation_data=validation_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             client_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             creation_date: Optional[pulumi.Input[str]] = None,
+             desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             force_alias_creation: Optional[pulumi.Input[bool]] = None,
+             last_modified_date: Optional[pulumi.Input[str]] = None,
+             message_action: Optional[pulumi.Input[str]] = None,
+             mfa_setting_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             preferred_mfa_setting: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             sub: Optional[pulumi.Input[str]] = None,
+             temporary_password: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             validation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_metadata is None and 'clientMetadata' in kwargs:
+            client_metadata = kwargs['clientMetadata']
+        if creation_date is None and 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if desired_delivery_mediums is None and 'desiredDeliveryMediums' in kwargs:
+            desired_delivery_mediums = kwargs['desiredDeliveryMediums']
+        if force_alias_creation is None and 'forceAliasCreation' in kwargs:
+            force_alias_creation = kwargs['forceAliasCreation']
+        if last_modified_date is None and 'lastModifiedDate' in kwargs:
+            last_modified_date = kwargs['lastModifiedDate']
+        if message_action is None and 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if mfa_setting_lists is None and 'mfaSettingLists' in kwargs:
+            mfa_setting_lists = kwargs['mfaSettingLists']
+        if preferred_mfa_setting is None and 'preferredMfaSetting' in kwargs:
+            preferred_mfa_setting = kwargs['preferredMfaSetting']
+        if temporary_password is None and 'temporaryPassword' in kwargs:
+            temporary_password = kwargs['temporaryPassword']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if validation_data is None and 'validationData' in kwargs:
+            validation_data = kwargs['validationData']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if client_metadata is not None:
-            pulumi.set(__self__, "client_metadata", client_metadata)
+            _setter("client_metadata", client_metadata)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if desired_delivery_mediums is not None:
-            pulumi.set(__self__, "desired_delivery_mediums", desired_delivery_mediums)
+            _setter("desired_delivery_mediums", desired_delivery_mediums)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if force_alias_creation is not None:
-            pulumi.set(__self__, "force_alias_creation", force_alias_creation)
+            _setter("force_alias_creation", force_alias_creation)
         if last_modified_date is not None:
-            pulumi.set(__self__, "last_modified_date", last_modified_date)
+            _setter("last_modified_date", last_modified_date)
         if message_action is not None:
-            pulumi.set(__self__, "message_action", message_action)
+            _setter("message_action", message_action)
         if mfa_setting_lists is not None:
-            pulumi.set(__self__, "mfa_setting_lists", mfa_setting_lists)
+            _setter("mfa_setting_lists", mfa_setting_lists)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if preferred_mfa_setting is not None:
-            pulumi.set(__self__, "preferred_mfa_setting", preferred_mfa_setting)
+            _setter("preferred_mfa_setting", preferred_mfa_setting)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if sub is not None:
-            pulumi.set(__self__, "sub", sub)
+            _setter("sub", sub)
         if temporary_password is not None:
-            pulumi.set(__self__, "temporary_password", temporary_password)
+            _setter("temporary_password", temporary_password)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if validation_data is not None:
-            pulumi.set(__self__, "validation_data", validation_data)
+            _setter("validation_data", validation_data)
 
     @property
     @pulumi.getter
@@ -638,6 +752,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

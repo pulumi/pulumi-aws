@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,101 @@ class DataSetArgs:
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "import_mode", import_mode)
+        DataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_id=data_set_id,
+            import_mode=import_mode,
+            aws_account_id=aws_account_id,
+            column_groups=column_groups,
+            column_level_permission_rules=column_level_permission_rules,
+            data_set_usage_configuration=data_set_usage_configuration,
+            field_folders=field_folders,
+            logical_table_maps=logical_table_maps,
+            name=name,
+            permissions=permissions,
+            physical_table_maps=physical_table_maps,
+            refresh_properties=refresh_properties,
+            row_level_permission_data_set=row_level_permission_data_set,
+            row_level_permission_tag_configuration=row_level_permission_tag_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             import_mode: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
+             column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
+             data_set_usage_configuration: Optional[pulumi.Input['DataSetDataSetUsageConfigurationArgs']] = None,
+             field_folders: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetFieldFolderArgs']]]] = None,
+             logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]] = None,
+             physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]] = None,
+             refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
+             row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
+             row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_id is None:
+            raise TypeError("Missing 'data_set_id' argument")
+        if import_mode is None and 'importMode' in kwargs:
+            import_mode = kwargs['importMode']
+        if import_mode is None:
+            raise TypeError("Missing 'import_mode' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if column_groups is None and 'columnGroups' in kwargs:
+            column_groups = kwargs['columnGroups']
+        if column_level_permission_rules is None and 'columnLevelPermissionRules' in kwargs:
+            column_level_permission_rules = kwargs['columnLevelPermissionRules']
+        if data_set_usage_configuration is None and 'dataSetUsageConfiguration' in kwargs:
+            data_set_usage_configuration = kwargs['dataSetUsageConfiguration']
+        if field_folders is None and 'fieldFolders' in kwargs:
+            field_folders = kwargs['fieldFolders']
+        if logical_table_maps is None and 'logicalTableMaps' in kwargs:
+            logical_table_maps = kwargs['logicalTableMaps']
+        if physical_table_maps is None and 'physicalTableMaps' in kwargs:
+            physical_table_maps = kwargs['physicalTableMaps']
+        if refresh_properties is None and 'refreshProperties' in kwargs:
+            refresh_properties = kwargs['refreshProperties']
+        if row_level_permission_data_set is None and 'rowLevelPermissionDataSet' in kwargs:
+            row_level_permission_data_set = kwargs['rowLevelPermissionDataSet']
+        if row_level_permission_tag_configuration is None and 'rowLevelPermissionTagConfiguration' in kwargs:
+            row_level_permission_tag_configuration = kwargs['rowLevelPermissionTagConfiguration']
+
+        _setter("data_set_id", data_set_id)
+        _setter("import_mode", import_mode)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if column_groups is not None:
-            pulumi.set(__self__, "column_groups", column_groups)
+            _setter("column_groups", column_groups)
         if column_level_permission_rules is not None:
-            pulumi.set(__self__, "column_level_permission_rules", column_level_permission_rules)
+            _setter("column_level_permission_rules", column_level_permission_rules)
         if data_set_usage_configuration is not None:
-            pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
+            _setter("data_set_usage_configuration", data_set_usage_configuration)
         if field_folders is not None:
-            pulumi.set(__self__, "field_folders", field_folders)
+            _setter("field_folders", field_folders)
         if logical_table_maps is not None:
-            pulumi.set(__self__, "logical_table_maps", logical_table_maps)
+            _setter("logical_table_maps", logical_table_maps)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if physical_table_maps is not None:
-            pulumi.set(__self__, "physical_table_maps", physical_table_maps)
+            _setter("physical_table_maps", physical_table_maps)
         if refresh_properties is not None:
-            pulumi.set(__self__, "refresh_properties", refresh_properties)
+            _setter("refresh_properties", refresh_properties)
         if row_level_permission_data_set is not None:
-            pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
+            _setter("row_level_permission_data_set", row_level_permission_data_set)
         if row_level_permission_tag_configuration is not None:
-            pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
+            _setter("row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -306,45 +373,118 @@ class _DataSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DataSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            aws_account_id=aws_account_id,
+            column_groups=column_groups,
+            column_level_permission_rules=column_level_permission_rules,
+            data_set_id=data_set_id,
+            data_set_usage_configuration=data_set_usage_configuration,
+            field_folders=field_folders,
+            import_mode=import_mode,
+            logical_table_maps=logical_table_maps,
+            name=name,
+            output_columns=output_columns,
+            permissions=permissions,
+            physical_table_maps=physical_table_maps,
+            refresh_properties=refresh_properties,
+            row_level_permission_data_set=row_level_permission_data_set,
+            row_level_permission_tag_configuration=row_level_permission_tag_configuration,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
+             column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             data_set_usage_configuration: Optional[pulumi.Input['DataSetDataSetUsageConfigurationArgs']] = None,
+             field_folders: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetFieldFolderArgs']]]] = None,
+             import_mode: Optional[pulumi.Input[str]] = None,
+             logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]] = None,
+             physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]] = None,
+             refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
+             row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
+             row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if column_groups is None and 'columnGroups' in kwargs:
+            column_groups = kwargs['columnGroups']
+        if column_level_permission_rules is None and 'columnLevelPermissionRules' in kwargs:
+            column_level_permission_rules = kwargs['columnLevelPermissionRules']
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_usage_configuration is None and 'dataSetUsageConfiguration' in kwargs:
+            data_set_usage_configuration = kwargs['dataSetUsageConfiguration']
+        if field_folders is None and 'fieldFolders' in kwargs:
+            field_folders = kwargs['fieldFolders']
+        if import_mode is None and 'importMode' in kwargs:
+            import_mode = kwargs['importMode']
+        if logical_table_maps is None and 'logicalTableMaps' in kwargs:
+            logical_table_maps = kwargs['logicalTableMaps']
+        if output_columns is None and 'outputColumns' in kwargs:
+            output_columns = kwargs['outputColumns']
+        if physical_table_maps is None and 'physicalTableMaps' in kwargs:
+            physical_table_maps = kwargs['physicalTableMaps']
+        if refresh_properties is None and 'refreshProperties' in kwargs:
+            refresh_properties = kwargs['refreshProperties']
+        if row_level_permission_data_set is None and 'rowLevelPermissionDataSet' in kwargs:
+            row_level_permission_data_set = kwargs['rowLevelPermissionDataSet']
+        if row_level_permission_tag_configuration is None and 'rowLevelPermissionTagConfiguration' in kwargs:
+            row_level_permission_tag_configuration = kwargs['rowLevelPermissionTagConfiguration']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if aws_account_id is not None:
-            pulumi.set(__self__, "aws_account_id", aws_account_id)
+            _setter("aws_account_id", aws_account_id)
         if column_groups is not None:
-            pulumi.set(__self__, "column_groups", column_groups)
+            _setter("column_groups", column_groups)
         if column_level_permission_rules is not None:
-            pulumi.set(__self__, "column_level_permission_rules", column_level_permission_rules)
+            _setter("column_level_permission_rules", column_level_permission_rules)
         if data_set_id is not None:
-            pulumi.set(__self__, "data_set_id", data_set_id)
+            _setter("data_set_id", data_set_id)
         if data_set_usage_configuration is not None:
-            pulumi.set(__self__, "data_set_usage_configuration", data_set_usage_configuration)
+            _setter("data_set_usage_configuration", data_set_usage_configuration)
         if field_folders is not None:
-            pulumi.set(__self__, "field_folders", field_folders)
+            _setter("field_folders", field_folders)
         if import_mode is not None:
-            pulumi.set(__self__, "import_mode", import_mode)
+            _setter("import_mode", import_mode)
         if logical_table_maps is not None:
-            pulumi.set(__self__, "logical_table_maps", logical_table_maps)
+            _setter("logical_table_maps", logical_table_maps)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_columns is not None:
-            pulumi.set(__self__, "output_columns", output_columns)
+            _setter("output_columns", output_columns)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if physical_table_maps is not None:
-            pulumi.set(__self__, "physical_table_maps", physical_table_maps)
+            _setter("physical_table_maps", physical_table_maps)
         if refresh_properties is not None:
-            pulumi.set(__self__, "refresh_properties", refresh_properties)
+            _setter("refresh_properties", refresh_properties)
         if row_level_permission_data_set is not None:
-            pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
+            _setter("row_level_permission_data_set", row_level_permission_data_set)
         if row_level_permission_tag_configuration is not None:
-            pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
+            _setter("row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -934,6 +1074,10 @@ class DataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -969,6 +1113,11 @@ class DataSet(pulumi.CustomResource):
             if data_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
+            if data_set_usage_configuration is not None and not isinstance(data_set_usage_configuration, DataSetDataSetUsageConfigurationArgs):
+                data_set_usage_configuration = data_set_usage_configuration or {}
+                def _setter(key, value):
+                    data_set_usage_configuration[key] = value
+                DataSetDataSetUsageConfigurationArgs._configure(_setter, **data_set_usage_configuration)
             __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
             __props__.__dict__["field_folders"] = field_folders
             if import_mode is None and not opts.urn:
@@ -978,8 +1127,23 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["physical_table_maps"] = physical_table_maps
+            if refresh_properties is not None and not isinstance(refresh_properties, DataSetRefreshPropertiesArgs):
+                refresh_properties = refresh_properties or {}
+                def _setter(key, value):
+                    refresh_properties[key] = value
+                DataSetRefreshPropertiesArgs._configure(_setter, **refresh_properties)
             __props__.__dict__["refresh_properties"] = refresh_properties
+            if row_level_permission_data_set is not None and not isinstance(row_level_permission_data_set, DataSetRowLevelPermissionDataSetArgs):
+                row_level_permission_data_set = row_level_permission_data_set or {}
+                def _setter(key, value):
+                    row_level_permission_data_set[key] = value
+                DataSetRowLevelPermissionDataSetArgs._configure(_setter, **row_level_permission_data_set)
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
+            if row_level_permission_tag_configuration is not None and not isinstance(row_level_permission_tag_configuration, DataSetRowLevelPermissionTagConfigurationArgs):
+                row_level_permission_tag_configuration = row_level_permission_tag_configuration or {}
+                def _setter(key, value):
+                    row_level_permission_tag_configuration[key] = value
+                DataSetRowLevelPermissionTagConfigurationArgs._configure(_setter, **row_level_permission_tag_configuration)
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

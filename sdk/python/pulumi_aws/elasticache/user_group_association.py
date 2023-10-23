@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserGroupAssociationArgs', 'UserGroupAssociation']
@@ -21,8 +21,29 @@ class UserGroupAssociationArgs:
         :param pulumi.Input[str] user_group_id: ID of the user group.
         :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
-        pulumi.set(__self__, "user_group_id", user_group_id)
-        pulumi.set(__self__, "user_id", user_id)
+        UserGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_group_id=user_group_id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_group_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if user_group_id is None and 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if user_group_id is None:
+            raise TypeError("Missing 'user_group_id' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
+        _setter("user_group_id", user_group_id)
+        _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="userGroupId")
@@ -59,10 +80,27 @@ class _UserGroupAssociationState:
         :param pulumi.Input[str] user_group_id: ID of the user group.
         :param pulumi.Input[str] user_id: ID of the user to associated with the user group.
         """
+        _UserGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_group_id=user_group_id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_group_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if user_group_id is None and 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if user_group_id is not None:
-            pulumi.set(__self__, "user_group_id", user_group_id)
+            _setter("user_group_id", user_group_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="userGroupId")
@@ -198,6 +236,10 @@ class UserGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

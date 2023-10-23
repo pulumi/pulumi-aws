@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,13 +36,36 @@ class ReplicationSetRegionArgs:
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[str] status_message: More information about the status of a Region.
         """
-        pulumi.set(__self__, "name", name)
+        ReplicationSetRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            kms_key_arn=kms_key_arn,
+            status=status,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             status_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+
+        _setter("name", name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if status_message is not None:
-            pulumi.set(__self__, "status_message", status_message)
+            _setter("status_message", status_message)
 
     @property
     @pulumi.getter
@@ -103,8 +126,21 @@ class ResponsePlanActionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
+        ResponsePlanActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ssm_automations=ssm_automations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ssm_automations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ssm_automations is None and 'ssmAutomations' in kwargs:
+            ssm_automations = kwargs['ssmAutomations']
+
         if ssm_automations is not None:
-            pulumi.set(__self__, "ssm_automations", ssm_automations)
+            _setter("ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
@@ -136,16 +172,51 @@ class ResponsePlanActionSsmAutomationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
         :param pulumi.Input[str] target_account: The account that the automation document runs in. This can be in either the management account or an application account.
         """
-        pulumi.set(__self__, "document_name", document_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ResponsePlanActionSsmAutomationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_name=document_name,
+            role_arn=role_arn,
+            document_version=document_version,
+            dynamic_parameters=dynamic_parameters,
+            parameters=parameters,
+            target_account=target_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             dynamic_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]] = None,
+             target_account: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if document_name is None and 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if document_name is None:
+            raise TypeError("Missing 'document_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if dynamic_parameters is None and 'dynamicParameters' in kwargs:
+            dynamic_parameters = kwargs['dynamicParameters']
+        if target_account is None and 'targetAccount' in kwargs:
+            target_account = kwargs['targetAccount']
+
+        _setter("document_name", document_name)
+        _setter("role_arn", role_arn)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if dynamic_parameters is not None:
-            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
+            _setter("dynamic_parameters", dynamic_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if target_account is not None:
-            pulumi.set(__self__, "target_account", target_account)
+            _setter("target_account", target_account)
 
     @property
     @pulumi.getter(name="documentName")
@@ -229,8 +300,25 @@ class ResponsePlanActionSsmAutomationParameterArgs:
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The values for the associated parameter name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        ResponsePlanActionSsmAutomationParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -274,16 +362,47 @@ class ResponsePlanIncidentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         :param pulumi.Input[str] summary: The summary of an incident.
         """
-        pulumi.set(__self__, "impact", impact)
-        pulumi.set(__self__, "title", title)
+        ResponsePlanIncidentTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            impact=impact,
+            title=title,
+            dedupe_string=dedupe_string,
+            incident_tags=incident_tags,
+            notification_targets=notification_targets,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             impact: Optional[pulumi.Input[int]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             dedupe_string: Optional[pulumi.Input[str]] = None,
+             incident_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]]] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if impact is None:
+            raise TypeError("Missing 'impact' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if dedupe_string is None and 'dedupeString' in kwargs:
+            dedupe_string = kwargs['dedupeString']
+        if incident_tags is None and 'incidentTags' in kwargs:
+            incident_tags = kwargs['incidentTags']
+        if notification_targets is None and 'notificationTargets' in kwargs:
+            notification_targets = kwargs['notificationTargets']
+
+        _setter("impact", impact)
+        _setter("title", title)
         if dedupe_string is not None:
-            pulumi.set(__self__, "dedupe_string", dedupe_string)
+            _setter("dedupe_string", dedupe_string)
         if incident_tags is not None:
-            pulumi.set(__self__, "incident_tags", incident_tags)
+            _setter("incident_tags", incident_tags)
         if notification_targets is not None:
-            pulumi.set(__self__, "notification_targets", notification_targets)
+            _setter("notification_targets", notification_targets)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
 
     @property
     @pulumi.getter
@@ -367,7 +486,22 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+        ResponsePlanIncidentTemplateNotificationTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sns_topic_arn=sns_topic_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_arn is None:
+            raise TypeError("Missing 'sns_topic_arn' argument")
+
+        _setter("sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -391,8 +525,19 @@ class ResponsePlanIntegrationArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
+        ResponsePlanIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pagerduties=pagerduties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pagerduties: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if pagerduties is not None:
-            pulumi.set(__self__, "pagerduties", pagerduties)
+            _setter("pagerduties", pagerduties)
 
     @property
     @pulumi.getter
@@ -420,9 +565,34 @@ class ResponsePlanIntegrationPagerdutyArgs:
                For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
         :param pulumi.Input[str] service_id: The ID of the PagerDuty service that the response plan associated with the incident at launch.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_id", secret_id)
-        pulumi.set(__self__, "service_id", service_id)
+        ResponsePlanIntegrationPagerdutyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_id=secret_id,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             secret_id: Optional[pulumi.Input[str]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if secret_id is None:
+            raise TypeError("Missing 'secret_id' argument")
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+
+        _setter("name", name)
+        _setter("secret_id", secret_id)
+        _setter("service_id", service_id)
 
     @property
     @pulumi.getter

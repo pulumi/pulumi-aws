@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfiguration']
@@ -45,30 +45,95 @@ class WorkspaceSamlConfigurationArgs:
         :param pulumi.Input[str] org_assertion: The org assertion.
         :param pulumi.Input[str] role_assertion: The role assertion.
         """
-        pulumi.set(__self__, "editor_role_values", editor_role_values)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceSamlConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            editor_role_values=editor_role_values,
+            workspace_id=workspace_id,
+            admin_role_values=admin_role_values,
+            allowed_organizations=allowed_organizations,
+            email_assertion=email_assertion,
+            groups_assertion=groups_assertion,
+            idp_metadata_url=idp_metadata_url,
+            idp_metadata_xml=idp_metadata_xml,
+            login_assertion=login_assertion,
+            login_validity_duration=login_validity_duration,
+            name_assertion=name_assertion,
+            org_assertion=org_assertion,
+            role_assertion=role_assertion,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_assertion: Optional[pulumi.Input[str]] = None,
+             groups_assertion: Optional[pulumi.Input[str]] = None,
+             idp_metadata_url: Optional[pulumi.Input[str]] = None,
+             idp_metadata_xml: Optional[pulumi.Input[str]] = None,
+             login_assertion: Optional[pulumi.Input[str]] = None,
+             login_validity_duration: Optional[pulumi.Input[int]] = None,
+             name_assertion: Optional[pulumi.Input[str]] = None,
+             org_assertion: Optional[pulumi.Input[str]] = None,
+             role_assertion: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if editor_role_values is None and 'editorRoleValues' in kwargs:
+            editor_role_values = kwargs['editorRoleValues']
+        if editor_role_values is None:
+            raise TypeError("Missing 'editor_role_values' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if admin_role_values is None and 'adminRoleValues' in kwargs:
+            admin_role_values = kwargs['adminRoleValues']
+        if allowed_organizations is None and 'allowedOrganizations' in kwargs:
+            allowed_organizations = kwargs['allowedOrganizations']
+        if email_assertion is None and 'emailAssertion' in kwargs:
+            email_assertion = kwargs['emailAssertion']
+        if groups_assertion is None and 'groupsAssertion' in kwargs:
+            groups_assertion = kwargs['groupsAssertion']
+        if idp_metadata_url is None and 'idpMetadataUrl' in kwargs:
+            idp_metadata_url = kwargs['idpMetadataUrl']
+        if idp_metadata_xml is None and 'idpMetadataXml' in kwargs:
+            idp_metadata_xml = kwargs['idpMetadataXml']
+        if login_assertion is None and 'loginAssertion' in kwargs:
+            login_assertion = kwargs['loginAssertion']
+        if login_validity_duration is None and 'loginValidityDuration' in kwargs:
+            login_validity_duration = kwargs['loginValidityDuration']
+        if name_assertion is None and 'nameAssertion' in kwargs:
+            name_assertion = kwargs['nameAssertion']
+        if org_assertion is None and 'orgAssertion' in kwargs:
+            org_assertion = kwargs['orgAssertion']
+        if role_assertion is None and 'roleAssertion' in kwargs:
+            role_assertion = kwargs['roleAssertion']
+
+        _setter("editor_role_values", editor_role_values)
+        _setter("workspace_id", workspace_id)
         if admin_role_values is not None:
-            pulumi.set(__self__, "admin_role_values", admin_role_values)
+            _setter("admin_role_values", admin_role_values)
         if allowed_organizations is not None:
-            pulumi.set(__self__, "allowed_organizations", allowed_organizations)
+            _setter("allowed_organizations", allowed_organizations)
         if email_assertion is not None:
-            pulumi.set(__self__, "email_assertion", email_assertion)
+            _setter("email_assertion", email_assertion)
         if groups_assertion is not None:
-            pulumi.set(__self__, "groups_assertion", groups_assertion)
+            _setter("groups_assertion", groups_assertion)
         if idp_metadata_url is not None:
-            pulumi.set(__self__, "idp_metadata_url", idp_metadata_url)
+            _setter("idp_metadata_url", idp_metadata_url)
         if idp_metadata_xml is not None:
-            pulumi.set(__self__, "idp_metadata_xml", idp_metadata_xml)
+            _setter("idp_metadata_xml", idp_metadata_xml)
         if login_assertion is not None:
-            pulumi.set(__self__, "login_assertion", login_assertion)
+            _setter("login_assertion", login_assertion)
         if login_validity_duration is not None:
-            pulumi.set(__self__, "login_validity_duration", login_validity_duration)
+            _setter("login_validity_duration", login_validity_duration)
         if name_assertion is not None:
-            pulumi.set(__self__, "name_assertion", name_assertion)
+            _setter("name_assertion", name_assertion)
         if org_assertion is not None:
-            pulumi.set(__self__, "org_assertion", org_assertion)
+            _setter("org_assertion", org_assertion)
         if role_assertion is not None:
-            pulumi.set(__self__, "role_assertion", role_assertion)
+            _setter("role_assertion", role_assertion)
 
     @property
     @pulumi.getter(name="editorRoleValues")
@@ -265,34 +330,97 @@ class _WorkspaceSamlConfigurationState:
                
                The following arguments are optional:
         """
+        _WorkspaceSamlConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_role_values=admin_role_values,
+            allowed_organizations=allowed_organizations,
+            editor_role_values=editor_role_values,
+            email_assertion=email_assertion,
+            groups_assertion=groups_assertion,
+            idp_metadata_url=idp_metadata_url,
+            idp_metadata_xml=idp_metadata_xml,
+            login_assertion=login_assertion,
+            login_validity_duration=login_validity_duration,
+            name_assertion=name_assertion,
+            org_assertion=org_assertion,
+            role_assertion=role_assertion,
+            status=status,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             editor_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_assertion: Optional[pulumi.Input[str]] = None,
+             groups_assertion: Optional[pulumi.Input[str]] = None,
+             idp_metadata_url: Optional[pulumi.Input[str]] = None,
+             idp_metadata_xml: Optional[pulumi.Input[str]] = None,
+             login_assertion: Optional[pulumi.Input[str]] = None,
+             login_validity_duration: Optional[pulumi.Input[int]] = None,
+             name_assertion: Optional[pulumi.Input[str]] = None,
+             org_assertion: Optional[pulumi.Input[str]] = None,
+             role_assertion: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_role_values is None and 'adminRoleValues' in kwargs:
+            admin_role_values = kwargs['adminRoleValues']
+        if allowed_organizations is None and 'allowedOrganizations' in kwargs:
+            allowed_organizations = kwargs['allowedOrganizations']
+        if editor_role_values is None and 'editorRoleValues' in kwargs:
+            editor_role_values = kwargs['editorRoleValues']
+        if email_assertion is None and 'emailAssertion' in kwargs:
+            email_assertion = kwargs['emailAssertion']
+        if groups_assertion is None and 'groupsAssertion' in kwargs:
+            groups_assertion = kwargs['groupsAssertion']
+        if idp_metadata_url is None and 'idpMetadataUrl' in kwargs:
+            idp_metadata_url = kwargs['idpMetadataUrl']
+        if idp_metadata_xml is None and 'idpMetadataXml' in kwargs:
+            idp_metadata_xml = kwargs['idpMetadataXml']
+        if login_assertion is None and 'loginAssertion' in kwargs:
+            login_assertion = kwargs['loginAssertion']
+        if login_validity_duration is None and 'loginValidityDuration' in kwargs:
+            login_validity_duration = kwargs['loginValidityDuration']
+        if name_assertion is None and 'nameAssertion' in kwargs:
+            name_assertion = kwargs['nameAssertion']
+        if org_assertion is None and 'orgAssertion' in kwargs:
+            org_assertion = kwargs['orgAssertion']
+        if role_assertion is None and 'roleAssertion' in kwargs:
+            role_assertion = kwargs['roleAssertion']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if admin_role_values is not None:
-            pulumi.set(__self__, "admin_role_values", admin_role_values)
+            _setter("admin_role_values", admin_role_values)
         if allowed_organizations is not None:
-            pulumi.set(__self__, "allowed_organizations", allowed_organizations)
+            _setter("allowed_organizations", allowed_organizations)
         if editor_role_values is not None:
-            pulumi.set(__self__, "editor_role_values", editor_role_values)
+            _setter("editor_role_values", editor_role_values)
         if email_assertion is not None:
-            pulumi.set(__self__, "email_assertion", email_assertion)
+            _setter("email_assertion", email_assertion)
         if groups_assertion is not None:
-            pulumi.set(__self__, "groups_assertion", groups_assertion)
+            _setter("groups_assertion", groups_assertion)
         if idp_metadata_url is not None:
-            pulumi.set(__self__, "idp_metadata_url", idp_metadata_url)
+            _setter("idp_metadata_url", idp_metadata_url)
         if idp_metadata_xml is not None:
-            pulumi.set(__self__, "idp_metadata_xml", idp_metadata_xml)
+            _setter("idp_metadata_xml", idp_metadata_xml)
         if login_assertion is not None:
-            pulumi.set(__self__, "login_assertion", login_assertion)
+            _setter("login_assertion", login_assertion)
         if login_validity_duration is not None:
-            pulumi.set(__self__, "login_validity_duration", login_validity_duration)
+            _setter("login_validity_duration", login_validity_duration)
         if name_assertion is not None:
-            pulumi.set(__self__, "name_assertion", name_assertion)
+            _setter("name_assertion", name_assertion)
         if org_assertion is not None:
-            pulumi.set(__self__, "org_assertion", org_assertion)
+            _setter("org_assertion", org_assertion)
         if role_assertion is not None:
-            pulumi.set(__self__, "role_assertion", role_assertion)
+            _setter("role_assertion", role_assertion)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="adminRoleValues")
@@ -600,6 +728,10 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceSamlConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserInGroupArgs', 'UserInGroup']
@@ -23,9 +23,34 @@ class UserInGroupArgs:
         :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
         :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "user_pool_id", user_pool_id)
-        pulumi.set(__self__, "username", username)
+        UserInGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            user_pool_id=user_pool_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("group_name", group_name)
+        _setter("user_pool_id", user_pool_id)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="groupName")
@@ -76,12 +101,31 @@ class _UserInGroupState:
         :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
         :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
+        _UserInGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            user_pool_id=user_pool_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if user_pool_id is not None:
-            pulumi.set(__self__, "user_pool_id", user_pool_id)
+            _setter("user_pool_id", user_pool_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="groupName")
@@ -203,6 +247,10 @@ class UserInGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserInGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

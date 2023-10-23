@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -43,14 +43,31 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
         :param pulumi.Input[str] type: Record type, always `CNAME`.
         :param pulumi.Input[str] value: Certificate CNAME record value.
         """
+        CustomDomainAssociationCertificateValidationRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            status=status,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -108,8 +125,19 @@ class ObservabilityConfigurationTraceConfigurationArgs:
         """
         :param pulumi.Input[str] vendor: Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
         """
+        ObservabilityConfigurationTraceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vendor=vendor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vendor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if vendor is not None:
-            pulumi.set(__self__, "vendor", vendor)
+            _setter("vendor", vendor)
 
     @property
     @pulumi.getter
@@ -131,7 +159,22 @@ class ServiceEncryptionConfigurationArgs:
         """
         :param pulumi.Input[str] kms_key: ARN of the KMS key used for encryption.
         """
-        pulumi.set(__self__, "kms_key", kms_key)
+        ServiceEncryptionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key=kms_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if kms_key is None:
+            raise TypeError("Missing 'kms_key' argument")
+
+        _setter("kms_key", kms_key)
 
     @property
     @pulumi.getter(name="kmsKey")
@@ -163,18 +206,43 @@ class ServiceHealthCheckConfigurationArgs:
         :param pulumi.Input[int] timeout: Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
         :param pulumi.Input[int] unhealthy_threshold: Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
         """
+        ServiceHealthCheckConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            healthy_threshold=healthy_threshold,
+            interval=interval,
+            path=path,
+            protocol=protocol,
+            timeout=timeout,
+            unhealthy_threshold=unhealthy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             healthy_threshold: Optional[pulumi.Input[int]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             unhealthy_threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if healthy_threshold is None and 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+
         if healthy_threshold is not None:
-            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+            _setter("healthy_threshold", healthy_threshold)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if unhealthy_threshold is not None:
-            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+            _setter("unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -260,12 +328,29 @@ class ServiceInstanceConfigurationArgs:
         :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         :param pulumi.Input[str] memory: Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
         """
+        ServiceInstanceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            instance_role_arn=instance_role_arn,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[pulumi.Input[str]] = None,
+             instance_role_arn: Optional[pulumi.Input[str]] = None,
+             memory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_role_arn is None and 'instanceRoleArn' in kwargs:
+            instance_role_arn = kwargs['instanceRoleArn']
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if instance_role_arn is not None:
-            pulumi.set(__self__, "instance_role_arn", instance_role_arn)
+            _setter("instance_role_arn", instance_role_arn)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -313,10 +398,27 @@ class ServiceNetworkConfigurationArgs:
         :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
+        ServiceNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            egress_configuration=egress_configuration,
+            ingress_configuration=ingress_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']] = None,
+             ingress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if egress_configuration is None and 'egressConfiguration' in kwargs:
+            egress_configuration = kwargs['egressConfiguration']
+        if ingress_configuration is None and 'ingressConfiguration' in kwargs:
+            ingress_configuration = kwargs['ingressConfiguration']
+
         if egress_configuration is not None:
-            pulumi.set(__self__, "egress_configuration", egress_configuration)
+            _setter("egress_configuration", egress_configuration)
         if ingress_configuration is not None:
-            pulumi.set(__self__, "ingress_configuration", ingress_configuration)
+            _setter("ingress_configuration", ingress_configuration)
 
     @property
     @pulumi.getter(name="egressConfiguration")
@@ -352,10 +454,27 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
         :param pulumi.Input[str] egress_type: The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
         :param pulumi.Input[str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
+        ServiceNetworkConfigurationEgressConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            egress_type=egress_type,
+            vpc_connector_arn=vpc_connector_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             egress_type: Optional[pulumi.Input[str]] = None,
+             vpc_connector_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if egress_type is None and 'egressType' in kwargs:
+            egress_type = kwargs['egressType']
+        if vpc_connector_arn is None and 'vpcConnectorArn' in kwargs:
+            vpc_connector_arn = kwargs['vpcConnectorArn']
+
         if egress_type is not None:
-            pulumi.set(__self__, "egress_type", egress_type)
+            _setter("egress_type", egress_type)
         if vpc_connector_arn is not None:
-            pulumi.set(__self__, "vpc_connector_arn", vpc_connector_arn)
+            _setter("vpc_connector_arn", vpc_connector_arn)
 
     @property
     @pulumi.getter(name="egressType")
@@ -389,8 +508,21 @@ class ServiceNetworkConfigurationIngressConfigurationArgs:
         """
         :param pulumi.Input[bool] is_publicly_accessible: Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
         """
+        ServiceNetworkConfigurationIngressConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_publicly_accessible=is_publicly_accessible,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_publicly_accessible: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_publicly_accessible is None and 'isPubliclyAccessible' in kwargs:
+            is_publicly_accessible = kwargs['isPubliclyAccessible']
+
         if is_publicly_accessible is not None:
-            pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
+            _setter("is_publicly_accessible", is_publicly_accessible)
 
     @property
     @pulumi.getter(name="isPubliclyAccessible")
@@ -414,9 +546,28 @@ class ServiceObservabilityConfigurationArgs:
         :param pulumi.Input[bool] observability_enabled: When `true`, an observability configuration resource is associated with the service.
         :param pulumi.Input[str] observability_configuration_arn: ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
         """
-        pulumi.set(__self__, "observability_enabled", observability_enabled)
+        ServiceObservabilityConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            observability_enabled=observability_enabled,
+            observability_configuration_arn=observability_configuration_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             observability_enabled: Optional[pulumi.Input[bool]] = None,
+             observability_configuration_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if observability_enabled is None and 'observabilityEnabled' in kwargs:
+            observability_enabled = kwargs['observabilityEnabled']
+        if observability_enabled is None:
+            raise TypeError("Missing 'observability_enabled' argument")
+        if observability_configuration_arn is None and 'observabilityConfigurationArn' in kwargs:
+            observability_configuration_arn = kwargs['observabilityConfigurationArn']
+
+        _setter("observability_enabled", observability_enabled)
         if observability_configuration_arn is not None:
-            pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
+            _setter("observability_configuration_arn", observability_configuration_arn)
 
     @property
     @pulumi.getter(name="observabilityEnabled")
@@ -456,14 +607,39 @@ class ServiceSourceConfigurationArgs:
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs'] code_repository: Description of a source code repository. See Code Repository below for more details.
         :param pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs'] image_repository: Description of a source image repository. See Image Repository below for more details.
         """
+        ServiceSourceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_configuration=authentication_configuration,
+            auto_deployments_enabled=auto_deployments_enabled,
+            code_repository=code_repository,
+            image_repository=image_repository,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_configuration: Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs']] = None,
+             auto_deployments_enabled: Optional[pulumi.Input[bool]] = None,
+             code_repository: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs']] = None,
+             image_repository: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if auto_deployments_enabled is None and 'autoDeploymentsEnabled' in kwargs:
+            auto_deployments_enabled = kwargs['autoDeploymentsEnabled']
+        if code_repository is None and 'codeRepository' in kwargs:
+            code_repository = kwargs['codeRepository']
+        if image_repository is None and 'imageRepository' in kwargs:
+            image_repository = kwargs['imageRepository']
+
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if auto_deployments_enabled is not None:
-            pulumi.set(__self__, "auto_deployments_enabled", auto_deployments_enabled)
+            _setter("auto_deployments_enabled", auto_deployments_enabled)
         if code_repository is not None:
-            pulumi.set(__self__, "code_repository", code_repository)
+            _setter("code_repository", code_repository)
         if image_repository is not None:
-            pulumi.set(__self__, "image_repository", image_repository)
+            _setter("image_repository", image_repository)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
@@ -523,10 +699,27 @@ class ServiceSourceConfigurationAuthenticationConfigurationArgs:
         :param pulumi.Input[str] access_role_arn: ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
         :param pulumi.Input[str] connection_arn: ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
         """
+        ServiceSourceConfigurationAuthenticationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_role_arn=access_role_arn,
+            connection_arn=connection_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_role_arn: Optional[pulumi.Input[str]] = None,
+             connection_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_role_arn is None and 'accessRoleArn' in kwargs:
+            access_role_arn = kwargs['accessRoleArn']
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         if access_role_arn is not None:
-            pulumi.set(__self__, "access_role_arn", access_role_arn)
+            _setter("access_role_arn", access_role_arn)
         if connection_arn is not None:
-            pulumi.set(__self__, "connection_arn", connection_arn)
+            _setter("connection_arn", connection_arn)
 
     @property
     @pulumi.getter(name="accessRoleArn")
@@ -564,10 +757,35 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "source_code_version", source_code_version)
+        ServiceSourceConfigurationCodeRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_url=repository_url,
+            source_code_version=source_code_version,
+            code_configuration=code_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_url: Optional[pulumi.Input[str]] = None,
+             source_code_version: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs']] = None,
+             code_configuration: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if repository_url is None:
+            raise TypeError("Missing 'repository_url' argument")
+        if source_code_version is None and 'sourceCodeVersion' in kwargs:
+            source_code_version = kwargs['sourceCodeVersion']
+        if source_code_version is None:
+            raise TypeError("Missing 'source_code_version' argument")
+        if code_configuration is None and 'codeConfiguration' in kwargs:
+            code_configuration = kwargs['codeConfiguration']
+
+        _setter("repository_url", repository_url)
+        _setter("source_code_version", source_code_version)
         if code_configuration is not None:
-            pulumi.set(__self__, "code_configuration", code_configuration)
+            _setter("code_configuration", code_configuration)
 
     @property
     @pulumi.getter(name="repositoryUrl")
@@ -615,9 +833,28 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
         :param pulumi.Input[str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
-        pulumi.set(__self__, "configuration_source", configuration_source)
+        ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_source=configuration_source,
+            code_configuration_values=code_configuration_values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_source: Optional[pulumi.Input[str]] = None,
+             code_configuration_values: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_source is None and 'configurationSource' in kwargs:
+            configuration_source = kwargs['configurationSource']
+        if configuration_source is None:
+            raise TypeError("Missing 'configuration_source' argument")
+        if code_configuration_values is None and 'codeConfigurationValues' in kwargs:
+            code_configuration_values = kwargs['codeConfigurationValues']
+
+        _setter("configuration_source", configuration_source)
         if code_configuration_values is not None:
-            pulumi.set(__self__, "code_configuration_values", code_configuration_values)
+            _setter("code_configuration_values", code_configuration_values)
 
     @property
     @pulumi.getter(name="configurationSource")
@@ -661,17 +898,48 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         :param pulumi.Input[str] start_command: Command App Runner runs to start your application.
         """
-        pulumi.set(__self__, "runtime", runtime)
+        ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runtime=runtime,
+            build_command=build_command,
+            port=port,
+            runtime_environment_secrets=runtime_environment_secrets,
+            runtime_environment_variables=runtime_environment_variables,
+            start_command=start_command,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runtime: Optional[pulumi.Input[str]] = None,
+             build_command: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             runtime_environment_secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             start_command: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if runtime is None:
+            raise TypeError("Missing 'runtime' argument")
+        if build_command is None and 'buildCommand' in kwargs:
+            build_command = kwargs['buildCommand']
+        if runtime_environment_secrets is None and 'runtimeEnvironmentSecrets' in kwargs:
+            runtime_environment_secrets = kwargs['runtimeEnvironmentSecrets']
+        if runtime_environment_variables is None and 'runtimeEnvironmentVariables' in kwargs:
+            runtime_environment_variables = kwargs['runtimeEnvironmentVariables']
+        if start_command is None and 'startCommand' in kwargs:
+            start_command = kwargs['startCommand']
+
+        _setter("runtime", runtime)
         if build_command is not None:
-            pulumi.set(__self__, "build_command", build_command)
+            _setter("build_command", build_command)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if runtime_environment_secrets is not None:
-            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
+            _setter("runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
-            pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
+            _setter("runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
-            pulumi.set(__self__, "start_command", start_command)
+            _setter("start_command", start_command)
 
     @property
     @pulumi.getter
@@ -755,8 +1023,25 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
         :param pulumi.Input[str] type: Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
         :param pulumi.Input[str] value: Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -795,10 +1080,35 @@ class ServiceSourceConfigurationImageRepositoryArgs:
         :param pulumi.Input[str] image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
         :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs'] image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
         """
-        pulumi.set(__self__, "image_identifier", image_identifier)
-        pulumi.set(__self__, "image_repository_type", image_repository_type)
+        ServiceSourceConfigurationImageRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_identifier=image_identifier,
+            image_repository_type=image_repository_type,
+            image_configuration=image_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_identifier: Optional[pulumi.Input[str]] = None,
+             image_repository_type: Optional[pulumi.Input[str]] = None,
+             image_configuration: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_identifier is None and 'imageIdentifier' in kwargs:
+            image_identifier = kwargs['imageIdentifier']
+        if image_identifier is None:
+            raise TypeError("Missing 'image_identifier' argument")
+        if image_repository_type is None and 'imageRepositoryType' in kwargs:
+            image_repository_type = kwargs['imageRepositoryType']
+        if image_repository_type is None:
+            raise TypeError("Missing 'image_repository_type' argument")
+        if image_configuration is None and 'imageConfiguration' in kwargs:
+            image_configuration = kwargs['imageConfiguration']
+
+        _setter("image_identifier", image_identifier)
+        _setter("image_repository_type", image_repository_type)
         if image_configuration is not None:
-            pulumi.set(__self__, "image_configuration", image_configuration)
+            _setter("image_configuration", image_configuration)
 
     @property
     @pulumi.getter(name="imageIdentifier")
@@ -851,14 +1161,37 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         :param pulumi.Input[str] start_command: Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
         """
+        ServiceSourceConfigurationImageRepositoryImageConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            runtime_environment_secrets=runtime_environment_secrets,
+            runtime_environment_variables=runtime_environment_variables,
+            start_command=start_command,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[str]] = None,
+             runtime_environment_secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             start_command: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if runtime_environment_secrets is None and 'runtimeEnvironmentSecrets' in kwargs:
+            runtime_environment_secrets = kwargs['runtimeEnvironmentSecrets']
+        if runtime_environment_variables is None and 'runtimeEnvironmentVariables' in kwargs:
+            runtime_environment_variables = kwargs['runtimeEnvironmentVariables']
+        if start_command is None and 'startCommand' in kwargs:
+            start_command = kwargs['startCommand']
+
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if runtime_environment_secrets is not None:
-            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
+            _setter("runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
-            pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
+            _setter("runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
-            pulumi.set(__self__, "start_command", start_command)
+            _setter("start_command", start_command)
 
     @property
     @pulumi.getter
@@ -918,10 +1251,27 @@ class VpcIngressConnectionIngressVpcConfigurationArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that is used for the VPC endpoint.
         """
+        VpcIngressConnectionIngressVpcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vpc_endpoint_id=vpc_endpoint_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="vpcEndpointId")

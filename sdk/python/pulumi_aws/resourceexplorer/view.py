@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,16 +29,39 @@ class ViewArgs:
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        ViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_view=default_view,
+            filters=filters,
+            included_properties=included_properties,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_view: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
+             included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_view is None and 'defaultView' in kwargs:
+            default_view = kwargs['defaultView']
+        if included_properties is None and 'includedProperties' in kwargs:
+            included_properties = kwargs['includedProperties']
+
         if default_view is not None:
-            pulumi.set(__self__, "default_view", default_view)
+            _setter("default_view", default_view)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if included_properties is not None:
-            pulumi.set(__self__, "included_properties", included_properties)
+            _setter("included_properties", included_properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultView")
@@ -121,23 +144,52 @@ class _ViewState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ViewState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            default_view=default_view,
+            filters=filters,
+            included_properties=included_properties,
+            name=name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             default_view: Optional[pulumi.Input[bool]] = None,
+             filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
+             included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_view is None and 'defaultView' in kwargs:
+            default_view = kwargs['defaultView']
+        if included_properties is None and 'includedProperties' in kwargs:
+            included_properties = kwargs['includedProperties']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_view is not None:
-            pulumi.set(__self__, "default_view", default_view)
+            _setter("default_view", default_view)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if included_properties is not None:
-            pulumi.set(__self__, "included_properties", included_properties)
+            _setter("included_properties", included_properties)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -318,6 +370,10 @@ class View(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ViewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -338,6 +394,11 @@ class View(pulumi.CustomResource):
             __props__ = ViewArgs.__new__(ViewArgs)
 
             __props__.__dict__["default_view"] = default_view
+            if filters is not None and not isinstance(filters, ViewFiltersArgs):
+                filters = filters or {}
+                def _setter(key, value):
+                    filters[key] = value
+                ViewFiltersArgs._configure(_setter, **filters)
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
             __props__.__dict__["name"] = name

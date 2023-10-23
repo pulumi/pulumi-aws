@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,18 +32,47 @@ class RepositoryArgs:
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_configurations=encryption_configurations,
+            force_delete=force_delete,
+            image_scanning_configuration=image_scanning_configuration,
+            image_tag_mutability=image_tag_mutability,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
+             image_tag_mutability: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if encryption_configurations is None and 'encryptionConfigurations' in kwargs:
+            encryption_configurations = kwargs['encryptionConfigurations']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if image_tag_mutability is None and 'imageTagMutability' in kwargs:
+            image_tag_mutability = kwargs['imageTagMutability']
+
         if encryption_configurations is not None:
-            pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+            _setter("encryption_configurations", encryption_configurations)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if image_scanning_configuration is not None:
-            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
+            _setter("image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
-            pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+            _setter("image_tag_mutability", image_tag_mutability)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
@@ -146,29 +175,72 @@ class _RepositoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _RepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            encryption_configurations=encryption_configurations,
+            force_delete=force_delete,
+            image_scanning_configuration=image_scanning_configuration,
+            image_tag_mutability=image_tag_mutability,
+            name=name,
+            registry_id=registry_id,
+            repository_url=repository_url,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
+             image_tag_mutability: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if encryption_configurations is None and 'encryptionConfigurations' in kwargs:
+            encryption_configurations = kwargs['encryptionConfigurations']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if image_tag_mutability is None and 'imageTagMutability' in kwargs:
+            image_tag_mutability = kwargs['imageTagMutability']
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if encryption_configurations is not None:
-            pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+            _setter("encryption_configurations", encryption_configurations)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if image_scanning_configuration is not None:
-            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
+            _setter("image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
-            pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
+            _setter("image_tag_mutability", image_tag_mutability)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if repository_url is not None:
-            pulumi.set(__self__, "repository_url", repository_url)
+            _setter("repository_url", repository_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -381,6 +453,10 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -403,6 +479,11 @@ class Repository(pulumi.CustomResource):
 
             __props__.__dict__["encryption_configurations"] = encryption_configurations
             __props__.__dict__["force_delete"] = force_delete
+            if image_scanning_configuration is not None and not isinstance(image_scanning_configuration, RepositoryImageScanningConfigurationArgs):
+                image_scanning_configuration = image_scanning_configuration or {}
+                def _setter(key, value):
+                    image_scanning_configuration[key] = value
+                RepositoryImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
             __props__.__dict__["name"] = name

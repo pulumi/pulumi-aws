@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -32,15 +32,44 @@ class EndpointAuthenticationOptionArgs:
         :param pulumi.Input[str] saml_provider_arn: The ARN of the IAM SAML identity provider if type is `federated-authentication`.
         :param pulumi.Input[str] self_service_saml_provider_arn: The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
         """
-        pulumi.set(__self__, "type", type)
+        EndpointAuthenticationOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            active_directory_id=active_directory_id,
+            root_certificate_chain_arn=root_certificate_chain_arn,
+            saml_provider_arn=saml_provider_arn,
+            self_service_saml_provider_arn=self_service_saml_provider_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             active_directory_id: Optional[pulumi.Input[str]] = None,
+             root_certificate_chain_arn: Optional[pulumi.Input[str]] = None,
+             saml_provider_arn: Optional[pulumi.Input[str]] = None,
+             self_service_saml_provider_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if active_directory_id is None and 'activeDirectoryId' in kwargs:
+            active_directory_id = kwargs['activeDirectoryId']
+        if root_certificate_chain_arn is None and 'rootCertificateChainArn' in kwargs:
+            root_certificate_chain_arn = kwargs['rootCertificateChainArn']
+        if saml_provider_arn is None and 'samlProviderArn' in kwargs:
+            saml_provider_arn = kwargs['samlProviderArn']
+        if self_service_saml_provider_arn is None and 'selfServiceSamlProviderArn' in kwargs:
+            self_service_saml_provider_arn = kwargs['selfServiceSamlProviderArn']
+
+        _setter("type", type)
         if active_directory_id is not None:
-            pulumi.set(__self__, "active_directory_id", active_directory_id)
+            _setter("active_directory_id", active_directory_id)
         if root_certificate_chain_arn is not None:
-            pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
+            _setter("root_certificate_chain_arn", root_certificate_chain_arn)
         if saml_provider_arn is not None:
-            pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+            _setter("saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
-            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+            _setter("self_service_saml_provider_arn", self_service_saml_provider_arn)
 
     @property
     @pulumi.getter
@@ -112,10 +141,25 @@ class EndpointClientConnectOptionsArgs:
         :param pulumi.Input[bool] enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
         :param pulumi.Input[str] lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
         """
+        EndpointClientConnectOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            lambda_function_arn=lambda_function_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             lambda_function_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if lambda_function_arn is not None:
-            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+            _setter("lambda_function_arn", lambda_function_arn)
 
     @property
     @pulumi.getter
@@ -151,10 +195,25 @@ class EndpointClientLoginBannerOptionsArgs:
         :param pulumi.Input[str] banner_text: Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
         :param pulumi.Input[bool] enabled: Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
         """
+        EndpointClientLoginBannerOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            banner_text=banner_text,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             banner_text: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if banner_text is None and 'bannerText' in kwargs:
+            banner_text = kwargs['bannerText']
+
         if banner_text is not None:
-            pulumi.set(__self__, "banner_text", banner_text)
+            _setter("banner_text", banner_text)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="bannerText")
@@ -192,11 +251,32 @@ class EndpointConnectionLogOptionsArgs:
         :param pulumi.Input[str] cloudwatch_log_group: The name of the CloudWatch Logs log group.
         :param pulumi.Input[str] cloudwatch_log_stream: The name of the CloudWatch Logs log stream to which the connection data is published.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        EndpointConnectionLogOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            cloudwatch_log_group=cloudwatch_log_group,
+            cloudwatch_log_stream=cloudwatch_log_stream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             cloudwatch_log_group: Optional[pulumi.Input[str]] = None,
+             cloudwatch_log_stream: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if cloudwatch_log_group is None and 'cloudwatchLogGroup' in kwargs:
+            cloudwatch_log_group = kwargs['cloudwatchLogGroup']
+        if cloudwatch_log_stream is None and 'cloudwatchLogStream' in kwargs:
+            cloudwatch_log_stream = kwargs['cloudwatchLogStream']
+
+        _setter("enabled", enabled)
         if cloudwatch_log_group is not None:
-            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+            _setter("cloudwatch_log_group", cloudwatch_log_group)
         if cloudwatch_log_stream is not None:
-            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+            _setter("cloudwatch_log_stream", cloudwatch_log_stream)
 
     @property
     @pulumi.getter
@@ -244,8 +324,25 @@ class GetEndpointFilterArgs:
         :param str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
         :param Sequence[str] values: Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetEndpointFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

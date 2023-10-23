@@ -14,16 +14,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * 
      */
     private List<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation> textTransformations;
@@ -31,16 +21,6 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath {
     private RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath() {}
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
-     * At least one required.
-     * See Text Transformation below for details.
      * At least one required.
      * See Text Transformation below for details.
      * 

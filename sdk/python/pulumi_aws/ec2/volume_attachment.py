@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
@@ -38,15 +38,54 @@ class VolumeAttachmentArgs:
         :param pulumi.Input[bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
                before trying to detach the volume. Stops the instance, if it is not already stopped.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "instance_id", instance_id)
-        pulumi.set(__self__, "volume_id", volume_id)
+        VolumeAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            instance_id=instance_id,
+            volume_id=volume_id,
+            force_detach=force_detach,
+            skip_destroy=skip_destroy,
+            stop_instance_before_detaching=stop_instance_before_detaching,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             force_detach: Optional[pulumi.Input[bool]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+        if force_detach is None and 'forceDetach' in kwargs:
+            force_detach = kwargs['forceDetach']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if stop_instance_before_detaching is None and 'stopInstanceBeforeDetaching' in kwargs:
+            stop_instance_before_detaching = kwargs['stopInstanceBeforeDetaching']
+
+        _setter("device_name", device_name)
+        _setter("instance_id", instance_id)
+        _setter("volume_id", volume_id)
         if force_detach is not None:
-            pulumi.set(__self__, "force_detach", force_detach)
+            _setter("force_detach", force_detach)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if stop_instance_before_detaching is not None:
-            pulumi.set(__self__, "stop_instance_before_detaching", stop_instance_before_detaching)
+            _setter("stop_instance_before_detaching", stop_instance_before_detaching)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -157,18 +196,51 @@ class _VolumeAttachmentState:
                before trying to detach the volume. Stops the instance, if it is not already stopped.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
         """
+        _VolumeAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            force_detach=force_detach,
+            instance_id=instance_id,
+            skip_destroy=skip_destroy,
+            stop_instance_before_detaching=stop_instance_before_detaching,
+            volume_id=volume_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             force_detach: Optional[pulumi.Input[bool]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if force_detach is None and 'forceDetach' in kwargs:
+            force_detach = kwargs['forceDetach']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if stop_instance_before_detaching is None and 'stopInstanceBeforeDetaching' in kwargs:
+            stop_instance_before_detaching = kwargs['stopInstanceBeforeDetaching']
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if force_detach is not None:
-            pulumi.set(__self__, "force_detach", force_detach)
+            _setter("force_detach", force_detach)
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if stop_instance_before_detaching is not None:
-            pulumi.set(__self__, "stop_instance_before_detaching", stop_instance_before_detaching)
+            _setter("stop_instance_before_detaching", stop_instance_before_detaching)
         if volume_id is not None:
-            pulumi.set(__self__, "volume_id", volume_id)
+            _setter("volume_id", volume_id)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -370,6 +442,10 @@ class VolumeAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

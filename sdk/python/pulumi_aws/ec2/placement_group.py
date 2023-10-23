@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,15 +31,40 @@ class PlacementGroupArgs:
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "strategy", strategy)
+        PlacementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            strategy=strategy,
+            name=name,
+            partition_count=partition_count,
+            spread_level=spread_level,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             spread_level: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if strategy is None:
+            raise TypeError("Missing 'strategy' argument")
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if spread_level is None and 'spreadLevel' in kwargs:
+            spread_level = kwargs['spreadLevel']
+
+        _setter("strategy", strategy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if spread_level is not None:
-            pulumi.set(__self__, "spread_level", spread_level)
+            _setter("spread_level", spread_level)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -130,25 +155,58 @@ class _PlacementGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _PlacementGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            name=name,
+            partition_count=partition_count,
+            placement_group_id=placement_group_id,
+            spread_level=spread_level,
+            strategy=strategy,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             placement_group_id: Optional[pulumi.Input[str]] = None,
+             spread_level: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if placement_group_id is None and 'placementGroupId' in kwargs:
+            placement_group_id = kwargs['placementGroupId']
+        if spread_level is None and 'spreadLevel' in kwargs:
+            spread_level = kwargs['spreadLevel']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if placement_group_id is not None:
-            pulumi.set(__self__, "placement_group_id", placement_group_id)
+            _setter("placement_group_id", placement_group_id)
         if spread_level is not None:
-            pulumi.set(__self__, "spread_level", spread_level)
+            _setter("spread_level", spread_level)
         if strategy is not None:
-            pulumi.set(__self__, "strategy", strategy)
+            _setter("strategy", strategy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -333,6 +391,10 @@ class PlacementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlacementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,20 +49,65 @@ class GlobalReplicationGroupArgs:
                Specifying without a major version upgrade will fail.
                Note that ElastiCache creates a copy of this parameter group for each member replication group.
         """
-        pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
-        pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        GlobalReplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            global_replication_group_id_suffix=global_replication_group_id_suffix,
+            primary_replication_group_id=primary_replication_group_id,
+            automatic_failover_enabled=automatic_failover_enabled,
+            cache_node_type=cache_node_type,
+            engine_version=engine_version,
+            global_replication_group_description=global_replication_group_description,
+            num_node_groups=num_node_groups,
+            parameter_group_name=parameter_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+             primary_replication_group_id: Optional[pulumi.Input[str]] = None,
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_node_type: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             global_replication_group_description: Optional[pulumi.Input[str]] = None,
+             num_node_groups: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if global_replication_group_id_suffix is None and 'globalReplicationGroupIdSuffix' in kwargs:
+            global_replication_group_id_suffix = kwargs['globalReplicationGroupIdSuffix']
+        if global_replication_group_id_suffix is None:
+            raise TypeError("Missing 'global_replication_group_id_suffix' argument")
+        if primary_replication_group_id is None and 'primaryReplicationGroupId' in kwargs:
+            primary_replication_group_id = kwargs['primaryReplicationGroupId']
+        if primary_replication_group_id is None:
+            raise TypeError("Missing 'primary_replication_group_id' argument")
+        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
+            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
+        if cache_node_type is None and 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if global_replication_group_description is None and 'globalReplicationGroupDescription' in kwargs:
+            global_replication_group_description = kwargs['globalReplicationGroupDescription']
+        if num_node_groups is None and 'numNodeGroups' in kwargs:
+            num_node_groups = kwargs['numNodeGroups']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+
+        _setter("global_replication_group_id_suffix", global_replication_group_id_suffix)
+        _setter("primary_replication_group_id", primary_replication_group_id)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if cache_node_type is not None:
-            pulumi.set(__self__, "cache_node_type", cache_node_type)
+            _setter("cache_node_type", cache_node_type)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if global_replication_group_description is not None:
-            pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+            _setter("global_replication_group_description", global_replication_group_description)
         if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
+            _setter("num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
 
     @property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
@@ -230,40 +275,113 @@ class _GlobalReplicationGroupState:
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
+        _GlobalReplicationGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            at_rest_encryption_enabled=at_rest_encryption_enabled,
+            auth_token_enabled=auth_token_enabled,
+            automatic_failover_enabled=automatic_failover_enabled,
+            cache_node_type=cache_node_type,
+            cluster_enabled=cluster_enabled,
+            engine=engine,
+            engine_version=engine_version,
+            engine_version_actual=engine_version_actual,
+            global_node_groups=global_node_groups,
+            global_replication_group_description=global_replication_group_description,
+            global_replication_group_id=global_replication_group_id,
+            global_replication_group_id_suffix=global_replication_group_id_suffix,
+            num_node_groups=num_node_groups,
+            parameter_group_name=parameter_group_name,
+            primary_replication_group_id=primary_replication_group_id,
+            transit_encryption_enabled=transit_encryption_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             auth_token_enabled: Optional[pulumi.Input[bool]] = None,
+             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_node_type: Optional[pulumi.Input[str]] = None,
+             cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             engine_version_actual: Optional[pulumi.Input[str]] = None,
+             global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]] = None,
+             global_replication_group_description: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id: Optional[pulumi.Input[str]] = None,
+             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+             num_node_groups: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             primary_replication_group_id: Optional[pulumi.Input[str]] = None,
+             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if at_rest_encryption_enabled is None and 'atRestEncryptionEnabled' in kwargs:
+            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
+        if auth_token_enabled is None and 'authTokenEnabled' in kwargs:
+            auth_token_enabled = kwargs['authTokenEnabled']
+        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
+            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
+        if cache_node_type is None and 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if cluster_enabled is None and 'clusterEnabled' in kwargs:
+            cluster_enabled = kwargs['clusterEnabled']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if engine_version_actual is None and 'engineVersionActual' in kwargs:
+            engine_version_actual = kwargs['engineVersionActual']
+        if global_node_groups is None and 'globalNodeGroups' in kwargs:
+            global_node_groups = kwargs['globalNodeGroups']
+        if global_replication_group_description is None and 'globalReplicationGroupDescription' in kwargs:
+            global_replication_group_description = kwargs['globalReplicationGroupDescription']
+        if global_replication_group_id is None and 'globalReplicationGroupId' in kwargs:
+            global_replication_group_id = kwargs['globalReplicationGroupId']
+        if global_replication_group_id_suffix is None and 'globalReplicationGroupIdSuffix' in kwargs:
+            global_replication_group_id_suffix = kwargs['globalReplicationGroupIdSuffix']
+        if num_node_groups is None and 'numNodeGroups' in kwargs:
+            num_node_groups = kwargs['numNodeGroups']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if primary_replication_group_id is None and 'primaryReplicationGroupId' in kwargs:
+            primary_replication_group_id = kwargs['primaryReplicationGroupId']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if at_rest_encryption_enabled is not None:
-            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token_enabled is not None:
-            pulumi.set(__self__, "auth_token_enabled", auth_token_enabled)
+            _setter("auth_token_enabled", auth_token_enabled)
         if automatic_failover_enabled is not None:
-            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
+            _setter("automatic_failover_enabled", automatic_failover_enabled)
         if cache_node_type is not None:
-            pulumi.set(__self__, "cache_node_type", cache_node_type)
+            _setter("cache_node_type", cache_node_type)
         if cluster_enabled is not None:
-            pulumi.set(__self__, "cluster_enabled", cluster_enabled)
+            _setter("cluster_enabled", cluster_enabled)
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if engine_version_actual is not None:
-            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
+            _setter("engine_version_actual", engine_version_actual)
         if global_node_groups is not None:
-            pulumi.set(__self__, "global_node_groups", global_node_groups)
+            _setter("global_node_groups", global_node_groups)
         if global_replication_group_description is not None:
-            pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+            _setter("global_replication_group_description", global_replication_group_description)
         if global_replication_group_id is not None:
-            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+            _setter("global_replication_group_id", global_replication_group_id)
         if global_replication_group_id_suffix is not None:
-            pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+            _setter("global_replication_group_id_suffix", global_replication_group_id_suffix)
         if num_node_groups is not None:
-            pulumi.set(__self__, "num_node_groups", num_node_groups)
+            _setter("num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if primary_replication_group_id is not None:
-            pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+            _setter("primary_replication_group_id", primary_replication_group_id)
         if transit_encryption_enabled is not None:
-            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
+            _setter("transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter
@@ -680,6 +798,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GlobalReplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

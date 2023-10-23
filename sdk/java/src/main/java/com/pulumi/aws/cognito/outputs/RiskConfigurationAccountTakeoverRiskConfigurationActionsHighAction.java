@@ -15,6 +15,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighA
      * 
      */
     private String eventAction;
+    /**
+     * @return Whether to send a notification.
+     * 
+     */
     private Boolean notify;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction() {}
@@ -25,6 +29,10 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighA
     public String eventAction() {
         return this.eventAction;
     }
+    /**
+     * @return Whether to send a notification.
+     * 
+     */
     public Boolean notify_() {
         return this.notify;
     }

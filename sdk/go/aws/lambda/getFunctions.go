@@ -4,8 +4,12 @@
 package lambda
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data resource to get a list of Lambda Functions.
@@ -51,4 +55,55 @@ type GetFunctionsResult struct {
 	FunctionNames []string `pulumi:"functionNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetFunctionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetFunctionsResult, error) {
+		r, err := GetFunctions(ctx, opts...)
+		var s GetFunctionsResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetFunctionsResultOutput)
+}
+
+// A collection of values returned by getFunctions.
+type GetFunctionsResultOutput struct{ *pulumi.OutputState }
+
+func (GetFunctionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionsResult)(nil)).Elem()
+}
+
+func (o GetFunctionsResultOutput) ToGetFunctionsResultOutput() GetFunctionsResultOutput {
+	return o
+}
+
+func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx context.Context) GetFunctionsResultOutput {
+	return o
+}
+
+func (o GetFunctionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionsResult] {
+	return pulumix.Output[GetFunctionsResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A list of Lambda Function ARNs.
+func (o GetFunctionsResultOutput) FunctionArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionArns }).(pulumi.StringArrayOutput)
+}
+
+// A list of Lambda Function names.
+func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionNames }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetFunctionsResultOutput{})
 }

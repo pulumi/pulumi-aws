@@ -25,7 +25,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
      */
     private String entityName;
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig;
@@ -56,7 +56,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
         return this.entityName;
     }
     /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig> errorHandlingConfig() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -27,9 +27,34 @@ class GetResourcesResourceTagMappingListResult(dict):
         :param str resource_arn: ARN of the resource.
         :param Mapping[str, str] tags: Map of tags assigned to the resource.
         """
-        pulumi.set(__self__, "compliance_details", compliance_details)
-        pulumi.set(__self__, "resource_arn", resource_arn)
-        pulumi.set(__self__, "tags", tags)
+        GetResourcesResourceTagMappingListResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_details=compliance_details,
+            resource_arn=resource_arn,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_details: Optional[Sequence['outputs.GetResourcesResourceTagMappingListComplianceDetailResult']] = None,
+             resource_arn: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compliance_details is None and 'complianceDetails' in kwargs:
+            compliance_details = kwargs['complianceDetails']
+        if compliance_details is None:
+            raise TypeError("Missing 'compliance_details' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+
+        _setter("compliance_details", compliance_details)
+        _setter("resource_arn", resource_arn)
+        _setter("tags", tags)
 
     @property
     @pulumi.getter(name="complianceDetails")
@@ -67,9 +92,36 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
                * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
                * `non_compliant_keys ` - Set of non-compliant tag keys.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "keys_with_noncompliant_values", keys_with_noncompliant_values)
-        pulumi.set(__self__, "non_compliant_keys", non_compliant_keys)
+        GetResourcesResourceTagMappingListComplianceDetailResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            keys_with_noncompliant_values=keys_with_noncompliant_values,
+            non_compliant_keys=non_compliant_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: Optional[bool] = None,
+             keys_with_noncompliant_values: Optional[Sequence[str]] = None,
+             non_compliant_keys: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if keys_with_noncompliant_values is None and 'keysWithNoncompliantValues' in kwargs:
+            keys_with_noncompliant_values = kwargs['keysWithNoncompliantValues']
+        if keys_with_noncompliant_values is None:
+            raise TypeError("Missing 'keys_with_noncompliant_values' argument")
+        if non_compliant_keys is None and 'nonCompliantKeys' in kwargs:
+            non_compliant_keys = kwargs['nonCompliantKeys']
+        if non_compliant_keys is None:
+            raise TypeError("Missing 'non_compliant_keys' argument")
+
+        _setter("compliance_status", compliance_status)
+        _setter("keys_with_noncompliant_values", keys_with_noncompliant_values)
+        _setter("non_compliant_keys", non_compliant_keys)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -101,9 +153,24 @@ class GetResourcesTagFilterResult(dict):
         :param str key: One part of a key-value pair that makes up a tag.
         :param Sequence[str] values: Optional part of a key-value pair that make up a tag.
         """
-        pulumi.set(__self__, "key", key)
+        GetResourcesTagFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
+        _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter

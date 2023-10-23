@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersSelfManagedKafkaParametersCredentials
     {
         /// <summary>
-        /// The ARN of the Secrets Manager secret containing the basic auth credentials.
+        /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
         public readonly string BasicAuth;
         /// <summary>

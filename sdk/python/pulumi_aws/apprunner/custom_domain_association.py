@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,35 @@ class CustomDomainAssociationArgs:
         :param pulumi.Input[str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "service_arn", service_arn)
+        CustomDomainAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            service_arn=service_arn,
+            enable_www_subdomain=enable_www_subdomain,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             service_arn: Optional[pulumi.Input[str]] = None,
+             enable_www_subdomain: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if service_arn is None and 'serviceArn' in kwargs:
+            service_arn = kwargs['serviceArn']
+        if service_arn is None:
+            raise TypeError("Missing 'service_arn' argument")
+        if enable_www_subdomain is None and 'enableWwwSubdomain' in kwargs:
+            enable_www_subdomain = kwargs['enableWwwSubdomain']
+
+        _setter("domain_name", domain_name)
+        _setter("service_arn", service_arn)
         if enable_www_subdomain is not None:
-            pulumi.set(__self__, "enable_www_subdomain", enable_www_subdomain)
+            _setter("enable_www_subdomain", enable_www_subdomain)
 
     @property
     @pulumi.getter(name="domainName")
@@ -85,18 +110,49 @@ class _CustomDomainAssociationState:
         :param pulumi.Input[str] service_arn: ARN of the App Runner service.
         :param pulumi.Input[str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
+        _CustomDomainAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_validation_records=certificate_validation_records,
+            dns_target=dns_target,
+            domain_name=domain_name,
+            enable_www_subdomain=enable_www_subdomain,
+            service_arn=service_arn,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]] = None,
+             dns_target: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             enable_www_subdomain: Optional[pulumi.Input[bool]] = None,
+             service_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_validation_records is None and 'certificateValidationRecords' in kwargs:
+            certificate_validation_records = kwargs['certificateValidationRecords']
+        if dns_target is None and 'dnsTarget' in kwargs:
+            dns_target = kwargs['dnsTarget']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if enable_www_subdomain is None and 'enableWwwSubdomain' in kwargs:
+            enable_www_subdomain = kwargs['enableWwwSubdomain']
+        if service_arn is None and 'serviceArn' in kwargs:
+            service_arn = kwargs['serviceArn']
+
         if certificate_validation_records is not None:
-            pulumi.set(__self__, "certificate_validation_records", certificate_validation_records)
+            _setter("certificate_validation_records", certificate_validation_records)
         if dns_target is not None:
-            pulumi.set(__self__, "dns_target", dns_target)
+            _setter("dns_target", dns_target)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if enable_www_subdomain is not None:
-            pulumi.set(__self__, "enable_www_subdomain", enable_www_subdomain)
+            _setter("enable_www_subdomain", enable_www_subdomain)
         if service_arn is not None:
-            pulumi.set(__self__, "service_arn", service_arn)
+            _setter("service_arn", service_arn)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="certificateValidationRecords")
@@ -250,6 +306,10 @@ class CustomDomainAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDomainAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CleanRooms
     ///             {
     ///                 AccountId = "123456789012",
     ///                 DisplayName = "Other member",
-    ///                 MemberAbilities = new[] {},
+    ///                 MemberAbilities = new() { },
     ///             },
     ///         },
     ///         QueryLogStatus = "DISABLED",

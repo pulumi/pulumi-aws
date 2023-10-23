@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttpRouteMatchPathGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+        /// Header value sent by the client must match the specified value exactly.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+        /// Header value sent by the client must include the specified characters.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

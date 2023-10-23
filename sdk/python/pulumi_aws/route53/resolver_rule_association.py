@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverRuleAssociationArgs', 'ResolverRuleAssociation']
@@ -23,10 +23,33 @@ class ResolverRuleAssociationArgs:
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         :param pulumi.Input[str] name: A name for the association that you're creating between a resolver rule and a VPC.
         """
-        pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
-        pulumi.set(__self__, "vpc_id", vpc_id)
+        ResolverRuleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resolver_rule_id=resolver_rule_id,
+            vpc_id=vpc_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resolver_rule_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resolver_rule_id is None and 'resolverRuleId' in kwargs:
+            resolver_rule_id = kwargs['resolverRuleId']
+        if resolver_rule_id is None:
+            raise TypeError("Missing 'resolver_rule_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
+        _setter("resolver_rule_id", resolver_rule_id)
+        _setter("vpc_id", vpc_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resolverRuleId")
@@ -77,12 +100,31 @@ class _ResolverRuleAssociationState:
         :param pulumi.Input[str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         """
+        _ResolverRuleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resolver_rule_id=resolver_rule_id,
+            vpc_id=vpc_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resolver_rule_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resolver_rule_id is None and 'resolverRuleId' in kwargs:
+            resolver_rule_id = kwargs['resolverRuleId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resolver_rule_id is not None:
-            pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
+            _setter("resolver_rule_id", resolver_rule_id)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -196,6 +238,10 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverRuleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

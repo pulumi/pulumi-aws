@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,9 +25,34 @@ class ServiceQuotaArgs:
         :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
-        pulumi.set(__self__, "quota_code", quota_code)
-        pulumi.set(__self__, "service_code", service_code)
-        pulumi.set(__self__, "value", value)
+        ServiceQuotaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota_code=quota_code,
+            service_code=service_code,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota_code: Optional[pulumi.Input[str]] = None,
+             service_code: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if quota_code is None and 'quotaCode' in kwargs:
+            quota_code = kwargs['quotaCode']
+        if quota_code is None:
+            raise TypeError("Missing 'quota_code' argument")
+        if service_code is None and 'serviceCode' in kwargs:
+            service_code = kwargs['serviceCode']
+        if service_code is None:
+            raise TypeError("Missing 'service_code' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("quota_code", quota_code)
+        _setter("service_code", service_code)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="quotaCode")
@@ -92,28 +117,75 @@ class _ServiceQuotaState:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]] usage_metrics: Information about the measurement.
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
+        _ServiceQuotaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adjustable=adjustable,
+            arn=arn,
+            default_value=default_value,
+            quota_code=quota_code,
+            quota_name=quota_name,
+            request_id=request_id,
+            request_status=request_status,
+            service_code=service_code,
+            service_name=service_name,
+            usage_metrics=usage_metrics,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adjustable: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             default_value: Optional[pulumi.Input[float]] = None,
+             quota_code: Optional[pulumi.Input[str]] = None,
+             quota_name: Optional[pulumi.Input[str]] = None,
+             request_id: Optional[pulumi.Input[str]] = None,
+             request_status: Optional[pulumi.Input[str]] = None,
+             service_code: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             usage_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if quota_code is None and 'quotaCode' in kwargs:
+            quota_code = kwargs['quotaCode']
+        if quota_name is None and 'quotaName' in kwargs:
+            quota_name = kwargs['quotaName']
+        if request_id is None and 'requestId' in kwargs:
+            request_id = kwargs['requestId']
+        if request_status is None and 'requestStatus' in kwargs:
+            request_status = kwargs['requestStatus']
+        if service_code is None and 'serviceCode' in kwargs:
+            service_code = kwargs['serviceCode']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if usage_metrics is None and 'usageMetrics' in kwargs:
+            usage_metrics = kwargs['usageMetrics']
+
         if adjustable is not None:
-            pulumi.set(__self__, "adjustable", adjustable)
+            _setter("adjustable", adjustable)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if quota_code is not None:
-            pulumi.set(__self__, "quota_code", quota_code)
+            _setter("quota_code", quota_code)
         if quota_name is not None:
-            pulumi.set(__self__, "quota_name", quota_name)
+            _setter("quota_name", quota_name)
         if request_id is not None:
-            pulumi.set(__self__, "request_id", request_id)
+            _setter("request_id", request_id)
         if request_status is not None:
-            pulumi.set(__self__, "request_status", request_status)
+            _setter("request_status", request_status)
         if service_code is not None:
-            pulumi.set(__self__, "service_code", service_code)
+            _setter("service_code", service_code)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if usage_metrics is not None:
-            pulumi.set(__self__, "usage_metrics", usage_metrics)
+            _setter("usage_metrics", usage_metrics)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -327,6 +399,10 @@ class ServiceQuota(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceQuotaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

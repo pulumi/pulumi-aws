@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,39 +51,102 @@ class AssociationArgs:
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
+        AssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_only_at_cron_interval=apply_only_at_cron_interval,
+            association_name=association_name,
+            automation_target_parameter_name=automation_target_parameter_name,
+            compliance_severity=compliance_severity,
+            document_version=document_version,
+            instance_id=instance_id,
+            max_concurrency=max_concurrency,
+            max_errors=max_errors,
+            name=name,
+            output_location=output_location,
+            parameters=parameters,
+            schedule_expression=schedule_expression,
+            sync_compliance=sync_compliance,
+            targets=targets,
+            wait_for_success_timeout_seconds=wait_for_success_timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
+             association_name: Optional[pulumi.Input[str]] = None,
+             automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
+             compliance_severity: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             max_concurrency: Optional[pulumi.Input[str]] = None,
+             max_errors: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             sync_compliance: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
+             wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apply_only_at_cron_interval is None and 'applyOnlyAtCronInterval' in kwargs:
+            apply_only_at_cron_interval = kwargs['applyOnlyAtCronInterval']
+        if association_name is None and 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+        if automation_target_parameter_name is None and 'automationTargetParameterName' in kwargs:
+            automation_target_parameter_name = kwargs['automationTargetParameterName']
+        if compliance_severity is None and 'complianceSeverity' in kwargs:
+            compliance_severity = kwargs['complianceSeverity']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if max_errors is None and 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if sync_compliance is None and 'syncCompliance' in kwargs:
+            sync_compliance = kwargs['syncCompliance']
+        if wait_for_success_timeout_seconds is None and 'waitForSuccessTimeoutSeconds' in kwargs:
+            wait_for_success_timeout_seconds = kwargs['waitForSuccessTimeoutSeconds']
+
         if apply_only_at_cron_interval is not None:
-            pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
+            _setter("apply_only_at_cron_interval", apply_only_at_cron_interval)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if automation_target_parameter_name is not None:
-            pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
+            _setter("automation_target_parameter_name", automation_target_parameter_name)
         if compliance_severity is not None:
-            pulumi.set(__self__, "compliance_severity", compliance_severity)
+            _setter("compliance_severity", compliance_severity)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if instance_id is not None:
             warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
             pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if max_errors is not None:
-            pulumi.set(__self__, "max_errors", max_errors)
+            _setter("max_errors", max_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_location is not None:
-            pulumi.set(__self__, "output_location", output_location)
+            _setter("output_location", output_location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
+            _setter("schedule_expression", schedule_expression)
         if sync_compliance is not None:
-            pulumi.set(__self__, "sync_compliance", sync_compliance)
+            _setter("sync_compliance", sync_compliance)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if wait_for_success_timeout_seconds is not None:
-            pulumi.set(__self__, "wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
+            _setter("wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
 
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
@@ -313,43 +376,112 @@ class _AssociationState:
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
+        _AssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_only_at_cron_interval=apply_only_at_cron_interval,
+            arn=arn,
+            association_id=association_id,
+            association_name=association_name,
+            automation_target_parameter_name=automation_target_parameter_name,
+            compliance_severity=compliance_severity,
+            document_version=document_version,
+            instance_id=instance_id,
+            max_concurrency=max_concurrency,
+            max_errors=max_errors,
+            name=name,
+            output_location=output_location,
+            parameters=parameters,
+            schedule_expression=schedule_expression,
+            sync_compliance=sync_compliance,
+            targets=targets,
+            wait_for_success_timeout_seconds=wait_for_success_timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             association_id: Optional[pulumi.Input[str]] = None,
+             association_name: Optional[pulumi.Input[str]] = None,
+             automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
+             compliance_severity: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             max_concurrency: Optional[pulumi.Input[str]] = None,
+             max_errors: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             sync_compliance: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
+             wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apply_only_at_cron_interval is None and 'applyOnlyAtCronInterval' in kwargs:
+            apply_only_at_cron_interval = kwargs['applyOnlyAtCronInterval']
+        if association_id is None and 'associationId' in kwargs:
+            association_id = kwargs['associationId']
+        if association_name is None and 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+        if automation_target_parameter_name is None and 'automationTargetParameterName' in kwargs:
+            automation_target_parameter_name = kwargs['automationTargetParameterName']
+        if compliance_severity is None and 'complianceSeverity' in kwargs:
+            compliance_severity = kwargs['complianceSeverity']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if max_errors is None and 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if sync_compliance is None and 'syncCompliance' in kwargs:
+            sync_compliance = kwargs['syncCompliance']
+        if wait_for_success_timeout_seconds is None and 'waitForSuccessTimeoutSeconds' in kwargs:
+            wait_for_success_timeout_seconds = kwargs['waitForSuccessTimeoutSeconds']
+
         if apply_only_at_cron_interval is not None:
-            pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
+            _setter("apply_only_at_cron_interval", apply_only_at_cron_interval)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if automation_target_parameter_name is not None:
-            pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
+            _setter("automation_target_parameter_name", automation_target_parameter_name)
         if compliance_severity is not None:
-            pulumi.set(__self__, "compliance_severity", compliance_severity)
+            _setter("compliance_severity", compliance_severity)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if instance_id is not None:
             warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
             pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
         if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
+            _setter("instance_id", instance_id)
         if max_concurrency is not None:
-            pulumi.set(__self__, "max_concurrency", max_concurrency)
+            _setter("max_concurrency", max_concurrency)
         if max_errors is not None:
-            pulumi.set(__self__, "max_errors", max_errors)
+            _setter("max_errors", max_errors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_location is not None:
-            pulumi.set(__self__, "output_location", output_location)
+            _setter("output_location", output_location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
+            _setter("schedule_expression", schedule_expression)
         if sync_compliance is not None:
-            pulumi.set(__self__, "sync_compliance", sync_compliance)
+            _setter("sync_compliance", sync_compliance)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if wait_for_success_timeout_seconds is not None:
-            pulumi.set(__self__, "wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
+            _setter("wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
 
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
@@ -748,6 +880,10 @@ class Association(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -782,13 +918,15 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
             __props__.__dict__["compliance_severity"] = compliance_severity
             __props__.__dict__["document_version"] = document_version
-            if instance_id is not None and not opts.urn:
-                warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
-                pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
+            if output_location is not None and not isinstance(output_location, AssociationOutputLocationArgs):
+                output_location = output_location or {}
+                def _setter(key, value):
+                    output_location[key] = value
+                AssociationOutputLocationArgs._configure(_setter, **output_location)
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["schedule_expression"] = schedule_expression

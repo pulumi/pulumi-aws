@@ -126,14 +126,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * Filters to apply to an encode. See H264 Filter Settings for more details.
+     * Filters to apply to an encode. See H265 Filter Settings for more details.
      * 
      */
     @Import(name="filterSettings")
     private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs> filterSettings;
 
     /**
-     * @return Filters to apply to an encode. See H264 Filter Settings for more details.
+     * @return Filters to apply to an encode. See H265 Filter Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs>> filterSettings() {
@@ -238,14 +238,14 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
-     * H264 level.
+     * H265 level.
      * 
      */
     @Import(name="level")
     private @Nullable Output<String> level;
 
     /**
-     * @return H264 level.
+     * @return H265 level.
      * 
      */
     public Optional<Output<String>> level() {
@@ -655,7 +655,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param filterSettings Filters to apply to an encode. See H264 Filter Settings for more details.
+         * @param filterSettings Filters to apply to an encode. See H265 Filter Settings for more details.
          * 
          * @return builder
          * 
@@ -811,7 +811,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param level H264 level.
+         * @param level H265 level.
          * 
          * @return builder
          * 
@@ -822,7 +822,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
-         * @param level H264 level.
+         * @param level H265 level.
          * 
          * @return builder
          * 

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? OriginAccessControlId;
         /// <summary>
-        /// Unique identifier for the origin.
+        /// Unique identifier of the member origin.
         /// </summary>
         public readonly string OriginId;
         /// <summary>

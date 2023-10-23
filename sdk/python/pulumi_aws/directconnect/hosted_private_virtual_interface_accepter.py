@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedPrivateVirtualInterfaceAccepterArgs', 'HostedPrivateVirtualInterfaceAccepter']
@@ -25,13 +25,38 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
-        pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+        HostedPrivateVirtualInterfaceAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_interface_id=virtual_interface_id,
+            dx_gateway_id=dx_gateway_id,
+            tags=tags,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+        if virtual_interface_id is None:
+            raise TypeError("Missing 'virtual_interface_id' argument")
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
+        _setter("virtual_interface_id", virtual_interface_id)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="virtualInterfaceId")
@@ -100,21 +125,50 @@ class _HostedPrivateVirtualInterfaceAccepterState:
         :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface to accept.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
+        _HostedPrivateVirtualInterfaceAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            dx_gateway_id=dx_gateway_id,
+            tags=tags,
+            tags_all=tags_all,
+            virtual_interface_id=virtual_interface_id,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_interface_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if virtual_interface_id is None and 'virtualInterfaceId' in kwargs:
+            virtual_interface_id = kwargs['virtualInterfaceId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if virtual_interface_id is not None:
-            pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
+            _setter("virtual_interface_id", virtual_interface_id)
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter
@@ -305,6 +359,10 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostedPrivateVirtualInterfaceAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

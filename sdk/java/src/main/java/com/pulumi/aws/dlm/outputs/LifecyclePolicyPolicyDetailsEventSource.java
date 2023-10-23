@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class LifecyclePolicyPolicyDetailsEventSource {
     /**
-     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+     * @return Information about the event. See the `parameters` configuration block.
      * 
      */
     private LifecyclePolicyPolicyDetailsEventSourceParameters parameters;
@@ -23,7 +23,7 @@ public final class LifecyclePolicyPolicyDetailsEventSource {
 
     private LifecyclePolicyPolicyDetailsEventSource() {}
     /**
-     * @return A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
+     * @return Information about the event. See the `parameters` configuration block.
      * 
      */
     public LifecyclePolicyPolicyDetailsEventSourceParameters parameters() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,52 +69,153 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
-        pulumi.set(__self__, "acl_name", acl_name)
-        pulumi.set(__self__, "node_type", node_type)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_name=acl_name,
+            node_type=node_type,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            data_tiering=data_tiering,
+            description=description,
+            engine_version=engine_version,
+            final_snapshot_name=final_snapshot_name,
+            kms_key_arn=kms_key_arn,
+            maintenance_window=maintenance_window,
+            name=name,
+            name_prefix=name_prefix,
+            num_replicas_per_shard=num_replicas_per_shard,
+            num_shards=num_shards,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            security_group_ids=security_group_ids,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            sns_topic_arn=sns_topic_arn,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            tls_enabled=tls_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_name: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             data_tiering: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_name: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             num_replicas_per_shard: Optional[pulumi.Input[int]] = None,
+             num_shards: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if acl_name is None and 'aclName' in kwargs:
+            acl_name = kwargs['aclName']
+        if acl_name is None:
+            raise TypeError("Missing 'acl_name' argument")
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if node_type is None:
+            raise TypeError("Missing 'node_type' argument")
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if data_tiering is None and 'dataTiering' in kwargs:
+            data_tiering = kwargs['dataTiering']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_name is None and 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if num_replicas_per_shard is None and 'numReplicasPerShard' in kwargs:
+            num_replicas_per_shard = kwargs['numReplicasPerShard']
+        if num_shards is None and 'numShards' in kwargs:
+            num_shards = kwargs['numShards']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
+        _setter("acl_name", acl_name)
+        _setter("node_type", node_type)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if data_tiering is not None:
-            pulumi.set(__self__, "data_tiering", data_tiering)
+            _setter("data_tiering", data_tiering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_name is not None:
-            pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+            _setter("final_snapshot_name", final_snapshot_name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if num_replicas_per_shard is not None:
-            pulumi.set(__self__, "num_replicas_per_shard", num_replicas_per_shard)
+            _setter("num_replicas_per_shard", num_replicas_per_shard)
         if num_shards is not None:
-            pulumi.set(__self__, "num_shards", num_shards)
+            _setter("num_shards", num_shards)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_enabled is not None:
-            pulumi.set(__self__, "tls_enabled", tls_enabled)
+            _setter("tls_enabled", tls_enabled)
 
     @property
     @pulumi.getter(name="aclName")
@@ -472,67 +573,180 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] tls_enabled: A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acl_name=acl_name,
+            arn=arn,
+            auto_minor_version_upgrade=auto_minor_version_upgrade,
+            cluster_endpoints=cluster_endpoints,
+            data_tiering=data_tiering,
+            description=description,
+            engine_patch_version=engine_patch_version,
+            engine_version=engine_version,
+            final_snapshot_name=final_snapshot_name,
+            kms_key_arn=kms_key_arn,
+            maintenance_window=maintenance_window,
+            name=name,
+            name_prefix=name_prefix,
+            node_type=node_type,
+            num_replicas_per_shard=num_replicas_per_shard,
+            num_shards=num_shards,
+            parameter_group_name=parameter_group_name,
+            port=port,
+            security_group_ids=security_group_ids,
+            shards=shards,
+            snapshot_arns=snapshot_arns,
+            snapshot_name=snapshot_name,
+            snapshot_retention_limit=snapshot_retention_limit,
+            snapshot_window=snapshot_window,
+            sns_topic_arn=sns_topic_arn,
+            subnet_group_name=subnet_group_name,
+            tags=tags,
+            tags_all=tags_all,
+            tls_enabled=tls_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acl_name: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]] = None,
+             data_tiering: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_patch_version: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             final_snapshot_name: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             num_replicas_per_shard: Optional[pulumi.Input[int]] = None,
+             num_shards: Optional[pulumi.Input[int]] = None,
+             parameter_group_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             shards: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]] = None,
+             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
+             snapshot_window: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if acl_name is None and 'aclName' in kwargs:
+            acl_name = kwargs['aclName']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if cluster_endpoints is None and 'clusterEndpoints' in kwargs:
+            cluster_endpoints = kwargs['clusterEndpoints']
+        if data_tiering is None and 'dataTiering' in kwargs:
+            data_tiering = kwargs['dataTiering']
+        if engine_patch_version is None and 'enginePatchVersion' in kwargs:
+            engine_patch_version = kwargs['enginePatchVersion']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_name is None and 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if num_replicas_per_shard is None and 'numReplicasPerShard' in kwargs:
+            num_replicas_per_shard = kwargs['numReplicasPerShard']
+        if num_shards is None and 'numShards' in kwargs:
+            num_shards = kwargs['numShards']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         if acl_name is not None:
-            pulumi.set(__self__, "acl_name", acl_name)
+            _setter("acl_name", acl_name)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_minor_version_upgrade is not None:
-            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         if cluster_endpoints is not None:
-            pulumi.set(__self__, "cluster_endpoints", cluster_endpoints)
+            _setter("cluster_endpoints", cluster_endpoints)
         if data_tiering is not None:
-            pulumi.set(__self__, "data_tiering", data_tiering)
+            _setter("data_tiering", data_tiering)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_patch_version is not None:
-            pulumi.set(__self__, "engine_patch_version", engine_patch_version)
+            _setter("engine_patch_version", engine_patch_version)
         if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
+            _setter("engine_version", engine_version)
         if final_snapshot_name is not None:
-            pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
+            _setter("final_snapshot_name", final_snapshot_name)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if num_replicas_per_shard is not None:
-            pulumi.set(__self__, "num_replicas_per_shard", num_replicas_per_shard)
+            _setter("num_replicas_per_shard", num_replicas_per_shard)
         if num_shards is not None:
-            pulumi.set(__self__, "num_shards", num_shards)
+            _setter("num_shards", num_shards)
         if parameter_group_name is not None:
-            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+            _setter("parameter_group_name", parameter_group_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if shards is not None:
-            pulumi.set(__self__, "shards", shards)
+            _setter("shards", shards)
         if snapshot_arns is not None:
-            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
+            _setter("snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+            _setter("snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            pulumi.set(__self__, "snapshot_window", snapshot_window)
+            _setter("snapshot_window", snapshot_window)
         if sns_topic_arn is not None:
-            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+            _setter("sns_topic_arn", sns_topic_arn)
         if subnet_group_name is not None:
-            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+            _setter("subnet_group_name", subnet_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tls_enabled is not None:
-            pulumi.set(__self__, "tls_enabled", tls_enabled)
+            _setter("tls_enabled", tls_enabled)
 
     @property
     @pulumi.getter(name="aclName")
@@ -1016,6 +1230,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

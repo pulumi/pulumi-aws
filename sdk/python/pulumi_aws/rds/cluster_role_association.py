@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterRoleAssociationArgs', 'ClusterRoleAssociation']
@@ -23,9 +23,36 @@ class ClusterRoleAssociationArgs:
         :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         """
-        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "role_arn", role_arn)
+        ClusterRoleAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_identifier=db_cluster_identifier,
+            feature_name=feature_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_identifier is None:
+            raise TypeError("Missing 'db_cluster_identifier' argument")
+        if feature_name is None and 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if feature_name is None:
+            raise TypeError("Missing 'feature_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
+        _setter("db_cluster_identifier", db_cluster_identifier)
+        _setter("feature_name", feature_name)
+        _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -76,12 +103,33 @@ class _ClusterRoleAssociationState:
         :param pulumi.Input[str] feature_name: Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         """
+        _ClusterRoleAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_identifier=db_cluster_identifier,
+            feature_name=feature_name,
+            role_arn=role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if feature_name is None and 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if db_cluster_identifier is not None:
-            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+            _setter("db_cluster_identifier", db_cluster_identifier)
         if feature_name is not None:
-            pulumi.set(__self__, "feature_name", feature_name)
+            _setter("feature_name", feature_name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -203,6 +251,10 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterRoleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
-        /// e.g., `BLOCK`, `ALLOW`, or `COUNT`
+        /// The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

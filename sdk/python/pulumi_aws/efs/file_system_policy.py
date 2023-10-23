@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FileSystemPolicyArgs', 'FileSystemPolicy']
@@ -25,10 +25,33 @@ class FileSystemPolicyArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
         """
-        pulumi.set(__self__, "file_system_id", file_system_id)
-        pulumi.set(__self__, "policy", policy)
+        FileSystemPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_system_id=file_system_id,
+            policy=policy,
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+
+        _setter("file_system_id", file_system_id)
+        _setter("policy", policy)
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -83,12 +106,31 @@ class _FileSystemPolicyState:
                
                The following arguments are optional:
         """
+        _FileSystemPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
+            file_system_id=file_system_id,
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+
         if bypass_policy_lockout_safety_check is not None:
-            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if file_system_id is not None:
-            pulumi.set(__self__, "file_system_id", file_system_id)
+            _setter("file_system_id", file_system_id)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -244,6 +286,10 @@ class FileSystemPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileSystemPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

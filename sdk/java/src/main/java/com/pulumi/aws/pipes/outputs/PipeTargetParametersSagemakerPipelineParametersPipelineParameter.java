@@ -15,7 +15,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
      */
     private String name;
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     private String value;
@@ -29,7 +29,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         return this.name;
     }
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
      * 
      */
     public String value() {

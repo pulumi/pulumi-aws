@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,34 +47,89 @@ class StackSetArgs:
         :param pulumi.Input[str] template_body: String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         :param pulumi.Input[str] template_url: String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         """
+        StackSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administration_role_arn=administration_role_arn,
+            auto_deployment=auto_deployment,
+            call_as=call_as,
+            capabilities=capabilities,
+            description=description,
+            execution_role_name=execution_role_name,
+            managed_execution=managed_execution,
+            name=name,
+            operation_preferences=operation_preferences,
+            parameters=parameters,
+            permission_model=permission_model,
+            tags=tags,
+            template_body=template_body,
+            template_url=template_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administration_role_arn: Optional[pulumi.Input[str]] = None,
+             auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
+             call_as: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             execution_role_name: Optional[pulumi.Input[str]] = None,
+             managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             permission_model: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administration_role_arn is None and 'administrationRoleArn' in kwargs:
+            administration_role_arn = kwargs['administrationRoleArn']
+        if auto_deployment is None and 'autoDeployment' in kwargs:
+            auto_deployment = kwargs['autoDeployment']
+        if call_as is None and 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if execution_role_name is None and 'executionRoleName' in kwargs:
+            execution_role_name = kwargs['executionRoleName']
+        if managed_execution is None and 'managedExecution' in kwargs:
+            managed_execution = kwargs['managedExecution']
+        if operation_preferences is None and 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if permission_model is None and 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_url is None and 'templateUrl' in kwargs:
+            template_url = kwargs['templateUrl']
+
         if administration_role_arn is not None:
-            pulumi.set(__self__, "administration_role_arn", administration_role_arn)
+            _setter("administration_role_arn", administration_role_arn)
         if auto_deployment is not None:
-            pulumi.set(__self__, "auto_deployment", auto_deployment)
+            _setter("auto_deployment", auto_deployment)
         if call_as is not None:
-            pulumi.set(__self__, "call_as", call_as)
+            _setter("call_as", call_as)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if execution_role_name is not None:
-            pulumi.set(__self__, "execution_role_name", execution_role_name)
+            _setter("execution_role_name", execution_role_name)
         if managed_execution is not None:
-            pulumi.set(__self__, "managed_execution", managed_execution)
+            _setter("managed_execution", managed_execution)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operation_preferences is not None:
-            pulumi.set(__self__, "operation_preferences", operation_preferences)
+            _setter("operation_preferences", operation_preferences)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permission_model is not None:
-            pulumi.set(__self__, "permission_model", permission_model)
+            _setter("permission_model", permission_model)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
 
     @property
     @pulumi.getter(name="administrationRoleArn")
@@ -285,43 +340,108 @@ class _StackSetState:
         :param pulumi.Input[str] template_body: String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         :param pulumi.Input[str] template_url: String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         """
+        _StackSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administration_role_arn=administration_role_arn,
+            arn=arn,
+            auto_deployment=auto_deployment,
+            call_as=call_as,
+            capabilities=capabilities,
+            description=description,
+            execution_role_name=execution_role_name,
+            managed_execution=managed_execution,
+            name=name,
+            operation_preferences=operation_preferences,
+            parameters=parameters,
+            permission_model=permission_model,
+            stack_set_id=stack_set_id,
+            tags=tags,
+            tags_all=tags_all,
+            template_body=template_body,
+            template_url=template_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administration_role_arn: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
+             call_as: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             execution_role_name: Optional[pulumi.Input[str]] = None,
+             managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             permission_model: Optional[pulumi.Input[str]] = None,
+             stack_set_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
+             template_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administration_role_arn is None and 'administrationRoleArn' in kwargs:
+            administration_role_arn = kwargs['administrationRoleArn']
+        if auto_deployment is None and 'autoDeployment' in kwargs:
+            auto_deployment = kwargs['autoDeployment']
+        if call_as is None and 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if execution_role_name is None and 'executionRoleName' in kwargs:
+            execution_role_name = kwargs['executionRoleName']
+        if managed_execution is None and 'managedExecution' in kwargs:
+            managed_execution = kwargs['managedExecution']
+        if operation_preferences is None and 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if permission_model is None and 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if stack_set_id is None and 'stackSetId' in kwargs:
+            stack_set_id = kwargs['stackSetId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_url is None and 'templateUrl' in kwargs:
+            template_url = kwargs['templateUrl']
+
         if administration_role_arn is not None:
-            pulumi.set(__self__, "administration_role_arn", administration_role_arn)
+            _setter("administration_role_arn", administration_role_arn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_deployment is not None:
-            pulumi.set(__self__, "auto_deployment", auto_deployment)
+            _setter("auto_deployment", auto_deployment)
         if call_as is not None:
-            pulumi.set(__self__, "call_as", call_as)
+            _setter("call_as", call_as)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if execution_role_name is not None:
-            pulumi.set(__self__, "execution_role_name", execution_role_name)
+            _setter("execution_role_name", execution_role_name)
         if managed_execution is not None:
-            pulumi.set(__self__, "managed_execution", managed_execution)
+            _setter("managed_execution", managed_execution)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operation_preferences is not None:
-            pulumi.set(__self__, "operation_preferences", operation_preferences)
+            _setter("operation_preferences", operation_preferences)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if permission_model is not None:
-            pulumi.set(__self__, "permission_model", permission_model)
+            _setter("permission_model", permission_model)
         if stack_set_id is not None:
-            pulumi.set(__self__, "stack_set_id", stack_set_id)
+            _setter("stack_set_id", stack_set_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if template_body is not None:
-            pulumi.set(__self__, "template_body", template_body)
+            _setter("template_body", template_body)
         if template_url is not None:
-            pulumi.set(__self__, "template_url", template_url)
+            _setter("template_url", template_url)
 
     @property
     @pulumi.getter(name="administrationRoleArn")
@@ -736,6 +856,10 @@ class StackSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StackSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -765,13 +889,28 @@ class StackSet(pulumi.CustomResource):
             __props__ = StackSetArgs.__new__(StackSetArgs)
 
             __props__.__dict__["administration_role_arn"] = administration_role_arn
+            if auto_deployment is not None and not isinstance(auto_deployment, StackSetAutoDeploymentArgs):
+                auto_deployment = auto_deployment or {}
+                def _setter(key, value):
+                    auto_deployment[key] = value
+                StackSetAutoDeploymentArgs._configure(_setter, **auto_deployment)
             __props__.__dict__["auto_deployment"] = auto_deployment
             __props__.__dict__["call_as"] = call_as
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
+            if managed_execution is not None and not isinstance(managed_execution, StackSetManagedExecutionArgs):
+                managed_execution = managed_execution or {}
+                def _setter(key, value):
+                    managed_execution[key] = value
+                StackSetManagedExecutionArgs._configure(_setter, **managed_execution)
             __props__.__dict__["managed_execution"] = managed_execution
             __props__.__dict__["name"] = name
+            if operation_preferences is not None and not isinstance(operation_preferences, StackSetOperationPreferencesArgs):
+                operation_preferences = operation_preferences or {}
+                def _setter(key, value):
+                    operation_preferences[key] = value
+                StackSetOperationPreferencesArgs._configure(_setter, **operation_preferences)
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permission_model"] = permission_model

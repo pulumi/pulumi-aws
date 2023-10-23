@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string Header;
         /// <summary>
-        /// Whether CloudFront overrides a response header with the same name received from the origin with the header specifies here.
+        /// Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         public readonly bool Override;
         /// <summary>

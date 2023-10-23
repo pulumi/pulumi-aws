@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,10 +23,25 @@ class GeoMatchSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
+        GeoMatchSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_match_constraints=geo_match_constraints,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if geo_match_constraints is None and 'geoMatchConstraints' in kwargs:
+            geo_match_constraints = kwargs['geoMatchConstraints']
+
         if geo_match_constraints is not None:
-            pulumi.set(__self__, "geo_match_constraints", geo_match_constraints)
+            _setter("geo_match_constraints", geo_match_constraints)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="geoMatchConstraints")
@@ -63,10 +78,25 @@ class _GeoMatchSetState:
         :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
+        _GeoMatchSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_match_constraints=geo_match_constraints,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if geo_match_constraints is None and 'geoMatchConstraints' in kwargs:
+            geo_match_constraints = kwargs['geoMatchConstraints']
+
         if geo_match_constraints is not None:
-            pulumi.set(__self__, "geo_match_constraints", geo_match_constraints)
+            _setter("geo_match_constraints", geo_match_constraints)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="geoMatchConstraints")
@@ -180,6 +210,10 @@ class GeoMatchSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GeoMatchSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -53,14 +53,39 @@ class ResourceSetResource(dict):
         :param Sequence[str] readiness_scopes: Recovery group ARN or cell ARN that contains this resource set.
         :param str resource_arn: ARN of the resource.
         """
+        ResourceSetResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            dns_target_resource=dns_target_resource,
+            readiness_scopes=readiness_scopes,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: Optional[str] = None,
+             dns_target_resource: Optional['outputs.ResourceSetResourceDnsTargetResource'] = None,
+             readiness_scopes: Optional[Sequence[str]] = None,
+             resource_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if dns_target_resource is None and 'dnsTargetResource' in kwargs:
+            dns_target_resource = kwargs['dnsTargetResource']
+        if readiness_scopes is None and 'readinessScopes' in kwargs:
+            readiness_scopes = kwargs['readinessScopes']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if component_id is not None:
-            pulumi.set(__self__, "component_id", component_id)
+            _setter("component_id", component_id)
         if dns_target_resource is not None:
-            pulumi.set(__self__, "dns_target_resource", dns_target_resource)
+            _setter("dns_target_resource", dns_target_resource)
         if readiness_scopes is not None:
-            pulumi.set(__self__, "readiness_scopes", readiness_scopes)
+            _setter("readiness_scopes", readiness_scopes)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="componentId")
@@ -132,15 +157,46 @@ class ResourceSetResourceDnsTargetResource(dict):
         :param str record_type: Type of DNS Record of target resource.
         :param 'ResourceSetResourceDnsTargetResourceTargetResourceArgs' target_resource: Target resource the R53 record specified with the above params points to.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
+        ResourceSetResourceDnsTargetResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            hosted_zone_arn=hosted_zone_arn,
+            record_set_id=record_set_id,
+            record_type=record_type,
+            target_resource=target_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[str] = None,
+             hosted_zone_arn: Optional[str] = None,
+             record_set_id: Optional[str] = None,
+             record_type: Optional[str] = None,
+             target_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResource'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if hosted_zone_arn is None and 'hostedZoneArn' in kwargs:
+            hosted_zone_arn = kwargs['hostedZoneArn']
+        if record_set_id is None and 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if target_resource is None and 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+
+        _setter("domain_name", domain_name)
         if hosted_zone_arn is not None:
-            pulumi.set(__self__, "hosted_zone_arn", hosted_zone_arn)
+            _setter("hosted_zone_arn", hosted_zone_arn)
         if record_set_id is not None:
-            pulumi.set(__self__, "record_set_id", record_set_id)
+            _setter("record_set_id", record_set_id)
         if record_type is not None:
-            pulumi.set(__self__, "record_type", record_type)
+            _setter("record_type", record_type)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
 
     @property
     @pulumi.getter(name="domainName")
@@ -211,10 +267,27 @@ class ResourceSetResourceDnsTargetResourceTargetResource(dict):
         :param 'ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs' nlb_resource: NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
         :param 'ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs' r53_resource: Route53 resource a DNS Target Resource record points to.
         """
+        ResourceSetResourceDnsTargetResourceTargetResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nlb_resource=nlb_resource,
+            r53_resource=r53_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nlb_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource'] = None,
+             r53_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if nlb_resource is None and 'nlbResource' in kwargs:
+            nlb_resource = kwargs['nlbResource']
+        if r53_resource is None and 'r53Resource' in kwargs:
+            r53_resource = kwargs['r53Resource']
+
         if nlb_resource is not None:
-            pulumi.set(__self__, "nlb_resource", nlb_resource)
+            _setter("nlb_resource", nlb_resource)
         if r53_resource is not None:
-            pulumi.set(__self__, "r53_resource", r53_resource)
+            _setter("r53_resource", r53_resource)
 
     @property
     @pulumi.getter(name="nlbResource")
@@ -240,8 +313,19 @@ class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(dict):
         """
         :param str arn: NLB resource ARN.
         """
+        ResourceSetResourceDnsTargetResourceTargetResourceNlbResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -280,10 +364,27 @@ class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
         :param str domain_name: DNS Name that acts as the ingress point to a portion of application.
         :param str record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         """
+        ResourceSetResourceDnsTargetResourceTargetResourceR53Resource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            record_set_id=record_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[str] = None,
+             record_set_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if record_set_id is None and 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if record_set_id is not None:
-            pulumi.set(__self__, "record_set_id", record_set_id)
+            _setter("record_set_id", record_set_id)
 
     @property
     @pulumi.getter(name="domainName")

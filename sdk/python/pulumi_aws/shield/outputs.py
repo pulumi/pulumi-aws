@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,12 +21,27 @@ class ApplicationLayerAutomaticResponseTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  update: Optional[str] = None):
+        ApplicationLayerAutomaticResponseTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            update=update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             update: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if update is not None:
-            pulumi.set(__self__, "update", update)
+            _setter("update", update)
 
     @property
     @pulumi.getter
@@ -50,12 +65,27 @@ class DrtAccessLogBucketAssociationTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  read: Optional[str] = None):
+        DrtAccessLogBucketAssociationTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            read=read,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             read: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if read is not None:
-            pulumi.set(__self__, "read", read)
+            _setter("read", read)
 
     @property
     @pulumi.getter
@@ -79,12 +109,27 @@ class DrtAccessRoleArnAssociationTimeouts(dict):
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
                  read: Optional[str] = None):
+        DrtAccessRoleArnAssociationTimeouts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create=create,
+            delete=delete,
+            read=read,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create: Optional[str] = None,
+             delete: Optional[str] = None,
+             read: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if create is not None:
-            pulumi.set(__self__, "create", create)
+            _setter("create", create)
         if delete is not None:
-            pulumi.set(__self__, "delete", delete)
+            _setter("delete", delete)
         if read is not None:
-            pulumi.set(__self__, "read", read)
+            _setter("read", read)
 
     @property
     @pulumi.getter

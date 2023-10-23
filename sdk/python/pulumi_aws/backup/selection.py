@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,53 @@ class SelectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        pulumi.set(__self__, "plan_id", plan_id)
+        SelectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iam_role_arn=iam_role_arn,
+            plan_id=plan_id,
+            conditions=conditions,
+            name=name,
+            not_resources=not_resources,
+            resources=resources,
+            selection_tags=selection_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if iam_role_arn is None:
+            raise TypeError("Missing 'iam_role_arn' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if not_resources is None and 'notResources' in kwargs:
+            not_resources = kwargs['notResources']
+        if selection_tags is None and 'selectionTags' in kwargs:
+            selection_tags = kwargs['selectionTags']
+
+        _setter("iam_role_arn", iam_role_arn)
+        _setter("plan_id", plan_id)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_resources is not None:
-            pulumi.set(__self__, "not_resources", not_resources)
+            _setter("not_resources", not_resources)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if selection_tags is not None:
-            pulumi.set(__self__, "selection_tags", selection_tags)
+            _setter("selection_tags", selection_tags)
 
     @property
     @pulumi.getter(name="iamRoleArn")
@@ -151,20 +186,51 @@ class _SelectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
+        _SelectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+            iam_role_arn=iam_role_arn,
+            name=name,
+            not_resources=not_resources,
+            plan_id=plan_id,
+            resources=resources,
+            selection_tags=selection_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if not_resources is None and 'notResources' in kwargs:
+            not_resources = kwargs['notResources']
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if selection_tags is None and 'selectionTags' in kwargs:
+            selection_tags = kwargs['selectionTags']
+
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if iam_role_arn is not None:
-            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+            _setter("iam_role_arn", iam_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_resources is not None:
-            pulumi.set(__self__, "not_resources", not_resources)
+            _setter("not_resources", not_resources)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if selection_tags is not None:
-            pulumi.set(__self__, "selection_tags", selection_tags)
+            _setter("selection_tags", selection_tags)
 
     @property
     @pulumi.getter
@@ -514,6 +580,10 @@ class Selection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SelectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

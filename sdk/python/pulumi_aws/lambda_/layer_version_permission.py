@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LayerVersionPermissionArgs', 'LayerVersionPermission']
@@ -31,15 +31,58 @@ class LayerVersionPermissionArgs:
         :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "layer_name", layer_name)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "statement_id", statement_id)
-        pulumi.set(__self__, "version_number", version_number)
+        LayerVersionPermissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            layer_name=layer_name,
+            principal=principal,
+            statement_id=statement_id,
+            version_number=version_number,
+            organization_id=organization_id,
+            skip_destroy=skip_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             layer_name: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             statement_id: Optional[pulumi.Input[str]] = None,
+             version_number: Optional[pulumi.Input[int]] = None,
+             organization_id: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if layer_name is None and 'layerName' in kwargs:
+            layer_name = kwargs['layerName']
+        if layer_name is None:
+            raise TypeError("Missing 'layer_name' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if statement_id is None:
+            raise TypeError("Missing 'statement_id' argument")
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+        if version_number is None:
+            raise TypeError("Missing 'version_number' argument")
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+
+        _setter("action", action)
+        _setter("layer_name", layer_name)
+        _setter("principal", principal)
+        _setter("statement_id", statement_id)
+        _setter("version_number", version_number)
         if organization_id is not None:
-            pulumi.set(__self__, "organization_id", organization_id)
+            _setter("organization_id", organization_id)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter
@@ -150,24 +193,63 @@ class _LayerVersionPermissionState:
         :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
+        _LayerVersionPermissionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            layer_name=layer_name,
+            organization_id=organization_id,
+            policy=policy,
+            principal=principal,
+            revision_id=revision_id,
+            skip_destroy=skip_destroy,
+            statement_id=statement_id,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             layer_name: Optional[pulumi.Input[str]] = None,
+             organization_id: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             revision_id: Optional[pulumi.Input[str]] = None,
+             skip_destroy: Optional[pulumi.Input[bool]] = None,
+             statement_id: Optional[pulumi.Input[str]] = None,
+             version_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if layer_name is None and 'layerName' in kwargs:
+            layer_name = kwargs['layerName']
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if revision_id is None and 'revisionId' in kwargs:
+            revision_id = kwargs['revisionId']
+        if skip_destroy is None and 'skipDestroy' in kwargs:
+            skip_destroy = kwargs['skipDestroy']
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if layer_name is not None:
-            pulumi.set(__self__, "layer_name", layer_name)
+            _setter("layer_name", layer_name)
         if organization_id is not None:
-            pulumi.set(__self__, "organization_id", organization_id)
+            _setter("organization_id", organization_id)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if revision_id is not None:
-            pulumi.set(__self__, "revision_id", revision_id)
+            _setter("revision_id", revision_id)
         if skip_destroy is not None:
-            pulumi.set(__self__, "skip_destroy", skip_destroy)
+            _setter("skip_destroy", skip_destroy)
         if statement_id is not None:
-            pulumi.set(__self__, "statement_id", statement_id)
+            _setter("statement_id", statement_id)
         if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
+            _setter("version_number", version_number)
 
     @property
     @pulumi.getter
@@ -375,6 +457,10 @@ class LayerVersionPermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LayerVersionPermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

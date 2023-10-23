@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ClusterClientAuthenticationSaslArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables SASL/IAM authentication for VPC connectivity.
+        /// Enables IAM client authentication. Defaults to `false`.
         /// </summary>
         [Input("iam")]
         public Input<bool>? Iam { get; set; }
 
         /// <summary>
-        /// Enables SASL/SCRAM authentication for VPC connectivity.
+        /// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
         /// </summary>
         [Input("scram")]
         public Input<bool>? Scram { get; set; }

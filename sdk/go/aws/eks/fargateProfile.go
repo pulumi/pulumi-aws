@@ -26,38 +26,35 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var splat0 []interface{}
-//			for _, val0 := range aws_subnet.Example {
-//				splat0 = append(splat0, val0.Id)
-//			}
-//			_, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
-//				ClusterName:         pulumi.Any(aws_eks_cluster.Example.Name),
-//				PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				SubnetIds:           toPulumiAnyArray(splat0),
-//				Selectors: eks.FargateProfileSelectorArray{
-//					&eks.FargateProfileSelectorArgs{
-//						Namespace: pulumi.String("example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
-//		var pulumiArr pulumi.AnyArray
-//		for _, v := range arr {
-//			pulumiArr = append(pulumiArr, pulumi.Any(v))
-//		}
-//		return pulumiArr
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range aws_subnet.Example {
+// splat0 = append(splat0, val0.Id)
+// }
+// _, err := eks.NewFargateProfile(ctx, "example", &eks.FargateProfileArgs{
+// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+// PodExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// SubnetIds: toPulumiArray(splat0),
+// Selectors: eks.FargateProfileSelectorArray{
+// &eks.FargateProfileSelectorArgs{
+// Namespace: pulumi.String("example"),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
 // ```
 // ### Example IAM Role for EKS Fargate Profile
 //

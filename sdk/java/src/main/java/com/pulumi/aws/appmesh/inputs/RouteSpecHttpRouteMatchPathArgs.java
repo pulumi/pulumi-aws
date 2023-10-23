@@ -16,14 +16,14 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
     public static final RouteSpecHttpRouteMatchPathArgs Empty = new RouteSpecHttpRouteMatchPathArgs();
 
     /**
-     * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must match the specified value exactly.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -31,14 +31,14 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
     }
 
     /**
-     * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must include the specified characters.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -71,7 +71,7 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RouteSpecHttpRouteMatchPathArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 

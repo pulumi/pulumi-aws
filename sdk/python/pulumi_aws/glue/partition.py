@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,15 +30,52 @@ class PartitionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input['PartitionStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partition_values", partition_values)
-        pulumi.set(__self__, "table_name", table_name)
+        PartitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            partition_values=partition_values,
+            table_name=table_name,
+            catalog_id=catalog_id,
+            parameters=parameters,
+            storage_descriptor=storage_descriptor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if partition_values is None and 'partitionValues' in kwargs:
+            partition_values = kwargs['partitionValues']
+        if partition_values is None:
+            raise TypeError("Missing 'partition_values' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if storage_descriptor is None and 'storageDescriptor' in kwargs:
+            storage_descriptor = kwargs['storageDescriptor']
+
+        _setter("database_name", database_name)
+        _setter("partition_values", partition_values)
+        _setter("table_name", table_name)
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -133,24 +170,67 @@ class _PartitionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_values: The values that define the partition.
         :param pulumi.Input['PartitionStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
+        _PartitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_id=catalog_id,
+            creation_time=creation_time,
+            database_name=database_name,
+            last_accessed_time=last_accessed_time,
+            last_analyzed_time=last_analyzed_time,
+            parameters=parameters,
+            partition_values=partition_values,
+            storage_descriptor=storage_descriptor,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             last_accessed_time: Optional[pulumi.Input[str]] = None,
+             last_analyzed_time: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if last_accessed_time is None and 'lastAccessedTime' in kwargs:
+            last_accessed_time = kwargs['lastAccessedTime']
+        if last_analyzed_time is None and 'lastAnalyzedTime' in kwargs:
+            last_analyzed_time = kwargs['lastAnalyzedTime']
+        if partition_values is None and 'partitionValues' in kwargs:
+            partition_values = kwargs['partitionValues']
+        if storage_descriptor is None and 'storageDescriptor' in kwargs:
+            storage_descriptor = kwargs['storageDescriptor']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
+            _setter("catalog_id", catalog_id)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if last_accessed_time is not None:
-            pulumi.set(__self__, "last_accessed_time", last_accessed_time)
+            _setter("last_accessed_time", last_accessed_time)
         if last_analyzed_time is not None:
-            pulumi.set(__self__, "last_analyzed_time", last_analyzed_time)
+            _setter("last_analyzed_time", last_analyzed_time)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition_values is not None:
-            pulumi.set(__self__, "partition_values", partition_values)
+            _setter("partition_values", partition_values)
         if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+            _setter("storage_descriptor", storage_descriptor)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -316,6 +396,10 @@ class Partition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -344,6 +428,11 @@ class Partition(pulumi.CustomResource):
             if partition_values is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_values'")
             __props__.__dict__["partition_values"] = partition_values
+            if storage_descriptor is not None and not isinstance(storage_descriptor, PartitionStorageDescriptorArgs):
+                storage_descriptor = storage_descriptor or {}
+                def _setter(key, value):
+                    storage_descriptor[key] = value
+                PartitionStorageDescriptorArgs._configure(_setter, **storage_descriptor)
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")

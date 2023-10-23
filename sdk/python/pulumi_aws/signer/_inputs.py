@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,7 +29,20 @@ class SigningJobDestinationArgs:
         """
         :param pulumi.Input['SigningJobDestinationS3Args'] s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
-        pulumi.set(__self__, "s3", s3)
+        SigningJobDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: Optional[pulumi.Input['SigningJobDestinationS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3 is None:
+            raise TypeError("Missing 's3' argument")
+
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -53,9 +66,24 @@ class SigningJobDestinationS3Args:
         :param pulumi.Input[str] bucket: Name of the S3 bucket.
         :param pulumi.Input[str] prefix: An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        SigningJobDestinationS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+
+        _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter
@@ -88,12 +116,31 @@ class SigningJobRevocationRecordArgs:
                  reason: Optional[pulumi.Input[str]] = None,
                  revoked_at: Optional[pulumi.Input[str]] = None,
                  revoked_by: Optional[pulumi.Input[str]] = None):
+        SigningJobRevocationRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reason=reason,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reason: Optional[pulumi.Input[str]] = None,
+             revoked_at: Optional[pulumi.Input[str]] = None,
+             revoked_by: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if revoked_at is None and 'revokedAt' in kwargs:
+            revoked_at = kwargs['revokedAt']
+        if revoked_by is None and 'revokedBy' in kwargs:
+            revoked_by = kwargs['revokedBy']
+
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
         if revoked_at is not None:
-            pulumi.set(__self__, "revoked_at", revoked_at)
+            _setter("revoked_at", revoked_at)
         if revoked_by is not None:
-            pulumi.set(__self__, "revoked_by", revoked_by)
+            _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter
@@ -128,16 +175,27 @@ class SigningJobSignedObjectArgs:
     def __init__(__self__, *,
                  s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]] s3s: A configuration block describing the S3 Source object: See S3 Source below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
+        SigningJobSignedObjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3s=s3s,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if s3s is not None:
-            pulumi.set(__self__, "s3s", s3s)
+            _setter("s3s", s3s)
 
     @property
     @pulumi.getter
     def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]:
         """
-        A configuration block describing the S3 Source object: See S3 Source below for details.
+        A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3s")
 
@@ -155,10 +213,23 @@ class SigningJobSignedObjectS3Args:
         :param pulumi.Input[str] bucket: Name of the S3 bucket.
         :param pulumi.Input[str] key: Key name of the object that contains your unsigned code.
         """
+        SigningJobSignedObjectS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter
@@ -192,7 +263,20 @@ class SigningJobSourceArgs:
         """
         :param pulumi.Input['SigningJobSourceS3Args'] s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
-        pulumi.set(__self__, "s3", s3)
+        SigningJobSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3: Optional[pulumi.Input['SigningJobSourceS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3 is None:
+            raise TypeError("Missing 's3' argument")
+
+        _setter("s3", s3)
 
     @property
     @pulumi.getter
@@ -218,9 +302,30 @@ class SigningJobSourceS3Args:
         :param pulumi.Input[str] key: Key name of the object that contains your unsigned code.
         :param pulumi.Input[str] version: Version of your source image in your version enabled S3 bucket.
         """
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "version", version)
+        SigningJobSourceS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            key=key,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bucket", bucket)
+        _setter("key", key)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -265,12 +370,33 @@ class SigningProfileRevocationRecordArgs:
                  revocation_effective_from: Optional[pulumi.Input[str]] = None,
                  revoked_at: Optional[pulumi.Input[str]] = None,
                  revoked_by: Optional[pulumi.Input[str]] = None):
+        SigningProfileRevocationRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            revocation_effective_from=revocation_effective_from,
+            revoked_at=revoked_at,
+            revoked_by=revoked_by,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             revocation_effective_from: Optional[pulumi.Input[str]] = None,
+             revoked_at: Optional[pulumi.Input[str]] = None,
+             revoked_by: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if revocation_effective_from is None and 'revocationEffectiveFrom' in kwargs:
+            revocation_effective_from = kwargs['revocationEffectiveFrom']
+        if revoked_at is None and 'revokedAt' in kwargs:
+            revoked_at = kwargs['revokedAt']
+        if revoked_by is None and 'revokedBy' in kwargs:
+            revoked_by = kwargs['revokedBy']
+
         if revocation_effective_from is not None:
-            pulumi.set(__self__, "revocation_effective_from", revocation_effective_from)
+            _setter("revocation_effective_from", revocation_effective_from)
         if revoked_at is not None:
-            pulumi.set(__self__, "revoked_at", revoked_at)
+            _setter("revoked_at", revoked_at)
         if revoked_by is not None:
-            pulumi.set(__self__, "revoked_by", revoked_by)
+            _setter("revoked_by", revoked_by)
 
     @property
     @pulumi.getter(name="revocationEffectiveFrom")
@@ -305,8 +431,25 @@ class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[int]):
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        SigningProfileSignatureValidityPeriodArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -331,7 +474,22 @@ class SigningProfileSignatureValidityPeriodArgs:
 class SigningProfileSigningMaterialArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        SigningProfileSigningMaterialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_arn=certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+
+        _setter("certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")

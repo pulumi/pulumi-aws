@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayArgs', 'TransitGateway']
@@ -39,26 +39,71 @@ class TransitGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
+        TransitGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_side_asn=amazon_side_asn,
+            auto_accept_shared_attachments=auto_accept_shared_attachments,
+            default_route_table_association=default_route_table_association,
+            default_route_table_propagation=default_route_table_propagation,
+            description=description,
+            dns_support=dns_support,
+            multicast_support=multicast_support,
+            tags=tags,
+            transit_gateway_cidr_blocks=transit_gateway_cidr_blocks,
+            vpn_ecmp_support=vpn_ecmp_support,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_side_asn: Optional[pulumi.Input[int]] = None,
+             auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
+             default_route_table_association: Optional[pulumi.Input[str]] = None,
+             default_route_table_propagation: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_support: Optional[pulumi.Input[str]] = None,
+             multicast_support: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if amazon_side_asn is None and 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+        if auto_accept_shared_attachments is None and 'autoAcceptSharedAttachments' in kwargs:
+            auto_accept_shared_attachments = kwargs['autoAcceptSharedAttachments']
+        if default_route_table_association is None and 'defaultRouteTableAssociation' in kwargs:
+            default_route_table_association = kwargs['defaultRouteTableAssociation']
+        if default_route_table_propagation is None and 'defaultRouteTablePropagation' in kwargs:
+            default_route_table_propagation = kwargs['defaultRouteTablePropagation']
+        if dns_support is None and 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if multicast_support is None and 'multicastSupport' in kwargs:
+            multicast_support = kwargs['multicastSupport']
+        if transit_gateway_cidr_blocks is None and 'transitGatewayCidrBlocks' in kwargs:
+            transit_gateway_cidr_blocks = kwargs['transitGatewayCidrBlocks']
+        if vpn_ecmp_support is None and 'vpnEcmpSupport' in kwargs:
+            vpn_ecmp_support = kwargs['vpnEcmpSupport']
+
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if auto_accept_shared_attachments is not None:
-            pulumi.set(__self__, "auto_accept_shared_attachments", auto_accept_shared_attachments)
+            _setter("auto_accept_shared_attachments", auto_accept_shared_attachments)
         if default_route_table_association is not None:
-            pulumi.set(__self__, "default_route_table_association", default_route_table_association)
+            _setter("default_route_table_association", default_route_table_association)
         if default_route_table_propagation is not None:
-            pulumi.set(__self__, "default_route_table_propagation", default_route_table_propagation)
+            _setter("default_route_table_propagation", default_route_table_propagation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_support is not None:
-            pulumi.set(__self__, "dns_support", dns_support)
+            _setter("dns_support", dns_support)
         if multicast_support is not None:
-            pulumi.set(__self__, "multicast_support", multicast_support)
+            _setter("multicast_support", multicast_support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transit_gateway_cidr_blocks is not None:
-            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
+            _setter("transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
-            pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
+            _setter("vpn_ecmp_support", vpn_ecmp_support)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -221,39 +266,102 @@ class _TransitGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
+        _TransitGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amazon_side_asn=amazon_side_asn,
+            arn=arn,
+            association_default_route_table_id=association_default_route_table_id,
+            auto_accept_shared_attachments=auto_accept_shared_attachments,
+            default_route_table_association=default_route_table_association,
+            default_route_table_propagation=default_route_table_propagation,
+            description=description,
+            dns_support=dns_support,
+            multicast_support=multicast_support,
+            owner_id=owner_id,
+            propagation_default_route_table_id=propagation_default_route_table_id,
+            tags=tags,
+            tags_all=tags_all,
+            transit_gateway_cidr_blocks=transit_gateway_cidr_blocks,
+            vpn_ecmp_support=vpn_ecmp_support,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amazon_side_asn: Optional[pulumi.Input[int]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             association_default_route_table_id: Optional[pulumi.Input[str]] = None,
+             auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
+             default_route_table_association: Optional[pulumi.Input[str]] = None,
+             default_route_table_propagation: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dns_support: Optional[pulumi.Input[str]] = None,
+             multicast_support: Optional[pulumi.Input[str]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if amazon_side_asn is None and 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+        if association_default_route_table_id is None and 'associationDefaultRouteTableId' in kwargs:
+            association_default_route_table_id = kwargs['associationDefaultRouteTableId']
+        if auto_accept_shared_attachments is None and 'autoAcceptSharedAttachments' in kwargs:
+            auto_accept_shared_attachments = kwargs['autoAcceptSharedAttachments']
+        if default_route_table_association is None and 'defaultRouteTableAssociation' in kwargs:
+            default_route_table_association = kwargs['defaultRouteTableAssociation']
+        if default_route_table_propagation is None and 'defaultRouteTablePropagation' in kwargs:
+            default_route_table_propagation = kwargs['defaultRouteTablePropagation']
+        if dns_support is None and 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if multicast_support is None and 'multicastSupport' in kwargs:
+            multicast_support = kwargs['multicastSupport']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if propagation_default_route_table_id is None and 'propagationDefaultRouteTableId' in kwargs:
+            propagation_default_route_table_id = kwargs['propagationDefaultRouteTableId']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if transit_gateway_cidr_blocks is None and 'transitGatewayCidrBlocks' in kwargs:
+            transit_gateway_cidr_blocks = kwargs['transitGatewayCidrBlocks']
+        if vpn_ecmp_support is None and 'vpnEcmpSupport' in kwargs:
+            vpn_ecmp_support = kwargs['vpnEcmpSupport']
+
         if amazon_side_asn is not None:
-            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+            _setter("amazon_side_asn", amazon_side_asn)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if association_default_route_table_id is not None:
-            pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
+            _setter("association_default_route_table_id", association_default_route_table_id)
         if auto_accept_shared_attachments is not None:
-            pulumi.set(__self__, "auto_accept_shared_attachments", auto_accept_shared_attachments)
+            _setter("auto_accept_shared_attachments", auto_accept_shared_attachments)
         if default_route_table_association is not None:
-            pulumi.set(__self__, "default_route_table_association", default_route_table_association)
+            _setter("default_route_table_association", default_route_table_association)
         if default_route_table_propagation is not None:
-            pulumi.set(__self__, "default_route_table_propagation", default_route_table_propagation)
+            _setter("default_route_table_propagation", default_route_table_propagation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dns_support is not None:
-            pulumi.set(__self__, "dns_support", dns_support)
+            _setter("dns_support", dns_support)
         if multicast_support is not None:
-            pulumi.set(__self__, "multicast_support", multicast_support)
+            _setter("multicast_support", multicast_support)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if propagation_default_route_table_id is not None:
-            pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
+            _setter("propagation_default_route_table_id", propagation_default_route_table_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if transit_gateway_cidr_blocks is not None:
-            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
+            _setter("transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
-            pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
+            _setter("vpn_ecmp_support", vpn_ecmp_support)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -528,6 +636,10 @@ class TransitGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransitGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -53,33 +53,98 @@ class RecordArgs:
         :param pulumi.Input[int] ttl: The TTL of the record.
         :param pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "zone_id", zone_id)
+        RecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            zone_id=zone_id,
+            aliases=aliases,
+            allow_overwrite=allow_overwrite,
+            cidr_routing_policy=cidr_routing_policy,
+            failover_routing_policies=failover_routing_policies,
+            geolocation_routing_policies=geolocation_routing_policies,
+            health_check_id=health_check_id,
+            latency_routing_policies=latency_routing_policies,
+            multivalue_answer_routing_policy=multivalue_answer_routing_policy,
+            records=records,
+            set_identifier=set_identifier,
+            ttl=ttl,
+            weighted_routing_policies=weighted_routing_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'RecordType']]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
+             allow_overwrite: Optional[pulumi.Input[bool]] = None,
+             cidr_routing_policy: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']] = None,
+             failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
+             geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
+             health_check_id: Optional[pulumi.Input[str]] = None,
+             latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
+             multivalue_answer_routing_policy: Optional[pulumi.Input[bool]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             set_identifier: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+        if zone_id is None:
+            raise TypeError("Missing 'zone_id' argument")
+        if allow_overwrite is None and 'allowOverwrite' in kwargs:
+            allow_overwrite = kwargs['allowOverwrite']
+        if cidr_routing_policy is None and 'cidrRoutingPolicy' in kwargs:
+            cidr_routing_policy = kwargs['cidrRoutingPolicy']
+        if failover_routing_policies is None and 'failoverRoutingPolicies' in kwargs:
+            failover_routing_policies = kwargs['failoverRoutingPolicies']
+        if geolocation_routing_policies is None and 'geolocationRoutingPolicies' in kwargs:
+            geolocation_routing_policies = kwargs['geolocationRoutingPolicies']
+        if health_check_id is None and 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if latency_routing_policies is None and 'latencyRoutingPolicies' in kwargs:
+            latency_routing_policies = kwargs['latencyRoutingPolicies']
+        if multivalue_answer_routing_policy is None and 'multivalueAnswerRoutingPolicy' in kwargs:
+            multivalue_answer_routing_policy = kwargs['multivalueAnswerRoutingPolicy']
+        if set_identifier is None and 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+        if weighted_routing_policies is None and 'weightedRoutingPolicies' in kwargs:
+            weighted_routing_policies = kwargs['weightedRoutingPolicies']
+
+        _setter("name", name)
+        _setter("type", type)
+        _setter("zone_id", zone_id)
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if allow_overwrite is not None:
-            pulumi.set(__self__, "allow_overwrite", allow_overwrite)
+            _setter("allow_overwrite", allow_overwrite)
         if cidr_routing_policy is not None:
-            pulumi.set(__self__, "cidr_routing_policy", cidr_routing_policy)
+            _setter("cidr_routing_policy", cidr_routing_policy)
         if failover_routing_policies is not None:
-            pulumi.set(__self__, "failover_routing_policies", failover_routing_policies)
+            _setter("failover_routing_policies", failover_routing_policies)
         if geolocation_routing_policies is not None:
-            pulumi.set(__self__, "geolocation_routing_policies", geolocation_routing_policies)
+            _setter("geolocation_routing_policies", geolocation_routing_policies)
         if health_check_id is not None:
-            pulumi.set(__self__, "health_check_id", health_check_id)
+            _setter("health_check_id", health_check_id)
         if latency_routing_policies is not None:
-            pulumi.set(__self__, "latency_routing_policies", latency_routing_policies)
+            _setter("latency_routing_policies", latency_routing_policies)
         if multivalue_answer_routing_policy is not None:
-            pulumi.set(__self__, "multivalue_answer_routing_policy", multivalue_answer_routing_policy)
+            _setter("multivalue_answer_routing_policy", multivalue_answer_routing_policy)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if set_identifier is not None:
-            pulumi.set(__self__, "set_identifier", set_identifier)
+            _setter("set_identifier", set_identifier)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if weighted_routing_policies is not None:
-            pulumi.set(__self__, "weighted_routing_policies", weighted_routing_policies)
+            _setter("weighted_routing_policies", weighted_routing_policies)
 
     @property
     @pulumi.getter
@@ -306,38 +371,99 @@ class _RecordState:
         :param pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] zone_id: The ID of the hosted zone to contain this record.
         """
+        _RecordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aliases=aliases,
+            allow_overwrite=allow_overwrite,
+            cidr_routing_policy=cidr_routing_policy,
+            failover_routing_policies=failover_routing_policies,
+            fqdn=fqdn,
+            geolocation_routing_policies=geolocation_routing_policies,
+            health_check_id=health_check_id,
+            latency_routing_policies=latency_routing_policies,
+            multivalue_answer_routing_policy=multivalue_answer_routing_policy,
+            name=name,
+            records=records,
+            set_identifier=set_identifier,
+            ttl=ttl,
+            type=type,
+            weighted_routing_policies=weighted_routing_policies,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aliases: Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]] = None,
+             allow_overwrite: Optional[pulumi.Input[bool]] = None,
+             cidr_routing_policy: Optional[pulumi.Input['RecordCidrRoutingPolicyArgs']] = None,
+             failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]] = None,
+             health_check_id: Optional[pulumi.Input[str]] = None,
+             latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]] = None,
+             multivalue_answer_routing_policy: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             set_identifier: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[Union[str, 'RecordType']]] = None,
+             weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_overwrite is None and 'allowOverwrite' in kwargs:
+            allow_overwrite = kwargs['allowOverwrite']
+        if cidr_routing_policy is None and 'cidrRoutingPolicy' in kwargs:
+            cidr_routing_policy = kwargs['cidrRoutingPolicy']
+        if failover_routing_policies is None and 'failoverRoutingPolicies' in kwargs:
+            failover_routing_policies = kwargs['failoverRoutingPolicies']
+        if geolocation_routing_policies is None and 'geolocationRoutingPolicies' in kwargs:
+            geolocation_routing_policies = kwargs['geolocationRoutingPolicies']
+        if health_check_id is None and 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if latency_routing_policies is None and 'latencyRoutingPolicies' in kwargs:
+            latency_routing_policies = kwargs['latencyRoutingPolicies']
+        if multivalue_answer_routing_policy is None and 'multivalueAnswerRoutingPolicy' in kwargs:
+            multivalue_answer_routing_policy = kwargs['multivalueAnswerRoutingPolicy']
+        if set_identifier is None and 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+        if weighted_routing_policies is None and 'weightedRoutingPolicies' in kwargs:
+            weighted_routing_policies = kwargs['weightedRoutingPolicies']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
+            _setter("aliases", aliases)
         if allow_overwrite is not None:
-            pulumi.set(__self__, "allow_overwrite", allow_overwrite)
+            _setter("allow_overwrite", allow_overwrite)
         if cidr_routing_policy is not None:
-            pulumi.set(__self__, "cidr_routing_policy", cidr_routing_policy)
+            _setter("cidr_routing_policy", cidr_routing_policy)
         if failover_routing_policies is not None:
-            pulumi.set(__self__, "failover_routing_policies", failover_routing_policies)
+            _setter("failover_routing_policies", failover_routing_policies)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if geolocation_routing_policies is not None:
-            pulumi.set(__self__, "geolocation_routing_policies", geolocation_routing_policies)
+            _setter("geolocation_routing_policies", geolocation_routing_policies)
         if health_check_id is not None:
-            pulumi.set(__self__, "health_check_id", health_check_id)
+            _setter("health_check_id", health_check_id)
         if latency_routing_policies is not None:
-            pulumi.set(__self__, "latency_routing_policies", latency_routing_policies)
+            _setter("latency_routing_policies", latency_routing_policies)
         if multivalue_answer_routing_policy is not None:
-            pulumi.set(__self__, "multivalue_answer_routing_policy", multivalue_answer_routing_policy)
+            _setter("multivalue_answer_routing_policy", multivalue_answer_routing_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if set_identifier is not None:
-            pulumi.set(__self__, "set_identifier", set_identifier)
+            _setter("set_identifier", set_identifier)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if weighted_routing_policies is not None:
-            pulumi.set(__self__, "weighted_routing_policies", weighted_routing_policies)
+            _setter("weighted_routing_policies", weighted_routing_policies)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter
@@ -825,6 +951,10 @@ class Record(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -856,6 +986,11 @@ class Record(pulumi.CustomResource):
 
             __props__.__dict__["aliases"] = aliases
             __props__.__dict__["allow_overwrite"] = allow_overwrite
+            if cidr_routing_policy is not None and not isinstance(cidr_routing_policy, RecordCidrRoutingPolicyArgs):
+                cidr_routing_policy = cidr_routing_policy or {}
+                def _setter(key, value):
+                    cidr_routing_policy[key] = value
+                RecordCidrRoutingPolicyArgs._configure(_setter, **cidr_routing_policy)
             __props__.__dict__["cidr_routing_policy"] = cidr_routing_policy
             __props__.__dict__["failover_routing_policies"] = failover_routing_policies
             __props__.__dict__["geolocation_routing_policies"] = geolocation_routing_policies

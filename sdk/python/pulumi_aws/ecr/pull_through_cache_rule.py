@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PullThroughCacheRuleArgs', 'PullThroughCacheRule']
@@ -21,8 +21,29 @@ class PullThroughCacheRuleArgs:
         :param pulumi.Input[str] ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
         :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
-        pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
-        pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+        PullThroughCacheRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_repository_prefix=ecr_repository_prefix,
+            upstream_registry_url=upstream_registry_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+             upstream_registry_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_repository_prefix is None and 'ecrRepositoryPrefix' in kwargs:
+            ecr_repository_prefix = kwargs['ecrRepositoryPrefix']
+        if ecr_repository_prefix is None:
+            raise TypeError("Missing 'ecr_repository_prefix' argument")
+        if upstream_registry_url is None and 'upstreamRegistryUrl' in kwargs:
+            upstream_registry_url = kwargs['upstreamRegistryUrl']
+        if upstream_registry_url is None:
+            raise TypeError("Missing 'upstream_registry_url' argument")
+
+        _setter("ecr_repository_prefix", ecr_repository_prefix)
+        _setter("upstream_registry_url", upstream_registry_url)
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -61,12 +82,33 @@ class _PullThroughCacheRuleState:
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] upstream_registry_url: The registry URL of the upstream public registry to use as the source.
         """
+        _PullThroughCacheRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_repository_prefix=ecr_repository_prefix,
+            registry_id=registry_id,
+            upstream_registry_url=upstream_registry_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             upstream_registry_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_repository_prefix is None and 'ecrRepositoryPrefix' in kwargs:
+            ecr_repository_prefix = kwargs['ecrRepositoryPrefix']
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if upstream_registry_url is None and 'upstreamRegistryUrl' in kwargs:
+            upstream_registry_url = kwargs['upstreamRegistryUrl']
+
         if ecr_repository_prefix is not None:
-            pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
+            _setter("ecr_repository_prefix", ecr_repository_prefix)
         if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
+            _setter("registry_id", registry_id)
         if upstream_registry_url is not None:
-            pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+            _setter("upstream_registry_url", upstream_registry_url)
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -184,6 +226,10 @@ class PullThroughCacheRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PullThroughCacheRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

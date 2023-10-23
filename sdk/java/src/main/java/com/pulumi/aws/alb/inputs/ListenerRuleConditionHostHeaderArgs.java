@@ -17,16 +17,12 @@ public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resour
     /**
      * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
      * 
-     * Query String Value Blocks (for `query_string.values`) support the following:
-     * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
      * @return List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-     * 
-     * Query String Value Blocks (for `query_string.values`) support the following:
      * 
      */
     public Output<List<String>> values() {
@@ -60,8 +56,6 @@ public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resour
         /**
          * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          * 
-         * Query String Value Blocks (for `query_string.values`) support the following:
-         * 
          * @return builder
          * 
          */
@@ -73,8 +67,6 @@ public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resour
         /**
          * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
          * 
-         * Query String Value Blocks (for `query_string.values`) support the following:
-         * 
          * @return builder
          * 
          */
@@ -84,8 +76,6 @@ public final class ListenerRuleConditionHostHeaderArgs extends com.pulumi.resour
 
         /**
          * @param values List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
-         * 
-         * Query String Value Blocks (for `query_string.values`) support the following:
          * 
          * @return builder
          * 

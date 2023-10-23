@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Format;
         /// <summary>
-        /// Object prefix for filtering.
+        /// Prefix to append to exported analytics data.
         /// </summary>
         public readonly string? Prefix;
 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileArgs', 'Profile']
@@ -25,12 +25,39 @@ class ProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "as2_id", as2_id)
-        pulumi.set(__self__, "profile_type", profile_type)
+        ProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as2_id=as2_id,
+            profile_type=profile_type,
+            certificate_ids=certificate_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as2_id: Optional[pulumi.Input[str]] = None,
+             profile_type: Optional[pulumi.Input[str]] = None,
+             certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if as2_id is None and 'as2Id' in kwargs:
+            as2_id = kwargs['as2Id']
+        if as2_id is None:
+            raise TypeError("Missing 'as2_id' argument")
+        if profile_type is None and 'profileType' in kwargs:
+            profile_type = kwargs['profileType']
+        if profile_type is None:
+            raise TypeError("Missing 'profile_type' argument")
+        if certificate_ids is None and 'certificateIds' in kwargs:
+            certificate_ids = kwargs['certificateIds']
+
+        _setter("as2_id", as2_id)
+        _setter("profile_type", profile_type)
         if certificate_ids is not None:
-            pulumi.set(__self__, "certificate_ids", certificate_ids)
+            _setter("certificate_ids", certificate_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="as2Id")
@@ -100,23 +127,56 @@ class _ProfileState:
         :param pulumi.Input[str] profile_type: The profile type should be LOCAL or PARTNER.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        _ProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            as2_id=as2_id,
+            certificate_ids=certificate_ids,
+            profile_id=profile_id,
+            profile_type=profile_type,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             as2_id: Optional[pulumi.Input[str]] = None,
+             certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             profile_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if as2_id is None and 'as2Id' in kwargs:
+            as2_id = kwargs['as2Id']
+        if certificate_ids is None and 'certificateIds' in kwargs:
+            certificate_ids = kwargs['certificateIds']
+        if profile_id is None and 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if profile_type is None and 'profileType' in kwargs:
+            profile_type = kwargs['profileType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if as2_id is not None:
-            pulumi.set(__self__, "as2_id", as2_id)
+            _setter("as2_id", as2_id)
         if certificate_ids is not None:
-            pulumi.set(__self__, "certificate_ids", certificate_ids)
+            _setter("certificate_ids", certificate_ids)
         if profile_id is not None:
-            pulumi.set(__self__, "profile_id", profile_id)
+            _setter("profile_id", profile_id)
         if profile_type is not None:
-            pulumi.set(__self__, "profile_type", profile_type)
+            _setter("profile_type", profile_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -262,6 +322,10 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

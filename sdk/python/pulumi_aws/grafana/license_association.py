@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LicenseAssociationArgs', 'LicenseAssociation']
@@ -21,8 +21,29 @@ class LicenseAssociationArgs:
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        LicenseAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_type=license_type,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_type: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if license_type is None:
+            raise TypeError("Missing 'license_type' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
+        _setter("license_type", license_type)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -63,14 +84,39 @@ class _LicenseAssociationState:
         :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
+        _LicenseAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            free_trial_expiration=free_trial_expiration,
+            license_expiration=license_expiration,
+            license_type=license_type,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             free_trial_expiration: Optional[pulumi.Input[str]] = None,
+             license_expiration: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if free_trial_expiration is None and 'freeTrialExpiration' in kwargs:
+            free_trial_expiration = kwargs['freeTrialExpiration']
+        if license_expiration is None and 'licenseExpiration' in kwargs:
+            license_expiration = kwargs['licenseExpiration']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if free_trial_expiration is not None:
-            pulumi.set(__self__, "free_trial_expiration", free_trial_expiration)
+            _setter("free_trial_expiration", free_trial_expiration)
         if license_expiration is not None:
-            pulumi.set(__self__, "license_expiration", license_expiration)
+            _setter("license_expiration", license_expiration)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="freeTrialExpiration")
@@ -230,6 +276,10 @@ class LicenseAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LicenseAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

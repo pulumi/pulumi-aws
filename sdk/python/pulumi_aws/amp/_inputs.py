@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -20,7 +20,22 @@ class WorkspaceLoggingConfigurationArgs:
         """
         :param pulumi.Input[str] log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
         """
-        pulumi.set(__self__, "log_group_arn", log_group_arn)
+        WorkspaceLoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_arn=log_group_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group_arn is None and 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+        if log_group_arn is None:
+            raise TypeError("Missing 'log_group_arn' argument")
+
+        _setter("log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")

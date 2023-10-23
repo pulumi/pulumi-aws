@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -91,10 +91,27 @@ class PipeEnrichmentParameters(dict):
         :param 'PipeEnrichmentParametersHttpParametersArgs' http_parameters: Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
         :param str input_template: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
         """
+        PipeEnrichmentParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_parameters=http_parameters,
+            input_template=input_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_parameters: Optional['outputs.PipeEnrichmentParametersHttpParameters'] = None,
+             input_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_parameters is None and 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+
         if http_parameters is not None:
-            pulumi.set(__self__, "http_parameters", http_parameters)
+            _setter("http_parameters", http_parameters)
         if input_template is not None:
-            pulumi.set(__self__, "input_template", input_template)
+            _setter("input_template", input_template)
 
     @property
     @pulumi.getter(name="httpParameters")
@@ -145,12 +162,33 @@ class PipeEnrichmentParametersHttpParameters(dict):
         :param str path_parameter_values: The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
         :param Mapping[str, str] query_string_parameters: Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
         """
+        PipeEnrichmentParametersHttpParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_parameters=header_parameters,
+            path_parameter_values=path_parameter_values,
+            query_string_parameters=query_string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_parameters: Optional[Mapping[str, str]] = None,
+             path_parameter_values: Optional[str] = None,
+             query_string_parameters: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
-            pulumi.set(__self__, "header_parameters", header_parameters)
+            _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
-            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
+            _setter("path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+            _setter("query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -229,22 +267,63 @@ class PipeSourceParameters(dict):
         :param 'PipeSourceParametersSelfManagedKafkaParametersArgs' self_managed_kafka_parameters: The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
         :param 'PipeSourceParametersSqsQueueParametersArgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a source. Detailed below.
         """
+        PipeSourceParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activemq_broker_parameters=activemq_broker_parameters,
+            dynamodb_stream_parameters=dynamodb_stream_parameters,
+            filter_criteria=filter_criteria,
+            kinesis_stream_parameters=kinesis_stream_parameters,
+            managed_streaming_kafka_parameters=managed_streaming_kafka_parameters,
+            rabbitmq_broker_parameters=rabbitmq_broker_parameters,
+            self_managed_kafka_parameters=self_managed_kafka_parameters,
+            sqs_queue_parameters=sqs_queue_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activemq_broker_parameters: Optional['outputs.PipeSourceParametersActivemqBrokerParameters'] = None,
+             dynamodb_stream_parameters: Optional['outputs.PipeSourceParametersDynamodbStreamParameters'] = None,
+             filter_criteria: Optional['outputs.PipeSourceParametersFilterCriteria'] = None,
+             kinesis_stream_parameters: Optional['outputs.PipeSourceParametersKinesisStreamParameters'] = None,
+             managed_streaming_kafka_parameters: Optional['outputs.PipeSourceParametersManagedStreamingKafkaParameters'] = None,
+             rabbitmq_broker_parameters: Optional['outputs.PipeSourceParametersRabbitmqBrokerParameters'] = None,
+             self_managed_kafka_parameters: Optional['outputs.PipeSourceParametersSelfManagedKafkaParameters'] = None,
+             sqs_queue_parameters: Optional['outputs.PipeSourceParametersSqsQueueParameters'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if activemq_broker_parameters is None and 'activemqBrokerParameters' in kwargs:
+            activemq_broker_parameters = kwargs['activemqBrokerParameters']
+        if dynamodb_stream_parameters is None and 'dynamodbStreamParameters' in kwargs:
+            dynamodb_stream_parameters = kwargs['dynamodbStreamParameters']
+        if filter_criteria is None and 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+        if kinesis_stream_parameters is None and 'kinesisStreamParameters' in kwargs:
+            kinesis_stream_parameters = kwargs['kinesisStreamParameters']
+        if managed_streaming_kafka_parameters is None and 'managedStreamingKafkaParameters' in kwargs:
+            managed_streaming_kafka_parameters = kwargs['managedStreamingKafkaParameters']
+        if rabbitmq_broker_parameters is None and 'rabbitmqBrokerParameters' in kwargs:
+            rabbitmq_broker_parameters = kwargs['rabbitmqBrokerParameters']
+        if self_managed_kafka_parameters is None and 'selfManagedKafkaParameters' in kwargs:
+            self_managed_kafka_parameters = kwargs['selfManagedKafkaParameters']
+        if sqs_queue_parameters is None and 'sqsQueueParameters' in kwargs:
+            sqs_queue_parameters = kwargs['sqsQueueParameters']
+
         if activemq_broker_parameters is not None:
-            pulumi.set(__self__, "activemq_broker_parameters", activemq_broker_parameters)
+            _setter("activemq_broker_parameters", activemq_broker_parameters)
         if dynamodb_stream_parameters is not None:
-            pulumi.set(__self__, "dynamodb_stream_parameters", dynamodb_stream_parameters)
+            _setter("dynamodb_stream_parameters", dynamodb_stream_parameters)
         if filter_criteria is not None:
-            pulumi.set(__self__, "filter_criteria", filter_criteria)
+            _setter("filter_criteria", filter_criteria)
         if kinesis_stream_parameters is not None:
-            pulumi.set(__self__, "kinesis_stream_parameters", kinesis_stream_parameters)
+            _setter("kinesis_stream_parameters", kinesis_stream_parameters)
         if managed_streaming_kafka_parameters is not None:
-            pulumi.set(__self__, "managed_streaming_kafka_parameters", managed_streaming_kafka_parameters)
+            _setter("managed_streaming_kafka_parameters", managed_streaming_kafka_parameters)
         if rabbitmq_broker_parameters is not None:
-            pulumi.set(__self__, "rabbitmq_broker_parameters", rabbitmq_broker_parameters)
+            _setter("rabbitmq_broker_parameters", rabbitmq_broker_parameters)
         if self_managed_kafka_parameters is not None:
-            pulumi.set(__self__, "self_managed_kafka_parameters", self_managed_kafka_parameters)
+            _setter("self_managed_kafka_parameters", self_managed_kafka_parameters)
         if sqs_queue_parameters is not None:
-            pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
+            _setter("sqs_queue_parameters", sqs_queue_parameters)
 
     @property
     @pulumi.getter(name="activemqBrokerParameters")
@@ -345,12 +424,39 @@ class PipeSourceParametersActivemqBrokerParameters(dict):
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "queue_name", queue_name)
+        PipeSourceParametersActivemqBrokerParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            queue_name=queue_name,
+            batch_size=batch_size,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional['outputs.PipeSourceParametersActivemqBrokerParametersCredentials'] = None,
+             queue_name: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+
+        _setter("credentials", credentials)
+        _setter("queue_name", queue_name)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
 
     @property
     @pulumi.getter
@@ -407,15 +513,30 @@ class PipeSourceParametersActivemqBrokerParametersCredentials(dict):
     def __init__(__self__, *,
                  basic_auth: str):
         """
-        :param str basic_auth: The ARN of the Secrets Manager secret containing the basic auth credentials.
+        :param str basic_auth: The ARN of the Secrets Manager secret containing the credentials.
         """
-        pulumi.set(__self__, "basic_auth", basic_auth)
+        PipeSourceParametersActivemqBrokerParametersCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            basic_auth=basic_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             basic_auth: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if basic_auth is None:
+            raise TypeError("Missing 'basic_auth' argument")
+
+        _setter("basic_auth", basic_auth)
 
     @property
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> str:
         """
-        The ARN of the Secrets Manager secret containing the basic auth credentials.
+        The ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -472,21 +593,64 @@ class PipeSourceParametersDynamodbStreamParameters(dict):
         :param str on_partial_batch_item_failure: Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
         :param int parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         """
-        pulumi.set(__self__, "starting_position", starting_position)
+        PipeSourceParametersDynamodbStreamParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            starting_position=starting_position,
+            batch_size=batch_size,
+            dead_letter_config=dead_letter_config,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            maximum_record_age_in_seconds=maximum_record_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+            on_partial_batch_item_failure=on_partial_batch_item_failure,
+            parallelization_factor=parallelization_factor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             starting_position: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             dead_letter_config: Optional['outputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig'] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             maximum_record_age_in_seconds: Optional[int] = None,
+             maximum_retry_attempts: Optional[int] = None,
+             on_partial_batch_item_failure: Optional[str] = None,
+             parallelization_factor: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if starting_position is None:
+            raise TypeError("Missing 'starting_position' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if maximum_record_age_in_seconds is None and 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if on_partial_batch_item_failure is None and 'onPartialBatchItemFailure' in kwargs:
+            on_partial_batch_item_failure = kwargs['onPartialBatchItemFailure']
+        if parallelization_factor is None and 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+
+        _setter("starting_position", starting_position)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+            _setter("maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
         if on_partial_batch_item_failure is not None:
-            pulumi.set(__self__, "on_partial_batch_item_failure", on_partial_batch_item_failure)
+            _setter("on_partial_batch_item_failure", on_partial_batch_item_failure)
         if parallelization_factor is not None:
-            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+            _setter("parallelization_factor", parallelization_factor)
 
     @property
     @pulumi.getter(name="startingPosition")
@@ -560,8 +724,19 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig(dict):
         """
         :param str arn: The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
+        PipeSourceParametersDynamodbStreamParametersDeadLetterConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -579,8 +754,19 @@ class PipeSourceParametersFilterCriteria(dict):
         """
         :param Sequence['PipeSourceParametersFilterCriteriaFilterArgs'] filters: An array of up to 5 event patterns. Detailed below.
         """
+        PipeSourceParametersFilterCriteria._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[Sequence['outputs.PipeSourceParametersFilterCriteriaFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -598,7 +784,20 @@ class PipeSourceParametersFilterCriteriaFilter(dict):
         """
         :param str pattern: The event pattern. At most 4096 characters.
         """
-        pulumi.set(__self__, "pattern", pattern)
+        PipeSourceParametersFilterCriteriaFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pattern=pattern,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pattern: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
+        _setter("pattern", pattern)
 
     @property
     @pulumi.getter
@@ -665,23 +864,70 @@ class PipeSourceParametersKinesisStreamParameters(dict):
         :param int parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         :param str starting_position_timestamp: With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
         """
-        pulumi.set(__self__, "starting_position", starting_position)
+        PipeSourceParametersKinesisStreamParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            starting_position=starting_position,
+            batch_size=batch_size,
+            dead_letter_config=dead_letter_config,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            maximum_record_age_in_seconds=maximum_record_age_in_seconds,
+            maximum_retry_attempts=maximum_retry_attempts,
+            on_partial_batch_item_failure=on_partial_batch_item_failure,
+            parallelization_factor=parallelization_factor,
+            starting_position_timestamp=starting_position_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             starting_position: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             dead_letter_config: Optional['outputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfig'] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             maximum_record_age_in_seconds: Optional[int] = None,
+             maximum_retry_attempts: Optional[int] = None,
+             on_partial_batch_item_failure: Optional[str] = None,
+             parallelization_factor: Optional[int] = None,
+             starting_position_timestamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if starting_position is None:
+            raise TypeError("Missing 'starting_position' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if maximum_record_age_in_seconds is None and 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if on_partial_batch_item_failure is None and 'onPartialBatchItemFailure' in kwargs:
+            on_partial_batch_item_failure = kwargs['onPartialBatchItemFailure']
+        if parallelization_factor is None and 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+        if starting_position_timestamp is None and 'startingPositionTimestamp' in kwargs:
+            starting_position_timestamp = kwargs['startingPositionTimestamp']
+
+        _setter("starting_position", starting_position)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if dead_letter_config is not None:
-            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+            _setter("dead_letter_config", dead_letter_config)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
-            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+            _setter("maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
-            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+            _setter("maximum_retry_attempts", maximum_retry_attempts)
         if on_partial_batch_item_failure is not None:
-            pulumi.set(__self__, "on_partial_batch_item_failure", on_partial_batch_item_failure)
+            _setter("on_partial_batch_item_failure", on_partial_batch_item_failure)
         if parallelization_factor is not None:
-            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+            _setter("parallelization_factor", parallelization_factor)
         if starting_position_timestamp is not None:
-            pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
+            _setter("starting_position_timestamp", starting_position_timestamp)
 
     @property
     @pulumi.getter(name="startingPosition")
@@ -763,8 +1009,19 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfig(dict):
         """
         :param str arn: The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
+        PipeSourceParametersKinesisStreamParametersDeadLetterConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
 
     @property
     @pulumi.getter
@@ -817,17 +1074,50 @@ class PipeSourceParametersManagedStreamingKafkaParameters(dict):
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
-        pulumi.set(__self__, "topic_name", topic_name)
+        PipeSourceParametersManagedStreamingKafkaParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_name=topic_name,
+            batch_size=batch_size,
+            consumer_group_id=consumer_group_id,
+            credentials=credentials,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            starting_position=starting_position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_name: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             consumer_group_id: Optional[str] = None,
+             credentials: Optional['outputs.PipeSourceParametersManagedStreamingKafkaParametersCredentials'] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             starting_position: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+
+        _setter("topic_name", topic_name)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if consumer_group_id is not None:
-            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+            _setter("consumer_group_id", consumer_group_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if starting_position is not None:
-            pulumi.set(__self__, "starting_position", starting_position)
+            _setter("starting_position", starting_position)
 
     @property
     @pulumi.getter(name="topicName")
@@ -906,10 +1196,27 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentials(dict):
         :param str client_certificate_tls_auth: The ARN of the Secrets Manager secret containing the credentials.
         :param str sasl_scram512_auth: The ARN of the Secrets Manager secret containing the credentials.
         """
+        PipeSourceParametersManagedStreamingKafkaParametersCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_certificate_tls_auth=client_certificate_tls_auth,
+            sasl_scram512_auth=sasl_scram512_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_certificate_tls_auth: Optional[str] = None,
+             sasl_scram512_auth: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_certificate_tls_auth is None and 'clientCertificateTlsAuth' in kwargs:
+            client_certificate_tls_auth = kwargs['clientCertificateTlsAuth']
+        if sasl_scram512_auth is None and 'saslScram512Auth' in kwargs:
+            sasl_scram512_auth = kwargs['saslScram512Auth']
+
         if client_certificate_tls_auth is not None:
-            pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+            _setter("client_certificate_tls_auth", client_certificate_tls_auth)
         if sasl_scram512_auth is not None:
-            pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+            _setter("sasl_scram512_auth", sasl_scram512_auth)
 
     @property
     @pulumi.getter(name="clientCertificateTlsAuth")
@@ -966,14 +1273,45 @@ class PipeSourceParametersRabbitmqBrokerParameters(dict):
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param str virtual_host: The name of the virtual host associated with the source broker. Maximum length of 200.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "queue_name", queue_name)
+        PipeSourceParametersRabbitmqBrokerParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            queue_name=queue_name,
+            batch_size=batch_size,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            virtual_host=virtual_host,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional['outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials'] = None,
+             queue_name: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             virtual_host: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if virtual_host is None and 'virtualHost' in kwargs:
+            virtual_host = kwargs['virtualHost']
+
+        _setter("credentials", credentials)
+        _setter("queue_name", queue_name)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if virtual_host is not None:
-            pulumi.set(__self__, "virtual_host", virtual_host)
+            _setter("virtual_host", virtual_host)
 
     @property
     @pulumi.getter
@@ -1038,15 +1376,30 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentials(dict):
     def __init__(__self__, *,
                  basic_auth: str):
         """
-        :param str basic_auth: The ARN of the Secrets Manager secret containing the basic auth credentials.
+        :param str basic_auth: The ARN of the Secrets Manager secret containing the credentials.
         """
-        pulumi.set(__self__, "basic_auth", basic_auth)
+        PipeSourceParametersRabbitmqBrokerParametersCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            basic_auth=basic_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             basic_auth: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if basic_auth is None:
+            raise TypeError("Missing 'basic_auth' argument")
+
+        _setter("basic_auth", basic_auth)
 
     @property
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> str:
         """
-        The ARN of the Secrets Manager secret containing the basic auth credentials.
+        The ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -1103,23 +1456,66 @@ class PipeSourceParametersSelfManagedKafkaParameters(dict):
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         :param 'PipeSourceParametersSelfManagedKafkaParametersVpcArgs' vpc: This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
         """
-        pulumi.set(__self__, "topic_name", topic_name)
+        PipeSourceParametersSelfManagedKafkaParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_name=topic_name,
+            additional_bootstrap_servers=additional_bootstrap_servers,
+            batch_size=batch_size,
+            consumer_group_id=consumer_group_id,
+            credentials=credentials,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+            server_root_ca_certificate=server_root_ca_certificate,
+            starting_position=starting_position,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_name: Optional[str] = None,
+             additional_bootstrap_servers: Optional[Sequence[str]] = None,
+             batch_size: Optional[int] = None,
+             consumer_group_id: Optional[str] = None,
+             credentials: Optional['outputs.PipeSourceParametersSelfManagedKafkaParametersCredentials'] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             server_root_ca_certificate: Optional[str] = None,
+             starting_position: Optional[str] = None,
+             vpc: Optional['outputs.PipeSourceParametersSelfManagedKafkaParametersVpc'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if additional_bootstrap_servers is None and 'additionalBootstrapServers' in kwargs:
+            additional_bootstrap_servers = kwargs['additionalBootstrapServers']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if server_root_ca_certificate is None and 'serverRootCaCertificate' in kwargs:
+            server_root_ca_certificate = kwargs['serverRootCaCertificate']
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+
+        _setter("topic_name", topic_name)
         if additional_bootstrap_servers is not None:
-            pulumi.set(__self__, "additional_bootstrap_servers", additional_bootstrap_servers)
+            _setter("additional_bootstrap_servers", additional_bootstrap_servers)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if consumer_group_id is not None:
-            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
+            _setter("consumer_group_id", consumer_group_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if server_root_ca_certificate is not None:
-            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
+            _setter("server_root_ca_certificate", server_root_ca_certificate)
         if starting_position is not None:
-            pulumi.set(__self__, "starting_position", starting_position)
+            _setter("starting_position", starting_position)
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
 
     @property
     @pulumi.getter(name="topicName")
@@ -1225,24 +1621,51 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentials(dict):
                  sasl_scram256_auth: Optional[str] = None,
                  sasl_scram512_auth: Optional[str] = None):
         """
-        :param str basic_auth: The ARN of the Secrets Manager secret containing the basic auth credentials.
+        :param str basic_auth: The ARN of the Secrets Manager secret containing the credentials.
         :param str client_certificate_tls_auth: The ARN of the Secrets Manager secret containing the credentials.
         :param str sasl_scram256_auth: The ARN of the Secrets Manager secret containing the credentials.
         :param str sasl_scram512_auth: The ARN of the Secrets Manager secret containing the credentials.
         """
-        pulumi.set(__self__, "basic_auth", basic_auth)
+        PipeSourceParametersSelfManagedKafkaParametersCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            basic_auth=basic_auth,
+            client_certificate_tls_auth=client_certificate_tls_auth,
+            sasl_scram256_auth=sasl_scram256_auth,
+            sasl_scram512_auth=sasl_scram512_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             basic_auth: Optional[str] = None,
+             client_certificate_tls_auth: Optional[str] = None,
+             sasl_scram256_auth: Optional[str] = None,
+             sasl_scram512_auth: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if basic_auth is None:
+            raise TypeError("Missing 'basic_auth' argument")
+        if client_certificate_tls_auth is None and 'clientCertificateTlsAuth' in kwargs:
+            client_certificate_tls_auth = kwargs['clientCertificateTlsAuth']
+        if sasl_scram256_auth is None and 'saslScram256Auth' in kwargs:
+            sasl_scram256_auth = kwargs['saslScram256Auth']
+        if sasl_scram512_auth is None and 'saslScram512Auth' in kwargs:
+            sasl_scram512_auth = kwargs['saslScram512Auth']
+
+        _setter("basic_auth", basic_auth)
         if client_certificate_tls_auth is not None:
-            pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+            _setter("client_certificate_tls_auth", client_certificate_tls_auth)
         if sasl_scram256_auth is not None:
-            pulumi.set(__self__, "sasl_scram256_auth", sasl_scram256_auth)
+            _setter("sasl_scram256_auth", sasl_scram256_auth)
         if sasl_scram512_auth is not None:
-            pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+            _setter("sasl_scram512_auth", sasl_scram512_auth)
 
     @property
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> str:
         """
-        The ARN of the Secrets Manager secret containing the basic auth credentials.
+        The ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -1297,10 +1720,25 @@ class PipeSourceParametersSelfManagedKafkaParametersVpc(dict):
         :param Sequence[str] security_groups: List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
         :param Sequence[str] subnets: List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
         """
+        PipeSourceParametersSelfManagedKafkaParametersVpc._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_groups=security_groups,
+            subnets=subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_groups: Optional[Sequence[str]] = None,
+             subnets: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -1347,10 +1785,27 @@ class PipeSourceParametersSqsQueueParameters(dict):
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         """
+        PipeSourceParametersSqsQueueParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[int] = None,
+             maximum_batching_window_in_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -1437,30 +1892,87 @@ class PipeTargetParameters(dict):
         :param 'PipeTargetParametersSqsQueueParametersArgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target. Detailed below.
         :param 'PipeTargetParametersStepFunctionStateMachineParametersArgs' step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target. Detailed below.
         """
+        PipeTargetParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_job_parameters=batch_job_parameters,
+            cloudwatch_logs_parameters=cloudwatch_logs_parameters,
+            ecs_task_parameters=ecs_task_parameters,
+            eventbridge_event_bus_parameters=eventbridge_event_bus_parameters,
+            http_parameters=http_parameters,
+            input_template=input_template,
+            kinesis_stream_parameters=kinesis_stream_parameters,
+            lambda_function_parameters=lambda_function_parameters,
+            redshift_data_parameters=redshift_data_parameters,
+            sagemaker_pipeline_parameters=sagemaker_pipeline_parameters,
+            sqs_queue_parameters=sqs_queue_parameters,
+            step_function_state_machine_parameters=step_function_state_machine_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_job_parameters: Optional['outputs.PipeTargetParametersBatchJobParameters'] = None,
+             cloudwatch_logs_parameters: Optional['outputs.PipeTargetParametersCloudwatchLogsParameters'] = None,
+             ecs_task_parameters: Optional['outputs.PipeTargetParametersEcsTaskParameters'] = None,
+             eventbridge_event_bus_parameters: Optional['outputs.PipeTargetParametersEventbridgeEventBusParameters'] = None,
+             http_parameters: Optional['outputs.PipeTargetParametersHttpParameters'] = None,
+             input_template: Optional[str] = None,
+             kinesis_stream_parameters: Optional['outputs.PipeTargetParametersKinesisStreamParameters'] = None,
+             lambda_function_parameters: Optional['outputs.PipeTargetParametersLambdaFunctionParameters'] = None,
+             redshift_data_parameters: Optional['outputs.PipeTargetParametersRedshiftDataParameters'] = None,
+             sagemaker_pipeline_parameters: Optional['outputs.PipeTargetParametersSagemakerPipelineParameters'] = None,
+             sqs_queue_parameters: Optional['outputs.PipeTargetParametersSqsQueueParameters'] = None,
+             step_function_state_machine_parameters: Optional['outputs.PipeTargetParametersStepFunctionStateMachineParameters'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if batch_job_parameters is None and 'batchJobParameters' in kwargs:
+            batch_job_parameters = kwargs['batchJobParameters']
+        if cloudwatch_logs_parameters is None and 'cloudwatchLogsParameters' in kwargs:
+            cloudwatch_logs_parameters = kwargs['cloudwatchLogsParameters']
+        if ecs_task_parameters is None and 'ecsTaskParameters' in kwargs:
+            ecs_task_parameters = kwargs['ecsTaskParameters']
+        if eventbridge_event_bus_parameters is None and 'eventbridgeEventBusParameters' in kwargs:
+            eventbridge_event_bus_parameters = kwargs['eventbridgeEventBusParameters']
+        if http_parameters is None and 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+        if kinesis_stream_parameters is None and 'kinesisStreamParameters' in kwargs:
+            kinesis_stream_parameters = kwargs['kinesisStreamParameters']
+        if lambda_function_parameters is None and 'lambdaFunctionParameters' in kwargs:
+            lambda_function_parameters = kwargs['lambdaFunctionParameters']
+        if redshift_data_parameters is None and 'redshiftDataParameters' in kwargs:
+            redshift_data_parameters = kwargs['redshiftDataParameters']
+        if sagemaker_pipeline_parameters is None and 'sagemakerPipelineParameters' in kwargs:
+            sagemaker_pipeline_parameters = kwargs['sagemakerPipelineParameters']
+        if sqs_queue_parameters is None and 'sqsQueueParameters' in kwargs:
+            sqs_queue_parameters = kwargs['sqsQueueParameters']
+        if step_function_state_machine_parameters is None and 'stepFunctionStateMachineParameters' in kwargs:
+            step_function_state_machine_parameters = kwargs['stepFunctionStateMachineParameters']
+
         if batch_job_parameters is not None:
-            pulumi.set(__self__, "batch_job_parameters", batch_job_parameters)
+            _setter("batch_job_parameters", batch_job_parameters)
         if cloudwatch_logs_parameters is not None:
-            pulumi.set(__self__, "cloudwatch_logs_parameters", cloudwatch_logs_parameters)
+            _setter("cloudwatch_logs_parameters", cloudwatch_logs_parameters)
         if ecs_task_parameters is not None:
-            pulumi.set(__self__, "ecs_task_parameters", ecs_task_parameters)
+            _setter("ecs_task_parameters", ecs_task_parameters)
         if eventbridge_event_bus_parameters is not None:
-            pulumi.set(__self__, "eventbridge_event_bus_parameters", eventbridge_event_bus_parameters)
+            _setter("eventbridge_event_bus_parameters", eventbridge_event_bus_parameters)
         if http_parameters is not None:
-            pulumi.set(__self__, "http_parameters", http_parameters)
+            _setter("http_parameters", http_parameters)
         if input_template is not None:
-            pulumi.set(__self__, "input_template", input_template)
+            _setter("input_template", input_template)
         if kinesis_stream_parameters is not None:
-            pulumi.set(__self__, "kinesis_stream_parameters", kinesis_stream_parameters)
+            _setter("kinesis_stream_parameters", kinesis_stream_parameters)
         if lambda_function_parameters is not None:
-            pulumi.set(__self__, "lambda_function_parameters", lambda_function_parameters)
+            _setter("lambda_function_parameters", lambda_function_parameters)
         if redshift_data_parameters is not None:
-            pulumi.set(__self__, "redshift_data_parameters", redshift_data_parameters)
+            _setter("redshift_data_parameters", redshift_data_parameters)
         if sagemaker_pipeline_parameters is not None:
-            pulumi.set(__self__, "sagemaker_pipeline_parameters", sagemaker_pipeline_parameters)
+            _setter("sagemaker_pipeline_parameters", sagemaker_pipeline_parameters)
         if sqs_queue_parameters is not None:
-            pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
+            _setter("sqs_queue_parameters", sqs_queue_parameters)
         if step_function_state_machine_parameters is not None:
-            pulumi.set(__self__, "step_function_state_machine_parameters", step_function_state_machine_parameters)
+            _setter("step_function_state_machine_parameters", step_function_state_machine_parameters)
 
     @property
     @pulumi.getter(name="batchJobParameters")
@@ -1605,18 +2117,57 @@ class PipeTargetParametersBatchJobParameters(dict):
         :param Mapping[str, str] parameters: Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
         :param 'PipeTargetParametersBatchJobParametersRetryStrategyArgs' retry_strategy: The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
         """
-        pulumi.set(__self__, "job_definition", job_definition)
-        pulumi.set(__self__, "job_name", job_name)
+        PipeTargetParametersBatchJobParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_definition=job_definition,
+            job_name=job_name,
+            array_properties=array_properties,
+            container_overrides=container_overrides,
+            depends_ons=depends_ons,
+            parameters=parameters,
+            retry_strategy=retry_strategy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_definition: Optional[str] = None,
+             job_name: Optional[str] = None,
+             array_properties: Optional['outputs.PipeTargetParametersBatchJobParametersArrayProperties'] = None,
+             container_overrides: Optional['outputs.PipeTargetParametersBatchJobParametersContainerOverrides'] = None,
+             depends_ons: Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersDependsOn']] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             retry_strategy: Optional['outputs.PipeTargetParametersBatchJobParametersRetryStrategy'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if job_definition is None and 'jobDefinition' in kwargs:
+            job_definition = kwargs['jobDefinition']
+        if job_definition is None:
+            raise TypeError("Missing 'job_definition' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if array_properties is None and 'arrayProperties' in kwargs:
+            array_properties = kwargs['arrayProperties']
+        if container_overrides is None and 'containerOverrides' in kwargs:
+            container_overrides = kwargs['containerOverrides']
+        if depends_ons is None and 'dependsOns' in kwargs:
+            depends_ons = kwargs['dependsOns']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+
+        _setter("job_definition", job_definition)
+        _setter("job_name", job_name)
         if array_properties is not None:
-            pulumi.set(__self__, "array_properties", array_properties)
+            _setter("array_properties", array_properties)
         if container_overrides is not None:
-            pulumi.set(__self__, "container_overrides", container_overrides)
+            _setter("container_overrides", container_overrides)
         if depends_ons is not None:
-            pulumi.set(__self__, "depends_ons", depends_ons)
+            _setter("depends_ons", depends_ons)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if retry_strategy is not None:
-            pulumi.set(__self__, "retry_strategy", retry_strategy)
+            _setter("retry_strategy", retry_strategy)
 
     @property
     @pulumi.getter(name="jobDefinition")
@@ -1682,8 +2233,19 @@ class PipeTargetParametersBatchJobParametersArrayProperties(dict):
         """
         :param int size: The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
         """
+        PipeTargetParametersBatchJobParametersArrayProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size=size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
 
     @property
     @pulumi.getter
@@ -1721,25 +2283,46 @@ class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
                  instance_type: Optional[str] = None,
                  resource_requirements: Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement']] = None):
         """
-        :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition.
-        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+        :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         :param str instance_type: The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs'] resource_requirements: The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
+        PipeTargetParametersBatchJobParametersContainerOverrides._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            environments=environments,
+            instance_type=instance_type,
+            resource_requirements=resource_requirements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[str]] = None,
+             environments: Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment']] = None,
+             instance_type: Optional[str] = None,
+             resource_requirements: Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if resource_requirements is None and 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
+            _setter("instance_type", instance_type)
         if resource_requirements is not None:
-            pulumi.set(__self__, "resource_requirements", resource_requirements)
+            _setter("resource_requirements", resource_requirements)
 
     @property
     @pulumi.getter
     def commands(self) -> Optional[Sequence[str]]:
         """
-        List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+        List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "commands")
 
@@ -1747,7 +2330,7 @@ class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
     @pulumi.getter
     def environments(self) -> Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment']]:
         """
-        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         """
         return pulumi.get(self, "environments")
 
@@ -1763,7 +2346,7 @@ class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement']]:
         """
-        The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+        The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -1775,12 +2358,25 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironment(dict):
                  value: Optional[str] = None):
         """
         :param str name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
+        PipeTargetParametersBatchJobParametersContainerOverridesEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1794,7 +2390,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironment(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -1805,17 +2401,34 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
                  type: str,
                  value: str):
         """
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -1823,7 +2436,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -1852,12 +2465,27 @@ class PipeTargetParametersBatchJobParametersDependsOn(dict):
                  type: Optional[str] = None):
         """
         :param str job_id: The job ID of the AWS Batch job that's associated with this dependency.
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
+        PipeTargetParametersBatchJobParametersDependsOn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+
         if job_id is not None:
-            pulumi.set(__self__, "job_id", job_id)
+            _setter("job_id", job_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="jobId")
@@ -1871,7 +2499,7 @@ class PipeTargetParametersBatchJobParametersDependsOn(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -1883,8 +2511,19 @@ class PipeTargetParametersBatchJobParametersRetryStrategy(dict):
         """
         :param int attempts: The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
         """
+        PipeTargetParametersBatchJobParametersRetryStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attempts=attempts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attempts: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if attempts is not None:
-            pulumi.set(__self__, "attempts", attempts)
+            _setter("attempts", attempts)
 
     @property
     @pulumi.getter
@@ -1921,10 +2560,25 @@ class PipeTargetParametersCloudwatchLogsParameters(dict):
         :param str log_stream_name: The name of the log stream.
         :param str timestamp: The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
+        PipeTargetParametersCloudwatchLogsParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_stream_name=log_stream_name,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_stream_name: Optional[str] = None,
+             timestamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_stream_name is None and 'logStreamName' in kwargs:
+            log_stream_name = kwargs['logStreamName']
+
         if log_stream_name is not None:
-            pulumi.set(__self__, "log_stream_name", log_stream_name)
+            _setter("log_stream_name", log_stream_name)
         if timestamp is not None:
-            pulumi.set(__self__, "timestamp", timestamp)
+            _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="logStreamName")
@@ -2017,35 +2671,100 @@ class PipeTargetParametersEcsTaskParameters(dict):
         :param Mapping[str, str] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param int task_count: The number of tasks to create based on TaskDefinition. The default is 1.
         """
-        pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        PipeTargetParametersEcsTaskParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_definition_arn=task_definition_arn,
+            capacity_provider_strategies=capacity_provider_strategies,
+            enable_ecs_managed_tags=enable_ecs_managed_tags,
+            enable_execute_command=enable_execute_command,
+            group=group,
+            launch_type=launch_type,
+            network_configuration=network_configuration,
+            overrides=overrides,
+            placement_constraints=placement_constraints,
+            placement_strategies=placement_strategies,
+            platform_version=platform_version,
+            propagate_tags=propagate_tags,
+            reference_id=reference_id,
+            tags=tags,
+            task_count=task_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_definition_arn: Optional[str] = None,
+             capacity_provider_strategies: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy']] = None,
+             enable_ecs_managed_tags: Optional[bool] = None,
+             enable_execute_command: Optional[bool] = None,
+             group: Optional[str] = None,
+             launch_type: Optional[str] = None,
+             network_configuration: Optional['outputs.PipeTargetParametersEcsTaskParametersNetworkConfiguration'] = None,
+             overrides: Optional['outputs.PipeTargetParametersEcsTaskParametersOverrides'] = None,
+             placement_constraints: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersPlacementConstraint']] = None,
+             placement_strategies: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersPlacementStrategy']] = None,
+             platform_version: Optional[str] = None,
+             propagate_tags: Optional[str] = None,
+             reference_id: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             task_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if task_definition_arn is None and 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if task_definition_arn is None:
+            raise TypeError("Missing 'task_definition_arn' argument")
+        if capacity_provider_strategies is None and 'capacityProviderStrategies' in kwargs:
+            capacity_provider_strategies = kwargs['capacityProviderStrategies']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if placement_strategies is None and 'placementStrategies' in kwargs:
+            placement_strategies = kwargs['placementStrategies']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if reference_id is None and 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if task_count is None and 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
+        _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategies is not None:
-            pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
+            _setter("capacity_provider_strategies", capacity_provider_strategies)
         if enable_ecs_managed_tags is not None:
-            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
+            _setter("enable_execute_command", enable_execute_command)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if launch_type is not None:
-            pulumi.set(__self__, "launch_type", launch_type)
+            _setter("launch_type", launch_type)
         if network_configuration is not None:
-            pulumi.set(__self__, "network_configuration", network_configuration)
+            _setter("network_configuration", network_configuration)
         if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
+            _setter("overrides", overrides)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if placement_strategies is not None:
-            pulumi.set(__self__, "placement_strategies", placement_strategies)
+            _setter("placement_strategies", placement_strategies)
         if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+            _setter("platform_version", platform_version)
         if propagate_tags is not None:
-            pulumi.set(__self__, "propagate_tags", propagate_tags)
+            _setter("propagate_tags", propagate_tags)
         if reference_id is not None:
-            pulumi.set(__self__, "reference_id", reference_id)
+            _setter("reference_id", reference_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_count is not None:
-            pulumi.set(__self__, "task_count", task_count)
+            _setter("task_count", task_count)
 
     @property
     @pulumi.getter(name="taskDefinitionArn")
@@ -2196,11 +2915,30 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy(dict):
         :param int base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
         :param int weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
         """
-        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        PipeTargetParametersEcsTaskParametersCapacityProviderStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_provider=capacity_provider,
+            base=base,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_provider: Optional[str] = None,
+             base: Optional[int] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
+        _setter("capacity_provider", capacity_provider)
         if base is not None:
-            pulumi.set(__self__, "base", base)
+            _setter("base", base)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -2251,8 +2989,21 @@ class PipeTargetParametersEcsTaskParametersNetworkConfiguration(dict):
         """
         :param 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs' aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
         """
+        PipeTargetParametersEcsTaskParametersNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_vpc_configuration=aws_vpc_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_vpc_configuration: Optional['outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aws_vpc_configuration is None and 'awsVpcConfiguration' in kwargs:
+            aws_vpc_configuration = kwargs['awsVpcConfiguration']
+
         if aws_vpc_configuration is not None:
-            pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
+            _setter("aws_vpc_configuration", aws_vpc_configuration)
 
     @property
     @pulumi.getter(name="awsVpcConfiguration")
@@ -2293,12 +3044,31 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
         :param Sequence[str] security_groups: List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
         :param Sequence[str] subnets: List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
         """
+        PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assign_public_ip=assign_public_ip,
+            security_groups=security_groups,
+            subnets=subnets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assign_public_ip: Optional[str] = None,
+             security_groups: Optional[Sequence[str]] = None,
+             subnets: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         if assign_public_ip is not None:
-            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+            _setter("assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
 
     @property
     @pulumi.getter(name="assignPublicIp")
@@ -2362,27 +3132,60 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
                  task_role_arn: Optional[str] = None):
         """
         :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. Detailed below.
-        :param str cpu: The cpu override for the task.
+        :param str cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         :param 'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs' ephemeral_storage: The ephemeral storage setting override for the task.  Detailed below.
         :param str execution_role_arn: The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
         :param Sequence['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. Detailed below.
-        :param str memory: The memory override for the task.
+        :param str memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         :param str task_role_arn: The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         """
+        PipeTargetParametersEcsTaskParametersOverrides._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_overrides=container_overrides,
+            cpu=cpu,
+            ephemeral_storage=ephemeral_storage,
+            execution_role_arn=execution_role_arn,
+            inference_accelerator_overrides=inference_accelerator_overrides,
+            memory=memory,
+            task_role_arn=task_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_overrides: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride']] = None,
+             cpu: Optional[str] = None,
+             ephemeral_storage: Optional['outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage'] = None,
+             execution_role_arn: Optional[str] = None,
+             inference_accelerator_overrides: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride']] = None,
+             memory: Optional[str] = None,
+             task_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_overrides is None and 'containerOverrides' in kwargs:
+            container_overrides = kwargs['containerOverrides']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if inference_accelerator_overrides is None and 'inferenceAcceleratorOverrides' in kwargs:
+            inference_accelerator_overrides = kwargs['inferenceAcceleratorOverrides']
+        if task_role_arn is None and 'taskRoleArn' in kwargs:
+            task_role_arn = kwargs['taskRoleArn']
+
         if container_overrides is not None:
-            pulumi.set(__self__, "container_overrides", container_overrides)
+            _setter("container_overrides", container_overrides)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
-            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+            _setter("execution_role_arn", execution_role_arn)
         if inference_accelerator_overrides is not None:
-            pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
+            _setter("inference_accelerator_overrides", inference_accelerator_overrides)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if task_role_arn is not None:
-            pulumi.set(__self__, "task_role_arn", task_role_arn)
+            _setter("task_role_arn", task_role_arn)
 
     @property
     @pulumi.getter(name="containerOverrides")
@@ -2396,7 +3199,7 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
     @pulumi.getter
     def cpu(self) -> Optional[str]:
         """
-        The cpu override for the task.
+        The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "cpu")
 
@@ -2428,7 +3231,7 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
     @pulumi.getter
     def memory(self) -> Optional[str]:
         """
-        The memory override for the task.
+        The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         """
         return pulumi.get(self, "memory")
 
@@ -2474,37 +3277,68 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
                  name: Optional[str] = None,
                  resource_requirements: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement']] = None):
         """
-        :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition.
-        :param int cpu: The cpu override for the task.
+        :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+        :param int cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs'] environment_files: A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
-        :param int memory: The memory override for the task.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        :param int memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
         :param str name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
+        PipeTargetParametersEcsTaskParametersOverridesContainerOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            cpu=cpu,
+            environment_files=environment_files,
+            environments=environments,
+            memory=memory,
+            memory_reservation=memory_reservation,
+            name=name,
+            resource_requirements=resource_requirements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[str]] = None,
+             cpu: Optional[int] = None,
+             environment_files: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile']] = None,
+             environments: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment']] = None,
+             memory: Optional[int] = None,
+             memory_reservation: Optional[int] = None,
+             name: Optional[str] = None,
+             resource_requirements: Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if environment_files is None and 'environmentFiles' in kwargs:
+            environment_files = kwargs['environmentFiles']
+        if memory_reservation is None and 'memoryReservation' in kwargs:
+            memory_reservation = kwargs['memoryReservation']
+        if resource_requirements is None and 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if environment_files is not None:
-            pulumi.set(__self__, "environment_files", environment_files)
+            _setter("environment_files", environment_files)
         if environments is not None:
-            pulumi.set(__self__, "environments", environments)
+            _setter("environments", environments)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
         if memory_reservation is not None:
-            pulumi.set(__self__, "memory_reservation", memory_reservation)
+            _setter("memory_reservation", memory_reservation)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_requirements is not None:
-            pulumi.set(__self__, "resource_requirements", resource_requirements)
+            _setter("resource_requirements", resource_requirements)
 
     @property
     @pulumi.getter
     def commands(self) -> Optional[Sequence[str]]:
         """
-        List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+        List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "commands")
 
@@ -2512,7 +3346,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
     @pulumi.getter
     def cpu(self) -> Optional[int]:
         """
-        The cpu override for the task.
+        The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "cpu")
 
@@ -2528,7 +3362,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
     @pulumi.getter
     def environments(self) -> Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment']]:
         """
-        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         """
         return pulumi.get(self, "environments")
 
@@ -2536,7 +3370,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
     @pulumi.getter
     def memory(self) -> Optional[int]:
         """
-        The memory override for the task.
+        The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         """
         return pulumi.get(self, "memory")
 
@@ -2560,7 +3394,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement']]:
         """
-        The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+        The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -2572,12 +3406,25 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  value: Optional[str] = None):
         """
         :param str name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
+        PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2591,7 +3438,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -2602,17 +3449,34 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  type: str,
                  value: str):
         """
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -2620,7 +3484,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -2631,17 +3495,34 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
                  type: str,
                  value: str):
         """
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -2649,7 +3530,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -2678,7 +3559,22 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage(dict):
         """
         :param int size_in_gib: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
         """
-        pulumi.set(__self__, "size_in_gib", size_in_gib)
+        PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size_in_gib=size_in_gib,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size_in_gib: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if size_in_gib is None and 'sizeInGib' in kwargs:
+            size_in_gib = kwargs['sizeInGib']
+        if size_in_gib is None:
+            raise TypeError("Missing 'size_in_gib' argument")
+
+        _setter("size_in_gib", size_in_gib)
 
     @property
     @pulumi.getter(name="sizeInGib")
@@ -2717,10 +3613,27 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
         :param str device_name: The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
         :param str device_type: The Elastic Inference accelerator type to use.
         """
+        PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            device_type=device_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             device_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2746,12 +3659,25 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraint(dict):
                  type: Optional[str] = None):
         """
         :param str expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
+        PipeTargetParametersEcsTaskParametersPlacementConstraint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if expression is not None:
-            pulumi.set(__self__, "expression", expression)
+            _setter("expression", expression)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2765,7 +3691,7 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraint(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -2777,12 +3703,25 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategy(dict):
                  type: Optional[str] = None):
         """
         :param str field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
-        :param str type: The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        :param str type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
+        PipeTargetParametersEcsTaskParametersPlacementStrategy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2796,7 +3735,7 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategy(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -2835,16 +3774,39 @@ class PipeTargetParametersEventbridgeEventBusParameters(dict):
         :param str source: Source resource of the pipe (typically an ARN).
         :param str time: The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
+        PipeTargetParametersEventbridgeEventBusParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_type=detail_type,
+            endpoint_id=endpoint_id,
+            resources=resources,
+            source=source,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_type: Optional[str] = None,
+             endpoint_id: Optional[str] = None,
+             resources: Optional[Sequence[str]] = None,
+             source: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if detail_type is None and 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+        if endpoint_id is None and 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+
         if detail_type is not None:
-            pulumi.set(__self__, "detail_type", detail_type)
+            _setter("detail_type", detail_type)
         if endpoint_id is not None:
-            pulumi.set(__self__, "endpoint_id", endpoint_id)
+            _setter("endpoint_id", endpoint_id)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter(name="detailType")
@@ -2919,12 +3881,33 @@ class PipeTargetParametersHttpParameters(dict):
         :param str path_parameter_values: The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
         :param Mapping[str, str] query_string_parameters: Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
         """
+        PipeTargetParametersHttpParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header_parameters=header_parameters,
+            path_parameter_values=path_parameter_values,
+            query_string_parameters=query_string_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header_parameters: Optional[Mapping[str, str]] = None,
+             path_parameter_values: Optional[str] = None,
+             query_string_parameters: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
-            pulumi.set(__self__, "header_parameters", header_parameters)
+            _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
-            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
+            _setter("path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+            _setter("query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -2975,7 +3958,22 @@ class PipeTargetParametersKinesisStreamParameters(dict):
         """
         :param str partition_key: Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
         """
-        pulumi.set(__self__, "partition_key", partition_key)
+        PipeTargetParametersKinesisStreamParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partition_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+
+        _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter(name="partitionKey")
@@ -3010,7 +4008,22 @@ class PipeTargetParametersLambdaFunctionParameters(dict):
         """
         :param str invocation_type: Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
-        pulumi.set(__self__, "invocation_type", invocation_type)
+        PipeTargetParametersLambdaFunctionParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invocation_type=invocation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invocation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if invocation_type is None and 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+        if invocation_type is None:
+            raise TypeError("Missing 'invocation_type' argument")
+
+        _setter("invocation_type", invocation_type)
 
     @property
     @pulumi.getter(name="invocationType")
@@ -3061,16 +4074,49 @@ class PipeTargetParametersRedshiftDataParameters(dict):
         :param str statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param bool with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "sqls", sqls)
+        PipeTargetParametersRedshiftDataParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            sqls=sqls,
+            db_user=db_user,
+            secret_manager_arn=secret_manager_arn,
+            statement_name=statement_name,
+            with_event=with_event,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[str] = None,
+             sqls: Optional[Sequence[str]] = None,
+             db_user: Optional[str] = None,
+             secret_manager_arn: Optional[str] = None,
+             statement_name: Optional[str] = None,
+             with_event: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if sqls is None:
+            raise TypeError("Missing 'sqls' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+
+        _setter("database", database)
+        _setter("sqls", sqls)
         if db_user is not None:
-            pulumi.set(__self__, "db_user", db_user)
+            _setter("db_user", db_user)
         if secret_manager_arn is not None:
-            pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
+            _setter("secret_manager_arn", secret_manager_arn)
         if statement_name is not None:
-            pulumi.set(__self__, "statement_name", statement_name)
+            _setter("statement_name", statement_name)
         if with_event is not None:
-            pulumi.set(__self__, "with_event", with_event)
+            _setter("with_event", with_event)
 
     @property
     @pulumi.getter
@@ -3145,8 +4191,21 @@ class PipeTargetParametersSagemakerPipelineParameters(dict):
         """
         :param Sequence['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs'] pipeline_parameters: List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
         """
+        PipeTargetParametersSagemakerPipelineParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_parameters=pipeline_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_parameters: Optional[Sequence['outputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
+            pipeline_parameters = kwargs['pipelineParameters']
+
         if pipeline_parameters is not None:
-            pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
+            _setter("pipeline_parameters", pipeline_parameters)
 
     @property
     @pulumi.getter(name="pipelineParameters")
@@ -3164,10 +4223,27 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameter(dict):
                  value: str):
         """
         :param str name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        PipeTargetParametersSagemakerPipelineParametersPipelineParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3181,7 +4257,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameter(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        Value of parameter to start execution of a SageMaker Model Building Pipeline. Maximum length of 1024.
         """
         return pulumi.get(self, "value")
 
@@ -3214,10 +4290,27 @@ class PipeTargetParametersSqsQueueParameters(dict):
         :param str message_deduplication_id: This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
         :param str message_group_id: The FIFO message group ID to use as the target.
         """
+        PipeTargetParametersSqsQueueParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_deduplication_id=message_deduplication_id,
+            message_group_id=message_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_deduplication_id: Optional[str] = None,
+             message_group_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if message_deduplication_id is None and 'messageDeduplicationId' in kwargs:
+            message_deduplication_id = kwargs['messageDeduplicationId']
+        if message_group_id is None and 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         if message_deduplication_id is not None:
-            pulumi.set(__self__, "message_deduplication_id", message_deduplication_id)
+            _setter("message_deduplication_id", message_deduplication_id)
         if message_group_id is not None:
-            pulumi.set(__self__, "message_group_id", message_group_id)
+            _setter("message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageDeduplicationId")
@@ -3260,7 +4353,22 @@ class PipeTargetParametersStepFunctionStateMachineParameters(dict):
         """
         :param str invocation_type: Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
-        pulumi.set(__self__, "invocation_type", invocation_type)
+        PipeTargetParametersStepFunctionStateMachineParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invocation_type=invocation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invocation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if invocation_type is None and 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+        if invocation_type is None:
+            raise TypeError("Missing 'invocation_type' argument")
+
+        _setter("invocation_type", invocation_type)
 
     @property
     @pulumi.getter(name="invocationType")

@@ -4,8 +4,12 @@
 package eks
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve EKS Clusters list
@@ -25,4 +29,50 @@ type GetClustersResult struct {
 	Id string `pulumi:"id"`
 	// Set of EKS clusters names
 	Names []string `pulumi:"names"`
+}
+
+func GetClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClustersResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetClustersResult, error) {
+		r, err := GetClusters(ctx, opts...)
+		var s GetClustersResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetClustersResultOutput)
+}
+
+// A collection of values returned by getClusters.
+type GetClustersResultOutput struct{ *pulumi.OutputState }
+
+func (GetClustersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClustersResult)(nil)).Elem()
+}
+
+func (o GetClustersResultOutput) ToGetClustersResultOutput() GetClustersResultOutput {
+	return o
+}
+
+func (o GetClustersResultOutput) ToGetClustersResultOutputWithContext(ctx context.Context) GetClustersResultOutput {
+	return o
+}
+
+func (o GetClustersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClustersResult] {
+	return pulumix.Output[GetClustersResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetClustersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClustersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of EKS clusters names
+func (o GetClustersResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClustersResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClustersResultOutput{})
 }

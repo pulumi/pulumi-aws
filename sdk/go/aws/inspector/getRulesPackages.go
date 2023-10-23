@@ -4,8 +4,12 @@
 package inspector
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -73,4 +77,50 @@ type GetRulesPackagesResult struct {
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetRulesPackagesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetRulesPackagesResult, error) {
+		r, err := GetRulesPackages(ctx, opts...)
+		var s GetRulesPackagesResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetRulesPackagesResultOutput)
+}
+
+// A collection of values returned by getRulesPackages.
+type GetRulesPackagesResultOutput struct{ *pulumi.OutputState }
+
+func (GetRulesPackagesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRulesPackagesResult)(nil)).Elem()
+}
+
+func (o GetRulesPackagesResultOutput) ToGetRulesPackagesResultOutput() GetRulesPackagesResultOutput {
+	return o
+}
+
+func (o GetRulesPackagesResultOutput) ToGetRulesPackagesResultOutputWithContext(ctx context.Context) GetRulesPackagesResultOutput {
+	return o
+}
+
+func (o GetRulesPackagesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRulesPackagesResult] {
+	return pulumix.Output[GetRulesPackagesResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
+func (o GetRulesPackagesResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRulesPackagesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRulesPackagesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRulesPackagesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRulesPackagesResultOutput{})
 }

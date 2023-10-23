@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DefaultPatchBaselineArgs', 'DefaultPatchBaseline']
@@ -37,8 +37,29 @@ class DefaultPatchBaselineArgs:
                `UBUNTU`, and
                `WINDOWS`.
         """
-        pulumi.set(__self__, "baseline_id", baseline_id)
-        pulumi.set(__self__, "operating_system", operating_system)
+        DefaultPatchBaselineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baseline_id=baseline_id,
+            operating_system=operating_system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baseline_id: Optional[pulumi.Input[str]] = None,
+             operating_system: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if baseline_id is None and 'baselineId' in kwargs:
+            baseline_id = kwargs['baselineId']
+        if baseline_id is None:
+            raise TypeError("Missing 'baseline_id' argument")
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if operating_system is None:
+            raise TypeError("Missing 'operating_system' argument")
+
+        _setter("baseline_id", baseline_id)
+        _setter("operating_system", operating_system)
 
     @property
     @pulumi.getter(name="baselineId")
@@ -107,10 +128,27 @@ class _DefaultPatchBaselineState:
                `UBUNTU`, and
                `WINDOWS`.
         """
+        _DefaultPatchBaselineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baseline_id=baseline_id,
+            operating_system=operating_system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baseline_id: Optional[pulumi.Input[str]] = None,
+             operating_system: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if baseline_id is None and 'baselineId' in kwargs:
+            baseline_id = kwargs['baselineId']
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+
         if baseline_id is not None:
-            pulumi.set(__self__, "baseline_id", baseline_id)
+            _setter("baseline_id", baseline_id)
         if operating_system is not None:
-            pulumi.set(__self__, "operating_system", operating_system)
+            _setter("operating_system", operating_system)
 
     @property
     @pulumi.getter(name="baselineId")
@@ -278,6 +316,10 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefaultPatchBaselineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
