@@ -156,7 +156,6 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
       with:
-        ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
@@ -238,6 +237,8 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
+
+
   sentinel:
     name: sentinel
     # We would like to be able to specify `sentinel` as the only required job for this
